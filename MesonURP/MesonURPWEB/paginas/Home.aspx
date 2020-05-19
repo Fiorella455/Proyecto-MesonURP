@@ -60,7 +60,7 @@
                         <li class="navigation__item"><a href="#" class="navigation__link"><span>02</span>Your benfits</a></li>
                         <li class="navigation__item"><a href="#" class="navigation__link"><span>03</span>Popular tours</a></li>
                         <li class="navigation__item"><a href="#" class="navigation__link"><span>04</span>Stories</a></li>
-                        <li class="navigation__item"><a href="#" class="navigation__link"><span>05</span>Book now</a></li>
+                        <li class="navigation__item"><a href="#" class="navigation__link"><span>05</span>Bookbhghjow</a></li>
                         </ul>
                 </nav>
             </div>
