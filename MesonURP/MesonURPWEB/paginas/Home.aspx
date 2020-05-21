@@ -17,7 +17,7 @@
         <header class="header">
             <img src="img/MesonURP_logofinal.png" alt="MesónURP logo" class="header__logo"/>
             <div class="right-header">
-                <h3 class="heading-3 header-13px">Haz tu pedido:</h3>
+                <h3 class="heading-3 header-13px">Haz tu reserva:</h3>
                 <h1 class="heading-1 header-13px">Mesón del Estudiante</h1>
                 <button class="btn header__btn">Reservar</button>
             </div>
