@@ -17,7 +17,7 @@
         <header class="header">
             <img src="img/MesonURP_logofinal.png" alt="MesónURP logo" class="header__logo"/>
             <div class="right-header">
-                <h3 class="heading-3 header-13px">Haz tu reserva:</h3>
+                <h3 class="heading-3 header-13px">Haz tu pedido:</h3>
                 <h1 class="heading-1 header-13px">Mesón del Estudiante</h1>
                 <button class="btn header__btn">Reservar</button>
             </div>
@@ -26,19 +26,19 @@
          <div class="realtors">
             <h3 class="heading-3">Top 3 Realtors</h3>
             <div class="realtors__list">
-                <img src="img/realtor-1.jpeg" alt="Realtor 1" class="realtors__img">
+                <img src="img/realtor-1.jpeg" alt="Realtor 1" class="realtors__img"/>
                 <div class="realtors__details">
                     <h4 class="heading-4 heading-4--light">Erik Feinman</h4>
                     <p class="realtors__sold">245 houses sold</p>
                 </div>
 
-                <img src="img/realtor-2.jpeg" alt="Realtor 2" class="realtors__img">
+                <img src="img/realtor-2.jpeg" alt="Realtor 2" class="realtors__img"/>
                 <div class="realtors__details">
                     <h4 class="heading-4 heading-4--light">Kim Brown</h4>
                     <p class="realtors__sold">212 houses sold</p>
                 </div>
 
-                <img src="img/realtor-3.jpeg" alt="Realtor 3" class="realtors__img">
+                <img src="img/realtor-3.jpeg" alt="Realtor 3" class="realtors__img"/>
                 <div class="realtors__details">
                     <h4 class="heading-4 heading-4--light">Toby Ramsey</h4>
                     <p class="realtors__sold">198 houses sold</p>
@@ -46,7 +46,7 @@
             </div>
         </div>
         <div class="navigation">
-                <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+                <input type="checkbox" class="navigation__checkbox" id="navi-toggle"/>
 
                 <label for="navi-toggle" class="navigation__button">
                     <span class="navigation__icon">&nbsp;</span>
@@ -60,7 +60,7 @@
                         <li class="navigation__item"><a href="#" class="navigation__link"><span>02</span>Your benfits</a></li>
                         <li class="navigation__item"><a href="#" class="navigation__link"><span>03</span>Popular tours</a></li>
                         <li class="navigation__item"><a href="#" class="navigation__link"><span>04</span>Stories</a></li>
-                        <li class="navigation__item"><a href="#" class="navigation__link"><span>05</span>Book now</a></li>
+                        <li class="navigation__item"><a href="#" class="navigation__link"><span>05</span>Bookbhghjow</a></li>
                         </ul>
                 </nav>
             </div>
@@ -128,7 +128,7 @@
             <button class="btn">Find your own home</button>
         </div>
 
-        <section class="homes">
+     <!--   <section class="homes">
             <div class="home">
                 <img src="img/house-1.jpeg" alt="House 1" class="home__img"/>
                 <svg class="home__like">
@@ -328,7 +328,7 @@
                 <button class="btn home__btn">Contact realtor</button>
             </div>
         </section>
-
+-->
 
         <section class="gallery">
             <figure class="gallery__item gallery__item--1"><img src="img/gal-1.jpeg" alt="Gallery image 1" class="gallery__img"/></figure>
