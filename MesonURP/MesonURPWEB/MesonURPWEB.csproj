@@ -225,7 +225,6 @@
     <Content Include="img\text.txt" />
     <Content Include="img\UNIVERSIDAD-RICARDO-PALMA-18.jpg" />
     <Content Include="index.html" />
-    <Content Include="paginas\AgregandoRecurso.aspx" />
     <Content Include="paginas\Home.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -238,13 +237,6 @@
     </Compile>
     <Compile Include="Master.Master.designer.cs">
       <DependentUpon>Master.Master</DependentUpon>
-    </Compile>
-    <Compile Include="paginas\AgregandoRecurso.aspx.cs">
-      <DependentUpon>AgregandoRecurso.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="paginas\AgregandoRecurso.aspx.designer.cs">
-      <DependentUpon>AgregandoRecurso.aspx</DependentUpon>
     </Compile>
     <Compile Include="paginas\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>

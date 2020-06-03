@@ -2,31 +2,30 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DAO
+namespace DTO
 {
-    public class MovimientoDTO
+    public class DTO_Movimiento
     {
-        private int idMovimiento;
+        private int idRecurso;
         private string tipoMovimiento;
         private DateTime fechaMovimiento;
         private string usuarioMovimiento;
-        private int Estado;
 
-        public MovimientoDTO(string tipoMovimiento, DateTime fechaMovimiento, string usuarioMovimiento)
+        public DTO_Movimiento(string tipoMovimiento, DateTime fechaMovimiento, string usuarioMovimiento)
         {
             this.TipoMovimiento = tipoMovimiento;
             this.FechaMovimiento = fechaMovimiento;
             this.UsuarioMovimiento = usuarioMovimiento;
         }
 
-        public int IdMovimiento {
+        public int IdRecurso {
             get
             { 
-                return idMovimiento; 
+                return idRecurso; 
             }
 
             set { 
-                idMovimiento = value; 
+                idRecurso = value; 
             } 
         }
         public string TipoMovimiento { 
@@ -57,18 +56,8 @@ namespace DAO
                 usuarioMovimiento = value;
             }
         }
-            public int estado
-        {
-            get
-            {
-                return Estado;
-            }
-            set
-            {
-               Estado = value;
-            }
-        }
-        public MovimientoDTO() {
+            
+        public DTO_Movimiento() {
             tipoMovimiento = "";
             //fechaMovimiento = DateTime.Now;
             usuarioMovimiento = "";

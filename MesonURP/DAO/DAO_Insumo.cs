@@ -1,20 +1,20 @@
-﻿using DAO;
+﻿using DTO;
 using System;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace DTO
+namespace DAO
 {
-    public class RecursoDAO
+    public class DAO_Insumo
     {
         SqlConnection conexion;
-        public RecursoDAO()
+        public DAO_Insumo()
         {
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
         }
-        public bool SelectRecurso(RecursoDTO objRecurso)
+        public bool MS_BuscarInsumo(DTO_Insumo objInsumo)
         {
-            string Select = "SELECT * FROM T_RECURSO WHERE VR_NombreRecurso like ('" + objRecurso.NombreRecurso + "')";
+            string Select = "SELECT R_NombreInsumo, C_idCategoria, R_CantidadTotal, M_idMedida FROM T_Insumo WHERE R_NombreInsumo like ('" + objInsumo.NombreInsumo + "')";
 
             SqlCommand unComando = new SqlCommand(Select, conexion);
 
@@ -24,27 +24,27 @@ namespace DTO
             bool hayRegistros = reader.Read();
             if (hayRegistros)
             {
-                objRecurso.NombreRecurso = (string)reader[2];
-                objRecurso.idcategoria = (int)reader[13];
-                objRecurso.CantidadTotal = (int)reader[10];
-                objRecurso.medida = (string)reader[12];
+                objInsumo.NombreInsumo = (string)reader[2];
+                objInsumo.idcategoria = (int)reader[13];
+                objInsumo.CantidadTotal = (int)reader[10];
+                objInsumo.medida = (string)reader[12];
 
-                objRecurso.estado = 99;
+                objInsumo.estado = 99;
             }
             else
             {
-                objRecurso.estado = 1;
+                objInsumo.estado = 1;
             }
             conexion.Close();
             return hayRegistros;
         }
         public DataSet SelectRecursos()
         {
-            string Select = "SELECT * FROM Recurso";
+            string Select = "SELECT R_NombreInsumo, C_idCategoria, R_CantidadTotal, M_idMedida FROM T_Insumo";
             SqlDataAdapter unComando = new SqlDataAdapter(Select, conexion);
 
             DataSet ds = new DataSet();
-            unComando.Fill(ds, "Recursos");
+            unComando.Fill(ds, "T_INSUMOS");
 
             return ds;
         }

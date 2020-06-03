@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DAO
+namespace DTO
 {
-    class CategoriaDTO
+    public class DTO_Categoria
     {
         private int idCategoria;
         private string nombreCategoria;
         private string descripcion;
-        private int Estado;
 
         public int IdCategoria {
             get { return idCategoria; } set { idCategoria = value; }
@@ -22,18 +21,7 @@ namespace DAO
                 nombreCategoria = value; 
             } 
         }
-        public int estado
-        {
-            get
-            {
-                return Estado;
-            }
-            set
-            {
-                Estado = value;
-            }
-        }
-        public CategoriaDTO() {
+        public DTO_Categoria() {
             idCategoria = 0;
             nombreCategoria = "";
         }

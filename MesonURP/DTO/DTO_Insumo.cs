@@ -2,32 +2,31 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DAO
+namespace DTO
 {
-   public class RecursoDTO
+   public class DTO_Insumo
     {
-        private string nombreRecurso;
+        private string nombreInsumo;
         private int idCategoria;
         private int cantidadTotal;
         private string Medida;
-        private int Estado;
 
-        public RecursoDTO(string nombrerecurso, int cantidadtotal, string medida, int idcategoria)
+        public DTO_Insumo(string nombreinsumo, int cantidadtotal, string medida, int idcategoria)
         {
-            nombreRecurso = nombrerecurso;
+            nombreInsumo = nombreinsumo;
             cantidadTotal = cantidadtotal;
             Medida = medida;
             idCategoria = idcategoria;
         }
 
-        public string NombreRecurso {
+        public string NombreInsumo {
             get
             { 
-                return nombreRecurso; 
+                return nombreInsumo; 
             }
             set
             {
-                nombreRecurso = value;
+                nombreInsumo = value;
             }
         }
         public int idcategoria {
@@ -58,17 +57,6 @@ namespace DAO
             set
             {
                 Medida = value;
-            }
-        }
-        public int estado
-        {
-            get
-            {
-                return Estado;
-            }
-            set
-            {
-                Estado = value;
             }
         }
     }
