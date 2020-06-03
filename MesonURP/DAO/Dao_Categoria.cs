@@ -14,18 +14,18 @@ namespace DAO
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
 
         }
-        public void Ingresar_Categoria(Dto_Categoria dto_cat)
+        public void Ingresar_Categoria(DTO_Categoria dto_cat)
         {
 
-            string Insert = "INSERT T_Categoria(C_idCategoria, C_NombreCategoria, C_Descripcion) VALUES('" + dto_cat.idCategoria + "', '" + dto_cat.NombreCategoria + "', '" + dto_cat.Descripcion + "')";
+            string Insert = "INSERT T_Categoria(C_idCategoria, C_NombreCategoria, C_Descripcion) VALUES('" + dto_cat.C_idCategoria + "', '" + dto_cat.C_NombreCategoria + "', '" + dto_cat.C_Descripcion + "')";
             SqlCommand sqlCommand = new SqlCommand(Insert, conexion);
             conexion.Open();
             sqlCommand.ExecuteNonQuery();
             conexion.Close();
         }
-        public bool Seleccionar_Categoria(Dto_Categoria dto_cat)
+        public bool Seleccionar_Categoria(DTO_Categoria dto_cat)
         {
-            string Select = "SELECT * FROM Libros WHERE  C_idCategoria= '" + dto_cat.idCategoria + "'";
+            string Select = "SELECT * FROM Libros WHERE  C_idCategoria= '" + dto_cat.C_idCategoria + "'";
               
             SqlCommand command = new SqlCommand(Select, conexion);
 
@@ -35,9 +35,9 @@ namespace DAO
             if (hayRegistros)
             {
                 
-                dto_cat.idCategoria = (int)reader[0];
-                dto_cat.NombreCategoria = (string)reader[1];
-                dto_cat.Descripcion = (string)reader[2];
+                dto_cat.C_idCategoria = (int)reader[0];
+                dto_cat.C_NombreCategoria = (string)reader[1];
+                dto_cat.C_Descripcion = (string)reader[2];
 
             }
            
