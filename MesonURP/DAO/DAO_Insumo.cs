@@ -28,12 +28,6 @@ namespace DAO
                 objInsumo.idcategoria = (int)reader[13];
                 objInsumo.CantidadTotal = (int)reader[10];
                 objInsumo.medida = (string)reader[12];
-
-                objInsumo.estado = 99;
-            }
-            else
-            {
-                objInsumo.estado = 1;
             }
             conexion.Close();
             return hayRegistros;

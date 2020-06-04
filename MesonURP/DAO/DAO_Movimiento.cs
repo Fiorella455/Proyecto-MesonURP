@@ -14,7 +14,6 @@ namespace DAO
         }
         public void MS_RegistrarMov(DTO_Movimiento objMov)
         {
-
             string Insertar = "INSERT T_Movimiento(M_TipoMovimiento, M_FechaMovimiento, " +
                 "M_UsuarioMovimiento) VALUES(" + objMov.TipoMovimiento + ",'" + objMov.FechaMovimiento + "','" + 
                 objMov.UsuarioMovimiento  + "')";
