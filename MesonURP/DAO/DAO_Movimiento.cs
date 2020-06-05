@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 
 namespace DAO
 {
-    class DAO_Movimiento
+    public class DAO_Movimiento
     {
         SqlConnection conexion;
         public DAO_Movimiento()
@@ -14,13 +14,13 @@ namespace DAO
         }
         public void MS_RegistrarMov(DTO_Movimiento objMov)
         {
-            string Insertar = "INSERT T_Movimiento(M_TipoMovimiento, M_FechaMovimiento, " +
-                "M_UsuarioMovimiento) VALUES(" + objMov.TipoMovimiento + ",'" + objMov.FechaMovimiento + "','" + 
-                objMov.UsuarioMovimiento  + "')";
-            
-            SqlCommand unComando = new SqlCommand(Insertar, conexion);
+            SqlCommand unComando = new SqlCommand("SP_Registrar_Movimiento", conexion);
 
             conexion.Open();
+            unComando.CommandType = CommandType.StoredProcedure;
+            unComando.Parameters.Add(new SqlParameter("@M_TipoMovimiento", objMov.TipoMovimiento));
+            unComando.Parameters.Add(new SqlParameter("@M_FechaMovimiento", objMov.FechaMovimiento));
+            unComando.Parameters.Add(new SqlParameter("@M_UsuarioMovimiento", objMov.UsuarioMovimiento));
             unComando.ExecuteNonQuery();
             conexion.Close();
         }

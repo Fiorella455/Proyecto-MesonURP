@@ -9,15 +9,8 @@ namespace DTO
         private string nombreInsumo;
         private int idCategoria;
         private int cantidadTotal;
-        private string Medida;
-
-        public DTO_Insumo(string nombreinsumo, int cantidadtotal, string medida, int idcategoria)
-        {
-            nombreInsumo = nombreinsumo;
-            cantidadTotal = cantidadtotal;
-            Medida = medida;
-            idCategoria = idcategoria;
-        }
+        private string medida;
+        private int estado;
 
         public string NombreInsumo {
             get
@@ -29,7 +22,7 @@ namespace DTO
                 nombreInsumo = value;
             }
         }
-        public int idcategoria {
+        public int Idcategoria {
             get
             {
                 return idCategoria;
@@ -49,14 +42,25 @@ namespace DTO
                 cantidadTotal = value;
             }
         }
-        public string medida{
+        public string Medida{
             get
             {
-                return Medida;
+                return medida;
             }
             set
             {
-                Medida = value;
+                medida = value;
+            }
+        }
+        public int Estado
+        {
+            get
+            {
+                return estado;
+            }
+            set
+            {
+                estado = value;
             }
         }
     }

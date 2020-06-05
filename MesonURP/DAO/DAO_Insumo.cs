@@ -12,36 +12,38 @@ namespace DAO
         {
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
         }
-        public bool MS_BuscarInsumo(DTO_Insumo objInsumo)
+        public DataTable SelectInsumo()
         {
-            string Select = "SELECT R_NombreInsumo, C_idCategoria, R_CantidadTotal, M_idMedida FROM T_Insumo WHERE R_NombreInsumo like ('" + objInsumo.NombreInsumo + "')";
-
-            SqlCommand unComando = new SqlCommand(Select, conexion);
-
-            conexion.Open();
-
-            SqlDataReader reader = unComando.ExecuteReader();
-            bool hayRegistros = reader.Read();
-            if (hayRegistros)
+            try
             {
-                objInsumo.NombreInsumo = (string)reader[2];
-                objInsumo.idcategoria = (int)reader[13];
-                objInsumo.CantidadTotal = (int)reader[10];
-                objInsumo.medida = (string)reader[12];
+                DataTable dtable = new DataTable();
+                SqlCommand unComando = new SqlCommand("SP_Listar_Insumo", conexion);
+                unComando.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter data = new SqlDataAdapter(unComando);
+                data.Fill(dtable);
+                return dtable;
             }
-            conexion.Close();
-            return hayRegistros;
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
-        public DataSet SelectRecursos()
+        public DataTable SelectInsumos(string nombreInsumo)
         {
-            string Select = "SELECT R_NombreInsumo, C_idCategoria, R_CantidadTotal, M_idMedida FROM T_Insumo";
-            SqlDataAdapter unComando = new SqlDataAdapter(Select, conexion);
-
-            DataSet ds = new DataSet();
-            unComando.Fill(ds, "T_INSUMOS");
-
-            return ds;
+            try
+            {
+                SqlDataAdapter unComando = new SqlDataAdapter("SP_Buscar_Insumo", conexion);
+                unComando.SelectCommand.CommandType = CommandType.StoredProcedure;
+                unComando.SelectCommand.Parameters.AddWithValue("@I_NombreInsumo", nombreInsumo);
+                DataSet dSet = new DataSet();
+                unComando.Fill(dSet);
+                return dSet.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
-
     }
 }

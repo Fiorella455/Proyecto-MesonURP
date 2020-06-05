@@ -6,28 +6,12 @@ namespace DTO
 {
     public class DTO_Movimiento
     {
-        private int idRecurso;
         private string tipoMovimiento;
         private DateTime fechaMovimiento;
         private string usuarioMovimiento;
+        private int estado;
 
-        public DTO_Movimiento(string tipoMovimiento, DateTime fechaMovimiento, string usuarioMovimiento)
-        {
-            this.TipoMovimiento = tipoMovimiento;
-            this.FechaMovimiento = fechaMovimiento;
-            this.UsuarioMovimiento = usuarioMovimiento;
-        }
 
-        public int IdRecurso {
-            get
-            { 
-                return idRecurso; 
-            }
-
-            set { 
-                idRecurso = value; 
-            } 
-        }
         public string TipoMovimiento { 
             get { 
                 return tipoMovimiento; 
@@ -56,11 +40,17 @@ namespace DTO
                 usuarioMovimiento = value;
             }
         }
-            
-        public DTO_Movimiento() {
-            tipoMovimiento = "";
-            //fechaMovimiento = DateTime.Now;
-            usuarioMovimiento = "";
+
+        public int Estado
+        {
+            get
+            {
+                return estado;
+            }
+            set
+            {
+                estado = value;
+            }
         }
     }
 }

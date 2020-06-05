@@ -21,10 +21,6 @@ namespace DTO
                 nombreCategoria = value; 
             } 
         }
-        public DTO_Categoria() {
-            idCategoria = 0;
-            nombreCategoria = "";
-        }
     }
     
 }
