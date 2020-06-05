@@ -227,6 +227,7 @@
     <Content Include="index.html" />
     <Content Include="paginas\AgregandoRecurso.aspx" />
     <Content Include="paginas\Home.aspx" />
+    <Content Include="paginas\Login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -253,6 +254,13 @@
     </Compile>
     <Compile Include="paginas\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="paginas\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="paginas\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
