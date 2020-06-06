@@ -4,10 +4,10 @@ using System.Text;
 
 namespace DTO
 {
-    class DTO_Estado_OC
+     public class DTO_Estado_OC
     {
         public int EOC_idEstadoOC { get; set; }
-        public int EOC_NombreEstadoOC { get; set; }
+        public string  EOC_NombreEstadoOC { get; set; }
 
     }
 }

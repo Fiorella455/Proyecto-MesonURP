@@ -7,7 +7,7 @@ using DTO;
 
 namespace DAO
 {
-    class DAO_Proveedor
+    public class DAO_Proveedor
     {
         SqlConnection conexion;
 
@@ -20,14 +20,14 @@ namespace DAO
 
             SqlCommand cmd = new SqlCommand("SP_Insertar_Proveedor", conexion);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@VR_NombreRecurso", dto_proveedor.P_idProveedor);
-            cmd.Parameters.AddWithValue("@DR_FechaIngreso", dto_proveedor.P_RazonSocial);
-            cmd.Parameters.AddWithValue("@DR_FechaSalida", dto_proveedor.P_NumeroDocumento);
-            cmd.Parameters.AddWithValue("@DR_StockMaximo", dto_proveedor.P_Direccion);
-            cmd.Parameters.AddWithValue("@DR_StockMinimo", dto_proveedor.P_NombreContacto);
-            cmd.Parameters.AddWithValue("@DR_PrecioUnitario", dto_proveedor.P_TelefonoContacto);
-            cmd.Parameters.AddWithValue("@DR_CantidadEntrada", dto_proveedor.P_CorreoContacto);
-            cmd.Parameters.AddWithValue("@DR_CantidadSalida", dto_proveedor.EP_idEstadoProveedor);
+            cmd.Parameters.AddWithValue("@P_idProveedor", dto_proveedor.P_idProveedor);
+            cmd.Parameters.AddWithValue("@P_RazonSocial", dto_proveedor.P_RazonSocial);
+            cmd.Parameters.AddWithValue("@P_NumeroDocumento", dto_proveedor.P_NumeroDocumento);
+            cmd.Parameters.AddWithValue("@P_Direccion", dto_proveedor.P_Direccion);
+            cmd.Parameters.AddWithValue("@P_NombreContacto", dto_proveedor.P_NombreContacto);
+            cmd.Parameters.AddWithValue("@P_TelefonoContacto", dto_proveedor.P_TelefonoContacto);
+            cmd.Parameters.AddWithValue("@P_CorreoContacto", dto_proveedor.P_CorreoContacto);
+            cmd.Parameters.AddWithValue("@EP_idEstadoProveedor", dto_proveedor.EP_idEstadoProveedor);
            
         }  
     }
