@@ -14,16 +14,16 @@ namespace DAO
         {
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
         }
-        public void RegistarSolicitudxCliente(DTO_MovimientoxInsumo objMxI)
+        public void RegistarMovimientoxInsumo(DTO_MovimientoxInsumo objDTO)
         {
             try
             {
                 conexion.Open();
                 SqlCommand unComando = new SqlCommand("SP_Registrar_MovimientoxInsumo", conexion);
                 unComando.CommandType = CommandType.StoredProcedure;
-                unComando.Parameters.Add(new SqlParameter("@M_idMovimiento", objMxI.IdMovimiento));
-                unComando.Parameters.Add(new SqlParameter("@I_idInsumo", objMxI.IdInsumo));
-                unComando.Parameters.Add(new SqlParameter("@M_Cantidad", objMxI.Cantidad));
+                unComando.Parameters.Add(new SqlParameter("@M_idMovimiento", objDTO.IdMovimiento));
+                unComando.Parameters.Add(new SqlParameter("@I_idInsumo", objDTO.IdInsumo));
+                unComando.Parameters.Add(new SqlParameter("@M_Cantidad", objDTO.Cantidad));
                 unComando.ExecuteNonQuery();
                 conexion.Close();
             }

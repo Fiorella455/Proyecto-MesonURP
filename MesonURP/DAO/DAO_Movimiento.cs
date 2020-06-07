@@ -12,15 +12,15 @@ namespace DAO
         {
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
         }
-        public void MS_RegistrarMov(DTO_Movimiento objMov)
+        public void RegistrarMovimiento(DTO_Movimiento objDTO)
         {
             SqlCommand unComando = new SqlCommand("SP_Registrar_Movimiento", conexion);
 
             conexion.Open();
             unComando.CommandType = CommandType.StoredProcedure;
-            unComando.Parameters.Add(new SqlParameter("@M_TipoMovimiento", objMov.TipoMovimiento));
-            unComando.Parameters.Add(new SqlParameter("@M_FechaMovimiento", objMov.FechaMovimiento));
-            unComando.Parameters.Add(new SqlParameter("@M_UsuarioMovimiento", objMov.UsuarioMovimiento));
+            unComando.Parameters.Add(new SqlParameter("@M_TipoMovimiento", objDTO.TipoMovimiento));
+            unComando.Parameters.Add(new SqlParameter("@M_FechaMovimiento", objDTO.FechaMovimiento));
+            unComando.Parameters.Add(new SqlParameter("@M_UsuarioMovimiento", objDTO.UsuarioMovimiento));
             unComando.ExecuteNonQuery();
             conexion.Close();
         }

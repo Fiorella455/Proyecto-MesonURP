@@ -15,7 +15,6 @@ namespace DAO
         }
         public DataSet SelectCategorias()
         {
-
             string Select = "SELECT * FROM T_CATEGORIA";
             SqlDataAdapter unComando = new SqlDataAdapter(Select, conexion);
 
@@ -24,7 +23,6 @@ namespace DAO
 
             return ds;
         }
-
         public void CargarCategoria() { 
 
     }

@@ -8,16 +8,16 @@ namespace CTR
 {
     public class CTR_Insumo
     {
-        DAO_Insumo objInsumoDao;
+        DAO_Insumo objDAO;
         public CTR_Insumo() {
-            objInsumoDao = new DAO_Insumo();
+            objDAO = new DAO_Insumo();
         }
         public DataTable ListarInsumo() {
-            return objInsumoDao.SelectInsumo();
+            return objDAO.SelectInsumo();
         }
         public DataTable BuscarInsumo(string nombreInsumo)
         {
-            return objInsumoDao.SelectInsumos(nombreInsumo);
+            return objDAO.SelectInsumos(nombreInsumo);
         }
     }
 }
