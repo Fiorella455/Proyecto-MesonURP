@@ -186,7 +186,20 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\atlas.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\clndr.css" />
+    <Content Include="css\fabochart.css" />
+    <Content Include="css\flexslider.css" />
+    <Content Include="css\font-awesome.css" />
+    <Content Include="css\graph.css" />
+    <Content Include="css\Home.css" />
+    <Content Include="css\icon-font.min.css" />
+    <Content Include="css\manejarStock.css" />
+    <Content Include="css\owl.carousel.css" />
     <Content Include="css\style1.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
     <Content Include="img\back.jpg" />
@@ -216,6 +229,7 @@
     <Content Include="img\logo-forbes.png" />
     <Content Include="img\logo-techcrunch.png" />
     <Content Include="img\MesonURP_logofinal.png" />
+    <Content Include="img\MesonURP_logofinal2.png" />
     <Content Include="img\realtor-1.jpeg" />
     <Content Include="img\realtor-2.jpeg" />
     <Content Include="img\realtor-3.jpeg" />
@@ -225,8 +239,33 @@
     <Content Include="img\text.txt" />
     <Content Include="img\UNIVERSIDAD-RICARDO-PALMA-18.jpg" />
     <Content Include="index.html" />
+    <Content Include="js\amcharts.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\cbpFWTabs.js" />
+    <Content Include="js\Chart.js" />
+    <Content Include="js\clndr.js" />
+    <Content Include="js\imagezoom.js" />
+    <Content Include="js\jquery-1.10.2.min.js" />
+    <Content Include="js\jquery.flexslider.js" />
+    <Content Include="js\jquery.flot.js" />
+    <Content Include="js\jquery.fn.gantt.js" />
+    <Content Include="js\jquery.nicescroll.js" />
+    <Content Include="js\light.js" />
+    <Content Include="js\menu_jquery.js" />
+    <Content Include="js\moment-2.2.1.js" />
+    <Content Include="js\owl.carousel.js" />
+    <Content Include="js\pie-chart.js" />
+    <Content Include="js\scripts.js" />
+    <Content Include="js\serial.js" />
+    <Content Include="js\simpleCart.min.js" />
+    <Content Include="js\site.js" />
+    <Content Include="js\underscore-min.js" />
     <Content Include="paginas\AgregandoRecurso.aspx" />
+    <Content Include="paginas\Dashboard.aspx" />
     <Content Include="paginas\Home.aspx" />
+    <Content Include="paginas\ManejarStock.aspx" />
+    <Content Include="paginas\RegistrarEgreso.aspx" />
+    <Content Include="paginas\RegistrarIngreso.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -247,6 +286,13 @@
     <Compile Include="paginas\AgregandoRecurso.aspx.designer.cs">
       <DependentUpon>AgregandoRecurso.aspx</DependentUpon>
     </Compile>
+    <Compile Include="paginas\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="paginas\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="paginas\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -254,10 +300,39 @@
     <Compile Include="paginas\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="paginas\ManejarStock.aspx.cs">
+      <DependentUpon>ManejarStock.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="paginas\ManejarStock.aspx.designer.cs">
+      <DependentUpon>ManejarStock.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="paginas\RegistrarEgreso.aspx.cs">
+      <DependentUpon>RegistrarEgreso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="paginas\RegistrarEgreso.aspx.designer.cs">
+      <DependentUpon>RegistrarEgreso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="paginas\RegistrarIngreso.aspx.cs">
+      <DependentUpon>RegistrarIngreso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="paginas\RegistrarIngreso.aspx.designer.cs">
+      <DependentUpon>RegistrarIngreso.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Master.Master" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -280,9 +355,7 @@
       <Name>DTO</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="js\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
