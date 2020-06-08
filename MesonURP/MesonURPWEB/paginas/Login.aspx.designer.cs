@@ -51,15 +51,6 @@ namespace MesonURPWEB.paginas
         protected global::System.Web.UI.HtmlControls.HtmlInputText correo;
 
         /// <summary>
-        /// Control revUsuario.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revUsuario;
-
-        /// <summary>
         /// Control contraseña.
         /// </summary>
         /// <remarks>
@@ -67,15 +58,6 @@ namespace MesonURPWEB.paginas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputPassword contraseña;
-
-        /// <summary>
-        /// Control revContraseña.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revContraseña;
 
         /// <summary>
         /// Control btnLogin.

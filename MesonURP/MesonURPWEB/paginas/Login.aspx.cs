@@ -18,11 +18,8 @@ namespace MesonURPWEB.paginas
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
-            {
-                lblMensajeAyuda.Text = "Ingrese sus datos por favor";
-                lblMensaje.Text = "";
-            }
+            lblMensajeAyuda.Text = "Ingrese sus datos por favor";
+            lblMensaje.Text = "";
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)

@@ -10,14 +10,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
 
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
-
-    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+   
+    <link href="../css/font-awesome.css" rel="stylesheet" />
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
 
-    <link href="css/style.css" rel="stylesheet" type="text/css">
-    <link href="css/pages/signin.css" rel="stylesheet" type="text/css">
+    <link href="../css/style.css" rel="stylesheet" type="text/css">
+    <link href="../css/pages/signin.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -57,14 +57,14 @@
                     <div class="field">
                         <label for="correo">Correo</label>
                         <input type="text" id="correo" name="correo" value="" placeholder="Correo" class="login username-field" runat="server"/>
-                        <asp:RegularExpressionValidator ID="revUsuario" runat="server" ErrorMessage="Por favor ingrese solo letras o numeros" ControlToValidate="username" ForeColor="#CC0000" ValidationExpression="([a-zA-Z0-9]{1,})" SetFocusOnError="True"></asp:RegularExpressionValidator>
+                        <%--<asp:RegularExpressionValidator ID="revUsuario" runat="server" ErrorMessage="Por favor ingrese solo letras o numeros" ControlToValidate="username" ForeColor="#CC0000" ValidationExpression="([a-zA-Z0-9]{1,})" SetFocusOnError="True"></asp:RegularExpressionValidator>--%>
                     </div>
                     <!-- /field -->
 
                     <div class="field">
                         <label for="contraseña">Contraseña:</label>
                         <input type="password" id="contraseña" name="contraseña" value="" placeholder="Contraseña" class="login password-field" runat="server"/>
-                        <asp:RegularExpressionValidator ID="revContraseña" runat="server" ErrorMessage="Por favor ingrese solo letras o numeros" ControlToValidate="password" ForeColor="#CC0000" ValidationExpression="([a-zA-Z0-9]{1,})" SetFocusOnError="True"></asp:RegularExpressionValidator>
+                        <%--<asp:RegularExpressionValidator ID="revContraseña" runat="server" ErrorMessage="Por favor ingrese solo letras o numeros" ControlToValidate="password" ForeColor="#CC0000" ValidationExpression="([a-zA-Z0-9]{1,})" SetFocusOnError="True"></asp:RegularExpressionValidator>--%>
                     </div>
                     <!-- /password -->
 
@@ -94,9 +94,9 @@
     <!-- /account-container -->
 
 
-
-
-
+    <script src="../js1/jquery-1.7.2.min.js"></script>
+    <script src="../js1/bootstrap.js"></script>
+    <script src="../js1/signin.js"></script>
 
     </body>
 </html>
