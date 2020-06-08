@@ -20,6 +20,14 @@ namespace CTR
             objMov.RegistarMovimientoxInsumo(objDto);
             objDto.Estado = 99;
 
+            ////Verificacion de Cantidad, error = 3
+            //int iCantidad = objDto.Cantidad;
+            //bool correcto = iCantidad > 0 && iCantidad < 100;
+            //if (!correcto)
+            //{
+            //    objDto.Estado = 3;
+            //    return;
+            //}
         }
     }
 }
