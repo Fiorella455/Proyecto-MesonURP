@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DTO
 {
-    class Dto_Tipo_Usuario
+    public class Dto_TipoUsuario
     {
         public int TU_idTipoUsuario { get; set; }
         public string TU_NombreTipoUsuario { get; set; }

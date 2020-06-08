@@ -21,8 +21,8 @@ namespace DAO
                 conexion.Open();
                 SqlCommand cmd = new SqlCommand("SP_Iniciar_Sesion", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(new SqlParameter("@U_Correo", objUsuario.U_Correo));
-                cmd.Parameters.Add(new SqlParameter("@U_Contraseña", objUsuario.U_Contraseña));
+                cmd.Parameters.Add(new SqlParameter("@correo", objUsuario.U_Correo));
+                cmd.Parameters.Add(new SqlParameter("@contraseña", objUsuario.U_Contraseña));
                 cmd.ExecuteNonQuery();
 
                 int count = Convert.ToInt32(cmd.ExecuteScalar());
@@ -43,5 +43,30 @@ namespace DAO
                 throw ex;
             }
         }
+        public void getPerfil(Dto_Usuario objUsuario, Dto_TipoUsuario objTipoU)
+        {
+            try
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_Tipo_Usuario", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@usuario", objUsuario.U_Correo));
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    objTipoU.TU_NombreTipoUsuario = reader.GetString(0);
+                }
+                conexion.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+        
     }
 }
+
+
