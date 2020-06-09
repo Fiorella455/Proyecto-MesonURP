@@ -39,5 +39,23 @@ namespace DAO
             conexion.Close();
 
         }
+        public DataSet CargarServicio(E_SolicitudxCliente _Esc)
+        {
+            try
+            {
+                _Dp.getCliente(_Ep);
+                SqlDataAdapter _Data = new SqlDataAdapter("SP_Desplegable_Servicio", _conn);
+                _Data.SelectCommand.CommandType = CommandType.StoredProcedure;
+                _Data.SelectCommand.Parameters.Add(new SqlParameter("@codCliente", _Esc.codCliente));
+
+                DataSet _Ds = new DataSet();
+                _Data.Fill(_Ds);
+                return _Ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

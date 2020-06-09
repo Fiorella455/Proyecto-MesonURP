@@ -15,10 +15,10 @@ namespace CTR
         {
             dao_oc = new DAO_OC();
         }
-        public void CTR_Registrar_Proveedor(DTO_OC dto_oc)
+        public void CTR_Registrar_OC(DTO_OC dto_oc)
         {
-
             dao_oc.DAO_Registrar_OC(dto_oc);
         }
+        
     }
 }
