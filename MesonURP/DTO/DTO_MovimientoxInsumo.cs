@@ -8,6 +8,7 @@ namespace DTO
     {  
         private int idInsumo;
         private int idMovimiento;
+        private DateTime fechaMovimiento;
         private int cantidad;
         private int estado;
 
@@ -53,6 +54,18 @@ namespace DTO
             set
             {
                 cantidad = value;
+            }
+        }
+
+        public DateTime FechaMovimiento
+        {
+            get
+            {
+                return fechaMovimiento;
+            }
+            set
+            {
+                fechaMovimiento = value;
             }
         }
     }

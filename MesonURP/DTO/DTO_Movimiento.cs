@@ -7,10 +7,8 @@ namespace DTO
     public class DTO_Movimiento
     {
         private string tipoMovimiento;
-        private DateTime fechaMovimiento;
         private string usuarioMovimiento;
         private int estado;
-
 
         public string TipoMovimiento { 
             get { 
@@ -19,15 +17,6 @@ namespace DTO
             set { 
                 tipoMovimiento = value; 
             } 
-        }
-        public DateTime FechaMovimiento { 
-            get 
-            { 
-                return fechaMovimiento; 
-            } 
-            set { 
-                fechaMovimiento = value;
-            }
         }
         public string UsuarioMovimiento
         {
@@ -40,7 +29,6 @@ namespace DTO
                 usuarioMovimiento = value;
             }
         }
-
         public int Estado
         {
             get
