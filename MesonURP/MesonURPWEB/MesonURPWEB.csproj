@@ -235,6 +235,7 @@
     <Content Include="js1\signin.js" />
     <Content Include="paginas\AgregandoRecurso.aspx" />
     <Content Include="paginas\Home.aspx" />
+    <Content Include="paginas\index.aspx" />
     <Content Include="paginas\Login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -262,6 +263,13 @@
     </Compile>
     <Compile Include="paginas\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="paginas\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="paginas\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="paginas\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

@@ -65,7 +65,29 @@ namespace DAO
             }
 
         }
-        
+        public void getUsuario(Dto_Usuario objUsuario)
+        {
+            try
+            {
+                conexion.Open();
+                SqlCommand _Com = new SqlCommand("SP_Obtener_UidUsuario", conexion);
+                _Com.CommandType = CommandType.StoredProcedure;
+                _Com.Parameters.Add(new SqlParameter("@usuario", objUsuario.U_Correo));
+                SqlDataReader reader = _Com.ExecuteReader();
+                //_Com.ExecuteNonQuery();
+
+                if (reader.Read())
+                {
+                    objUsuario.U_idUsuario = reader.GetInt32(0);
+                }
+                conexion.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }
 

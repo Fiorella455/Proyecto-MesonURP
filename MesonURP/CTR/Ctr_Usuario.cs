@@ -17,7 +17,11 @@ namespace CTR
         {
             dao_usu.getPerfil(dto_usu, dto_tus);
         }
-       
+        public void getUsuario(Dto_Usuario dto_usu)
+        {
+            dao_usu.getUsuario(dto_usu);
+        }
+
     }
    
 }

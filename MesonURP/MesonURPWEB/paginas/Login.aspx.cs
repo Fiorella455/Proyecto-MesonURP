@@ -34,12 +34,15 @@ namespace MesonURPWEB.paginas
                 {
                     _Du.U_Correo = correo.Value;
                     _Cu.getPerfil(_Du, _Dtu);
+                    _Cu.getUsuario(_Du);
 
+                    Session["codUsuario"] = _Du.U_idUsuario;
                     string perfil = _Dtu.TU_NombreTipoUsuario;
                     string[] dataArray = new string[] { _Du.U_Correo, perfil };
                     Session["Login"] = dataArray;
                   
                     Response.Redirect("index.aspx");
+                    //Response.Write("<script>alert('USUARIO CORRECTO.')<script>");
                 }
             }
             lblMensaje.Text = "Sus datos no son validos, por favor vuelva a intentar";
