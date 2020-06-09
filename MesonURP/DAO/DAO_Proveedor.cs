@@ -17,18 +17,38 @@ namespace DAO
         }
         public void DAO_Registrar_Proveedor(DTO_Proveedor dto_proveedor)
         {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("SP_Insertar_Proveedor", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@P_idProveedor", dto_proveedor.P_idProveedor);
+                cmd.Parameters.AddWithValue("@P_RazonSocial", dto_proveedor.P_RazonSocial);
+                cmd.Parameters.AddWithValue("@P_NumeroDocumento", dto_proveedor.P_NumeroDocumento);
+                cmd.Parameters.AddWithValue("@P_Direccion", dto_proveedor.P_Direccion);
+                cmd.Parameters.AddWithValue("@P_NombreContacto", dto_proveedor.P_NombreContacto);
+                cmd.Parameters.AddWithValue("@P_TelefonoContacto", dto_proveedor.P_TelefonoContacto);
+                cmd.Parameters.AddWithValue("@P_CorreoContacto", dto_proveedor.P_CorreoContacto);
+                cmd.Parameters.AddWithValue("@EP_idEstadoProveedor", dto_proveedor.EP_idEstadoProveedor);
+            }
+            catch (FormatException)
+            {
 
-            SqlCommand cmd = new SqlCommand("SP_Insertar_Proveedor", conexion);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@P_idProveedor", dto_proveedor.P_idProveedor);
-            cmd.Parameters.AddWithValue("@P_RazonSocial", dto_proveedor.P_RazonSocial);
-            cmd.Parameters.AddWithValue("@P_NumeroDocumento", dto_proveedor.P_NumeroDocumento);
-            cmd.Parameters.AddWithValue("@P_Direccion", dto_proveedor.P_Direccion);
-            cmd.Parameters.AddWithValue("@P_NombreContacto", dto_proveedor.P_NombreContacto);
-            cmd.Parameters.AddWithValue("@P_TelefonoContacto", dto_proveedor.P_TelefonoContacto);
-            cmd.Parameters.AddWithValue("@P_CorreoContacto", dto_proveedor.P_CorreoContacto);
-            cmd.Parameters.AddWithValue("@EP_idEstadoProveedor", dto_proveedor.EP_idEstadoProveedor);
-           
+            }
+            finally
+            {
+                String.IsNullOrEmpty(dto_proveedor.P_idProveedor.ToString());
+                String.IsNullOrEmpty(dto_proveedor.P_RazonSocial);
+                String.IsNullOrEmpty(dto_proveedor.P_NombreContacto);
+                String.IsNullOrEmpty(dto_proveedor.P_NumeroDocumento);
+                String.IsNullOrEmpty(dto_proveedor.P_Direccion);
+                String.IsNullOrEmpty(dto_proveedor.P_CorreoContacto);
+                String.IsNullOrEmpty(dto_proveedor.P_TelefonoContacto);
+                String.IsNullOrEmpty(dto_proveedor.EP_idEstadoProveedor.ToString());
+              
+
+                
+            }
+            
         }  
     }
 }

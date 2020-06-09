@@ -15,7 +15,7 @@ namespace DAO
         {
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
         }
-        public void Dao_Registrar_Recurso(Dto_Recurso dto_rec)
+        public void Dao_Registrar_Insumo(Dto_Recurso dto_rec)
         {
             SqlCommand cmd = new SqlCommand("SP_Agregar_Recurso", conexion);
             cmd.CommandType = CommandType.StoredProcedure;

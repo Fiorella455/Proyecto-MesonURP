@@ -15,7 +15,8 @@ namespace CTR
             dao_proveedor = new DAO_Proveedor();
         }
         public void CTR_Registrar_Proveedor(DTO_Proveedor dto_proveedor)
-        {
+        { 
+            
             dao_proveedor.DAO_Registrar_Proveedor(dto_proveedor);
         }
     }
