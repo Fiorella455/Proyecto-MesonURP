@@ -913,6 +913,7 @@ h2.inner,h3.inner {
 .content {
 	padding: 3em 0m 1em;
 	padding-left: 4em;
+	padding-right: 2em;
 }
 .demo-container {
     box-sizing: border-box;
@@ -5792,5 +5793,29 @@ margin-top:0;
 .btn {
 	margin-right:5px;
 	margin-left:5px;
+}
+
+.margin--10 {
+	margin-right: -10%;
+}
+.img-responsive2 {
+	display: block;
+	max-width: 223px;
+	height: auto;
+}
+
+.center-header {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	align-items: center;
+}
+
+.padding0-header {
+	padding: 0 !important;
+	margin-left: 4em;
+}
+.color-white {
+	color: white;
 }
 /***responsive***/

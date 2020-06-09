@@ -39,14 +39,16 @@
                 <div class="header-section">
                     <!-- top_bg -->
                     <div class="top_bg">
-
-                        <div class="header_top">
-                            <div class="top_left">
+                        <div class="header_top padding0-header center-header">
+                             <div class="logo">
+                                <a href="index.html">
+                                    <img src="../img/MesonURP_logofinal2.png" class="img-responsive2" alt="" />
+                                </a>
+                              </div>
+                            <div class="top_left margin--10">
                                 <h2><span></span>Call us : 032 2352 782</h2>
-                            </div>
-                            <div class="clearfix"></div>
+                            </div>                            
                         </div>
-
                     </div>
                     <div class="clearfix"></div>
                     <!-- /top_bg -->
@@ -55,11 +57,7 @@
 
                     <div class="header">
                         <div class="head-t">
-                            <div class="logo">
-                                <a href="index.html">
-                                    <img src="../img/MesonURP_logofinal2.png" class="img-responsive" alt="" />
-                                </a>
-                            </div>
+                           
                             <!-- start header_right -->
                             <div class="header_right">
                                 <div class="rgt-bottom">
@@ -97,78 +95,45 @@
                         </div>
                         <div class="search-buttons">
                             <div class="search">
-                                <form>
-                                    <input type="text" value="" placeholder="search..."/>
-                                    <button>
+                                <form runat="server">
+                                    <asp:TextBox id="txtSearchStock" runat="server"  CssClass="form-control1" placeholder="search..."/>
+                                    <button type="button" id="brnSearchStock" runat="server" onserverclick="brnSearchStock_ServerClick">
                                         <span class="material-icons">search
                                         </span>
                                     </button>
-                                </form>
+                                                            <div class="panel panel-widget forms-panel">
+                                <div class="form-grids widget-shadow" data-example-id="basic-forms">
+                                    <div class="form-title color-white">
+                                        <h4>Stock Actual</h4>
+                                    </div>
+                                    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                                        <asp:GridView ID="GridViewInsumos" allowpaging="True" runat="server" emptydatatext="No hay información disponible."  CssClass="table table-bordered table-striped mb-0">
+                                            <Columns>
+                                                <asp:TemplateField HeaderText="Insumo">                                           
+                                                   <ItemTemplate></ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="Categoría">
+                                                   <ItemTemplate></ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="Stock">
+                                                    <ItemTemplate></ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="Unidad">
+                                                    <ItemTemplate></ItemTemplate>
+                                                </asp:TemplateField>            
+                                            </Columns>
+                                        </asp:GridView>
+                                    </div>
+                                </div>
+                             </form>
+                            </div>
+                        </div>
+     
                                 <div class="clearfix"></div>
                             </div>
 
                         </div>
-                        <div class="panel panel-widget forms-panel">
-                            <div class="forms">
-                                <div class="form-grids widget-shadow" data-example-id="basic-forms">
-                                    <div class="form-title">
-                                        <h4>Stock Actual</h4>
-                                    </div>
-                                    <div class="table-wrapper-scroll-y my-custom-scrollbar">
 
-                                        <table class="table table-bordered table-striped mb-0">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">Insumo</th>
-                                                    <th scope="col">Categoría</th>
-                                                    <th scope="col">Stock</th>
-                                                    <th scope="col">Unidad</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>Mark</td>
-                                                    <td>Otto</td>
-                                                    <td>@mdo</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">2</th>
-                                                    <td>Jacob</td>
-                                                    <td>Thornton</td>
-                                                    <td>@fat</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">3</th>
-                                                    <td>Larry</td>
-                                                    <td>the Bird</td>
-                                                    <td>@twitter</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">4</th>
-                                                    <td>Mark</td>
-                                                    <td>Otto</td>
-                                                    <td>@mdo</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">5</th>
-                                                    <td>Jacob</td>
-                                                    <td>Thornton</td>
-                                                    <td>@fat</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">6</th>
-                                                    <td>Larry</td>
-                                                    <td>the Bird</td>
-                                                    <td>@twitter</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                     </div>
                 </div>

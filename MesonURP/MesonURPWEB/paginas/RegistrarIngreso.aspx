@@ -35,11 +35,15 @@
                 <div class="header-section">
                     <!-- top_bg -->
                     <div class="top_bg">
-                        <div class="header_top">
-                            <div class="top_left">
+                        <div class="header_top padding0-header center-header">
+                             <div class="logo">
+                                <a href="index.html">
+                                    <img src="../img/MesonURP_logofinal2.png" class="img-responsive2" alt="" />
+                                </a>
+                            </div>
+                            <div class="top_left margin--10">
                                 <h2><span></span>Call us : 032 2352 782</h2>
                             </div>
-                            <div class="clearfix"></div>
                         </div>
                     </div>
                     <div class="clearfix"></div>
@@ -48,11 +52,7 @@
                 <div class="header_bg">
                     <div class="header">
                         <div class="head-t">
-                            <div class="logo">
-                                <a href="index.html">
-                                    <img src="../img/MesonURP_logofinal2.png" class="img-responsive" alt="" />
-                                </a>
-                            </div>
+                           
                             <!-- start header_right -->
                             <div class="header_right">
                                 <div class="rgt-bottom">
@@ -82,40 +82,42 @@
                     <div class="forms">
 						<h3 class="title1"></h3>
 							<div class="form-three widget-shadow">
-								<form class="form-horizontal">
+								<form class="form-horizontal" runat="server">
                                     <div class="form-group">
 									<label for="selector1" class="col-sm-2 control-label">Insumo</label>
-									<div class="col-sm-8"><select placeholder="Seleccione un Insumo" name="selector1" id="selector1" class="form-control1">
-										<option>Pollo</option>
-										<option>Papa</option>
-										<option>Arroz</option>
-									</select></div>
+									<div class="col-sm-8">                                            
+                                            <asp:DropDownList id="selectInsumo2" runat="server" CssClass="form-control1" OnSelectedIndexChanged="selectInsumo2_SelectedIndexChanged">
+										        <asp:ListItem Selected="True" Value="0">Seleccione un insumo</asp:ListItem>
+                                                <asp:ListItem>Pollo</asp:ListItem>
+										        <asp:ListItem>Papa</asp:ListItem>
+                                                <asp:ListItem>Arroz</asp:ListItem>
+									        </asp:DropDownList></div>
 									</div>
 									<div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">Fecha</label>
 										<div class="col-sm-8">
-											<input type="date" class="form-control1"/>
+                                            <asp:TextBox disabled ID="txtFecha2" runat="server" TextMode="Date" CssClass="form-control1"/>
 										</div>
 									</div>
                                     <div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">Cantidad</label>
 										<div class="col-sm-8">
-											<input type="number" min="1" max="100" placeholder="Seleccione la cantidad" class="form-control1"/>
+                                            <asp:TextBox ID="txtCantidad2" runat="server" placeholder="Seleccione la cantidad" CssClass="form-control1" />
 										</div>
 									</div>
                                     <div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">Unidad</label>
 										<div class="col-sm-8">
-											<input disabled type="text" placeholder="Unidad de Medida" class="form-control1"/>
+                                            <asp:TextBox disabled ID="txtUnidadMedida2" runat="server" placeholder="Unidad de Medida" CssClass="form-control1"/>
 										</div>
 									</div>
                                     <hr/>
 								    <p class="center-button">
-						    		    <input type="submit" name="sub-1" value="Ingresar" class="btn btn-primary"/>
-                                        <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'ManejarStock.aspx';" class="btn btn-primary"/>
-							    	    <input type="reset" name="res-1" id="res-1" value="Limpiar" class="btn btn-danger"/>
+						    		    <button type="button" name="sub-1" class="btn btn-primary" runat="server" id="btnIngresar" onserverclick="btnIngresar_ServerClick">Ingresar</button>
+                                        <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'ManejarStock.aspx';" class="btn btn-primary" />
+							    	    <input type="reset" name="res-1" id="res-1" value="Limpiar" class="btn btn-danger"/> 
 								    </p>
-								</form>                              
+								</form>                                
                         </div>
                  </div>
             </div>

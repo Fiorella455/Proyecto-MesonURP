@@ -13,5 +13,10 @@ namespace MesonURPWEB.paginas
         {
 
         }
+
+        protected void brnSearchStock_ServerClick(object sender, EventArgs e)
+        {
+
+        }
     }
 }
