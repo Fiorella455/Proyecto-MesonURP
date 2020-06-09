@@ -11,7 +11,16 @@ namespace MesonURPWEB.paginas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+ 
+        }
 
+        protected void btnEgresar_ServerClick(object sender, EventArgs e)
+        {
+        }
+
+        protected void selectInsumo1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+          
         }
     }
 }
