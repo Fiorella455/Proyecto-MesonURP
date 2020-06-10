@@ -5818,4 +5818,9 @@ margin-top:0;
 .color-white {
 	color: white;
 }
+.title-flex {
+	display: flex;
+	justify-content: space-between;
+}
+}
 /***responsive***/

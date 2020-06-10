@@ -198,7 +198,7 @@
                 <li><a href="Dashboard.aspx"><i class="fa fa-tachometer"></i><span>Inicio</span></a></li>
                 <li id="menu-oc"><a href="#"><i class="fa fa-table"></i><span>Orden de Compra</span> <span class="fa fa-angle-right" style="float: right"></span></a>
                     <ul id="menu-oc-sub">
-                        <li id="menu-oc-gestion"><a href="gestionarOC.html">Gestionar Orden de Compra</a></li>
+                        <li id="menu-oc-gestion"><a href="GestionarOC.aspx">Gestionar Orden de Compra</a></li>
                         <li id="menu-oc-consulta"><a href="consultarCompras.aspx">Consultar Compras</a></li>
                     </ul>
                 </li>

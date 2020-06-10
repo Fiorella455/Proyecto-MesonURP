@@ -1,10 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RegistrarEgreso.aspx.cs" Inherits="MesonURPWEB.paginas.RegistrarEgreso" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="GestionarOC.aspx.cs" Inherits="MesonURPWEB.paginas.GestionarOC" %>
 
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Manejar Stock | Registrar Egreso</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Mesón URP | Gestionar Orden de Compra</title>
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
     <!-- Custom CSS -->
@@ -35,15 +36,11 @@
                 <div class="header-section">
                     <!-- top_bg -->
                     <div class="top_bg">
-                        <div class="header_top padding0-header center-header">
-                             <div class="logo">
-                                <a href="index.html">
-                                    <img src="../img/MesonURP_logofinal2.png" class="img-responsive2" alt="" />
-                                </a>
-                            </div>
-                            <div class="top_left margin--10">
+                        <div class="header_top">
+                            <div class="top_left">
                                 <h2><span></span>Call us : 032 2352 782</h2>
                             </div>
+                            <div class="clearfix"></div>
                         </div>
                     </div>
                     <div class="clearfix"></div>
@@ -52,7 +49,11 @@
                 <div class="header_bg">
                     <div class="header">
                         <div class="head-t">
-                           
+                            <div class="logo">
+                                <a href="index.html">
+                                    <img src="../img/MesonURP_logofinal2.png" class="img-responsive" alt="" />
+                                </a>
+                            </div>
                             <!-- start header_right -->
                             <div class="header_right">
                                 <div class="rgt-bottom">
@@ -70,57 +71,62 @@
             <!-- //header-ends -->
             <!--content-->
             <div class="content">
-                <div class="women_main">
+                 <div class="women_main">
                     <!-- start content -->
                     <div class="grids">
                         <div class="progressbar-heading grids-heading title-flex">
-                            <h2 class="tittle-margin5">Registrar Egreso</h2>                            
-                        </div>                                           
-                    </div>
-                    <div class="forms">
-						<h3 class="title1"></h3>
-							<div class="form-three widget-shadow">
-								<form class="form-horizontal" runat="server">
-                                    <div class="form-group">
-									<label for="selector1" class="col-sm-2 control-label">Insumo</label>
-									<div class="col-sm-8">                                            
-                                            <asp:DropDownList id="selectInsumo1" runat="server" CssClass="form-control1" OnSelectedIndexChanged="selectInsumo1_SelectedIndexChanged">
-										        <asp:ListItem Selected="True" Value="0">Seleccione un insumo</asp:ListItem>
-                                                <asp:ListItem>Pollo</asp:ListItem>
-										        <asp:ListItem>Papa</asp:ListItem>
-                                                <asp:ListItem>Arroz</asp:ListItem>
-									        </asp:DropDownList></div>
-									</div>
-									<div class="form-group">
-										<label for="focusedinput" class="col-sm-2 control-label">Fecha</label>
-										<div class="col-sm-8">
-                                            <asp:TextBox disabled ID="txtFecha" runat="server" TextMode="Date" CssClass="form-control1"/>
-										</div>
-									</div>
-                                    <div class="form-group">
-										<label for="focusedinput" class="col-sm-2 control-label">Cantidad</label>
-										<div class="col-sm-8">
-                                            <asp:TextBox ID="txtCantidad" runat="server" placeholder="Seleccione la cantidad" CssClass="form-control1" />
-										</div>
-									</div>
-                                    <div class="form-group">
-										<label for="focusedinput" class="col-sm-2 control-label">Unidad</label>
-										<div class="col-sm-8">
-                                            <asp:TextBox disabled ID="txtUnidadMedida" runat="server" placeholder="Unidad de Medida" CssClass="form-control1"/>
-										</div>
-									</div>
-                                    <hr/>
-								    <p class="center-button">
-						    		    <button type="button" name="sub-1" class="btn btn-primary" runat="server" onserverclick="btnEgresar_ServerClick" id="btnEgresar">Egresar</button>
-                                        <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'ManejarStock.aspx';" class="btn btn-primary" />
-							    	    <input type="reset" name="res-1" id="res-1" value="Limpiar" class="btn btn-danger"/> 
-								    </p>
-								</form>     
-                 </div>
-              </div>
+                            <h2 class="tittle-margin5">Gestionar Orden de Compra</h2>
+                            <div class="stock-options">
+                                <div class="width-auto margin-5">
+                                    <button class="btn-new btn-fifth" onclick="window.location.href='AñadirOC.aspx'">Agregar Nueva Orden de Compra</button>                     
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search-buttons">
+                            <div class="search">
+                                <form runat="server">
+                                    <asp:TextBox id="txtSearchStock" runat="server"  CssClass="form-control1" placeholder="search..."/>
+                                    <button type="button" id="btnSearchOC" runat="server">
+                                        <span class="material-icons">search
+                                        </span>
+                                    </button>
+                               <div class="panel panel-widget forms-panel">
+                                <div class="form-grids widget-shadow" data-example-id="basic-forms">
+                                    <div class="form-title color-white">
+                                        <h4>Órdenes de Compra</h4>
+                                    </div>
+                                    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                                        <asp:GridView ID="GridViewOC" allowpaging="True" runat="server" emptydatatext="No hay información disponible."  CssClass="table table-bordered table-striped mb-0">
+                                            <Columns>
+                                                <asp:TemplateField HeaderText="Insumo">                                           
+                                                   <ItemTemplate></ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="Categoría">
+                                                   <ItemTemplate></ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="Stock">
+                                                    <ItemTemplate></ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:TemplateField HeaderText="Unidad">
+                                                    <ItemTemplate></ItemTemplate>
+                                                </asp:TemplateField>            
+                                            </Columns>
+                                        </asp:GridView>
+                                    </div>
+                                </div>
+                             </form>
+                            </div>
+                        </div>
+     
+                                <div class="clearfix"></div>
+                            </div>
+
+                        </div>
             </div>
         </div>
-          <div class="fo-top-di no-margin">
+        <div class="clearfix"></div>
+    </div>
+    <div class="fo-top-di">
         <div class="foot-top">
 
             <div class="col-md-6 s-c">
@@ -164,9 +170,6 @@
             <p>© 2020 MesónURP  | <a href="http://www.urp.edu.pe//">Universidad Ricardo Palma</a></p>
         </div>
     </div>
-        <div class="clearfix"></div>
-    </div>
-  
     <div class="sidebar-menu">
         <header class="logo1">
             <a href="#" class="sidebar-icon"><span class="fa fa-bars"></span></a>
@@ -177,8 +180,8 @@
                 <li><a href="Dashboard.aspx"><i class="fa fa-tachometer"></i><span>Inicio</span></a></li>
                 <li id="menu-oc"><a href="#"><i class="fa fa-table"></i><span>Orden de Compra</span> <span class="fa fa-angle-right" style="float: right"></span></a>
                     <ul id="menu-oc-sub">
-                        <li id="menu-oc-gestion"><a href="gestionarOC.html">Gestionar Orden de Compra</a></li>
-                        <li id="menu-oc-consulta"><a href="GestionarOC.aspx">Consultar Compras</a></li>
+                        <li id="menu-oc-gestion"><a href="GestionarOC.aspx">Gestionar Orden de Compra</a></li>
+                        <li id="menu-oc-consulta"><a href="consultarCompras.aspx">Consultar Compras</a></li>
                     </ul>
                 </li>
                 <li id="menu-proveedor"><a href="gestionarProveedor.aspx"><i class="fa fa-file-text-o"></i><span>Gestionar Proveedor</span></a></li>

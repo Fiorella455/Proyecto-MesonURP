@@ -280,7 +280,9 @@
     <Content Include="js\site.js" />
     <Content Include="js\underscore-min.js" />
     <Content Include="paginas\AgregandoRecurso.aspx" />
+    <Content Include="paginas\AñadirOC.aspx" />
     <Content Include="paginas\Dashboard.aspx" />
+    <Content Include="paginas\GestionarOC.aspx" />
     <Content Include="paginas\Home.aspx" />
     <Content Include="paginas\ManejarStock.aspx" />
     <Content Include="paginas\RegistrarEgreso.aspx" />
@@ -305,12 +307,26 @@
     <Compile Include="paginas\AgregandoRecurso.aspx.designer.cs">
       <DependentUpon>AgregandoRecurso.aspx</DependentUpon>
     </Compile>
+    <Compile Include="paginas\AñadirOC.aspx.cs">
+      <DependentUpon>AñadirOC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="paginas\AñadirOC.aspx.designer.cs">
+      <DependentUpon>AñadirOC.aspx</DependentUpon>
+    </Compile>
     <Compile Include="paginas\Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="paginas\Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="paginas\GestionarOC.aspx.cs">
+      <DependentUpon>GestionarOC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="paginas\GestionarOC.aspx.designer.cs">
+      <DependentUpon>GestionarOC.aspx</DependentUpon>
     </Compile>
     <Compile Include="paginas\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
