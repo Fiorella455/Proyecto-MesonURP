@@ -57,14 +57,14 @@
                     <div class="field">
                         <label for="correo">Correo</label>
                         <input type="text" id="correo" name="correo" value="" placeholder="Correo" class="login username-field" runat="server"/>
-                        <%--<asp:RegularExpressionValidator ID="revUsuario" runat="server" ErrorMessage="Por favor ingrese solo letras o numeros" ControlToValidate="username" ForeColor="#CC0000" ValidationExpression="([a-zA-Z0-9]{1,})" SetFocusOnError="True"></asp:RegularExpressionValidator>--%>
+                       <%-- <asp:RegularExpressionValidator ID="revUsuario" runat="server" ErrorMessage="Por favor ingrese solo letras o numeros" ControlToValidate="correo" ForeColor="#CC0000" ValidationExpression="([a-zA-Z0-9]{1,})" SetFocusOnError="True"></asp:RegularExpressionValidator>--%>
                     </div>
                     <!-- /field -->
 
                     <div class="field">
                         <label for="contraseña">Contraseña:</label>
                         <input type="password" id="contraseña" name="contraseña" value="" placeholder="Contraseña" class="login password-field" runat="server"/>
-                        <%--<asp:RegularExpressionValidator ID="revContraseña" runat="server" ErrorMessage="Por favor ingrese solo letras o numeros" ControlToValidate="password" ForeColor="#CC0000" ValidationExpression="([a-zA-Z0-9]{1,})" SetFocusOnError="True"></asp:RegularExpressionValidator>--%>
+                       <%-- <asp:RegularExpressionValidator ID="revContraseña" runat="server" ErrorMessage="Por favor ingrese solo letras o numeros" ControlToValidate="contraseña" ForeColor="#CC0000" ValidationExpression="([a-zA-Z0-9]{1,})" SetFocusOnError="True"></asp:RegularExpressionValidator>--%>
                     </div>
                     <!-- /password -->
 
