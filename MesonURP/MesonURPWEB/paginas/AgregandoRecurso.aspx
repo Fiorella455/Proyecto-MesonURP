@@ -47,7 +47,7 @@
             <asp:TextBox ID="txtCTotal" runat="server" />
         </div>
         <div>
-            <asp:Button ID="btnRegistro" CssClass="button btn btn-success btn-large" runat="server" Text="Ingresar" OnClick="btnRegistro_Click" />
+            <asp:Button ID="btnRegistro" CssClass="button btn btn-success btn-large" runat="server" Text="Agregar" OnClick="btnRegistro_Click" style="height: 26px" />
         </div>
     </form>
 </body>

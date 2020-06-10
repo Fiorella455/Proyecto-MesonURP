@@ -10,6 +10,7 @@ namespace DAO
     public class DAO_OC
     {
         SqlConnection conexion;
+        int estado=0;
         public void DAO_Registrar_OC(DTO_OC dto_oc)
         {
             try
@@ -29,21 +30,43 @@ namespace DAO
             }
 
         }
-        public void DAO_Consultar_Listas_OC()
+        public bool DAO_Consultar__OC_2(DTO_OC dto_oc)
         {
-             
+            string Select = "SELECT * FROM T_OC WHERE T_idOrdenCompra = '" + dto_oc.OC_idOrdenCompra + "'";
+            SqlCommand cmd = new SqlCommand(Select, conexion);
+
+            conexion.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            bool hayRegistros = reader.Read();
+            if (hayRegistros)
+            {
+                //Hay registros
+                dto_oc.OC_idOrdenCompra = (int)reader[0];
+                dto_oc.OC_TipoComprobante = (string)reader[1];
+                dto_oc.OC_NumeroComprobante = (string)reader[2];
+                dto_oc.OC_TotalCompra = (double)reader[3];
+                dto_oc.OC_FechaEmision = (DateTime)reader[4];
+                dto_oc.P_idProveedor = (int)reader[5];
+
+                estado = 100;
+            }
+            //No hay registros
+            else estado = 99;
+            conexion.Close();
+
+            return hayRegistros;
         }
-        public DataTable DAO_Consultar_OC(DTO_OC dto_oc)
+        public void DAO_Consultar_OC(DTO_OC dto_oc)
         {
             try
             {
 
-                SqlDataAdapter da = new SqlDataAdapter("SP_Consultar_OC",conexion);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@OC_idOrdenCompra", dto_oc.OC_idOrdenCompra);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                return ds.Tables[0];
+                SqlCommand cmd = new SqlCommand("SP_Consultar_OC",conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@OC_idOrdenCompra", dto_oc.OC_idOrdenCompra);
+                
+               
+                
             }
             catch (Exception ex)
             {

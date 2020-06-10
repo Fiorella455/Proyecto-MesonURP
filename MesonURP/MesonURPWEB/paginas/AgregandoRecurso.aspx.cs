@@ -18,11 +18,10 @@ namespace MesonURPWEB.paginas
         DataSet dataset;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (IsPostBack)
             {
 
                 CargarCategoria();
-
             }
         }
         public void CargarCategoria()
@@ -30,12 +29,12 @@ namespace MesonURPWEB.paginas
             ctr_categoria = new CTR_Categoria();
             dataset = new DataSet();
             dataset = ctr_categoria.CTR_Leer_Categorias();
-            
-            ddlcategoria.DataTextField = "C_NombreCategoria";
-            
+            ddlcategoria.DataTextField = "C_NombreCategoria";  
             ddlcategoria.DataValueField = "C_idCategoria";
             ddlcategoria.DataSource = dataset;
             ddlcategoria.DataBind();
+
+            ddlcategoria.Items.Insert(0, new ListItem("Seleccione Categoria"));
         }
         protected void btnRegistro_Click(object sender, EventArgs e)
         {
@@ -52,7 +51,7 @@ namespace MesonURPWEB.paginas
             _DtoR.DR_CantidadEntrada = Convert.ToDecimal(txtCEntrada.Text);
             _DtoR.DR_CantidadSalida = Convert.ToDecimal(txtCSalida.Text);
             _DtoR.DR_CantidadTotal = Convert.ToDecimal(txtCTotal.Text);
-            _DtoR.DR_FechaIngreso = Convert.ToDateTime(txtFechaIng.Text);
+           // _DtoR.DR_FechaIngreso = Convert.ToDateTime(txtFechaIng.Text);
             _DtoR.DR_FechaSalida = Convert.ToDateTime(txtFechaSal.Text);
             _DtoR.DR_PrecioUnitario = Convert.ToDecimal(txtPUnitario.Text);
             _DtoR.DR_StockMaximo = Convert.ToDecimal(txtStockMax.Text);

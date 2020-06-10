@@ -20,6 +20,9 @@ namespace CTR
 
             dao_oc.DAO_Registrar_OC(dto_oc);
         }
-        
+        public bool DAO_Leer_OC(DTO_OC dto_oc)
+        {
+            return dao_oc.DAO_Consultar__OC_2(dto_oc);
+        }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Data.SqlClient;
 using DTO;
 using System;
@@ -29,9 +28,10 @@ namespace DAO
                 SqlCommand cmd = new SqlCommand("SP_Consultar_Categoria", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.ExecuteNonQuery();
-                DataSet dataset = new DataSet();
+               
                 SqlDataAdapter data = new SqlDataAdapter(cmd);
-                data.Fill(dataset);
+                DataSet dataset = new DataSet();
+                data.Fill(dataset,"T_Categoria");
                 return dataset;
             }
             catch (Exception ex)

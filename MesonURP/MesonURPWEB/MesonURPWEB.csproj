@@ -287,6 +287,7 @@
     <Content Include="paginas\ManejarStock.aspx" />
     <Content Include="paginas\RegistrarEgreso.aspx" />
     <Content Include="paginas\RegistrarIngreso.aspx" />
+    <Content Include="paginas\WebForm1.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -300,7 +301,6 @@
     <Compile Include="Master.Master.designer.cs">
       <DependentUpon>Master.Master</DependentUpon>
     </Compile>
-    
     <Compile Include="paginas\AñadirOC.aspx.cs">
       <DependentUpon>AñadirOC.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -308,6 +308,7 @@
     <Compile Include="paginas\AñadirOC.aspx.designer.cs">
       <DependentUpon>AñadirOC.aspx</DependentUpon>
     </Compile>
+    <Compile Include="paginas\Consultar.cs" />
     <Compile Include="paginas\Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -335,7 +336,7 @@
     </Compile>
     <Compile Include="paginas\ManejarStock.aspx.designer.cs">
       <DependentUpon>ManejarStock.aspx</DependentUpon>
-    </Compile>  
+    </Compile>
     <Compile Include="paginas\RegistrarEgreso.aspx.cs">
       <DependentUpon>RegistrarEgreso.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -363,6 +364,13 @@
     </Compile>
     <Compile Include="paginas\AgregandoRecurso.aspx.designer.cs">
       <DependentUpon>AgregandoRecurso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="paginas\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="paginas\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -19,7 +19,7 @@
             <div class="right-header">
                 <h3 class="heading-3 header-13px">Haz tu reserva:</h3>
                 <h1 class="heading-1 header-13px">Mesón del Estudiante</h1>
-                <button class="btn header__btn">Reservar</button>
+                <button type="button" class="btn header__btn" onclick="window.location.href='Dashboard.aspx'">Reservar </button>
             </div>
         </header>
 

@@ -8,7 +8,7 @@ namespace DAO
         {
             get
             {
-                return "data source=DESKTOP-928V5LN\\SQLEXPRESS; initial catalog=DB_MesonURP; integrated security=SSPI;";
+                return "Data Source = IDEA-PC; initial catalog=DB_MesonURP; integrated security=true;";
             }
         }
     }

@@ -4,13 +4,16 @@ using System.Text;
 using System.Data;
 using System.Data.SqlClient;
 using DTO;
-
+using System.Security.Cryptography.X509Certificates;
 
 namespace DAO
 {
     public class Dao_Recurso
     {
         SqlConnection conexion;
+        DTO_Categoria dto_categoria;
+        Dto_Recurso dto_recurso;
+        int state=0;
         public Dao_Recurso()
         {
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
@@ -39,17 +42,37 @@ namespace DAO
             conexion.Close();
 
         }
-        public DataSet Dao_Leer_Insumo()
+        public DataSet Dao_Leer_Insumo(int idCategoria)
         {
-            conexion.Open();
-            SqlCommand cmd = new SqlCommand("SP_Consultar_Insumo", conexion);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.ExecuteNonQuery();
-            DataSet dataset = new DataSet();
-            SqlDataAdapter data = new SqlDataAdapter(cmd);
-            data.Fill(dataset);
-            return dataset;
 
+            if (dto_recurso.FK_IC_Categoria == idCategoria)
+            {
+                dto_recurso.FK_IC_Categoria = idCategoria;
+            }
+
+                string Select = "SELECT * FROM T_Insumo WHERE C_idCategoria= '" + dto_recurso.FK_IC_Categoria + "'";
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand(Select, conexion);
+                cmd.ExecuteNonQuery();
+
+                DataSet dataset = new DataSet();
+                SqlDataAdapter data = new SqlDataAdapter(cmd);
+                data.Fill(dataset);
+                return dataset;
+ 
+        }
+        public void CargarInsumoxCategoria()
+        {
+            /*
+             * int catselect= ddlcategoria.SelectedItem.Value;
+            CTR_Recurso = new CTR_Recurso();
+            dataset = new DataSet();
+            dataset = CTR_Recurso.CTR_Leer_RecursoxCategoria(catselect);
+            ddlinsumo.DataTextField = "VR_NombreInsumo";
+            ddlinsumo.DataValueField = "PK_idInsumo";
+            ddlinsumo.DataSource = dataset;
+            ddlinsumo.DataBind();
+            */
         }
     }
 }
