@@ -15,7 +15,7 @@ namespace DAO
         {
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
         }
-        public void Dao_Registrar_Insumo(Dto_Recurso dto_rec)
+        public void Dao_Registrar_Recurso(Dto_Recurso dto_rec)
         {
             SqlCommand cmd = new SqlCommand("SP_Agregar_Recurso", conexion);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -39,23 +39,17 @@ namespace DAO
             conexion.Close();
 
         }
-        public DataSet CargarServicio(E_SolicitudxCliente _Esc)
+        public DataSet Dao_Leer_Insumo()
         {
-            try
-            {
-                _Dp.getCliente(_Ep);
-                SqlDataAdapter _Data = new SqlDataAdapter("SP_Desplegable_Servicio", _conn);
-                _Data.SelectCommand.CommandType = CommandType.StoredProcedure;
-                _Data.SelectCommand.Parameters.Add(new SqlParameter("@codCliente", _Esc.codCliente));
+            conexion.Open();
+            SqlCommand cmd = new SqlCommand("SP_Consultar_Insumo", conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.ExecuteNonQuery();
+            DataSet dataset = new DataSet();
+            SqlDataAdapter data = new SqlDataAdapter(cmd);
+            data.Fill(dataset);
+            return dataset;
 
-                DataSet _Ds = new DataSet();
-                _Data.Fill(_Ds);
-                return _Ds;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
         }
     }
 }

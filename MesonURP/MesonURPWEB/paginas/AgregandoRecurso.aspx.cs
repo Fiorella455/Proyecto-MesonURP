@@ -3,17 +3,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Data;
 using System.Web.UI.WebControls;
 using DTO;
 using CTR;
+using DAO;
 
 namespace MesonURPWEB.paginas
 {
     public partial class AgregandoRecurso : System.Web.UI.Page
     {
+        CTR_Categoria ctr_categoria;
+        DTO_Categoria dto_categoria;
+        DataSet dataset;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
 
+                CargarCategoria();
+
+            }
+        }
+        public void CargarCategoria()
+        {
+            ctr_categoria = new CTR_Categoria();
+            dataset = new DataSet();
+            dataset = ctr_categoria.CTR_Leer_Categorias();
+            
+            ddlcategoria.DataTextField = "C_NombreCategoria";
+            
+            ddlcategoria.DataValueField = "C_idCategoria";
+            ddlcategoria.DataSource = dataset;
+            ddlcategoria.DataBind();
         }
         protected void btnRegistro_Click(object sender, EventArgs e)
         {

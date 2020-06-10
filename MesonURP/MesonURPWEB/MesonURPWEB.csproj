@@ -226,8 +226,8 @@
     <Content Include="img\UNIVERSIDAD-RICARDO-PALMA-18.jpg" />
     <Content Include="index.html" />
     <Content Include="paginas\AgregandoRecurso.aspx" />
+    <Content Include="paginas\AgregarOC.aspx" />
     <Content Include="paginas\Home.aspx" />
-    <Content Include="paginas\RegistrarOC.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -248,19 +248,19 @@
     <Compile Include="paginas\AgregandoRecurso.aspx.designer.cs">
       <DependentUpon>AgregandoRecurso.aspx</DependentUpon>
     </Compile>
+    <Compile Include="paginas\AgregarOC.aspx.cs">
+      <DependentUpon>AgregarOC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="paginas\AgregarOC.aspx.designer.cs">
+      <DependentUpon>AgregarOC.aspx</DependentUpon>
+    </Compile>
     <Compile Include="paginas\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="paginas\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="paginas\RegistrarOC.aspx.cs">
-      <DependentUpon>RegistrarOC.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="paginas\RegistrarOC.aspx.designer.cs">
-      <DependentUpon>RegistrarOC.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

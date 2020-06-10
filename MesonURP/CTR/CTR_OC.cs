@@ -17,6 +17,7 @@ namespace CTR
         }
         public void CTR_Registrar_OC(DTO_OC dto_oc)
         {
+
             dao_oc.DAO_Registrar_OC(dto_oc);
         }
         

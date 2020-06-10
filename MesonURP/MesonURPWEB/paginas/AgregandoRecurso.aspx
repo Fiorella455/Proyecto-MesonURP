@@ -14,8 +14,9 @@
             <asp:TextBox ID="txtNombre" runat="server" />
         </div>
          <div>
-            <asp:Label ID="lblFechIng" Text="Fecha Ingreso" runat="server"></asp:Label>
-            <asp:TextBox ID="txtFechaIng" runat="server" />
+            <asp:Label ID="categoria" Text="categoria" runat="server"></asp:Label>
+             <asp:DropDownList ID="ddlcategoria" runat="server">
+             </asp:DropDownList>
         </div>
          <div>
             <asp:Label ID="lblFechaSal" Text="Fecha Salida" runat="server"></asp:Label>

@@ -1,8 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Data.SqlClient;
 using DTO;
+using System;
 
 namespace DAO
 {
@@ -20,26 +21,23 @@ namespace DAO
                 cmd.Parameters.AddWithValue("@C_Descripcion", dto_categoria.C_Descripcion);
       
         }
-        public bool DAO_Consultar_Categoria(DTO_Categoria dto_categoria)
+        public DataSet DAO_Leer_Categorias()
         {
-           
-            string Select = "SELECT * FROM T_Categoria ";
-                SqlCommand unComando = new SqlCommand(Select, conexion);
-
+            try
+            {
                 conexion.Open();
-                SqlDataReader reader = unComando.ExecuteReader();
-                bool hayRegistros = reader.Read();
-                if (hayRegistros)
-                {
-                    dto_categoria.C_NombreCategoria = (string)reader[1];
-                    Estado = 99;
-
+                SqlCommand cmd = new SqlCommand("SP_Consultar_Categoria", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.ExecuteNonQuery();
+                DataSet dataset = new DataSet();
+                SqlDataAdapter data = new SqlDataAdapter(cmd);
+                data.Fill(dataset);
+                return dataset;
             }
-                else Estado = 1;
-                conexion.Close();
-
-                return hayRegistros;
-            
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
         }
         

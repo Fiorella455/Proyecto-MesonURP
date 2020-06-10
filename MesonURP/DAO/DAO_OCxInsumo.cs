@@ -42,5 +42,34 @@ namespace DAO
                 throw ex;
             }
         }
+        public Data DAO_Leer_OCxInsumo(DTO_OCxInsumo dto_ocxinsumo)
+        {
+            
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_Actualizarr_OCxInsumo", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@R_idInsumo", dto_ocxinsumo.R_idInsumo));
+                cmd.Parameters.Add(new SqlParameter("@OC_idOrdenCompra", dto_ocxinsumo.OC_idOrdenCompra));
+                cmd.Parameters.Add(new SqlParameter("@OCxI_Cantidad", dto_ocxinsumo.OCxI_Cantidad));
+                cmd.Parameters.Add(new SqlParameter("@OC_PrecioTotal", dto_ocxinsumo.OCxI_PrecioTotal));
+
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            
+           
+            string Select = "SELECT * FROM ESPECIALIDAD";
+
+            SqlDataAdapter unComando = new SqlDataAdapter(Select, conexion);
+            DataTable dtEspecialidades = new DataTable();
+            unComando.Fill(dtEspecialidades);
+
+            var lisEspecialidades = dtEspecialidades.AsEnumerable().
+                                     Select(fila => new Especialidad()
+                                     {
+                                         EspecialidadId = (string)fila[0],
+                                         Nombre = (string)fila[1],
+                                         Siglas = (string)fila[2]
+                                     }).ToList();
+        }
     }
 }
