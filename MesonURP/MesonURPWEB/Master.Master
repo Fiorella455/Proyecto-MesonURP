@@ -124,30 +124,30 @@
         <div style="border-top: 1px ridge rgba(255, 255, 255, 0.15)"></div>
         <div class="menu">
             <ul id="menu">
-                <li><a href="Dashboard.aspx"><i class="fa fa-tachometer"></i><span>Inicio</span></a></li>
+                <li><a href="Dashboard"><i class="fa fa-tachometer"></i><span>Inicio</span></a></li>
                 <li id="menu-oc"><a href="#"><i class="fa fa-table"></i><span>Orden de Compra</span> <span class="fa fa-angle-right" style="float: right"></span></a>
                     <ul id="menu-oc-sub">
-                        <li id="menu-oc-gestion"><a href="GestionarOC.aspx">Gestionar Orden de Compra</a></li>
-                        <li id="menu-oc-consulta"><a href="consultarCompras.aspx">Consultar Compras</a></li>
+                        <li id="menu-oc-gestion"><a href="GestionarOC">Gestionar Orden de Compra</a></li>
+                        <li id="menu-oc-consulta"><a href="consultarCompras">Consultar Compras</a></li>
                     </ul>
                 </li>
-                <li id="menu-proveedor"><a href="gestionarProveedor.aspx"><i class="fa fa-file-text-o"></i><span>Gestionar Proveedor</span></a></li>
-                <li><a href="gestionarDevoluciones.aspx"><i class="lnr lnr-pencil"></i><span>Gestionar Devolución</span></a></li>
+                <li id="menu-proveedor"><a href="gestionarProveedor"><i class="fa fa-file-text-o"></i><span>Gestionar Proveedor</span></a></li>
+                <li><a href="gestionarDevoluciones"><i class="lnr lnr-pencil"></i><span>Gestionar Devolución</span></a></li>
                 <li id="menu-stock"><a href="#"><i class="fa fa-table"></i><span>Stock</span> <span class="fa fa-angle-right" style="float: right"></span></a>
                     <ul id="menu-stock-sub">
-                        <li id="menu-stock-manejo"><a href="ManejarStock.aspx">Manejar Stock</a></li>
-                        <li id="menu-stock-movimientos"><a href="consultarMovimientos.aspx">Consultar Movimientos</a></li>
+                        <li id="menu-stock-manejo"><a href="ManejarStock">Manejar Stock</a></li>
+                        <li id="menu-stock-movimientos"><a href="consultarMovimientos">Consultar Movimientos</a></li>
                     </ul>
                 </li>
-                <li id="menu-recursos"><a href="administrarRecursos.aspx"><i class="lnr lnr-book"></i><span>Administrar Recursos</span></a></li>
+                <li id="menu-recursos"><a href="administrarRecursos"><i class="lnr lnr-book"></i><span>Administrar Recursos</span></a></li>
                 <li id="menu-reportes"><a href="#"><i class="fa fa-table"></i><span>Reportes</span> <span class="fa fa-angle-right" style="float: right"></span></a>
                     <ul id="menu-academico-sub">
-                        <li id="menu-reportes-compras"><a href="reporteMovimientos.aspx">Generar Reporte de Compras</a></li>
-                        <li id="menu-reportes-movimientos"><a href="reporteCompras.aspx">Generar Reporte de Movimientos</a></li>
+                        <li id="menu-reportes-compras"><a href="reporteMovimientos">Generar Reporte de Compras</a></li>
+                        <li id="menu-reportes-movimientos"><a href="reporteCompras">Generar Reporte de Movimientos</a></li>
                     </ul>
                 </li>
-                <li><a href="gestionarCategoria.aspx"><i class="lnr lnr-chart-bars"></i><span>Gestionar Categoría</span></a></li>
-                <li><a href="gestionarUsuarios.aspx"><i class="lnr lnr-chart-bars"></i><span>Gestionar Usuarios</span></a></li>
+                <li><a href="gestionarCategoria"><i class="lnr lnr-chart-bars"></i><span>Gestionar Categoría</span></a></li>
+                <li><a href="gestionarUsuarios"><i class="lnr lnr-chart-bars"></i><span>Gestionar Usuarios</span></a></li>
             </ul>
         </div>
     </div>

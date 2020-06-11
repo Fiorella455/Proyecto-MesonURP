@@ -23,5 +23,10 @@ namespace MesonURPWEB
         {
 
         }
+
+        protected void selectProveedorOC_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
