@@ -21,6 +21,10 @@ namespace CTR
         {
             dao_usu.getUsuario(dto_usu);
         }
+        //public void getNombreUsuario(Dto_Usuario dto_usu)
+        //{
+        //    dao_usu.getNombreUsuario(dto_usu);
+        //}
 
     }
    
