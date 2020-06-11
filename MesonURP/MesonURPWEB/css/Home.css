@@ -42,10 +42,10 @@ a:hover { transition: all 200ms ease-in-out; }
 .page-container {
   min-width: 1260px;
   position: relative;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: 2px;
+  left: -3px;
+  right: 3px;
+  bottom: -2px;
   width: 100%;
   height: 100%;
   margin: 0px auto;
@@ -780,29 +780,37 @@ input:focus {
 	width:100%;
 }
 .search input[type="text"]{
-	margin:0px 0;
-	padding:8px 16px;
-	outline: none;
-	color: #5a5a5a;
+	border-style: none;
+    border-color: inherit;
+    border-width: medium;
+    margin: 0px 0;
+    padding: 8px 16px;
+    outline: none;
+    color: #5a5a5a;
 	background: none;
-	border: none;
 	width:91.33333%;
 	line-height: 1.5em;
 	position: relative;
 	font-size: 0.8725em;
 	-webkit-appearance: none;
 	text-transform: capitalize;
+    top: 0px;
+    left: 5px;
 }
 .search input[type="text"]:hover{
 	background: #ffffff;
 }
 .search button{
-	border: none;
-	cursor: pointer;
-	width: 98px;
+	border-style: none;
+    border-color: inherit;
+    border-width: medium;
+    cursor: pointer;
+	width: 76px;
 	position: absolute;
-	top: 3px;
+	top: 0px;
 	padding-top: 2px;
+    left: 899px;
+    height: 38px;
 }
 
 span material-icons {

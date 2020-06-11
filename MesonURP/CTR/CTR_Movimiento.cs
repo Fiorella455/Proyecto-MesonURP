@@ -2,6 +2,7 @@
 using DTO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
 
 namespace CTR
@@ -20,6 +21,10 @@ namespace CTR
             objMov.RegistrarMovimiento(objDto);
             objDto.Estado = 99;
 
+        }
+        public DataSet CargarInsumoEgreso()
+        {
+            return objMov.CargarInsumoEgreso();
         }
     }
 }

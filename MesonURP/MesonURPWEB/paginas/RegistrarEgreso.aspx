@@ -84,17 +84,14 @@
                                     <div class="form-group">
 									<label for="selector1" class="col-sm-2 control-label">Insumo</label>
 									<div class="col-sm-8">                                            
-                                            <asp:DropDownList id="selectInsumo1" runat="server" CssClass="form-control1" OnSelectedIndexChanged="selectInsumo1_SelectedIndexChanged">
+                                            <asp:DropDownList id="selectInsumo" runat="server" CssClass="form-control1" OnSelectedIndexChanged="selectInsumo_SelectedIndexChanged">
 										        <asp:ListItem Selected="True" Value="0">Seleccione un insumo</asp:ListItem>
-                                                <asp:ListItem>Pollo</asp:ListItem>
-										        <asp:ListItem>Papa</asp:ListItem>
-                                                <asp:ListItem>Arroz</asp:ListItem>
-									        </asp:DropDownList></div>
-									</div>
+  									        </asp:DropDownList>
+                                       </div>
 									<div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">Fecha</label>
 										<div class="col-sm-8">
-                                            <asp:TextBox disabled ID="txtFecha" runat="server" TextMode="Date" CssClass="form-control1"/>
+                                            <asp:TextBox  ID="txtFecha" runat="server" TextMode="Time" CssClass="form-control1"/>
 										</div>
 									</div>
                                     <div class="form-group">
@@ -106,7 +103,7 @@
                                     <div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">Unidad</label>
 										<div class="col-sm-8">
-                                            <asp:TextBox disabled ID="txtUnidadMedida" runat="server" placeholder="Unidad de Medida" CssClass="form-control1"/>
+                                            <asp:TextBox ViewStateMode="Disabled" ID="txtUnidadMedida" runat="server" placeholder="Unidad de Medida" CssClass="form-control1"/>
 										</div>
 									</div>
                                     <hr/>

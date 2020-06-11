@@ -15,13 +15,13 @@ namespace MesonURPWEB.paginas
     {
 
         /// <summary>
-        /// Control txtSearchStock.
+        /// Control txtBuscarInsumo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSearchStock;
+        protected global::System.Web.UI.WebControls.TextBox txtBuscarInsumo;
 
         /// <summary>
         /// Control brnSearchStock.
@@ -33,12 +33,12 @@ namespace MesonURPWEB.paginas
         protected global::System.Web.UI.HtmlControls.HtmlButton brnSearchStock;
 
         /// <summary>
-        /// Control GridViewInsumos.
+        /// Control gvInsumos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewInsumos;
+        protected global::System.Web.UI.WebControls.GridView gvInsumos;
     }
 }

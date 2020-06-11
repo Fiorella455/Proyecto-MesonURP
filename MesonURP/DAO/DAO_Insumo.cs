@@ -19,7 +19,6 @@ namespace DAO
                 DataTable dtable = new DataTable();
                 SqlCommand unComando = new SqlCommand("SP_Listar_Insumo", conexion);
                 unComando.CommandType = CommandType.StoredProcedure;
-
                 SqlDataAdapter data = new SqlDataAdapter(unComando);
                 data.Fill(dtable);
                 return dtable;

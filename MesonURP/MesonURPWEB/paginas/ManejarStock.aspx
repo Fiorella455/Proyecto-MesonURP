@@ -29,8 +29,8 @@
     <script src="../js/jquery-1.10.2.min.js"></script>
     <!--pie-chart--->
     <script src="../js/pie-chart.js"></script>
-</head>
-<body>
+    </head>
+    <body>
     <div class="page-container margin-cont5">
         <!--/content-inner-->
         <div class="left-content">
@@ -96,33 +96,26 @@
                         <div class="search-buttons">
                             <div class="search">
                                 <form runat="server">
-                                    <asp:TextBox id="txtSearchStock" runat="server"  CssClass="form-control1" placeholder="search..."/>
+                                    <asp:TextBox id="txtBuscarInsumo" runat="server"  CssClass="form-control1" placeholder="Buscar Insumo..."/>
                                     <button type="button" id="brnSearchStock" runat="server" onserverclick="brnSearchStock_ServerClick">
-                                        <span class="material-icons">search
-                                        </span>
+                                        <span class="material-icons">search</span>
                                     </button>
-                                                            <div class="panel panel-widget forms-panel">
+                                <div class="panel panel-widget forms-panel">
                                 <div class="form-grids widget-shadow" data-example-id="basic-forms">
                                     <div class="form-title color-white">
                                         <h4>Stock Actual</h4>
                                     </div>
                                     <div class="table-wrapper-scroll-y my-custom-scrollbar">
-                                        <asp:GridView ID="GridViewInsumos" allowpaging="True" runat="server" emptydatatext="No hay información disponible."  CssClass="table table-bordered table-striped mb-0">
+                                        <asp:GridView ID="gvInsumos" allowpaging="True" AutoGenerateColumns="False" runat="server" emptydatatext="No hay información disponible."  
+                                            CssClass="table table-bordered table-striped mb-0" DataKeyNames="I_NombreInsumo,C_idCategoria,I_CantidadTotal,M_idMedida">
                                             <Columns>
-                                                <asp:TemplateField HeaderText="Insumo">                                           
-                                                   <ItemTemplate></ItemTemplate>
-                                                </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Categoría">
-                                                   <ItemTemplate></ItemTemplate>
-                                                </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Stock">
-                                                    <ItemTemplate></ItemTemplate>
-                                                </asp:TemplateField>
-                                                <asp:TemplateField HeaderText="Unidad">
-                                                    <ItemTemplate></ItemTemplate>
-                                                </asp:TemplateField>            
+                                                <asp:BoundField DataField="I_NombreInsumo" HeaderText="Insumo" />
+                                                <asp:BoundField DataField="C_idCategoria" HeaderText="Categoria" />
+                                                <asp:BoundField DataField="I_CantidadTotal" HeaderText="Stock" />
+                                                <asp:BoundField DataField="M_idMedida" HeaderText="Unidad" />       
                                             </Columns>
                                         </asp:GridView>
+                                        </div>
                                     </div>
                                 </div>
                              </form>
@@ -182,7 +175,7 @@
             </div>
             <div class="footer">
                 <div class="clearfix"></div>
-                <p>© 2020 MesónURP  | <a href="http://www.urp.edu.pe//">Universidad Ricardo Palma</a></p>
+                <p>© 2020 MesónURP  | <a target="_blank" href="http://www.urp.edu.pe//">Universidad Ricardo Palma</a></p>
             </div>
         </div>
     </div>
