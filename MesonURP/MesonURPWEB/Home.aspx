@@ -55,7 +55,7 @@
 
         <nav class="navigation__nav">
             <ul class="navigation__list">
-                <li class="navigation__item"><a href="#" class="navigation__link"><span>01</span>About Natous</a></li>
+                <li class="navigation__item"><a href="#" class="navigation__link"><span>01</span>Iniciar Sesión</a></li>
                 <li class="navigation__item"><a href="#" class="navigation__link"><span>02</span>Your benfits</a></li>
                 <li class="navigation__item"><a href="#" class="navigation__link"><span>03</span>Popular tours</a></li>
                 <li class="navigation__item"><a href="#" class="navigation__link"><span>04</span>Stories</a></li>
@@ -119,13 +119,49 @@
     </div>
 
     <div class="story__content">
-        <h3 class="heading-3 mb-sm">Happy Customers</h3>
-        <h2 class="heading-2 heading-2--dark mb-md">&ldquo;The best decision of our lives&rdquo;</h2>
-        <p class="story__text">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur distinctio necessitatibus pariatur voluptatibus. Quidem consequatur harum volupta!
-        </p>
-        <button class="btn">Find your own home</button>
+        <div class="account-container">
+
+        <div class="content clearfix">
+
+            <form id="form1" runat="server">
+
+                <h1>Bienvenido</h1>
+
+                <div class="login-fields">
+
+                    <p><asp:Label ID="lblMensaje" runat="server" Text="" ForeColor="#CC0000"></asp:Label></p>
+                    <div class="content"> <asp:Label ID="lblMensajeAyuda" runat="server" Text=""></asp:Label> </div>
+
+                    <div class="field">
+                        <label for="correo">Correo</label>
+                        <input type="text" id="correo" name="correo" value="" placeholder="Correo" class="login username-field" runat="server"/>
+                        <%--<asp:RegularExpressionValidator ID="RevCorreo" runat="server" ErrorMessage="Por favor ingrese su correo" ControlToValidate="correo" ForeColor="#CC0000" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" SetFocusOnError="True" Display="Dynamic"></asp:RegularExpressionValidator>--%>
+                    </div>
+                    <!-- /field -->
+
+                    <div class="field">
+                        <label for="contraseña">Contraseña:</label>
+                        <input type="password" id="contraseña" name="contraseña" value="" placeholder="Contraseña" class="login password-field" runat="server"/>
+                      <%--  <asp:RegularExpressionValidator ID="revContraseña" runat="server" ErrorMessage="Por favor ingrese solo letras o números" ControlToValidate="contraseña" ForeColor="#CC0000" ValidationExpression="([a-zA-Z0-9]{1,})" SetFocusOnError="True"></asp:RegularExpressionValidator>--%>
+                    </div>
+                    <!-- /password -->
+
+                </div>
+                <!-- /login-fields -->
+
+                <div class="login-actions">
+
+                    <asp:Button ID="btnLogin" class="button btn btn-success btn-large" runat="server" Text="Ingresar" OnClick="goToLogin" />
+                    
+                </div>
+                <!-- .actions -->
+            </form>
+
+        </div>
     </div>
+</div>
+        <!-- /content -->
+
 
     <!--   <section class="homes">
             <div class="home">
