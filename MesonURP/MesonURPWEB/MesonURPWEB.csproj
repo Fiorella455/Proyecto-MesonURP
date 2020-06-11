@@ -230,13 +230,13 @@
     <Content Include="img\text.txt" />
     <Content Include="img\UNIVERSIDAD-RICARDO-PALMA-18.jpg" />
     <Content Include="index.html" />
-    <Content Include="js1\bootstrap.js" />
+    <Content Include="bootstrap.js" />
     <Content Include="js1\jquery-1.7.2.min.js" />
     <Content Include="js1\signin.js" />
     <Content Include="paginas\AgregandoRecurso.aspx" />
     <Content Include="paginas\Home.aspx" />
-    <Content Include="paginas\index.aspx" />
-    <Content Include="paginas\Login.aspx" />
+    <Content Include="index.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -264,18 +264,18 @@
     <Compile Include="paginas\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="paginas\index.aspx.cs">
+    <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="paginas\index.aspx.designer.cs">
+    <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="paginas\Login.aspx.cs">
+    <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="paginas\Login.aspx.designer.cs">
+    <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
