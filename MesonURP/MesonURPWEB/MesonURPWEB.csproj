@@ -1,4 +1,5 @@
-﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿  
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -186,14 +187,28 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\bootstrap-responsive.min.css" />
+    <Content Include="ActualizarOC.aspx" />
+    <Content Include="AñadirOC.aspx" />
+    <Content Include="ConsultarOC.aspx" />
+    <Content Include="css\atlas.css" />
     <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\clndr.css" />
+    <Content Include="css\fabochart.css" />
+    <Content Include="css\flexslider.css" />
     <Content Include="css\font-awesome.css" />
-    <Content Include="css\pages\signin.css" />
-    <Content Include="css\style.css" />
+    <Content Include="css\graph.css" />
+    <Content Include="css\Home.css" />
+    <Content Include="css\icon-font.min.css" />
+    <Content Include="css\manejarStock.css" />
+    <Content Include="css\owl.carousel.css" />
     <Content Include="css\style1.css" />
+    <Content Include="Dashboard.aspx" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="GestionarOC.aspx" />
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
+    <Content Include="Home.aspx" />
     <Content Include="img\back.jpg" />
     <Content Include="img\favicon.png" />
     <Content Include="img\gal-1.jpeg" />
@@ -220,7 +235,25 @@
     <Content Include="img\logo-bi.png" />
     <Content Include="img\logo-forbes.png" />
     <Content Include="img\logo-techcrunch.png" />
+    <Content Include="img\meson-1.PNG" />
+    <Content Include="img\meson-10.png" />
+    <Content Include="img\meson-11.png" />
+    <Content Include="img\meson-12.png" />
+    <Content Include="img\meson-13.png" />
+    <Content Include="img\meson-14.png" />
+    <Content Include="img\meson-15.png" />
+    <Content Include="img\meson-16.png" />
+    <Content Include="img\meson-17.png" />
+    <Content Include="img\meson-2.PNG" />
+    <Content Include="img\meson-3.PNG" />
+    <Content Include="img\meson-4.PNG" />
+    <Content Include="img\meson-5.png" />
+    <Content Include="img\meson-6.png" />
+    <Content Include="img\meson-7.png" />
+    <Content Include="img\meson-8.png" />
+    <Content Include="img\meson-9.png" />
     <Content Include="img\MesonURP_logofinal.png" />
+    <Content Include="img\MesonURP_logofinal2.png" />
     <Content Include="img\realtor-1.jpeg" />
     <Content Include="img\realtor-2.jpeg" />
     <Content Include="img\realtor-3.jpeg" />
@@ -228,18 +261,117 @@
     <Content Include="img\story-1.jpeg" />
     <Content Include="img\story-2.jpeg" />
     <Content Include="img\text.txt" />
+    <Content Include="img\univ-1.png" />
+    <Content Include="img\univ-2.png" />
     <Content Include="img\UNIVERSIDAD-RICARDO-PALMA-18.jpg" />
     <Content Include="index.html" />
+    <Content Include="js\amcharts.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\cbpFWTabs.js" />
+    <Content Include="js\Chart.js" />
+    <Content Include="js\clndr.js" />
+    <Content Include="js\imagezoom.js" />
+    <Content Include="js\jquery-1.10.2.min.js" />
+    <Content Include="js\jquery.flexslider.js" />
+    <Content Include="js\jquery.flot.js" />
+    <Content Include="js\jquery.fn.gantt.js" />
+    <Content Include="js\jquery.nicescroll.js" />
+    <Content Include="js\light.js" />
+    <Content Include="js\menu_jquery.js" />
+    <Content Include="js\moment-2.2.1.js" />
+    <Content Include="js\owl.carousel.js" />
+    <Content Include="js\pie-chart.js" />
+    <Content Include="js\scripts.js" />
+    <Content Include="js\serial.js" />
+    <Content Include="js\simpleCart.min.js" />
+    <Content Include="js\site.js" />
+    <Content Include="js\underscore-min.js" />
+    <Content Include="ManejarStock.aspx" />
+    <Content Include="RegistrarEgreso.aspx" />
+    <Content Include="RegistrarIngreso.aspx" />
     <Content Include="bootstrap.js" />
     <Content Include="js1\jquery-1.7.2.min.js" />
     <Content Include="js1\signin.js" />
     <Content Include="paginas\AgregandoRecurso.aspx" />
-    <Content Include="paginas\Home.aspx" />
     <Content Include="index.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActualizarOC.aspx.cs">
+      <DependentUpon>ActualizarOC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ActualizarOC.aspx.designer.cs">
+      <DependentUpon>ActualizarOC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AñadirOC.aspx.cs">
+      <DependentUpon>AñadirOC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AñadirOC.aspx.designer.cs">
+      <DependentUpon>AñadirOC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarOC.aspx.cs">
+      <DependentUpon>ConsultarOC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarOC.aspx.designer.cs">
+      <DependentUpon>ConsultarOC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionarOC.aspx.cs">
+      <DependentUpon>GestionarOC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionarOC.aspx.designer.cs">
+      <DependentUpon>GestionarOC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManejarStock.aspx.cs">
+      <DependentUpon>ManejarStock.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManejarStock.aspx.designer.cs">
+      <DependentUpon>ManejarStock.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master.Master.cs">
+      <DependentUpon>Master.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master.Master.designer.cs">
+      <DependentUpon>Master.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistrarEgreso.aspx.cs">
+      <DependentUpon>RegistrarEgreso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarEgreso.aspx.designer.cs">
+      <DependentUpon>RegistrarEgreso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarIngreso.aspx.cs">
+      <DependentUpon>RegistrarIngreso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarIngreso.aspx.designer.cs">
+      <DependentUpon>RegistrarIngreso.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -282,6 +414,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Master.Master" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -304,9 +444,7 @@
       <Name>DTO</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="js\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
