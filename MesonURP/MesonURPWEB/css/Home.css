@@ -2946,10 +2946,10 @@ span.brand {
 .my-div {
 	padding: 10px;
 }
-.input-info h3,.map-info h3{
-	color:#B52E31;
-    font-size: 1.5em;
-    margin-bottom: 15px;
+.input-info h3, .map-info h3 {
+	color: #A77F5D;
+	font-size: 1.5em;
+	margin-bottom: 30px;
 }
 .my-div label{
 	color: #AFAFAF;

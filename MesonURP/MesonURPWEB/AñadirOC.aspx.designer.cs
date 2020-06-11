@@ -51,15 +51,6 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.DropDownList selectEstadoAñadirOC;
 
         /// <summary>
-        /// Control selectFormaPagoOC.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList selectFormaPagoOC;
-
-        /// <summary>
         /// Control selectProveedorOC.
         /// </summary>
         /// <remarks>
@@ -67,6 +58,15 @@ namespace MesonURPWEB
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList selectProveedorOC;
+
+        /// <summary>
+        /// Control selectFormaPagoOC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList selectFormaPagoOC;
 
         /// <summary>
         /// Control GridViewAñadirOC.

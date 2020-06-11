@@ -14,7 +14,9 @@
             <h3 class="title1"></h3>
             <div class="form-three widget-shadow">
                 <div class="form-horizontal" runat="server">
-
+                    <div class="input-info">
+						<h3>Detalles de Compra</h3>
+					</div>
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">N° Orden</label>
                         <div class="col-sm-8">
@@ -40,18 +42,61 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="selector1" class="col-sm-2 control-label">Forma de Pago</label>
-                        <div class="col-sm-8">
-                            <asp:DropDownList ID="selectFormaPagoOC" runat="server" CssClass="form-control1" AutoPostBack="true"></asp:DropDownList>
-                        </div>
-                    </div>
-                    <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Proveedor</label>
                         <div class="col-sm-8">
                             <asp:DropDownList ID="selectProveedorOC" runat="server" CssClass="form-control1" AutoPostBack="true" OnSelectedIndexChanged="selectProveedorOC_SelectedIndexChanged">
                             </asp:DropDownList>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label for="selector1" class="col-sm-2 control-label">Forma de Pago</label>
+                        <div class="col-sm-8">
+                            <asp:DropDownList ID="selectFormaPagoOC" runat="server" CssClass="form-control1" AutoPostBack="true"></asp:DropDownList>
+                        </div>
+                    </div>
+                       <div class="form-group">
+                        <label for="selector1" class="col-sm-2 control-label">Fecha de Pago</label>
+                        <div class="col-sm-8">
+                            <asp:DropDownList runat="server" CssClass="form-control1" AutoPostBack="true"></asp:DropDownList>
+                        </div>
+                    </div>
+                      <div class="input-info">
+						<h3>Detalles de Compra</h3>
+					</div>
+                    <div class="form-group">
+                        <label for="selector1" class="col-sm-2 control-label">Categoría</label>
+                        <div class="col-sm-8">
+                            <asp:DropDownList disabled runat="server" CssClass="form-control1"></asp:DropDownList>
+                        </div>
+                    </div>
+                      <div class="form-group">
+                        <label for="selector1" class="col-sm-2 control-label">Insumo</label>
+                        <div class="col-sm-8">
+                            <asp:DropDownList disabled runat="server" CssClass="form-control1"></asp:DropDownList>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="focusedinput" class="col-sm-2 control-label">Cantidad</label>
+                        <div class="col-sm-8">
+                            <asp:TextBox runat="server" CssClass="form-control1" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="focusedinput" class="col-sm-2 control-label">Precio Unitario</label>
+                        <div class="col-sm-8">
+                            <asp:TextBox runat="server" CssClass="form-control1" />
+                        </div>
+                    </div>
+                      <div class="form-group">
+                        <label for="selector1" class="col-sm-2 control-label">Unidades</label>
+                        <div class="col-sm-8">
+                            <asp:DropDownList runat="server" CssClass="form-control1"></asp:DropDownList>
+                        </div>
+                    </div>
+                     <p class="center-button">
+                            <asp:Button CssClass="btn btn-primary" runat="server" Text="Añadir" />
+                            <asp:Button CssClass="btn btn-primary" runat="server" Text="Quitar" />
+                        </p>
 
                     <div class="panel panel-widget forms-panel">
                         <div class="form-grids widget-shadow" data-example-id="basic-forms">
@@ -61,19 +106,13 @@
                             <div class="table-wrapper-scroll-y my-custom-scrollbar">
                                 <asp:GridView ID="GridViewAñadirOC" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible."
                                     CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None">
-                                    <HeaderStyle BackColor="#A77F5D" Font-Bold="True" ForeColor="#000000"></HeaderStyle>
-                                    <PagerStyle HorizontalAlign="Center" BackColor="#A77F5D" ForeColor="#333333"></PagerStyle>
-                                    <RowStyle HorizontalAlign="center" CssClass="table table-striped table-bordered" BackColor="#FAFAFA" ForeColor="#333333" />
-                                    <SelectedRowStyle BackColor="#A77F5D" Font-Bold="True" ForeColor="Navy"></SelectedRowStyle>
-                                    <SortedAscendingCellStyle BackColor="#214E3F"></SortedAscendingCellStyle>
-                                    <SortedAscendingHeaderStyle BackColor="#A77F5D"></SortedAscendingHeaderStyle>
-                                    <SortedDescendingCellStyle BackColor="#214E3F"></SortedDescendingCellStyle>
-                                    <SortedDescendingHeaderStyle BackColor="#A77F5D"></SortedDescendingHeaderStyle>
+                                  
                                     <Columns>
+                                        <asp:BoundField HeaderText="Descripción del Insumo" />
                                         <asp:BoundField HeaderText="Cantidad" />
-                                        <asp:BoundField HeaderText="Descripción" />
                                         <asp:BoundField HeaderText="Unidad" />
                                         <asp:BoundField HeaderText="Costo Unitario" />
+                                        <asp:BoundField HeaderText="Total" />
                                     </Columns>
                                 </asp:GridView>
                             </div>

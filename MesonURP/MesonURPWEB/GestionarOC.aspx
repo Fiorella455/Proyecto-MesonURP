@@ -9,7 +9,7 @@
                             <h2 class="tittle-margin5">Gestionar Orden de Compra</h2>
                             <div class="stock-options">
                                 <div class="width-auto margin-5">
-                                     <input type="button" class="btn-new btn-fifth" value="Agregar Nueva Orden de Compra" onclick="window.location.href = 'AñadirOC.aspx';"> 
+                                     <input type="button" class="btn-new btn-fifth" value="Agregar Nueva Orden de Compra" onclick="window.location.href = 'AñadirOC';"> 
                                 </div>
                             </div>
                         </div>
@@ -29,14 +29,7 @@
                                     <div class="table-wrapper-scroll-y my-custom-scrollbar">
                                          <asp:GridView ID="GridViewOC" allowpaging="True" runat="server" emptydatatext="No hay información disponible."  
                                                       CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None">
-                                            <HeaderStyle BackColor="#A77F5D" Font-Bold="True" ForeColor="#000000"></HeaderStyle>
-                                            <PagerStyle HorizontalAlign="Center" BackColor="#A77F5D" ForeColor="#333333"></PagerStyle>
-                                            <RowStyle HorizontalAlign="center" CssClass="table table-striped table-bordered" BackColor="#FAFAFA" ForeColor="#333333" />
-                                            <SelectedRowStyle BackColor="#A77F5D" Font-Bold="True" ForeColor="Navy"></SelectedRowStyle>
-                                            <SortedAscendingCellStyle BackColor="#214E3F"></SortedAscendingCellStyle>
-                                            <SortedAscendingHeaderStyle BackColor="#A77F5D"></SortedAscendingHeaderStyle>
-                                            <SortedDescendingCellStyle BackColor="#214E3F"></SortedDescendingCellStyle>
-                                            <SortedDescendingHeaderStyle BackColor="#A77F5D"></SortedDescendingHeaderStyle>
+                                            
                                             <Columns>
                                                    <asp:BoundField HeaderText="ID Compra" />
                                                    <asp:BoundField HeaderText="Tipo de Comprobante" />
