@@ -120,34 +120,38 @@
     <div class="sidebar-menu">
         <header class="logo1">
             <a href="#" class="sidebar-icon"><span class="fa fa-bars"></span></a>
+             <h2>
+            <asp:Label ID="lblNombre" runat="server" Text="Label" Visible="True" ForeColor="#696969"></asp:Label>
+            <asp:Label ID="lblApellido" runat="server" Text="Label" Visible="True" ForeColor="#696969"></asp:Label>
+             </h2>
         </header>
         <div style="border-top: 1px ridge rgba(255, 255, 255, 0.15)"></div>
         <div class="menu">
             <ul id="menu">
                 <li><a href="Dashboard.aspx"><i class="fa fa-tachometer"></i><span>Inicio</span></a></li>
-                <li id="menu-oc"><a href="#"><i class="fa fa-table"></i><span>Orden de Compra</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+                <li id="li1" class="mdl-navigation__link" runat="server"><a href="#"><i class="fa fa-table"></i><span>Orden de Compra</span> <span class="fa fa-angle-right" style="float: right"></span></a>
                     <ul id="menu-oc-sub">
                         <li id="menu-oc-gestion"><a href="GestionarOC.aspx">Gestionar Orden de Compra</a></li>
                         <li id="menu-oc-consulta"><a href="consultarCompras.aspx">Consultar Compras</a></li>
                     </ul>
                 </li>
-                <li id="menu-proveedor"><a href="gestionarProveedor.aspx"><i class="fa fa-file-text-o"></i><span>Gestionar Proveedor</span></a></li>
-                <li><a href="gestionarDevoluciones.aspx"><i class="lnr lnr-pencil"></i><span>Gestionar Devolución</span></a></li>
-                <li id="menu-stock"><a href="#"><i class="fa fa-table"></i><span>Stock</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+                <li id="li2" class="mdl-navigation__link" runat="server"><a href="gestionarProveedor.aspx"><i class="fa fa-file-text-o"></i><span>Gestionar Proveedor</span></a></li>
+                <li id="li3" class="mdl-navigation__link" runat="server"><a href="gestionarDevoluciones.aspx"><i class="lnr lnr-pencil"></i><span>Gestionar Devolución</span></a></li>
+                <li id="li4" class="mdl-navigation__link" runat="server"><a href="#"><i class="fa fa-table"></i><span>Stock</span> <span class="fa fa-angle-right" style="float: right"></span></a>
                     <ul id="menu-stock-sub">
                         <li id="menu-stock-manejo"><a href="ManejarStock.aspx">Manejar Stock</a></li>
                         <li id="menu-stock-movimientos"><a href="consultarMovimientos.aspx">Consultar Movimientos</a></li>
                     </ul>
                 </li>
-                <li id="menu-recursos"><a href="administrarRecursos.aspx"><i class="lnr lnr-book"></i><span>Administrar Recursos</span></a></li>
-                <li id="menu-reportes"><a href="#"><i class="fa fa-table"></i><span>Reportes</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+                <li id="li5" class="mdl-navigation__link" runat="server"><a href="administrarRecursos.aspx"><i class="lnr lnr-book"></i><span>Administrar Recursos</span></a></li>
+                <li id="li6" class="mdl-navigation__link" runat="server"><a href="#"><i class="fa fa-table"></i><span>Reportes</span> <span class="fa fa-angle-right" style="float: right"></span></a>
                     <ul id="menu-academico-sub">
                         <li id="menu-reportes-compras"><a href="reporteMovimientos.aspx">Generar Reporte de Compras</a></li>
                         <li id="menu-reportes-movimientos"><a href="reporteCompras.aspx">Generar Reporte de Movimientos</a></li>
                     </ul>
                 </li>
-                <li><a href="gestionarCategoria.aspx"><i class="lnr lnr-chart-bars"></i><span>Gestionar Categoría</span></a></li>
-                <li><a href="gestionarUsuarios.aspx"><i class="lnr lnr-chart-bars"></i><span>Gestionar Usuarios</span></a></li>
+                <li id="li7" class="mdl-navigation__link" runat="server"><a href="gestionarCategoria.aspx"><i class="lnr lnr-chart-bars"></i><span>Gestionar Categoría</span></a></li>
+                <li id="li8" class="mdl-navigation__link" runat="server"><a href="gestionarUsuarios.aspx"><i class="lnr lnr-chart-bars"></i><span>Gestionar Usuarios</span></a></li>
             </ul>
         </div>
     </div>
