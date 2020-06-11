@@ -151,7 +151,7 @@
 
                 <div class="login-actions">
 
-                    <asp:Button ID="btnLogin" class="button btn btn-success btn-large" runat="server" Text="Ingresar" OnClick="goToLogin" />
+                    <asp:Button ID="btnLogin" class="button btn btn-success btn-large" runat="server" Text="Ingresar"/>
                     
                 </div>
                 <!-- .actions -->
