@@ -7,56 +7,38 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace MesonURPWEB.paginas
+namespace MesonURPWEB
 {
 
 
-    public partial class RegistrarEgreso
+    public partial class ManejarStock
     {
 
         /// <summary>
-        /// Control selectInsumo1.
+        /// Control txtSearchStock.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList selectInsumo1;
+        protected global::System.Web.UI.WebControls.TextBox txtSearchStock;
 
         /// <summary>
-        /// Control txtFecha.
+        /// Control brnSearchStock.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFecha;
+        protected global::System.Web.UI.HtmlControls.HtmlButton brnSearchStock;
 
         /// <summary>
-        /// Control txtCantidad.
+        /// Control GridViewInsumos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCantidad;
-
-        /// <summary>
-        /// Control txtUnidadMedida.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUnidadMedida;
-
-        /// <summary>
-        /// Control btnEgresar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnEgresar;
+        protected global::System.Web.UI.WebControls.GridView GridViewInsumos;
     }
 }

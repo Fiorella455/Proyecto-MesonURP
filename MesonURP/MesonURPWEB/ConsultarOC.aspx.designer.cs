@@ -7,11 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace MesonURPWEB.paginas
+namespace MesonURPWEB
 {
 
 
-    public partial class Dashboard
+    public partial class ConsultarOC
     {
     }
 }

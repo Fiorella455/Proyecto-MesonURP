@@ -7,38 +7,56 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace MesonURPWEB.paginas
+namespace MesonURPWEB
 {
 
 
-    public partial class ManejarStock
+    public partial class RegistrarIngreso
     {
 
         /// <summary>
-        /// Control txtSearchStock.
+        /// Control selectInsumo2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSearchStock;
+        protected global::System.Web.UI.WebControls.DropDownList selectInsumo2;
 
         /// <summary>
-        /// Control brnSearchStock.
+        /// Control txtFecha2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton brnSearchStock;
+        protected global::System.Web.UI.WebControls.TextBox txtFecha2;
 
         /// <summary>
-        /// Control GridViewInsumos.
+        /// Control txtCantidad2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewInsumos;
+        protected global::System.Web.UI.WebControls.TextBox txtCantidad2;
+
+        /// <summary>
+        /// Control txtUnidadMedida2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUnidadMedida2;
+
+        /// <summary>
+        /// Control btnIngresar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnIngresar;
     }
 }

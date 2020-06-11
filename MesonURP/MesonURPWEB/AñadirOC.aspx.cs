@@ -5,21 +5,21 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace MesonURPWEB.paginas
+namespace MesonURPWEB
 {
-    public partial class RegistrarIngreso : System.Web.UI.Page
+    public partial class AñadirOC : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        protected void btnIngresar_ServerClick(object sender, EventArgs e)
+        protected void btnAñadirOC_Click(object sender, EventArgs e)
         {
 
         }
 
-        protected void selectInsumo2_SelectedIndexChanged(object sender, EventArgs e)
+        protected void selectEstadoAñadirOC_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

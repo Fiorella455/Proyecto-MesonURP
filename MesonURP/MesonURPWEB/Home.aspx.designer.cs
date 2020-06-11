@@ -7,9 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace MesonURPWEB.paginas {
-    
-    
-    public partial class Home {
+namespace MesonURPWEB
+{
+
+
+    public partial class Home
+    {
     }
 }
