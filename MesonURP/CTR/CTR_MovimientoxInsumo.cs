@@ -17,13 +17,15 @@ namespace CTR
         }
         public void RegistrarMovimientoxInsumo(DTO_MovimientoxInsumo objDto)
         {
-            //Registro de Movimiento, estado = 99
             objDAO.RegistarMovimientoxInsumo(objDto);
-            objDto.Estado = 99;
         }
         public DataTable BuscarUnidad(int idInsumo)
         {
             return objDAO.SelectUnidad(idInsumo);
+        }
+        public DataSet CargarInsumoEgreso()
+        {
+            return objDAO.CargarInsumoEgreso();
         }
     }
 }

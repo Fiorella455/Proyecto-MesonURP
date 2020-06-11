@@ -15,16 +15,9 @@ namespace CTR
         {
             objMov = new DAO_Movimiento();
         }
-        public void RegistrarMovimiento(DTO_Movimiento objDto) {
+        public DataTable RegistrarMovimiento(DTO_Movimiento objDto) {
             
-            //Registro de Movimiento, estado = 99
-            objMov.RegistrarMovimiento(objDto);
-            objDto.Estado = 99;
-
-        }
-        public DataSet CargarInsumoEgreso()
-        {
-            return objMov.CargarInsumoEgreso();
+            return objMov.RegistrarMovimiento(objDto);
         }
     }
 }

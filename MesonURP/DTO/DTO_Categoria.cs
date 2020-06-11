@@ -8,8 +8,6 @@ namespace DTO
     {
         private int idCategoria;
         private string nombreCategoria;
-        private string descripcion;
-        private int estado;
 
         public int IdCategoria {
             get { 
@@ -26,16 +24,6 @@ namespace DTO
             set { 
                 nombreCategoria = value; 
             } 
-        }
-        public int Estado { 
-            get
-            {
-                return estado;
-            }
-            set
-            { 
-                estado = value; 
-            }
         }
     }
 }

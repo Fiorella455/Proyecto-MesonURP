@@ -23,8 +23,5 @@ namespace DAO
 
             return ds;
         }
-        public void CargarCategoria() { 
-
-    }
     }
 }

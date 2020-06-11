@@ -8,9 +8,9 @@ namespace DTO
     {  
         private int idInsumo;
         private int idMovimiento;
+        private string usuarioMovimiento;
         private DateTime fechaMovimiento;
-        private int cantidad;
-        private int estado;
+        private decimal cantidad;
 
         public int IdInsumo
         {
@@ -34,18 +34,7 @@ namespace DTO
                 idMovimiento = value;
             }
         }
-
-        public int Estado {
-            get
-            {
-                return estado;
-            }
-            set 
-            { 
-                estado = value; 
-            }
-        }
-        public int Cantidad
+        public decimal Cantidad
         {
             get
             {
@@ -56,7 +45,17 @@ namespace DTO
                 cantidad = value;
             }
         }
-
+        public string UsuarioMovimiento
+        {
+            get
+            {
+                return usuarioMovimiento;
+            }
+            set
+            {
+                usuarioMovimiento = value;
+            }
+        }
         public DateTime FechaMovimiento
         {
             get

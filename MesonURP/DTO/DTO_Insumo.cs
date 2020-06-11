@@ -8,9 +8,8 @@ namespace DTO
     {
         private string nombreInsumo;
         private int idCategoria;
-        private int cantidadTotal;
+        private decimal cantidadTotal;
         private string medida;
-        private int estado;
 
         public string NombreInsumo {
             get
@@ -32,7 +31,8 @@ namespace DTO
                 idCategoria = value;
             }
         }
-        public int CantidadTotal{
+        public decimal CantidadTotal
+        {
             get
             {
                 return cantidadTotal;
@@ -50,17 +50,6 @@ namespace DTO
             set
             {
                 medida = value;
-            }
-        }
-        public int Estado
-        {
-            get
-            {
-                return estado;
-            }
-            set
-            {
-                estado = value;
             }
         }
     }
