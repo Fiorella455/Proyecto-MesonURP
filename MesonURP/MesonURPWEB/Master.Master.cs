@@ -52,6 +52,15 @@ namespace MesonURPWEB
                     lblApellido.Text = Convert.ToString(Session["ApellidoUsuario"]);
                 }
 
+                else if (perfil == "Administrador del Sistema")
+                {
+                    string nombre = localarray[0];
+                    //li10.Visible = true;
+                    //li11.Visible = true;
+                    lblNombre.Text = Convert.ToString(Session["NombreUsuario"]);
+                    lblApellido.Text = Convert.ToString(Session["ApellidoUsuario"]);
+                }
+
                 else
                 {
                     Response.Redirect("Login.aspx");

@@ -157,7 +157,7 @@
         <nav class="mdl-navigation">
             <a class="mdl-navigatio_link" runat="server" href="index.aspx" style="display: none;">Inicio</a>
             <a id="li1" class="mdl-navigation_link" runat="server" href="GestionarOC.aspx">Gestionar Orden de Compra</a>
-            <a id="li2" class="mdl-navigation_link" runat="server" href="ConsultarOC.aspx">Gestionar Orden de Compra</a>
+            <a id="li2" class="mdl-navigation_link" runat="server" href="ConsultarOC.aspx">Consultar Orden de Compra</a>
             <a id="li3" class="mdl-navigation_link" runat="server" href="GestionarProveedor">Gestionar Proveedor</a>
             <a id="li4" class="mdl-navigation_link" runat="server" href="GestionarDevolucion">Gestionar Devolución</a>
             <a id="li5" class="mdl-navigation_link" runat="server" href="ManejarStock.aspx">Manejar Stock</a>
