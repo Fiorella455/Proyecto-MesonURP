@@ -9,7 +9,7 @@ namespace DAO
 {
     class DAO_OCxInsumo
     {
-        SqlConnection conexion;
+        SqlConnection conexion = new SqlConnection();
         public void DAO_Registrar_Categoria(DTO_OCxInsumo dto_ocxinsumo)
         {
 
@@ -42,7 +42,7 @@ namespace DAO
                 throw ex;
             }
         }
-        public Data DAO_Leer_OCxInsumo(DTO_OCxInsumo dto_ocxinsumo)
+       /* public Data DAO_Leer_OCxInsumo(DTO_OCxInsumo dto_ocxinsumo)
         {
             
                 conexion.Open();
@@ -71,5 +71,6 @@ namespace DAO
                                          Siglas = (string)fila[2]
                                      }).ToList();
         }
+       */
     }
 }

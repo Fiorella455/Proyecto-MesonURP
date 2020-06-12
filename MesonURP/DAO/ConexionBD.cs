@@ -8,7 +8,7 @@ namespace DAO
         {
             get
             {
-                return "Data Source = IDEA-PC; initial catalog=DB_MesonURP; integrated security=true;";
+                return "Data Source = (Local); initial catalog=DB_MesonURP; integrated security=true;";
             }
         }
     }

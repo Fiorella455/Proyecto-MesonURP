@@ -6,7 +6,7 @@ using DTO;
 
 namespace CTR
 {
-    class CTR_OC
+     public class CTR_OC
     {
 
         DAO_OC dao_oc;
@@ -20,9 +20,9 @@ namespace CTR
 
             dao_oc.DAO_Registrar_OC(dto_oc);
         }
-        public bool DAO_Leer_OC(DTO_OC dto_oc)
+        public bool CTR_Leer_OC(DTO_OC dto_oc)
         {
-            return dao_oc.DAO_Consultar__OC_2(dto_oc);
+            return dao_oc.DAO_Consultar_OC(dto_oc);
         }
     }
 }

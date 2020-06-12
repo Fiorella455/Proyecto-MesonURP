@@ -15,6 +15,8 @@ namespace DTO
         public string P_CorreoContacto { get; set; }
         public int EP_idEstadoProveedor { get; set; }
 
+        public int Estado { get; set; }
+
 
     }   }
    

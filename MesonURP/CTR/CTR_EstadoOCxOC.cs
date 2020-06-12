@@ -14,10 +14,6 @@ namespace CTR
         {
             dao_estadoOCxOC = new DAO_EstadoOCxOC();
         }
-        public void CTR_Registrar_Proveedor(DAO_EstadoOCxOC dto_estadoOCxOC)
-        {
-
-            dao_estadoOCxOC.DAO_Registrar_OC(dto_estadoOCxOC);
-        }
+       
     }
 }

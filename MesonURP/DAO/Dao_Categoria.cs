@@ -8,8 +8,14 @@ namespace DAO
 {
     public class Dao_Categoria
     {
-        SqlConnection conexion;
-        int Estado;
+         SqlConnection conexion;
+
+        public Dao_Categoria()
+        {
+
+            conexion = new SqlConnection(ConexionBD.CadenaConexion); 
+
+        }
         public void DAO_Registrar_Categoria(DTO_Categoria dto_categoria)
         {
             
@@ -22,8 +28,6 @@ namespace DAO
         }
         public DataSet DAO_Leer_Categorias()
         {
-            try
-            {
                 conexion.Open();
                 SqlCommand cmd = new SqlCommand("SP_Consultar_Categoria", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -31,20 +35,9 @@ namespace DAO
                
                 SqlDataAdapter data = new SqlDataAdapter(cmd);
                 DataSet dataset = new DataSet();
-                data.Fill(dataset,"T_Categoria");
+                data.Fill(dataset);
                 return dataset;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
         }
-        
-
-     
-       
-
 
     }
 }

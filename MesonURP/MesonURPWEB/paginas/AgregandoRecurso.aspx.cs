@@ -13,52 +13,65 @@ namespace MesonURPWEB.paginas
 {
     public partial class AgregandoRecurso : System.Web.UI.Page
     {
+       
         CTR_Categoria ctr_categoria;
-        DTO_Categoria dto_categoria;
         DataSet dataset;
+        DTO_OC dto_oc = new DTO_OC();
+        CTR_OC ctr_oc = new CTR_OC();
+        DAO_OC dao_oc = new DAO_OC();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack)
-            {
-
-                CargarCategoria();
-            }
+            if (!IsPostBack) {
+                
+                    ctr_categoria = new CTR_Categoria();
+                    dataset = new DataSet();
+                    dataset = ctr_categoria.CTR_Leer_Categorias();
+                    ddlcategoria.Items.Insert(0, new ListItem("Seleccione Categoria"));
+                    ddlcategoria.DataTextField = "C_NombreCategoria";
+                    ddlcategoria.DataValueField = "C_idCategoria";
+                    ddlcategoria.DataSource = dataset;
+                    ddlcategoria.DataBind();
+                   
+                }
         }
-        public void CargarCategoria()
-        {
-            ctr_categoria = new CTR_Categoria();
-            dataset = new DataSet();
-            dataset = ctr_categoria.CTR_Leer_Categorias();
-            ddlcategoria.DataTextField = "C_NombreCategoria";  
-            ddlcategoria.DataValueField = "C_idCategoria";
-            ddlcategoria.DataSource = dataset;
-            ddlcategoria.DataBind();
 
-            ddlcategoria.Items.Insert(0, new ListItem("Seleccione Categoria"));
+
+        public void Consultar_OC()
+        {
+            dto_oc.OC_idOrdenCompra = int.Parse(txtID.Text);
+            if (ctr_oc.CTR_Leer_OC(dto_oc))
+            {
+                txtTipoComp.Text = dto_oc.OC_TipoComprobante;
+                txtNumeroComp.Text = dto_oc.OC_NumeroComprobante;
+                txtTotal.Text = dto_oc.OC_TotalCompra.ToString();
+                txtFechaEmi.Text = dto_oc.OC_FechaEmision.ToString();
+                txtProveedor.Text = dto_oc.P_idProveedor.ToString();
+            }
+            if (dto_oc.Estado == 100)
+            {
+                //Existe este registro
+            }
+
         }
         protected void btnRegistro_Click(object sender, EventArgs e)
         {
-            Dto_Recurso _DtoR = new Dto_Recurso();
-            Ctr_Recurso _CtrR = new Ctr_Recurso();
-
-            _DtoR.FK_IC_Categoria = 1;
-
-            _DtoR.FK_IM_Medida = 1;
-
-            _DtoR.FK_IER_EstadoRecurso = 1;
-
-            _DtoR.VR_NombreRecurso = txtNombre.Text;
-            _DtoR.DR_CantidadEntrada = Convert.ToDecimal(txtCEntrada.Text);
-            _DtoR.DR_CantidadSalida = Convert.ToDecimal(txtCSalida.Text);
-            _DtoR.DR_CantidadTotal = Convert.ToDecimal(txtCTotal.Text);
-           // _DtoR.DR_FechaIngreso = Convert.ToDateTime(txtFechaIng.Text);
-            _DtoR.DR_FechaSalida = Convert.ToDateTime(txtFechaSal.Text);
-            _DtoR.DR_PrecioUnitario = Convert.ToDecimal(txtPUnitario.Text);
-            _DtoR.DR_StockMaximo = Convert.ToDecimal(txtStockMax.Text);
-
-
-            _CtrR.Ctr_Registrar_Recurso(_DtoR);
+  
+                
+                //int catselect= int.Parse(ddlcategoria.SelectedItem.Value);
+                //Ctr_Recurso ctr_recurso = new Ctr_Recurso();
+                //dataset = new DataSet();
+                //dataset = ctr_recurso.Ctr_Leer_RecursoxCategoria(catselect);
+                //ddlInsumo.DataTextField = "VR_NombreInsumo";
+                //ddlInsumo.DataValueField = "PK_idInsumo";
+                //ddlInsumo.DataSource = dataset;
+                Consultar_OC();
+                
+            
         }
 
+        protected void btnEnviar_Click(object sender, EventArgs e)
+        {
+            txtMsj.Text= dao_oc.EnviarCorreo(int.Parse(txt_idOC.Text));
+        }
     }
 }

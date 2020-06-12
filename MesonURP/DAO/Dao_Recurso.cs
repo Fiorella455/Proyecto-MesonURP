@@ -61,18 +61,6 @@ namespace DAO
                 return dataset;
  
         }
-        public void CargarInsumoxCategoria()
-        {
-            /*
-             * int catselect= ddlcategoria.SelectedItem.Value;
-            CTR_Recurso = new CTR_Recurso();
-            dataset = new DataSet();
-            dataset = CTR_Recurso.CTR_Leer_RecursoxCategoria(catselect);
-            ddlinsumo.DataTextField = "VR_NombreInsumo";
-            ddlinsumo.DataValueField = "PK_idInsumo";
-            ddlinsumo.DataSource = dataset;
-            ddlinsumo.DataBind();
-            */
-        }
+       
     }
 }

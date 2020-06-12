@@ -24,22 +24,22 @@ namespace MesonURPWEB.paginas
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// lblNombre control.
+        /// txt_idOC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNombre;
+        protected global::System.Web.UI.WebControls.TextBox txt_idOC;
 
         /// <summary>
-        /// txtNombre control.
+        /// btnEnviar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombre;
+        protected global::System.Web.UI.WebControls.Button btnEnviar;
 
         /// <summary>
         /// categoria control.
@@ -60,22 +60,22 @@ namespace MesonURPWEB.paginas
         protected global::System.Web.UI.WebControls.DropDownList ddlcategoria;
 
         /// <summary>
-        /// lblFechaSal control.
+        /// lblNombre control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFechaSal;
+        protected global::System.Web.UI.WebControls.Label lblNombre;
 
         /// <summary>
-        /// txtFechaSal control.
+        /// ddlInsumo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaSal;
+        protected global::System.Web.UI.WebControls.DropDownList ddlInsumo;
 
         /// <summary>
         /// lblStockMax control.
@@ -87,13 +87,13 @@ namespace MesonURPWEB.paginas
         protected global::System.Web.UI.WebControls.Label lblStockMax;
 
         /// <summary>
-        /// txtStockMax control.
+        /// txtID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtStockMax;
+        protected global::System.Web.UI.WebControls.TextBox txtID;
 
         /// <summary>
         /// lblStockMin control.
@@ -105,13 +105,13 @@ namespace MesonURPWEB.paginas
         protected global::System.Web.UI.WebControls.Label lblStockMin;
 
         /// <summary>
-        /// txtStockMin control.
+        /// txtTipoComp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtStockMin;
+        protected global::System.Web.UI.WebControls.TextBox txtTipoComp;
 
         /// <summary>
         /// lblPUnitario control.
@@ -123,13 +123,13 @@ namespace MesonURPWEB.paginas
         protected global::System.Web.UI.WebControls.Label lblPUnitario;
 
         /// <summary>
-        /// txtPUnitario control.
+        /// txtNumeroComp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPUnitario;
+        protected global::System.Web.UI.WebControls.TextBox txtNumeroComp;
 
         /// <summary>
         /// lblCEntrada control.
@@ -141,13 +141,13 @@ namespace MesonURPWEB.paginas
         protected global::System.Web.UI.WebControls.Label lblCEntrada;
 
         /// <summary>
-        /// txtCEntrada control.
+        /// txtTotal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCEntrada;
+        protected global::System.Web.UI.WebControls.TextBox txtTotal;
 
         /// <summary>
         /// lblCSalida control.
@@ -159,13 +159,13 @@ namespace MesonURPWEB.paginas
         protected global::System.Web.UI.WebControls.Label lblCSalida;
 
         /// <summary>
-        /// txtCSalida control.
+        /// txtFechaEmi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCSalida;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaEmi;
 
         /// <summary>
         /// lblTotal control.
@@ -177,13 +177,22 @@ namespace MesonURPWEB.paginas
         protected global::System.Web.UI.WebControls.Label lblTotal;
 
         /// <summary>
-        /// txtCTotal control.
+        /// txtProveedor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCTotal;
+        protected global::System.Web.UI.WebControls.TextBox txtProveedor;
+
+        /// <summary>
+        /// txtMsj control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMsj;
 
         /// <summary>
         /// btnRegistro control.
