@@ -66,7 +66,7 @@ namespace MesonURPWEB
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li1;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor li1;
 
         /// <summary>
         /// Control li2.
@@ -75,7 +75,7 @@ namespace MesonURPWEB
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li2;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor li2;
 
         /// <summary>
         /// Control li3.
@@ -84,7 +84,7 @@ namespace MesonURPWEB
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li3;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor li3;
 
         /// <summary>
         /// Control li4.
@@ -93,7 +93,7 @@ namespace MesonURPWEB
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li4;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor li4;
 
         /// <summary>
         /// Control li5.
@@ -102,7 +102,7 @@ namespace MesonURPWEB
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li5;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor li5;
 
         /// <summary>
         /// Control li6.
@@ -111,7 +111,7 @@ namespace MesonURPWEB
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li6;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor li6;
 
         /// <summary>
         /// Control li7.
@@ -120,7 +120,7 @@ namespace MesonURPWEB
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li7;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor li7;
 
         /// <summary>
         /// Control li8.
@@ -129,6 +129,15 @@ namespace MesonURPWEB
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li8;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor li8;
+
+        /// <summary>
+        /// Control li9.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor li9;
     }
 }
