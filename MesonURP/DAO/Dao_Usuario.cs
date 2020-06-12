@@ -87,7 +87,28 @@ namespace DAO
                 throw ex;
             }
         }
+        public void getNomApellUsuario(Dto_Usuario objUsuario)
+        {
+            try
+            {
+                conexion.Open();
+                SqlCommand _Com = new SqlCommand("SP_Select_NomApell_Usuario", conexion);
+                _Com.CommandType = CommandType.StoredProcedure;
+                _Com.Parameters.Add(new SqlParameter("@usuario", objUsuario.U_idUsuario));
+                SqlDataReader reader = _Com.ExecuteReader();
 
+                if (reader.Read())
+                {
+                    objUsuario.U_Nombre = reader.GetString(0);
+                    objUsuario.U_APaterno = reader.GetString(1);
+                }
+                conexion.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
 
