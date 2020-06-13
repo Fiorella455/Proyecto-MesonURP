@@ -107,12 +107,13 @@
                                     </div>
                                     <div class="table-wrapper-scroll-y my-custom-scrollbar">
                                         <asp:GridView ID="gvInsumos" allowpaging="True" AutoGenerateColumns="False" runat="server" emptydatatext="No hay información disponible."  
-                                            CssClass="table table-bordered table-striped mb-0" DataKeyNames="I_NombreInsumo,C_idCategoria,I_CantidadTotal,M_idMedida">
+                                            CssClass="table table-bordered table-striped mb-0" DataKeyNames="I_NombreInsumo,C_NombreCategoria,I_CantidadTotal,M_NombreMedida" 
+                                            OnPageIndexChanging="gvInsumos_PageIndexChanging" PageSize="3">
                                             <Columns>
                                                 <asp:BoundField DataField="I_NombreInsumo" HeaderText="Insumo" />
-                                                <asp:BoundField DataField="C_idCategoria" HeaderText="Categoria" />
+                                                <asp:BoundField DataField="C_NombreCategoria" HeaderText="Categoria" />
                                                 <asp:BoundField DataField="I_CantidadTotal" HeaderText="Stock" />
-                                                <asp:BoundField DataField="M_idMedida" HeaderText="Unidad" />       
+                                                <asp:BoundField DataField="M_NombreMedida" HeaderText="Unidad de Medida" />       
                                             </Columns>
                                         </asp:GridView>
                                         </div>

@@ -7,6 +7,7 @@ namespace DTO
    public class DTO_Insumo
     {
         private string nombreInsumo;
+        private int idInsumo;
         private int idCategoria;
         private decimal cantidadTotal;
         private string medida;
@@ -21,6 +22,19 @@ namespace DTO
                 nombreInsumo = value;
             }
         }
+
+        public int IdInsumo
+        {
+            get
+            {
+                return idInsumo;
+            }
+            set
+            {
+                idInsumo = value;
+            }
+        }
+
         public int Idcategoria {
             get
             {

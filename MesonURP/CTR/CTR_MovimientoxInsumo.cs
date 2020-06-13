@@ -19,13 +19,18 @@ namespace CTR
         {
             objDAO.RegistarMovimientoxInsumo(objDto);
         }
-        public DataTable BuscarUnidad(int idInsumo)
+        public DataSet BuscarUnidad(int idInsumo)
         {
-            return objDAO.SelectUnidad(idInsumo);
+            return objDAO.SelectMedida(idInsumo);
         }
         public DataSet CargarInsumoEgreso()
         {
             return objDAO.CargarInsumoEgreso();
         }
+        public DataSet CargarInsumoIngreso()
+        {
+            return objDAO.CargarInsumoIngreso();
+        }
+        
     }
 }

@@ -34,7 +34,8 @@ namespace DAO
             {
                 SqlDataAdapter unComando = new SqlDataAdapter("SP_Buscar_Insumo", conexion);
                 unComando.SelectCommand.CommandType = CommandType.StoredProcedure;
-                unComando.SelectCommand.Parameters.AddWithValue("@I_NombreInsumo", nombreInsumo);
+                //unComando.SelectCommand.Parameters.AddWithValue("@I_NombreInsumo", nombreInsumo);
+                unComando.SelectCommand.Parameters.AddWithValue("@nombreInsumo", nombreInsumo);
                 DataSet dSet = new DataSet();
                 unComando.Fill(dSet);
                 return dSet.Tables[0];

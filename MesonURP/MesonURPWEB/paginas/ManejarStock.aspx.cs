@@ -22,27 +22,36 @@ namespace MesonURPWEB.paginas
 
         protected void brnSearchStock_ServerClick(object sender, EventArgs e)
         {
+
             try
             {
-                if(txtBuscarInsumo.Text != "")
+                if (txtBuscarInsumo.Text != "")
                 {
                     gvInsumos.DataSource = _CI.BuscarInsumo(txtBuscarInsumo.Text);
                     gvInsumos.DataBind();
                 }
-                
             }
             catch(Exception ex)
             {
-                //MessageBox.Show(ex+""+"Ingrese un insumo", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                //ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('Ocurrio error');", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('Ingrese un insumo para la busqueda');", true);
+                
             }
-            
+
+            /*gvInsumos.DataSource = _CI.BuscarInsumo(txtBuscarInsumo.Text);
+            gvInsumos.DataBind();*/
+
+
         }
         public void CargarStockInsumo()
         {
             gvInsumos.DataSource = _CI.ListarInsumo();
             gvInsumos.DataBind();
             
+        }
+        protected void gvInsumos_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvInsumos.PageIndex = e.NewPageIndex;
+            CargarStockInsumo();
         }
     }
 }

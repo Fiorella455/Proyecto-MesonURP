@@ -34,7 +34,7 @@ namespace DAO
                 throw ex;
             }
         }
-        public DataTable SelectMedida(int idInsumo)
+        public DataSet SelectMedida(int idInsumo)
         {
             try
             {
@@ -43,7 +43,8 @@ namespace DAO
                 unComando.SelectCommand.Parameters.AddWithValue("@I_idInsumo", idInsumo);
                 DataSet dSet = new DataSet();
                 unComando.Fill(dSet);
-                return dSet.Tables[0];
+               return dSet;
+               //return dSet.Tables[0];
             }
             catch (Exception ex)
             {

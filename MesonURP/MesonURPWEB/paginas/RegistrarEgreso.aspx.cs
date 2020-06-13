@@ -36,12 +36,12 @@ namespace MesonURPWEB.paginas
         {
         }
 
-        protected void selectInsumo1_SelectedIndexChanged(object sender, EventArgs e)
+        /*protected void selectInsumo1_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectInsumo.DataSource = _Cm.CargarInsumoEgreso(); //no esta este en ctr Movimiento
             selectInsumo.DataTextField = "I_NombreInsumo";
             selectInsumo.DataValueField = "I_NombreInsumo";
             selectInsumo.DataBind();
-        }
+        }*/
     }
 }

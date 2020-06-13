@@ -86,17 +86,14 @@
                                     <div class="form-group">
 									<label for="selector1" class="col-sm-2 control-label">Insumo</label>
 									<div class="col-sm-8">                                            
-                                            <asp:DropDownList id="selectInsumo2" runat="server" CssClass="form-control1" OnSelectedIndexChanged="selectInsumo2_SelectedIndexChanged">
+                                        <asp:DropDownList id="ddlInsumos" runat="server"   CssClass="form-control1" OnSelectedIndexChanged="ddlInsumos_SelectedIndexChanged">
 										        <asp:ListItem Selected="True" Value="0">Seleccione un insumo</asp:ListItem>
-                                                <asp:ListItem>Pollo</asp:ListItem>
-										        <asp:ListItem>Papa</asp:ListItem>
-                                                <asp:ListItem>Arroz</asp:ListItem>
-									        </asp:DropDownList></div>
+                                        </asp:DropDownList></div>
 									</div>
 									<div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">Fecha</label>
 										<div class="col-sm-8">
-                                            <asp:TextBox disabled ID="txtFecha2" runat="server" TextMode="Date" CssClass="form-control1"/>
+                                            <asp:TextBox disabled="True" ID="txtFecha2" runat="server" TextMode="Date" CssClass="form-control1"/>
 										</div>
 									</div>
                                     <div class="form-group">
@@ -106,9 +103,9 @@
 										</div>
 									</div>
                                     <div class="form-group">
-										<label for="focusedinput" class="col-sm-2 control-label">Unidad</label>
+										<label for="focusedinput" class="col-sm-2 control-label">UM</label>
 										<div class="col-sm-8">
-                                            <asp:TextBox disabled ID="txtUnidadMedida2" runat="server" placeholder="Unidad de Medida" CssClass="form-control1"/>
+                                            <asp:TextBox  ID="txtUnidadMedida2" runat="server" placeholder="Unidad de Medida" CssClass="form-control1"/>
 										</div>
 									</div>
                                     <hr/>
