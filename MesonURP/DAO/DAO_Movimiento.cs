@@ -14,16 +14,27 @@ namespace DAO
         }
         public DataTable RegistrarMovimiento(DTO_Movimiento objDTO)
         {
+            //SqlCommand unComando = new SqlCommand("SP_Registrar_Movimiento", conexion);
+
+            //conexion.Open();
+            //unComando.CommandType = CommandType.StoredProcedure;
+            //unComando.Parameters.Add(new SqlParameter("@M_TipoMovimiento", objDTO.TipoMovimiento));
+            //unComando.ExecuteNonQuery();
+            //conexion.Close();
+
+            //DataTable dtable = new DataTable();
+            //SqlDataAdapter data = new SqlDataAdapter(unComando);
+            //data.Fill(dtable);
+            //return dtable;
+
+             //PRUEBA CON ESTE
             SqlCommand unComando = new SqlCommand("SP_Registrar_Movimiento", conexion);
 
-            conexion.Open();
             unComando.CommandType = CommandType.StoredProcedure;
             unComando.Parameters.Add(new SqlParameter("@M_TipoMovimiento", objDTO.TipoMovimiento));
-            unComando.ExecuteNonQuery();
-            conexion.Close();
-
             DataTable dtable = new DataTable();
             SqlDataAdapter data = new SqlDataAdapter(unComando);
+            conexion.Open();
             data.Fill(dtable);
             return dtable;
         }
