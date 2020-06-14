@@ -113,5 +113,72 @@ namespace DAO
                 throw ex;
             }
         }
+        public void ActualizarStockIngreso(DTO_MovimientoxInsumo objDTO)
+        {
+            try
+            {
+                conexion.Open();
+                SqlCommand unComando = new SqlCommand("SP_UpdateStockIngreso", conexion);
+                unComando.CommandType = CommandType.StoredProcedure;
+                unComando.Parameters.Add(new SqlParameter("@MxI_Cantidad", objDTO.Cantidad));
+                unComando.Parameters.Add(new SqlParameter("@I_idInsumo", objDTO.IdInsumo));
+                unComando.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public void ActualizarStockEgreso(DTO_MovimientoxInsumo objDTO)
+        {
+            try
+            {
+                conexion.Open();
+                SqlCommand unComando = new SqlCommand("SP_UpdateStockEgreso", conexion);
+                unComando.CommandType = CommandType.StoredProcedure;
+                unComando.Parameters.Add(new SqlParameter("@MxI_Cantidad", objDTO.Cantidad));
+                unComando.Parameters.Add(new SqlParameter("@I_idInsumo", objDTO.IdInsumo));
+                unComando.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataTable ListarMovimientos()
+        {
+            try
+            {
+                DataTable dtable = new DataTable();
+                SqlCommand unComando = new SqlCommand("SP_ListarMovimientos", conexion);
+                unComando.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter data = new SqlDataAdapter(unComando);
+                data.Fill(dtable);
+                return dtable;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataTable BuscarMovimientos(string busquedamov)
+        {
+            try
+            {
+                SqlDataAdapter unComando = new SqlDataAdapter("SP_BuscarMovimiento", conexion);
+                unComando.SelectCommand.CommandType = CommandType.StoredProcedure;
+                unComando.SelectCommand.Parameters.AddWithValue("@busquedamov", busquedamov);
+                DataSet dSet = new DataSet();
+                unComando.Fill(dSet);
+                return dSet.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

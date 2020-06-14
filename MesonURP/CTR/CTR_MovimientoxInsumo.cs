@@ -31,6 +31,21 @@ namespace CTR
         {
             return objDAO.CargarInsumoIngreso();
         }
-        
+        public void UpdateStockIngreso(DTO_MovimientoxInsumo objDto)
+        {
+            objDAO.ActualizarStockIngreso(objDto);
+        }
+        public void UpdateStockEgreso(DTO_MovimientoxInsumo objDto)
+        {
+            objDAO.ActualizarStockEgreso(objDto);
+        }
+        public DataTable ListarMovimientos()
+        {
+            return objDAO.ListarMovimientos();
+        }
+        public DataTable BuscarMovimientos(string busquedamov)
+        {
+            return objDAO.BuscarMovimientos(busquedamov);
+        }
     }
 }
