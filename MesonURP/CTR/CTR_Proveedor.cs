@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Data;
 using DAO;
 using DTO;
 
 namespace CTR
 {
-    class CTR_Proveedor
+    public class CTR_Proveedor
     {
         DAO_Proveedor dao_proveedor;
 
@@ -18,6 +19,10 @@ namespace CTR
         { 
             
             dao_proveedor.DAO_Registrar_Proveedor(dto_proveedor);
+        }
+        public DataSet Leer_Proveedor()
+        {
+            return dao_proveedor.DAO_Leer_Proveedor();
         }
     }
 }

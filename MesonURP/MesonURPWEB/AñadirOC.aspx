@@ -38,13 +38,13 @@
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Estado</label>
                         <div class="col-sm-8">
-                            <asp:DropDownList disabled ID="selectEstadoAñadirOC" runat="server" CssClass="form-control1"></asp:DropDownList>
+                            <asp:DropDownList disabled ID="DdlEstado" runat="server" CssClass="form-control1"></asp:DropDownList>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Proveedor</label>
                         <div class="col-sm-8">
-                            <asp:DropDownList ID="selectProveedorOC" runat="server" CssClass="form-control1" AutoPostBack="true" OnSelectedIndexChanged="selectProveedorOC_SelectedIndexChanged">
+                            <asp:DropDownList ID="DdlProveedor" runat="server" CssClass="form-control1" AutoPostBack="true">
                             </asp:DropDownList>
                         </div>
                     </div>
@@ -59,6 +59,18 @@
                         <div class="col-sm-8">
                             <asp:DropDownList runat="server" CssClass="form-control1" AutoPostBack="true"></asp:DropDownList>
                         </div>
+                           <div class="form-group">
+                        <label for="focusedinput" class="col-sm-2 control-label">Numero de Comprobante</label>
+                        <div class="col-sm-8">
+                            <asp:TextBox ID="txtNumeroComprobante" runat="server" placeholder="Ingrese el número de comprobante" CssClass="form-control1" />
+                        </div>
+                    </div>
+                           <div class="form-group">
+                        <label for="focusedinput" class="col-sm-2 control-label">Tipo de Comprobante</label>
+                        <div class="col-sm-8">
+                            <asp:TextBox ID="txtTipoComprobante" runat="server" placeholder="Ingrese  tipo de comprobante" CssClass="form-control1" />
+                        </div>
+                    </div>
                     </div>
                       <div class="input-info">
 						<h3>Detalles de Compra</h3>
@@ -66,19 +78,19 @@
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Categoría</label>
                         <div class="col-sm-8">
-                            <asp:DropDownList disabled runat="server" CssClass="form-control1"></asp:DropDownList>
+                            <asp:DropDownList disabled runat="server" CssClass="form-control1" ID="DdlCategoria"></asp:DropDownList>
                         </div>
                     </div>
                       <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Insumo</label>
                         <div class="col-sm-8">
-                            <asp:DropDownList disabled runat="server" CssClass="form-control1"></asp:DropDownList>
+                            <asp:DropDownList disabled runat="server" CssClass="form-control1" ID="DdlInsumo"></asp:DropDownList>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Cantidad</label>
                         <div class="col-sm-8">
-                            <asp:TextBox runat="server" CssClass="form-control1" />
+                            <asp:TextBox runat="server" CssClass="form-control1" ID="txtCantidad" />
                         </div>
                     </div>
                     <div class="form-group">

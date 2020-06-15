@@ -51,6 +51,7 @@
         </div>
         <div>
             <asp:Button ID="btnRegistro" CssClass="button btn btn-success btn-large" runat="server" Text="Agregar" OnClick="btnRegistro_Click" style="height: 26px" />
+            <asp:Button ID="btnEliminar" CssClass="button btn btn-success btn-large" runat="server" Text="Eliminar" OnClick="btnRegistro_Click" style="height: 26px" />
         </div>
     </form>
 </body>

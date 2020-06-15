@@ -9,7 +9,7 @@ using System.Web.UI;
 
 namespace MesonURPWEB
 {
-    public class Global : System.Web.HttpApplication
+    public  class Global : System.Web.HttpApplication
     {
 
         protected void Application_Start(object sender, EventArgs e)
@@ -23,7 +23,7 @@ namespace MesonURPWEB
             //            CdnDebugPath = "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.js"
             //     });
         }
-
+         
         protected void Session_Start(object sender, EventArgs e)
         {
 

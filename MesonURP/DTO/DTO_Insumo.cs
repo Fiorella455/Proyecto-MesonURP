@@ -2,7 +2,7 @@
 
 namespace DTO
 {
-    public class Dto_Recurso
+    public class DTO_Insumo
     {
         public int PK_IR_Recurso { get; set; }
         public string VR_NombreRecurso { get; set; }

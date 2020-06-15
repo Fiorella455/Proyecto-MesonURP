@@ -37,19 +37,7 @@ namespace DAO
             {
 
             }
-            finally
-            {
-                String.IsNullOrEmpty(dto_proveedor.P_idProveedor.ToString());
-                String.IsNullOrEmpty(dto_proveedor.P_RazonSocial);
-                String.IsNullOrEmpty(dto_proveedor.P_NombreContacto);
-                String.IsNullOrEmpty(dto_proveedor.P_NumeroDocumento);
-                String.IsNullOrEmpty(dto_proveedor.P_Direccion);
-                String.IsNullOrEmpty(dto_proveedor.P_CorreoContacto);
-                String.IsNullOrEmpty(dto_proveedor.P_TelefonoContacto);
-                String.IsNullOrEmpty(dto_proveedor.EP_idEstadoProveedor.ToString());
-                
-            }
-            //Buscar Proveedor por id
+           
             
         }
         public bool DAO_Consultar_Proveedor(DTO_Proveedor dto_proveedor)
@@ -78,6 +66,17 @@ namespace DAO
             return hayProveedor;
 
 
+        }
+        public DataSet DAO_Leer_Proveedor()
+        {
+            conexion.Open();
+            SqlCommand comando = new SqlCommand("SP_Consultar_Lista_Proveedores", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.ExecuteNonQuery();
+            DataSet dt = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter(comando);
+            da.Fill(dt);
+            return dt;
         }
     }
 }

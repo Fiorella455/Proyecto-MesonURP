@@ -33,6 +33,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+    <LegacyPublishPropertiesPageEnabled>true</LegacyPublishPropertiesPageEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -293,9 +295,7 @@
     <Content Include="js1\signin.js" />
     <Content Include="index.aspx" />
     <Content Include="Login.aspx" />
-    <Content Include="paginas\AñadirOC.aspx" />
     <Content Include="paginas\AgregandoRecurso.aspx" />
-    <Content Include="paginas\WebForm1.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -403,13 +403,6 @@
     </Compile>
     <Compile Include="paginas\AgregandoRecurso.aspx.designer.cs">
       <DependentUpon>AgregandoRecurso.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="paginas\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="paginas\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

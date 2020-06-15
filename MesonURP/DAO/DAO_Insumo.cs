@@ -8,17 +8,18 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace DAO
 {
-    public class Dao_Recurso
+    public class DAO_Insumo
     {
+
         SqlConnection conexion;
-        DTO_Categoria dto_categoria;
-        Dto_Recurso dto_recurso;
-        int state=0;
-        public Dao_Recurso()
+        DTO_Insumo dto_insumo;
+        
+        public DAO_Insumo()
         {
+            dto_insumo = new DTO_Insumo();
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
         }
-        public void Dao_Registrar_Recurso(Dto_Recurso dto_rec)
+        public void Dao_Registrar_Recurso(DTO_Insumo dto_rec)
         {
             SqlCommand cmd = new SqlCommand("SP_Agregar_Recurso", conexion);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -35,31 +36,25 @@ namespace DAO
             cmd.Parameters.AddWithValue("@FK_IC_Categoria", dto_rec.FK_IC_Categoria);
             cmd.Parameters.AddWithValue("@FK_IM_Medida", dto_rec.FK_IM_Medida);
             cmd.Parameters.AddWithValue("@FK_IER_EstadoRecurso", dto_rec.FK_IER_EstadoRecurso);
-
-
             conexion.Open();
             cmd.ExecuteNonQuery();
             conexion.Close();
 
         }
-        public DataSet Dao_Leer_Insumo(int idCategoria)
+        public DataSet Dao_Leer_Insumos_Categorias(int idCategoria)
         {
 
-            if (dto_recurso.FK_IC_Categoria == idCategoria)
-            {
-                dto_recurso.FK_IC_Categoria = idCategoria;
-            }
+            conexion.Open();
+            // SqlCommand comando = new SqlCommand("SP_Consultar_Insumos_Categoria", conexion);
+            SqlCommand comando = new SqlCommand("SP_Consultar_Insumos", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            //    comando.Parameters.AddWithValue("@C_idCategoria",i);
+            comando.ExecuteNonQuery();
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter(comando);
+            da.Fill(ds);
+            return ds;
 
-                string Select = "SELECT * FROM T_Insumo WHERE C_idCategoria= '" + dto_recurso.FK_IC_Categoria + "'";
-                conexion.Open();
-                SqlCommand cmd = new SqlCommand(Select, conexion);
-                cmd.ExecuteNonQuery();
-
-                DataSet dataset = new DataSet();
-                SqlDataAdapter data = new SqlDataAdapter(cmd);
-                data.Fill(dataset);
-                return dataset;
- 
         }
        
     }

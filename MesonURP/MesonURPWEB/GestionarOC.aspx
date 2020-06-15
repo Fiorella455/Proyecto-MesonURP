@@ -46,7 +46,8 @@
                                                    <asp:TemplateField  HeaderText="Editar">
                                                        <ItemTemplate>
                                                            <asp:Button ID="btnEditarOC" class="btn btn-primary" runat="server" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Actualizar" />
-                                                       </ItemTemplate>                                                     
+                                                       </ItemTemplate>              
+                                                       
                                                    </asp:TemplateField> 
                                                    <asp:TemplateField  HeaderText="Ver Detalles">
                                                        <ItemTemplate>

@@ -6,7 +6,7 @@ using DTO;
 
 namespace CTR
 {
-    class CTR_EstadoOCxOC
+    public class CTR_EstadoOCxOC
     {
         DAO_EstadoOCxOC dao_estadoOCxOC;
 
@@ -14,6 +14,17 @@ namespace CTR
         {
             dao_estadoOCxOC = new DAO_EstadoOCxOC();
         }
-       
+        public void Registrar_Estado_OCxOC(DTO_Estado_OCxOC dto_estado_ocxoc)
+        {
+            dao_estadoOCxOC.Registrar_Estado_OCxOC(dto_estado_ocxoc);
+        }
+        public void Consultar_Estado_OCxOC(DTO_Estado_OCxOC dto_estado_ocxoc)
+        {
+            dao_estadoOCxOC.Registrar_Estado_OCxOC(dto_estado_ocxoc);
+        }
+        public void Actualizar_Estado_OCxOC(DTO_Estado_OCxOC dto_estado_ocxoc)
+        {
+            dao_estadoOCxOC.Actualizar_Estado_OCxOC(dto_estado_ocxoc);
+        }
     }
 }

@@ -17,43 +17,43 @@
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">N° Orden</label>
                         <div class="col-sm-8">
-                            <asp:TextBox disabled runat="server" placeholder="Ingrese el número de orden" CssClass="form-control1" />
+                            <asp:TextBox disabled runat="server" placeholder="Ingrese el número de orden" CssClass="form-control1" ID="txtNumeroOC" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Fecha de Emisión</label>
                         <div class="col-sm-8">
-                            <asp:TextBox disabled runat="server" TextMode="Date" CssClass="form-control1" />
+                            <asp:TextBox disabled runat="server" TextMode="Date" CssClass="form-control1" ID="txtFechaEmision" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Fecha de Entrega</label>
                         <div class="col-sm-8">
-                            <asp:TextBox disabled runat="server" TextMode="Date" CssClass="form-control1" />
+                            <asp:TextBox disabled runat="server" TextMode="Date" CssClass="form-control1" ID="txtFechaEntrega" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Estado</label>
                         <div class="col-sm-8">
-                            <asp:TextBox disabled runat="server" CssClass="form-control1" />
+                            <asp:TextBox disabled runat="server" CssClass="form-control1" ID="txtEstado" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Proveedor</label>
                         <div class="col-sm-8">
-                            <asp:TextBox disabled runat="server" CssClass="form-control1" />
+                            <asp:TextBox disabled runat="server" CssClass="form-control1" ID="txtProveedor" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Forma de Pago</label>
                         <div class="col-sm-8">
-                            <asp:TextBox disabled runat="server" CssClass="form-control1" />
+                            <asp:TextBox disabled runat="server" CssClass="form-control1" ID="txtFormaPago" />
                         </div>
                     </div>
                        <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Fecha de Pago</label>
                         <div class="col-sm-8">
-                            <asp:TextBox disabled runat="server" CssClass="form-control1" />
+                            <asp:TextBox disabled runat="server" CssClass="form-control1" ID="txtFechaPago" />
                         </div>
                     </div>
                       

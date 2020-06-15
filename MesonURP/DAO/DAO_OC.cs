@@ -23,7 +23,7 @@ namespace DAO
             dao_proveedor = new DAO_Proveedor();
             dto_oc = new DTO_OC();
         }
-        public void DAO_Registrar_OC(DTO_OC dto_oc)
+        public void Registrar_OC(DTO_OC dto_oc)
         {
             
                 SqlCommand cmd = new SqlCommand("SP_Insertar_OC", conexion);
@@ -38,7 +38,7 @@ namespace DAO
 
         }
        
-        public bool DAO_Consultar_OC(DTO_OC dto_oc)
+        public bool Consultar_OC(DTO_OC dto_oc)
         {
 
                 conexion.Open();
@@ -53,10 +53,13 @@ namespace DAO
                     //Hay registros
                     dto_oc.OC_idOrdenCompra = (int)reader[0];
                     dto_oc.OC_TipoComprobante = (string)reader[1];
-                    dto_oc.OC_NumeroComprobante = (string)reader[2];
-                    dto_oc.OC_TotalCompra = (decimal)reader[3];
-                    dto_oc.OC_FechaEmision = (DateTime)reader[4];
-                     dto_oc.P_idProveedor = (int)reader[5];
+                    dto_oc.OC_FechaEntrega = (DateTime)reader[2];
+                    dto_oc.OC_FormaPago = (string)reader[3];
+                    dto_oc.OC_FechaPago = (DateTime)reader[4];
+                    dto_oc.OC_NumeroComprobante = (string)reader[5];
+                    dto_oc.OC_TotalCompra = (decimal)reader[6];
+                    dto_oc.OC_FechaEmision = (DateTime)reader[7];
+                    dto_oc.P_idProveedor = (int)reader[5];
                     dto_oc.Estado = 100;
                 }
                  dto_oc.Estado = 99;
@@ -65,7 +68,7 @@ namespace DAO
           
 
         }
-        public void DAO_Actualizar_OC(DTO_OC dto_oc)
+        public void Actualizar_OC(DTO_OC dto_oc)
         {
             try
             {
@@ -91,7 +94,7 @@ namespace DAO
         {
             MailMessage msg = new MailMessage();
             dto_oc.OC_idOrdenCompra = iOC;
-            if (DAO_Consultar_OC(dto_oc))
+            if (Consultar_OC(dto_oc))
             {
                 
                 dto_proveedor.P_idProveedor = dto_oc.P_idProveedor;
@@ -127,7 +130,69 @@ namespace DAO
 
         }
 
+        public DTO_OC OC_Actual(int i)
+        {
+            conexion.Open();
+            SqlCommand comando = new SqlCommand("SP_Consultar_OC", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@OC_idOrdenCompra", i);
+            comando.ExecuteNonQuery();
+            DTO_OC oc = new DTO_OC();
 
+            SqlDataReader reader = comando.ExecuteReader();
+            if (reader.Read())
+            {
+                oc.OC_idOrdenCompra = Convert.ToInt32(reader[0]);
+                oc.OC_TipoComprobante = reader[1].ToString();
+                oc.OC_NumeroComprobante = reader[2].ToString();
+                oc.OC_TotalCompra = Convert.ToDecimal(reader[3].ToString());
+                oc.OC_FechaEmision = Convert.ToDateTime(reader[4]);
+                oc.P_idProveedor = Convert.ToInt32(reader[5]);
+            }
+            conexion.Close();
+            return oc;
+        }
+        public int ID_OC_Actual()
+        {
+            int id;
+            conexion.Open();
+            SqlCommand comando = new SqlCommand("SP_Consultar_OC_Mayor", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.Add("@id", SqlDbType.Int).Direction = ParameterDirection.Output;
+            comando.ExecuteNonQuery();
+            conexion.Close();
+            id = Convert.ToInt32(comando.Parameters["@id"].Value);
 
+            return id;
+        }
+        public DataTable Leer_OC()
+        {
+            conexion.Open();
+            SqlCommand comando = new SqlCommand("SP_Consultar_Listas_OC", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(comando);
+            da.Fill(dt);
+            return dt;
+        }
+        public void Eliminar_OC(DTO_OC dto_oc)
+        {
+
+            try
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_Eliminar_OC", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@OC_idOrdenCompra", dto_oc.OC_idOrdenCompra));
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
     }
 }

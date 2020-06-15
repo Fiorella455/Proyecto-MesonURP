@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Data;
 using DAO;
 using DTO;
 
@@ -15,14 +16,42 @@ namespace CTR
         {
             dao_oc = new DAO_OC();
         }
-        public void CTR_Registrar_OC(DTO_OC dto_oc)
+        public void Registrar_OC(DTO_OC dto_oc)
         {
 
-            dao_oc.DAO_Registrar_OC(dto_oc);
+            dao_oc.Registrar_OC(dto_oc);
         }
         public bool CTR_Leer_OC(DTO_OC dto_oc)
         {
-            return dao_oc.DAO_Consultar_OC(dto_oc);
+            return dao_oc.Consultar_OC(dto_oc);
         }
+        public void Actualizar_OC(DTO_OC oc)
+        {
+            dao_oc.Actualizar_OC(oc);
+        }
+        public DataTable Leer_OC()
+        {
+            return dao_oc.Leer_OC();
+        }
+        public int ID_OC_Actual()
+        {
+            return dao_oc.ID_OC_Actual();
+        }
+        public DTO_OC OC_Actual(int i)
+        {
+            return dao_oc.OC_Actual(i);
+        }
+        public void Eliminar_OC(DTO_OC dto_oc)
+        {
+            dao_oc.Eliminar_OC(dto_oc);
+        }
+
+        public void Enviar_OC(int iOC)
+        {
+            dao_oc.EnviarCorreo(iOC);
+                
+        
+        }
+
     }
 }
