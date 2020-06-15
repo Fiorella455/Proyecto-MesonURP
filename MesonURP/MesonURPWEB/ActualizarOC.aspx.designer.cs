@@ -7,38 +7,29 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace MesonURPWEB.paginas
+namespace MesonURPWEB
 {
 
 
-    public partial class GestionarOC
+    public partial class ActualizarOC
     {
 
         /// <summary>
-        /// Control txtSearchStock.
+        /// Control txtFechaEntrega.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSearchStock;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaEntrega;
 
         /// <summary>
-        /// Control btnSearchOC.
+        /// Control GridViewAñadirOC.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnSearchOC;
-
-        /// <summary>
-        /// Control GridViewOC.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewOC;
+        protected global::System.Web.UI.WebControls.GridView GridViewAñadirOC;
     }
 }
