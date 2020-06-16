@@ -209,6 +209,9 @@
     <Content Include="gulpfile.js" />
     <Content Include="Home.aspx" />
     <Content Include="img\back.jpg" />
+    <Content Include="img\baseline_exit_to_app_white_18dp.png" />
+    <Content Include="img\decano.PNG" />
+    <Content Include="img\director.PNG" />
     <Content Include="img\favicon.png" />
     <Content Include="img\gal-1.jpeg" />
     <Content Include="img\gal-10.jpeg" />
@@ -251,11 +254,13 @@
     <Content Include="img\meson-7.png" />
     <Content Include="img\meson-8.png" />
     <Content Include="img\meson-9.png" />
+    <Content Include="img\MesonURP_icono.ico" />
     <Content Include="img\MesonURP_logofinal.png" />
     <Content Include="img\MesonURP_logofinal2.png" />
     <Content Include="img\realtor-1.jpeg" />
     <Content Include="img\realtor-2.jpeg" />
     <Content Include="img\realtor-3.jpeg" />
+    <Content Include="img\rector.PNG" />
     <Content Include="img\sprite.svg" />
     <Content Include="img\story-1.jpeg" />
     <Content Include="img\story-2.jpeg" />

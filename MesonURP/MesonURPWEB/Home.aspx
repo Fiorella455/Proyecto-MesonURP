@@ -23,24 +23,24 @@
     </header>
 
     <div class="realtors">
-        <h3 class="heading-3">Top 3 Realtors</h3>
+        <h3 class="heading-3">Organización</h3>
         <div class="realtors__list">
-            <img src="/img/realtor-1.jpeg" alt="Realtor 1" class="realtors__img" />
+            <img src="img/rector.PNG" alt="Realtor 1" class="realtors__img" />
             <div class="realtors__details">
-                <h4 class="heading-4 heading-4--light">Erik Feinman</h4>
-                <p class="realtors__sold">245 houses sold</p>
+                <h4 class="heading-4 heading-4--light">Dr. Iván Rodriguez Chávez</h4>
+                <p class="realtors__sold">Rector de la Universidad Ricardo Palma</p>
             </div>
 
-            <img src="/img/realtor-2.jpeg" alt="Realtor 2" class="realtors__img" />
+            <img src="img/decano.PNG" alt="Realtor 2" class="realtors__img" />
             <div class="realtors__details">
-                <h4 class="heading-4 heading-4--light">Kim Brown</h4>
-                <p class="realtors__sold">212 houses sold</p>
+                <h4 class="heading-4 heading-4--light">Msc. Ing. Carlos Sebastián Calvo</h4>
+                <p class="realtors__sold">Decano Facultad de Ingeniería</p>
             </div>
 
-            <img src="/img/realtor-3.jpeg" alt="Realtor 3" class="realtors__img" />
+            <img src="img/director.PNG" alt="Realtor 3" class="realtors__img" />
             <div class="realtors__details">
-                <h4 class="heading-4 heading-4--light">Toby Ramsey</h4>
-                <p class="realtors__sold">198 houses sold</p>
+                <h4 class="heading-4 heading-4--light">Mag. Ing. Miguel Arrunátegui Angulo</h4>
+                <p class="realtors__sold">Director de la Escuela de Ingeniería Informática</p>
             </div>
         </div>
     </div>
@@ -53,77 +53,7 @@
 
         <div class="navigation__background">&nbsp;</div>
 
-        <nav class="navigation__nav">
-            <ul class="navigation__list">
-                <li class="navigation__item"><a href="#" class="navigation__link"><span>01</span>Iniciar Sesión</a></li>
-                <li class="navigation__item"><a href="#" class="navigation__link"><span>02</span>Your benfits</a></li>
-                <li class="navigation__item"><a href="#" class="navigation__link"><span>03</span>Popular tours</a></li>
-                <li class="navigation__item"><a href="#" class="navigation__link"><span>04</span>Stories</a></li>
-                <li class="navigation__item"><a href="#" class="navigation__link"><span>05</span>Bookbhghjow</a></li>
-            </ul>
-        </nav>
-    </div>
-    <section class="features">
-        <div class="feature">
-            <svg class="feature__icon">
-                <use xlink:href="img/sprite.svg#icon-global"></use>
-            </svg>
-            <h4 class="heading-4 heading-4--dark">World's best luxury homes</h4>
-            <p class="feature__text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur distinctio necessitatibus pariatur voluptatibus.</p>
-        </div>
-
-        <div class="feature">
-            <svg class="feature__icon">
-                <a href="img/sprite.svg#icon-trophy"></a>
-            </svg>
-            <h4 class="heading-4 heading-4--dark">Only the best properties</h4>
-            <p class="feature__text">Voluptatum mollitia quae. Vero ipsum sapiente molestias accusamus rerum sed a eligendi aut quia.</p>
-        </div>
-
-        <div class="feature">
-            <svg class="feature__icon">
-                <use xlink:href="img/sprite.svg#icon-map-pin"></use>
-            </svg>
-            <h4 class="heading-4 heading-4--dark">All homes in in top locations</h4>
-            <p class="feature__text">Tenetur distinctio necessitatibus pariatur voluptatibus quidem consequatur harum.</p>
-        </div>
-
-        <div class="feature">
-            <svg class="feature__icon">
-                <use xlink:href="img/sprite.svg#icon-key"></use>
-            </svg>
-            <h4 class="heading-4 heading-4--dark">New home in one week</h4>
-            <p class="feature__text">Vero ipsum sapiente molestias accusamus rerum. Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-        </div>
-
-        <div class="feature">
-            <svg class="feature__icon">
-                <use xlink:href="img/sprite.svg#icon-presentation"></use>
-            </svg>
-            <h4 class="heading-4 heading-4--dark">Top 1% realtors</h4>
-            <p class="feature__text">Quidem consequatur harum, voluptatum mollitia quae. Tenetur distinctio necessitatibus pariatur voluptatibus.</p>
-        </div>
-
-        <div class="feature">
-            <svg class="feature__icon">
-                <use xlink:href="img/sprite.svg#icon-lock"></use>
-            </svg>
-            <h4 class="heading-4 heading-4--dark">Secure payments on nexter</h4>
-            <p class="feature__text">Pariatur voluptatibus quidem consequatur harum, voluptatum mollitia quae.</p>
-        </div>
-    </section>
-
-    <div class="story__pictures">
-        <%--< alt="Couple with new house" class="story__img--1"/>--%>
-        <%-- <img src="/img/story-2.jpeg" alt="New house" class="story__img--2"/>--%>
-    </div>
-
-    <div class="story__content">
-        <div class="account-container">
-
-        <div class="content clearfix">
-
-            <form id="form1" runat="server">
+        <form id="form1" class="navigation__nav form-login-style" runat="server">
 
                 <h1>Bienvenido</h1>
 
@@ -133,25 +63,61 @@
                                     <asp:Label ID="lblMensajeAyuda" runat="server" Text=""></asp:Label></p>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <label class="mdl-textfield__label" for="correo">Correo</label>
-                                    <input class="mdl-textfield__input" type="text" id="correo" name="correo" value="" runat="server"/>
+                                    <input class="mdl-textfield__input input-login-style" type="text" id="correo" placeholder="Nombre" name="correo" value="" runat="server"/>
                                 </div>
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <label class="mdl-textfield__label" for="contraseña">Contraseña</label>
-                                    <input class="mdl-textfield__input" type="password" id="contraseña" name="contraseña" value=""  runat="server"/>
-                                </div>
-                                
+                                    <input class="mdl-textfield__input  input-login-style" type="password" id="contraseña" placeholder="Contraseña" name="contraseña" value=""  runat="server"/>
+                                </div>       
                 </div>
                 <!-- /login-fields -->
                 <div class="col-xs-12 p-0 text-right">
-                        <asp:Button ID="btnLogin" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect js-button" runat="server" Text="Ingresar" OnClick="goToIndex" />
+                        <asp:Button ID="btnLogin" class="btn-login-style" runat="server" Text="Ingresar" OnClick="goToIndex" />
                 </div>
+             <p class="form-message">No estás registrado? <a href="#">Crea una cuenta</a></p>
                 <!-- .actions -->
             </form>
-
-        </div>
     </div>
+    <section class="features">
+        <div class="feature">
+            <svg class="feature__icon">
+                <use xlink:href="img/sprite.svg#icon-global"></use>
+            </svg>
+            <h4 class="heading-4 heading-4--dark">¿Qué es el Mesón del Estudiante?</h4>
+            <p class="feature__text">Es el área en el que los estudiantes, administrativos y profesor de la URP consumen sus alimentos.</p>
+        </div>
+
+        <div class="feature">
+            <svg class="feature__icon">
+                <use xlink:href="img/sprite.svg#icon-map-pin"></use>
+            </svg>
+            <h4 class="heading-4 heading-4--dark">¿Dónde se encuentra ubicado?</h4>
+            <p class="feature__text">El Mesón del Estudiante de encuentra ubicado en la facultad de Hotelería, Turismo y Gastronomía de la URP.</p>
+        </div>
+
+        <div class="feature">
+            <svg class="feature__icon">
+                <use xlink:href="img/sprite.svg#icon-key"></use>
+            </svg>
+            <h4 class="heading-4 heading-4--dark">¿Qué días hay menú?</h4>
+            <p class="feature__text">El servicio de menú es realizado los lunes de 10am a 7pm y sábado de 10am a 12pm.</p>
+        </div>
+    </section>
+
+   <%--< <div class="story__pictures">
+        <%--< alt="Couple with new house" class="story__img--1"/>--%>
+        <%-- <img src="/img/story-2.jpeg" alt="New house" class="story__img--2"/
+    </div>
+
+    <div class="story__content">
+        <div class="account-container">
+
+        <div class="content clearfix">
+
+            
 </div>
+        </div>
+    </div>>--%>
+
         <!-- /content -->
 
 
@@ -386,21 +352,16 @@
             <img src="../img/meson-5.png" alt="Gallery image 13" class="gallery__img" /></figure>
         <figure class="gallery__item gallery__item--14">
             <img src="../img/meson-11.png" alt="Gallery image 14" class="gallery__img" /></figure>
-
-
     </section>
-
     <footer class="footer">
         <ul class="nav">
-            <li class="nav__item"><a href="#" class="nav__link">Find your dream home</a></li>
-            <li class="nav__item"><a href="#" class="nav__link">Request proposal</a></li>
-            <li class="nav__item"><a href="#" class="nav__link">Download home planner</a></li>
-            <li class="nav__item"><a href="#" class="nav__link">Contact us</a></li>
-            <li class="nav__item"><a href="#" class="nav__link">Submit your property</a></li>
-            <li class="nav__item"><a href="#" class="nav__link">Come work with us!</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">Reserva tu menú</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">Inicia Sesión</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">Registrate</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">Contáctanos</a></li>
         </ul>
         <p class="copyright">
-            &copy; Copyright 2017 by Jonas Schmedtmann. Feel free to use this project for your own purposes. This does NOT apply if you plan to produce your own course or tutorials based on this project.
+            &copy; Copyright 2020 by Fiorella Loayza and Milagros Cueche.
         </p>
     </footer>
 </body>
