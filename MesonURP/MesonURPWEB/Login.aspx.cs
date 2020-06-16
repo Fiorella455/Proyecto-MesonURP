@@ -41,7 +41,7 @@ namespace MesonURPWEB.paginas
                     string[] dataArray = new string[] { _Du.U_Correo, perfil };
                     Session["Login"] = dataArray;
                   
-                    Response.Redirect("index.aspx");
+                    Response.Redirect("home.aspx");
                     //Response.Write("<script>alert('USUARIO CORRECTO.')<script>");
                 }
             }

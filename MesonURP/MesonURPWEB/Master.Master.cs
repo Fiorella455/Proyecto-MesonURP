@@ -15,57 +15,40 @@ namespace MesonURPWEB
         }
         public void Login()
         {
-           // if (Session["Login"] != null)
-           //{
-           //  li1.Visible = false;
-           //li2.Visible = false;
-           // li2.Visible = false;
-           // li3.Visible = false;
-           // li4.Visible = false;
-           // li5.Visible = false;
-           // li6.Visible = false;
-           // li7.Visible = false;
-           // li8.Visible = false;
+            if (Session["Login"] != null)
+            {
 
-                // string[] localarray = (string[])Session["Login"];
-                // string perfil = localarray[1];
+                string perfil = Convert.ToString(Session["TipoPerfil"]);
 
-                //if (perfil == "Encargado de Compra")
-                //{
-                //  string nombre = localarray[0];
-                //li1.Visible = true;
-                //li2.Visible = true;
-                //li3.Visible = true;
-                //li4.Visible = true;
-                //li5.Visible = true;
-                //lblNombre.Text = Convert.ToString(Session["NombreUsuario"]);
-                //lblApellido.Text = Convert.ToString(Session["ApellidoUsuario"]);
-                //}
+                switch (perfil)
+                {
+                    case "Administrador":
 
-                //else if (perfil == "Administrador")
-                //{
-                  //  string nombre = localarray[0];
+                        menuOrdenCompra.Visible = false;
+                        menuProveedor.Visible = false;
+                        menuGestionarDevoluciones.Visible = false;
+                        menuStock.Visible = true;
+                        menuRecursos.Visible = true;
+                        menuReportes.Visible = false;
+                        lblNombre.Text = Convert.ToString(Session["NombreUsuario"]);
+                        lblApellido.Text = Convert.ToString(Session["ApellidoUsuario"]);
+                        break;
 
-                    //li4.Visible = true;
-                    //li5.Visible = true;
-                    //li6.Visible = true;
-                    //lblNombre.Text = Convert.ToString(Session["NombreUsuario"]);
-                    //lblApellido.Text = Convert.ToString(Session["ApellidoUsuario"]);
-                //}
-               // else if (perfil == "Administrador del Sistema")
-               // {
-                 //   string nombre = localarray[0];
-                    //li10.Visible = true;
-                    //li11.Visible = true;
-                   // lblNombre.Text = Convert.ToString(Session["NombreUsuario"]);
-                    //lblApellido.Text = Convert.ToString(Session["ApellidoUsuario"]);
-                //}
+                    case "Encargado de Compra":
 
-                //else
-                //{
-                  //  Response.Redirect("Login.aspx");
-                //}
-            //}
+                        menuOrdenCompra.Visible = true;
+                        menuProveedor.Visible = false;
+                        menuGestionarDevoluciones.Visible = false;
+                        menuStock.Visible = true;
+                        menuRecursos.Visible = true;
+                        menuReportes.Visible = false;
+                        lblNombre.Text = Convert.ToString(Session["NombreUsuario"]);
+                        lblApellido.Text = Convert.ToString(Session["ApellidoUsuario"]);
+                        break;
+
+                }
+                
+            }
 
         }
 

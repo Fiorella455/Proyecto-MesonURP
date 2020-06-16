@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="MesonURPWEB.Master" %>
+﻿ <%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="MesonURPWEB.Master" %>
 
 <!DOCTYPE html>
 
@@ -131,25 +131,31 @@
         <div class="menu">
             <ul id="menu">
                 <li><a href="Dashboard"><i class="fa fa-tachometer"></i><span>Inicio</span></a></li>
-                <li id="menu-orden-compra"><a href="#"><i class="fa fa-table"></i><span>Orden de Compra</span><span class="fa fa-angle-right" style="float: right"></span></a>
-                    <ul id="menu-orden-compra-sub">
-                        <li id="gestionar-orden-comrpa"><a href="GestionarOC">Gestionar Orden de Compra</a></li>
-                        <li id="consultar-orden-compra"><a href="ConsultarOC.aspx">Consultar Orden de Compra</a></li>
+                <li id="menuOrdenCompra" runat="server"><a href="#"><i class="fa fa-table"></i><span>Orden de Compra</span><span class="fa fa-angle-right" style="float: right"></span></a>
+                    <ul id="submenuOrdenCompra">
+                        <li id="lblGestionarOrden" runat="server"><a href="GestionarOC.aspx">Gestionar Orden de Compra</a></li>
+                        <li id="lblConsultarOrdenCompra" runat="server"><a href="ConsultarOC.aspx">Consultar Orden de Compra</a></li>
                     </ul>
                 </li>
-                <li id="menu-proveedor"><a href="gestionarProveedor"><i class="fa fa-file-text-o"></i><span>Gestionar Proveedor</span></a></li>
-                <li><a href="gestionarDevoluciones"><i class="lnr lnr-pencil"></i><span>Gestionar Devolución</span></a></li>
-                <li id="menu-stock"><a href="#"><i class="fa fa-table"></i><span>Stock</span> <span class="fa fa-angle-right" style="float: right"></span></a>
-                    <ul id="menu-stock-sub">
-                        <li id="menu-stock-manejo"><a href="ManejarStock">Manejar Stock</a></li>
-                        <li id="menu-stock-movimientos"><a href="consultarMovimientos">Consultar Movimientos</a></li>
+                <li id="menuProveedor" runat="server"><a href="gestionarProveedor"><i class="fa fa-file-text-o"></i><span>Gestionar Proveedor</span></a></li>
+                <li id="menuGestionarDevoluciones" runat="server"><a href="gestionarDevoluciones"><i class="lnr lnr-pencil"></i><span>Gestionar Devolución</span></a></li>
+                <li id="menuStock" runat="server"><a href="#"><i class="fa fa-table"></i><span>Stock</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+                    <ul id="submenuStock">
+                        <li id="lblmenuManejoStock"><a href="ManejarStock.aspx">Manejar Stock</a></li>
+                        <li id="lblmenuMovimientosStock"><a href="consultarMovimientos">Consultar Movimientos</a></li>
                     </ul>
                 </li>
-                <li id="menu-recursos"><a href="administrarRecursos"><i class="lnr lnr-book"></i><span>Administrar Recursos</span></a></li>
-                <li id="menu-reportes"><a href="#"><i class="fa fa-table"></i><span>Reportes</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+                <li id="menuRecursos" runat="server"><a href="#"><i class="fa fa-table"></i><span>Administrar Recursos</span><span class="fa fa-angle-right" style="float: right"></span></a>
+                    <ul id="submenuRecursos">
+                        <li id="lblRegistrarEgreso"><a href="RegistrarEgreso.aspx">Registrar Egreso</a></li>
+                        <li id="lblRegistrarIngreso"><a href="RegistrarIngreso.aspx">Registrar Ingreso</a></li>
+                    </ul>
+                </li>
+
+                <li id="menuReportes" runat="server"><a href="#"><i class="fa fa-table"></i><span>Reportes</span> <span class="fa fa-angle-right" style="float: right"></span></a>
                     <ul id="menu-academico-sub">
-                        <li id="menu-reportes-compras"><a href="reporteMovimientos">Generar Reporte de Compras</a></li>
-                        <li id="menu-reportes-movimientos"><a href="reporteCompras">Generar Reporte de Movimientos</a></li>
+                        <li id="lblReporteCompras"><a href="reporteMovimientos">Generar Reporte de Compras</a></li>
+                        <li id="lblReportesMovimientos"><a href="reporteCompras">Generar Reporte de Movimientos</a></li>
                     </ul>
                 </li>
                 <li><a href="gestionarCategoria"><i class="lnr lnr-chart-bars"></i><span>Gestionar Categoría</span></a></li>
@@ -162,18 +168,6 @@
                   </button>
             </div>
         </div>
-        <nav class="mdl-navigation">
-            <a class="mdl-navigatio_link" runat="server" href="index.aspx" style="display: none;">Inicio</a>
-            <a id="li1" class="mdl-navigation_link" runat="server" href="GestionarOC.aspx">Gestionar Orden de Compra</a>
-            <a id="li2" class="mdl-navigation_link" runat="server" href="ConsultarOC.aspx">Consultar Orden de Compra</a>
-            <a id="li3" class="mdl-navigation_link" runat="server" href="GestionarProveedor">Gestionar Proveedor</a>
-            <a id="li4" class="mdl-navigation_link" runat="server" href="GestionarDevolucion">Gestionar Devolución</a>
-            <a id="li5" class="mdl-navigation_link" runat="server" href="ManejarStock.aspx">Manejar Stock</a>
-            <a id="li6" class="mdl-navigation_link" runat="server" href="ConsultarMovimiento">Consultar Movimiento</a>
-            <a id="li7" class="mdl-navigation_link" runat="server" href="AdministrarRecurso">Administrar Recurso</a>
-            <a id="li8" class="mdl-navigation_link" runat="server" href="GenerarReporte">Generar Reporte de Compras</a>
-            <a id="li9" class="mdl-navigation_link" runat="server" href="GenerarReporteMovimientos">Generar Reporte de Movimientos</a>
-        </nav>
     </div>
     <div class="clearfix"></div>
     <!--js -->

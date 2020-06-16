@@ -57,78 +57,78 @@ namespace MesonURPWEB
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor li1;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
 
         /// <summary>
-        /// Control li2.
+        /// Control menuOrdenCompra.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor li2;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menuOrdenCompra;
 
         /// <summary>
-        /// Control li3.
+        /// Control lblGestionarOrden.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor li3;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblGestionarOrden;
 
         /// <summary>
-        /// Control li4.
+        /// Control lblConsultarOrdenCompra.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor li4;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblConsultarOrdenCompra;
 
         /// <summary>
-        /// Control li5.
+        /// Control menuProveedor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor li5;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menuProveedor;
 
         /// <summary>
-        /// Control li6.
+        /// Control menuGestionarDevoluciones.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor li6;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menuGestionarDevoluciones;
 
         /// <summary>
-        /// Control li7.
+        /// Control menuStock.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor li7;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menuStock;
 
         /// <summary>
-        /// Control li8.
+        /// Control menuRecursos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor li8;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menuRecursos;
 
         /// <summary>
-        /// Control li9.
+        /// Control menuReportes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor li9;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menuReportes;
     }
 }

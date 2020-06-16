@@ -40,8 +40,11 @@ namespace MesonURPWEB
                     Session["NombreUsuario"] = _Du.U_Nombre;
                     Session["ApellidoUsuario"] = _Du.U_APaterno;
 
+
                     Session["codUsuario"] = _Du.U_idUsuario;
                     string perfil = _Dtu.TU_NombreTipoUsuario;
+                    Session["TipoPerfil"] = perfil;
+
                     string[] dataArray = new string[] { _Du.U_Correo, perfil };
                     Session["Login"] = dataArray;
                     if (perfil == "Encargado de Compra")
