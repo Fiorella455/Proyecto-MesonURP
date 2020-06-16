@@ -131,10 +131,10 @@
         <div class="menu">
             <ul id="menu">
                 <li><a href="Dashboard"><i class="fa fa-tachometer"></i><span>Inicio</span></a></li>
-                <li id="menu-oc"><a href="#"><i class="fa fa-table"></i><span>Orden de Compra</span> <span class="fa fa-angle-right" style="float: right"></span></a>
-                    <ul id="menu-oc-sub">
-                        <li id="menu-oc-gestion"><a href="GestionarOC">Gestionar Orden de Compra</a></li>
-                        <li id="menu-oc-consulta"><a href="consultarCompras">Consultar Compras</a></li>
+                <li id="menu-orden-compra"><a href="#"><i class="fa fa-table"></i><span>Orden de Compra</span><span class="fa fa-angle-right" style="float: right"></span></a>
+                    <ul id="menu-orden-compra-sub">
+                        <li id="gestionar-orden-comrpa"><a href="GestionarOC">Gestionar Orden de Compra</a></li>
+                        <li id="consultar-orden-compra"><a href="ConsultarOC.aspx">Consultar Orden de Compra</a></li>
                     </ul>
                 </li>
                 <li id="menu-proveedor"><a href="gestionarProveedor"><i class="fa fa-file-text-o"></i><span>Gestionar Proveedor</span></a></li>
@@ -162,6 +162,18 @@
                   </button>
             </div>
         </div>
+        <nav class="mdl-navigation">
+            <a class="mdl-navigatio_link" runat="server" href="index.aspx" style="display: none;">Inicio</a>
+            <a id="li1" class="mdl-navigation_link" runat="server" href="GestionarOC.aspx">Gestionar Orden de Compra</a>
+            <a id="li2" class="mdl-navigation_link" runat="server" href="ConsultarOC.aspx">Consultar Orden de Compra</a>
+            <a id="li3" class="mdl-navigation_link" runat="server" href="GestionarProveedor">Gestionar Proveedor</a>
+            <a id="li4" class="mdl-navigation_link" runat="server" href="GestionarDevolucion">Gestionar Devolución</a>
+            <a id="li5" class="mdl-navigation_link" runat="server" href="ManejarStock.aspx">Manejar Stock</a>
+            <a id="li6" class="mdl-navigation_link" runat="server" href="ConsultarMovimiento">Consultar Movimiento</a>
+            <a id="li7" class="mdl-navigation_link" runat="server" href="AdministrarRecurso">Administrar Recurso</a>
+            <a id="li8" class="mdl-navigation_link" runat="server" href="GenerarReporte">Generar Reporte de Compras</a>
+            <a id="li9" class="mdl-navigation_link" runat="server" href="GenerarReporteMovimientos">Generar Reporte de Movimientos</a>
+        </nav>
     </div>
     <div class="clearfix"></div>
     <!--js -->

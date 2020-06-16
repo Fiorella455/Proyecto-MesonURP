@@ -36,6 +36,7 @@ namespace MesonURPWEB
                     _Cu.getPerfil(_Du, _Dtu);
                     _Cu.getUsuario(_Du);
 
+                    _Cu.getNomApellUsuario(_Du);
                     Session["NombreUsuario"] = _Du.U_Nombre;
                     Session["ApellidoUsuario"] = _Du.U_APaterno;
 

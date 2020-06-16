@@ -16,29 +16,30 @@ namespace MesonURPWEB
         public void Login()
         {
            // if (Session["Login"] != null)
-            //{
-              //  li1.Visible = false;
-                //li2.Visible = false;
-               // li2.Visible = false;
-               // li3.Visible = false;
-               // li4.Visible = false;
-               // li5.Visible = false;
-               // li6.Visible = false;
-               // li7.Visible = false;
-               // li8.Visible = false;
+           //{
+           //  li1.Visible = false;
+           //li2.Visible = false;
+           // li2.Visible = false;
+           // li3.Visible = false;
+           // li4.Visible = false;
+           // li5.Visible = false;
+           // li6.Visible = false;
+           // li7.Visible = false;
+           // li8.Visible = false;
 
-               // string[] localarray = (string[])Session["Login"];
-               // string perfil = localarray[1];
+                // string[] localarray = (string[])Session["Login"];
+                // string perfil = localarray[1];
 
                 //if (perfil == "Encargado de Compra")
                 //{
-                  //  string nombre = localarray[0];
-                    //li1.Visible = true;
-                    //li2.Visible = true;
-                    //li3.Visible = true;
-                    //li4.Visible = true;
-                    //lblNombre.Text = Convert.ToString(Session["NombreUsuario"]);
-                    //lblApellido.Text = Convert.ToString(Session["ApellidoUsuario"]);
+                //  string nombre = localarray[0];
+                //li1.Visible = true;
+                //li2.Visible = true;
+                //li3.Visible = true;
+                //li4.Visible = true;
+                //li5.Visible = true;
+                //lblNombre.Text = Convert.ToString(Session["NombreUsuario"]);
+                //lblApellido.Text = Convert.ToString(Session["ApellidoUsuario"]);
                 //}
 
                 //else if (perfil == "Administrador")
@@ -49,6 +50,14 @@ namespace MesonURPWEB
                     //li5.Visible = true;
                     //li6.Visible = true;
                     //lblNombre.Text = Convert.ToString(Session["NombreUsuario"]);
+                    //lblApellido.Text = Convert.ToString(Session["ApellidoUsuario"]);
+                //}
+               // else if (perfil == "Administrador del Sistema")
+               // {
+                 //   string nombre = localarray[0];
+                    //li10.Visible = true;
+                    //li11.Visible = true;
+                   // lblNombre.Text = Convert.ToString(Session["NombreUsuario"]);
                     //lblApellido.Text = Convert.ToString(Session["ApellidoUsuario"]);
                 //}
 
