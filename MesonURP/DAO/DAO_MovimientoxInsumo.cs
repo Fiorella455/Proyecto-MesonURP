@@ -10,6 +10,7 @@ namespace DAO
     public class DAO_MovimientoxInsumo
     {
         SqlConnection conexion;
+        decimal temp;
         public DAO_MovimientoxInsumo()
         {
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
@@ -22,8 +23,8 @@ namespace DAO
                 SqlCommand unComando = new SqlCommand("SP_Registrar_MovimientoxInsumo", conexion);
                 unComando.CommandType = CommandType.StoredProcedure;
                 unComando.Parameters.Add(new SqlParameter("@MxI_Cantidad", objDTO.Cantidad));
-                unComando.Parameters.Add(new SqlParameter("@MxI_UsuarioMovimiento", objDTO.UsuarioMovimiento));
-                unComando.Parameters.Add(new SqlParameter("@MxI_FechaMovimiento", objDTO.FechaMovimiento));
+                //unComando.Parameters.Add(new SqlParameter("@MxI_UsuarioMovimiento", objDTO.UsuarioMovimiento));
+                unComando.Parameters.Add(new SqlParameter("@MxI_FechaMovimiento", objDTO.FechaMovimiento));   
                 unComando.Parameters.Add(new SqlParameter("@I_idInsumo", objDTO.IdInsumo));
                 unComando.Parameters.Add(new SqlParameter("@M_idMovimiento", objDTO.IdMovimiento));
                 unComando.ExecuteNonQuery();
@@ -34,7 +35,28 @@ namespace DAO
                 throw ex;
             }
         }
-        public DataSet SelectMedida(int idInsumo)
+        public DataSet SelectMedida()
+        {
+            try
+            {
+                //SqlDataAdapter unComando = new SqlDataAdapter("Movimientos", conexion);
+                SqlDataAdapter unComando = new SqlDataAdapter("SP_Listar_Medida2", conexion);
+                unComando.SelectCommand.CommandType = CommandType.StoredProcedure;
+                //unComando.SelectCommand.Parameters.AddWithValue("@I_idInsumo", idInsumo);
+                //unComando.SelectCommand.Parameters.AddWithValue("@I_NombreInsumo", nombreInsumo);
+                DataSet dSet = new DataSet();
+                unComando.Fill(dSet);
+                return dSet;
+                //return dSet.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        /*public DataSet SelectMedida(int idInsumo)
         {
             try
             {
@@ -50,7 +72,7 @@ namespace DAO
             {
                 throw ex;
             }
-        }
+        }*/
         public DataSet CargarInsumoIngreso()
         {
             try
@@ -81,7 +103,7 @@ namespace DAO
                 throw ex;
             }
         }
-        public DataSet StockMin(DTO_MovimientoxInsumo objDTO)
+        /*public DataSet StockMin(DTO_MovimientoxInsumo objDTO)
         {
             try
             {
@@ -96,11 +118,85 @@ namespace DAO
             {
                 throw ex;
             }
+        }*/
+
+        public decimal StockMin(DTO_MovimientoxInsumo objDTO)
+        {
+            decimal tmp = 0;
+            try
+            {
+                SqlDataAdapter unComando = new SqlDataAdapter("SP_Stock_min", conexion);
+                unComando.SelectCommand.CommandType = CommandType.StoredProcedure;
+                unComando.SelectCommand.Parameters.AddWithValue("@I_idInsumo", objDTO.IdInsumo);
+                SqlDataReader dReader = unComando.SelectCommand.ExecuteReader();
+                //return dReader;
+
+                while (dReader.Read())
+                {
+                    tmp = Convert.ToDecimal(dReader[0]);
+                }
+                return tmp;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
-        public DataSet StockMax(DTO_MovimientoxInsumo objDTO)
+
+        public void StockMax(int IdInsumo)
+        {
+            //decimal tmp = 0;
+            try
+            {
+                SqlDataAdapter unComando = new SqlDataAdapter("SP_Stock_max", conexion);
+                unComando.SelectCommand.CommandType = CommandType.StoredProcedure;
+                unComando.SelectCommand.Parameters.AddWithValue("@I_idInsumo", IdInsumo);
+
+                //SqlDataReader dReader = unComando.SelectCommand.ExecuteReader();
+                //return dReader;
+
+                /*  while (dReader.Read())
+                  {
+                      tmp = Convert.ToDecimal(dReader[0]);
+                  }*/
+                //return temp;
+                return;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        /*public decimal StockMax(DTO_MovimientoxInsumo objDTO)
+        {
+            decimal tmp = 0;
+            try
+            {
+                SqlDataAdapter unComando = new SqlDataAdapter("SP_Stock_max", conexion);
+                unComando.SelectCommand.CommandType = CommandType.StoredProcedure;
+                unComando.SelectCommand.Parameters.AddWithValue("@I_idInsumo", objDTO.IdInsumo);
+                SqlDataReader dReader = unComando.SelectCommand.ExecuteReader();
+                //return dReader;
+
+                while (dReader.Read())
+                {
+                    tmp = Convert.ToDecimal(dReader[0]);
+                }
+                return tmp;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }*/
+        /*public DataSet StockMax(DTO_MovimientoxInsumo objDTO)
         {
             try
             {
+                decimal tmp = 0;
                 SqlDataAdapter unComando = new SqlDataAdapter("SP_Stock_max", conexion);
                 unComando.SelectCommand.CommandType = CommandType.StoredProcedure;
                 unComando.SelectCommand.Parameters.AddWithValue("@I_idInsumo", objDTO.IdInsumo);
@@ -112,7 +208,7 @@ namespace DAO
             {
                 throw ex;
             }
-        }
+        }*/
         public void ActualizarStockIngreso(DTO_MovimientoxInsumo objDTO)
         {
             try

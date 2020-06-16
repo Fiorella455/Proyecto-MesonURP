@@ -42,13 +42,22 @@ namespace MesonURPWEB.paginas
         protected global::System.Web.UI.WebControls.TextBox txtCantidad2;
 
         /// <summary>
-        /// Control txtUnidadMedida2.
+        /// Control ddlMedida.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUnidadMedida2;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMedida;
+
+        /// <summary>
+        /// Control txtMovimientoOculto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMovimientoOculto;
 
         /// <summary>
         /// Control btnIngresar.

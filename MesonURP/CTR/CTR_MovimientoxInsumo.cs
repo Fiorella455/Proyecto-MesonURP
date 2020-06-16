@@ -19,10 +19,15 @@ namespace CTR
         {
             objDAO.RegistarMovimientoxInsumo(objDto);
         }
-        public DataSet BuscarUnidad(int idInsumo)
-        {
-            return objDAO.SelectMedida(idInsumo);
-        }
+        /* public DataSet BuscarUnidad(int idInsumo)
+         {
+             return objDAO.SelectMedida(idInsumo);
+         }*/
+         public DataSet BuscarUnidad()
+         {
+            return objDAO.SelectMedida();
+         }
+
         public DataSet CargarInsumoEgreso()
         {
             return objDAO.CargarInsumoEgreso();
@@ -39,13 +44,17 @@ namespace CTR
         {
             objDAO.ActualizarStockEgreso(objDto);
         }
-        public DataTable ListarMovimientos()
-        {
-            return objDAO.ListarMovimientos();
-        }
         public DataTable BuscarMovimientos(string busquedamov)
         {
             return objDAO.BuscarMovimientos(busquedamov);
+        }
+        public decimal VerificarStockMin(DTO_MovimientoxInsumo objDto)
+        {
+             return objDAO.StockMin(objDto);
+        }
+        public void VerificarStockMax(int IdInsumo)
+        {
+             objDAO.StockMax(IdInsumo);
         }
     }
 }

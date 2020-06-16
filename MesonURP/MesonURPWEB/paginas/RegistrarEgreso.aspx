@@ -84,14 +84,14 @@
                                     <div class="form-group">
 									<label for="selector1" class="col-sm-2 control-label">Insumo</label>
 									<div class="col-sm-8">                                            
-                                            <asp:DropDownList id="selectInsumo" runat="server" CssClass="form-control1" OnSelectedIndexChanged="selectInsumo_SelectedIndexChanged">
+                                            <asp:DropDownList id="selectInsumo" runat="server" CssClass="form-control1" >
 										        <asp:ListItem Selected="True" Value="0">Seleccione un insumo</asp:ListItem>
   									        </asp:DropDownList>
                                        </div>
 									<div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">Fecha</label>
 										<div class="col-sm-8">
-                                            <asp:TextBox  ID="txtFecha" runat="server" TextMode="Time" CssClass="form-control1"/>
+                                            <asp:TextBox  ID="txtFecha" runat="server"  CssClass="form-control1"/>
 										</div>
 									</div>
                                     <div class="form-group">
@@ -103,7 +103,10 @@
                                     <div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">Unidad</label>
 										<div class="col-sm-8">
-                                            <asp:TextBox ViewStateMode="Disabled" ID="txtUnidadMedida" runat="server" placeholder="Unidad de Medida" CssClass="form-control1"/>
+                                            <asp:DropDownList id="ddlMedida" runat="server"   CssClass="form-control1" >
+										        <asp:ListItem Selected="True" Value="0">Seleccione unidad de medida</asp:ListItem>
+                                        </asp:DropDownList></div>
+                                            <%--<asp:TextBox ViewStateMode="Disabled" ID="txtUnidadMedida" runat="server" placeholder="Unidad de Medida" CssClass="form-control1"/>--%>
 										</div>
 									</div>
                                     <hr/>
