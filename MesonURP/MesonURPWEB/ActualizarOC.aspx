@@ -19,75 +19,79 @@
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">N° Orden</label>
                         <div class="col-sm-8">
-                            <asp:TextBox runat="server" placeholder="Ingrese el número de orden" CssClass="form-control1" />
+                            <asp:TextBox runat="server" placeholder="Ingrese el número de orden" CssClass="form-control1" ID="txtNumeroOrdenOC" onkeypress="return SoloNumeroInt(event);"/>
+                            <asp:RequiredFieldValidator ID="validationNumeroOrden" runat="server" ControlToValidate="txtNumeroOrdenOC" ErrorMessage="Campo Obligatorio" ValidationGroup="actOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Fecha de Emisión</label>
                         <div class="col-sm-8">
-                            <asp:TextBox disabled runat="server" TextMode="Date" CssClass="form-control1" />
+                            <asp:TextBox disabled runat="server" TextMode="Date" CssClass="form-control1" ID="txtFechaEmision"/>
+                            <asp:RequiredFieldValidator ID="validationFechaEmision" runat="server" ControlToValidate="txtFechaEmision" ErrorMessage="Campo Obligatorio" ValidationGroup="actOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Fecha de Entrega</label>
                         <div class="col-sm-8">
-                            <asp:TextBox ID="txtFechaEntrega" runat="server" TextMode="Date" CssClass="form-control1" />
+                            <asp:TextBox runat="server" TextMode="Date" CssClass="form-control1" ID="txtFechaEntrega"/>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtFechaEntrega" ErrorMessage="Campo Obligatorio" ValidationGroup="actOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Proveedor</label>
                         <div class="col-sm-8">
-                            <asp:DropDownList runat="server" CssClass="form-control1" AutoPostBack="true">
+                            <asp:DropDownList runat="server" CssClass="form-control1" AutoPostBack="true" ID="DdlProveedor">
                             </asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="DdlProveedor" ErrorMessage="Campo Obligatorio" ValidationGroup="actOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Forma de Pago</label>
                         <div class="col-sm-8">
-                            <asp:DropDownList runat="server" CssClass="form-control1" AutoPostBack="true"></asp:DropDownList>
+                            <asp:DropDownList runat="server" CssClass="form-control1" AutoPostBack="true" ID="DdlFormaPago"></asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="DdlFormaPago" ErrorMessage="Campo Obligatorio" ValidationGroup="actOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
-                    </div>
-                       <div class="form-group">
-                        <label for="selector1" class="col-sm-2 control-label">Fecha de Pago</label>
-                        <div class="col-sm-8">
-                            <asp:DropDownList runat="server" CssClass="form-control1" AutoPostBack="true"></asp:DropDownList>
-                        </div>
-                    </div>
+                    </div>                      
                       <div class="input-info">
 						<h3>Detalles de Insumo</h3>
 					</div>
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Categoría</label>
                         <div class="col-sm-8">
-                            <asp:DropDownList disabled runat="server" CssClass="form-control1"></asp:DropDownList>
+                            <asp:DropDownList disabled runat="server" CssClass="form-control1" ID="DdlCategoria"></asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="DdlCategoria" ErrorMessage="Campo Obligatorio" ValidationGroup="actOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                       <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Insumo</label>
                         <div class="col-sm-8">
-                            <asp:DropDownList disabled runat="server" CssClass="form-control1"></asp:DropDownList>
+                            <asp:DropDownList runat="server" CssClass="form-control1" ID="DdlInsumo"></asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="DdlInsumo" ErrorMessage="Campo Obligatorio" ValidationGroup="actOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Cantidad</label>
                         <div class="col-sm-8">
-                            <asp:TextBox runat="server" CssClass="form-control1" />
+                            <asp:TextBox runat="server" CssClass="form-control1" ID="txtCantidad" onkeypress="return SoloNumeroIntDouble(event);"/>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtCantidad" ErrorMessage="Campo Obligatorio" ValidationGroup="actOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Precio Unitario</label>
                         <div class="col-sm-8">
-                            <asp:TextBox runat="server" CssClass="form-control1" />
+                            <asp:TextBox runat="server" CssClass="form-control1" ID="txtPrecioU" onkeypress="return SoloNumeroIntDouble(event);"/>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txtPrecioU" ErrorMessage="Campo Obligatorio" ValidationGroup="actOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                       <div class="form-group">
-                        <label for="selector1" class="col-sm-2 control-label">Unidades</label>
+                        <label for="selector1" class="col-sm-2 control-label">Unidades de Medida</label>
                         <div class="col-sm-8">
-                            <asp:DropDownList runat="server" CssClass="form-control1"></asp:DropDownList>
+                            <asp:DropDownList runat="server" CssClass="form-control1" ID="DdlUnidades" ></asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="DdlUnidades" ErrorMessage="Campo Obligatorio" ValidationGroup="actOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                      <p class="center-button">
-                            <asp:Button CssClass="btn btn-primary" runat="server" Text="Añadir" />
+                            <asp:Button CssClass="btn btn-primary" runat="server" Text="Añadir" ValidationGroup="actOC"/>
                             <asp:Button CssClass="btn btn-primary" runat="server" Text="Quitar" />
                         </p>
 
@@ -121,4 +125,27 @@
             </div>
         </div>
     </div>
+     <script>
+         function BlockChars(ev) {
+             var tecla = (document.all) ? ev.keyCode : ev.which;
+             if (tecla == 8 || tecla == 13 || tecla == 0) return true;
+             if (tecla >= 8226 && tecla <= 10175) { return false; } //BlockAltCtrl
+             var regEx = /[\~`!#$%^&§¥£│øƒ×®️¿¬¡©️¢┐└┴┬├─┼ãÃ╚╔╩╦╠═╬¤ðÐÊËÈıÍÎÏ┘┌█▬¦▬▀­­­±­¶@_*\+\=\\[\]\\\´'\{}|\":<>?()]/;
+             return !regEx.test(String.fromCharCode(tecla));
+         }
+         function SoloNumeroInt(ev) {
+             var tecla = (document.all) ? ev.keyCode : ev.which;
+             if (tecla == 8 || tecla == 13 || tecla == 0) return true;
+             if (tecla >= 8226 && tecla <= 10175) { return false; }
+             var regEx = /^[0-9]+$/i;            
+             return regEx.test(String.fromCharCode(tecla));
+         }
+         function SoloNumeroIntDouble(ev) {
+             var tecla = (document.all) ? ev.keyCode : ev.which;
+             if (tecla == 8 || tecla == 13 || tecla == 0) return true;
+             if (tecla >= 8226 && tecla <= 10175) { return false; }
+             var regEx = /^[0-9\.]+$/i;
+             return regEx.test(String.fromCharCode(tecla));
+         }
+     </script>
 </asp:Content>

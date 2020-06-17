@@ -9,17 +9,17 @@
                             <h2 class="tittle-margin5">Manejar Stock</h2>
                             <div class="stock-options">
                                 <div class="width-auto margin-5">
-                                    <input type="button" class="btn-new btn-fifth" value="Registar Ingreso" onclick="window.location.href = 'RegistrarIngreso.aspx';">           
+                                    <input type="button" class="btn btn-primary" value="Registar Ingreso" onclick="window.location.href = 'RegistrarIngreso.aspx';">           
                                 </div>
                                 
                                 <div class="width-auto">
-                                      <input type="button" class="btn-new btn-fifth" value="Registar Egreso" onclick="window.location.href = 'RegistrarEgreso.aspx';">    
+                                      <input type="button" class="btn btn-primary" value="Registar Egreso" onclick="window.location.href = 'RegistrarEgreso.aspx';">    
                                 </div>
                             </div>
                         </div>
                         <div class="search-buttons">
                             <div class="search">                                
-                                    <asp:TextBox id="txtSearchStock" runat="server"  CssClass="form-control1" placeholder="search..."/>
+                                    <asp:TextBox id="txtSearchStock" runat="server"  CssClass="form-control1"  onkeypress="return lettersOnly(event);"  placeholder="Buscar..."/>
                                     <button type="button" id="brnSearchStock" runat="server">
                                         <span class="material-icons">search
                                         </span>
@@ -55,4 +55,17 @@
                         <div class="clearfix"></div>
                      </div>
                   </div>
+         <script>
+             function lettersOnly(evt) {
+                 evt = (evt) ? evt : event;
+                 var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode :
+                     ((evt.which) ? evt.which : 0));
+                 if (charCode > 31 && (charCode < 65 || charCode > 90) &&
+                     (charCode < 97 || charCode > 122)) {
+                     alert("Por favor, ingrese solo letras.");
+                     return false;
+                 }
+                 return true;
+             }
+         </script>
 </asp:Content>

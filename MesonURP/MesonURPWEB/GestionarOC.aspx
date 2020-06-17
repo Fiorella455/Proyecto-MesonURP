@@ -9,19 +9,12 @@
                             <h2 class="tittle-margin5">Gestionar Orden de Compra</h2>
                             <div class="stock-options">
                                 <div class="width-auto margin-5">
-                                     <input type="button" class="btn-new btn-fifth" value="Agregar Nueva Orden de Compra" onclick="window.location.href = 'AñadirOC';"> 
+                                     <input type="button" class="btn btn-primary" value="Agregar Nueva Orden de Compra" onclick="window.location.href = 'AñadirOC';"> 
                                 </div>
                             </div>
                         </div>
                         <div class="search-buttons">
-                            <div class="search">
-                                    <asp:TextBox id="txtSearchStock" runat="server"  CssClass="form-control1" placeholder="search..."/>
-                                    <button type="button" id="btnSearchOC" runat="server">
-                                        <span class="material-icons">search
-                                        </span>
-                                    </button>
-                            </div>
-                               <div class="panel panel-widget forms-panel">
+                              <div class="panel panel-widget forms-panel">
                                 <div class="form-grids widget-shadow" data-example-id="basic-forms">
                                     <div class="form-title color-white">
                                         <h4>Órdenes de Compra</h4>
@@ -64,4 +57,17 @@
                             </div>
 
                         </div>
+    <script>
+        function lettersOnly(evt) {
+            evt = (evt) ? evt : event;
+            var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode :
+                ((evt.which) ? evt.which : 0));
+            if (charCode > 31 && (charCode < 65 || charCode > 90) &&
+                (charCode < 97 || charCode > 122)) {
+                alert("Por favor, ingrese solo letras.");
+                return false;
+            }
+            return true;
+        }
+    </script>
 </asp:Content>
