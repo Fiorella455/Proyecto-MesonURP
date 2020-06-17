@@ -54,7 +54,7 @@ namespace MesonURPWEB
 
         protected void btnSalida_Click(object sender, EventArgs e)
         {
-            //Response.Redirect("Home");
+            Response.Redirect("Home.aspx");
         }
     }
 }

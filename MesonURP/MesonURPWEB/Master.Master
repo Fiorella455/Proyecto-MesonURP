@@ -161,16 +161,16 @@
                 <li><a href="gestionarCategoria"><i class="lnr lnr-chart-bars"></i><span>Gestionar Categoría</span></a></li>
                 <li><a href="gestionarUsuarios"><i class="lnr lnr-chart-bars"></i><span>Gestionar Usuarios</span></a></li>
             </ul>
-            <%--<div class="cerrar-sesion">
+           <%-- <div class="cerrar-sesion">
                    
-                  <button class="btn btn-link" runat="server">
+                  <button class="btn btn-link" runat="server" onClick="btnSalida_Click">
                        <img src="img/baseline_exit_to_app_white_18dp.png" />
                   </button>
             </div>--%>
-
-             <nav class="mdl-navigation">
-                    <asp:Button ID="Button1" CssClass="close" Text="Cerrar Sesión" runat="server" OnClick="btnSalida_Click" />
-             </nav>
+            <div class="cerrar-sesion">
+                    <asp:LinkButton ID="Button1" class="btn btn-link" runat="server" onClick="btnSalida_Click">
+                 <img src="img/baseline_exit_to_app_white_18dp.png" /></asp:LinkButton>
+             </div>
         </div>
     </div>
     <div class="clearfix"></div>
