@@ -21,9 +21,9 @@ namespace CTR
 
             dao_oc.Registrar_OC(dto_oc);
         }
-        public bool CTR_Leer_OC(DTO_OC dto_oc)
+        public bool CTR_Leer_OC(int i)
         {
-            return dao_oc.Consultar_OC(dto_oc);
+            return dao_oc.Consultar_OC(i);
         }
         public void Actualizar_OC(DTO_OC oc)
         {
@@ -46,9 +46,9 @@ namespace CTR
             dao_oc.Eliminar_OC(dto_oc);
         }
 
-        public void Enviar_OC(int iOC)
+        public int  Enviar_OC(DTO_OC dto_oc)
         {
-            dao_oc.EnviarCorreo(iOC);
+           return dao_oc.EnviarCorreo(dto_oc);
                 
         
         }

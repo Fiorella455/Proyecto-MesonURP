@@ -13,38 +13,46 @@ namespace MesonURPWEB
     {
         DTO_OC dto_oc;
         CTR_OC ctr_oc;
+        int i;
 
-        public ConsultarOC() { }
-        public ConsultarOC(DTO_OC dto_oc_aux)
-        {
-            dto_oc.OC_idOrdenCompra = dto_oc_aux.OC_idOrdenCompra;
-        }
         protected void Page_Load(object sender, EventArgs e)
         {
+            ctr_oc = new CTR_OC();
+            //int indice = (int)Session["indice"];
+            dto_oc = (DTO_OC)Session["indice"];
+           // dto_oc = new DTO_OC();
+           // Consultar_OC(indice);
             if (!IsPostBack)
             {
-                dto_oc=new DTO_OC();
-                ctr_oc = new CTR_OC();
+               
+                txtProveedor.Text = dto_oc.OC_TipoComprobante;
+                txtFormaPago.Text = dto_oc.OC_NumeroComprobante;
+                txtFechaEntrega.Text = dto_oc.OC_FechaEntrega.ToString();
+                txtProveedor.Text = dto_oc.P_idProveedor.ToString();
+                txtFechaPago.Text = dto_oc.OC_FechaEntrega.ToString();
+                txtFormaPago.Text = dto_oc.OC_FormaPago;
             }
         }
 
-        public void Consultar_OC()
+        public void Consultar_OC(int i)
         {
             
-            if (ctr_oc.CTR_Leer_OC(dto_oc))
+            if (ctr_oc.CTR_Leer_OC(i)) 
             {
                 txtNumeroOC.Text = dto_oc.OC_TipoComprobante;
+                txtFechaEmision.Text = dto_oc.OC_FechaEmision.ToString();
                 txtFechaEntrega.Text = dto_oc.OC_NumeroComprobante;
                 txtEstado.Text = dto_oc.OC_TotalCompra.ToString();
-                txtFechaEmision.Text = dto_oc.OC_FechaEmision.ToString();
+                txtProveedor.Text = dto_oc.P_idProveedor.ToString();
                 txtFechaPago.Text = dto_oc.OC_FechaEntrega.ToString();
                 txtFormaPago.Text = dto_oc.OC_FormaPago;
-                txtProveedor.Text = dto_oc.P_idProveedor.ToString();
+                
             }
             else
             {
                 Response.Write("<script languaje=javascript> alert('Orden de Comprar no encontrada);</script>");
             }
+
 
         }
     }

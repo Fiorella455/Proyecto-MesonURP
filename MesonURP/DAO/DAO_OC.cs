@@ -25,27 +25,29 @@ namespace DAO
         }
         public void Registrar_OC(DTO_OC dto_oc)
         {
-            
+                conexion.Open();
                 SqlCommand cmd = new SqlCommand("SP_Insertar_OC", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@OC_idOrdenCompra", dto_oc.OC_idOrdenCompra);
+            //    cmd.Parameters.AddWithValue("@OC_idOrdenCompra", dto_oc.OC_idOrdenCompra);
                 cmd.Parameters.AddWithValue("@OC_TipoComprobante", dto_oc.OC_TipoComprobante);
                 cmd.Parameters.AddWithValue("@OC_NumeroComprobante", dto_oc.OC_NumeroComprobante);
+                cmd.Parameters.AddWithValue("@OC_FormaPago", dto_oc.OC_FormaPago);
+                cmd.Parameters.AddWithValue("@OC_FechaPago", dto_oc.OC_FechaPago);
                 cmd.Parameters.AddWithValue("@OC_TotalCompra", dto_oc.OC_TotalCompra);
                 cmd.Parameters.AddWithValue("@OC_FechaEmision", dto_oc.OC_FechaEmision);
+                cmd.Parameters.AddWithValue("@OC_FechaEntrega", dto_oc.OC_FechaEntrega);
                 cmd.Parameters.AddWithValue("@OC_idProveedor", dto_oc.P_idProveedor);
-           
-
+            cmd.ExecuteNonQuery();
+            conexion.Close();
         }
        
-        public bool Consultar_OC(DTO_OC dto_oc)
+        public bool Consultar_OC(int i)
         {
 
                 conexion.Open();
                 SqlCommand cmd = new SqlCommand("SP_Consultar_OC",conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@OC_idOrdenCompra", dto_oc.OC_idOrdenCompra);
-                
+                cmd.Parameters.Add(new SqlParameter("@OC_idOrdenCompra",i));          
                 SqlDataReader reader = cmd.ExecuteReader();
                 bool hayRegistros = reader.Read();
                 if (hayRegistros)
@@ -53,13 +55,13 @@ namespace DAO
                     //Hay registros
                     dto_oc.OC_idOrdenCompra = (int)reader[0];
                     dto_oc.OC_TipoComprobante = (string)reader[1];
-                    dto_oc.OC_FechaEntrega = (DateTime)reader[2];
+                    dto_oc.OC_NumeroComprobante = (string)reader[2];
                     dto_oc.OC_FormaPago = (string)reader[3];
                     dto_oc.OC_FechaPago = (DateTime)reader[4];
-                    dto_oc.OC_NumeroComprobante = (string)reader[5];
-                    dto_oc.OC_TotalCompra = (decimal)reader[6];
-                    dto_oc.OC_FechaEmision = (DateTime)reader[7];
-                    dto_oc.P_idProveedor = (int)reader[5];
+                    dto_oc.OC_TotalCompra = (decimal)reader[5];
+                    dto_oc.OC_FechaEmision = (DateTime)reader[6];
+                    dto_oc.OC_FechaEntrega = (DateTime)reader[7];
+                    dto_oc.P_idProveedor = (int)reader[8];
                     dto_oc.Estado = 100;
                 }
                  dto_oc.Estado = 99;
@@ -68,18 +70,31 @@ namespace DAO
           
 
         }
+
+        public void Leer_OCxFecha()
+        {
+            //conexion.Open();
+            //SqlCommand comando = new SqlCommand("SP_Consultar_Listas_OC", conexion);
+            //comando.CommandType = CommandType.StoredProcedure;
+            //SqlCommand cmd = new SqlCommand("SP_Consulta_OCxFecha", conexion);
+            //cmd.CommandType = CommandType.StoredProcedure;
+            //cmd.Parameters.Add(new SqlParameter("@OC_FechaEntrega",))
+
+        }
         public void Actualizar_OC(DTO_OC dto_oc)
         {
             try
             {
                 conexion.Open();
-                SqlCommand cmd = new SqlCommand("SP_Insertar_OC", conexion);
+                SqlCommand cmd = new SqlCommand("SP_Actualizar_OC", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add(new SqlParameter("@OC_idOrdenCompra", dto_oc.OC_idOrdenCompra));
                 cmd.Parameters.Add(new SqlParameter("@OC_TipoComprobante", dto_oc.OC_TipoComprobante));
                 cmd.Parameters.Add(new SqlParameter("@OC_NumeroComprobante", dto_oc.OC_NumeroComprobante));
+                cmd.Parameters.Add(new SqlParameter("@OC_FormaPago", dto_oc.OC_FormaPago));
+                cmd.Parameters.Add(new SqlParameter("@OC_FechaPago", dto_oc.OC_FechaPago));
                 cmd.Parameters.Add(new SqlParameter("@OC_TotalCompra", dto_oc.OC_TotalCompra));
-                cmd.Parameters.Add(new SqlParameter("@OC_FechaEmision", dto_oc.OC_FechaEmision));
+                cmd.Parameters.Add(new SqlParameter("@OC_FechaEntrega", dto_oc.OC_FechaEntrega));
                 cmd.Parameters.Add(new SqlParameter("@P_idProveedor", dto_oc.P_idProveedor));
 
                 cmd.ExecuteNonQuery();
@@ -90,11 +105,11 @@ namespace DAO
                 throw ex;
             }
         }
-        public string EnviarCorreo(int iOC)
+        public int EnviarCorreo(DTO_OC dto_oc)
         {
             MailMessage msg = new MailMessage();
-            dto_oc.OC_idOrdenCompra = iOC;
-            if (Consultar_OC(dto_oc))
+            
+            if (Consultar_OC(dto_oc.OC_idOrdenCompra))
             {
                 
                 dto_proveedor.P_idProveedor = dto_oc.P_idProveedor;
@@ -120,16 +135,15 @@ namespace DAO
 
                       cliente.Send(msg);
 
-                    
-                    return prueba = "Enviado"+" "+dto_proveedor.P_CorreoContacto;
+
+                    return 1;
                 }
 
             }
 
-            return prueba = "No enviado";
+            return 2;
 
         }
-
         public DTO_OC OC_Actual(int i)
         {
             conexion.Open();

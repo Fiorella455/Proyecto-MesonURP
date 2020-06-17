@@ -20,5 +20,10 @@ namespace CTR
         {
            return dao_insumo.Dao_Leer_Insumos_Categorias(idCategoria);
         }
+        public bool CTR_Leer_PrecioUxInsumo(DTO_Insumo dto_insumo)
+        {
+            return dao_insumo.DAO_Leer_PrecioUxInsumo(dto_insumo);
+        }
+        
     }
 }

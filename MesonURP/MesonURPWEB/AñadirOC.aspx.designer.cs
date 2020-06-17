@@ -24,15 +24,6 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.TextBox txtNumeroOrden;
 
         /// <summary>
-        /// txtFechaEmision control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaEmision;
-
-        /// <summary>
         /// txtFechaEntrega control.
         /// </summary>
         /// <remarks>
@@ -60,13 +51,13 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.DropDownList DdlProveedor;
 
         /// <summary>
-        /// selectFormaPagoOC control.
+        /// txtFormaPago control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList selectFormaPagoOC;
+        protected global::System.Web.UI.WebControls.TextBox txtFormaPago;
 
         /// <summary>
         /// txtNumeroComprobante control.
@@ -112,6 +103,33 @@ namespace MesonURPWEB
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCantidad;
+
+        /// <summary>
+        /// txtPrecioU control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPrecioU;
+
+        /// <summary>
+        /// DdlUnidades control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdlUnidades;
+
+        /// <summary>
+        /// btnAñadirInsumo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAñadirInsumo;
 
         /// <summary>
         /// GridViewAñadirOC control.

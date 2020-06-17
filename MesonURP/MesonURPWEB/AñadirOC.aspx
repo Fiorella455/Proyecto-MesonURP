@@ -23,12 +23,7 @@
                             <asp:TextBox ID="txtNumeroOrden" runat="server" placeholder="Ingrese el número de orden" CssClass="form-control1" />
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="focusedinput" class="col-sm-2 control-label">Fecha de Emisión</label>
-                        <div class="col-sm-8">
-                            <asp:TextBox disabled ID="txtFechaEmision" runat="server" TextMode="Date" CssClass="form-control1" />
-                        </div>
-                    </div>
+                    
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Fecha de Entrega</label>
                         <div class="col-sm-8">
@@ -38,7 +33,7 @@
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Estado</label>
                         <div class="col-sm-8">
-                            <asp:DropDownList disabled ID="DdlEstado" runat="server" CssClass="form-control1"></asp:DropDownList>
+                            <asp:DropDownList runat="server" CssClass="form-control1" ID="DdlEstado"></asp:DropDownList>
                         </div>
                     </div>
                     <div class="form-group">
@@ -51,14 +46,10 @@
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Forma de Pago</label>
                         <div class="col-sm-8">
-                            <asp:DropDownList ID="selectFormaPagoOC" runat="server" CssClass="form-control1" AutoPostBack="true"></asp:DropDownList>
+                            <asp:TextBox ID="txtFormaPago" runat="server" placeholder="Ingrese forma de pago" CssClass="form-control1" />
                         </div>
                     </div>
-                       <div class="form-group">
-                        <label for="selector1" class="col-sm-2 control-label">Fecha de Pago</label>
-                        <div class="col-sm-8">
-                            <asp:DropDownList runat="server" CssClass="form-control1" AutoPostBack="true"></asp:DropDownList>
-                        </div>
+                       
                            <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Numero de Comprobante</label>
                         <div class="col-sm-8">
@@ -78,13 +69,13 @@
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Categoría</label>
                         <div class="col-sm-8">
-                            <asp:DropDownList disabled runat="server" CssClass="form-control1" ID="DdlCategoria"></asp:DropDownList>
+                            <asp:DropDownList runat="server" CssClass="form-control1" ID="DdlCategoria" AutoPostBack="true" ></asp:DropDownList>
                         </div>
                     </div>
                       <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Insumo</label>
                         <div class="col-sm-8">
-                            <asp:DropDownList disabled runat="server" CssClass="form-control1" ID="DdlInsumo"></asp:DropDownList>
+                            <asp:DropDownList runat="server" CssClass="form-control1" ID="DdlInsumo"  AutoPostBack="true" ></asp:DropDownList>
                         </div>
                     </div>
                     <div class="form-group">
@@ -96,17 +87,17 @@
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Precio Unitario</label>
                         <div class="col-sm-8">
-                            <asp:TextBox runat="server" CssClass="form-control1" />
+                            <asp:TextBox runat="server" CssClass="form-control1" ID="txtPrecioU" />
                         </div>
                     </div>
                       <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Unidades</label>
                         <div class="col-sm-8">
-                            <asp:DropDownList runat="server" CssClass="form-control1"></asp:DropDownList>
+                            <asp:DropDownList runat="server" CssClass="form-control1" ID="DdlUnidades"></asp:DropDownList>
                         </div>
                     </div>
                      <p class="center-button">
-                            <asp:Button CssClass="btn btn-primary" runat="server" Text="Añadir" />
+                            <asp:Button CssClass="btn btn-primary" runat="server" Text="Añadir" ID="btnAñadirInsumo" OnClick="btnAñadirInsumo_Click" />
                             <asp:Button CssClass="btn btn-primary" runat="server" Text="Quitar" />
                         </p>
 

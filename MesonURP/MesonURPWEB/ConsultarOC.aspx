@@ -17,7 +17,7 @@
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">N° Orden</label>
                         <div class="col-sm-8">
-                            <asp:TextBox disabled runat="server" placeholder="Ingrese el número de orden" CssClass="form-control1" ID="txtNumeroOC" />
+                            <asp:TextBox disabled runat="server"  CssClass="form-control1" ID="txtNumeroOC" />
                         </div>
                     </div>
                     <div class="form-group">

@@ -38,8 +38,8 @@ namespace MesonURPWEB.paginas
 
         public void Consultar_OC()
         {
-            dto_oc.OC_idOrdenCompra = int.Parse(txtID.Text);
-            if (ctr_oc.CTR_Leer_OC(dto_oc))
+            int i = int.Parse(txtID.Text);
+            if (ctr_oc.CTR_Leer_OC(i))
             {
                 txtTipoComp.Text = dto_oc.OC_TipoComprobante;
                 txtNumeroComp.Text = dto_oc.OC_NumeroComprobante;
@@ -71,7 +71,7 @@ namespace MesonURPWEB.paginas
 
         protected void btnEnviar_Click(object sender, EventArgs e)
         {
-            txtMsj.Text= dao_oc.EnviarCorreo(int.Parse(txt_idOC.Text));
+           /// txtMsj.Text= dao_oc.EnviarCorreo(int.Parse(txt_idOC.Text));
         }
     }
 }

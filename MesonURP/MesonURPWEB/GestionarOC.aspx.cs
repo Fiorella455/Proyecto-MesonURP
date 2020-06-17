@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DTO;
+using DAO;
 using CTR;
 using System.Data;
 
@@ -14,19 +15,21 @@ namespace MesonURPWEB
     public partial class GestionarOC : System.Web.UI.Page
     {
         DTO_OC dto_oc;
+        DAO_OC dao_oc;
         CTR_OC ctr_oc;
         DataTable dt;
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            dto_oc = new DTO_OC();
 
             if (!IsPostBack)
             {
                 ctr_oc = new CTR_OC();
-
+                dao_oc = new DAO_OC();
                 dt = new DataTable();
                 dto_oc = new DTO_OC();
+
 
                 dt = ctr_oc.Leer_OC();
                 GridViewOC.DataSource = dt;
@@ -39,28 +42,39 @@ namespace MesonURPWEB
         {
             GridViewRow OC = (GridViewRow)((Button)sender).Parent.Parent;
             int i = OC.RowIndex;
-            dto_oc.OC_idOrdenCompra = Convert.ToInt32(GridViewOC.Rows[i].Cells[0].Text);
-            ConsultarOC objConsultarOC = new ConsultarOC(dto_oc);
-            Response.Redirect("Consultar_OC.aspx");
+            DTO_OC aux = new DTO_OC();
+            aux.OC_idOrdenCompra = Convert.ToInt32(GridViewOC.Rows[i].Cells[0].Text);
+            aux.OC_TipoComprobante = GridViewOC.Rows[i].Cells[1].Text;
+            aux.OC_NumeroComprobante = GridViewOC.Rows[i].Cells[2].Text;
+            aux.OC_TotalCompra = Convert.ToDecimal(GridViewOC.Rows[i].Cells[3].Text);
+            aux.P_idProveedor = int.Parse(GridViewOC.Rows[i].Cells[6].Text);
+            aux.OC_FechaEmision = DateTime.Parse(GridViewOC.Rows[i].Cells[5].Text);
+
+            Session.Add("indice",aux);
+            Response.Redirect("ConsultarOC.aspx");
+            
         }
 
-        protected void btnEnviarEmailOC_Click(object sender, EventArgs e)
-        {
-            GridViewRow OC = (GridViewRow)((Button)sender).Parent.Parent;
-            int i = OC.RowIndex;
-            int idOC = Convert.ToInt32(GridViewOC.Rows[i].Cells[0].Text);
-            ctr_oc.Enviar_OC(idOC);
-        }
+       
 
         protected void btnEditarOC_Click(object sender, EventArgs e)
         {
             GridViewRow OC = (GridViewRow)((Button)sender).Parent.Parent;
             int i = OC.RowIndex;
             dto_oc.OC_idOrdenCompra = Convert.ToInt32(GridViewOC.Rows[i].Cells[0].Text);
-            //ActualizarOC objConsultarOC = new ConsultarOC(dto_oc);
-            Response.Redirect("Actualizar_OC.aspx");
+            
+            Response.Redirect("ActualizarOC.aspx?idOC" + 1);
         }
 
-       
+        protected void btnEnviarEmailOC_Click(object sender, EventArgs e)
+        {
+
+            GridViewRow OC = (GridViewRow)((Button)sender).Parent.Parent;
+            int i = OC.RowIndex;
+            DTO_OC aux = new DTO_OC();
+            aux.OC_idOrdenCompra = Convert.ToInt32(GridViewOC.Rows[i].Cells[0].Text);
+            ctr_oc = new CTR_OC();
+            ctr_oc.Enviar_OC(aux);
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace CTR
 {
     public class CTR_Categoria
     {
-        readonly Dao_Categoria dao_categoria;
+        Dao_Categoria dao_categoria;
 
         public CTR_Categoria()
         {

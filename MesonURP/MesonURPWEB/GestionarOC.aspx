@@ -31,18 +31,18 @@
                                                       CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None">
                                             
                                             <Columns>
-                                                   <asp:BoundField HeaderText="ID Compra" />
-                                                   <asp:BoundField HeaderText="Tipo de Comprobante" />
-                                                   <asp:BoundField HeaderText="Número de comprobante" />
-                                                   <asp:BoundField HeaderText="Total de Compra" />
+                                                   <asp:BoundField HeaderText="ID Compra" DataField="OC_idOrdenCompra" />
+                                                   <asp:BoundField HeaderText="Tipo de Comprobante" DataField="OC_TipoComprobante" />
+                                                   <asp:BoundField HeaderText="Número de comprobante" DataField="OC_NumeroComprobante"/>
+                                                   <asp:BoundField HeaderText="Total de Compra" DataField="OC_TotalCompra"/>
                                                    <asp:BoundField  HeaderText="Estado" />
+                                                   <asp:BoundField  HeaderText="Fecha de Emisión"  DataField="OC_FechaEmision"/>  
+                                                   <asp:BoundField  HeaderText="ID Proveedor" DataField="P_idProveedor" />
                                                    <asp:TemplateField  HeaderText="Enviar">
                                                        <ItemTemplate>
-                                                           <asp:Button ID="btnEnviarEmailOC" class="btn btn-primary" runat="server" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Enviar" />
+                                                           <asp:Button ID="btnEnviarEmailOC" class="btn btn-primary" runat="server" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Enviar" OnClick="btnEnviarEmailOC_Click" />
                                                        </ItemTemplate>                                                     
                                                    </asp:TemplateField>  
-                                                   <asp:BoundField  HeaderText="Fecha de Emisión" />  
-                                                   <asp:BoundField  HeaderText="ID Proveedor" />
                                                    <asp:TemplateField  HeaderText="Editar">
                                                        <ItemTemplate>
                                                            <asp:Button ID="btnEditarOC" class="btn btn-primary" runat="server" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Actualizar" />
@@ -51,7 +51,7 @@
                                                    </asp:TemplateField> 
                                                    <asp:TemplateField  HeaderText="Ver Detalles">
                                                        <ItemTemplate>
-                                                           <asp:Button ID="btnVerDetallesOC" class="btn btn-primary" runat="server" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Consultar" />
+                                                           <asp:Button ID="btnVerDetallesOC" class="btn btn-primary" runat="server" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Consultar" OnClick="btnVerDetallesOC_Click" />
                                                        </ItemTemplate>                                                     
                                                    </asp:TemplateField>                                                    
                                             </Columns>
