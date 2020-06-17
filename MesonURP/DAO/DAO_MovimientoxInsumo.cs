@@ -39,15 +39,11 @@ namespace DAO
         {
             try
             {
-                //SqlDataAdapter unComando = new SqlDataAdapter("Movimientos", conexion);
                 SqlDataAdapter unComando = new SqlDataAdapter("SP_Listar_Medida2", conexion);
                 unComando.SelectCommand.CommandType = CommandType.StoredProcedure;
-                //unComando.SelectCommand.Parameters.AddWithValue("@I_idInsumo", idInsumo);
-                //unComando.SelectCommand.Parameters.AddWithValue("@I_NombreInsumo", nombreInsumo);
                 DataSet dSet = new DataSet();
                 unComando.Fill(dSet);
                 return dSet;
-                //return dSet.Tables[0];
             }
             catch (Exception ex)
             {
@@ -103,23 +99,6 @@ namespace DAO
                 throw ex;
             }
         }
-        /*public DataSet StockMin(DTO_MovimientoxInsumo objDTO)
-        {
-            try
-            {
-                SqlDataAdapter unComando = new SqlDataAdapter("SP_Stock_min", conexion);
-                unComando.SelectCommand.CommandType = CommandType.StoredProcedure;
-                unComando.SelectCommand.Parameters.AddWithValue("@I_idInsumo", objDTO.IdInsumo);
-                DataSet dSet = new DataSet();
-                unComando.Fill(dSet);
-                return dSet;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }*/
-
         public decimal StockMin(DTO_MovimientoxInsumo objDTO)
         {
             decimal tmp = 0;
@@ -169,46 +148,6 @@ namespace DAO
             }
         }
 
-
-        /*public decimal StockMax(DTO_MovimientoxInsumo objDTO)
-        {
-            decimal tmp = 0;
-            try
-            {
-                SqlDataAdapter unComando = new SqlDataAdapter("SP_Stock_max", conexion);
-                unComando.SelectCommand.CommandType = CommandType.StoredProcedure;
-                unComando.SelectCommand.Parameters.AddWithValue("@I_idInsumo", objDTO.IdInsumo);
-                SqlDataReader dReader = unComando.SelectCommand.ExecuteReader();
-                //return dReader;
-
-                while (dReader.Read())
-                {
-                    tmp = Convert.ToDecimal(dReader[0]);
-                }
-                return tmp;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }*/
-        /*public DataSet StockMax(DTO_MovimientoxInsumo objDTO)
-        {
-            try
-            {
-                decimal tmp = 0;
-                SqlDataAdapter unComando = new SqlDataAdapter("SP_Stock_max", conexion);
-                unComando.SelectCommand.CommandType = CommandType.StoredProcedure;
-                unComando.SelectCommand.Parameters.AddWithValue("@I_idInsumo", objDTO.IdInsumo);
-                DataSet dSet = new DataSet();
-                unComando.Fill(dSet);
-                return dSet;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }*/
         public void ActualizarStockIngreso(DTO_MovimientoxInsumo objDTO)
         {
             try

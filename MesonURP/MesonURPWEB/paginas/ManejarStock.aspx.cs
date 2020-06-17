@@ -14,7 +14,7 @@ namespace MesonURPWEB.paginas
     public partial class ManejarStock : System.Web.UI.Page
     {
         CTR_Insumo _CI = new CTR_Insumo();
-        DTO_Insumo _DI = new DTO_Insumo();
+        //DTO_Insumo _DI = new DTO_Insumo();
         protected void Page_Load(object sender, EventArgs e)
         {
             CargarStockInsumo();

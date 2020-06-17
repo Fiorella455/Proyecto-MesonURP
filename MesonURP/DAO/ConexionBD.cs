@@ -12,10 +12,10 @@ namespace DAO
                 //return "data source=DESKTOP-928V5LN\\SQLEXPRESS; initial catalog=DB_MesonURP; integrated security=SSPI;";
 
                 //GRECIA
-                return "Data Source= DESKTOP-LLEV629;database=DB_MesonURP;integrated security=SSPI;";
+                //return "Data Source= DESKTOP-LLEV629;database=DB_MesonURP;integrated security=SSPI;";
 
                 //KATYA
-                //return "data source=LAPTOP-VNIPF8CA; initial catalog=DB_MesonURP; integrated security=SSPI;";
+                return "data source=LAPTOP-VNIPF8CA; initial catalog=DB_MesonURP; integrated security=SSPI;";
             }
         }
     }

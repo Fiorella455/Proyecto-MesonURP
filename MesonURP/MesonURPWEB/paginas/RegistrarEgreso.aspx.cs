@@ -12,25 +12,18 @@ namespace MesonURPWEB.paginas
     public partial class RegistrarEgreso : System.Web.UI.Page
     {
         CTR_MovimientoxInsumo _Cmxi = new CTR_MovimientoxInsumo();
-        CTR_Insumo _Ci = new CTR_Insumo();
-        DTO_Insumo _Di = new DTO_Insumo();
-        DTO_Movimiento _Dm = new DTO_Movimiento();
         DTO_MovimientoxInsumo _Dmxi = new DTO_MovimientoxInsumo();
-        CTR_Movimiento _Cm = new CTR_Movimiento();
         string FechaActual = DateTime.Now.ToString("dd/MM/yyyy");
         int movEgreso = 2;
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!Page.IsPostBack)
             {
                 ListarInsumosxEgresar();
                 ListarMedida();
             }
             txtFecha.Text = FechaActual;
-
         }
-
         public void ListarInsumosxEgresar()
         {
             selectInsumo.DataSource = _Cmxi.CargarInsumoEgreso();
@@ -45,12 +38,10 @@ namespace MesonURPWEB.paginas
             ddlMedida.DataValueField = "M_idMedida";
             ddlMedida.DataBind();
             ddlMedida.Items.Insert(0, new ListItem("--Seleccionar--", ""));
-
         }
         protected void btnEgresar_ServerClick(object sender, EventArgs e)
         {
             _Dmxi.Cantidad = Convert.ToDecimal(txtCantidad.Text);
-            //_Dmxi.UsuarioMovimiento = "katya"; 
             _Dmxi.FechaMovimiento = Convert.ToDateTime(txtFecha.Text);
             _Dmxi.IdInsumo = Convert.ToInt32(selectInsumo.SelectedValue);
             _Dmxi.IdMovimiento = movEgreso;
@@ -68,6 +59,5 @@ namespace MesonURPWEB.paginas
             _Cmxi.RegistrarMovimientoxInsumo(_Dmxi);
             _Cmxi.UpdateStockEgreso(_Dmxi);
         }
-
     }
 }
