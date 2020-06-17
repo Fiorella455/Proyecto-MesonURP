@@ -46,8 +46,10 @@
                                     <img src="../img/MesonURP_logofinal2.png" class="img-responsive2" alt="" />
                                 </a>
                             </div>
+
                             <div class="top_left">
                                  <h2>
+                                    <strong> <asp:Label ID="lblRol" runat="server" Text="Label" Visible="True" ForeColor="white"></asp:Label> </strong> <p></p>
                                     <asp:Label ID="lblNombre" runat="server" Text="Label" Visible="True" ForeColor="white"></asp:Label>
                                     <asp:Label ID="lblApellido" runat="server" Text="Label" Visible="True" ForeColor="white"></asp:Label>
                                  </h2>
