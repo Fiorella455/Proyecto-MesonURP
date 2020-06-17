@@ -10,7 +10,6 @@ namespace DAO
     public class DAO_MovimientoxInsumo
     {
         SqlConnection conexion;
-        decimal temp;
         public DAO_MovimientoxInsumo()
         {
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
@@ -23,7 +22,6 @@ namespace DAO
                 SqlCommand unComando = new SqlCommand("SP_Registrar_MovimientoxInsumo", conexion);
                 unComando.CommandType = CommandType.StoredProcedure;
                 unComando.Parameters.Add(new SqlParameter("@MxI_Cantidad", objDTO.Cantidad));
-                //unComando.Parameters.Add(new SqlParameter("@MxI_UsuarioMovimiento", objDTO.UsuarioMovimiento));
                 unComando.Parameters.Add(new SqlParameter("@MxI_FechaMovimiento", objDTO.FechaMovimiento));   
                 unComando.Parameters.Add(new SqlParameter("@I_idInsumo", objDTO.IdInsumo));
                 unComando.Parameters.Add(new SqlParameter("@M_idMovimiento", objDTO.IdMovimiento));
@@ -35,40 +33,29 @@ namespace DAO
                 throw ex;
             }
         }
-        public DataSet SelectMedida()
+        public string SelectMedida(int IdInsumo)
         {
+            string medida = "";
             try
             {
-                SqlDataAdapter unComando = new SqlDataAdapter("SP_Listar_Medida2", conexion);
-                unComando.SelectCommand.CommandType = CommandType.StoredProcedure;
-                DataSet dSet = new DataSet();
-                unComando.Fill(dSet);
-                return dSet;
+                SqlCommand unComando = new SqlCommand("SP_Listar_Medida", conexion);
+                unComando.CommandType = CommandType.StoredProcedure;
+                conexion.Open();
+                unComando.Parameters.AddWithValue("@I_idInsumo", IdInsumo);
+
+                SqlDataReader dReader = unComando.ExecuteReader();
+                if (dReader.Read())
+                {
+                    medida = dReader["Medida"].ToString();
+                }
+                conexion.Close();
+                return medida;
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-
-
-        /*public DataSet SelectMedida(int idInsumo)
-        {
-            try
-            {
-                SqlDataAdapter unComando = new SqlDataAdapter("SP_Listar_Medida", conexion);
-                unComando.SelectCommand.CommandType = CommandType.StoredProcedure;
-                unComando.SelectCommand.Parameters.AddWithValue("@I_idInsumo", idInsumo);
-                DataSet dSet = new DataSet();
-                unComando.Fill(dSet);
-               return dSet;
-               //return dSet.Tables[0];
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }*/
         public DataSet CargarInsumoIngreso()
         {
             try
@@ -99,55 +86,51 @@ namespace DAO
                 throw ex;
             }
         }
-        public decimal StockMin(DTO_MovimientoxInsumo objDTO)
+        public string StockMin(int IdInsumo)
         {
-            decimal tmp = 0;
+            string stockmin = "";
             try
             {
-                SqlDataAdapter unComando = new SqlDataAdapter("SP_Stock_min", conexion);
-                unComando.SelectCommand.CommandType = CommandType.StoredProcedure;
-                unComando.SelectCommand.Parameters.AddWithValue("@I_idInsumo", objDTO.IdInsumo);
-                SqlDataReader dReader = unComando.SelectCommand.ExecuteReader();
-                //return dReader;
+                SqlCommand unComando = new SqlCommand("SP_Stock_min", conexion);
+                unComando.CommandType = CommandType.StoredProcedure;
+                conexion.Open();
+                unComando.Parameters.AddWithValue("@I_idInsumo", IdInsumo);
 
-                while (dReader.Read())
+                SqlDataReader dReader = unComando.ExecuteReader();
+                if (dReader.Read())
                 {
-                    tmp = Convert.ToDecimal(dReader[0]);
+                    stockmin = dReader["StockMin"].ToString();
                 }
-                return tmp;
+                conexion.Close();
+                return stockmin;
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-
-        public void StockMax(int IdInsumo)
+        public string StockMax(int IdInsumo)
         {
-            //decimal tmp = 0;
+            string  stockmax= "";
             try
             {
-                SqlDataAdapter unComando = new SqlDataAdapter("SP_Stock_max", conexion);
-                unComando.SelectCommand.CommandType = CommandType.StoredProcedure;
-                unComando.SelectCommand.Parameters.AddWithValue("@I_idInsumo", IdInsumo);
+                SqlCommand unComando = new SqlCommand("SP_Stock_max", conexion);
+                unComando.CommandType = CommandType.StoredProcedure;
+                conexion.Open();
+                unComando.Parameters.AddWithValue("@I_idInsumo", IdInsumo);
 
-                //SqlDataReader dReader = unComando.SelectCommand.ExecuteReader();
-                //return dReader;
-
-                /*  while (dReader.Read())
-                  {
-                      tmp = Convert.ToDecimal(dReader[0]);
-                  }*/
-                //return temp;
-                return;
-
+                SqlDataReader dReader = unComando.ExecuteReader();
+                if (dReader.Read()) {
+                    stockmax = dReader["StockMax"].ToString();
+                }
+                conexion.Close();
+                return stockmax;
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-
         public void ActualizarStockIngreso(DTO_MovimientoxInsumo objDTO)
         {
             try

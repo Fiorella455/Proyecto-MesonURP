@@ -22,21 +22,18 @@ namespace MesonURPWEB.paginas
             if(!Page.IsPostBack)
             {
                 ListarInsumo();
-                ListarUnidad();
+                //ListarUnidad();
             }
             txtFecha2.Text = FechaActual;
-            //txtMovimientoOculto.Text = Convert.ToString(_Cmxi.VerificarStockMax(_Dmxi));
         }
         protected void btnIngresar_ServerClick(object sender, EventArgs e)
         {
-           
-            
                 _Dmxi.Cantidad = Convert.ToDecimal(txtCantidad2.Text);
                 _Dmxi.FechaMovimiento = Convert.ToDateTime(txtFecha2.Text);
                 _Dmxi.IdInsumo = Convert.ToInt32(ddlInsumos.SelectedValue);
                 _Dmxi.IdMovimiento = movIngreso;
 
-            //txtMovimientoOculto.Text = Convert.ToString(_Cmxi.VerificarStockMax(_Dmxi.IdInsumo));
+            txtMovimientoOculto.Text = _Cmxi.VerificarStockMax(_Dmxi.IdInsumo); //GRECIA AQUI LO PROBE Y TODO BIEN
 
             //   if (Convert.ToDecimal(txtCantidad2.Text) > Convert.ToDecimal(txtMovimientoOculto.Text))
             //    {
@@ -64,7 +61,7 @@ namespace MesonURPWEB.paginas
         }
         public void ListarUnidad()
         {
-            ddlMedida.DataSource = _Cmxi.BuscarUnidad();
+            //ddlMedida.DataSource = _Cmxi.BuscarUnidad();
             ddlMedida.DataTextField = "M_NombreMedida";
             ddlMedida.DataValueField = "M_idMedida";
             ddlMedida.DataBind();

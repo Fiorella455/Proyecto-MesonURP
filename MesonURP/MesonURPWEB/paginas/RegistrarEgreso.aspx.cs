@@ -20,7 +20,7 @@ namespace MesonURPWEB.paginas
             if (!Page.IsPostBack)
             {
                 ListarInsumosxEgresar();
-                ListarMedida();
+                //ListarMedida();
             }
             txtFecha.Text = FechaActual;
         }
@@ -33,7 +33,7 @@ namespace MesonURPWEB.paginas
         }
         public void ListarMedida()
         {
-            ddlMedida.DataSource = _Cmxi.BuscarUnidad();
+            //ddlMedida.DataSource = _Cmxi.BuscarUnidad();
             ddlMedida.DataTextField = "M_NombreMedida";
             ddlMedida.DataValueField = "M_idMedida";
             ddlMedida.DataBind();
