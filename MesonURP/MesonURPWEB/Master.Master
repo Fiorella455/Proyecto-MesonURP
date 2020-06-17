@@ -48,8 +48,10 @@
                                     <img src="../img/MesonURP_logofinal2.png" class="img-responsive2" alt="" />
                                 </a>
                             </div>
+
                             <div class="top_left">
                                  <h2>
+                                    <strong> <asp:Label ID="lblRol" runat="server" Text="Label" Visible="True" ForeColor="white"></asp:Label> </strong> <p></p>
                                     <asp:Label ID="lblNombre" runat="server" Text="Label" Visible="True" ForeColor="white"></asp:Label>
                                     <asp:Label ID="lblApellido" runat="server" Text="Label" Visible="True" ForeColor="white"></asp:Label>
                                  </h2>
@@ -163,12 +165,16 @@
                 <li><a href="gestionarCategoria"><i class="lnr lnr-chart-bars"></i><span>Gestionar Categoría</span></a></li>
                 <li><a href="gestionarUsuarios"><i class="lnr lnr-chart-bars"></i><span>Gestionar Usuarios</span></a></li>
             </ul>
-            <div class="cerrar-sesion">
+           <%-- <div class="cerrar-sesion">
                    
-                  <button class="btn btn-link" runat="server">
+                  <button class="btn btn-link" runat="server" onClick="btnSalida_Click">
                        <img src="img/baseline_exit_to_app_white_18dp.png" />
                   </button>
-            </div>
+            </div>--%>
+            <div class="cerrar-sesion">
+                    <asp:LinkButton ID="Button1" class="btn btn-link" runat="server" onClick="btnSalida_Click">
+                 <img src="img/baseline_exit_to_app_white_18dp.png" /></asp:LinkButton>
+             </div>
         </div>
     </div>
     <div class="clearfix"></div>
