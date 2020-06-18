@@ -15,7 +15,7 @@ namespace DAO
         DTO_Proveedor dto_proveedor;
         DAO_Proveedor dao_proveedor;
         DTO_OC dto_oc;
-        string prueba = "";
+        
         public DAO_OC()
         {
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
@@ -57,7 +57,7 @@ namespace DAO
                     dto_oc.OC_TipoComprobante = (string)reader[1];
                     dto_oc.OC_NumeroComprobante = (string)reader[2];
                     dto_oc.OC_FormaPago = (string)reader[3];
-                    dto_oc.OC_FechaPago = (DateTime)reader[4];
+                   
                     dto_oc.OC_TotalCompra = (decimal)reader[5];
                     dto_oc.OC_FechaEmision = (DateTime)reader[6];
                     dto_oc.OC_FechaEntrega = (DateTime)reader[7];
@@ -70,15 +70,19 @@ namespace DAO
          
         }
 
-        public void Leer_OCxFecha()
+        public decimal Hallar_Total_Compra(int i)
         {
-            //conexion.Open();
-            //SqlCommand comando = new SqlCommand("SP_Consultar_Listas_OC", conexion);
-            //comando.CommandType = CommandType.StoredProcedure;
-            //SqlCommand cmd = new SqlCommand("SP_Consulta_OCxFecha", conexion);
-            //cmd.CommandType = CommandType.StoredProcedure;
-            //cmd.Parameters.Add(new SqlParameter("@OC_FechaEntrega",))
 
+            decimal totalCompra;
+            conexion.Open();
+            SqlCommand comando = new SqlCommand("SP_Hallar_Total_Compra", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@OC_idOrdenCompra", i);
+            comando.Parameters.Add("@suma", SqlDbType.Decimal, 18).Direction = ParameterDirection.Output;
+            comando.ExecuteNonQuery();
+            conexion.Close();
+            totalCompra = Convert.ToDecimal(comando.Parameters["@suma"].Value);
+            return totalCompra;
         }
         public void Actualizar_OC(DTO_OC dto_oc)
         {
@@ -91,6 +95,7 @@ namespace DAO
                 cmd.Parameters.Add(new SqlParameter("@OC_TipoComprobante", dto_oc.OC_TipoComprobante));
                 cmd.Parameters.Add(new SqlParameter("@OC_NumeroComprobante", dto_oc.OC_NumeroComprobante));
                 cmd.Parameters.Add(new SqlParameter("@OC_FormaPago", dto_oc.OC_FormaPago));
+                
                 cmd.Parameters.Add(new SqlParameter("@OC_FechaPago", dto_oc.OC_FechaPago));
                 cmd.Parameters.Add(new SqlParameter("@OC_TotalCompra", dto_oc.OC_TotalCompra));
                 cmd.Parameters.Add(new SqlParameter("@OC_FechaEntrega", dto_oc.OC_FechaEntrega));
@@ -118,9 +123,12 @@ namespace DAO
                     msg.To.Add(dto_proveedor.P_CorreoContacto);
                     msg.Subject = "Orden de Compra" + dto_oc.OC_idOrdenCompra;
                     msg.SubjectEncoding = System.Text.Encoding.UTF8;
-                    msg.Body = "Orden Compra:" + dto_oc.P_idProveedor + "\rTipo Comprobante:" + dto_oc.OC_TipoComprobante
-                        + "\rNumero Comprobante:" + dto_oc.OC_NumeroComprobante + "\rFecha Emision" + dto_oc.OC_FechaEmision + "\r\r" +
-                        "Insumos";
+                    string msj=string.Format("Trabajador: {1}{0}N° Orden de Compra:{2}{0}Proveedor:{3}{}0}Tipo de Comprobante:{4}{0}Fecha de Emision:{5}{0}Lista de Insumos:", Environment.NewLine,
+                     dto_oc.OC_idOrdenCompra, dto_proveedor.P_NombreContacto,dto_oc.OC_TipoComprobante,dto_oc.OC_FechaEmision);
+                    //msg.Body = "Orden Compra:" + dto_oc.P_idProveedor + "\rTipo Comprobante:" + dto_oc.OC_TipoComprobante
+                    //    + "\rNumero Comprobante:" + dto_oc.OC_NumeroComprobante + "\rFecha Emision" + dto_oc.OC_FechaEmision + "\r\r" +
+                    //    "Insumos";
+                    msg.Body = msj;
                     msg.BodyEncoding = System.Text.Encoding.UTF8;
                     msg.From = new MailAddress("stephyganz@gmail.com");
 
@@ -175,7 +183,7 @@ namespace DAO
             comando.ExecuteNonQuery();
             conexion.Close();
             id = Convert.ToInt32(comando.Parameters["@id"].Value);
-
+            conexion.Close();
             return id;
         }
         public DataTable Leer_OC()
@@ -187,9 +195,12 @@ namespace DAO
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(comando);
             da.Fill(dt);
+            conexion.Close();
             return dt;
+
+            
         }
-        public void Eliminar_OC(DTO_OC dto_oc)
+        public void Eliminar_OC(int OC_idOrdenCompra)
         {
 
             try
@@ -197,7 +208,8 @@ namespace DAO
                 conexion.Open();
                 SqlCommand cmd = new SqlCommand("SP_Eliminar_OC", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(new SqlParameter("@OC_idOrdenCompra", dto_oc.OC_idOrdenCompra));
+                // cmd.Parameters.Add(new SqlParameter("@OC_idOrdenCompra", dto_oc.OC_idOrdenCompra));
+                cmd.Parameters.Add(new SqlParameter("@OC_idOrdenCompra", OC_idOrdenCompra));
                 cmd.ExecuteNonQuery();
                 conexion.Close();
             }

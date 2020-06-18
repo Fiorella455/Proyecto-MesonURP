@@ -17,11 +17,13 @@ namespace DAO
         }
         public void Registrar_Estado_OC(DTO_Estado_OC dto_estado_oc)
         {
-
+            conexion.Open();
             SqlCommand cmd = new SqlCommand("SP_Insertar_Estado_OC", conexion);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@EOC_idEstadoOC", dto_estado_oc.EOC_idEstadoOC);
             cmd.Parameters.AddWithValue("@EOC_NombreEstadoOC", dto_estado_oc.EOC_NombreEstadoOC);
+            cmd.ExecuteNonQuery();
+            conexion.Close();
         }
         public DataSet Leer_Estado_OC()
         {
@@ -32,6 +34,7 @@ namespace DAO
             DataSet dt = new DataSet();
             SqlDataAdapter da = new SqlDataAdapter(comando);
             da.Fill(dt);
+            conexion.Close();
             return dt;
         }
     }

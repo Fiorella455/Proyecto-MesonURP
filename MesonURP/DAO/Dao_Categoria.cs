@@ -36,6 +36,7 @@ namespace DAO
                 SqlDataAdapter data = new SqlDataAdapter(cmd);
                 DataSet dataset = new DataSet();
                 data.Fill(dataset);
+                conexion.Close();
                 return dataset;
         }
 

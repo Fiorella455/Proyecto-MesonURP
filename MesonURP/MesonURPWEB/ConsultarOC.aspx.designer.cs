@@ -15,13 +15,22 @@ namespace MesonURPWEB
     {
 
         /// <summary>
-        /// txtNumeroOC control.
+        /// txtidOC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNumeroOC;
+        protected global::System.Web.UI.WebControls.TextBox txtidOC;
+
+        /// <summary>
+        /// txtTipoComprobante control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTipoComprobante;
 
         /// <summary>
         /// txtFechaEmision control.
@@ -42,15 +51,6 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.TextBox txtFechaEntrega;
 
         /// <summary>
-        /// txtEstado control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEstado;
-
-        /// <summary>
         /// txtProveedor control.
         /// </summary>
         /// <remarks>
@@ -67,15 +67,6 @@ namespace MesonURPWEB
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFormaPago;
-
-        /// <summary>
-        /// txtFechaPago control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaPago;
 
         /// <summary>
         /// GridViewAñadirOC control.

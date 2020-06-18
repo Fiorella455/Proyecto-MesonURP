@@ -114,13 +114,13 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.TextBox txtPrecioU;
 
         /// <summary>
-        /// DdlUnidades control.
+        /// txtMedida control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdlUnidades;
+        protected global::System.Web.UI.WebControls.TextBox txtMedida;
 
         /// <summary>
         /// btnAñadirInsumo control.
@@ -139,6 +139,15 @@ namespace MesonURPWEB
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridViewAñadirOC;
+
+        /// <summary>
+        /// txtTotal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTotal;
 
         /// <summary>
         /// btnAñadirOC control.

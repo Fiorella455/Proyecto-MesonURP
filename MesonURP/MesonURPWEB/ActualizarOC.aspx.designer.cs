@@ -42,22 +42,31 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.TextBox txtFechaEntrega;
 
         /// <summary>
-        /// txtNumeroCom control.
+        /// txtTipoComprobante control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNumeroCom;
+        protected global::System.Web.UI.WebControls.TextBox txtTipoComprobante;
 
         /// <summary>
-        /// txtTipoCom control.
+        /// txtEstado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTipoCom;
+        protected global::System.Web.UI.WebControls.TextBox txtEstado;
+
+        /// <summary>
+        /// DdlEstado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdlEstado;
 
         /// <summary>
         /// DdlProveedor control.
@@ -69,22 +78,13 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.DropDownList DdlProveedor;
 
         /// <summary>
-        /// DdlFormaPago control.
+        /// txtFormaPago control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdlFormaPago;
-
-        /// <summary>
-        /// DdlFechaPago control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdlFechaPago;
+        protected global::System.Web.UI.WebControls.TextBox txtFormaPago;
 
         /// <summary>
         /// DdlCategoria control.
@@ -123,22 +123,31 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.TextBox txtPrecioU;
 
         /// <summary>
-        /// DdlUnidades control.
+        /// txtMedida control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DdlUnidades;
+        protected global::System.Web.UI.WebControls.TextBox txtMedida;
 
         /// <summary>
-        /// GridViewAñadirOC control.
+        /// GridViewEditarOC control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewAñadirOC;
+        protected global::System.Web.UI.WebControls.GridView GridViewEditarOC;
+
+        /// <summary>
+        /// txtTotal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTotal;
 
         /// <summary>
         /// btnActualizar control.

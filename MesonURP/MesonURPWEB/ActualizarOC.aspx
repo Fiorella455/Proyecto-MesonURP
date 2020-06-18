@@ -1,5 +1,19 @@
 ﻿<%@ Page Title="Gestionar OC | Actualizar" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ActualizarOC.aspx.cs" Inherits="MesonURPWEB.ActualizarOC" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .auto-style1 {
+            color: #616161;
+            box-shadow: none !important;
+            font-size: 14px;
+            font-weight: 300;
+            border-radius: 0;
+            -webkit-appearance: none;
+            resize: none;
+            border: 1px solid #ccc;
+            padding: 5px 8px;
+            background: #fff;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="women_main">
@@ -19,31 +33,34 @@
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">N° Orden</label>
                         <div class="col-sm-8">
-                            <asp:TextBox runat="server" placeholder="Ingrese el número de orden" CssClass="form-control1" ID="txtIdOC" />
+                            <asp:TextBox runat="server" CssClass="form-control1" ID="txtIdOC" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Fecha de Emisión</label>
                         <div class="col-sm-8">
-                            <asp:TextBox disabled runat="server" TextMode="Date" CssClass="form-control1" ID="txtFechaEmision" />
+                            <asp:TextBox ID="txtFechaEmision" runat="server" CssClass="form-control1" ReadOnly="true"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Fecha de Entrega</label>
                         <div class="col-sm-8">
-                            <asp:TextBox ID="txtFechaEntrega" runat="server" TextMode="Date" CssClass="form-control1" />
+                            <asp:TextBox ID="txtFechaEntrega" runat="server"  CssClass="form-control1" />
                         </div>
                     </div>
+                    
                      <div class="form-group">
-                        <label for="focusedinput" class="col-sm-2 control-label">Número de Comprobante</label>
+                        <label for="focusedinput" class="col-sm-2 control-label">Tipo de Comprobante</label>
                         <div class="col-sm-8">
-                            <asp:TextBox ID="txtNumeroCom" runat="server" TextMode="Date" CssClass="form-control1" />
+                            <asp:TextBox ID="txtTipoComprobante" runat="server" CssClass="form-control1" />
                         </div>
                     </div>
-                     <div class="form-group">
-                        <label for="focusedinput" class="col-sm-2 control-label"Tipo de Comprobante</label>
+                    <div class="form-group">
+                        <label for="selector1" class="col-sm-2 control-label">Estado</label>
                         <div class="col-sm-8">
-                            <asp:TextBox ID="txtTipoCom" runat="server" TextMode="Date" CssClass="form-control1" />
+                             <asp:TextBox ID="txtEstado" runat="server" CssClass="auto-style1" Height="16px" Width="600px" />
+                            <asp:DropDownList runat="server" CssClass="form-control1" AutoPostBack="true" ID="DdlEstado">
+                            </asp:DropDownList>
                         </div>
                     </div>
                     <div class="form-group">
@@ -56,28 +73,25 @@
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Forma de Pago</label>
                         <div class="col-sm-8">
-                            <asp:DropDownList runat="server" CssClass="form-control1" AutoPostBack="true" ID="DdlFormaPago"></asp:DropDownList>
+                            <asp:TextBox ID="txtFormaPago" runat="server" CssClass="form-control1" />
                         </div>
                     </div>
-                       <div class="form-group">
-                        <label for="selector1" class="col-sm-2 control-label">Fecha de Pago</label>
-                        <div class="col-sm-8">
-                            <asp:DropDownList runat="server" CssClass="form-control1" AutoPostBack="true" ID="DdlFechaPago"></asp:DropDownList>
-                        </div>
-                    </div>
+                      
                       <div class="input-info">
 						<h3>Detalles de Insumo</h3>
 					</div>
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Categoría</label>
                         <div class="col-sm-8">
-                            <asp:DropDownList disabled runat="server" CssClass="form-control1" ID="DdlCategoria"></asp:DropDownList>
+                            <asp:DropDownList ID="DdlCategoria" runat="server" CssClass="form-control1" AutoPostBack="true">
+                            </asp:DropDownList>
                         </div>
                     </div>
                       <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Insumo</label>
                         <div class="col-sm-8">
-                            <asp:DropDownList disabled runat="server" CssClass="form-control1" ID="DdlInsumo"></asp:DropDownList>
+                            <asp:DropDownList ID="DdlInsumo" runat="server" CssClass="form-control1" AutoPostBack="true">
+                            </asp:DropDownList>
                         </div>
                     </div>
                     <div class="form-group">
@@ -95,7 +109,7 @@
                       <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Unidades</label>
                         <div class="col-sm-8">
-                            <asp:DropDownList runat="server" CssClass="form-control1" ID="DdlUnidades"></asp:DropDownList>
+                            <asp:TextBox runat="server" CssClass="form-control1" ID="txtMedida" />
                         </div>
                     </div>
                      <p class="center-button">
@@ -109,18 +123,24 @@
                                 <h4>Órdenes de Compra</h4>
                             </div>
                             <div class="table-wrapper-scroll-y my-custom-scrollbar">
-                                <asp:GridView ID="GridViewAñadirOC" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible."
-                                    CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None">
+                                <asp:GridView ID="GridViewEditarOC" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible."
+                                  DataKeyName=OC_idOrdenCompra CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None" AutoGenerateColumns="false">
                                   
                                     <Columns>
-                                        <asp:BoundField HeaderText="Descripción del Insumo" />
-                                        <asp:BoundField HeaderText="Cantidad" />
-                                        <asp:BoundField HeaderText="Unidad" />
-                                        <asp:BoundField HeaderText="Costo Unitario" />
-                                        <asp:BoundField HeaderText="Total" />
+                                        <asp:BoundField HeaderText="Descripción del Insumo" DataField="OC_idOrdenCompra" />
+                                        <asp:BoundField HeaderText="Cantidad" DataField="OCxI_Cantidad" />
+                                        <asp:BoundField HeaderText="Unidad" DataField="I_idInsumo" />
+                                        <asp:BoundField HeaderText="Costo Unitario" DataField="OC_idOrdenCompra" />
+                                        <asp:BoundField HeaderText="Total" DataField="OCxI_PrecioTotal" />
                                     </Columns>
                                 </asp:GridView>
                             </div>
+                             <div class="form-group">
+                        <label for="focusedinput" class="col-sm-2 control-label">Total</label>
+                        <div class="col-sm-1">
+                            <asp:TextBox ID="txtTotal" runat="server" CssClass="auto-style1" Width="90px" />
+                        </div>
+                    </div>
                         </div>
                         <hr />
                         <p class="center-button">

@@ -1,6 +1,20 @@
 ﻿<%@ Page Title="Gestionar OC | Agregar" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="AñadirOC.aspx.cs" Inherits="MesonURPWEB.AñadirOC" EnableEventValidation="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .auto-style1 {
+            color: #616161;
+            box-shadow: none !important;
+            font-size: 14px;
+            font-weight: 300;
+            border-radius: 0;
+            -webkit-appearance: none;
+            resize: none;
+            border: 1px solid #ccc;
+            padding: 5px 8px;
+            background: #fff;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="women_main">
@@ -93,12 +107,12 @@
                       <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Unidades</label>
                         <div class="col-sm-8">
-                            <asp:DropDownList runat="server" CssClass="form-control1" ID="DdlUnidades"></asp:DropDownList>
+                            <asp:TextBox ID="txtMedida" runat="server" placeholder="Ingrese el número de orden" CssClass="form-control1" />
                         </div>
                     </div>
                      <p class="center-button">
                             <asp:Button CssClass="btn btn-primary" runat="server" Text="Añadir" ID="btnAñadirInsumo" OnClick="btnAñadirInsumo_Click" />
-                            <asp:Button CssClass="btn btn-primary" runat="server" Text="Quitar" />
+                            <asp:Button CssClass="btn btn-primary" runat="server" Text="Quitar" OnClick="Unnamed1_Click" />
                         </p>
 
                     <div class="panel panel-widget forms-panel">
@@ -107,8 +121,8 @@
                                 <h4>Órdenes de Compra</h4>
                             </div>
                             <div class="table-wrapper-scroll-y my-custom-scrollbar">
-                                <asp:GridView ID="GridViewAñadirOC" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible."
-                                    CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None">
+                                <asp:GridView ID="GridViewAñadirOC" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false"
+                                   CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None">
                                   
                                     <Columns>
                                         <asp:BoundField HeaderText="Descripción del Insumo" />
@@ -119,6 +133,12 @@
                                     </Columns>
                                 </asp:GridView>
                             </div>
+                             <div class="form-group">
+                        <label for="selector1" class="col-sm-2 control-label">Total</label>
+                        <div class="col-sm-8">
+                            <asp:TextBox ID="txtTotal" runat="server" align="left" CssClass="special" Width="102px" />
+                        </div>
+                    </div>
                         </div>
                         <hr />
                         <p class="center-button">

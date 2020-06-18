@@ -9,17 +9,25 @@ namespace DAO
 {
     public class DAO_OCxInsumo
     {
-        SqlConnection conexion = new SqlConnection();
+        SqlConnection conexion;
+
+        public DAO_OCxInsumo()
+        {
+            conexion = new SqlConnection(ConexionBD.CadenaConexion);
+
+        }
         public void Registrar_OCxInsumo(DTO_OCxInsumo dto_ocxinsumo)
         {
-
+            conexion.Open();
             SqlCommand cmd = new SqlCommand("SP_Insertar_OCxInsumo", conexion);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@R_idInsumo", dto_ocxinsumo.R_idInsumo);  
+            cmd.Parameters.AddWithValue("@I_idInsumo", dto_ocxinsumo.R_idInsumo);  
             cmd.Parameters.AddWithValue("@OC_idOrdenCompra", dto_ocxinsumo.OC_idOrdenCompra);
             cmd.Parameters.AddWithValue("@OCxI_Cantidad", dto_ocxinsumo.OCxI_Cantidad);
             cmd.Parameters.AddWithValue("@OCxI_PrecioTotal", dto_ocxinsumo.OCxI_PrecioTotal);
+            cmd.ExecuteNonQuery();
+            cmd.Clone();
 
         }
         public void Actualizar_OCxInsumo(DTO_OCxInsumo dto_ocxinsumo)
@@ -52,6 +60,7 @@ namespace DAO
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(comando);
             da.Fill(dt);
+            conexion.Close();
             return dt;
         }
     }

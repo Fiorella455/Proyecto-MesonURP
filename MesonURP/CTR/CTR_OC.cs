@@ -41,9 +41,9 @@ namespace CTR
         {
             return dao_oc.OC_Actual(i);
         }
-        public void Eliminar_OC(DTO_OC dto_oc)
+        public void Eliminar_OC(int OC_idOrdenCompra)
         {
-            dao_oc.Eliminar_OC(dto_oc);
+            dao_oc.Eliminar_OC(OC_idOrdenCompra);
         }
 
         public int  Enviar_OC(DTO_OC dto_oc)

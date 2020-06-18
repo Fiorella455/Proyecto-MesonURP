@@ -22,6 +22,7 @@ namespace DAO
         }
         public void Dao_Registrar_Recurso(DTO_Insumo dto_rec)
         {
+            conexion.Open();
             SqlCommand cmd = new SqlCommand("SP_Agregar_Recurso", conexion);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@VR_NombreRecurso", dto_rec.VR_NombreRecurso);
@@ -36,8 +37,7 @@ namespace DAO
 
             cmd.Parameters.AddWithValue("@FK_IC_Categoria", dto_rec.FK_IC_Categoria);
             cmd.Parameters.AddWithValue("@FK_IM_Medida", dto_rec.FK_IM_Medida);
-            cmd.Parameters.AddWithValue("@FK_IER_EstadoRecurso", dto_rec.FK_IER_EstadoRecurso);
-            conexion.Open();
+            cmd.Parameters.AddWithValue("@FK_IER_EstadoRecurso", dto_rec.FK_IER_EstadoRecurso);   
             cmd.ExecuteNonQuery();
             conexion.Close();
 
@@ -55,23 +55,36 @@ namespace DAO
             DataSet ds = new DataSet();
             SqlDataAdapter da = new SqlDataAdapter(comando);
             da.Fill(ds);
+            conexion.Close();
             return ds;
 
         }
-        public bool DAO_Leer_PrecioUxInsumo(DTO_Insumo dto_insumo)
+
+        public DTO_Insumo Consultar_InsumoxID(int i)
         {
+            DTO_Insumo insumo = new DTO_Insumo();
             conexion.Open();
-            SqlCommand cmd = new SqlCommand("SP_Consultar_PrecioU", conexion);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@I_idInsumo", dto_insumo.PK_IR_Recurso);
-            SqlDataReader reader = cmd.ExecuteReader();
-            bool hayRegistros = reader.Read();
-            if (hayRegistros)
+            SqlCommand comando = new SqlCommand("SP_Consultar_InsumoxID", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@I_idInsumo", i);
+            comando.ExecuteNonQuery();
+
+            SqlDataReader reader = comando.ExecuteReader();
+            if (reader.Read())
             {
-                dto_insumo.DR_PrecioUnitario= (int)reader[4];      
+                insumo.PK_IR_Recurso = Convert.ToInt32(reader[0]);
+                insumo.VR_NombreRecurso = Convert.ToString(reader[1]);
+                insumo.DR_StockMaximo = Convert.ToDecimal(reader[2]);
+                insumo.DR_StockMinimo = Convert.ToDecimal(reader[3]);
+                insumo.DR_PrecioUnitario = Convert.ToDecimal(reader[4]);
+                insumo.DR_CantidadTotal = Convert.ToDecimal(reader[5]);
+                insumo.FK_IER_EstadoRecurso = Convert.ToInt32(reader[6]);
+                insumo.FK_IM_Medida = Convert.ToInt32(reader[7]);
+                insumo.FK_IC_Categoria = Convert.ToInt32(reader[8]);
             }
+
             conexion.Close();
-            return hayRegistros;
+            return insumo;
         }
 
     }

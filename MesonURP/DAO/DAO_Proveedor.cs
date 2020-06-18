@@ -76,6 +76,7 @@ namespace DAO
             DataSet dt = new DataSet();
             SqlDataAdapter da = new SqlDataAdapter(comando);
             da.Fill(dt);
+            conexion.Close();
             return dt;
         }
     }

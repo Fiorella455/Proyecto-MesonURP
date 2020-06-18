@@ -21,42 +21,18 @@ namespace MesonURPWEB
         DTO_Insumo dto_insumo;
         DTO_Estado_OCxOC dto_estado_OCxOC;
         CTR_EstadoOCxOC ctr_estado_OCxOC;
-
+        DTO_Medida dto_medida;
         CTR_Categoria ctr_categoria;
         DataSet dtestado, dtcat, dtins, dtpro,dtmed;
 
         CTR_Insumo ctr_insumo;
         CTR_Proveedor pro;
         static double suma = 0;
-        static Stack<DTO_OCxInsumo> pila = new Stack<DTO_OCxInsumo>();
-
-        protected void btnAñadirInsumo_Click(object sender, EventArgs e)
-        {
-            dto_ocxinsumo = new DTO_OCxInsumo();
-            dto_ocxinsumo.I_idInsumo = int.Parse(DdlInsumo.SelectedValue);
-            dto_ocxinsumo.OC_idOrdenCompra = ctr_oc.ID_OC_Actual() + 1;
-
-            dto_ocxinsumo.OCxI_Cantidad = int.Parse(txtCantidad.Text);
-            dto_ocxinsumo.OCxI_PrecioTotal = dto_ocxinsumo.OCxI_Cantidad * 5;
-            suma += dto_ocxinsumo.OCxI_PrecioTotal;
-            pila.Push(dto_ocxinsumo);
-        }
-
-        //protected void DdlCategoria_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    dtins = new DataSet();
-        //    dtins = ctr_insumo.Leer_Insumos_Categorias(int.Parse(DdlCategorias.SelectedValue));
-        //    DdlInsumos.DataTextField = "I_NombreInsumo";
-        //    DdlInsumos.DataValueField = "I_idInsumo";
-        //    DdlInsumos.DataSource = dtins;
-        //    DdlInsumos.DataBind();
-        //}
-
+        static List<DTO_OCxInsumo> pila = new List<DTO_OCxInsumo>();
         DTO_OCxInsumo dto_ocxinsumo;
-
-       
-
         CTR_OCxInsumo ctr_ocxinsumo;
+        static DataTable tin = new DataTable();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             dto_oc = new DTO_OC();
@@ -73,9 +49,9 @@ namespace MesonURPWEB
 
             if (!this.IsPostBack)
             {
-                
+
                 dtestado = new DataSet();
-                dtestado = ctr_Estado_OC.Leer_Estado_OC();  
+                dtestado = ctr_Estado_OC.Leer_Estado_OC();
                 DdlEstado.DataTextField = "EOC_NombreEstadoOC";
                 DdlEstado.DataValueField = "EOC_idEstadoOC";
                 DdlEstado.DataSource = dtestado;
@@ -89,15 +65,12 @@ namespace MesonURPWEB
                 DdlCategoria.DataBind();
                 //-----------------------------------------------
                 dtins = new DataSet();
-                if (DdlCategoria.SelectedValue != "")
-                {
-                    dtins = ctr_insumo.Ctr_Leer_Insumo_Categorias(Convert.ToInt32(DdlCategoria.SelectedValue));
-                }
+
                 DdlInsumo.DataTextField = "I_NombreInsumo";
                 DdlInsumo.DataValueField = "I_idInsumo";
                 DdlInsumo.DataSource = dtins;
                 DdlInsumo.DataBind();
-                Cargar_PrecioUnitario();
+
                 //------------------------------------------------
                 dtpro = new DataSet();
                 dtpro = pro.Leer_Proveedor();
@@ -112,28 +85,72 @@ namespace MesonURPWEB
                 dtmed = new DataSet();
                 dtmed = ctr_medida.Leer_Medida();
 
-                DdlUnidades.DataTextField = "M_NombreMedida";
-                DdlUnidades.DataValueField = "M_idMedida";
-                DdlUnidades.DataSource = dtmed;
-                DdlUnidades.DataBind();
+                //DdlUnidades.DataTextField = "M_NombreMedida";
+                //DdlUnidades.DataValueField = "M_idMedida";
+                //DdlUnidades.DataSource = dtmed;
+                //DdlUnidades.DataBind();
+                //---------------------------------------------------
+                dto_insumo = ctr_insumo.Consultar_InsumoxID(int.Parse(DdlInsumo.SelectedValue));
+                txtPrecioU.Text = dto_insumo.DR_PrecioUnitario.ToString();
+                dto_medida = ctr_medida.Consultar_MedidaxInsumo(dto_insumo.PK_IR_Recurso);
+                txtMedida.Text = dto_medida.M_NombreMedida;
 
-                
 
             }
         }
-        public void Cargar_PrecioUnitario()
+        protected void Unnamed1_Click(object sender, EventArgs e)
         {
-            if (DdlInsumo.SelectedValue != "")
-            {
-                dto_insumo.PK_IR_Recurso = int.Parse(DdlInsumo.SelectedValue);
-                if (ctr_insumo.CTR_Leer_PrecioUxInsumo(dto_insumo))
-                {
-                    txtPrecioU.Text = dto_insumo.DR_PrecioUnitario.ToString();
-                }
-            }
+            GridViewRow row = (GridViewRow)((Button)sender).Parent.Parent;
+            int i = row.RowIndex;
+
+            tin.Rows[i].Delete();
+            pila.RemoveAt(i);
+            suma -= Convert.ToDouble(GridViewAñadirOC.Rows[i].Cells[3].Text);
+            txtTotal.Text = suma.ToString();
+            GridViewAñadirOC.DataSource = tin;
+            GridViewAñadirOC.DataBind();
         }
 
+       
+        protected void btnAñadirInsumo_Click(object sender, EventArgs e)
+        {
+            dto_ocxinsumo = new DTO_OCxInsumo();
+            dto_ocxinsumo.I_idInsumo = int.Parse(DdlInsumo.SelectedValue);
+            DTO_Insumo insumo = ctr_insumo.Consultar_InsumoxID(dto_ocxinsumo.I_idInsumo);
+            // dto_ocxinsumo.OC_idOrdenCompra = ctr_oc.ID_OC_Actual()+1;
+            dto_ocxinsumo.OCxI_Cantidad = int.Parse(txtCantidad.Text);
+            dto_ocxinsumo.OCxI_PrecioTotal = dto_ocxinsumo.OCxI_Cantidad * Convert.ToDouble( insumo.DR_PrecioUnitario);
+            suma += dto_ocxinsumo.OCxI_PrecioTotal;
+            dto_oc.OC_TotalCompra += Convert.ToDecimal(dto_ocxinsumo.OCxI_PrecioTotal);
+            pila.Add(dto_ocxinsumo);
+            txtTotal.Text = suma.ToString();
 
+
+            if (tin.Columns.Count == 0)
+            {
+                tin.Columns.Add("I_idInsumo");
+                tin.Columns.Add("I_NombreInsumo");
+                tin.Columns.Add("OCxI_Cantidad");
+                tin.Columns.Add("OCxI_PrecioTotal");
+                tin.Columns.Add("I_PrecioUnitario");
+            }
+            DataRow row = tin.NewRow();
+            row[0] = dto_ocxinsumo.I_idInsumo;
+            row[1] = insumo.VR_NombreRecurso;
+            row[2] = dto_ocxinsumo.OCxI_Cantidad;
+            row[3] = dto_ocxinsumo.OCxI_PrecioTotal;
+            row[4] = insumo.DR_PrecioUnitario;
+            tin.Rows.Add(row);
+
+            GridViewAñadirOC.DataSource = tin;
+            GridViewAñadirOC.DataBind();
+
+        }
+
+    
+  
+      
+       
         protected void btnAñadirOC_Click(object sender, EventArgs e)
         {
 
@@ -147,21 +164,24 @@ namespace MesonURPWEB
             dto_oc.P_idProveedor = int.Parse(DdlProveedor.SelectedValue);
             dto_oc.OC_NumeroComprobante = txtNumeroComprobante.Text;
             dto_oc.OC_TipoComprobante = txtTipoComprobante.Text;
-            dto_oc.OC_TotalCompra = 100;
+            dto_oc.OC_TotalCompra = Convert.ToDecimal(txtTotal.Text);
             
            
-            dto_estado_OCxOC.EOC_idEstadoOC = 1;
+            dto_estado_OCxOC.EOC_idEstadoOC = Convert.ToInt32(DdlEstado.SelectedValue);
             dto_estado_OCxOC.OC_idOrdenCompra = ctr_oc.ID_OC_Actual();
             dto_estado_OCxOC.EOCxOC_FechaRegistro = DateTime.Today;
             dto_estado_OCxOC.EOCxOC_UsuarioRegistro = 5;
             ctr_estado_OCxOC.Registrar_Estado_OCxOC(dto_estado_OCxOC);
             ctr_oc.Registrar_OC(dto_oc);
-
-           // while (pila.Count >= 1)
-            //{
-
-               // ctr_ocxinsumo.Registrar_OC_Insumo(pila.Pop());
-            //}
+            while (pila.Count >= 1)
+            {
+                pila[pila.Count - 1].OC_idOrdenCompra = ctr_oc.ID_OC_Actual();
+                ctr_ocxinsumo.Registrar_OC_Insumo(pila[pila.Count - 1]);
+                pila.RemoveAt(pila.Count - 1);
+            }
+            suma = 0;
+            tin.Clear();
+            
 
             Response.Redirect("GestionarOC.aspx");
         }

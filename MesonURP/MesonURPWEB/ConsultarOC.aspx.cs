@@ -29,19 +29,15 @@ namespace MesonURPWEB
             
             if (ctr_oc.CTR_Leer_OC(dto_oc)) 
             {
-                txtNumeroOC.Text = dto_oc.OC_TipoComprobante;
+
+                txtidOC.Text = dto_oc.OC_idOrdenCompra.ToString();
+                txtTipoComprobante.Text = dto_oc.OC_TipoComprobante;
                 txtFechaEmision.Text = dto_oc.OC_FechaEmision.ToString();
-                txtFechaEntrega.Text = dto_oc.OC_NumeroComprobante;
-                txtEstado.Text = dto_oc.OC_TotalCompra.ToString();
                 txtProveedor.Text = dto_oc.P_idProveedor.ToString();
-                txtFechaPago.Text = dto_oc.OC_FechaEntrega.ToString();
+                txtFechaEntrega.Text = dto_oc.OC_FechaEntrega.ToString();
                 txtFormaPago.Text = dto_oc.OC_FormaPago;
-                
             }
-            else
-            {
-                Response.Write("<script languaje=javascript> alert('Orden de Comprar no encontrada);</script>");
-            }
+          
 
 
         }
