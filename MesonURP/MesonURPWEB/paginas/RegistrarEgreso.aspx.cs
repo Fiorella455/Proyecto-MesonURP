@@ -21,43 +21,48 @@ namespace MesonURPWEB.paginas
             {
                 ListarInsumosxEgresar();
                 //ListarMedida();
+                Selection_Change(e, e);
             }
             txtFecha.Text = FechaActual;
         }
         public void ListarInsumosxEgresar()
         {
-            selectInsumo.DataSource = _Cmxi.CargarInsumoEgreso();
-            selectInsumo.DataTextField = "I_NombreInsumo";
-            selectInsumo.DataValueField = "I_idInsumo";
-            selectInsumo.DataBind();
-        }
-        public void ListarMedida()
-        {
-            //ddlMedida.DataSource = _Cmxi.BuscarUnidad();
-            ddlMedida.DataTextField = "M_NombreMedida";
-            ddlMedida.DataValueField = "M_idMedida";
-            ddlMedida.DataBind();
-            ddlMedida.Items.Insert(0, new ListItem("--Seleccionar--", ""));
+            ddlInsumos.DataSource = _Cmxi.CargarInsumoEgreso();
+            ddlInsumos.DataTextField = "I_NombreInsumo";
+            ddlInsumos.DataValueField = "I_idInsumo";
+            ddlInsumos.DataBind();
+            ddlInsumos.Items.Insert(0, "--seleccionar--");
         }
         protected void btnEgresar_ServerClick(object sender, EventArgs e)
         {
+
             _Dmxi.Cantidad = Convert.ToDecimal(txtCantidad.Text);
+            //_Dmxi.UsuarioMovimiento = "Katya";
             _Dmxi.FechaMovimiento = Convert.ToDateTime(txtFecha.Text);
-            _Dmxi.IdInsumo = Convert.ToInt32(selectInsumo.SelectedValue);
+            _Dmxi.IdInsumo = Convert.ToInt32(ddlInsumos.SelectedValue);
             _Dmxi.IdMovimiento = movEgreso;
 
-            // txtMovimientoOculto.Text = Convert.ToString(_Cmxi.VerificarStockMax(_Dmxi));
-            /*if (Convert.ToDecimal(txtCantidad2.Text) > Convert.ToDecimal(txtMovimientoOculto.Text))
+            txtOculto.Text = _Cmxi.VerificarStockMin(_Dmxi.IdInsumo);
+
+
+            if (Convert.ToDecimal(txtCantidad.Text) > Convert.ToDecimal(txtOculto.Text))
             {
                 ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "alert", "alert('" + "La cantidad de insumos no es permitida" + "');", true);
                 return;
             }
             else
             {
- 
-            }*/
-            _Cmxi.RegistrarMovimientoxInsumo(_Dmxi);
-            _Cmxi.UpdateStockEgreso(_Dmxi);
+                _Cmxi.RegistrarMovimientoxInsumo(_Dmxi);
+                _Cmxi.UpdateStockEgreso(_Dmxi);
+            }
+
+        }
+
+        public void Selection_Change(Object sender, EventArgs e)
+        {
+
+           txtUnidadMedida.Text = _Cmxi.BuscarUnidad(Convert.ToInt32(ddlInsumos.SelectedIndex));
+           // txtUnidadMedida.Text = _Cmxi.BuscarUnidad(4);
         }
     }
 }

@@ -81,13 +81,14 @@
 						<h3 class="title1"></h3>
 							<div class="form-three widget-shadow">
 								<form class="form-horizontal" runat="server">
-                                    <div class="form-group">
-									<label for="selector1" class="col-sm-2 control-label">Insumo</label>
-									<div class="col-sm-8">                                            
-                                            <asp:DropDownList id="selectInsumo" runat="server" CssClass="form-control1" >
-										        <asp:ListItem Selected="True" Value="0">Seleccione un insumo</asp:ListItem>
+                                     <div class="form-group">
+										<label for="focusedinput" class="col-sm-2 control-label">Insumo</label>
+										<div class="col-sm-8">
+                                            <asp:DropDownList id="ddlInsumos" runat="server" CssClass="form-control1" AutoPostBack="true" OnSelectedIndexChanged="Selection_Change">
+										        <asp:ListItem Text="" Value="">Seleccione un insumo</asp:ListItem>
   									        </asp:DropDownList>
-                                       </div>
+										</div>
+									</div>
 									<div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">Fecha</label>
 										<div class="col-sm-8">
@@ -102,12 +103,12 @@
 									</div>
                                     <div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">Unidad</label>
-										<div class="col-sm-8">
-                                            <asp:DropDownList id="ddlMedida" runat="server"   CssClass="form-control1" >
-										        <asp:ListItem Selected="True" Value="0">Seleccione unidad de medida</asp:ListItem>
-                                        </asp:DropDownList></div>
-                                            <%--<asp:TextBox ViewStateMode="Disabled" ID="txtUnidadMedida" runat="server" placeholder="Unidad de Medida" CssClass="form-control1"/>--%>
+                                        <div class="col-sm-8">
+                                            <asp:TextBox Disabled="true" ID="txtUnidadMedida" runat="server" placeholder="Unidad de Medida" CssClass="form-control1"/>
+										<asp:TextBox ID="txtOculto"  runat="server" CssClass="form-control1" Visible="false" />
 										</div>
+										  
+                                    </div>
 									</div>
                                     <hr/>
 								    <p class="center-button">

@@ -22,31 +22,30 @@ namespace MesonURPWEB.paginas
             if(!Page.IsPostBack)
             {
                 ListarInsumo();
-                //ListarUnidad();
+                Selection_Change(e, e);
             }
             txtFecha2.Text = FechaActual;
         }
         protected void btnIngresar_ServerClick(object sender, EventArgs e)
         {
                 _Dmxi.Cantidad = Convert.ToDecimal(txtCantidad2.Text);
+                //_Dmxi.UsuarioMovimiento = "Katya";
                 _Dmxi.FechaMovimiento = Convert.ToDateTime(txtFecha2.Text);
                 _Dmxi.IdInsumo = Convert.ToInt32(ddlInsumos.SelectedValue);
                 _Dmxi.IdMovimiento = movIngreso;
 
-            txtMovimientoOculto.Text = _Cmxi.VerificarStockMax(_Dmxi.IdInsumo); //GRECIA AQUI LO PROBE Y TODO BIEN
+            txtOculto.Text = _Cmxi.VerificarStockMax(_Dmxi.IdInsumo); 
 
-            //   if (Convert.ToDecimal(txtCantidad2.Text) > Convert.ToDecimal(txtMovimientoOculto.Text))
-            //    {
-            //    ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "alert", "alert('" + "La cantidad de insumos no es permitida" + "');", true);
-            //    return;
-            //    }
-            //   else
-            //    {
-            //    _Cmxi.RegistrarMovimientoxInsumo(_Dmxi);
-            //    _Cmxi.UpdateStockIngreso(_Dmxi);
-            //}
-            _Cmxi.RegistrarMovimientoxInsumo(_Dmxi);
-            _Cmxi.UpdateStockIngreso(_Dmxi);
+            if (Convert.ToDecimal(txtCantidad2.Text) > Convert.ToDecimal(txtOculto.Text))
+            {
+                ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "alert", "alert('" + "La cantidad de insumos no es permitida" + "');", true);
+                return;
+            }
+            else
+            {
+                _Cmxi.RegistrarMovimientoxInsumo(_Dmxi);
+                _Cmxi.UpdateStockIngreso(_Dmxi);
+            }
         }
         protected void ddlMedida_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -58,14 +57,14 @@ namespace MesonURPWEB.paginas
             ddlInsumos.DataTextField = "I_NombreInsumo";
             ddlInsumos.DataValueField = "I_idInsumo";
             ddlInsumos.DataBind();
+            ddlInsumos.Items.Insert(0, "--seleccionar--");
+
         }
-        public void ListarUnidad()
+        public void Selection_Change(Object sender, EventArgs e)
         {
-            //ddlMedida.DataSource = _Cmxi.BuscarUnidad();
-            ddlMedida.DataTextField = "M_NombreMedida";
-            ddlMedida.DataValueField = "M_idMedida";
-            ddlMedida.DataBind();
-            ddlMedida.Items.Insert(0, new ListItem("--Seleccionar--", ""));
+           
+            txtUnidadMedida2.Text = _Cmxi.BuscarUnidad(Convert.ToInt32(ddlInsumos.SelectedIndex));
+           //txtUnidadMedida2.Text = _Cmxi.BuscarUnidad(4);
         }
     }
 }

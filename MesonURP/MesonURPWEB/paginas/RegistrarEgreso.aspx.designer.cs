@@ -15,13 +15,13 @@ namespace MesonURPWEB.paginas
     {
 
         /// <summary>
-        /// Control selectInsumo.
+        /// Control ddlInsumos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList selectInsumo;
+        protected global::System.Web.UI.WebControls.DropDownList ddlInsumos;
 
         /// <summary>
         /// Control txtFecha.
@@ -42,13 +42,22 @@ namespace MesonURPWEB.paginas
         protected global::System.Web.UI.WebControls.TextBox txtCantidad;
 
         /// <summary>
-        /// Control ddlMedida.
+        /// Control txtUnidadMedida.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMedida;
+        protected global::System.Web.UI.WebControls.TextBox txtUnidadMedida;
+
+        /// <summary>
+        /// Control txtOculto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtOculto;
 
         /// <summary>
         /// Control btnEgresar.

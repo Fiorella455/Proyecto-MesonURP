@@ -86,8 +86,8 @@
                                     <div class="form-group">
 									<label for="selector1" class="col-sm-2 control-label">Insumo</label>
 									<div class="col-sm-8">                                            
-                                        <asp:DropDownList id="ddlInsumos" runat="server" AutoPostBack="true"  CssClass="form-control1" type="button" data-toggle="dropdown" aria-haspopup="true">
-										        <asp:ListItem  Text="" Value=""></asp:ListItem>
+                                        <asp:DropDownList id="ddlInsumos" runat="server" CssClass="form-control1" type="button" data-toggle="dropdown" AutoPostBack="true" OnSelectedIndexChanged="Selection_Change" aria-haspopup="true">
+										        <asp:ListItem  Text="" Value="">ss</asp:ListItem>
                                         </asp:DropDownList></div>
 									</div>
 									<div class="form-group">
@@ -105,12 +105,12 @@
                                     <div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">UM</label>
 										<div class="col-sm-8">
-                                         <asp:DropDownList id="ddlMedida" runat="server"   CssClass="form-control1" OnSelectedIndexChanged="ddlMedida_SelectedIndexChanged">
+                                         <%--<asp:DropDownList id="ddlMedida" runat="server"   CssClass="form-control1" OnSelectedIndexChanged="ddlMedida_SelectedIndexChanged">
 										        <asp:ListItem Selected="True" Value="0">Seleccione unidad de medida</asp:ListItem>
-                                        </asp:DropDownList></div>
-                                        <%--<asp:TextBox  ID="txtUnidadMedida2" runat="server" placeholder="Unidad de Medida" CssClass="form-control1"/>--%>
-                                        <asp:TextBox ID="txtMovimientoOculto"  runat="server" CssClass="form-control1" Visible="true" />
-                                        <%--<label ID="txtMovimientoOculto2" value¨="1" runat="server" for="focusedinput" class="col-sm-2 control-label"></label>--%>
+                                        </asp:DropDownList></div>--%>
+                                        <asp:TextBox  ViewStateMode="Disabled" ID="txtUnidadMedida2" runat="server" placeholder="Unidad de Medida" CssClass="form-control1"/>
+                                        <asp:TextBox ID="txtOculto"  runat="server" CssClass="form-control1" Visible="false" />
+                                        <%--<label ID="txtOculto2" value¨="1" runat="server" for="focusedinput" class="col-sm-2 control-label"></label>--%>
 										</div>
 									</div>
                                     <hr/>
