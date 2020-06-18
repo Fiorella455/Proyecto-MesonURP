@@ -6,11 +6,13 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using CTR;
 
 namespace MesonURPWEB
 {
     public partial class Dashboard : System.Web.UI.Page
     {
+
         CTR_Insumo _CI = new CTR_Insumo();
         protected void Page_Load(object sender, EventArgs e)
         {

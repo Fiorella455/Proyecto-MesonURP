@@ -20,32 +20,42 @@
                                         <h4>Órdenes de Compra</h4>
                                     </div>
                                     <div class="table-wrapper-scroll-y my-custom-scrollbar">
-                                         <asp:GridView ID="GridViewOC" allowpaging="True" runat="server" emptydatatext="No hay información disponible."  
-                                                      CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None">
+                                         <asp:GridView ID="GridViewOC" allowpaging="True" runat="server" emptydatatext="No hay información disponible."  OnRowCommand="GridViewOC_RowCommand" 
+                                                   DataKeyNames="OC_idOrdenCompra, OC_TipoComprobante,OC_NumeroComprobante,OC_FormaPago, OC_FechaPago, OC_TotalCompra, OC_FechaEmision, OC_FechaEntrega, P_idProveedor"   AutoGenerateColumns="false"
+                                             CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None" OnSelectedIndexChanged="GridViewOC_SelectedIndexChanged">
                                             
                                             <Columns>
-                                                   <asp:BoundField HeaderText="ID Compra" />
-                                                   <asp:BoundField HeaderText="Tipo de Comprobante" />
-                                                   <asp:BoundField HeaderText="Número de comprobante" />
-                                                   <asp:BoundField HeaderText="Total de Compra" />
-                                                   <asp:BoundField  HeaderText="Estado" />
+                                                <asp:BoundField HeaderText="ID Compra" DataField="OC_idOrdenCompra" />
+                                                 <asp:BoundField HeaderText="Tipo de Comprobante" DataField="OC_TipoComprobante" />
+                                                   <asp:BoundField HeaderText="Número de comprobante" DataField="OC_NumeroComprobante"/>
+                                                <asp:BoundField HeaderText="Forma de Pago" DataField="OC_FormaPago"/>
+                                                <asp:BoundField  HeaderText="Fecha de Pago"  DataField="OC_FechaPago"/> 
+                                                <asp:BoundField HeaderText="Total de Compra" DataField="OC_TotalCompra"/>
+                                                <asp:BoundField  HeaderText="Fecha de Emisión"  DataField="OC_FechaEmision"/>  
+                                                <asp:BoundField  HeaderText="Fecha de Entrega"  DataField="OC_FechaEntrega"/>   
+                                                <asp:BoundField  HeaderText="ID Proveedor" DataField="P_idProveedor" Visible="false" />
                                                    <asp:TemplateField  HeaderText="Enviar">
                                                        <ItemTemplate>
-                                                           <asp:Button ID="btnEnviarEmailOC" class="btn btn-primary" runat="server" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Enviar" />
+                                                           <%--<asp:Button ID="btnEnviarEmailOC" class="btn btn-primary" runat="server" CommandName="EnviarEmailOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Enviar" OnClick="btnEnviarEmailOC_Click" />--%>
+                                                       <asp:Button ID="btnEnviarEmailOC" class="btn btn-primary" runat="server" CommandName="EnviarEmailOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Enviar" />
                                                        </ItemTemplate>                                                     
                                                    </asp:TemplateField>  
-                                                   <asp:BoundField  HeaderText="Fecha de Emisión" />  
-                                                   <asp:BoundField  HeaderText="ID Proveedor" />
                                                    <asp:TemplateField  HeaderText="Editar">
                                                        <ItemTemplate>
-                                                           <asp:Button ID="btnEditarOC" class="btn btn-primary" runat="server" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Actualizar" />
-                                                       </ItemTemplate>                                                     
+                                                           <asp:Button ID="btnEditarOC" class="btn btn-primary" runat="server" CommandName ="ActualizarOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Actualizar" />
+                                                       </ItemTemplate>              
+                                                       
                                                    </asp:TemplateField> 
                                                    <asp:TemplateField  HeaderText="Ver Detalles">
                                                        <ItemTemplate>
-                                                           <asp:Button ID="btnVerDetallesOC" class="btn btn-primary" runat="server" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Consultar" />
+                                                           <asp:Button ID="btnVerDetallesOC" class="btn btn-primary" runat="server" CommandName="ConsultarOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Consultar" OnClick="btnVerDetallesOC_Click" />
                                                        </ItemTemplate>                                                     
                                                    </asp:TemplateField>                                                    
+                                                   <asp:TemplateField HeaderText="Eliminar">
+                                                       <ItemTemplate>
+                                                           <asp:Button ID="btnEliminar" runat="server" CommandName="EliminarOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"  Text="Eliminar" />
+                                                       </ItemTemplate>
+                                                   </asp:TemplateField>
                                             </Columns>
                                         </asp:GridView>
                                     </div>
