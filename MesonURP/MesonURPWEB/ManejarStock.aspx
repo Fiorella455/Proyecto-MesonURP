@@ -9,18 +9,18 @@
                             <h2 class="tittle-margin5">Manejar Stock</h2>
                             <div class="stock-options">
                                 <div class="width-auto margin-5">
-                                    <input type="button" class="btn btn-primary" value="Registar Ingreso" onclick="window.location.href = 'RegistrarIngreso.aspx';">           
+                                    <input type="button" class="btn btn-primary" value="Registar Ingreso" onclick="window.location.href = 'RegistrarIngreso';">           
                                 </div>
                                 
                                 <div class="width-auto">
-                                      <input type="button" class="btn btn-primary" value="Registar Egreso" onclick="window.location.href = 'RegistrarEgreso.aspx';">    
+                                      <input type="button" class="btn btn-primary" value="Registar Egreso" onclick="window.location.href = 'RegistrarEgreso';">    
                                 </div>
                             </div>
                         </div>
                         <div class="search-buttons">
                             <div class="search">                                
-                                    <asp:TextBox id="txtSearchStock" runat="server"  CssClass="form-control1"  onkeypress="return lettersOnly(event);"  placeholder="Buscar..."/>
-                                    <button type="button" id="brnSearchStock" runat="server">
+                                    <asp:TextBox  id="txtBuscarInsumo" runat="server"  CssClass="form-control1"  onkeypress="return lettersOnly(event);"  placeholder="Buscar Insumo ..."/>
+                                    <button type="button" id="brnSearchStock" runat="server" onserverclick="brnSearchStock_ServerClick">
                                         <span class="material-icons">search
                                         </span>
                                     </button>
@@ -31,21 +31,16 @@
                                         <h4>Stock Actual</h4>
                                     </div>
                                     <div class="table-wrapper-scroll-y my-custom-scrollbar">
-                                        <asp:GridView ID="GridViewInsumos" allowpaging="True" runat="server" emptydatatext="No hay información disponible."
-                                                      CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None">  
-                                            <HeaderStyle BackColor="#A77F5D" Font-Bold="True" ForeColor="#000000"></HeaderStyle>
-                                            <PagerStyle HorizontalAlign="Center" BackColor="#A77F5D" ForeColor="#333333"></PagerStyle>
-                                            <RowStyle HorizontalAlign="center" CssClass="table table-striped table-bordered" BackColor="#FAFAFA" ForeColor="#333333" />
-                                            <SelectedRowStyle BackColor="#A77F5D" Font-Bold="True" ForeColor="Navy"></SelectedRowStyle>
-                                            <SortedAscendingCellStyle BackColor="#214E3F"></SortedAscendingCellStyle>
-                                            <SortedAscendingHeaderStyle BackColor="#A77F5D"></SortedAscendingHeaderStyle>
-                                            <SortedDescendingCellStyle BackColor="#214E3F"></SortedDescendingCellStyle>
-                                            <SortedDescendingHeaderStyle BackColor="#A77F5D"></SortedDescendingHeaderStyle>
+                                       <asp:GridView ID="gvInsumos" allowpaging="True" AutoGenerateColumns="False" runat="server" emptydatatext="No hay información disponible."  
+                                            CssClass="table table-bordered table-striped mb-0" DataKeyNames="I_NombreInsumo,C_NombreCategoria,I_StockMinimo,I_StockMaximo,I_CantidadTotal,M_NombreMedida" 
+                                            OnPageIndexChanging="gvInsumos_PageIndexChanging" PageSize="3">
                                             <Columns>
-                                                <asp:BoundField HeaderText="Insumo" />
-                                                <asp:BoundField HeaderText="Categoría" />
-                                                <asp:BoundField HeaderText="Stock" />
-                                                <asp:BoundField HeaderText="Unidad" />                                                        
+                                                <asp:BoundField DataField="I_NombreInsumo" HeaderText="Insumo" />
+                                                <asp:BoundField DataField="C_NombreCategoria" HeaderText="Categoria" />
+                                                <asp:BoundField DataField="I_StockMinimo" HeaderText="Stock Mínimo" />
+                                                <asp:BoundField DataField="I_StockMaximo" HeaderText="Stock Máximo" />
+                                                <asp:BoundField DataField="I_CantidadTotal" HeaderText="Stock Actual" />
+                                                <asp:BoundField DataField="M_NombreMedida" HeaderText="Unidad de Medida" />       
                                             </Columns>
                                         </asp:GridView>
                                     </div>

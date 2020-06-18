@@ -293,7 +293,6 @@
     <Content Include="ManejarStock.aspx" />
     <Content Include="RegistrarEgreso.aspx" />
     <Content Include="RegistrarIngreso.aspx" />
-    <Content Include="bootstrap.js" />
     <Content Include="js1\jquery-1.7.2.min.js" />
     <Content Include="js1\signin.js" />
     <Content Include="index.aspx" />
@@ -310,6 +309,10 @@
     </Compile>
     <Compile Include="AñadirOC.aspx.cs">
       <DependentUpon>AñadirOC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master.Master.cs">
+      <DependentUpon>Master.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AñadirOC.aspx.designer.cs">

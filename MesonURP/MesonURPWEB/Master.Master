@@ -137,33 +137,27 @@
                 <li><a href="Dashboard"><i class="fa fa-tachometer"></i><span>Inicio</span></a></li>
                 <li id="menuOrdenCompra" runat="server"><a href="#"><i class="fa fa-table"></i><span>Orden de Compra</span><span class="fa fa-angle-right" style="float: right"></span></a>
                     <ul id="submenuOrdenCompra">
-                        <li id="lblGestionarOrden" runat="server"><a href="GestionarOC.aspx">Gestionar Orden de Compra</a></li>
-                        <li id="lblConsultarOrdenCompra" runat="server"><a href="ConsultarOC.aspx">Consultar Orden de Compra</a></li>
+                        <li id="lblGestionarOrden" runat="server"><a href="GestionarOC">Gestionar Orden de Compra</a></li>
+                        <li id="lblConsultarOrdenCompra" runat="server"><a href="ConsultarOC">Consultar Orden de Compra</a></li>
                     </ul>
                 </li>
                 <li id="menuProveedor" runat="server"><a href="gestionarProveedor"><i class="fa fa-file-text-o"></i><span>Gestionar Proveedor</span></a></li>
                 <li id="menuGestionarDevoluciones" runat="server"><a href="gestionarDevoluciones"><i class="lnr lnr-pencil"></i><span>Gestionar Devolución</span></a></li>
                 <li id="menuStock" runat="server"><a href="#"><i class="fa fa-table"></i><span>Stock</span> <span class="fa fa-angle-right" style="float: right"></span></a>
                     <ul id="submenuStock">
-                        <li id="lblmenuManejoStock"><a href="ManejarStock.aspx">Manejar Stock</a></li>
+                        <li id="lblmenuManejoStock"><a href="ManejarStock">Manejar Stock</a></li>
                         <li id="lblmenuMovimientosStock"><a href="consultarMovimientos">Consultar Movimientos</a></li>
                     </ul>
                 </li>
-                <li id="menuRecursos" runat="server"><a href="#"><i class="fa fa-table"></i><span>Administrar Recursos</span><span class="fa fa-angle-right" style="float: right"></span></a>
-                    <ul id="submenuRecursos">
-                        <li id="lblRegistrarEgreso"><a href="RegistrarEgreso.aspx">Registrar Egreso</a></li>
-                        <li id="lblRegistrarIngreso"><a href="RegistrarIngreso.aspx">Registrar Ingreso</a></li>
-                    </ul>
-                </li>
-
+                <li id="menuRecursos" runat="server"><a href="AdministrarRecursos"><i class="fa fa-file-text-o"></i><span>Administrar Recursos</span></a></li>
                 <li id="menuReportes" runat="server"><a href="#"><i class="fa fa-table"></i><span>Reportes</span> <span class="fa fa-angle-right" style="float: right"></span></a>
                     <ul id="menu-academico-sub">
                         <li id="lblReporteCompras"><a href="reporteMovimientos">Generar Reporte de Compras</a></li>
                         <li id="lblReportesMovimientos"><a href="reporteCompras">Generar Reporte de Movimientos</a></li>
                     </ul>
                 </li>
-                <li><a href="gestionarCategoria"><i class="lnr lnr-chart-bars"></i><span>Gestionar Categoría</span></a></li>
-                <li><a href="gestionarUsuarios"><i class="lnr lnr-chart-bars"></i><span>Gestionar Usuarios</span></a></li>
+                <li id="menuCategoria" runat="server"><a href="gestionarCategoria"><i class="lnr lnr-chart-bars"></i><span>Gestionar Categoría</span></a></li>
+                <li id="menuUsuarios" runat="server"><a href="gestionarUsuarios"><i class="lnr lnr-chart-bars"></i><span>Gestionar Usuarios</span></a></li>
             </ul>
            <%-- <div class="cerrar-sesion">
                    
