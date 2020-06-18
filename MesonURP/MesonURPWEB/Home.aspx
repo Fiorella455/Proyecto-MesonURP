@@ -59,8 +59,8 @@
 
                 <div class="login-fields">
 
-                    <p class="title-login"><asp:Label ID="lblMensaje" runat="server" Text="" ForeColor="#CC0000"></asp:Label>
-                                    <asp:Label ID="lblMensajeAyuda" runat="server" Text=""></asp:Label></p>
+                    <p class="title-login"><asp:Label ID="lblMensaje" runat="server" Text="" ForeColor="#CC0000"></asp:Label></p>
+                                    <p <asp:Label ID="lblMensajeAyuda" runat="server" Text=""></asp:Label></p>
 
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                     <input class="mdl-textfield__input input-login-style" type="text" id="correo" placeholder="Nombre" name="correo" value="" runat="server"/>

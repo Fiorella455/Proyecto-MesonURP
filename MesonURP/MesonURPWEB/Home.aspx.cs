@@ -61,7 +61,7 @@ namespace MesonURPWEB
 
                 }
             }
-            lblMensaje.Text = "Sus datos no son validos, por favor vuelva a intentar";
+            lblMensaje.Text = "Sus datos no son válidos, por favor vuelva a intentar";
         }
     }
 }
