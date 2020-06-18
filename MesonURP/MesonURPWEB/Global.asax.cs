@@ -60,7 +60,7 @@ namespace MesonURPWEB
             routes.MapPageRoute("Dashboard", "Dashboard", "~/Dashboard.aspx", true);
             routes.MapPageRoute("ManejarStock", "ManejarStock", "~/ManejarStock.aspx", true);
             routes.MapPageRoute("RegistrarIngreso", "RegistrarIngreso", "~/RegistrarIngreso.aspx", true);
-            routes.MapPageRoute("RegistrarEgreso", "RegistrarEgreso", "~/RegistrarIngreso.aspx", true);
+            routes.MapPageRoute("RegistrarEgreso", "RegistrarEgreso", "~/RegistrarEgreso.aspx", true);
             routes.MapPageRoute("GestionarOC", "GestionarOC", "~/GestionarOC.aspx", true);
             routes.MapPageRoute("AñadirOC", "AñadirOC", "~/AñadirOC.aspx", true);
             routes.MapPageRoute("ActualizarOC", "ActualizarOC", "~/ActualizarOC.aspx", true);
