@@ -35,7 +35,6 @@
                         <div class="col-sm-8">
                             <asp:TextBox ID="txtFechaEntrega" runat="server" TextMode="Date" CssClass="form-control1" ValidationGroup="añadirOC" />
                             <asp:RequiredFieldValidator ID="validationFechaEntrega" runat="server" ControlToValidate="txtFechaEntrega" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-
                         </div>
                     </div>
                     <div class="form-group">
@@ -81,14 +80,14 @@
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Cantidad</label>
                         <div class="col-sm-8">
-                            <asp:TextBox ID="txtCantidadOC" runat="server" CssClass="form-control1" onkeypress="return SoloNumeroInt(event);" ValidationGroup="añadirOC" />
+                            <asp:TextBox ID="txtCantidadOC" runat="server" CssClass="form-control1" onkeypress="return SoloNumeroIntDouble(event);" ValidationGroup="añadirOC" />
                             <asp:RequiredFieldValidator ID="validationCantidadOC" runat="server" ControlToValidate="txtCantidadOC" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Precio Unitario</label>
                         <div class="col-sm-8">
-                            <asp:TextBox ID="txtPrecioUnitarioOC" runat="server" CssClass="form-control1" onkeypress="return BlockChars(event);" ValidationGroup="añadirOC" />
+                            <asp:TextBox ID="txtPrecioUnitarioOC" runat="server" CssClass="form-control1" onkeypress="return SoloNumeroIntDouble(event);" ValidationGroup="añadirOC" />
                             <asp:RequiredFieldValidator ID="validationPrecioUnitario" runat="server" ControlToValidate="txtPrecioUnitarioOC" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
@@ -147,6 +146,13 @@
             if (tecla == 8 || tecla == 13 || tecla == 0) return true;
             if (tecla >= 8226 && tecla <= 10175) { return false; }
             var regEx = /^[0-9]+$/i;
+            return regEx.test(String.fromCharCode(tecla));
+        }
+        function SoloNumeroIntDouble(ev) {
+            var tecla = (document.all) ? ev.keyCode : ev.which;
+            if (tecla == 8 || tecla == 13 || tecla == 0) return true;
+            if (tecla >= 8226 && tecla <= 10175) { return false; }
+            var regEx = /^[0-9\.]+$/i;
             return regEx.test(String.fromCharCode(tecla));
         }
     </script>

@@ -19,5 +19,9 @@ namespace CTR
         {
             return objDAO.SelectInsumos(nombreInsumo);
         }
+        public DataTable ListarDashboard()
+        {
+            return objDAO.SelectDashboard();
+        }
     }
 }

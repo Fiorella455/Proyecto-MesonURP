@@ -44,6 +44,23 @@ namespace DAO
                 throw ex;
             }
         }
+        public DataTable SelectDashboard()
+        {
+            try
+            {
+                DataTable dtable = new DataTable();
+                SqlCommand unComando = new SqlCommand("SP_Listar_Insumos_Dashboard", conexion);
+                unComando.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter data = new SqlDataAdapter(unComando);
+                data.Fill(dtable);
+                return dtable;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
     }
 }
