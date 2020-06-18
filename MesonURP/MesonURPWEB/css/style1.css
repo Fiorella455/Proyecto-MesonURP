@@ -465,9 +465,10 @@ body {
     display: block; }
 
 .footer {
-  background-color: #101d2c;
-  grid-column: full-start / full-end;
-  padding: 8rem; }
+    background-color: #A77F5B;
+    grid-column: full-start / full-end;
+    padding: 8rem;
+}
 
 .nav {
   list-style: none;
@@ -491,7 +492,7 @@ body {
 
 .copyright {
   font-size: 1.4rem;
-  color: #aaa;
+  color: black;
   margin-top: 6rem;
   margin-right: auto;
   margin-left: auto;
@@ -643,7 +644,8 @@ body {
     position: fixed;
     right: 138.5rem;
     top: -6rem;
-    background-image: radial-gradient(#4e7256, #275440);
+    background: rgb(34,77,37);
+    background: radial-gradient(circle, rgba(34,77,37,1) 7%, rgba(123,219,130,0.9752275910364145) 100%);
     z-index: 1000;
     -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
     transition: -webkit-transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
@@ -766,3 +768,55 @@ body {
         -webkit-transform: rotate(-135deg);
         transform: rotate(-135deg);
     }
+.form-login-style {
+    z-index: 1111;
+    position: absolute;
+    top: 32%;
+    left: 40vw;
+    background: white;
+    height: 350px;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.input-login-style {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.btn-login-style {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #386149;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.form-message {
+    margin: 15px 0 0;
+    color: #b3b3b3;
+    font-size: 12px;
+}
+
+    .form-message a {
+        color: #386149;
+        text-decoration: none;
+    }
+
+.background-green {
+    background: #214E3F;
+}
