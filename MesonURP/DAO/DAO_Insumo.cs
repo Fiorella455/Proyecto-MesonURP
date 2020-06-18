@@ -50,8 +50,7 @@ namespace DAO
             SqlCommand comando = new SqlCommand("SP_Consultar_Insumos_Categoria_Minimo", conexion);
             comando.CommandType = CommandType.StoredProcedure;
              comando.Parameters.AddWithValue("@C_idCategoria", idCategoria);
-            
-               
+                       
             comando.ExecuteNonQuery();
             DataSet ds = new DataSet();
             SqlDataAdapter da = new SqlDataAdapter(comando);
@@ -61,25 +60,18 @@ namespace DAO
         }
         public bool DAO_Leer_PrecioUxInsumo(DTO_Insumo dto_insumo)
         {
-            
             conexion.Open();
             SqlCommand cmd = new SqlCommand("SP_Consultar_PrecioU", conexion);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@I_NombreInsumo", dto_insumo.VR_NombreRecurso);
-
+            cmd.Parameters.AddWithValue("@I_idInsumo", dto_insumo.PK_IR_Recurso);
             SqlDataReader reader = cmd.ExecuteReader();
             bool hayRegistros = reader.Read();
             if (hayRegistros)
             {
-                //Hay registros
-                dto_insumo.DR_PrecioUnitario= (int)reader[0];      
+                dto_insumo.DR_PrecioUnitario= (int)reader[4];      
             }
             conexion.Close();
-            conexion.Dispose();
-
             return hayRegistros;
-
-
         }
 
     }

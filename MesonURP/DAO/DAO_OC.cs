@@ -36,18 +36,18 @@ namespace DAO
                 cmd.Parameters.AddWithValue("@OC_TotalCompra", dto_oc.OC_TotalCompra);
                 cmd.Parameters.AddWithValue("@OC_FechaEmision", dto_oc.OC_FechaEmision);
                 cmd.Parameters.AddWithValue("@OC_FechaEntrega", dto_oc.OC_FechaEntrega);
-                cmd.Parameters.AddWithValue("@OC_idProveedor", dto_oc.P_idProveedor);
+                cmd.Parameters.AddWithValue("@P_idProveedor", dto_oc.P_idProveedor);
             cmd.ExecuteNonQuery();
             conexion.Close();
         }
        
-        public bool Consultar_OC(int i)
+        public bool Consultar_OC(DTO_OC dto_oc)
         {
 
                 conexion.Open();
                 SqlCommand cmd = new SqlCommand("SP_Consultar_OC",conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(new SqlParameter("@OC_idOrdenCompra",i));          
+                cmd.Parameters.Add(new SqlParameter("@OC_idOrdenCompra",dto_oc.OC_idOrdenCompra));          
                 SqlDataReader reader = cmd.ExecuteReader();
                 bool hayRegistros = reader.Read();
                 if (hayRegistros)
@@ -67,8 +67,7 @@ namespace DAO
                  dto_oc.Estado = 99;
                 conexion.Close();
                 return hayRegistros;
-          
-
+         
         }
 
         public void Leer_OCxFecha()
@@ -109,7 +108,7 @@ namespace DAO
         {
             MailMessage msg = new MailMessage();
             
-            if (Consultar_OC(dto_oc.OC_idOrdenCompra))
+            if (Consultar_OC(dto_oc))
             {
                 
                 dto_proveedor.P_idProveedor = dto_oc.P_idProveedor;

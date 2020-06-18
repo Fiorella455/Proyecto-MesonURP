@@ -36,10 +36,10 @@ namespace MesonURPWEB.paginas
         }
 
 
-        public void Consultar_OC()
+        public void Consultar_OC(DTO_OC dto_oc)
         {
-            int i = int.Parse(txtID.Text);
-            if (ctr_oc.CTR_Leer_OC(i))
+            
+            if (ctr_oc.CTR_Leer_OC(dto_oc))
             {
                 txtTipoComp.Text = dto_oc.OC_TipoComprobante;
                 txtNumeroComp.Text = dto_oc.OC_NumeroComprobante;
@@ -55,23 +55,17 @@ namespace MesonURPWEB.paginas
         }
         protected void btnRegistro_Click(object sender, EventArgs e)
         {
-  
-                
-                //int catselect= int.Parse(ddlcategoria.SelectedItem.Value);
-                //Ctr_Recurso ctr_recurso = new Ctr_Recurso();
-                //dataset = new DataSet();
-                //dataset = ctr_recurso.Ctr_Leer_RecursoxCategoria(catselect);
-                //ddlInsumo.DataTextField = "VR_NombreInsumo";
-                //ddlInsumo.DataValueField = "PK_idInsumo";
-                //ddlInsumo.DataSource = dataset;
-                Consultar_OC();
+
+            dto_oc.OC_idOrdenCompra = int.Parse(txtID.Text);
+            Consultar_OC(dto_oc);
                 
             
         }
 
         protected void btnEnviar_Click(object sender, EventArgs e)
         {
-           /// txtMsj.Text= dao_oc.EnviarCorreo(int.Parse(txt_idOC.Text));
+            dto_oc.OC_idOrdenCompra = int.Parse(txtID.Text);
+            txtMsj.Text= dao_oc.EnviarCorreo(dto_oc).ToString();
         }
     }
 }

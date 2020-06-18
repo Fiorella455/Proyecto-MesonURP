@@ -97,7 +97,7 @@ namespace MesonURPWEB
                 DdlInsumo.DataValueField = "I_idInsumo";
                 DdlInsumo.DataSource = dtins;
                 DdlInsumo.DataBind();
-
+                Cargar_PrecioUnitario();
                 //------------------------------------------------
                 dtpro = new DataSet();
                 dtpro = pro.Leer_Proveedor();
@@ -117,24 +117,22 @@ namespace MesonURPWEB
                 DdlUnidades.DataSource = dtmed;
                 DdlUnidades.DataBind();
 
-               /// Cargar_PrecioUnitario();
+                
 
             }
         }
-        //public void Cargar_PrecioUnitario()
-        //{
-        //    if (DdlInsumo.SelectedValue != "")
-        //    {
-        //        dto_insumo.VR_NombreRecurso = DdlInsumo.SelectedValue;
-        //        if (ctr_insumo.CTR_Leer_PrecioUxInsumo(dto_insumo))
-        //        {
-        //            txtPrecioU.Text = dto_insumo.DR_PrecioUnitario.ToString();
-        //        }
-        //    }
+        public void Cargar_PrecioUnitario()
+        {
+            if (DdlInsumo.SelectedValue != "")
+            {
+                dto_insumo.PK_IR_Recurso = int.Parse(DdlInsumo.SelectedValue);
+                if (ctr_insumo.CTR_Leer_PrecioUxInsumo(dto_insumo))
+                {
+                    txtPrecioU.Text = dto_insumo.DR_PrecioUnitario.ToString();
+                }
+            }
+        }
 
-
-        //}
-       
 
         protected void btnAñadirOC_Click(object sender, EventArgs e)
         {
@@ -143,12 +141,13 @@ namespace MesonURPWEB
             dto_oc.OC_NumeroComprobante = txtNumeroComprobante.Text;
             dto_oc.OC_TotalCompra = Convert.ToDecimal(suma);
             dto_oc.OC_FechaEmision = DateTime.Today;
+            dto_oc.OC_FormaPago = txtFormaPago.Text;
             dto_oc.OC_FechaEntrega = DateTime.Parse(txtFechaEntrega.Text);
             dto_oc.OC_FechaPago= DateTime.Parse(txtFechaEntrega.Text);
             dto_oc.P_idProveedor = int.Parse(DdlProveedor.SelectedValue);
             dto_oc.OC_NumeroComprobante = txtNumeroComprobante.Text;
             dto_oc.OC_TipoComprobante = txtTipoComprobante.Text;
-            dto_oc.OC_TotalCompra = Convert.ToDecimal(suma);
+            dto_oc.OC_TotalCompra = 100;
             
            
             dto_estado_OCxOC.EOC_idEstadoOC = 1;
@@ -161,7 +160,7 @@ namespace MesonURPWEB
            // while (pila.Count >= 1)
             //{
 
-                ctr_ocxinsumo.Registrar_OC_Insumo(pila.Pop());
+               // ctr_ocxinsumo.Registrar_OC_Insumo(pila.Pop());
             //}
 
             Response.Redirect("GestionarOC.aspx");
