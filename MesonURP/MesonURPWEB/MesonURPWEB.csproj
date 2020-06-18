@@ -298,6 +298,12 @@
     <Content Include="js1\signin.js" />
     <Content Include="index.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="paginas\AgregandoRecurso.aspx" />
+    <Content Include="paginas\Dashboard.aspx" />
+    <Content Include="paginas\Home.aspx" />
+    <Content Include="paginas\ManejarStock.aspx" />
+    <Content Include="paginas\RegistrarEgreso.aspx" />
+    <Content Include="paginas\RegistrarIngreso.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -311,6 +317,8 @@
     <Compile Include="AñadirOC.aspx.cs">
       <DependentUpon>AñadirOC.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    <Compile Include="Master.Master.cs">
+      <DependentUpon>Master.Master</DependentUpon>
     </Compile>
     <Compile Include="AñadirOC.aspx.designer.cs">
       <DependentUpon>AñadirOC.aspx</DependentUpon>
@@ -341,7 +349,6 @@
     </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
@@ -399,7 +406,49 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
+      <Compile Include="paginas\AgregandoRecurso.aspx.cs">
+        <DependentUpon>AgregandoRecurso.aspx</DependentUpon>
+        <SubType>ASPXCodeBehind</SubType>
+      </Compile>
+      <Compile Include="paginas\AgregandoRecurso.aspx.designer.cs">
+        <DependentUpon>AgregandoRecurso.aspx</DependentUpon>
+      </Compile>
+      <Compile Include="paginas\Dashboard.aspx.cs">
+        <DependentUpon>Dashboard.aspx</DependentUpon>
+        <SubType>ASPXCodeBehind</SubType>
+      </Compile>
+      <Compile Include="paginas\Dashboard.aspx.designer.cs">
+        <DependentUpon>Dashboard.aspx</DependentUpon>
+      </Compile>
+      <Compile Include="paginas\Home.aspx.cs">
+        <DependentUpon>Home.aspx</DependentUpon>
+      </Compile>
+      <Compile Include="paginas\Home.aspx.designer.cs">
+        <DependentUpon>Home.aspx</DependentUpon>
+      </Compile>
+      <Compile Include="paginas\ManejarStock.aspx.cs">
+        <DependentUpon>ManejarStock.aspx</DependentUpon>
+        <SubType>ASPXCodeBehind</SubType>
+      </Compile>
+      <Compile Include="paginas\ManejarStock.aspx.designer.cs">
+        <DependentUpon>ManejarStock.aspx</DependentUpon>
+      </Compile>
+      <Compile Include="paginas\RegistrarEgreso.aspx.cs">
+        <DependentUpon>RegistrarEgreso.aspx</DependentUpon>
+        <SubType>ASPXCodeBehind</SubType>
+      </Compile>
+      <Compile Include="paginas\RegistrarEgreso.aspx.designer.cs">
+        <DependentUpon>RegistrarEgreso.aspx</DependentUpon>
+      </Compile>
+      <Compile Include="paginas\RegistrarIngreso.aspx.cs">
+        <DependentUpon>RegistrarIngreso.aspx</DependentUpon>
+        <SubType>ASPXCodeBehind</SubType>
+      </Compile>
+      <Compile Include="paginas\RegistrarIngreso.aspx.designer.cs">
+        <DependentUpon>RegistrarIngreso.aspx</DependentUpon>
+      </Compile>
+
+      <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Master.Master" />
