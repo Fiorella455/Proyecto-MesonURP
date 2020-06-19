@@ -40,7 +40,6 @@
 										<label for="focusedinput" class="col-sm-2 control-label">Unidad de Medida</label>
 										<div class="col-sm-8">
                                             <asp:TextBox Disabled="true" ID="txtUnidadMedida" runat="server" placeholder="Unidad de Medida" CssClass="form-control1"/>
-										    <asp:RequiredFieldValidator ID="validationUnidadMedida" runat="server" ControlToValidate="txtUnidadMedida" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarEgreso" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 											<asp:TextBox ID="txtOculto"  runat="server" CssClass="form-control1" Visible="false" />
 										</div>
 									</div>
