@@ -20,9 +20,13 @@ namespace CTR
         {
            return dao_insumo.Dao_Leer_Insumos_Categorias(idCategoria);
         }
-        public DTO_Insumo Consultar_InsumoxID(int i)
+        public void Consultar_InsumoxID()
         {
-             return dao_insumo.Consultar_InsumoxID(i);
+            dao_insumo.Consultar_InsumoxID();
+        }
+        public string SelectPrecioUnitario(int idInsumo)
+        {
+            return dao_insumo.SelectPrecioUnitario(idInsumo);
         }
         public DataTable ListarInsumo()
         {

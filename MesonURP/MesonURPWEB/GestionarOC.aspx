@@ -20,9 +20,9 @@
                                         <h4>Órdenes de Compra</h4>
                                     </div>
                                     <div class="table-wrapper-scroll-y">
-                                         <asp:GridView ID="GridViewOC" allowpaging="True" runat="server" emptydatatext="No hay información disponible."  OnRowCommand="GridViewOC_RowCommand" 
+                                         <asp:GridView ID="GridViewOC" allowpaging="True" runat="server" emptydatatext="No hay información disponible."  OnRowCommand="GridViewOC_RowCommand"
                                                    DataKeyNames="OC_idOrdenCompra, OC_TipoComprobante,OC_NumeroComprobante,OC_FormaPago, OC_FechaPago, OC_TotalCompra, OC_FechaEmision, OC_FechaEntrega, P_idProveedor"   AutoGenerateColumns="false"
-                                             CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None" OnSelectedIndexChanged="GridViewOC_SelectedIndexChanged" OnRowDeleting="GridViewOC_RowDeleting">
+                                             CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None">
                                              <Columns>
                                                 <asp:BoundField HeaderText="ID Compra" DataField="OC_idOrdenCompra" />
                                                 <asp:BoundField HeaderText="Tipo de Comprobante" DataField="OC_TipoComprobante" />
@@ -39,21 +39,21 @@
                                                        <asp:Button ID="btnEnviarEmailOC" class="btn btn-primary" runat="server" CommandName="EnviarEmailOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Enviar" />
                                                        </ItemTemplate>                                                     
                                                    </asp:TemplateField>  
-                                           <%--       <asp:TemplateField  HeaderText="Editar">
+                                                   <asp:TemplateField  HeaderText="Editar">
                                                        <ItemTemplate>
                                                            <asp:Button ID="btnEditarOC" class="btn btn-primary" runat="server" CommandName ="ActualizarOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Actualizar" />
                                                        </ItemTemplate> 
-                                                   </asp:TemplateField>--%>
+                                                   </asp:TemplateField>
                                                    <asp:TemplateField  HeaderText="Ver Detalles">
                                                        <ItemTemplate>
-                                                           <asp:Button ID="btnVerDetallesOC" class="btn btn-primary" runat="server" CommandName="ConsultarOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Consultar" OnClick="btnVerDetallesOC_Click" />
+                                                           <asp:Button ID="btnVerDetallesOC" class="btn btn-primary" runat="server" CommandName="ConsultarOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Consultar" />
                                                        </ItemTemplate>                                                     
                                                    </asp:TemplateField>                                                    
-                                             <%--      <asp:TemplateField HeaderText="Eliminar">
+                                                   <asp:TemplateField HeaderText="Eliminar">
                                                        <ItemTemplate>
                                                            <asp:Button ID="btnEliminar" class="btn btn-primary" runat="server" CommandName="EliminarOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"  Text="Eliminar" />
                                                        </ItemTemplate>
-                                                   </asp:TemplateField>--%>
+                                                   </asp:TemplateField>
                                             </Columns>
                                         </asp:GridView>
                                     </div>

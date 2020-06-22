@@ -79,7 +79,7 @@ namespace MesonURPWEB
                 DdlProveedor.DataSource = dtpro;
                 DdlProveedor.DataBind();
                 //-------------------------------------------------
-                dto_insumo = ctr_insumo.Consultar_InsumoxID(int.Parse(DdlInsumo.SelectedValue));
+                //dto_insumo = ctr_insumo.Consultar_InsumoxID(int.Parse(DdlInsumo.SelectedValue));
                 txtPrecioU.Text = dto_insumo.DR_PrecioUnitario.ToString();
                 dto_medida = ctr_medida.Consultar_MedidaxInsumo(dto_insumo.PK_IR_Recurso);
                 txtMedida.Text = dto_medida.M_NombreMedida;

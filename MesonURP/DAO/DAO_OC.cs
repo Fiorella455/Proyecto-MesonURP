@@ -198,13 +198,11 @@ namespace DAO
         }
         public void Eliminar_OC(int OC_idOrdenCompra)
         {
-
             try
             {
                 conexion.Open();
                 SqlCommand cmd = new SqlCommand("SP_Eliminar_OC", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
-                // cmd.Parameters.Add(new SqlParameter("@OC_idOrdenCompra", dto_oc.OC_idOrdenCompra));
                 cmd.Parameters.Add(new SqlParameter("@OC_idOrdenCompra", OC_idOrdenCompra));
                 cmd.ExecuteNonQuery();
                 conexion.Close();
@@ -213,7 +211,6 @@ namespace DAO
             {
                 throw ex;
             }
-
         }
     }
 }
