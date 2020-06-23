@@ -12,17 +12,16 @@ namespace CTR
         {
             dao_insumo = new DAO_Insumo();
         }
-        public void Ctr_Registrar_Recurso(DTO_Insumo dto_Recurso)
-        {
-            dao_insumo.Dao_Registrar_Recurso(dto_Recurso);
-        }
         public DataSet Ctr_Leer_Insumo_Categorias(int idCategoria)
         {
            return dao_insumo.Dao_Leer_Insumos_Categorias(idCategoria);
         }
-        public DTO_Insumo Consultar_InsumoxID(int i)
+        public DataSet SelectInsumosOC() {
+            return dao_insumo.CargarInsumosOC();
+        }
+        public string SelectPrecioUnitario(int idInsumo)
         {
-             return dao_insumo.Consultar_InsumoxID(i);
+            return dao_insumo.SelectPrecioUnitario(idInsumo);
         }
         public DataTable ListarInsumo()
         {

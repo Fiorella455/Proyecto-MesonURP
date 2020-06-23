@@ -47,10 +47,13 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="selector1" class="col-sm-2 control-label">Forma de Pago</label>
-                        <div class="col-sm-8">
-                            <asp:TextBox ID="txtFormaPago" runat="server" placeholder="Ingrese forma de pago" CssClass="form-control1" onkeypress="return lettersOnly(event);" />
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtFormaPago" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                               <label for="selector1" class="col-sm-2 control-label">Forma de pago</label>
+                               <div class="col-sm-8">
+                               <asp:DropDownList runat="server" CssClass="form-control1" ID="DListFormaP"  AutoPostBack="true">
+                                <asp:ListItem  Value="">--seleccione--</asp:ListItem>
+                                <asp:ListItem Text="Efectivo" Value="Efectivo">Efectivo</asp:ListItem>
+                                <asp:ListItem Text="Crédito" Value="Crédito">Crédito</asp:ListItem>
+                            </asp:DropDownList>
                         </div>
                     </div>
                        
@@ -62,32 +65,31 @@
                         </div>
                     </div>
                            <div class="form-group">
-                        <label for="focusedinput" class="col-sm-2 control-label">Tipo de Comprobante</label>
-                        <div class="col-sm-8">
-                            <asp:TextBox ID="txtTipoComprobante" runat="server" placeholder="Ingrese tipo de comprobante" CssClass="form-control1" onkeypress="return lettersOnly(event);"/>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtTipoComprobante" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                               <label for="selector1" class="col-sm-2 control-label">Tipo de Comprobante</label>
+                               <div class="col-sm-8">
+                               <asp:DropDownList runat="server" CssClass="form-control1" ID="DListTipoC"  AutoPostBack="true">
+                                <asp:ListItem  Value="">--seleccione--</asp:ListItem>
+                                <asp:ListItem Text="Boleta" Value="Boleta">Boleta</asp:ListItem>
+                                <asp:ListItem Text="Factura" Value="Factura">Factura</asp:ListItem>
+                            </asp:DropDownList>
                         </div>
                     </div>
                       <div class="input-info">
 						<h3>Detalles de Compra</h3>
 					</div>
-                    <div class="form-group">
-                        <label for="selector1" class="col-sm-2 control-label">Categoría</label>
-                        <div class="col-sm-8">
-                            <asp:DropDownList runat="server" CssClass="form-control1" ID="DdlCategoria" AutoPostBack="true" ></asp:DropDownList>
-                        </div>
-                    </div>
+                   
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Insumo</label>
                         <div class="col-sm-8">
-                            <asp:DropDownList runat="server" CssClass="form-control1" ID="DdlInsumo"  AutoPostBack="true" ></asp:DropDownList>
+                            <asp:DropDownList runat="server" CssClass="form-control1" ID="DdlInsumo"  AutoPostBack="true" OnSelectedIndexChanged="DdlInsumo_SelectedIndexChanged">
+                            </asp:DropDownList>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="DdlInsumo" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Cantidad</label>
                         <div class="col-sm-8">
-                            <asp:TextBox runat="server" CssClass="form-control1" ID="txtCantidad" onkeypress="return SoloNumeroIntDouble(event);" />
+                            <asp:TextBox runat="server" placeholder="Ingrese una cantidad" CssClass="form-control1" ID="txtCantidad" onkeypress="return SoloNumeroIntDouble(event);" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtCantidad" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
@@ -101,7 +103,7 @@
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Unidades de Medida</label>
                         <div class="col-sm-8">
-                            <asp:TextBox ID="txtMedida" runat="server" placeholder="Ingrese el número de orden" CssClass="form-control1"  onkeypress="return lettersOnly(event);" />
+                            <asp:TextBox ID="txtMedida" runat="server" CssClass="form-control1"  onkeypress="return lettersOnly(event);" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtMedida" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>

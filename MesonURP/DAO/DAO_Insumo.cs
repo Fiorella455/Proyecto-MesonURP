@@ -20,28 +20,7 @@ namespace DAO
             dto_insumo = new DTO_Insumo();
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
         }
-        public void Dao_Registrar_Recurso(DTO_Insumo dto_rec)
-        {
-            conexion.Open();
-            SqlCommand cmd = new SqlCommand("SP_Agregar_Recurso", conexion);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@VR_NombreRecurso", dto_rec.VR_NombreRecurso);
-            cmd.Parameters.AddWithValue("@DR_FechaIngreso", dto_rec.DR_FechaIngreso);
-            cmd.Parameters.AddWithValue("@DR_FechaSalida", dto_rec.DR_FechaSalida);
-            cmd.Parameters.AddWithValue("@DR_StockMaximo", dto_rec.DR_StockMaximo);
-            cmd.Parameters.AddWithValue("@DR_StockMinimo", dto_rec.DR_StockMinimo);
-            cmd.Parameters.AddWithValue("@DR_PrecioUnitario", dto_rec.DR_PrecioUnitario);
-            cmd.Parameters.AddWithValue("@DR_CantidadEntrada", dto_rec.DR_CantidadEntrada);
-            cmd.Parameters.AddWithValue("@DR_CantidadSalida", dto_rec.DR_CantidadSalida);
-            cmd.Parameters.AddWithValue("@DR_CantidadTotal", dto_rec.DR_CantidadTotal);
-
-            cmd.Parameters.AddWithValue("@FK_IC_Categoria", dto_rec.FK_IC_Categoria);
-            cmd.Parameters.AddWithValue("@FK_IM_Medida", dto_rec.FK_IM_Medida);
-            cmd.Parameters.AddWithValue("@FK_IER_EstadoRecurso", dto_rec.FK_IER_EstadoRecurso);   
-            cmd.ExecuteNonQuery();
-            conexion.Close();
-
-        }
+        
         public DataSet Dao_Leer_Insumos_Categorias(int idCategoria)
         {
 
@@ -60,31 +39,20 @@ namespace DAO
 
         }
 
-        public DTO_Insumo Consultar_InsumoxID(int i)
+        public DataSet CargarInsumosOC()
         {
-            DTO_Insumo insumo = new DTO_Insumo();
-            conexion.Open();
-            SqlCommand comando = new SqlCommand("SP_Consultar_InsumoxID", conexion);
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@I_idInsumo", i);
-            comando.ExecuteNonQuery();
-
-            SqlDataReader reader = comando.ExecuteReader();
-            if (reader.Read())
+            try
             {
-                insumo.PK_IR_Recurso = Convert.ToInt32(reader[0]);
-                insumo.VR_NombreRecurso = Convert.ToString(reader[1]);
-                insumo.DR_StockMaximo = Convert.ToDecimal(reader[2]);
-                insumo.DR_StockMinimo = Convert.ToDecimal(reader[3]);
-                insumo.DR_PrecioUnitario = Convert.ToDecimal(reader[4]);
-                insumo.DR_CantidadTotal = Convert.ToDecimal(reader[5]);
-                insumo.FK_IER_EstadoRecurso = Convert.ToInt32(reader[6]);
-                insumo.FK_IM_Medida = Convert.ToInt32(reader[7]);
-                insumo.FK_IC_Categoria = Convert.ToInt32(reader[8]);
+                SqlDataAdapter unComando = new SqlDataAdapter("SP_Listar_Insumos_OC", conexion);
+                unComando.SelectCommand.CommandType = CommandType.StoredProcedure;
+                DataSet dSet = new DataSet();
+                unComando.Fill(dSet);
+                return dSet;
             }
-
-            conexion.Close();
-            return insumo;
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         public DataTable SelectInsumo()
         {
@@ -128,6 +96,30 @@ namespace DAO
                 SqlDataAdapter data = new SqlDataAdapter(unComando);
                 data.Fill(dtable);
                 return dtable;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public string SelectPrecioUnitario(int IdInsumo)
+        {
+            string precioUnitario = "";
+            try
+            {
+                SqlCommand unComando = new SqlCommand("SP_Listar_precioUnitario_OC", conexion);
+                unComando.CommandType = CommandType.StoredProcedure;
+                conexion.Open();
+                unComando.Parameters.AddWithValue("@I_idInsumo", IdInsumo);
+
+                SqlDataReader dReader = unComando.ExecuteReader();
+                if (dReader.Read())
+                {
+                    precioUnitario = dReader["precioUnitario"].ToString();
+                }
+                conexion.Close();
+                return precioUnitario;
             }
             catch (Exception ex)
             {

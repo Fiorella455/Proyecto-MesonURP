@@ -33,6 +33,12 @@ namespace CTR
         {
             return dao_oc.Leer_OC();
         }
+        //
+        public DataTable Leer_IxOC(int OC_idOrdenCompra)
+        {
+            return dao_oc.Leer_IxOC(OC_idOrdenCompra);
+        }
+        //
         public int ID_OC_Actual()
         {
             return dao_oc.ID_OC_Actual();
