@@ -35,17 +35,17 @@ namespace MesonURPWEB
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            dto_oc = new DTO_OC();
-            ctr_oc = new CTR_OC();
-            dto_estado_OCxOC = new DTO_Estado_OCxOC();
-            ctr_estado_OCxOC = new CTR_EstadoOCxOC();
-            ctr_Estado_OC = new CTR_Estado_OC();
-            ctr_medida = new CTR_Medida();
-            ctr_insumo = new CTR_Insumo();
-            ctr_movxinsumo = new CTR_MovimientoxInsumo();
-            ctr_ocxinsumo = new CTR_OCxInsumo();
-            pro = new CTR_Proveedor();
-            dto_insumo = new DTO_Insumo();
+            //dto_oc = new DTO_OC();
+            //ctr_oc = new CTR_OC();
+            //dto_estado_OCxOC = new DTO_Estado_OCxOC();
+            //ctr_estado_OCxOC = new CTR_EstadoOCxOC();
+            //ctr_Estado_OC = new CTR_Estado_OC();
+            //ctr_medida = new CTR_Medida();
+            //ctr_insumo = new CTR_Insumo();
+            //ctr_movxinsumo = new CTR_MovimientoxInsumo();
+            //ctr_ocxinsumo = new CTR_OCxInsumo();
+            //pro = new CTR_Proveedor();
+            //dto_insumo = new DTO_Insumo();
 
             if (!this.IsPostBack)
             {
@@ -66,6 +66,7 @@ namespace MesonURPWEB
                 DdlProveedor.DataSource = dtpro;
                 DdlProveedor.DataBind();
 
+                //txtFechaEntrega.Text = DateTime.Now.ToString("yyyy-MM-dd");
             }
         }
 
