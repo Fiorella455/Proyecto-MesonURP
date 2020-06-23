@@ -58,7 +58,7 @@
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Estado</label>
                         <div class="col-sm-8">
-                             <asp:TextBox ID="txtEstado" runat="server" CssClass="auto-style1" Height="16px" Width="600px" />
+                             <asp:TextBox ID="txtEstado" runat="server" CssClass="auto-style1" Height="16px" Width="692px" />
                             <asp:DropDownList runat="server" CssClass="form-control1" AutoPostBack="true" ID="DdlEstado">
                             </asp:DropDownList>
                         </div>
@@ -124,13 +124,13 @@
                             </div>
                             <div class="table-wrapper-scroll-y my-custom-scrollbar">
                                 <asp:GridView ID="GridViewEditarOC" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible."
-                                  DataKeyName=OC_idOrdenCompra CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None" AutoGenerateColumns="false">
+                                   CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None" AutoGenerateColumns="false" OnSelectedIndexChanged="GridViewEditarOC_SelectedIndexChanged">
                                   
                                     <Columns>
-                                        <asp:BoundField HeaderText="Descripción del Insumo" DataField="OC_idOrdenCompra" />
-                                        <asp:BoundField HeaderText="Cantidad" DataField="OCxI_Cantidad" />
-                                        <asp:BoundField HeaderText="Unidad" DataField="I_idInsumo" />
-                                        <asp:BoundField HeaderText="Costo Unitario" DataField="OC_idOrdenCompra" />
+                                        <asp:BoundField HeaderText="Descripción del Insumo" DataField="I_NombreInsumo" />
+                                        <asp:BoundField HeaderText="Cantidad" DataField="OCxI_Cantidad"/>
+                                        <asp:BoundField HeaderText="Unidad" />
+                                        <asp:BoundField HeaderText="Costo Unitario" DataField="I_PrecioUnitario" />
                                         <asp:BoundField HeaderText="Total" DataField="OCxI_PrecioTotal" />
                                     </Columns>
                                 </asp:GridView>

@@ -8,6 +8,7 @@ using System.Data;
 using DTO;
 using DAO;
 using CTR;
+using System.Drawing;
 
 
 namespace MesonURPWEB
@@ -27,6 +28,7 @@ namespace MesonURPWEB
 
         CTR_Insumo ctr_insumo;
         CTR_Proveedor pro;
+        int id = 0;
         static double suma = 0;
         static List<DTO_OCxInsumo> pila = new List<DTO_OCxInsumo>();
         DTO_OCxInsumo dto_ocxinsumo;
@@ -65,7 +67,7 @@ namespace MesonURPWEB
                 DdlCategoria.DataBind();
                 //-----------------------------------------------
                 dtins = new DataSet();
-
+                dtins = ctr_insumo.Ctr_Leer_Insumo_Categorias(Convert.ToInt32(DdlCategoria.SelectedValue));
                 DdlInsumo.DataTextField = "I_NombreInsumo";
                 DdlInsumo.DataValueField = "I_idInsumo";
                 DdlInsumo.DataSource = dtins;
@@ -98,14 +100,19 @@ namespace MesonURPWEB
 
             }
         }
+     
+        protected void GridViewEditarOC_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow row =GridViewAñadirOC.SelectedRow;
+            int id = Convert.ToInt32(GridViewAñadirOC.DataKeys[row.RowIndex].Value);
+
+        }
         protected void Unnamed1_Click(object sender, EventArgs e)
         {
-            GridViewRow row = (GridViewRow)((Button)sender).Parent.Parent;
-            int i = row.RowIndex;
 
-            tin.Rows[i].Delete();
-            pila.RemoveAt(i);
-            suma -= Convert.ToDouble(GridViewAñadirOC.Rows[i].Cells[3].Text);
+            tin.Rows[id].Delete();
+            pila.RemoveAt(id);
+            suma -= Convert.ToDouble(GridViewAñadirOC.Rows[id].Cells[4].Text);
             txtTotal.Text = suma.ToString();
             GridViewAñadirOC.DataSource = tin;
             GridViewAñadirOC.DataBind();
@@ -165,9 +172,11 @@ namespace MesonURPWEB
             dto_oc.OC_NumeroComprobante = txtNumeroComprobante.Text;
             dto_oc.OC_TipoComprobante = txtTipoComprobante.Text;
             dto_oc.OC_TotalCompra = Convert.ToDecimal(txtTotal.Text);
-            
-           
+
+            //----------------------------------------------------------
+
             dto_estado_OCxOC.EOC_idEstadoOC = Convert.ToInt32(DdlEstado.SelectedValue);
+            //dto_estado_OCxOC.EOC_idEstadoOC = 5;
             dto_estado_OCxOC.OC_idOrdenCompra = ctr_oc.ID_OC_Actual();
             dto_estado_OCxOC.EOCxOC_FechaRegistro = DateTime.Today;
             dto_estado_OCxOC.EOCxOC_UsuarioRegistro = 5;

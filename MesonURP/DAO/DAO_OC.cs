@@ -123,12 +123,12 @@ namespace DAO
                     msg.To.Add(dto_proveedor.P_CorreoContacto);
                     msg.Subject = "Orden de Compra" + dto_oc.OC_idOrdenCompra;
                     msg.SubjectEncoding = System.Text.Encoding.UTF8;
-                    string msj=string.Format("Trabajador: {1}{0}N° Orden de Compra:{2}{0}Proveedor:{3}{}0}Tipo de Comprobante:{4}{0}Fecha de Emision:{5}{0}Lista de Insumos:", Environment.NewLine,
-                     dto_oc.OC_idOrdenCompra, dto_proveedor.P_NombreContacto,dto_oc.OC_TipoComprobante,dto_oc.OC_FechaEmision);
-                    //msg.Body = "Orden Compra:" + dto_oc.P_idProveedor + "\rTipo Comprobante:" + dto_oc.OC_TipoComprobante
-                    //    + "\rNumero Comprobante:" + dto_oc.OC_NumeroComprobante + "\rFecha Emision" + dto_oc.OC_FechaEmision + "\r\r" +
-                    //    "Insumos";
-                    msg.Body = msj;
+                    //string msj=string.Format("Trabajador: {1}{0}N° Orden de Compra:{2}{0}Proveedor:{3}{0}Tipo de Comprobante:{4}{0}Fecha de Emision:{5}{0}Lista de Insumos:", Environment.NewLine,
+                    // dto_oc.OC_idOrdenCompra, dto_proveedor.P_NombreContacto,dto_oc.OC_TipoComprobante,dto_oc.OC_FechaEmision);
+                    msg.Body = "Orden Compra:" + dto_oc.OC_idOrdenCompra + "\rTipo Comprobante:" + dto_oc.OC_TipoComprobante
+                        + "\rNumero Comprobante:" + dto_oc.OC_NumeroComprobante + "\rFecha Emision" + dto_oc.OC_FechaEmision + "\r\r" +
+                        "Insumos:";  
+                   
                     msg.BodyEncoding = System.Text.Encoding.UTF8;
                     msg.From = new MailAddress("stephyganz@gmail.com");
 

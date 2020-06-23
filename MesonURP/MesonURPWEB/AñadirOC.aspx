@@ -122,14 +122,14 @@
                             </div>
                             <div class="table-wrapper-scroll-y my-custom-scrollbar">
                                 <asp:GridView ID="GridViewAñadirOC" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false"
-                                   CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None">
+                                  DataKeyNames="I_NombreInsumo" CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None">
                                   
                                     <Columns>
-                                        <asp:BoundField HeaderText="Descripción del Insumo" />
-                                        <asp:BoundField HeaderText="Cantidad" />
-                                        <asp:BoundField HeaderText="Unidad" />
-                                        <asp:BoundField HeaderText="Costo Unitario" />
-                                        <asp:BoundField HeaderText="Total" />
+                                        <asp:BoundField HeaderText="Descripción del Insumo" DataField="I_NombreInsumo"/>
+                                        <asp:BoundField HeaderText="Cantidad" DataField="OCxI_Cantidad" />
+                                        <asp:BoundField HeaderText="Unidad"  />
+                                        <asp:BoundField HeaderText="Costo Unitario" DataField="I_PrecioUnitario" />
+                                        <asp:BoundField HeaderText="Total" DataField="OCxI_PrecioTotal" />
                                     </Columns>
                                 </asp:GridView>
                             </div>

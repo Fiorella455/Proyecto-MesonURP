@@ -34,6 +34,7 @@ namespace MesonURPWEB
                 dt = ctr_oc.Leer_OC();
                 GridViewOC.DataSource = dt;
                 GridViewOC.DataBind();
+                
 
             }
         }
@@ -64,17 +65,23 @@ namespace MesonURPWEB
                 {
                     int idOC = Convert.ToInt32(GridViewOC.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["OC_idOrdenCompra"].ToString());
                     dto_oc.OC_idOrdenCompra = idOC;
-                     ctr_oc = new CTR_OC();
-                     ctr_oc.Enviar_OC(dto_oc);
-                }
+                    ctr_oc = new CTR_OC();
+                    ctr_oc.Enviar_OC(dto_oc);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('" + "Orden de Compra Enviada" + "');", true);
+
+            }
                 if (e.CommandName == "EliminarOC")
                 {
                     int idOC = Convert.ToInt32(GridViewOC.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["OC_idOrdenCompra"].ToString());
                     dto_oc.OC_idOrdenCompra = idOC;
                     ctr_oc = new CTR_OC();
                     ctr_oc.Eliminar_OC(idOC);
-                   
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('"+"Orden de Compra Eliminada"+"');", true);
+                    GridViewOC.DeleteRow(idOC);
+                    dt = ctr_oc.Leer_OC();
+                   GridViewOC.DataSource = dt;
+                   GridViewOC.DataBind();
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('"+"Orden de Compra Eliminada"+"');", true);
                 }
                 if (e.CommandName == "ConsultarOC")
                {
@@ -120,21 +127,11 @@ namespace MesonURPWEB
            // ctr_oc.Enviar_OC(aux);
         }
 
-        protected void GridViewOC_SelectedIndexChanged(object sender, EventArgs e)
+        protected void GridViewOC_RowDeleting(Object sender, GridViewDeleteEventArgs e)
         {
 
         }
 
-        protected void btnEliminar_Click(object sender, EventArgs e)
-        {
-            //GridViewRow OC = (GridViewRow)((Button)sender).Parent.Parent;
-            //DTO_OC OCAux = new DTO_OC();
-            //int i = OC.RowIndex;
-            //OCAux.OC_idOrdenCompra = Convert.ToInt32(GridViewOC.Rows[i].Cells[0].Text);
-            //ctr_oc = new CTR_OC();
-            //ctr_oc.Eliminar_OC(OCAux);
-            //GridViewOC.DeleteRow(i);
-            //Response.Write("<script languaje=javascript> alert('Eliminado Corectamente');</script>");
-        }
+
     }
 }

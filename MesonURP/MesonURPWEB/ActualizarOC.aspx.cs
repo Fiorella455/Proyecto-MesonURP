@@ -29,6 +29,9 @@ namespace MesonURPWEB
         DAO_EstadoOCxOC dao_estadoOCxOC;
         CTR_EstadoOCxOC ctr_estado_OCxOC;
         CTR_Categoria ctr_categoria;
+
+       
+
         protected void Page_Load(object sender, EventArgs e)
         {
             dto_oc = (DTO_OC)Session["OCActual"];
@@ -132,9 +135,18 @@ namespace MesonURPWEB
             //OCIAux.OCxI_Cantidad = Convert.ToDouble(GridViewEditarOC.Rows[i].Cells[4].Text);
             //OCIAux.OCxI_PrecioTotal = Convert.ToDouble(GridViewEditarOC.Rows[i].Cells[5].Text);
             //Session.Add("OCIAux", OCIAux);
+
+            if (DdlEstado.SelectedValue == "Aceptado")
+            { 
             
-            Response.Redirect("GestionarOC.aspx");
+                //Registrar Movimiento
+
+            
+            }
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('" + "Actualizado Correctamente" + "');", true);
+
         }
+
 
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 using DTO;
 using CTR;
 
@@ -13,6 +14,8 @@ namespace MesonURPWEB
     {
         DTO_OC dto_oc;
         CTR_OC ctr_oc;
+        CTR_OCxInsumo ctr_ocxinsumo;
+        DataTable dt;
         
 
         protected void Page_Load(object sender, EventArgs e)
@@ -20,8 +23,12 @@ namespace MesonURPWEB
             ctr_oc = new CTR_OC();
 
             dto_oc = (DTO_OC)Session["indice"];
-           
-                Consultar_OC(dto_oc);   
+            ctr_ocxinsumo = new CTR_OCxInsumo();
+            Consultar_OC(dto_oc);
+
+            dt = ctr_ocxinsumo.Leer_InsumoxOC(dto_oc.OC_idOrdenCompra);
+            GridViewConsultarOC.DataSource = dt;
+            GridViewConsultarOC.DataBind();
         }
 
         public void Consultar_OC(DTO_OC dto_oc)

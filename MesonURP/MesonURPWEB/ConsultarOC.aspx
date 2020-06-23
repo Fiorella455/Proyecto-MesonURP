@@ -64,15 +64,15 @@
                                 <h4>Insumos</h4>
                             </div>
                             <div class="table-wrapper-scroll-y my-custom-scrollbar">
-                                <asp:GridView ID="GridViewAñadirOC" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible."
-                                    CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None">
+                                <asp:GridView ID="GridViewConsultarOC" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible."
+                                    CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None" AutoGenerateColumns="false">
                                   
                                     <Columns>
-                                        <asp:BoundField HeaderText="Descripción del Insumo" />
-                                        <asp:BoundField HeaderText="Cantidad" />
+                                        <asp:BoundField HeaderText="Descripción del Insumo" DataField="I_NombreInsumo" />
+                                        <asp:BoundField HeaderText="Cantidad" DataField="OCxI_Cantidad"/>
                                         <asp:BoundField HeaderText="Unidad" />
-                                        <asp:BoundField HeaderText="Costo Unitario" />
-                                        <asp:BoundField HeaderText="Total" />
+                                        <asp:BoundField HeaderText="Costo Unitario" DataField="I_PrecioUnitario" />
+                                        <asp:BoundField HeaderText="Total" DataField="OCxI_PrecioTotal" />
                                     </Columns>
                                 </asp:GridView>
                             </div>
