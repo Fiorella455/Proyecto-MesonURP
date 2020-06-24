@@ -17,21 +17,29 @@ namespace DAO
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
 
         }
-        public DataSet Leer_Medida()
+        public string SelectMedida(int IdInsumo)
         {
-            conexion.Open();
-            SqlCommand cmd = new SqlCommand("SP_Consultar_Medida", conexion);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.ExecuteNonQuery();
+            string medida = "";
+            try
+            {
+                SqlCommand unComando = new SqlCommand("SP_Listar_Medida", conexion);
+                unComando.CommandType = CommandType.StoredProcedure;
+                conexion.Open();
+                unComando.Parameters.AddWithValue("@I_idInsumo", IdInsumo);
 
-            SqlDataAdapter data = new SqlDataAdapter(cmd);
-            DataSet dataset = new DataSet();
-            data.Fill(dataset);
-            conexion.Close();
-                
-            return dataset;
+                SqlDataReader dReader = unComando.ExecuteReader();
+                if (dReader.Read())
+                {
+                    medida = dReader["Medida"].ToString();
+                }
+                conexion.Close();
+                return medida;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
-
         public DTO_Medida Consultar_MedidaxInsumo(int i)
         {
             conexion.Open();

@@ -11,22 +11,17 @@ namespace DAO
 {
     public class DAO_Insumo
     {
-
         SqlConnection conexion;
-        DTO_Insumo dto_insumo;
-        
+       
         public DAO_Insumo()
         {
-            dto_insumo = new DTO_Insumo();
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
         }
-        
+        //Dao_Leer_Insumos_Categorias se debe borrar despues de sacarlo en el actualizar oc
         public DataSet Dao_Leer_Insumos_Categorias(int idCategoria)
         {
 
-            conexion.Open();
-            // SqlCommand comando = new SqlCommand("SP_Consultar_Insumos_Categoria", conexion);
-            SqlCommand comando = new SqlCommand("SP_Consultar_Insumos_Categoria_Minimo", conexion);
+            conexion.Open();SqlCommand comando = new SqlCommand("SP_Consultar_Insumos_Categoria_Minimo", conexion);
             comando.CommandType = CommandType.StoredProcedure;
              comando.Parameters.AddWithValue("@C_idCategoria", idCategoria);
                        
@@ -36,7 +31,6 @@ namespace DAO
             da.Fill(ds);
             conexion.Close();
             return ds;
-
         }
 
         public DataSet CargarInsumosOC()
@@ -108,7 +102,7 @@ namespace DAO
             string precioUnitario = "";
             try
             {
-                SqlCommand unComando = new SqlCommand("SP_Listar_precioUnitario_OC", conexion);
+                SqlCommand unComando = new SqlCommand("SP_Listar_PrecioUnitario", conexion);
                 unComando.CommandType = CommandType.StoredProcedure;
                 conexion.Open();
                 unComando.Parameters.AddWithValue("@I_idInsumo", IdInsumo);
@@ -116,7 +110,7 @@ namespace DAO
                 SqlDataReader dReader = unComando.ExecuteReader();
                 if (dReader.Read())
                 {
-                    precioUnitario = dReader["precioUnitario"].ToString();
+                    precioUnitario = dReader["PrecioUnitario"].ToString();
                 }
                 conexion.Close();
                 return precioUnitario;

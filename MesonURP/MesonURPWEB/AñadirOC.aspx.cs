@@ -23,7 +23,7 @@ namespace MesonURPWEB
         CTR_EstadoOCxOC ctr_estado_OCxOC;
         DataSet dtestado, dtcat, dtins, dtpro,dtmed;
         CTR_MovimientoxInsumo ctr_movxinsumo;
-        
+        CTR_Medida _Cm = new CTR_Medida();
 
         CTR_Insumo ctr_insumo;
         CTR_Proveedor pro;
@@ -73,7 +73,7 @@ namespace MesonURPWEB
         protected void DdlInsumo_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtPrecioU.Text = ctr_insumo.SelectPrecioUnitario(Convert.ToInt32(DdlInsumo.SelectedValue));
-            txtMedida.Text = ctr_movxinsumo.BuscarUnidad(Convert.ToInt32(DdlInsumo.SelectedValue));
+            txtMedida.Text = ctr_medida.BuscarMedida(Convert.ToInt32(DdlInsumo.SelectedValue));
         }
 
         protected void Unnamed1_Click(object sender, EventArgs e)
@@ -118,8 +118,8 @@ namespace MesonURPWEB
             dto_oc.OC_TotalCompra = Convert.ToDecimal(suma);
             dto_oc.OC_FechaEmision = DateTime.Today;
             dto_oc.OC_FormaPago = DListFormaP.Text;
-            dto_oc.OC_FechaEntrega = DateTime.Parse(txtFechaEntrega.Text);
-            dto_oc.OC_FechaPago= DateTime.Parse(txtFechaEntrega.Text);
+            //dto_oc.OC_FechaEntrega = DateTime.Parse(txtFechaEntrega.Text);
+            //dto_oc.OC_FechaPago= DateTime.Parse(txtFechaEntrega.Text);
             dto_oc.P_idProveedor = int.Parse(DdlProveedor.SelectedValue);
             dto_oc.OC_TotalCompra = Convert.ToDecimal(txtTotal.Text);
             

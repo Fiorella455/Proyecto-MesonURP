@@ -15,6 +15,7 @@ namespace MesonURPWEB
     {
         CTR_MovimientoxInsumo _Cmxi = new CTR_MovimientoxInsumo();
         DTO_MovimientoxInsumo _Dmxi = new DTO_MovimientoxInsumo();
+        CTR_Medida _Cm = new CTR_Medida();
         string FechaActual = DateTime.Now.ToString("dd/MM/yyyy");
         int movIngreso = 1;
         protected void Page_Load(object sender, EventArgs e)
@@ -22,7 +23,6 @@ namespace MesonURPWEB
             if(!Page.IsPostBack)
             {
                 ListarInsumo();
-                Selection_Change(e, e);
             }
             txtFecha2.Text = FechaActual;
         }
@@ -62,9 +62,8 @@ namespace MesonURPWEB
         }
         public void Selection_Change(Object sender, EventArgs e)
         {
+            txtUnidadMedida2.Text = _Cm.BuscarMedida(Convert.ToInt32(ddlInsumos.SelectedValue));
            
-            txtUnidadMedida2.Text = _Cmxi.BuscarUnidad(Convert.ToInt32(ddlInsumos.SelectedIndex));
-           //txtUnidadMedida2.Text = _Cmxi.BuscarUnidad(4);
         }
     }
 }

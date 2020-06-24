@@ -21,17 +21,15 @@
                                     </div>
                                     <div class="table-wrapper-scroll-y">
                                          <asp:GridView ID="GridViewOC" allowpaging="True" runat="server" emptydatatext="No hay información disponible."  OnRowCommand="GridViewOC_RowCommand"
-                                                   DataKeyNames="OC_idOrdenCompra, OC_TipoComprobante,OC_NumeroComprobante,OC_FormaPago, OC_FechaPago, OC_TotalCompra, OC_FechaEmision, OC_FechaEntrega, P_idProveedor"   AutoGenerateColumns="false"
+                                                   DataKeyNames="OC_idOrdenCompra, OC_TipoComprobante,OC_NumeroComprobante,OC_FormaPago, OC_TotalCompra, OC_FechaEmision, P_idProveedor"   AutoGenerateColumns="false"
                                              CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None">
                                              <Columns>
                                                 <asp:BoundField HeaderText="ID Compra" DataField="OC_idOrdenCompra" />
                                                 <asp:BoundField HeaderText="Tipo de Comprobante" DataField="OC_TipoComprobante" />
                                                 <asp:BoundField HeaderText="Número de comprobante" DataField="OC_NumeroComprobante"/>
                                                 <asp:BoundField HeaderText="Forma de Pago" DataField="OC_FormaPago"/>
-                                                <asp:BoundField  HeaderText="Fecha de Pago"  DataField="OC_FechaPago"/> 
                                                 <asp:BoundField HeaderText="Total de Compra" DataField="OC_TotalCompra"/>
-                                                <asp:BoundField  HeaderText="Fecha de Emisión"  DataField="OC_FechaEmision"/>  
-                                                <asp:BoundField  HeaderText="Fecha de Entrega"  DataField="OC_FechaEntrega"/>   
+                                                <asp:BoundField  HeaderText="Fecha de Emisión"  DataField="OC_FechaEmision"/>    
                                                 <asp:BoundField  HeaderText="ID Proveedor" DataField="P_idProveedor" Visible="false" />
                                                    <asp:TemplateField  HeaderText="Enviar">
                                                        <ItemTemplate>

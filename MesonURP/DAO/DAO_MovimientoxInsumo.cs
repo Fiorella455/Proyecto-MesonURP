@@ -33,29 +33,7 @@ namespace DAO
                 throw ex;
             }
         }
-        public string SelectMedida(int IdInsumo)
-        {
-            string medida = "";
-            try
-            {
-                SqlCommand unComando = new SqlCommand("SP_Listar_Medida", conexion);
-                unComando.CommandType = CommandType.StoredProcedure;
-                conexion.Open();
-                unComando.Parameters.AddWithValue("@I_idInsumo", IdInsumo);
-
-                SqlDataReader dReader = unComando.ExecuteReader();
-                if (dReader.Read())
-                {
-                    medida = dReader["Medida"].ToString();
-                }
-                conexion.Close();
-                return medida;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+        
         public DataSet CargarInsumoIngreso()
         {
             try
