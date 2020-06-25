@@ -12,10 +12,6 @@ namespace CTR
         {
             dao_insumo = new DAO_Insumo();
         }
-        public DataSet Ctr_Leer_Insumo_Categorias(int idCategoria)
-        {
-           return dao_insumo.Dao_Leer_Insumos_Categorias(idCategoria);
-        }
         public DataSet SelectInsumosOC() {
             return dao_insumo.CargarInsumosOC();
         }

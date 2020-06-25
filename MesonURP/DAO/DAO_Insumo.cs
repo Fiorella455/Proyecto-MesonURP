@@ -17,22 +17,6 @@ namespace DAO
         {
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
         }
-        //Dao_Leer_Insumos_Categorias se debe borrar despues de sacarlo en el actualizar oc
-        public DataSet Dao_Leer_Insumos_Categorias(int idCategoria)
-        {
-
-            conexion.Open();SqlCommand comando = new SqlCommand("SP_Consultar_Insumos_Categoria_Minimo", conexion);
-            comando.CommandType = CommandType.StoredProcedure;
-             comando.Parameters.AddWithValue("@C_idCategoria", idCategoria);
-                       
-            comando.ExecuteNonQuery();
-            DataSet ds = new DataSet();
-            SqlDataAdapter da = new SqlDataAdapter(comando);
-            da.Fill(ds);
-            conexion.Close();
-            return ds;
-        }
-
         public DataSet CargarInsumosOC()
         {
             try
