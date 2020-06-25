@@ -20,6 +20,8 @@ namespace DAO
                 //FIORELLA
                 //return "data source=DESKTOP-GJ83E50\\MSSQLSERVER01; initial catalog=DB_MesonURP; integrated security=SSPI;";
 
+                //DARIAN
+                //return "Data Source = (Local); initial catalog=DB_MesonURP; integrated security=true;";
 
             }
         }

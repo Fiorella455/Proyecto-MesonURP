@@ -32,7 +32,7 @@ namespace MesonURPWEB
         {
 
             _Dmxi.Cantidad = Convert.ToDecimal(txtCantidad.Text);
-            //_Dmxi.UsuarioMovimiento = "Katya";
+            _Dmxi.IdUsuarioMovimiento = Convert.ToInt32( Session["codUsuario"]);
             _Dmxi.FechaMovimiento = Convert.ToDateTime(txtFecha.Text);
             _Dmxi.IdInsumo = Convert.ToInt32(ddlInsumos.SelectedValue);
             _Dmxi.IdMovimiento = movEgreso;
@@ -48,11 +48,12 @@ namespace MesonURPWEB
             {
                 _Cmxi.RegistrarMovimientoxInsumo(_Dmxi);
                 _Cmxi.UpdateStockEgreso(_Dmxi);
+                //ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "alert", "alert('" + "La cantidad de insumos no es permitida" + "');", true);
+                return;
             }
         }
         protected void Selection_Change(Object sender, EventArgs e)
         {
-           //txtUnidadMedida.Text = _Cm.BuscarMedida(Convert.ToInt32(ddlInsumos.SelectedValue));
             txtUnidadMedida.Text = _Cm.BuscarMedida(Convert.ToInt32(ddlInsumos.SelectedValue));
         }
     }

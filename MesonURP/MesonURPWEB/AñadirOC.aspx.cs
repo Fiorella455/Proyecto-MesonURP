@@ -14,39 +14,23 @@ namespace MesonURPWEB
 {
     public partial class AñadirOC : System.Web.UI.Page
     {
-        DTO_OC dto_oc;
-        CTR_OC ctr_oc;
-        CTR_Estado_OC ctr_Estado_OC;
-        CTR_Medida ctr_medida;
-        DTO_Insumo dto_insumo;
-        DTO_Estado_OCxOC dto_estado_OCxOC;
-        CTR_EstadoOCxOC ctr_estado_OCxOC;
-        DataSet dtestado, dtcat, dtins, dtpro,dtmed;
-        CTR_MovimientoxInsumo ctr_movxinsumo;
+        DTO_OC dto_oc = new DTO_OC();
+        CTR_OC ctr_oc = new CTR_OC();
+        CTR_Estado_OC ctr_Estado_OC = new CTR_Estado_OC();
+        DTO_Estado_OCxOC dto_estado_OCxOC = new DTO_Estado_OCxOC();
+        CTR_EstadoOCxOC ctr_estado_OCxOC = new CTR_EstadoOCxOC();
         CTR_Medida _Cm = new CTR_Medida();
-
-        CTR_Insumo ctr_insumo;
-        CTR_Proveedor pro;
-        static decimal suma = 0;
+        CTR_Insumo ctr_insumo = new CTR_Insumo();
+        CTR_Proveedor pro = new CTR_Proveedor();
+        DTO_OCxInsumo dto_ocxinsumo = new DTO_OCxInsumo();
+        CTR_OCxInsumo ctr_ocxinsumo = new CTR_OCxInsumo();
+        DataSet dtestado, dtpro;
         static List<DTO_OCxInsumo> pila = new List<DTO_OCxInsumo>();
-        DTO_OCxInsumo dto_ocxinsumo;
-        CTR_OCxInsumo ctr_ocxinsumo;
         static DataTable tin = new DataTable();
+        static decimal suma = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            dto_oc = new DTO_OC();
-            ctr_oc = new CTR_OC();
-            dto_estado_OCxOC = new DTO_Estado_OCxOC();
-            ctr_estado_OCxOC = new CTR_EstadoOCxOC();
-            ctr_Estado_OC = new CTR_Estado_OC();
-            ctr_medida = new CTR_Medida();
-            ctr_insumo = new CTR_Insumo();
-            ctr_movxinsumo = new CTR_MovimientoxInsumo();
-            ctr_ocxinsumo = new CTR_OCxInsumo();
-            pro = new CTR_Proveedor();
-            dto_insumo = new DTO_Insumo();
-
             if (!this.IsPostBack)
             {
                 listarInsumo();
@@ -69,11 +53,10 @@ namespace MesonURPWEB
                 //txtFechaEntrega.Text = DateTime.Now.ToString("yyyy-MM-dd");
             }
         }
-
         protected void DdlInsumo_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtPrecioU.Text = ctr_insumo.SelectPrecioUnitario(Convert.ToInt32(DdlInsumo.SelectedValue));
-            txtMedida.Text = ctr_medida.BuscarMedida(Convert.ToInt32(DdlInsumo.SelectedValue));
+            txtMedida.Text = _Cm.BuscarMedida(Convert.ToInt32(DdlInsumo.SelectedValue));
         }
 
         protected void Unnamed1_Click(object sender, EventArgs e)
@@ -141,7 +124,5 @@ namespace MesonURPWEB
 
             Response.Redirect("GestionarOC.aspx");
         }
-
-      
     }
 }

@@ -40,23 +40,5 @@ namespace DAO
                 throw ex;
             }
         }
-        public DTO_Medida Consultar_MedidaxInsumo(int i)
-        {
-            conexion.Open();
-            SqlCommand comando = new SqlCommand("SP_Consultar_MedidaxInsumo", conexion);
-            comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@I_idInsumo", i);
-            comando.ExecuteNonQuery();
-            DTO_Medida medida = new DTO_Medida();
-            SqlDataReader reader = comando.ExecuteReader();
-            if (reader.Read())
-            {
-                medida.M_idMedida = Convert.ToInt32(reader[0]);
-                medida.M_NombreMedida = reader[1].ToString();
-            }
-            conexion.Close();
-            return medida;
-
-        }
     }
 }

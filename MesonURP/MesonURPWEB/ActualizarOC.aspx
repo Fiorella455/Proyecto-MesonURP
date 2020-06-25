@@ -91,7 +91,7 @@
                       <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Insumo</label>
                         <div class="col-sm-8">
-                            <asp:DropDownList ID="DdlInsumo" runat="server" CssClass="form-control1" AutoPostBack="true">
+                            <asp:DropDownList ID="DdlInsumo" runat="server" CssClass="form-control1" AutoPostBack="true" OnSelectedIndexChanged="DdlInsumo_SelectedIndexChanged">
                             </asp:DropDownList>
                         </div>
                     </div>

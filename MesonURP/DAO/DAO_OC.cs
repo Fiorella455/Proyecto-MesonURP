@@ -14,14 +14,12 @@ namespace DAO
         SqlConnection conexion;
         DTO_Proveedor dto_proveedor;
         DAO_Proveedor dao_proveedor;
-        DTO_OC dto_oc;
         
         public DAO_OC()
         {
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
             dto_proveedor = new DTO_Proveedor();
             dao_proveedor = new DAO_Proveedor();
-            dto_oc = new DTO_OC();
         }
         public void Registrar_OC(DTO_OC dto_oc)
         {
@@ -62,20 +60,6 @@ namespace DAO
                 conexion.Close();
                 return hayRegistros; 
         }
-        //public decimal Hallar_Total_Compra(int i)
-        //{
-
-        //    decimal totalCompra;
-        //    conexion.Open();
-        //    SqlCommand comando = new SqlCommand("SP_Hallar_Total_Compra", conexion);
-        //    comando.CommandType = CommandType.StoredProcedure;
-        //    comando.Parameters.AddWithValue("@OC_idOrdenCompra", i);
-        //    comando.Parameters.Add("@suma", SqlDbType.Decimal, 18).Direction = ParameterDirection.Output;
-        //    comando.ExecuteNonQuery();
-        //    conexion.Close();
-        //    totalCompra = Convert.ToDecimal(comando.Parameters["@suma"].Value);
-        //    return totalCompra;
-        //}
         public void Actualizar_OC(DTO_OC dto_oc)
         {
             try

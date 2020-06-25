@@ -25,6 +25,7 @@ namespace DAO
                 unComando.Parameters.Add(new SqlParameter("@MxI_FechaMovimiento", objDTO.FechaMovimiento));   
                 unComando.Parameters.Add(new SqlParameter("@I_idInsumo", objDTO.IdInsumo));
                 unComando.Parameters.Add(new SqlParameter("@M_idMovimiento", objDTO.IdMovimiento));
+                unComando.Parameters.Add(new SqlParameter("@U_idUsuario", objDTO.IdUsuarioMovimiento));
                 unComando.ExecuteNonQuery();
                 conexion.Close();
             }

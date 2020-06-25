@@ -19,9 +19,5 @@ namespace CTR
         {
               return dao_categoria.DAO_Leer_Categorias();
         }
-        public DataSet LeerCategorias()
-        {
-            return dao_categoria.SelectCategorias();
-        }
     }
 }
