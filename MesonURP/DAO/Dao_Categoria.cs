@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using DTO;
@@ -8,15 +9,12 @@ namespace DAO
 {
     public class Dao_Categoria
     {
-         SqlConnection conexion;
-
-        public Dao_Categoria()
+        SqlConnection conexion;
+        public DAO_Categoria()
         {
-
-            conexion = new SqlConnection(ConexionBD.CadenaConexion); 
-
+            conexion = new SqlConnection(ConexionBD.CadenaConexion);
         }
-        public void DAO_Registrar_Categoria(DTO_Categoria dto_categoria)
+        public DataSet SelectCategorias()
         {
             
                 SqlCommand cmd = new SqlCommand("SP_Insertar_Categoria", conexion);
