@@ -14,61 +14,37 @@ namespace MesonURPWEB
     public partial class ActualizarOC : System.Web.UI.Page
     {
         DTO_OC dto_oc;
-        DTO_Medida dto_medida;
-        CTR_Medida ctr_medida;
-        CTR_OC ctr_oc;
-        DTO_Insumo dto_insumo;
-        CTR_Proveedor pro;
-        CTR_Estado_OC ctr_Estado_OC;
+        DTO_Medida dto_medida = new DTO_Medida();
+        CTR_Medida ctr_medida = new CTR_Medida();
+        CTR_OC ctr_oc = new CTR_OC();
+        CTR_Proveedor pro = new CTR_Proveedor();
+        CTR_Estado_OC ctr_Estado_OC = new CTR_Estado_OC();
         DataSet dtestado;
-        CTR_OCxInsumo ctr_ocxinsumo;
-        CTR_Insumo ctr_insumo;
+        CTR_OCxInsumo ctr_ocxinsumo = new CTR_OCxInsumo();
+        CTR_Insumo ctr_insumo = new CTR_Insumo();
         DataTable dt;
-        DataSet dtcat, dtins, dtpro;
-        DTO_Estado_OCxOC dto_estado_OCxOC;
-        DAO_EstadoOCxOC dao_estadoOCxOC;
-        CTR_EstadoOCxOC ctr_estado_OCxOC;
-        CTR_Categoria ctr_categoria;
+        DataSet dtpro = new DataSet();
+        DTO_Estado_OCxOC dto_estado_OCxOC = new DTO_Estado_OCxOC();
+        DAO_EstadoOCxOC dao_estadoOCxOC = new DAO_EstadoOCxOC();
+        CTR_EstadoOCxOC ctr_estado_OCxOC = new CTR_EstadoOCxOC();
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             dto_oc = (DTO_OC)Session["OCActual"];
-            ctr_oc = new CTR_OC();
-            ctr_medida = new CTR_Medida();
-            dto_medida = new DTO_Medida();
-            pro = new CTR_Proveedor();
-            ctr_categoria = new CTR_Categoria();
-            dtcat = new DataSet();
-            dtins = new DataSet();
-            dto_insumo = new DTO_Insumo();
-            ctr_insumo = new CTR_Insumo();
-            dtpro = new DataSet();
-            dto_estado_OCxOC = new DTO_Estado_OCxOC();
-            ctr_estado_OCxOC = new CTR_EstadoOCxOC();
-            dao_estadoOCxOC = new DAO_EstadoOCxOC();
+           
+            //dtcat = new DataSet();
+            //dtins = new DataSet();
+            
             if (!IsPostBack)
             {
-                ctr_Estado_OC = new CTR_Estado_OC();
                 dtestado = new DataSet();
                 dtestado = ctr_Estado_OC.Leer_Estado_OC();
+                listarInsumo();
 
                 DdlEstado.DataTextField = "EOC_NombreEstadoOC";
                 DdlEstado.DataValueField = "EOC_idEstadoOC";
                 DdlEstado.DataSource = dtestado;
                 DdlEstado.DataBind();
-
-                dtcat = new DataSet();
-                dtcat = ctr_categoria.CTR_Leer_Categorias();
-                DdlCategoria.DataTextField = "C_NombreCategoria";
-                DdlCategoria.DataValueField = "C_idCategoria";
-                DdlCategoria.DataSource = dtcat;
-                DdlCategoria.DataBind();
-                //-----------------------------------------------
-                dtins = new DataSet();
-                dtins = ctr_insumo.Ctr_Leer_Insumo_Categorias(Convert.ToInt32(DdlCategoria.SelectedValue));
-                DdlInsumo.DataTextField = "I_NombreInsumo";
-                DdlInsumo.DataValueField = "I_idInsumo";
-                DdlInsumo.DataSource = dtins;
-                DdlInsumo.DataBind();
 
                 //------------------------------------------------
                 dtpro = new DataSet();
@@ -78,18 +54,13 @@ namespace MesonURPWEB
                 DdlProveedor.DataValueField = "P_idProveedor";
                 DdlProveedor.DataSource = dtpro;
                 DdlProveedor.DataBind();
-                //-------------------------------------------------
-                dto_insumo = ctr_insumo.Consultar_InsumoxID(int.Parse(DdlInsumo.SelectedValue));
-                txtPrecioU.Text = dto_insumo.DR_PrecioUnitario.ToString();
-                dto_medida = ctr_medida.Consultar_MedidaxInsumo(dto_insumo.PK_IR_Recurso);
-                txtMedida.Text = dto_medida.M_NombreMedida;
-
+                
                 //--------------------------------------------Llenar 
 
                 ctr_oc.CTR_Leer_OC(dto_oc);
                 txtIdOC.Text = dto_oc.OC_idOrdenCompra.ToString();
                 txtTipoComprobante.Text = dto_oc.OC_TipoComprobante;             
-                txtFechaEmision.Text = dto_oc.OC_FechaEmision.ToShortDateString();           
+                //txtFechaEmision.Text = dto_oc.OC_FechaEmision.ToShortDateString();           
                 txtEstado.Text = dao_estadoOCxOC.Consultar_Estado_OCxOC(dto_oc.OC_idOrdenCompra).EOC_NombreEstadoOC;
                 txtFechaEntrega.Text = dto_oc.OC_FechaEntrega.ToShortDateString();
                 DdlProveedor.Text = dto_oc.P_idProveedor.ToString();
@@ -101,9 +72,22 @@ namespace MesonURPWEB
                 dt = ctr_ocxinsumo.Leer_InsumoxOC(dto_oc.OC_idOrdenCompra);
                 GridViewEditarOC.DataSource = dt;
                 GridViewEditarOC.DataBind();
+
             }
         }
-
+        public void listarInsumo()
+        {
+            DdlInsumo.DataSource = ctr_insumo.SelectInsumosOC();
+            DdlInsumo.DataTextField = "I_NombreInsumo";
+            DdlInsumo.DataValueField = "I_idInsumo";
+            DdlInsumo.DataBind();
+            DdlInsumo.Items.Insert(0, "--seleccionar--");
+        }
+        protected void DdlInsumo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtPrecioU.Text = ctr_insumo.SelectPrecioUnitario(Convert.ToInt32(DdlInsumo.SelectedValue));
+            txtMedida.Text = ctr_medida.BuscarMedida(Convert.ToInt32(DdlInsumo.SelectedValue));
+        }
         protected void btnActualizar_Click(object sender, EventArgs e)
         {
             dto_oc.OC_idOrdenCompra = int.Parse(txtIdOC.Text);

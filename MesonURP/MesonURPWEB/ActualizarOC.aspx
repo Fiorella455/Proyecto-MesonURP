@@ -36,12 +36,12 @@
                             <asp:TextBox runat="server" CssClass="form-control1" ID="txtIdOC" />
                         </div>
                     </div>
-                    <div class="form-group">
+             <%--       <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Fecha de Emisión</label>
                         <div class="col-sm-8">
                             <asp:TextBox ID="txtFechaEmision" runat="server" CssClass="form-control1" ReadOnly="true"/>
                         </div>
-                    </div>
+                    </div>--%>
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Fecha de Entrega</label>
                         <div class="col-sm-8">
@@ -91,7 +91,7 @@
                       <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Insumo</label>
                         <div class="col-sm-8">
-                            <asp:DropDownList ID="DdlInsumo" runat="server" CssClass="form-control1" AutoPostBack="true">
+                            <asp:DropDownList ID="DdlInsumo" runat="server" CssClass="form-control1" AutoPostBack="true" OnSelectedIndexChanged="DdlInsumo_SelectedIndexChanged">
                             </asp:DropDownList>
                         </div>
                     </div>
@@ -126,7 +126,6 @@
                             <div class="table-wrapper-scroll-y my-custom-scrollbar">
                                 <asp:GridView ID="GridViewEditarOC" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible."
                                   DataKeyName=OC_idOrdenCompra CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None" AutoGenerateColumns="false">
-                                  
                                     <Columns>
                                         <asp:BoundField HeaderText="Descripción del Insumo" DataField="OC_idOrdenCompra" />
                                         <asp:BoundField HeaderText="Cantidad" DataField="OCxI_Cantidad" />

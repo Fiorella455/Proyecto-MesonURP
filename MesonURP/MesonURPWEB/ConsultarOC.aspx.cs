@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DTO;
 using CTR;
+using System.Data;
 
 namespace MesonURPWEB
 {
@@ -13,7 +14,8 @@ namespace MesonURPWEB
     {
         DTO_OC dto_oc;
         CTR_OC ctr_oc;
-        
+        CTR_OCxInsumo ctr_ocxinsumo;
+        DataTable dt;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,7 +23,14 @@ namespace MesonURPWEB
 
             dto_oc = (DTO_OC)Session["indice"];
            
-                Consultar_OC(dto_oc);   
+                Consultar_OC(dto_oc);
+
+             ctr_ocxinsumo = new CTR_OCxInsumo();
+            dt = new DataTable();
+            dt = ctr_ocxinsumo.Leer_InsumoxOC(dto_oc.OC_idOrdenCompra);
+            GridViewAñadirOC.DataSource = dt;
+            GridViewAñadirOC.DataBind();
+
         }
 
         public void Consultar_OC(DTO_OC dto_oc)
@@ -37,9 +46,19 @@ namespace MesonURPWEB
                 txtFechaEntrega.Text = dto_oc.OC_FechaEntrega.ToString();
                 txtFormaPago.Text = dto_oc.OC_FormaPago;
             }
-          
-
 
         }
+
+        protected void GridViewAñadirOC_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+             GridViewAñadirOC.PageIndex = e.NewPageIndex;
+        //     Consultar_OC(dto_oc);
+        }
+
+        //protected void GridViewAñadirOC_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        //{
+        //     GridViewAñadirOC.PageIndex = e.NewPageIndex;
+        //     Consultar_OC(dto_oc);
+        //}
     }
 }

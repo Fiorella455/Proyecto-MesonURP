@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
 
 namespace DTO
 {
@@ -20,3 +23,4 @@ namespace DTO
         public int FK_IER_EstadoRecurso { get; set; }
     }
 }
+

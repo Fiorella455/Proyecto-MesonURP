@@ -11,20 +11,17 @@ namespace CTR
     {
         DAO_Medida dao_medida;
 
-
         public CTR_Medida()
         {
-
             dao_medida = new DAO_Medida();
         }
-        public DataSet Leer_Medida()
+        public string BuscarMedida(int i)
         {
-            return dao_medida.Leer_Medida();
-
+            return dao_medida.SelectMedida(i);
         }
-        public DTO_Medida Consultar_MedidaxInsumo(int i)
-        {
-            return dao_medida.Consultar_MedidaxInsumo(i);
-        }
+        //public DTO_Medida Consultar_MedidaxInsumo(int i)
+        //{
+        //    return dao_medida.Consultar_MedidaxInsumo(i);
+        //}
     }
 }

@@ -22,12 +22,12 @@ namespace DAO
             SqlCommand cmd = new SqlCommand("SP_Insertar_OCxInsumo", conexion);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@I_idInsumo", dto_ocxinsumo.R_idInsumo);  
+            cmd.Parameters.AddWithValue("@I_idInsumo", dto_ocxinsumo.I_idInsumo);  
             cmd.Parameters.AddWithValue("@OC_idOrdenCompra", dto_ocxinsumo.OC_idOrdenCompra);
             cmd.Parameters.AddWithValue("@OCxI_Cantidad", dto_ocxinsumo.OCxI_Cantidad);
             cmd.Parameters.AddWithValue("@OCxI_PrecioTotal", dto_ocxinsumo.OCxI_PrecioTotal);
             cmd.ExecuteNonQuery();
-            cmd.Clone();
+            conexion.Close();
 
         }
         public void Actualizar_OCxInsumo(DTO_OCxInsumo dto_ocxinsumo)
@@ -35,9 +35,9 @@ namespace DAO
             try
             {
                 conexion.Open();
-                SqlCommand cmd = new SqlCommand("SP_Actualizarr_OCxInsumo", conexion);
+                SqlCommand cmd = new SqlCommand("SP_Actualizar_OCxInsumo", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(new SqlParameter("@R_idInsumo", dto_ocxinsumo.R_idInsumo));
+                cmd.Parameters.Add(new SqlParameter("@R_idInsumo", dto_ocxinsumo.I_idInsumo));
                 cmd.Parameters.Add(new SqlParameter("@OC_idOrdenCompra", dto_ocxinsumo.OC_idOrdenCompra));
                 cmd.Parameters.Add(new SqlParameter("@OCxI_Cantidad", dto_ocxinsumo.OCxI_Cantidad));
                 cmd.Parameters.Add(new SqlParameter("@OC_PrecioTotal", dto_ocxinsumo.OCxI_PrecioTotal));

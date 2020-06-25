@@ -25,6 +25,7 @@ namespace DAO
                 unComando.Parameters.Add(new SqlParameter("@MxI_FechaMovimiento", objDTO.FechaMovimiento));   
                 unComando.Parameters.Add(new SqlParameter("@I_idInsumo", objDTO.IdInsumo));
                 unComando.Parameters.Add(new SqlParameter("@M_idMovimiento", objDTO.IdMovimiento));
+                unComando.Parameters.Add(new SqlParameter("@U_idUsuario", objDTO.IdUsuarioMovimiento));
                 unComando.ExecuteNonQuery();
                 conexion.Close();
             }
@@ -33,29 +34,7 @@ namespace DAO
                 throw ex;
             }
         }
-        public string SelectMedida(int IdInsumo)
-        {
-            string medida = "";
-            try
-            {
-                SqlCommand unComando = new SqlCommand("SP_Listar_Medida", conexion);
-                unComando.CommandType = CommandType.StoredProcedure;
-                conexion.Open();
-                unComando.Parameters.AddWithValue("@I_idInsumo", IdInsumo);
-
-                SqlDataReader dReader = unComando.ExecuteReader();
-                if (dReader.Read())
-                {
-                    medida = dReader["Medida"].ToString();
-                }
-                conexion.Close();
-                return medida;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+        
         public DataSet CargarInsumoIngreso()
         {
             try
