@@ -39,16 +39,5 @@ namespace DAO
                 conexion.Close();
                 return dataset;
         }
-        public DataSet SelectCategorias()
-        {
-            string Select = "SELECT * FROM T_CATEGORIA";
-            SqlDataAdapter unComando = new SqlDataAdapter(Select, conexion);
-
-            DataSet ds = new DataSet();
-            unComando.Fill(ds, "T_CATEGORIAS");
-
-            return ds;
-        }
-
     }
 }
