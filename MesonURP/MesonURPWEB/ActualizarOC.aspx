@@ -113,8 +113,8 @@
                         </div>
                     </div>
                      <p class="center-button">
-                            <asp:Button CssClass="btn btn-primary" runat="server" Text="Añadir" />
-                            <asp:Button CssClass="btn btn-primary" runat="server" Text="Quitar" />
+                            <asp:Button CssClass="btn btn-primary" runat="server" Text="Añadir" ID="btnAñadir" OnClick="btnAñadir_Click" />
+                            <asp:Button CssClass="btn btn-primary" runat="server" Text="Quitar" ID="btnQuitar" OnClick="btnQuitar_Click" />
                         </p>
 
                     <div class="panel panel-widget forms-panel">
@@ -129,7 +129,7 @@
                                     <Columns>
                                         <asp:BoundField HeaderText="Descripción del Insumo" DataField="I_NombreInsumo" />
                                         <asp:BoundField HeaderText="Cantidad" DataField="OCxI_Cantidad"/>
-                                        <asp:BoundField HeaderText="Unidad" />
+                                       <%-- <asp:BoundField HeaderText="Unidad" />--%>
                                         <asp:BoundField HeaderText="Costo Unitario" DataField="I_PrecioUnitario" />
                                         <asp:BoundField HeaderText="Total" DataField="OCxI_PrecioTotal" />
                                     </Columns>

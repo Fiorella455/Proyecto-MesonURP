@@ -15,8 +15,10 @@ namespace MesonURPWEB
     public partial class GestionarOC : System.Web.UI.Page
     {
         DTO_OC dto_oc;
+        DTO_Estado_OCxOC dto_estadocoxoc;
         DAO_OC dao_oc;
         CTR_OC ctr_oc;
+        CTR_EstadoOCxOC ctr_estadoocxoc;
         DataTable dt;
         
         protected void Page_Load(object sender, EventArgs e)
@@ -30,6 +32,7 @@ namespace MesonURPWEB
                 dt = new DataTable();
                 dto_oc = new DTO_OC();
 
+                ctr_estadoocxoc = new CTR_EstadoOCxOC();
 
                 dt = ctr_oc.Leer_OC();
                 GridViewOC.DataSource = dt;
@@ -68,19 +71,30 @@ namespace MesonURPWEB
                     ctr_oc = new CTR_OC();
                     ctr_oc.Enviar_OC(dto_oc);
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('" + "Orden de Compra Enviada" + "');", true);
+                    //Actualizar estado_ocxoc
+                    if (dao_oc.Consultar_OC(dto_oc))
+                    {
+                    dto_estadocoxoc.OC_idOrdenCompra = dto_oc.OC_idOrdenCompra;
+                    dto_estadocoxoc.EOC_idEstadoOC = 002;//En espera
+                    ctr_estadoocxoc.Actualizar_Estado_OCxOC(dto_estadocoxoc);
+
+                    }
+
+                 
 
             }
                 if (e.CommandName == "EliminarOC")
                 {
+
                     int idOC = Convert.ToInt32(GridViewOC.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["OC_idOrdenCompra"].ToString());
                     dto_oc.OC_idOrdenCompra = idOC;
                     ctr_oc = new CTR_OC();
                     ctr_oc.Eliminar_OC(idOC);
                     GridViewOC.DeleteRow(idOC);
                     dt = ctr_oc.Leer_OC();
-                   GridViewOC.DataSource = dt;
-                   GridViewOC.DataBind();
-
+                    GridViewOC.DataSource = dt;
+                    GridViewOC.DataBind();
+               
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('"+"Orden de Compra Eliminada"+"');", true);
                 }
                 if (e.CommandName == "ConsultarOC")

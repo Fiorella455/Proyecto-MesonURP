@@ -30,7 +30,26 @@ namespace MesonURPWEB
         CTR_EstadoOCxOC ctr_estado_OCxOC;
         CTR_Categoria ctr_categoria;
 
-       
+        protected void btnAñadir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnQuitar_Click(object sender, EventArgs e)
+        {
+            //tin.Rows[id].Delete();
+            //pila.RemoveAt(id);
+            //suma -= Convert.ToDouble(GridViewAñadirOC.Rows[id].Cells[4].Text);
+            //txtTotal.Text = suma.ToString();
+            //GridViewAñadirOC.DataSource = tin;
+            //GridViewAñadirOC.DataBind();
+        }
+
+        protected void GridViewEditarOC_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow row = GridViewEditarOC.SelectedRow;
+            int id = Convert.ToInt32(GridViewEditarOC.DataKeys[row.RowIndex].Value);
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -92,6 +92,12 @@ namespace MesonURPWEB
                 //DdlUnidades.DataSource = dtmed;
                 //DdlUnidades.DataBind();
                 //---------------------------------------------------
+                dtins = new DataSet();
+                dtins = ctr_insumo.Ctr_Leer_Insumo_Categorias(int.Parse(DdlCategoria.SelectedValue));
+                DdlInsumo.DataTextField = "I_NombreInsumo";
+                DdlInsumo.DataValueField = "I_idInsumo";
+                DdlInsumo.DataSource = dtins;
+                DdlInsumo.DataBind();
                 dto_insumo = ctr_insumo.Consultar_InsumoxID(int.Parse(DdlInsumo.SelectedValue));
                 txtPrecioU.Text = dto_insumo.DR_PrecioUnitario.ToString();
                 dto_medida = ctr_medida.Consultar_MedidaxInsumo(dto_insumo.PK_IR_Recurso);
