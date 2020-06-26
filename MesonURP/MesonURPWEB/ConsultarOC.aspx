@@ -69,7 +69,9 @@
                                      DataKeyNames="OC_idOrdenCompra, I_NombreInsumo, OCxI_Cantidad,OCxI_PrecioTotal" OnPageIndexChanging="GridViewAñadirOC_PageIndexChanging">                                  
                                     <Columns>
                                         <asp:BoundField DataField="OC_idOrdenCompra" HeaderText="ID Orden de compra" />
-                                        <asp:BoundField DataField="I_NombreInsumo" HeaderText="Nombre del Insumo" />                                                                        <asp:BoundField DataField="OCxI_Cantidad" HeaderText="Cantidad" />                                                                         <asp:BoundField DataField="OCxI_PrecioTotal" HeaderText="Precio Total" />
+                                        <asp:BoundField DataField="I_NombreInsumo" HeaderText="Nombre del Insumo" />                                
+                                        <asp:BoundField DataField="OCxI_Cantidad" HeaderText="Cantidad" />                                 
+                                        <asp:BoundField DataField="OCxI_PrecioTotal" HeaderText="Precio Total" />
 
                                     </Columns>
                                 </asp:GridView>
