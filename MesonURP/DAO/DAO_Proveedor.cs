@@ -37,8 +37,6 @@ namespace DAO
             {
 
             }
-           
-            
         }
         public bool DAO_Consultar_Proveedor(DTO_Proveedor dto_proveedor)
         {
@@ -64,7 +62,6 @@ namespace DAO
             dto_proveedor.Estado = 99;
             conexion.Close();
             return hayProveedor;
-
 
         }
         public DataSet DAO_Leer_Proveedor()
