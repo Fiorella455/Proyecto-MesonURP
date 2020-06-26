@@ -5815,14 +5815,22 @@ margin-top:0;
 	max-width: 223px;
 	height: auto;
 }
-
+.btn-flex {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	height: max-content;
+}
 .center-header {
 	display: flex;
 	justify-content: space-between;
 	flex-direction: row;
 	align-items: center;
 }
-
+.marginR-15 {
+	margin-right: 15px;
+}
 .padding0-header {
 	padding: 0 !important;
 	margin-left: 4em;
