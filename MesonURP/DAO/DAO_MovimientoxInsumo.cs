@@ -144,12 +144,12 @@ namespace DAO
                 throw ex;
             }
         }
-        public DataTable ListarMovimientos()
+        public DataTable ConsultarMovimientoxInsumo()
         {
             try
             {
                 DataTable dtable = new DataTable();
-                SqlCommand unComando = new SqlCommand("SP_ListarMovimientos", conexion);
+                SqlCommand unComando = new SqlCommand("SP_ConsultarMovimientosXInsumo", conexion);
                 unComando.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter data = new SqlDataAdapter(unComando);
                 data.Fill(dtable);

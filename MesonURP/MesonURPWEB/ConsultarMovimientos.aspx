@@ -31,14 +31,15 @@
                                     </div>
                                     <div class="table-wrapper-scroll-y my-custom-scrollbar">
                                        <asp:GridView ID="gvMovimientos" allowpaging="True" AutoGenerateColumns="False" runat="server" emptydatatext="No hay información disponible."  
-                                            CssClass="table table-bordered table-striped mb-0" PageSize="3">
+                                            CssClass="table table-bordered table-striped mb-0" DataKeyNames="fechamov,M_TipoMovimiento,I_NombreInsumo,MxI_Cantidad,nomcategoria,usuariomov" 
+                                            OnPageIndexChanging="gvMovimientos_PageIndexChanging" PageSize="3">
                                             <Columns>
-                                                <asp:BoundField HeaderText="Insumo" />
-                                                <asp:BoundField HeaderText="Cantidad" />
-                                                <asp:BoundField HeaderText="Medida" />
-                                                <asp:BoundField HeaderText="Tipo de Movimiento" />
-                                                <asp:BoundField HeaderText="Fecha" />
-                                                <asp:BoundField HeaderText="Usuario" />       
+                                                <asp:BoundField DataField="fechamov" HeaderText="Fecha" />
+                                                <asp:BoundField DataField="M_TipoMovimiento" HeaderText="Tipo" />
+                                                <asp:BoundField DataField="I_NombreInsumo" HeaderText="Medida" />
+                                                <asp:BoundField DataField="MxI_Cantidad" HeaderText="Cantidad" />
+                                                <asp:BoundField DataField="nomcategoria" HeaderText="Categoria" />
+                                                <asp:BoundField DataField="usuariomov" HeaderText="Usuario" />       
                                             </Columns>
                                         </asp:GridView>
                                     </div>
