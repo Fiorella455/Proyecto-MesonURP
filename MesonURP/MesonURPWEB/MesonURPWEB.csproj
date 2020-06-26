@@ -204,6 +204,7 @@
     <Content Include="Dashboard.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="GestionarInsumo.aspx" />
     <Content Include="GestionarOC.aspx" />
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
@@ -297,6 +298,7 @@
     <Content Include="js1\signin.js" />
     <Content Include="index.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="RegistrarInsumo.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -310,6 +312,13 @@
     <Compile Include="AñadirOC.aspx.cs">
       <DependentUpon>AñadirOC.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionarInsumo.aspx.cs">
+      <DependentUpon>GestionarInsumo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionarInsumo.aspx.designer.cs">
+      <DependentUpon>GestionarInsumo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>
@@ -403,6 +412,13 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistrarInsumo.aspx.cs">
+      <DependentUpon>RegistrarInsumo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarInsumo.aspx.designer.cs">
+      <DependentUpon>RegistrarInsumo.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Master.Master" />

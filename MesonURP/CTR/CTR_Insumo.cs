@@ -9,10 +9,12 @@ namespace CTR
     public class CTR_Insumo
     {
         DAO_Insumo objDAO;
-        public CTR_Insumo() {
+        public CTR_Insumo() 
+        {
             objDAO = new DAO_Insumo();
         }
-        public DataTable ListarInsumo() {
+        public DataTable ListarInsumo() 
+        {
             return objDAO.SelectInsumo();
         }
         public DataTable BuscarInsumo(string nombreInsumo)
@@ -23,5 +25,6 @@ namespace CTR
         {
             return objDAO.SelectDashboard();
         }
+
     }
 }
