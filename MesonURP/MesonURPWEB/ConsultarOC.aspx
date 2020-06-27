@@ -74,7 +74,10 @@
                                 </asp:GridView>
                             </div>
                         </div>
-                        <hr />                       
+                        <hr /> 
+                         <p class="center-button">
+                            <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'GestionarProveedor';" class="btn btn-primary" />
+                        </p>
                     </div>
                 </div>
             </div>

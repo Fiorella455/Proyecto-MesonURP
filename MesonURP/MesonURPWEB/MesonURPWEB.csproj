@@ -189,9 +189,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ActualizarOC.aspx" />
+    <Content Include="ActualizarProveedor.aspx" />
     <Content Include="AñadirOC.aspx" />
+    <Content Include="AñadirProveedor.aspx" />
     <Content Include="ConsultarMovimientos.aspx" />
     <Content Include="ConsultarOC.aspx" />
+    <Content Include="ConsultarProveedor.aspx" />
     <Content Include="css\atlas.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\clndr.css" />
@@ -311,9 +314,23 @@
     <Compile Include="ActualizarOC.aspx.designer.cs">
       <DependentUpon>ActualizarOC.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ActualizarProveedor.aspx.cs">
+      <DependentUpon>ActualizarProveedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ActualizarProveedor.aspx.designer.cs">
+      <DependentUpon>ActualizarProveedor.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AñadirOC.aspx.cs">
       <DependentUpon>AñadirOC.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AñadirProveedor.aspx.cs">
+      <DependentUpon>AñadirProveedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AñadirProveedor.aspx.designer.cs">
+      <DependentUpon>AñadirProveedor.aspx</DependentUpon>
     </Compile>
     <Compile Include="ConsultarMovimientos.aspx.cs">
       <DependentUpon>ConsultarMovimientos.aspx</DependentUpon>
@@ -321,6 +338,13 @@
     </Compile>
     <Compile Include="ConsultarMovimientos.aspx.designer.cs">
       <DependentUpon>ConsultarMovimientos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarProveedor.aspx.cs">
+      <DependentUpon>ConsultarProveedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarProveedor.aspx.designer.cs">
+      <DependentUpon>ConsultarProveedor.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionarProveedor.aspx.cs">
       <DependentUpon>GestionarProveedor.aspx</DependentUpon>

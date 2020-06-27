@@ -66,6 +66,9 @@ namespace MesonURPWEB
             routes.MapPageRoute("ActualizarOC", "ActualizarOC", "~/ActualizarOC.aspx", true);
             routes.MapPageRoute("ConsultarOC", "ConsultarOC", "~/ConsultarOC.aspx", true);
             routes.MapPageRoute("GestionarProveedor", "GestionarProveedor", "~/GestionarProveedor.aspx", true);
+            routes.MapPageRoute("AñadirProveedor", "AñadirProveedor", "~/AñadirProveedor.aspx", true);
+            routes.MapPageRoute("ActualizarProveedor", "ActualizarProveedor", "~/ActualizarProveedor.aspx", true);
+            routes.MapPageRoute("ConsultarProveedor", "ConsultarProveedor", "~/ConsultarProveedor.aspx", true);
             routes.MapPageRoute("ConsultarMovimientos", "ConsultarMovimientos", "~/ConsultarMovimientos.aspx", true);
         }
     }
