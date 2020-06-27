@@ -20,7 +20,7 @@
                                         <h4>Proveedor</h4>
                                     </div>
                                     <div class="table-wrapper-scroll-y">
-                                         <asp:GridView ID="GridViewOC" allowpaging="True" runat="server" emptydatatext="No hay información disponible." AutoGenerateColumns="false"
+                                         <asp:GridView ID="GridViewProveedor" allowpaging="True" runat="server" emptydatatext="No hay información disponible." AutoGenerateColumns="false"
                                              CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None">
                                              <Columns>
                                                 <asp:BoundField HeaderText="ID Proveedor"/>
