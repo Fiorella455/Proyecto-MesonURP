@@ -13,7 +13,7 @@ namespace DTO
         private string medida;
         private decimal stockMax;
         private decimal stockMin;
-
+        private int idEstadoInsumo;
         public string NombreInsumo {
             get
             { 
@@ -88,6 +88,17 @@ namespace DTO
             set
             {
                 stockMin = value;
+            }
+        }
+        public int IdEstadoInsumo
+        {
+            get
+            {
+                return idEstadoInsumo;
+            }
+            set
+            {
+                idEstadoInsumo = value;
             }
         }
     }

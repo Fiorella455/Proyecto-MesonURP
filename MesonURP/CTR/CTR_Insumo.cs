@@ -25,6 +25,10 @@ namespace CTR
         {
             return objDAO.SelectDashboard();
         }
+        public DataTable consultarInsumo()
+        {
+            return objDAO.consultarInsumoTable();
+        }
 
     }
 }

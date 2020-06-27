@@ -60,7 +60,22 @@ namespace DAO
                 throw ex;
             }
         }
-
+        public DataTable consultarInsumoTable()
+        {
+            try
+            {
+                DataTable dtable = new DataTable();
+                SqlCommand unComando = new SqlCommand("SP_Consultar_InsumoTable", conexion);
+                unComando.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter data = new SqlDataAdapter(unComando);
+                data.Fill(dtable);
+                return dtable;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
     }
 }
