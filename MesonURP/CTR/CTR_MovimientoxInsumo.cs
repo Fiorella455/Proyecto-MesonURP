@@ -47,5 +47,13 @@ namespace CTR
         {
             return objDAO.ConsultarMovimientoxInsumo();
         }
+        public DataTable BusquedaMovimientoxInsumo(string busqueda)
+        {
+            return objDAO.BuscarMovimientoxInsumo(busqueda);
+        }
+        public DataTable BusquedaMovimientoxInsumoTipo(int tipo)
+        {
+            return objDAO.BuscarMovimientoxInsumoTipo(tipo);
+        }
     }
 }

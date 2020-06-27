@@ -25,5 +25,39 @@ namespace MesonURPWEB
             gvMovimientos.PageIndex = e.NewPageIndex;
             CargarMovimientoxInsumo();
         }
+        protected void brnSearchStock_ServerClick(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtBuscarMovimientos.Text != "")
+                {
+                    gvMovimientos.DataSource = _CmxI.BusquedaMovimientoxInsumo(txtBuscarMovimientos.Text);
+                    gvMovimientos.DataBind();
+                }
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('Ingrese otro dato para la busqueda');", true);
+
+            }
+        }
+        public void Selection_Change(Object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlMovimientos.SelectedValue != "")
+                {
+                    gvMovimientos.DataSource = _CmxI.BusquedaMovimientoxInsumoTipo(Convert.ToInt32(ddlMovimientos.SelectedValue));
+                    gvMovimientos.DataBind();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('Ingrese un insumo para la busqueda');", true);
+            }
+            //gvMovimientos.DataSource = _CmxI.BusquedaMovimientoxInsumoTipo(Convert.ToInt32(ddlMovimientos.SelectedValue));
+            //gvMovimientos.DataBind();
+        }
     }
 }

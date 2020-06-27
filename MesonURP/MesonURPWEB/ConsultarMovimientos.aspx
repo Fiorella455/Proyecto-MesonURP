@@ -19,7 +19,7 @@
                         <div class="search-buttons">
                             <div class="search">                                
                                     <asp:TextBox  id="txtBuscarMovimientos" runat="server"  CssClass="form-control1"  onkeypress="return lettersOnly(event);"  placeholder="Buscar Movimientos ..."/>
-                                    <button type="button" id="btnSearchMovimientos" runat="server">
+                                    <button type="button" id="btnSearchMovimientos" runat="server" onserverclick="brnSearchStock_ServerClick">
                                         <span class="material-icons">search
                                         </span>
                                     </button>
@@ -32,12 +32,12 @@
                                         <h4>Ingresos y Egresos</h4>
                                     </div>
                                     
-                                     <div class="div-movflex">
+                                     <div class="div-movflex modal-header">
                                         <label>Tipo de Movimiento : </label>
-                                        <asp:DropDownList runat="server" CssClass="form-control1"  AutoPostBack="true">
+                                        <asp:DropDownList id="ddlMovimientos" runat="server" CssClass="form-control1"  AutoPostBack="true"  type="button" data-toggle="dropdown"  OnSelectedIndexChanged="Selection_Change" aria-haspopup="true">
                                             <asp:ListItem  Value="">--seleccione--</asp:ListItem>
-                                            <asp:ListItem Text="Ingresos" Value="Ingresos">Ingresos</asp:ListItem>
-                                            <asp:ListItem Text="Egresos" Value="Egresos">Egresos</asp:ListItem>
+                                            <asp:ListItem Text="Ingreso" Value=1>Ingreso</asp:ListItem>
+                                            <asp:ListItem Text="Egreso" Value=2>Egreso</asp:ListItem>
                                         </asp:DropDownList>
                                     </div>
                                     <div class="clearfix"></div>
