@@ -23,12 +23,24 @@
                                         <span class="material-icons">search
                                         </span>
                                     </button>
+                                   
                             </div>
+                                   
                                <div class="panel panel-widget forms-panel">
                                 <div class="form-grids widget-shadow" data-example-id="basic-forms">
                                     <div class="form-title color-white">
                                         <h4>Ingresos y Egresos</h4>
                                     </div>
+                                    
+                                     <div class="div-movflex">
+                                        <label>Tipo de Movimiento : </label>
+                                        <asp:DropDownList runat="server" CssClass="form-control1"  AutoPostBack="true">
+                                            <asp:ListItem  Value="">--seleccione--</asp:ListItem>
+                                            <asp:ListItem Text="Ingresos" Value="Ingresos">Ingresos</asp:ListItem>
+                                            <asp:ListItem Text="Egresos" Value="Egresos">Egresos</asp:ListItem>
+                                        </asp:DropDownList>
+                                    </div>
+                                    <div class="clearfix"></div>
                                     <div class="table-wrapper-scroll-y my-custom-scrollbar">
                                        <asp:GridView ID="gvMovimientos" allowpaging="True" AutoGenerateColumns="False" runat="server" emptydatatext="No hay información disponible."  
                                             CssClass="table table-bordered table-striped mb-0" PageSize="3">
