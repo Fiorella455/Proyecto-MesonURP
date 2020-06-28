@@ -47,5 +47,9 @@ namespace MesonURPWEB
                 throw ex;
             }
         }
+        protected void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("RegistrarInsumo.aspx");
+        }
     }
 }
