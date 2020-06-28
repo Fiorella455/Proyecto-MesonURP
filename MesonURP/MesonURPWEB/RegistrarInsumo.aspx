@@ -9,8 +9,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+       
     <div class="women_main">
                     <!-- start content -->
                     <div class="grids">
@@ -76,12 +75,12 @@
 										<label for="focusedinput" class="col-sm-2 control-label">Categoría</label>
 										<div class="col-sm-8">                                            
 											  <asp:DropDownList id="ddlCategorias" runat="server" CssClass="form-control1" AutoPostBack="true" OnSelectedIndexChanged="Selection_Change">
-													<asp:ListItem Text="" Value="">Seleccione un categoría</asp:ListItem>
+													<asp:ListItem Text="" Value="">Seleccione una categoría</asp:ListItem>
   											  </asp:DropDownList>
                                               <asp:RequiredFieldValidator ID="rfvcategoria" runat="server" ControlToValidate="ddlCategorias" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 										</div>
 									</div>
-                                     <div class="form-group">
+                                     <%--<div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">Estado</label>
 										<div class="col-sm-8">                                            
 											  <asp:DropDownList id="ddlEstado" runat="server" CssClass="form-control1" AutoPostBack="true" OnSelectedIndexChanged="Selection_Change">
@@ -89,7 +88,7 @@
   											  </asp:DropDownList>
                                               <asp:RequiredFieldValidator ID="rfvestado" runat="server" ControlToValidate="ddlEstado" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 										</div>
-									</div>
+									</div>--%>
                                     <hr/>
 								    <p class="center-button">
 						    		    <button type="button" name="sub-1" class="btn btn-primary" runat="server" id="btnRegistrarI" onserverclick="btnRegistrar_Click"  ValidationGroup="registrarInsumo">Registrar</button>

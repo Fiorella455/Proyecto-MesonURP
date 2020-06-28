@@ -13,15 +13,17 @@ namespace DAO
         {
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
         }
-        public DataSet SelectCategorias()
+        public DataSet selectCategorias()
         {
-            string Select = "SELECT * FROM T_CATEGORIA";
-            SqlDataAdapter unComando = new SqlDataAdapter(Select, conexion);
-
-            DataSet ds = new DataSet();
-            unComando.Fill(ds, "T_CATEGORIAS");
-
-            return ds;
+            conexion.Open();
+            SqlCommand cmd = new SqlCommand("SP_Select_Categoria", conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.ExecuteNonQuery();
+            DataSet dt = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            conexion.Close();
+            return dt;
         }
     }
 }
