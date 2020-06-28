@@ -162,7 +162,7 @@
 
                 <li id="menuInsumo" runat="server"><a href="#"><i class="fa fa-table"></i><span>Gestionar Insumo</span><span class="fa fa-angle-right" style="float: right"></span></a>
                     <ul id="submenuGestionarInsumo">
-                        <li id="lblRegistrarInsumo" runat="server"><a href="RegistrarInsumo.aspx">Registrar Insumo</a></li>
+                        <li id="lblRegistrarInsumo" runat="server"><a href="GestionarInsumo.aspx">Registrar Insumo</a></li>
                         <%--<li id="Li3" runat="server"><a href="ConsultarOC">Consultar Orden de Compra</a></li>--%>
                     </ul>
                 </li>
