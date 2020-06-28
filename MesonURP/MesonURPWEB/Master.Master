@@ -158,7 +158,21 @@
                 </li>
                 <li id="menuCategoria" runat="server"><a href="gestionarCategoria"><i class="lnr lnr-chart-bars"></i><span>Gestionar Categoría</span></a></li>
                 <li id="menuUsuarios" runat="server"><a href="gestionarUsuarios"><i class="lnr lnr-chart-bars"></i><span>Gestionar Usuarios</span></a></li>
+
+
+                <li id="menuInsumo" runat="server"><a href="#"><i class="fa fa-table"></i><span>Gestionar Insumo</span><span class="fa fa-angle-right" style="float: right"></span></a>
+                    <ul id="submenuGestionarInsumo">
+                        <li id="lblRegistrarInsumo" runat="server"><a href="RegistrarInsumo.aspx">Registrar Insumo</a></li>
+                        <%--<li id="Li3" runat="server"><a href="ConsultarOC">Consultar Orden de Compra</a></li>--%>
+                    </ul>
+                </li>
+
             </ul>
+
+
+            
+
+
            <%-- <div class="cerrar-sesion">
                    
                   <button class="btn btn-link" runat="server" onClick="btnSalida_Click">
