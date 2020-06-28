@@ -16,7 +16,7 @@ namespace CTR
         }
         public DataSet LeerCategorias()
         {
-            return objMov.SelectCategorias();
+            return objMov.selectCategorias();
         }
     }
 }

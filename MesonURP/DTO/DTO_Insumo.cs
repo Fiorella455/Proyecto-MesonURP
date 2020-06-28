@@ -14,6 +14,8 @@ namespace DTO
         private decimal stockMax;
         private decimal stockMin;
         private int idEstadoInsumo;
+        private decimal precioUnitario;
+        private DateTime fechaVencimiento;
         public string NombreInsumo {
             get
             { 
@@ -101,5 +103,28 @@ namespace DTO
                 idEstadoInsumo = value;
             }
         }
+        public decimal PrecioUnitario
+        {
+            get
+            {
+                return precioUnitario;
+            }
+            set
+            {
+                precioUnitario = value;
+            }
+        }
+        public DateTime FechaVencimiento
+        {
+            get
+            {
+                return fechaVencimiento;
+            }
+            set
+            {
+                fechaVencimiento = value;
+            }
+        }
+      
     }
 }

@@ -6,17 +6,17 @@ using System.Text;
 
 namespace DAO
 {
-    public class DAO_Categoria
+    public class DAO_Medida
     {
         SqlConnection conexion;
-        public DAO_Categoria()
+        public DAO_Medida()
         {
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
         }
-        public DataSet selectCategorias()
+        public DataSet selectMedidas()
         {
             conexion.Open();
-            SqlCommand cmd = new SqlCommand("SP_Select_Categoria", conexion);
+            SqlCommand cmd = new SqlCommand("SP_Select_Medida", conexion);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.ExecuteNonQuery();
             DataSet dt = new DataSet();
