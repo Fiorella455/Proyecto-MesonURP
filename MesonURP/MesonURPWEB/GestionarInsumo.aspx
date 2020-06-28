@@ -14,6 +14,11 @@
                                     <i class="icon-th-list"></i>
                                     <h3>Insumos</h3>
                                 </div>
+                                <div class="stock-options">
+                                <div class="width-auto margin-5">
+                                     <input type="button" class="btn btn-primary" value="RegistrarInsumo" onclick="window.location.href = 'RegistrarInsumo.aspx';"> 
+                                </div>
+                                </div>
                                 <div class="w3-row-padding">
                                     <div class="w3-panel w3-border">
                                         <div class="w3-responsive">
