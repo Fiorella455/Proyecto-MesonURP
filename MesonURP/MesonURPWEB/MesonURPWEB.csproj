@@ -188,6 +188,7 @@
   <ItemGroup>
     <Content Include="ActualizarOC.aspx" />
     <Content Include="AñadirOC.aspx" />
+    <Content Include="ConsultarInsumo.aspx" />
     <Content Include="ConsultarOC.aspx" />
     <Content Include="css\atlas.css" />
     <Content Include="css\bootstrap.min.css" />
@@ -312,6 +313,13 @@
     <Compile Include="AñadirOC.aspx.cs">
       <DependentUpon>AñadirOC.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarInsumo.aspx.cs">
+      <DependentUpon>ConsultarInsumo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarInsumo.aspx.designer.cs">
+      <DependentUpon>ConsultarInsumo.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionarInsumo.aspx.cs">
       <DependentUpon>GestionarInsumo.aspx</DependentUpon>

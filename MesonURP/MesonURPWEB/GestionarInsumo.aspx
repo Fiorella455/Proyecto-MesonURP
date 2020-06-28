@@ -36,8 +36,14 @@
                                                             <asp:TemplateField HeaderText="Accion">
                                                                 <ItemTemplate>
                                                                     <asp:Button ID="btnSelectItem" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-solicitar" runat="server" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
-                                                                        CommandName="selectItem" Text="Actualizar" />
-                                                                </ItemTemplate>
+                                                                        CommandName="selectItem" Text="Actualizar" />                                                                    
+                                                                </ItemTemplate>                                                       
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Detalle">
+                                                                <ItemTemplate>
+                                                                    <asp:Button ID="btnSelectItem" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-solicitar" runat="server" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
+                                                                        CommandName="selectItem" Text="Ver" />                                                                    
+                                                                </ItemTemplate>                                                       
                                                             </asp:TemplateField>
                                                     </Columns>
                                                 </asp:GridView>
