@@ -49,14 +49,14 @@
                                             <asp:RequiredFieldValidator ID="rfvcantT" runat="server" ControlToValidate="txtcant" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 										</div>
 									</div>
-									  <div class="form-group">
+									<div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">Unidad de Medida</label>
-										<div class="col-sm-8">
-                                            <asp:TextBox Disabled="true" ID="TextBox2" runat="server" placeholder="Unidad de Medida" CssClass="form-control1"/>
-										    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtUnidadMedida" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-											<asp:TextBox ID="TextBox3"  runat="server" CssClass="form-control1" Visible="false" />
+										<div class="col-sm-8">                                              
+											  <asp:DropDownList id="ddlMedida" runat="server" CssClass="form-control1" AutoPostBack="true">
+													<asp:ListItem Text="" Value="">Seleccione una medida</asp:ListItem>
+  											  </asp:DropDownList>
+                                              <asp:RequiredFieldValidator ID="rfvmedida" runat="server" ControlToValidate="ddlMedida" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 										</div>
-									</div>
 									<div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">Precio Unitario</label>
 										<div class="col-sm-8">
@@ -65,30 +65,30 @@
 										</div>
 									</div>
                                     <div class="form-group">
-										<label for="focusedinput" class="col-sm-2 control-label">Fecha Vencimiento</label>
+										<label for="focusedinput" class="col-sm-2 control-label">Fecha de Vencimiento</label>
 										<div class="col-sm-8">
-                                            <asp:TextBox ID="txtfechaV" runat="server" placeholder="Seleccione la cantidad" CssClass="form-control1" onkeypress="return SoloNumeroIntDouble(event);" />
+                                            <asp:TextBox ID="txtfechaV" runat="server" TextMode="Date" CssClass="form-control1" />
 										    <asp:RequiredFieldValidator ID="rfvfechaV" runat="server" ControlToValidate="txtfechaV" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                                         </div>
-									</div>
+									</div>                        
                                      <div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">Categoría</label>
-										<div class="col-sm-8">                                            
-											  <asp:DropDownList id="ddlCategorias" runat="server" CssClass="form-control1" AutoPostBack="true" OnSelectedIndexChanged="Selection_Change">
+										<div class="col-sm-8">                                              
+											  <asp:DropDownList id="ddlCategorias" runat="server" CssClass="form-control1" AutoPostBack="true">
 													<asp:ListItem Text="" Value="">Seleccione una categoría</asp:ListItem>
   											  </asp:DropDownList>
                                               <asp:RequiredFieldValidator ID="rfvcategoria" runat="server" ControlToValidate="ddlCategorias" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 										</div>
 									</div>
-                                     <%--<div class="form-group">
+                                     <div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">Estado</label>
 										<div class="col-sm-8">                                            
-											  <asp:DropDownList id="ddlEstado" runat="server" CssClass="form-control1" AutoPostBack="true" OnSelectedIndexChanged="Selection_Change">
+											  <asp:DropDownList id="ddlEstado" runat="server" CssClass="form-control1" AutoPostBack="true">
 													<asp:ListItem Text="" Value="">Seleccione un estado</asp:ListItem>
   											  </asp:DropDownList>
                                               <asp:RequiredFieldValidator ID="rfvestado" runat="server" ControlToValidate="ddlEstado" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 										</div>
-									</div>--%>
+									</div>
                                     <hr/>
 								    <p class="center-button">
 						    		    <button type="button" name="sub-1" class="btn btn-primary" runat="server" id="btnRegistrarI" onserverclick="btnRegistrar_Click"  ValidationGroup="registrarInsumo">Registrar</button>

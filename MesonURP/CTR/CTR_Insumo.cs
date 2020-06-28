@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Text;
 using DAO;
+using DTO;
 
 namespace CTR
 {
@@ -28,6 +29,10 @@ namespace CTR
         public DataTable consultarInsumo()
         {
             return objDAO.consultarInsumoTable();
+        }
+        public void RegistrarInsumo(DTO_Insumo objIns)
+        {
+            objDAO.RegistrarInsumo(objIns);
         }
 
     }
