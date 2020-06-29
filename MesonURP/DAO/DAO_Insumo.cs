@@ -124,7 +124,7 @@ namespace DAO
             try
             {
                 conexion.Open();
-                SqlCommand cmd = new SqlCommand("SP_Actualizar_Servicio", conexion as SqlConnection);
+                SqlCommand cmd = new SqlCommand("SP_Actualizar_Insumo", conexion as SqlConnection);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add(new SqlParameter("@I_idInsumo", objIns.IdInsumo));
                 cmd.Parameters.Add(new SqlParameter("@I_NombreInsumo", objIns.NombreInsumo));
