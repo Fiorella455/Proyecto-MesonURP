@@ -26,14 +26,22 @@ namespace CTR
         {
             return objDAO.SelectDashboard();
         }
+        //-------------------
         public DataTable consultarInsumo()
         {
             return objDAO.consultarInsumoTable();
         }
         public void RegistrarInsumo(DTO_Insumo objIns)
         {
-            objDAO.RegistrarInsumo(objIns);
+            objDAO.registrarInsumo(objIns);
         }
-
+        public void ActualizarInsumo(DTO_Insumo objIns)
+        {
+            objDAO.actualizarInsumo(objIns);
+        }
+        public DataTable getInsumos(int I_idInsumo)
+        {
+            return objDAO.consultarInsumo1(I_idInsumo);
+        }
     }
 }

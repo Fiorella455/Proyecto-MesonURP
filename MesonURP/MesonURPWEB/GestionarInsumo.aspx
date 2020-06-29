@@ -19,15 +19,22 @@
                                      <input type="button" class="btn btn-primary" value="RegistrarInsumo" onclick="window.location.href = 'RegistrarInsumo.aspx';"> 
                                 </div>
                                 </div>
+                           <div class="w3-row-padding">
+                                <div class="w3-third">            
+                                    <label class="control-label">Paginacion:</label>
+                                    <asp:DropDownList ID="ddlp" class="browser-default" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlp_SelectedIndexChanged">
+                                    </asp:DropDownList>
+                                </div>
+                            </div>
                                 <div class="w3-row-padding">
                                     <div class="w3-panel w3-border">
                                         <div class="w3-responsive">
                                             <div class="centered">
                                                 <asp:GridView ID="gvInsumos" class="w3-col w3-container w3-table-all" runat="server" AutoGenerateColumns="False"
-                                                    DataKeyNames="I_idInsumo,I_NombreInsumo,C_NombreCategoria,I_CantidadTotal, M_NombreMedida,EI_NombreEstadoInsumo " 
-                                                    Style="text-align: center" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None">
+                                                 DataKeyNames="I_idInsumo,I_NombreInsumo,C_NombreCategoria,I_CantidadTotal, M_NombreMedida,EI_NombreEstadoInsumo" 
+                                                 OnPageIndexChanging="gvInsumos_PageIndexChanging" OnRowCommand="gvInsumos_RowCommand" Style="text-align: center" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None">
                                                   <Columns>
-                                                            <asp:BoundField DataField="I_idInsumo" HeaderText="codServicio" Visible="false" />
+                                                            <asp:BoundField DataField="I_idInsumo" HeaderText="I_idInsumo" Visible="false" />
                                                             <asp:BoundField DataField="I_NombreInsumo" HeaderText="Nombre"/>
                                                             <asp:BoundField DataField="C_NombreCategoria" HeaderText="Categoría" />
                                                             <asp:BoundField DataField="I_CantidadTotal" HeaderText="Cantidad Total" />

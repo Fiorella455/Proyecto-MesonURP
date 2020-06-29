@@ -60,14 +60,15 @@ namespace DAO
                 throw ex;
             }
         }
+        //----------------------------
         public DataTable consultarInsumoTable()
         {
             try
             {
                 DataTable dtable = new DataTable();
-                SqlCommand unComando = new SqlCommand("SP_Consultar_InsumoTable", conexion);
-                unComando.CommandType = CommandType.StoredProcedure;
-                SqlDataAdapter data = new SqlDataAdapter(unComando);
+                SqlCommand cmd = new SqlCommand("SP_Consultar_InsumoTable", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter data = new SqlDataAdapter(cmd);
                 data.Fill(dtable);
                 return dtable;
             }
@@ -76,8 +77,8 @@ namespace DAO
                 throw ex;
             }
         }
-        //----------
-        public void RegistrarInsumo(DTO_Insumo objIns)
+       
+        public void registrarInsumo(DTO_Insumo objIns)
         {
             try
             {
@@ -118,6 +119,46 @@ namespace DAO
                 throw ex;
             }
         }
-
+        public void actualizarInsumo(DTO_Insumo objIns)
+        {
+            try
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_Actualizar_Servicio", conexion as SqlConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@I_idInsumo", objIns.IdInsumo));
+                cmd.Parameters.Add(new SqlParameter("@I_NombreInsumo", objIns.NombreInsumo));
+                cmd.Parameters.Add(new SqlParameter("@I_StockMaximo", objIns.StockMax));
+                cmd.Parameters.Add(new SqlParameter("@I_StockMinimo", objIns.StockMin));
+                cmd.Parameters.Add(new SqlParameter("@I_PrecioUnitario", objIns.PrecioUnitario));
+                cmd.Parameters.Add(new SqlParameter("@I_CantidadTotal", objIns.CantidadTotal));
+                cmd.Parameters.Add(new SqlParameter("@I_FechaVencimiento", objIns.FechaVencimiento));
+                cmd.Parameters.Add(new SqlParameter("@EI_idEstadoInsumo", objIns.IdEstadoInsumo));
+                cmd.Parameters.Add(new SqlParameter("@M_idMedida", objIns.Medida));
+                cmd.Parameters.Add(new SqlParameter("@C_idCategoria", objIns.Idcategoria));
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataTable consultarInsumo1(int I_idInsumo)
+        {
+            try
+            {
+                SqlDataAdapter _Data = new SqlDataAdapter("SP_Consultar_Insumo1", conexion);
+                _Data.SelectCommand.CommandType = CommandType.StoredProcedure;
+                _Data.SelectCommand.Parameters.AddWithValue("@I_idInsumo", I_idInsumo);
+                DataSet _Ds = new DataSet();
+                _Data.Fill(_Ds);
+                return _Ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

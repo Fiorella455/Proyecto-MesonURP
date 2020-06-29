@@ -19,13 +19,30 @@ namespace MesonURPWEB
        
         protected void Page_Load(object sender, EventArgs e)
         {
-            getTableInsumos();
-
+            if (!Page.IsPostBack)
+            {
+                buildTableInsumos();
+                ListItem ddl1 = new ListItem("10", "10");
+                ddlp.Items.Insert(0, ddl1);
+                ListItem ddl2 = new ListItem("15", "15");
+                ddlp.Items.Insert(1, ddl2);
+                ListItem ddl3 = new ListItem("20", "20");
+                ddlp.Items.Insert(2, ddl3);
+            }
         }
-        public void getTableInsumos()
+        public void buildTableInsumos()
         {
             gvInsumos.DataSource = _Ci.consultarInsumo();
             gvInsumos.DataBind();
+        }
+        protected void fNombre_TextChanged(object sender, EventArgs e)
+        {
+            buildTableInsumos();
+        }
+        protected void gvInsumos_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvInsumos.PageIndex = e.NewPageIndex;
+            buildTableInsumos();
         }
         protected void gvInsumos_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -33,12 +50,11 @@ namespace MesonURPWEB
             {
                 if (e.CommandName == "selectItem")
                 {
-
                     int pkInsumo = Convert.ToInt32(gvInsumos.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["I_idInsumo"].ToString());
 
                     Session["I_idInsumo"] = pkInsumo;
 
-                    Response.Redirect("RegistrarInsumo.aspx");
+                    Response.Redirect("ActualizarInsumo.aspx");
                 }
 
             }
@@ -46,6 +62,15 @@ namespace MesonURPWEB
             {
                 throw ex;
             }
+        }
+        protected void ddlp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            gvInsumos.PageSize = Convert.ToInt32(ddlp.SelectedValue);
+            buildTableInsumos();
+        }
+        protected void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            buildTableInsumos();
         }
         protected void btnRegistrar_Click(object sender, EventArgs e)
         {
