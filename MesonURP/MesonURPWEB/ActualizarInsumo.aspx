@@ -45,8 +45,8 @@
 									<div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">Unidad de Medida</label>
 										<div class="col-sm-8">                                              
-											  <asp:DropDownList id="ddlMedida" runat="server" CssClass="form-control1" AutoPostBack="true">
-													<asp:ListItem Text="" Value="">Seleccione una medida</asp:ListItem>
+											  <asp:DropDownList id="ddlMedida" class="browser-default" runat="server">
+													<asp:ListItem Text="--Seleccionar una medida--" Value=""></asp:ListItem>
   											  </asp:DropDownList>
                                               <asp:RequiredFieldValidator ID="rfvmedida" runat="server" ControlToValidate="ddlMedida" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 										</div>
@@ -67,8 +67,8 @@
                                      <div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">Categoría</label>
 										<div class="col-sm-8">                                              
-											  <asp:DropDownList id="ddlCategorias" runat="server" CssClass="form-control1" AutoPostBack="true">
-													<asp:ListItem Text="" Value="">Seleccione una categoría</asp:ListItem>
+											  <asp:DropDownList id="ddlCategorias" class="browser-default" runat="server">
+													<asp:ListItem Text="--Seleccionar una categoría--" Value=""></asp:ListItem>
   											  </asp:DropDownList>
                                               <asp:RequiredFieldValidator ID="rfvcategoria" runat="server" ControlToValidate="ddlCategorias" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 										</div>
@@ -76,8 +76,8 @@
                                      <div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">Estado</label>
 										<div class="col-sm-8">                                            
-											  <asp:DropDownList id="ddlEstado" runat="server" CssClass="form-control1" AutoPostBack="true">
-													<asp:ListItem Text="" Value="">Seleccione un estado</asp:ListItem>
+											  <asp:DropDownList id="ddlEstado" class="browser-default" runat="server">
+													<asp:ListItem Text="--Seleccionar un Estado--" Value=""></asp:ListItem>
   											  </asp:DropDownList>
                                               <asp:RequiredFieldValidator ID="rfvestado" runat="server" ControlToValidate="ddlEstado" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 										</div>

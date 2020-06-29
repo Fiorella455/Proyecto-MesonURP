@@ -14,11 +14,17 @@ namespace MesonURPWEB
     {
         CTR_Insumo _Ci = new CTR_Insumo();
         DTO_Insumo _Di = new DTO_Insumo();
+        CTR_Categoria _Ccat = new CTR_Categoria();
+        CTR_Medida _Cmed = new CTR_Medida();
+        CTR_EstadoInsumo _CestI = new CTR_EstadoInsumo();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
                 CargarDatos();
+                ListarCategorias();
+                ListarMedidas();
+                ListarEstados();
             }
         }
         public void CargarDatos()
@@ -27,24 +33,25 @@ namespace MesonURPWEB
             int id = Convert.ToInt32(Session["I_idInsumo"]);
             txt1.Text = id.ToString();
             DataTable dtParametros = _Ci.getInsumos(id);
+
             if (dtParametros.Rows.Count > 0)
             {
                 DataRow filaP = dtParametros.Rows[0];
                 txtnombreInsumo.Text = Convert.ToString(filaP[1]);
-                txtstockMin.Text = Convert.ToString(filaP[2]);
-                txtstockMax.Text = Convert.ToString(filaP[3]);
-                txtcant.Text = Convert.ToString(filaP[4]);
-                ddlMedida.Text = Convert.ToString(filaP[5]);
-                txtPrecio.Text = Convert.ToString(filaP[6]);
-                txtfechaV.Text = Convert.ToString(filaP[7]);
-                ddlCategorias.Text = Convert.ToString(filaP[8]);
-                ddlEstado.Text = Convert.ToString(filaP[9]);
+                txtstockMax.Text = Convert.ToString(filaP[2]);
+                txtstockMin.Text = Convert.ToString(filaP[3]);
+                txtPrecio.Text = Convert.ToString(filaP[4]);
+                txtcant.Text = Convert.ToString(filaP[5]);
+                txtfechaV. = Convert.ToDateTime(filaP[6]);
+                ddlEstado.SelectedValue = Convert.ToString(filaP[7]);
+                ddlMedida.SelectedValue = Convert.ToString(filaP[8]);
+                ddlCategorias.SelectedValue = Convert.ToString(filaP[9]);
             }
 
         }
         protected void btnActualizar_Click(object sender, EventArgs e)
         {
-            if (rfvnombreI.IsValid && rfvstockMax.IsValid && rfvstockMin.IsValid && rfvcantT.IsValid && rfvprecioU.IsValid && rfvfechaV.IsValid)
+            if (rfvnombreI.IsValid && rfvstockMax.IsValid && rfvstockMin.IsValid && rfvcantT.IsValid && rfvprecioU.IsValid)
             {
                 _Di.IdInsumo = Convert.ToInt32(txt1.Text);
                 _Di.NombreInsumo = txtnombreInsumo.Text;
@@ -63,6 +70,30 @@ namespace MesonURPWEB
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             Response.Redirect("GestionarInsumo.aspx");
+        }
+        public void ListarCategorias()
+        {
+            ddlCategorias.DataSource = _Ccat.LeerCategorias();
+            ddlCategorias.DataTextField = "C_NombreCategoria";
+            ddlCategorias.DataValueField = "C_idCategoria";
+            ddlCategorias.DataBind();
+            //ddlCategorias.Items.Insert(0, "--seleccionar--");
+        }
+        public void ListarMedidas()
+        {
+            ddlMedida.DataSource = _Cmed.LeerMedidas();
+            ddlMedida.DataTextField = "M_NombreMedida";
+            ddlMedida.DataValueField = "M_idMedida";
+            ddlMedida.DataBind();
+            //ddlMedida.Items.Insert(0, "--seleccionar--");
+        }
+        public void ListarEstados()
+        {
+            ddlEstado.DataSource = _CestI.LeerEstadoI();
+            ddlEstado.DataTextField = "EI_NombreEstadoInsumo";
+            ddlEstado.DataValueField = "EI_idEstadoInsumo";
+            ddlEstado.DataBind();
+            //ddlEstado.Items.Insert(0, "--seleccionar--");
         }
     }
 }
