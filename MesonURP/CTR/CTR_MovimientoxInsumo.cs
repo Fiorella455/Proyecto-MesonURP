@@ -51,5 +51,11 @@ namespace CTR
         {
             return objDAO.BuscarMovimientos(busquedamov);
         }
+        public int ObteneridInsumo(string insumo)
+        {
+            return objDAO.getInsumo(insumo);
+                
+        
+        }
     }
 }
