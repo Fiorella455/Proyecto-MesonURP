@@ -76,5 +76,10 @@ namespace MesonURPWEB
         {
             Response.Redirect("RegistrarInsumo.aspx");
         }
+
+        protected void btnVerDetalle_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ConsultarInsumo.aspx");
+        }
     }
 }
