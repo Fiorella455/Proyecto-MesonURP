@@ -50,7 +50,13 @@
                             <asp:TextBox ID="txtCorreo" disabled="true" runat="server" CssClass="form-control1"/>
                         </div>
                     </div>
-                        
+
+                    <div class="form-group">
+                        <label for="focusedinput" class="col-sm-2 control-label">Estado Actual</label>
+                        <div class="col-sm-8">
+                            <asp:TextBox ID="txtEstado" disabled="true" runat="server" CssClass="form-control1"/>
+                        </div>
+                    </div>
                         <hr />
                         <p class="center-button">
                             <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'GestionarProveedor';" class="btn btn-primary" />

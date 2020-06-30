@@ -15,14 +15,26 @@ namespace CTR
         {
             dao_proveedor = new DAO_Proveedor();
         }
-        public void CTR_Registrar_Proveedor(DTO_Proveedor dto_proveedor)
-        { 
-            
-            dao_proveedor.DAO_Registrar_Proveedor(dto_proveedor);
+        public void Registrar_Proveedor(DTO_Proveedor proveedor)
+        {
+            dao_proveedor.Registrar_Proveedor(proveedor);
         }
         public DataSet Leer_Proveedor()
         {
             return dao_proveedor.DAO_Leer_Proveedor();
         }
+        public void Actualizar_Proveedor(DTO_Proveedor proveedor)
+        {
+            dao_proveedor.Actualizar_Proveedor(proveedor);
+        }
+        public DTO_Proveedor Consultar_Proveedor(int i)
+        { 
+           return dao_proveedor.Consultar_Proveedor(i); 
+        }
+        public void Eliminar_Proveedor(int i)
+        {
+            dao_proveedor.Eliminar_Proveedor(i);
+        }
     }
 }
+
