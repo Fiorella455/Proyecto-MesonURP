@@ -60,7 +60,7 @@
                                     <div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">Fecha de Vencimiento</label>
 										<div class="col-sm-8">
-                                            <asp:TextBox ID="txtfechaV" runat="server" TextMode="Date" CssClass="form-control1" />
+                                            <asp:TextBox ID="txtfechaV" runat="server" CssClass="form-control1" />
 										    <asp:RequiredFieldValidator ID="rfvfechaV" runat="server" ControlToValidate="txtfechaV" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                                         </div>
 									</div>                        

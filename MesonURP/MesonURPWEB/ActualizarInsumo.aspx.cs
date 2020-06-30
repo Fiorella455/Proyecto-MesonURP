@@ -29,7 +29,6 @@ namespace MesonURPWEB
         }
         public void CargarDatos()
         {
-
             int id = Convert.ToInt32(Session["I_idInsumo"]);
             txt1.Text = id.ToString();
             DataTable dtParametros = _Ci.getInsumos(id);
@@ -42,7 +41,7 @@ namespace MesonURPWEB
                 txtstockMin.Text = Convert.ToString(filaP[3]);
                 txtPrecio.Text = Convert.ToString(filaP[4]);
                 txtcant.Text = Convert.ToString(filaP[5]);
-                txtfechaV. = Convert.ToDateTime(filaP[6]);
+                txtfechaV.Text= Convert.ToString(filaP[6]);
                 ddlEstado.SelectedValue = Convert.ToString(filaP[7]);
                 ddlMedida.SelectedValue = Convert.ToString(filaP[8]);
                 ddlCategorias.SelectedValue = Convert.ToString(filaP[9]);
@@ -55,9 +54,9 @@ namespace MesonURPWEB
             {
                 _Di.IdInsumo = Convert.ToInt32(txt1.Text);
                 _Di.NombreInsumo = txtnombreInsumo.Text;
-                _Di.StockMax = Convert.ToInt32(txtstockMax.Text);
-                _Di.StockMin = Convert.ToInt32(txtstockMin.Text);
-                _Di.PrecioUnitario = Convert.ToInt32(txtPrecio.Text);
+                _Di.StockMax = Convert.ToDecimal(txtstockMax.Text);
+                _Di.StockMin = Convert.ToDecimal(txtstockMin.Text);
+                _Di.PrecioUnitario = Convert.ToDecimal(txtPrecio.Text);
                 _Di.CantidadTotal = Convert.ToInt32(txtcant.Text);
                 _Di.FechaVencimiento = Convert.ToDateTime(txtfechaV.Text);
                 _Di.Idcategoria = Convert.ToInt32(ddlCategorias.SelectedValue);
