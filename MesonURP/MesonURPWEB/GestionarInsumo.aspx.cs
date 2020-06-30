@@ -56,6 +56,17 @@ namespace MesonURPWEB
 
                     Response.Redirect("ActualizarInsumo.aspx");
                 }
+                else if (e.CommandName == "selectItem1")//VER 
+                {
+                    int pkInsumo = Convert.ToInt32(gvInsumos.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["I_idInsumo"].ToString());
+
+                    this.lblModalTitle.Text = "Validation Errors List for HP7 Citation";
+                    this.lblModalBody.Text = "This is modal body";
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
+                    this.upModal.Update();
+
+                    //Response.Redirect("ActualizarInsumo.aspx");
+                }
 
             }
             catch (Exception ex)

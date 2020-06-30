@@ -46,7 +46,7 @@ namespace CTR
 
         public DataTable consultarInsumo(string nombreInsumo)
         {
-            return DAO_Insumo.consultarInsumo2(nombreInsumo);
+            return objDAO.consultarInsumo2(nombreInsumo);
         }
     }
 }
