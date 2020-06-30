@@ -1,86 +1,76 @@
-﻿<%@ Page Title="Gestionar Insumo | Consultar" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ConsultarInsumo.aspx.cs" Inherits="MesonURPWEB.ConsultarInsumo" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<div class="women_main">
-        <!-- start content -->
-        <div class="grids">
-            <div class="progressbar-heading grids-heading title-flex">
-                <h2 class="tittle-margin5">Detalles del Insumo</h2>
-            </div>
-        </div>
-        <div class="forms">
-            <h3 class="title1"></h3>
-            <div class="form-three widget-shadow">
-                <div class="form-horizontal" runat="server">
-                    
-                    <div class="form-group">
-                        <label for="focusedinput" class="col-sm-2 control-label">N° Orden</label>
-                        <div class="col-sm-8">
-                            <asp:TextBox disabled runat="server" placeholder="Ingrese el número de orden" CssClass="form-control1" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="focusedinput" class="col-sm-2 control-label">Fecha de Emisión</label>
-                        <div class="col-sm-8">
-                            <asp:TextBox disabled runat="server" TextMode="Date" CssClass="form-control1" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="focusedinput" class="col-sm-2 control-label">Fecha de Entrega</label>
-                        <div class="col-sm-8">
-                            <asp:TextBox disabled runat="server" TextMode="Date" CssClass="form-control1" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="selector1" class="col-sm-2 control-label">Estado</label>
-                        <div class="col-sm-8">
-                            <asp:TextBox disabled runat="server" CssClass="form-control1" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="selector1" class="col-sm-2 control-label">Proveedor</label>
-                        <div class="col-sm-8">
-                            <asp:TextBox disabled runat="server" CssClass="form-control1" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="selector1" class="col-sm-2 control-label">Forma de Pago</label>
-                        <div class="col-sm-8">
-                            <asp:TextBox disabled runat="server" CssClass="form-control1" />
-                        </div>
-                    </div>
-                       <div class="form-group">
-                        <label for="selector1" class="col-sm-2 control-label">Fecha de Pago</label>
-                        <div class="col-sm-8">
-                            <asp:TextBox disabled runat="server" CssClass="form-control1" />
-                        </div>
-                    </div>
-                      
-                    <div class="panel panel-widget forms-panel">
-                        <div class="form-grids widget-shadow" data-example-id="basic-forms">
-                            <div class="form-title color-white">
-                                <h4>Insumos</h4>
-                            </div>
-                            <div class="table-wrapper-scroll-y my-custom-scrollbar">
-                                <asp:GridView ID="GridViewAñadirOC" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible."
-                                    CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None">
-                                  
-                                    <Columns>
-                                        <asp:BoundField HeaderText="Descripción del Insumo" />
-                                        <asp:BoundField HeaderText="Cantidad" />
-                                        <asp:BoundField HeaderText="Unidad" />
-                                        <asp:BoundField HeaderText="Costo Unitario" />
-                                        <asp:BoundField HeaderText="Total" />
-                                    </Columns>
-                                </asp:GridView>
-                            </div>
-                        </div>
-                        <hr />                       
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</asp:Content>
+﻿<%@ Page Title="Mesón URP | Consultar Insumo" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ConsultarInsumo.aspx.cs" Inherits="MesonURPWEB.ConsultarInsumo" %>
 
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Actualizar Insumo</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+ <div class="forms">
+						<h3 class="title1"></h3>
+							<div class="form-three widget-shadow">
+								<div class="form-horizontal" runat="server">
+									<asp:TextBox ID="txt1" runat="server" Visible="False"></asp:TextBox>
+                                    <div class="form-group">
+										<label for="focusedinput" class="col-sm-2 control-label">Nombre de Insumo</label>
+										<div class="col-sm-8">
+                                            <asp:TextBox ID="txtconsultarInsumo" runat="server" CssClass="form-control1"/>
+                                            <asp:RequiredFieldValidator ID="rfvnombreI" runat="server" ControlToValidate="txtconsultarInsumo" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+										</div>
+									</div>                                    
+									<div class="form-group">
+										<label for="focusedinput" class="col-sm-2 control-label">Unidad de Medida</label>
+										<div class="col-sm-8">                                              
+											  <asp:DropDownList id="ddlMedida" class="browser-default" runat="server">
+													<asp:ListItem Text="--Seleccionar una medida--" Value=""></asp:ListItem>
+  											  </asp:DropDownList>
+                                              <asp:RequiredFieldValidator ID="rfvmedida" runat="server" ControlToValidate="ddlMedida" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+										</div>
+									<div class="form-group">
+										<label for="focusedinput" class="col-sm-2 control-label">Precio Unitario</label>
+										<div class="col-sm-8">
+                                            <asp:TextBox ID="txtPrecio" runat="server" CssClass="form-control1"/>
+                                            <asp:RequiredFieldValidator ID="rfvprecioU" runat="server" ControlToValidate="txtPrecio" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+										</div>
+									</div>
+                                    <div class="form-group">
+										<label for="focusedinput" class="col-sm-2 control-label">Fecha de Vencimiento</label>
+										<div class="col-sm-8">
+                                            <asp:TextBox ID="txtfechaV" runat="server" TextMode="Date" CssClass="form-control1" />
+										    <asp:RequiredFieldValidator ID="rfvfechaV" runat="server" ControlToValidate="txtfechaV" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                                        </div>
+									</div>                        
+                                     <div class="form-group">
+										<label for="focusedinput" class="col-sm-2 control-label">Categoría</label>
+										<div class="col-sm-8">                                              
+											  <asp:DropDownList id="ddlCategorias" class="browser-default" runat="server">
+													<asp:ListItem Text="--Seleccionar una categoría--" Value=""></asp:ListItem>
+  											  </asp:DropDownList>
+                                              <asp:RequiredFieldValidator ID="rfvcategoria" runat="server" ControlToValidate="ddlCategorias" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+										</div>
+									</div>
+                                     <div class="form-group">
+										<label for="focusedinput" class="col-sm-2 control-label">Estado</label>
+										<div class="col-sm-8">                                            
+											  <asp:DropDownList id="ddlEstado" class="browser-default" runat="server">
+													<asp:ListItem Text="--Seleccionar un Estado--" Value=""></asp:ListItem>
+  											  </asp:DropDownList>
+                                              <asp:RequiredFieldValidator ID="rfvestado" runat="server" ControlToValidate="ddlEstado" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+										</div>
+									</div>
+                                    <hr/>
+								    <p class="center-button">
+										<asp:Button ID="btnconsultarInsumo" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-solicitar" runat="server" Text="Detalle" OnClick="btnconsultarInsumo_ServerClick" />
+                                        <asp:Button ID="btnCancelar" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-solicitar" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" CausesValidation="False" />
+							    	</p>
+								</div>     
+                 </div>
+              </div>
+            </div>
+                       
+    </form>
+</body>
+</html>

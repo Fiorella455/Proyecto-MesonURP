@@ -33,13 +33,13 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.TextBox txt1;
 
         /// <summary>
-        /// Control txtnombreInsumo.
+        /// Control txtconsultarInsumo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtnombreInsumo;
+        protected global::System.Web.UI.WebControls.TextBox txtconsultarInsumo;
 
         /// <summary>
         /// Control rfvnombreI.
@@ -49,60 +49,6 @@ namespace MesonURPWEB
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvnombreI;
-
-        /// <summary>
-        /// Control txtstockMin.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtstockMin;
-
-        /// <summary>
-        /// Control rfvstockMin.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvstockMin;
-
-        /// <summary>
-        /// Control txtstockMax.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtstockMax;
-
-        /// <summary>
-        /// Control rfvstockMax.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvstockMax;
-
-        /// <summary>
-        /// Control txtcant.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtcant;
-
-        /// <summary>
-        /// Control rfvcantT.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvcantT;
 
         /// <summary>
         /// Control ddlMedida.
@@ -195,13 +141,13 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvestado;
 
         /// <summary>
-        /// Control btnActualizar.
+        /// Control btnconsultarInsumo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnActualizar;
+        protected global::System.Web.UI.WebControls.Button btnconsultarInsumo;
 
         /// <summary>
         /// Control btnCancelar.

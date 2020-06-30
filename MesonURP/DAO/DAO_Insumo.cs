@@ -160,5 +160,22 @@ namespace DAO
                 throw ex;
             }
         }
+
+        public DataTable consultarInsumo2(string nombreInsumo)
+        {
+            try
+            {
+                SqlDataAdapter unComando = new SqlDataAdapter("SP_Consultar_Insumo2", conexion);
+                unComando.SelectCommand.CommandType = CommandType.StoredProcedure;
+                unComando.SelectCommand.Parameters.AddWithValue("@nombreInsumo", nombreInsumo);
+                DataSet data = new DataSet();
+                unComando.Fill(data);
+                return data.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
