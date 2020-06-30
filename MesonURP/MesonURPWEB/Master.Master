@@ -20,6 +20,7 @@
     <link href="../css/icon-font.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
+  
     <script src="../js/simpleCart.min.js"></script>
     <script src="../js/amcharts.js"></script>
     <script src="../js/serial.js"></script>

@@ -188,10 +188,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ActualizarInsumo.aspx" />
     <Content Include="ActualizarOC.aspx" />
     <Content Include="ActualizarProveedor.aspx" />
+    <Content Include="AñadirInsumo.aspx" />
     <Content Include="AñadirOC.aspx" />
     <Content Include="AñadirProveedor.aspx" />
+    <Content Include="ConsultarInsumo.aspx" />
     <Content Include="ConsultarMovimientos.aspx" />
     <Content Include="ConsultarOC.aspx" />
     <Content Include="ConsultarProveedor.aspx" />
@@ -210,6 +213,7 @@
     <Content Include="Dashboard.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="GestionarInsumo.aspx" />
     <Content Include="GestionarOC.aspx" />
     <Content Include="GestionarProveedor.aspx" />
     <Content Include="Global.asax" />
@@ -307,6 +311,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActualizarInsumo.aspx.cs">
+      <DependentUpon>ActualizarInsumo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ActualizarInsumo.aspx.designer.cs">
+      <DependentUpon>ActualizarInsumo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ActualizarOC.aspx.cs">
       <DependentUpon>ActualizarOC.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -321,6 +332,13 @@
     <Compile Include="ActualizarProveedor.aspx.designer.cs">
       <DependentUpon>ActualizarProveedor.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AñadirInsumo.aspx.cs">
+      <DependentUpon>AñadirInsumo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AñadirInsumo.aspx.designer.cs">
+      <DependentUpon>AñadirInsumo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AñadirOC.aspx.cs">
       <DependentUpon>AñadirOC.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -331,6 +349,13 @@
     </Compile>
     <Compile Include="AñadirProveedor.aspx.designer.cs">
       <DependentUpon>AñadirProveedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarInsumo.aspx.cs">
+      <DependentUpon>ConsultarInsumo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarInsumo.aspx.designer.cs">
+      <DependentUpon>ConsultarInsumo.aspx</DependentUpon>
     </Compile>
     <Compile Include="ConsultarMovimientos.aspx.cs">
       <DependentUpon>ConsultarMovimientos.aspx</DependentUpon>
@@ -345,6 +370,13 @@
     </Compile>
     <Compile Include="ConsultarProveedor.aspx.designer.cs">
       <DependentUpon>ConsultarProveedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionarInsumo.aspx.cs">
+      <DependentUpon>GestionarInsumo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionarInsumo.aspx.designer.cs">
+      <DependentUpon>GestionarInsumo.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionarProveedor.aspx.cs">
       <DependentUpon>GestionarProveedor.aspx</DependentUpon>

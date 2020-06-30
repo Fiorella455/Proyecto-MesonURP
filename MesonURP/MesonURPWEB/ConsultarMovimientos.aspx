@@ -32,7 +32,7 @@
                                         <h4>Ingresos y Egresos</h4>
                                     </div>
                                     
-                                     <div class="div-movflex">
+                                     <div class="div-movflex modal-header">
                                         <label>Tipo de Movimiento : </label>
                                         <asp:DropDownList runat="server" CssClass="form-control1"  AutoPostBack="true">
                                             <asp:ListItem  Value="">--seleccione--</asp:ListItem>

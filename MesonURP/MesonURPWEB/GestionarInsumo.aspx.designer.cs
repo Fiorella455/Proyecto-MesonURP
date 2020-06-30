@@ -11,16 +11,16 @@ namespace MesonURPWEB
 {
 
 
-    public partial class GestionarOC
+    public partial class GestionarInsumo
     {
 
         /// <summary>
-        /// Control GridViewOC.
+        /// Control GridViewInsumo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewOC;
+        protected global::System.Web.UI.WebControls.GridView GridViewInsumo;
     }
 }

@@ -5843,5 +5843,10 @@ margin-top:0;
 	display: flex;
 	justify-content: space-between;
 }
+
+.div-movflex {
+    display: flex;
+    margin-top: 17px;
+    margin-bottom: 17px;
 }
 /***responsive***/
