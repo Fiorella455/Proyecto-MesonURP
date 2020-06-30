@@ -17,14 +17,14 @@
                                     <div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">Nombre de Insumo</label>
 										<div class="col-sm-8">
-                                            <asp:TextBox ID="txtnombreInsumo" runat="server" CssClass="form-control1"/>
+                                            <asp:TextBox ID="txtnombreInsumo" runat="server" CssClass="form-control1" ReadOnly="true"/>
                                             <asp:RequiredFieldValidator ID="rfvnombreI" runat="server" ControlToValidate="txtnombreInsumo" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 										</div>
 									</div>
                                     <div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">Stock Mínimo</label>
 										<div class="col-sm-8">
-                                            <asp:TextBox ID="txtstockMin" runat="server" CssClass="form-control1"/>
+                                            <asp:TextBox ID="txtstockMin" runat="server" CssClass="form-control1" ReadOnly="true"/>
                                             <asp:RequiredFieldValidator ID="rfvstockMin" runat="server" ControlToValidate="txtstockMin" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 										</div>
 									</div>
@@ -38,14 +38,14 @@
                                       <div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">Cantidad Total</label>
 										<div class="col-sm-8">
-                                            <asp:TextBox ID="txtcant" runat="server" CssClass="form-control1"/>
+                                            <asp:TextBox ID="txtcant" runat="server" CssClass="form-control1" ReadOnly="true"/>
                                             <asp:RequiredFieldValidator ID="rfvcantT" runat="server" ControlToValidate="txtcant" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">Unidad de Medida</label>
 										<div class="col-sm-8">                                              
-											  <asp:DropDownList id="ddlMedida" class="browser-default" runat="server">
+											  <asp:DropDownList id="ddlMedida" class="browser-default" runat="server" Enabled="false">
 													<asp:ListItem Text="--Seleccionar una medida--" Value=""></asp:ListItem>
   											  </asp:DropDownList>
                                               <asp:RequiredFieldValidator ID="rfvmedida" runat="server" ControlToValidate="ddlMedida" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>

@@ -33,7 +33,7 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.TextBox txt1;
 
         /// <summary>
-        /// Control txtconsultarInsumo.
+        /// Control txtnombreInsumo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
