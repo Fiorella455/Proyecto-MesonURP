@@ -31,6 +31,10 @@ namespace CTR
         {
             return dao_insumo.SelectDashboard();
         }
+        public DTO_Insumo Consultar_InsumoxID(int i)
+        {
+            return dao_insumo.Consultar_InsumoxID(i);
+        }
 
     }
 }

@@ -45,6 +45,12 @@ namespace MesonURPWEB
                 txtProveedor.Text = dto_oc.P_idProveedor.ToString();
                 txtFechaEntrega.Text = dto_oc.OC_FechaEntrega.ToString();
                 txtFormaPago.Text = dto_oc.OC_FormaPago;
+                //--------------------------------------------------------------
+                ctr_ocxinsumo = new CTR_OCxInsumo();
+                dt = new DataTable();
+                dt = ctr_ocxinsumo.Leer_InsumoxOC(dto_oc.OC_idOrdenCompra);
+                GridViewAñadirOC.DataSource = dt;
+                GridViewAñadirOC.DataBind();
             }
 
         }

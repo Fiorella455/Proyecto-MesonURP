@@ -38,13 +38,13 @@ namespace MesonURPWEB
             if (!IsPostBack)
             {
                 dtestado = new DataSet();
-                dtestado = ctr_Estado_OC.Leer_Estado_OC();
-                listarInsumo();
+                //dtestado = ctr_Estado_OC.Leer_Estado_OC();
+                //listarInsumo();
 
-                DdlEstado.DataTextField = "EOC_NombreEstadoOC";
-                DdlEstado.DataValueField = "EOC_idEstadoOC";
-                DdlEstado.DataSource = dtestado;
-                DdlEstado.DataBind();
+                //DdlEstado.DataTextField = "EOC_NombreEstadoOC";
+                //DdlEstado.DataValueField = "EOC_idEstadoOC";
+                //DdlEstado.DataSource = dtestado;
+                //DdlEstado.DataBind();
 
                 //------------------------------------------------
                 dtpro = new DataSet();
@@ -61,7 +61,7 @@ namespace MesonURPWEB
                 txtIdOC.Text = dto_oc.OC_idOrdenCompra.ToString();
                 txtTipoComprobante.Text = dto_oc.OC_TipoComprobante;             
                 //txtFechaEmision.Text = dto_oc.OC_FechaEmision.ToShortDateString();           
-                txtEstado.Text = dao_estadoOCxOC.Consultar_Estado_OCxOC(dto_oc.OC_idOrdenCompra).EOC_NombreEstadoOC;
+                //txtEstado.Text = dao_estadoOCxOC.Consultar_Estado_OCxOC(dto_oc.OC_idOrdenCompra).EOC_NombreEstadoOC;
                 txtFechaEntrega.Text = dto_oc.OC_FechaEntrega.ToShortDateString();
                 DdlProveedor.Text = dto_oc.P_idProveedor.ToString();
                 txtFormaPago.Text = dto_oc.OC_FormaPago;
@@ -107,16 +107,16 @@ namespace MesonURPWEB
             dto_estado_OCxOC.EOCxOC_UsuarioRegistro = 5;
             ctr_estado_OCxOC.Actualizar_Estado_OCxOC(dto_estado_OCxOC);
             //--------------------------------------------------------------
-            //GridViewRow OCxI = (GridViewRow)((Button)sender).Parent.Parent;
-            //DTO_OCxInsumo OCIAux = new DTO_OCxInsumo();
-            //int i = OCxI.RowIndex;
-            //OCIAux.R_idInsumo = Convert.ToInt32(GridViewEditarOC.Rows[i].Cells[1].Text);
-            //OCIAux.I_idInsumo = Convert.ToInt32(GridViewEditarOC.Rows[i].Cells[2].Text);
-            //OCIAux.OC_idOrdenCompra = Convert.ToInt32(GridViewEditarOC.Rows[i].Cells[3].Text);
-            //OCIAux.OCxI_Cantidad = Convert.ToDouble(GridViewEditarOC.Rows[i].Cells[4].Text);
-            //OCIAux.OCxI_PrecioTotal = Convert.ToDouble(GridViewEditarOC.Rows[i].Cells[5].Text);
-            //Session.Add("OCIAux", OCIAux);
-            
+            GridViewRow OCxI = (GridViewRow)((Button)sender).Parent.Parent;
+            DTO_OCxInsumo OCIAux = new DTO_OCxInsumo();
+            int i = OCxI.RowIndex;
+            OCIAux.R_idInsumo = Convert.ToInt32(GridViewEditarOC.Rows[i].Cells[1].Text);
+            OCIAux.I_idInsumo = Convert.ToInt32(GridViewEditarOC.Rows[i].Cells[2].Text);
+            OCIAux.OC_idOrdenCompra = Convert.ToInt32(GridViewEditarOC.Rows[i].Cells[3].Text);
+            OCIAux.OCxI_Cantidad = Convert.ToDecimal(GridViewEditarOC.Rows[i].Cells[4].Text);
+            OCIAux.OCxI_PrecioTotal = Convert.ToDecimal(GridViewEditarOC.Rows[i].Cells[5].Text);
+            Session.Add("OCIAux", OCIAux);
+
             Response.Redirect("GestionarOC.aspx");
         }
 

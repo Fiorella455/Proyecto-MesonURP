@@ -15,24 +15,6 @@ namespace MesonURPWEB
     {
 
         /// <summary>
-        /// txtSearchStock control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSearchStock;
-
-        /// <summary>
-        /// btnSearchOC control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnSearchOC;
-
-        /// <summary>
         /// GridViewOC control.
         /// </summary>
         /// <remarks>

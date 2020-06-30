@@ -55,7 +55,7 @@
                             <asp:TextBox ID="txtTipoComprobante" runat="server" CssClass="form-control1" />
                         </div>
                     </div>
-                    <div class="form-group">
+                  <%--  <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Estado</label>
                         <div class="col-sm-8">
                              <asp:TextBox ID="txtEstado" runat="server" CssClass="auto-style1" Height="16px" Width="600px" />
@@ -63,7 +63,7 @@
                             </asp:DropDownList>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="DdlProveedor" ErrorMessage="Campo Obligatorio" ValidationGroup="actOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
-                    </div>
+                    </div>--%>
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Proveedor</label>
                         <div class="col-sm-8">
