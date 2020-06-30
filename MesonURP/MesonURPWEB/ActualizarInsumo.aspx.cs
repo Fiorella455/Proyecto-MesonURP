@@ -41,7 +41,7 @@ namespace MesonURPWEB
                 txtstockMin.Text = Convert.ToString(filaP[3]);
                 txtPrecio.Text = Convert.ToString(filaP[4]);
                 txtcant.Text = Convert.ToString(filaP[5]);
-                txtfechaV.Text= Convert.ToString(filaP[6]);
+                txtfechaV.Text = Convert.ToString(filaP[6]);
                 ddlEstado.SelectedValue = Convert.ToString(filaP[7]);
                 ddlMedida.SelectedValue = Convert.ToString(filaP[8]);
                 ddlCategorias.SelectedValue = Convert.ToString(filaP[9]);
