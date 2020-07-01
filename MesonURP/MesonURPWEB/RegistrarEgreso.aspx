@@ -55,7 +55,7 @@
                             <h4>Insumos a Ingresar</h4>
                         </div>
                         <div class="table-wrapper-scroll-y my-custom-scrollbar">
-                            <asp:GridView ID="GridViewAñadirOC" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false"
+                            <asp:GridView ID="gvInsumosEgreso" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false"
                                 CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None">
                                 <Columns>
                                     <asp:BoundField HeaderText="Nombre insumo" />

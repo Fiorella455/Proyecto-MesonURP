@@ -1,6 +1,7 @@
 ﻿using CTR;
 using DTO;
 using System;
+using System.Collections.Generic;
 using System.Web.UI;
 
 namespace MesonURPWEB
@@ -10,6 +11,7 @@ namespace MesonURPWEB
     {
         CTR_MovimientoxInsumo _Cmxi = new CTR_MovimientoxInsumo();
         DTO_MovimientoxInsumo _Dmxi = new DTO_MovimientoxInsumo();
+        static List<DTO_MovimientoxInsumo> pila = new List<DTO_MovimientoxInsumo>();
         CTR_Medida _Cm = new CTR_Medida();
         string FechaActual = DateTime.Now.ToString("dd/MM/yyyy");
         int movEgreso = 2;
