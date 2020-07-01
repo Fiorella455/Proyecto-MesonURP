@@ -144,12 +144,12 @@ namespace DAO
                 throw ex;
             }
         }
-        public DataTable ListarMovimientos()
+        public DataTable ConsultarMovimientoxInsumo()
         {
             try
             {
                 DataTable dtable = new DataTable();
-                SqlCommand unComando = new SqlCommand("SP_ListarMovimientos", conexion);
+                SqlCommand unComando = new SqlCommand("SP_ConsultarMovimientosXInsumo", conexion);
                 unComando.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter data = new SqlDataAdapter(unComando);
                 data.Fill(dtable);
@@ -160,13 +160,29 @@ namespace DAO
                 throw ex;
             }
         }
-        public DataTable BuscarMovimientos(string busquedamov)
+        public DataTable BuscarMovimientoxInsumo(string busqueda)
         {
             try
             {
-                SqlDataAdapter unComando = new SqlDataAdapter("SP_BuscarMovimiento", conexion);
+                SqlDataAdapter unComando = new SqlDataAdapter("SP_BuscarMovimientosXInsumo", conexion);
                 unComando.SelectCommand.CommandType = CommandType.StoredProcedure;
-                unComando.SelectCommand.Parameters.AddWithValue("@busquedamov", busquedamov);
+                unComando.SelectCommand.Parameters.AddWithValue("@busqueda", busqueda);
+                DataSet dSet = new DataSet();
+                unComando.Fill(dSet);
+                return dSet.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataTable BuscarMovimientoxInsumoTipo(int tipo)
+        {
+            try
+            {
+                SqlDataAdapter unComando = new SqlDataAdapter("SP_BuscarxTipoMovimientosXInsumo", conexion);
+                unComando.SelectCommand.CommandType = CommandType.StoredProcedure;
+                unComando.SelectCommand.Parameters.AddWithValue("@tipo", tipo);
                 DataSet dSet = new DataSet();
                 unComando.Fill(dSet);
                 return dSet.Tables[0];

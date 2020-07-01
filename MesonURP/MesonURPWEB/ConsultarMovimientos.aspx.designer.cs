@@ -33,6 +33,15 @@ namespace MesonURPWEB
         protected global::System.Web.UI.HtmlControls.HtmlButton btnSearchMovimientos;
 
         /// <summary>
+        /// Control ddlMovimientos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlMovimientos;
+
+        /// <summary>
         /// Control gvMovimientos.
         /// </summary>
         /// <remarks>
