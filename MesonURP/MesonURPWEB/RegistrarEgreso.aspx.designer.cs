@@ -87,6 +87,15 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.TextBox txtOculto;
 
         /// <summary>
+        /// Control panelEgreso.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel panelEgreso;
+
+        /// <summary>
         /// Control btnEgresar.
         /// </summary>
         /// <remarks>

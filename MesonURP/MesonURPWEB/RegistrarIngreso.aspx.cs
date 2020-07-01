@@ -38,7 +38,7 @@ namespace MesonURPWEB
 
             if (Convert.ToDecimal(txtCantidad2.Text) > Convert.ToDecimal(txtOculto.Text))
             {
-                ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "alert", "alert('" + "La cantidad de insumos no es permitida" + "');", true);
+                ScriptManager.RegisterClientScriptBlock(this.panelIngreso, this.panelIngreso.GetType(), "alert", "alertaCantidad()", true);
                 return;
             }
             else

@@ -210,6 +210,7 @@
     <Content Include="css\manejarStock.css" />
     <Content Include="css\owl.carousel.css" />
     <Content Include="css\style1.css" />
+    <Content Include="css\sweetalert2.min.css" />
     <Content Include="Dashboard.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -300,6 +301,8 @@
     <Content Include="js\serial.js" />
     <Content Include="js\simpleCart.min.js" />
     <Content Include="js\site.js" />
+    <Content Include="js\sweetalert.js" />
+    <Content Include="js\sweetalert2.all.min.js" />
     <Content Include="js\underscore-min.js" />
     <Content Include="ManejarStock.aspx" />
     <Content Include="RegistrarEgreso.aspx" />
