@@ -45,16 +45,39 @@
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtUnidadMedida2" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarIngreso" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
-                    <hr />
-                    <asp:UpdatePanel ID="panelIngreso" runat="server">
-                        <ContentTemplate>
-                            <p class="center-button">
-                                <button type="button" name="sub-1" class="btn btn-primary" runat="server" id="btnIngresar" onserverclick="btnIngresar_ServerClick" validationgroup="registrarIngreso">Ingresar</button>
-                                <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'ManejarStock';" class="btn btn-primary" />
-                                <input type="reset" name="res-1" id="res-1" value="Limpiar" class="btn btn-danger" />
-                            </p>
-                        </ContentTemplate>
-                    </asp:UpdatePanel>
+                    <p class="center-button">
+                        <asp:Button CssClass="btn btn-primary" runat="server" Text="Añadir" ID="btnAñadirInsumo" />
+                        <asp:Button CssClass="btn btn-primary" runat="server" Text="Quitar" />
+                    </p>
+                </div>
+
+                <div class="panel panel-widget forms-panel">
+                    <div class="form-grids widget-shadow" data-example-id="basic-forms">
+                        <div class="form-title color-white">
+                            <h4>Insumos a Ingresar</h4>
+                        </div>
+                        <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                            <asp:GridView ID="GridViewAñadirOC" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false"
+                                CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None">
+                                <Columns>
+                                    <asp:BoundField HeaderText="Nombre insumo" />
+                                    <asp:BoundField HeaderText="Fecha" />
+                                    <asp:BoundField HeaderText="Cantidad" />
+                                    <asp:BoundField HeaderText="Unidad de Medida" />
+                                </Columns>
+                            </asp:GridView>
+                        </div>
+                        <hr />
+                        <asp:UpdatePanel ID="panelIngreso" runat="server">
+                            <ContentTemplate>
+                                <p class="center-button">
+                                    <button type="button" name="sub-1" class="btn btn-primary" runat="server" id="btnIngresar" onserverclick="btnIngresar_ServerClick" validationgroup="registrarIngreso">Ingresar</button>
+                                    <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'ManejarStock';" class="btn btn-primary" />
+                                    <input type="reset" name="res-1" id="res-1" value="Limpiar" class="btn btn-danger" />
+                                </p>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                    </div>
                 </div>
             </div>
         </div>

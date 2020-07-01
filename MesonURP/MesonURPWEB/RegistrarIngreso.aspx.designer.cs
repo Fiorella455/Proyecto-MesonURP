@@ -96,6 +96,24 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
 
         /// <summary>
+        /// Control btnAñadirInsumo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAñadirInsumo;
+
+        /// <summary>
+        /// Control GridViewAñadirOC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridViewAñadirOC;
+
+        /// <summary>
         /// Control panelIngreso.
         /// </summary>
         /// <remarks>

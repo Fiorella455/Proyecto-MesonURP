@@ -73,6 +73,7 @@ namespace MesonURPWEB
             routes.MapPageRoute("AñadirInsumo", "AñadirInsumo", "~/AñadirInsumo.aspx", true);
             routes.MapPageRoute("ActualizarInsumo", "ActualizarInsumo", "~/ActualizarInsumo.aspx", true);
             routes.MapPageRoute("ConsultarInsumo", "ConsultarInsumo", "~/ConsultarInsumo.aspx", true);
+            routes.MapPageRoute("ConsultarMovimientos", "ConsultarMovimientos", "~/ConsultarMovimientos.aspx", true);
         }
     }
 }
