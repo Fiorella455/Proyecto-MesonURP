@@ -16,16 +16,16 @@ namespace MesonURPWEB
     {
         DTO_OC dto_oc;
         DTO_MovimientoxInsumo dto_movxinsumo;
-        CTR_MovimientoxInsumo ctr_movxinsumo;
+        DTO_Estado_OCxOC dto_estado_OCxOC;
         DAO_OC dao_oc;
         CTR_OC ctr_oc;
         CTR_OCxInsumo ctr_ocxinsumo;
-        DataTable dt;
-        CTR_OC _OC = new CTR_OC();
-        DataSet ds_movxinsumo = new DataSet();
-        DataTable dt_ocxinsumo = new DataTable();
-        DTO_Estado_OCxOC dto_estado_OCxOC;
+        CTR_MovimientoxInsumo ctr_movxinsumo;
         CTR_EstadoOCxOC ctr_estado_OCxOC;
+        CTR_OC _OC = new CTR_OC();
+        DataTable dt;     
+        DataSet ds_movxinsumo = new DataSet();
+        DataTable dt_ocxinsumo = new DataTable();       
         int idOC = 0;
 
 
@@ -54,25 +54,26 @@ namespace MesonURPWEB
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                e.Row.Cells[11].Visible = false;
+                
                 string state = e.Row.Cells[1].Text.ToString();
-                if (state == "En Espera")
+                if (state=="En Espera" || state == "En \nEspera")
                 {
-                    e.Row.Cells[7].Controls.Clear();//Enviar
-                    e.Row.Cells[8].Controls.Clear();//Actualizar                 
-                    e.Row.Cells[10].Controls.Clear();//Eliminar
-                    e.Row.Cells[11] .Visible = true;//Aceptar o Rechazar
+                   e.Row.Cells[7].FindControl("btnEnviarEmailOC").Visible = false;
+                   e.Row.Cells[8].FindControl("btnEditarOC").Visible = false;
+                   e.Row.Cells[9].FindControl("btnVerDetallesOC").Visible = true;
                     var button = (Button)e.Row.FindControl("btnRecibido");
                     if (button != null) { button.Visible = false; }
+                    var btn1 = (Button)e.Row.FindControl("btnEliminar");
+                    if (btn1 != null) { btn1.Visible = false; }
 
                 }
                 
                 if(state=="Aceptado")
                 {
-                    e.Row.Cells[7].Controls.Clear();//Enviar
-                    e.Row.Cells[8].Controls.Clear();//Actualizar
-                    e.Row.Cells[10].Controls.Clear();//Eliminar
-                    e.Row.Cells[11].Visible = true;
+                    e.Row.Cells[7].FindControl("btnEnviarEmailOC").Visible = false;
+                    e.Row.Cells[8].FindControl("btnEditarOC").Visible = false;
+                    e.Row.Cells[10].FindControl("btnEliminar").Visible = false;
+
                     var button = (Button)e.Row.FindControl("btnRecibido");
                     if (button != null) { button.Visible = true; }
                     var btn2 = (Button)e.Row.FindControl("btnAceptado");
@@ -83,34 +84,32 @@ namespace MesonURPWEB
                 }
                 if(state=="Rechazado")
                 {
-                    e.Row.Cells[7].Controls.Clear();//Enviar
-                    e.Row.Cells[8].Controls.Clear();//Actualizar
-                    e.Row.Cells[11].Controls.Clear();//Actualizar
-                   
+                    e.Row.Cells[7].FindControl("btnEnviarEmailOC").Visible = false;
+                    e.Row.Cells[8].FindControl("btnEditarOC").Visible = false;
+                    e.Row.Cells[11].FindControl("btnAceptado").Visible = false;
+                    e.Row.Cells[11].FindControl("btnRechazado").Visible = false;
+                    e.Row.Cells[11].FindControl("btnRecibido").Visible = false;
+
                 }
-                if (state == "Recibido")
+                if (state=="Recibido")
                 {
-                    e.Row.Cells[7].Controls.Clear();//Enviar
-                    e.Row.Cells[8].Controls.Clear();//Actualizar
-                    e.Row.Cells[10].Controls.Clear();//Eliminar
-                    e.Row.Cells[11].Controls.Clear();//Otros
+                    e.Row.Cells[7].FindControl("btnEnviarEmailOC").Visible = false;
+                    e.Row.Cells[8].FindControl("btnEditarOC").Visible = false;
+                    e.Row.Cells[10].FindControl("btnEliminar").Visible = false;
+                    e.Row.Cells[11].FindControl("btnAceptado").Visible=false;
+                    e.Row.Cells[11].FindControl("btnRechazado").Visible = false;
+                    e.Row.Cells[11].FindControl("btnRecibido").Visible = false;
+
+
 
                 }
-                if (state == "Creado")
+                if (state=="Creado")
                 {
-                    e.Row.Cells[11].Visible = true;
-                    var btn1 = (Button)e.Row.FindControl("btnRecibido");
-                    if (btn1 != null) { btn1.Visible = false; }
-                    e.Row.Cells[11].Controls.Clear();
-                    var btn2 = (Button)e.Row.FindControl("btnAceptado");
-                    if (btn2 != null) { btn2.Visible = false; }
-                    e.Row.Cells[11].Controls.Clear();
-                    var btn3 = (Button)e.Row.FindControl("btnRechazado");
-                    if (btn3 != null) { btn3.Visible = false; }
+
+                    e.Row.Cells[11].FindControl("btnAceptado").Visible = false;
+                    e.Row.Cells[11].FindControl("btnRechazado").Visible = false;
+                    e.Row.Cells[11].FindControl("btnRecibido").Visible = false;
                 }
-
-
-
 
             }
         
@@ -180,11 +179,15 @@ namespace MesonURPWEB
                 CargarOrdenesCompra();
 
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('" + "Estado Actulizado" + "');", true);
-                RegistrarMov(idOC);
+               
 
             }
-                if (e.CommandName == "RechazarOC")
+                if (e.CommandName=="RechazarOC")
             {
+                idOC = Convert.ToInt32(GridViewOC.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["OC_idOrdenCompra"].ToString());
+                dto_oc.OC_idOrdenCompra = idOC;
+                //-----------------------------------------------------------------------
+
                 dto_oc.OC_idOrdenCompra = idOC;
                 dto_estado_OCxOC.OC_idOrdenCompra = dto_oc.OC_idOrdenCompra;
                 dto_estado_OCxOC.EOCxOC_FechaRegistro = DateTime.Today;
@@ -192,15 +195,28 @@ namespace MesonURPWEB
                 dto_estado_OCxOC.EOCxOC_UsuarioRegistro = 5;
                 ctr_estado_OCxOC.Actualizar_Estado_OCxOC(dto_estado_OCxOC);
 
+                CargarOrdenesCompra();
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('" + "Orden de Compra Rechazado" + "');", true);
+
             }
-                if (e.CommandName == "RecibirOC")
+                if (e.CommandName=="RecibirOC")
                 {
+                idOC = Convert.ToInt32(GridViewOC.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["OC_idOrdenCompra"].ToString());
+                dto_oc.OC_idOrdenCompra = idOC;
+                //-----------------------------------------------------------------------
+
                 dto_oc.OC_idOrdenCompra = idOC;
                 dto_estado_OCxOC.OC_idOrdenCompra = dto_oc.OC_idOrdenCompra;
                 dto_estado_OCxOC.EOCxOC_FechaRegistro = DateTime.Today;
                 dto_estado_OCxOC.EOC_idEstadoOC = 5;
                 dto_estado_OCxOC.EOCxOC_UsuarioRegistro = 5;
                 ctr_estado_OCxOC.Actualizar_Estado_OCxOC(dto_estado_OCxOC);
+
+                RegistrarMov(idOC);
+                CargarOrdenesCompra();
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('" + "Orden de Compra Recibida" + "');", true);
             }
         }
         

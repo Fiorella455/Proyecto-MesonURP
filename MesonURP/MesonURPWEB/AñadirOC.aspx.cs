@@ -26,7 +26,7 @@ namespace MesonURPWEB
         CTR_Proveedor pro = new CTR_Proveedor();
         DTO_OCxInsumo dto_ocxinsumo = new DTO_OCxInsumo();
         CTR_OCxInsumo ctr_ocxinsumo = new CTR_OCxInsumo();
-        DataSet dtestado, dtpro;
+        DataSet  dtpro;
         static List<DTO_OCxInsumo> pila = new List<DTO_OCxInsumo>();
         static DataTable tin = new DataTable();
 
@@ -38,14 +38,7 @@ namespace MesonURPWEB
             if (!this.IsPostBack)
             {
                 listarInsumo();
-                dtestado = new DataSet();
-                dtestado = ctr_Estado_OC.Leer_Estado_OC();
-                DdlEstado.DataTextField = "EOC_NombreEstadoOC";
-                DdlEstado.DataValueField = "EOC_idEstadoOC";
-                DdlEstado.DataSource = dtestado;
-                DdlEstado.DataBind();
-                //-----------------------------------------------
-
+                
                 dtpro = new DataSet();
                 dtpro = pro.Leer_Proveedor();
 
@@ -132,28 +125,31 @@ namespace MesonURPWEB
 
             
             dto_oc.OC_NumeroComprobante = txtNumeroComprobante.Text;
-            dto_oc.OC_TotalCompra = Convert.ToDecimal(suma);
+            //dto_oc.OC_TotalCompra = Convert.ToDecimal(suma);
             dto_oc.OC_FechaEmision = DateTime.Today;
-            dto_oc.OC_FormaPago = DListFormaP.Text;
-            dto_oc.OC_FechaEntrega = DateTime.Parse(txtFechaEntrega.Text);
-            dto_oc.OC_FechaPago = DateTime.Parse(txtFechaEntrega.Text);
-            dto_oc.P_idProveedor = int.Parse(DdlProveedor.SelectedValue);
-            dto_oc.OC_NumeroComprobante = txtNumeroComprobante.Text;
+            dto_oc.OC_FormaPago = DListFormaP.Text;           
+            dto_oc.P_idProveedor = int.Parse(DdlProveedor.SelectedValue);           
             dto_oc.OC_TipoComprobante = DListTipoC.Text;
             dto_oc.OC_TotalCompra = Convert.ToDecimal(txtTotal.Text);
+            ctr_oc.Registrar_OC(dto_oc);
 
             //----------------------------------------------------------
 
-            dto_estado_OCxOC.EOC_idEstadoOC = Convert.ToInt32(DdlEstado.SelectedValue);
+            dto_estado_OCxOC.EOC_idEstadoOC = 1;
             dto_estado_OCxOC.OC_idOrdenCompra = ctr_oc.ID_OC_Actual();
-            dto_estado_OCxOC.EOCxOC_FechaRegistro = DateTime.Now;
+            dto_estado_OCxOC.EOCxOC_FechaRegistro = DateTime.Today;
+            dto_estado_OCxOC.EOCxOC_UsuarioRegistro = 5;
+            ctr_estado_OCxOC.Registrar_Estado_OCxOC(dto_estado_OCxOC);
             
-            dto_usuario = (Dto_Usuario)Session["emailUsuario"];
+
+            //Verificar el usuario
+
+            //dto_usuario = (Dto_Usuario)Session["emailUsuario"];
             // ctr_usuario.getUsuario(dto_usuario);
             //dto_estado_OCxOC.EOCxOC_UsuarioRegistro = dto_usuario.U_idUsuario;
-            dto_estado_OCxOC.EOCxOC_UsuarioRegistro =5;
-            ctr_estado_OCxOC.Registrar_Estado_OCxOC(dto_estado_OCxOC);
-            ctr_oc.Registrar_OC(dto_oc);
+
+
+
             while (pila.Count >= 1)
             {
                 pila[pila.Count - 1].OC_idOrdenCompra = ctr_oc.ID_OC_Actual();

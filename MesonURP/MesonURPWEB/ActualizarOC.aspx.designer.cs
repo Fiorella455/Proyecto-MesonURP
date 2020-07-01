@@ -15,22 +15,13 @@ namespace MesonURPWEB
     {
 
         /// <summary>
-        /// txtIdOC control.
+        /// txtNumComprobante control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdOC;
-
-        /// <summary>
-        /// txtFechaEntrega control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaEntrega;
+        protected global::System.Web.UI.WebControls.TextBox txtNumComprobante;
 
         /// <summary>
         /// txtTipoComprobante control.
@@ -103,6 +94,24 @@ namespace MesonURPWEB
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMedida;
+
+        /// <summary>
+        /// btnAñadir control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAñadir;
+
+        /// <summary>
+        /// btnQuitar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnQuitar;
 
         /// <summary>
         /// GridViewEditarOC control.

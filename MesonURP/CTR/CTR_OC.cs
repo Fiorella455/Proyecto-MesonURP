@@ -56,5 +56,10 @@ namespace CTR
         {
            return dao_oc.EnviarCorreo(dto_oc);
         }
+
+        public DataTable Leer_OC_Recibido()
+        {
+            return dao_oc.Leer_OC_Recibido();
+        }
     }
 }

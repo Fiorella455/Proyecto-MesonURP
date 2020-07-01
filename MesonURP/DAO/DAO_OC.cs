@@ -71,10 +71,7 @@ namespace DAO
                 cmd.Parameters.Add(new SqlParameter("@OC_TipoComprobante", dto_oc.OC_TipoComprobante));
                 cmd.Parameters.Add(new SqlParameter("@OC_NumeroComprobante", dto_oc.OC_NumeroComprobante));
                 cmd.Parameters.Add(new SqlParameter("@OC_FormaPago", dto_oc.OC_FormaPago));
-                
-                cmd.Parameters.Add(new SqlParameter("@OC_FechaPago", dto_oc.OC_FechaPago));
                 cmd.Parameters.Add(new SqlParameter("@OC_TotalCompra", dto_oc.OC_TotalCompra));
-                cmd.Parameters.Add(new SqlParameter("@OC_FechaEntrega", dto_oc.OC_FechaEntrega));
                 cmd.Parameters.Add(new SqlParameter("@P_idProveedor", dto_oc.P_idProveedor));
 
                 cmd.ExecuteNonQuery();
@@ -194,6 +191,19 @@ namespace DAO
             {
                 throw ex;
             }
+        }
+
+        public DataTable Leer_OC_Recibido()
+        {
+            conexion.Open();
+            SqlCommand comando = new SqlCommand("SP_Listas_OC_Recibidas", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(comando);
+            da.Fill(dt);
+            conexion.Close();
+            return dt;
         }
     }
 }

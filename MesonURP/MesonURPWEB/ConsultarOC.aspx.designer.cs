@@ -24,6 +24,15 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.TextBox txtidOC;
 
         /// <summary>
+        /// txtNumComprobante control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNumComprobante;
+
+        /// <summary>
         /// txtTipoComprobante control.
         /// </summary>
         /// <remarks>
@@ -40,15 +49,6 @@ namespace MesonURPWEB
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFechaEmision;
-
-        /// <summary>
-        /// txtFechaEntrega control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaEntrega;
 
         /// <summary>
         /// txtProveedor control.

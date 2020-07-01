@@ -54,7 +54,7 @@
                                                            <asp:Button ID="btnEliminar" class="btn btn-primary" runat="server" CommandName="EliminarOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"  Text="Eliminar" />
                                                        </ItemTemplate>
                                                    </asp:TemplateField>
-                                                 <asp:TemplateField HeaderText="Aceptado">
+                                                 <asp:TemplateField>
                                                      <ItemTemplate>
                                                          <asp:Button ID="btnAceptado" class="btn btn-primary" runat="server"  CommandName="AceptarOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Aceptar" Height="32px" Width="77px" TabIndex="1" />
                                                          <asp:Button ID="btnRechazado" runat="server" class="btn btn-primary" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" CommandName="RechazarOC" Height="32px" Text="Rechazar" Width="86px" TabIndex="2" />
