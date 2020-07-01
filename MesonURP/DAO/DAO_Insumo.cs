@@ -103,16 +103,18 @@ namespace DAO
             }
         }
 
-        public DataTable eliminarInsumo()
+        public void eliminarInsumo(int I_idInsumo)
         {
             try
             {
+                conexion.Open();
                 DataTable dtable = new DataTable();
-                SqlCommand unComando = new SqlCommand("SP_Eliminar_Insumo", conexion);
+                SqlCommand unComando = new SqlCommand("SP_Eliminar_Insumo", conexion as SqlConnection);
                 unComando.CommandType = CommandType.StoredProcedure;
-                SqlDataAdapter data = new SqlDataAdapter(unComando);
-                data.Fill(dtable);
-                return dtable;
+                unComando.Parameters.Add(new SqlParameter("@I_idInsumo", I_idInsumo));
+                unComando.ExecuteNonQuery();
+                unComando.Parameters.Clear();
+                conexion.Close();
             }
             catch (Exception ex)
             {

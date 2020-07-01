@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DTO;
 using CTR;
+using DAO;
+using System.Windows.Forms;
 
 namespace MesonURPWEB
 {
@@ -15,8 +17,8 @@ namespace MesonURPWEB
         DTO_Insumo _Di = new DTO_Insumo();
         CTR_Categoria _Ccat = new CTR_Categoria();
         DTO_Categoria _Dc = new DTO_Categoria();
-        
        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -67,6 +69,12 @@ namespace MesonURPWEB
 
                     //Response.Redirect("ActualizarInsumo.aspx");
                 }
+                else if (e.CommandName == "selectItem2")//ELIMINAR 
+                {
+                    int pkInsumo = Convert.ToInt32(gvInsumos.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["I_idInsumo"].ToString());
+                    _Ci.eliminarInsumo(pkInsumo);
+                    buildTableInsumos();
+                }
 
             }
             catch (Exception ex)
@@ -92,5 +100,6 @@ namespace MesonURPWEB
         {
             Response.Redirect("ConsultarInsumo.aspx");
         }
+         
     }
 }

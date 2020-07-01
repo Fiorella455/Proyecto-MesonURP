@@ -68,6 +68,12 @@
                                                 CommandName="selectItem1" Text="Ver" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Eliminar">
+                                        <ItemTemplate>
+                                            <asp:Button ID="btnSelectItem2" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-solicitar" runat="server" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
+                                                CommandName="selectItem2" Text="Eliminar" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
                                 </Columns>
                             </asp:GridView>
                         </div>

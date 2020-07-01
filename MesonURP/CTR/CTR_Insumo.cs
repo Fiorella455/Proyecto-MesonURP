@@ -48,5 +48,10 @@ namespace CTR
         {
             return objDAO.consultarInsumo2(nombreInsumo);
         }
+
+        public void eliminarInsumo(int I_idInsumo)
+        {
+            objDAO.eliminarInsumo(I_idInsumo);
+        }
     }
 }
