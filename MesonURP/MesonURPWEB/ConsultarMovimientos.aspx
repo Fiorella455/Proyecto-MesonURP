@@ -9,7 +9,7 @@
                             <h2 class="tittle-margin5">Consultar Movimientos</h2>
                             <div class="stock-options">
                                     <div class="width-auto margin-5">
-                                        <button type="button" class="btn btn-primary btn-flex">     
+                                        <button type="button" class="btn btn-primary btn-flex" runat="server" onserverclick="btnDescargarExcel_ServerClick">     
                                             <span class="material-icons marginR-15">cloud_download</span>
                                             <label>Descargar en Excel</label>
                                         </button>
@@ -19,7 +19,7 @@
                         <div class="search-buttons">
                             <div class="search">                                
                                     <asp:TextBox  id="txtBuscarMovimientos" runat="server"  CssClass="form-control1"  onkeypress="return lettersOnly(event);"  placeholder="Buscar Movimientos ..."/>
-                                    <button type="button" id="btnSearchMovimientos" runat="server" onserverclick="brnSearchStock_ServerClick">
+                                    <button type="button" id="btnSearchMovimientos" runat="server" onserverclick="btnSearchStock_ServerClick">
                                         <span class="material-icons">search
                                         </span>
                                     </button>
@@ -42,9 +42,8 @@
                                     </div>
                                     <div class="clearfix"></div>
                                     <div class="table-wrapper-scroll-y my-custom-scrollbar">
-                                       <asp:GridView ID="gvMovimientos" allowpaging="True" AutoGenerateColumns="False" runat="server" emptydatatext="No hay información disponible."  
-                                            CssClass="table table-bordered table-striped mb-0" DataKeyNames="fechamov,M_TipoMovimiento,I_NombreInsumo,MxI_Cantidad,nomcategoria,usuariomov" 
-                                            OnPageIndexChanging="gvMovimientos_PageIndexChanging" PageSize="3">
+                                       <asp:GridView ID="gvMovimientos" AutoGenerateColumns="False" runat="server" emptydatatext="No hay información disponible."  
+                                            CssClass="table table-bordered table-striped mb-0" DataKeyNames="fechamov,M_TipoMovimiento,I_NombreInsumo,MxI_Cantidad,nomcategoria,usuariomov">
                                             <Columns>
                                                 <asp:BoundField DataField="fechamov" HeaderText="Fecha" />
                                                 <asp:BoundField DataField="M_TipoMovimiento" HeaderText="Tipo" />

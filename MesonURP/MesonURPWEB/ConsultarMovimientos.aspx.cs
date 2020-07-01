@@ -5,6 +5,12 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+//using Microsoft.Office.Interop.Excel;
+
+using System.IO;
+using System.ComponentModel;
+using System.Web.UI.HtmlControls;
+using System.Text;
 
 namespace MesonURPWEB
 {
@@ -25,7 +31,7 @@ namespace MesonURPWEB
             gvMovimientos.PageIndex = e.NewPageIndex;
             CargarMovimientoxInsumo();
         }
-        protected void brnSearchStock_ServerClick(object sender, EventArgs e)
+        protected void btnSearchStock_ServerClick(object sender, EventArgs e)
         {
             try
             {
@@ -58,6 +64,55 @@ namespace MesonURPWEB
             }
             //gvMovimientos.DataSource = _CmxI.BusquedaMovimientoxInsumoTipo(Convert.ToInt32(ddlMovimientos.SelectedValue));
             //gvMovimientos.DataBind();
+        }
+        protected void btnDescargarExcel_ServerClick(object sender, EventArgs e)
+        {
+            try
+            {
+                ExportarGridViewExcel(gvMovimientos);
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('Ingrese otro dato para la busqueda');", true);
+
+            }
+        }
+
+        public void ExportarGridViewExcel(GridView grd)
+        {
+            StringBuilder sb = new StringBuilder();
+            StringWriter sw = new StringWriter(sb);
+            HtmlTextWriter htw = new HtmlTextWriter(sw);
+            Page page = new Page();
+            HtmlForm form = new HtmlForm();
+
+            gvMovimientos.EnableViewState = false;
+
+            // Deshabilitar la validación de eventos, sólo asp.net 2
+            page.EnableEventValidation = false;
+
+            // Realiza las inicializaciones de la instancia de la clase Page que requieran los diseñadores RAD.
+            page.DesignerInitialize();
+
+            page.Controls.Add(form);
+            form.Controls.Add(gvMovimientos);
+
+            page.RenderControl(htw);
+
+            Response.Clear();
+            Response.Buffer = true;
+            Response.ContentType = "application/vnd.ms-excel";
+            Response.AddHeader("Content-Disposition", "attachment;filename=Reporte de Movimientos.xls");
+            Response.Charset = "UTF-8";
+            Response.ContentEncoding = Encoding.Default;
+            Response.Write(sb.ToString());
+            Response.End();
+
+        }
+    
+    public override void VerifyRenderingInServerForm(Control control)
+        {
+            //base.VerifyRenderingInServerForm(control);
         }
     }
 }
