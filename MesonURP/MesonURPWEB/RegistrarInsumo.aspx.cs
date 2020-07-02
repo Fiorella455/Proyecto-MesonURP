@@ -60,7 +60,7 @@ namespace MesonURPWEB
             {
                 int a = 0;
                 _Di.NombreInsumo = txtnombreInsumo.Text;
-                bool vi = _Ci.VericarExisteInsumo(_Di);
+                bool vi = _Ci.VerificarExisteInsumo(_Di);
                 if (vi)
                 {
                     ClientScript.RegisterStartupScript(

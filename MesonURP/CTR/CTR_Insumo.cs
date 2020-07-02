@@ -58,5 +58,9 @@ namespace CTR
         {
             return objDAO.consultarInsumo2(I_idInsumo);
         }
+        public bool VerificarExisteInsumo(DTO_Insumo objIns)
+        {
+            return objDAO.VericarExisteNombreInsumo(objIns);
+        }
     }
 }
