@@ -150,12 +150,13 @@ namespace DAO
         {
             try
             {
+                conexion.Open();
                 SqlDataAdapter _Data = new SqlDataAdapter("SP_Consultar_Insumo1", conexion);
                 _Data.SelectCommand.CommandType = CommandType.StoredProcedure;
                 _Data.SelectCommand.Parameters.AddWithValue("@I_idInsumo", I_idInsumo);
                 DataSet _Ds = new DataSet();
                 _Data.Fill(_Ds);
-                return _Ds.Tables[0];
+                return _Ds.Tables[0];                
             }
             catch (Exception ex)
             {
@@ -163,16 +164,17 @@ namespace DAO
             }
         }
 
-        public DataTable consultarInsumo2(string nombreInsumo)
+        public DataTable consultarInsumo2(int I_idInsumo)
         {
             try
             {
-                SqlDataAdapter unComando = new SqlDataAdapter("SP_Consultar_Insumo2", conexion);
-                unComando.SelectCommand.CommandType = CommandType.StoredProcedure;
-                unComando.SelectCommand.Parameters.AddWithValue("@nombreInsumo", nombreInsumo);
-                DataSet data = new DataSet();
-                unComando.Fill(data);
-                return data.Tables[0];
+                conexion.Open();
+                SqlDataAdapter _Data = new SqlDataAdapter("SP_Consultar_Insumo2", conexion);
+                _Data.SelectCommand.CommandType = CommandType.StoredProcedure;
+                _Data.SelectCommand.Parameters.AddWithValue("@I_idInsumo", I_idInsumo);
+                DataSet _Ds = new DataSet();
+                _Data.Fill(_Ds);
+                return _Ds.Tables[0];
             }
             catch (Exception ex)
             {

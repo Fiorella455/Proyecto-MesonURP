@@ -44,9 +44,9 @@ namespace CTR
             return objDAO.consultarInsumo1(I_idInsumo);
         }
 
-        public DataTable consultarInsumo(string nombreInsumo)
+        public DataTable consultarInsumo1(int I_idInsumo)
         {
-            return objDAO.consultarInsumo2(nombreInsumo);
+            return objDAO.consultarInsumo1(I_idInsumo);
         }
 
         public void eliminarInsumo(int I_idInsumo)
@@ -54,9 +54,9 @@ namespace CTR
             objDAO.eliminarInsumo(I_idInsumo);
         }
 
-        public bool VericarExisteInsumo(DTO_Insumo ojbIns )
+        public DataTable consultarInsumo2(int I_idInsumo)
         {
-            return objDAO.VericarExisteNombreInsumo(ojbIns);
+            return objDAO.consultarInsumo2(I_idInsumo);
         }
     }
 }
