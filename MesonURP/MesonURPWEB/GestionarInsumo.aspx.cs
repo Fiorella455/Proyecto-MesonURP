@@ -60,13 +60,35 @@ namespace MesonURPWEB
                 }
                 else if (e.CommandName == "selectItem1")//VER 
                 {
+                    
                     int pkInsumo = Convert.ToInt32(gvInsumos.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["I_idInsumo"].ToString());
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal('show');", true);
+                    upModal.Update();
+                    var modal = _Ci.consultarInsumo2(pkInsumo);
 
-                    this.lblModalTitle.Text = "Validation Errors List for HP7 Citation";
-                    this.lblModalBody.Text = "This is modal body";
-                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "myModal", "$('#myModal').modal();", true);
-                    this.upModal.Update();
-
+                    lblModalTitle.Text = "Detalles del insumo";
+                    
+                    txtnombreInsumo.Text = modal.Rows[0]["I_NombreInsumo"].ToString();
+                    txtnombreInsumo.Enabled = false;
+                    txtstockMaximo.Text = modal.Rows[0]["I_StockMaximo"].ToString();
+                    txtstockMaximo.Enabled = false;
+                    txtstockMinimo.Text = modal.Rows[0]["I_StockMinimo"].ToString();
+                    txtstockMinimo.Enabled = false;
+                    txtprecioUnitario.Text = modal.Rows[0]["I_PrecioUnitario"].ToString();
+                    txtprecioUnitario.Enabled = false;
+                    txtcantidadTotal.Text = modal.Rows[0]["I_CantidadTotal"].ToString();
+                    txtcantidadTotal.Enabled = false;
+                    txtfechaVencimiento.Text = modal.Rows[0]["FechaVencimiento"].ToString();
+                    txtfechaVencimiento.Enabled = false;
+                    txtestadoInsumo.Text = modal.Rows[0]["EI_idEstadoInsumo"].ToString();
+                    txtestadoInsumo.Enabled = false;
+                    txtnestadoInsumo.Text = modal.Rows[0]["EI_NombreEstadoInsumo"].ToString();
+                    txtnestadoInsumo.Enabled = false;
+                    txtunidadMedida.Text = modal.Rows[0]["M_NombreMedida"].ToString();
+                    txtunidadMedida.Enabled = false;
+                    txtcategoriaInsumo.Text = modal.Rows[0]["C_NombreCategoria"].ToString();
+                    txtcategoriaInsumo.Enabled = false;
+                    
                     //Response.Redirect("ActualizarInsumo.aspx");
                 }
                 else if (e.CommandName == "selectItem2")//ELIMINAR 
@@ -75,7 +97,6 @@ namespace MesonURPWEB
                     _Ci.eliminarInsumo(pkInsumo);
                     buildTableInsumos();
                 }
-
             }
             catch (Exception ex)
             {
