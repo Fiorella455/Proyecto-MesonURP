@@ -59,10 +59,11 @@
                                 DataKeyNames="Fecha,Nombre insumo,Cantidad,Unidad de Medida" 
                                 CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None" OnSelectedIndexChanged="gvInsumosEgreso_SelectedIndexChanged">
                                 <Columns>
-                                    <asp:BoundField HeaderText="Fecha" />
-                                    <asp:BoundField HeaderText="Nombre insumo" />
-                                    <asp:BoundField HeaderText="Cantidad" />
-                                    <asp:BoundField HeaderText="Unidad de Medida" />
+                                    <asp:BoundField HeaderText="Fecha" Datafield="Fecha" />
+                                    <asp:BoundField HeaderText="Nombre insumo" Datafield="Nombre insumo" />
+                                    <asp:BoundField HeaderText="Cantidad" Datafield="Cantidad" />
+                                    <asp:BoundField HeaderText="Unidad de Medida" Datafield="Unidad de Medida" />
+
                                 </Columns>
                             </asp:GridView>
                         </div>

@@ -42,12 +42,11 @@
                         <div class="col-sm-8">
                             <asp:TextBox disabled="True" ID="txtUnidadMedida2" runat="server" placeholder="Unidad de Medida" CssClass="form-control1" />
                             <asp:TextBox ID="txtOculto" runat="server" CssClass="form-control1" Visible="false" />
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtUnidadMedida2" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarIngreso" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-                        </div>
+                    </div>
                     </div>
                     <p class="center-button">
-                        <asp:Button CssClass="btn btn-primary" runat="server" Text="Añadir" ID="btnAñadirInsumo" />
-                        <asp:Button CssClass="btn btn-primary" runat="server" Text="Quitar" />
+                        <asp:Button CssClass="btn btn-primary" runat="server" Text="Añadir" ID="btnAñadirInsumo" OnClick="btnAñadirInsumo_Click"/>
+                        <asp:Button CssClass="btn btn-primary" runat="server" Text="Quitar" OnClick="btnQuitarInsumo_Click" />
                     </p>
                 </div>
 
@@ -57,13 +56,15 @@
                             <h4>Insumos a Ingresar</h4>
                         </div>
                         <div class="table-wrapper-scroll-y my-custom-scrollbar">
-                            <asp:GridView ID="GridViewAñadirOC" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false"
-                                CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None">
+                             <asp:GridView ID="gvInsumosIngreso" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false"
+                                DataKeyNames="Fecha,Nombre insumo,Cantidad,Unidad de Medida" 
+                                CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None" OnSelectedIndexChanged="gvInsumosIngreso_SelectedIndexChanged">
                                 <Columns>
-                                    <asp:BoundField HeaderText="Nombre insumo" />
-                                    <asp:BoundField HeaderText="Fecha" />
-                                    <asp:BoundField HeaderText="Cantidad" />
-                                    <asp:BoundField HeaderText="Unidad de Medida" />
+                                    <asp:BoundField HeaderText="Fecha" Datafield="Fecha" />
+                                    <asp:BoundField HeaderText="Nombre insumo" Datafield="Nombre insumo" />
+                                    <asp:BoundField HeaderText="Cantidad" Datafield="Cantidad" />
+                                    <asp:BoundField HeaderText="Unidad de Medida" Datafield="Unidad de Medida" />
+
                                 </Columns>
                             </asp:GridView>
                         </div>

@@ -43,10 +43,6 @@ namespace CTR
         {
              return objDAO.StockMax(IdInsumo);
         }
-        public int ID_MAX()
-        {
-            return objDAO.ID_Movimiento_Max();
-        }
         public DataTable SelectMovimientosxInsumo()
         {
             return objDAO.ConsultarMovimientoxInsumo();
