@@ -4,12 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using CTR;
 using DTO;
+using CTR;
 
 namespace MesonURPWEB
 {
-    public partial class ConsultarProveedor : System.Web.UI.Page
+    public partial class EliminarProveedor : System.Web.UI.Page
     {
         DTO_Proveedor dto_proveedor;
         CTR_Proveedor ctr_proveedor;
@@ -19,12 +19,14 @@ namespace MesonURPWEB
         //----------------------------
         DTO_Tipo_Documento dto_tipo_documento;
         CTR_Tipo_Documento ctr_tipo_documento;
+        int i;
         protected void Page_Load(object sender, EventArgs e)
         {
+            i = (int)Session["id"];
+            ctr_proveedor = new CTR_Proveedor();
             if (!IsPostBack)
-            {
-                int i = (int)Session["id"];
-                ctr_proveedor = new CTR_Proveedor();
+            {               
+                
                 dto_proveedor = ctr_proveedor.Consultar_Proveedor(i);
                 txtRazonSocial.Text = dto_proveedor.P_RazonSocial;
                 txtNumeroDoc.Text = dto_proveedor.P_NumeroDocumento;
@@ -41,6 +43,14 @@ namespace MesonURPWEB
                 dto_tipo_documento = ctr_tipo_documento.Consultar_Tipo_Documento_ID(dto_proveedor.TD_idTipoDocumento);
                 txtTipo.Text = dto_tipo_documento.TD_NombreTipoDocumento;
             }
+        }
+
+
+
+        protected void btnEliminarProveedor_Click(object sender, EventArgs e)
+        {
+            ctr_proveedor.Eliminar_Proveedor(i);
+            Response.Redirect("GestionarProveedor.aspx");
         }
     }
 }

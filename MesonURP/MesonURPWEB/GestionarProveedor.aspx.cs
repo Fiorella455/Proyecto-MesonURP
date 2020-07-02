@@ -46,5 +46,17 @@ namespace MesonURPWEB
                 Response.Redirect("EliminarProveedor.aspx");
             }
         }
+
+        protected void GridViewProveedor_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if(e.Row.RowType==DataControlRowType.DataRow)
+            {
+                string estado = e.Row.Cells[8].Text.ToString();
+                if(estado=="Activo")
+                {
+                    e.Row.Cells[11].Controls.Clear();
+                }
+            }
+        }
     }
 }

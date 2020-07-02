@@ -35,7 +35,7 @@ namespace DAO
         public DataSet Consultar_Estados_Proveedor()
         {
             conexion.Open();
-            SqlCommand comando = new SqlCommand("SP_Consultar_Estados_Proveedor", conexion);
+            SqlCommand comando = new SqlCommand("SP_Consultar_Estado_Proveedor", conexion);
             comando.CommandType = CommandType.StoredProcedure;
             comando.ExecuteNonQuery();
             DataSet ds = new DataSet();

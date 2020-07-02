@@ -21,7 +21,7 @@
                                     </div>
                                     <div class="table-wrapper-scroll-y">
                                          <asp:GridView ID="GridViewProveedor" allowpaging="True" runat="server" emptydatatext="No hay información disponible." AutoGenerateColumns="false"
-                                             CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None" DataKeyNames="P_idProveedor"   OnRowCommand="GridViewProveedor_RowCommand">
+                                             CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None" DataKeyNames="P_idProveedor"   OnRowCommand="GridViewProveedor_RowCommand" OnRowDataBound="GridViewProveedor_RowDataBound">
                                              <Columns>
                                                 <%--<asp:BoundField HeaderText="ID Proveedor"/>--%>
                                                  <asp:TemplateField Visible="false">

@@ -21,6 +21,15 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label for="selector1" class="col-sm-2 control-label">Nombre del Contacto</label>
+                        <div class="col-sm-8">
+                            <asp:TextBox ID="txtNombre" placeholder="Ingrese el nombre del contacto" runat="server" CssClass="form-control1" onkeypress="return lettersOnly(event);"/>
+                            <asp:RequiredFieldValidator ID="validationProveedorOC" runat="server" ControlToValidate="txtNombre" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirProveedor" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Tipo de Documento</label>
                         <div class="col-sm-8">
                             <asp:DropDownList runat="server" CssClass="form-control1" AutoPostBack="false" ID="DdlTipoDocumento" >
@@ -41,14 +50,7 @@
                             <asp:RequiredFieldValidator ID="validationDir" runat="server" ControlToValidate="txtDireccion" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirProveedor" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="selector1" class="col-sm-2 control-label">Nombre del Contacto</label>
-                        <div class="col-sm-8">
-                            <asp:TextBox ID="txtNombre" placeholder="Ingrese el nombre del contacto" runat="server" CssClass="form-control1" onkeypress="return lettersOnly(event);"/>
-                            <asp:RequiredFieldValidator ID="validationProveedorOC" runat="server" ControlToValidate="txtNombre" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirProveedor" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 
-                        </div>
-                    </div>
                     <div class="form-group">
                           <label for="selector1" class="col-sm-2 control-label">Teléfono del Contacto</label>
                           <div class="col-sm-8">

@@ -208,6 +208,7 @@
     <Content Include="css\owl.carousel.css" />
     <Content Include="css\style1.css" />
     <Content Include="Dashboard.aspx" />
+    <Content Include="EliminarProveedor.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="GestionarOC.aspx" />
@@ -345,6 +346,13 @@
     </Compile>
     <Compile Include="ConsultarProveedor.aspx.designer.cs">
       <DependentUpon>ConsultarProveedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EliminarProveedor.aspx.cs">
+      <DependentUpon>EliminarProveedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EliminarProveedor.aspx.designer.cs">
+      <DependentUpon>EliminarProveedor.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionarProveedor.aspx.cs">
       <DependentUpon>GestionarProveedor.aspx</DependentUpon>
