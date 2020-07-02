@@ -44,10 +44,10 @@ namespace CTR
             return objDAO.consultarInsumo1(I_idInsumo);
         }
 
-        public DataTable consultarInsumo1(int I_idInsumo)
-        {
-            return objDAO.consultarInsumo1(I_idInsumo);
-        }
+        //public DataTable consultarInsumo1(int I_idInsumo)
+        //{
+        //    return objDAO.consultarInsumo1(I_idInsumo);
+        //}
 
         public void eliminarInsumo(int I_idInsumo)
         {

@@ -201,10 +201,10 @@
                                             <asp:BoundField DataField="I_CantidadTotal" HeaderText="Cantidad Total" />
                                             <asp:BoundField DataField="M_NombreMedida" HeaderText="Unidad de Medida" />
                                             <asp:BoundField DataField="EI_NombreEstadoInsumo" HeaderText="Estado" />
-                                            <asp:TemplateField HeaderText="Accion">
+                                            <asp:TemplateField HeaderText="Editar">
                                                 <ItemTemplate>
                                                     <asp:Button ID="btnSelectItem" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-solicitar" runat="server" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
-                                                        CommandName="selectItem" Text="Actualizar" />
+                                                        CommandName="selectItem" Text="Editar" />
                                                 </ItemTemplate>
                                             </asp:TemplateField>
                                             <asp:TemplateField HeaderText="Detalle">

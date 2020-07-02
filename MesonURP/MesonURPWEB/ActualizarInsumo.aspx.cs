@@ -37,8 +37,8 @@ namespace MesonURPWEB
             {
                 DataRow filaP = dtParametros.Rows[0];
                 txtnombreInsumo.Text = Convert.ToString(filaP[1]);
-                txtstockMax.Text = Convert.ToString(filaP[2]);
-                txtstockMin.Text = Convert.ToString(filaP[3]);
+                txtstockMin.Text = Convert.ToString(filaP[2]);
+                txtstockMax.Text = Convert.ToString(filaP[3]);
                 txtPrecio.Text = Convert.ToString(filaP[4]);
                 txtcant.Text = Convert.ToString(filaP[5]);
                 txtfechaV.Text = Convert.ToString(filaP[6]);
@@ -52,18 +52,29 @@ namespace MesonURPWEB
         {
             if (rfvnombreI.IsValid && rfvstockMax.IsValid && rfvstockMin.IsValid && rfvcantT.IsValid && rfvprecioU.IsValid)
             {
-                _Di.IdInsumo = Convert.ToInt32(txt1.Text);
-                _Di.NombreInsumo = txtnombreInsumo.Text;
-                _Di.StockMax = Convert.ToDecimal(txtstockMax.Text);
-                _Di.StockMin = Convert.ToDecimal(txtstockMin.Text);
-                _Di.PrecioUnitario = Convert.ToDecimal(txtPrecio.Text);
-                _Di.CantidadTotal = Convert.ToInt32(txtcant.Text);
-                _Di.FechaVencimiento = txtfechaV.Text;
-                _Di.Idcategoria = Convert.ToInt32(ddlCategorias.SelectedValue);
-                _Di.IdEstadoInsumo = Convert.ToInt32(ddlEstado.SelectedValue);
-                _Di.Medida = ddlMedida.Text;
-                _Ci.ActualizarInsumo(_Di);
-                ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('El insumo fue actualizado correctamente');window.location='GestionarInsumo.aspx';", true);
+                int a = 0;
+                if (Convert.ToDecimal(txtstockMax.Text) < Convert.ToDecimal(txtstockMin.Text) || Convert.ToDecimal(txtstockMax.Text) == Convert.ToDecimal(txtstockMin.Text))
+                {
+                    ClientScript.RegisterStartupScript(
+                    this.GetType(), "myalert", "alert('" + "Debe digitar un número mayor al stock mínimo  " + txtstockMin.Text + "');", true);
+
+                    a = 1;
+                }
+                if (a == 0)
+                {
+                    _Di.IdInsumo = Convert.ToInt16(txt1.Text);
+                    _Di.NombreInsumo = txtnombreInsumo.Text;
+                    _Di.StockMax = Convert.ToDecimal(txtstockMax.Text);
+                    _Di.StockMin = Convert.ToDecimal(txtstockMin.Text);
+                    _Di.PrecioUnitario = Convert.ToDecimal(txtPrecio.Text);
+                    _Di.CantidadTotal = Convert.ToInt16(txtcant.Text);
+                    _Di.FechaVencimiento = txtfechaV.Text;
+                    _Di.Idcategoria = Convert.ToInt16(ddlCategorias.SelectedValue);
+                    _Di.IdEstadoInsumo = Convert.ToInt16(ddlEstado.SelectedValue);
+                    _Di.Medida = ddlMedida.Text;
+                    _Ci.ActualizarInsumo(_Di);
+                    ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('El insumo fue actualizado correctamente');window.location='GestionarInsumo.aspx';", true);
+                }
             }
         }
         protected void btnCancelar_Click(object sender, EventArgs e)

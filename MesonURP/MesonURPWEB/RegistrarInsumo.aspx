@@ -61,7 +61,7 @@
                                               <asp:RequiredFieldValidator ID="rfvmedida" runat="server" ControlToValidate="ddlMedida" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 										</div>
 									<div class="form-group">
-										<label for="focusedinput" class="col-sm-2 control-label">Precio Unitario</label>
+										<label for="focusedinput" class="col-sm-2 control-label">Precio Unitario (S/.)</label>
 										<div class="col-sm-8">
                                             <asp:TextBox ID="txtPrecio" runat="server" CssClass="form-control1"/>
                                             <asp:RegularExpressionValidator ID="revPrecio" runat="server" ErrorMessage="Por favor ingrese número enteros o decimales positivos, por ejemplo: '1,325'" ControlToValidate="txtPrecio" ForeColor="#CC0000" ValidationExpression="[0-9]+(,[0-9]{1,3})?" SetFocusOnError="True" Display="Dynamic"></asp:RegularExpressionValidator>
