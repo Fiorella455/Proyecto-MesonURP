@@ -179,5 +179,33 @@ namespace DAO
                 throw ex;
             }
         }
+        public bool VericarExisteNombreInsumo(DTO_Insumo objIns)
+        {
+            try
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_Verificar_Nombre_Insumo", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@I_NombreInsumo", objIns.NombreInsumo);
+                cmd.ExecuteNonQuery();
+
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                if (count == 0)
+                {
+                    conexion.Close();
+                    return false;
+                }
+                else
+                {
+                    conexion.Close();
+                    return true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

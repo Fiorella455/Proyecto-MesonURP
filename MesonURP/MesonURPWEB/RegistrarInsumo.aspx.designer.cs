@@ -132,6 +132,33 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvprecioU;
 
         /// <summary>
+        /// Control ScriptManager1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+
+        /// <summary>
+        /// Control UpdatePanel1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+
+        /// <summary>
+        /// Control CheckBox1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CheckBox1;
+
+        /// <summary>
         /// Control txtfechaV.
         /// </summary>
         /// <remarks>
@@ -139,15 +166,6 @@ namespace MesonURPWEB
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtfechaV;
-
-        /// <summary>
-        /// Control rfvfechaV.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvfechaV;
 
         /// <summary>
         /// Control ddlCategorias.

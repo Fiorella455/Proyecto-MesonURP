@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
 using CTR;
 using DTO;
 
@@ -27,6 +28,7 @@ namespace MesonURPWEB
                 ListarMedidas();
                 ListarEstados();
             }
+
         }
         public void ListarCategorias()
         {
@@ -54,20 +56,61 @@ namespace MesonURPWEB
         }
         protected void btnRegistrar_Click(object sender, EventArgs e)
         {
-            if (rfvnombreI.IsValid && rfvstockMax.IsValid && rfvstockMin.IsValid && rfvcantT.IsValid && rfvprecioU.IsValid && rfvfechaV.IsValid)
+            if (rfvnombreI.IsValid && rfvstockMax.IsValid && rfvstockMin.IsValid && rfvcantT.IsValid && rfvprecioU.IsValid)
             {
+                int a = 0;
                 _Di.NombreInsumo = txtnombreInsumo.Text;
-                _Di.StockMax = Convert.ToInt32(txtstockMax.Text);
-                _Di.StockMin = Convert.ToInt32(txtstockMin.Text);
-                _Di.PrecioUnitario = Convert.ToInt32(txtPrecio.Text);
-                _Di.CantidadTotal = Convert.ToInt32(txtcant.Text);
-                _Di.FechaVencimiento = Convert.ToDateTime(txtfechaV.Text);
-                _Di.Idcategoria = Convert.ToInt32(ddlCategorias.SelectedValue);
-                _Di.IdEstadoInsumo = Convert.ToInt32(ddlEstado.SelectedValue);
-                _Di.Medida = ddlMedida.Text;
-                _Ci.RegistrarInsumo(_Di);
-                ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('El insumo fue registrado correctamente');window.location='GestionarInsumo.aspx';", true);
+                bool vi = _Ci.VericarExisteInsumo(_Di);
+                if (vi)
+                {
+                    ClientScript.RegisterStartupScript(
+                    this.GetType(), "myalert", "alert('" + "Ya existe un insumo con el nombre  " + txtnombreInsumo.Text + "');", true);
+
+                    a = 1;
+                }
+                if(Convert.ToDecimal(txtstockMax.Text) < Convert.ToDecimal(txtstockMin.Text) || Convert.ToDecimal(txtstockMax.Text) == Convert.ToDecimal(txtstockMin.Text))
+                {
+                    ClientScript.RegisterStartupScript(
+                    this.GetType(), "myalert", "alert('" + "Debe digitar un número mayor al stock mínimo  " + txtstockMin.Text + "');", true);
+
+                    a = 1;
+                }
+                if (a == 0)
+                {
+                    _Di.NombreInsumo = txtnombreInsumo.Text;
+                    _Di.StockMax = Convert.ToDecimal(txtstockMax.Text);
+                    _Di.StockMin = Convert.ToDecimal(txtstockMin.Text);
+                    _Di.PrecioUnitario = Convert.ToDecimal(txtPrecio.Text);
+                    _Di.CantidadTotal = Convert.ToInt32(txtcant.Text);
+                    if(txtfechaV.Text == "")
+                    {
+                        _Di.FechaVencimiento = "";
+                    }else
+                    {
+                        _Di.FechaVencimiento = txtfechaV.Text;
+                    }
+                    _Di.Idcategoria = Convert.ToInt32(ddlCategorias.SelectedValue);
+                    _Di.IdEstadoInsumo = Convert.ToInt32(ddlEstado.SelectedValue);
+                    _Di.Medida = ddlMedida.Text;
+                    _Ci.RegistrarInsumo(_Di);
+                    ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('El insumo fue registrado correctamente');window.location='GestionarInsumo.aspx';", true);
+                }
+                
             }
+        }
+        protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            
+            if (CheckBox1.Checked)
+            {
+                txtfechaV.Visible = true;
+            }
+            else
+            {
+                txtfechaV.Visible = false;
+                
+            }
+
         }
     }
 }

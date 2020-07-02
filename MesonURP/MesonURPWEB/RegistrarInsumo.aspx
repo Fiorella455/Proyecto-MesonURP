@@ -14,7 +14,7 @@
                     <!-- start content -->
                     <div class="grids">
                         <div class="progressbar-heading grids-heading title-flex">
-                            <h2 class="tittle-margin5">Registrar Ingreso</h2>                            
+                            <h2 class="tittle-margin5">Registrar Insumo</h2>                            
                         </div>                                           
                     </div>
                     <div class="forms">
@@ -64,13 +64,39 @@
                                             <asp:RequiredFieldValidator ID="rfvprecioU" runat="server" ControlToValidate="txtPrecio" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 										</div>
 									</div>
-                                    <div class="form-group">
+                                   <%-- <div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">Fecha de Vencimiento</label>
 										<div class="col-sm-8">
                                             <asp:TextBox ID="txtfechaV" runat="server" TextMode="Date" CssClass="form-control1" />
 										    <asp:RequiredFieldValidator ID="rfvfechaV" runat="server" ControlToValidate="txtfechaV" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                                         </div>
-									</div>                        
+									</div> --%>        
+									<div class="form-group">
+										<%--<input name="chec" type="checkbox" id="chec" onChange="comprobar(this);"/>--%>
+										<%--<asp:CheckBox ID="chec" AutoPostBack="true" Checked="true" OnCheckedChanged="CheckBox1_CheckedChanged" runat="server" onChange="comprobar(this);" />--%>
+										<%--<asp:CheckBox ID="CheckBox1" runat="server" onclick="checkBox1OnClick(this);"/>--%>
+											<%--<label for="chec">Fecha de Vencimiento </label>--%>
+										<%--<div class="col-sm-8">   
+											<asp:TextBox ID="txtfechaV" runat="server" TextMode="Date" CssClass="form-control1" Enabled="false"/>
+											</div>--%>
+									</div>
+                                        <div class="form-group">
+										<asp:ScriptManager ID="ScriptManager1" runat="server">
+                                    </asp:ScriptManager>
+                                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                        <ContentTemplate>
+                                            <asp:CheckBox ID="CheckBox1" runat="server" AutoPostBack="true" OnCheckedChanged="CheckBox1_CheckedChanged" />
+                                            <label for="chec">Fecha de Vencimiento </label>
+                                            <div class="col-sm-8">  
+                                            <asp:TextBox ID="txtfechaV" runat="server" TextMode="Date" CssClass="form-control1" Visible="False"></asp:TextBox>
+                                            </div>
+                                        </ContentTemplate>
+                                        <Triggers>
+                                            <asp:AsyncPostBackTrigger ControlID="CheckBox1" EventName="CheckedChanged" />
+                                        </Triggers>
+                                     </asp:UpdatePanel>
+                                            </div>
+
                                      <div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">Categoría</label>
 										<div class="col-sm-8">                                              
@@ -89,6 +115,7 @@
                                               <asp:RequiredFieldValidator ID="rfvestado" runat="server" ControlToValidate="ddlEstado" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 										</div>
 									</div>
+								   
                                     <hr/>
 								    <p class="center-button">
 						    		    <button type="button" name="sub-1" class="btn btn-primary" runat="server" id="btnRegistrarI" onserverclick="btnRegistrar_Click"  ValidationGroup="registrarInsumo">Registrar</button>
@@ -99,17 +126,37 @@
                  </div>
               </div>
             </div>
-	  <script>
-          function SoloNumeroIntDouble(ev) {
-              var tecla = (document.all) ? ev.keyCode : ev.which;
-              if (tecla == 8 || tecla == 13 || tecla == 0) return true;
-              if (tecla >= 8226 && tecla <= 10175) { return false; }
-              var regEx = /^[0-9\.]+$/i;
-              return regEx.test(String.fromCharCode(tecla));
-          }
-      </script>
-</asp:Content>
         </div>
+		<%--<script>
+            function comprobar(obj) {
+                if (obj.checked) {
+
+					document.getElementById('txtfechaV').style.display = "";
+					document.getElementById('txtfechaV').
+                } else {
+
+                    document.getElementById('txtfechaV').style.display = "none";
+                }
+            }
+        </script>--%>
+	<%--	<asp:CheckBox ID="CheckBox2" runat="server" onclick="checkBox1OnClick(this);" Text=" "></asp:CheckBox>
+<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>--%>
+
+<%--<script type="text/javascript">
+<!--
+    function checkBox1OnClick(elementRef) {
+        var textBoxRef = document.getElementById('<%= txtfechaV.ClientID %>');
+
+        textBoxRef.disabled = (elementRef.checked == true) ? false : true;
+    }
+    function windowOnLoad() {
+        var elementRef = document.getElementById('<%= CheckBox1.ClientID %>');
+        checkBox1OnClick(elementRef);
+    }
+
+    window.onload = windowOnLoad;
+// -->
+</script>--%>
     </form>
 </body>
 </html>

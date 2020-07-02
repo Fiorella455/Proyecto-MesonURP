@@ -58,7 +58,7 @@ namespace MesonURPWEB
                 _Di.StockMin = Convert.ToDecimal(txtstockMin.Text);
                 _Di.PrecioUnitario = Convert.ToDecimal(txtPrecio.Text);
                 _Di.CantidadTotal = Convert.ToInt32(txtcant.Text);
-                _Di.FechaVencimiento = Convert.ToDateTime(txtfechaV.Text);
+                _Di.FechaVencimiento = txtfechaV.Text;
                 _Di.Idcategoria = Convert.ToInt32(ddlCategorias.SelectedValue);
                 _Di.IdEstadoInsumo = Convert.ToInt32(ddlEstado.SelectedValue);
                 _Di.Medida = ddlMedida.Text;
