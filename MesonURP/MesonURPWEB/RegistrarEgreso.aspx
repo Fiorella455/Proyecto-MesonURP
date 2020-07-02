@@ -45,8 +45,8 @@
                         </div>
                     </div>
                      <p class="center-button">
-                        <asp:Button CssClass="btn btn-primary" runat="server" Text="Añadir" ID="btnAñadirInsumo" />
-                        <asp:Button CssClass="btn btn-primary" runat="server" Text="Quitar" />
+                        <asp:Button CssClass="btn btn-primary" runat="server" Text="Añadir" ID="btnAñadirInsumo" OnClick="btnAñadirInsumo_Click"/>
+                        <asp:Button CssClass="btn btn-primary" runat="server" Text="Quitar" OnClick="btnQuitarInsumo_Click" />
                     </p>
                 </div>
                 <div class="panel panel-widget forms-panel">
@@ -58,8 +58,8 @@
                             <asp:GridView ID="gvInsumosEgreso" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false"
                                 CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None">
                                 <Columns>
-                                    <asp:BoundField HeaderText="Nombre insumo" />
                                     <asp:BoundField HeaderText="Fecha" />
+                                    <asp:BoundField HeaderText="Nombre insumo" />
                                     <asp:BoundField HeaderText="Cantidad" />
                                     <asp:BoundField HeaderText="Unidad de Medida" />
                                 </Columns>

@@ -110,6 +110,19 @@ namespace DAO
                 throw ex;
             }
         }
+        public int ID_Movimiento_Max()
+        {
+            int id;
+            conexion.Open();
+            SqlCommand comando = new SqlCommand("SP_Consultar_Movimiento_Mayor", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.Add("@id", SqlDbType.Int).Direction = ParameterDirection.Output;
+            comando.ExecuteNonQuery();
+            conexion.Close();
+            id = Convert.ToInt32(comando.Parameters["@id"].Value);
+            conexion.Close();
+            return id;
+        }
         public void ActualizarStockIngreso(DTO_MovimientoxInsumo objDTO)
         {
             try

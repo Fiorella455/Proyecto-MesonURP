@@ -5,13 +5,26 @@ using System.Text;
 namespace DTO
 {
     public class DTO_MovimientoxInsumo
-    {  
+    {
+        private int idMovxInsumo;
         private int idInsumo;
         private int idMovimiento;
         private int idusuarioMovimiento;
         private DateTime fechaMovimiento;
         private decimal cantidad;
 
+        public int IdMovxInsumo
+        {
+            get
+            {
+                return idMovxInsumo;
+            }
+
+            set
+            {
+                idMovxInsumo = value;
+            }
+        }
         public int IdInsumo
         {
             get
