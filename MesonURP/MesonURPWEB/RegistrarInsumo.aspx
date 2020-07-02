@@ -25,6 +25,7 @@
 										<label for="focusedinput" class="col-sm-2 control-label">Nombre de Insumo</label>
 										<div class="col-sm-8">
                                             <asp:TextBox ID="txtnombreInsumo" runat="server" CssClass="form-control1"/>
+                                            <asp:RegularExpressionValidator ID="revNombreI" runat="server" ErrorMessage="Por favor ingrese solo letras" ControlToValidate="txtnombreInsumo" ForeColor="#CC0000" ValidationExpression="^[a-zA-Z ]*$" SetFocusOnError="True" Display="Dynamic"></asp:RegularExpressionValidator>
                                             <asp:RequiredFieldValidator ID="rfvnombreI" runat="server" ControlToValidate="txtnombreInsumo" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 										</div>
 									</div>
@@ -32,6 +33,7 @@
 										<label for="focusedinput" class="col-sm-2 control-label">Stock Mínimo</label>
 										<div class="col-sm-8">
                                             <asp:TextBox ID="txtstockMin" runat="server" CssClass="form-control1"/>
+                                            <asp:RegularExpressionValidator ID="revStockMin" runat="server" ErrorMessage="Por favor ingrese número enteros o decimales positivos, por ejemplo: '1,325'" ControlToValidate="txtstockMin" ForeColor="#CC0000" ValidationExpression="[0-9]+(,[0-9]{1,3})?" SetFocusOnError="True" Display="Dynamic"></asp:RegularExpressionValidator>
                                             <asp:RequiredFieldValidator ID="rfvstockMin" runat="server" ControlToValidate="txtstockMin" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 										</div>
 									</div>
@@ -39,13 +41,14 @@
 										<label for="focusedinput" class="col-sm-2 control-label">Stock Máximo</label>
 										<div class="col-sm-8">
                                             <asp:TextBox ID="txtstockMax" runat="server" CssClass="form-control1"/>
+                                            <asp:RegularExpressionValidator ID="revStockMax" runat="server" ErrorMessage="Por favor ingrese número enteros o decimales positivos, por ejemplo: '1,325'" ControlToValidate="txtstockMax" ForeColor="#CC0000" ValidationExpression="[0-9]+(,[0-9]{1,3})?" SetFocusOnError="True" Display="Dynamic"></asp:RegularExpressionValidator>
                                             <asp:RequiredFieldValidator ID="rfvstockMax" runat="server" ControlToValidate="txtstockMax" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 										</div>
 									</div>
                                       <div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">Cantidad Total</label>
 										<div class="col-sm-8">
-                                            <asp:TextBox ID="txtcant" runat="server" CssClass="form-control1"/>
+                                            <asp:TextBox ID="txtcant" runat="server" CssClass="form-control1" Text="0"/>
                                             <asp:RequiredFieldValidator ID="rfvcantT" runat="server" ControlToValidate="txtcant" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 										</div>
 									</div>
@@ -61,6 +64,7 @@
 										<label for="focusedinput" class="col-sm-2 control-label">Precio Unitario</label>
 										<div class="col-sm-8">
                                             <asp:TextBox ID="txtPrecio" runat="server" CssClass="form-control1"/>
+                                            <asp:RegularExpressionValidator ID="revPrecio" runat="server" ErrorMessage="Por favor ingrese número enteros o decimales positivos, por ejemplo: '1,325'" ControlToValidate="txtPrecio" ForeColor="#CC0000" ValidationExpression="[0-9]+(,[0-9]{1,3})?" SetFocusOnError="True" Display="Dynamic"></asp:RegularExpressionValidator>
                                             <asp:RequiredFieldValidator ID="rfvprecioU" runat="server" ControlToValidate="txtPrecio" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 										</div>
 									</div>
@@ -71,7 +75,7 @@
 										    <asp:RequiredFieldValidator ID="rfvfechaV" runat="server" ControlToValidate="txtfechaV" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                                         </div>
 									</div> --%>        
-									<div class="form-group">
+									<%--<div class="form-group">--%>
 										<%--<input name="chec" type="checkbox" id="chec" onChange="comprobar(this);"/>--%>
 										<%--<asp:CheckBox ID="chec" AutoPostBack="true" Checked="true" OnCheckedChanged="CheckBox1_CheckedChanged" runat="server" onChange="comprobar(this);" />--%>
 										<%--<asp:CheckBox ID="CheckBox1" runat="server" onclick="checkBox1OnClick(this);"/>--%>
@@ -79,7 +83,7 @@
 										<%--<div class="col-sm-8">   
 											<asp:TextBox ID="txtfechaV" runat="server" TextMode="Date" CssClass="form-control1" Enabled="false"/>
 											</div>--%>
-									</div>
+									<%--</div>--%>
                                         <div class="form-group">
 										<asp:ScriptManager ID="ScriptManager1" runat="server">
                                     </asp:ScriptManager>
@@ -110,7 +114,7 @@
 										<label for="focusedinput" class="col-sm-2 control-label">Estado</label>
 										<div class="col-sm-8">                                            
 											  <asp:DropDownList id="ddlEstado" runat="server" CssClass="form-control1" AutoPostBack="true">
-													<asp:ListItem Text="" Value="">Seleccione un estado</asp:ListItem>
+													<asp:ListItem Text="agotado" Value="2">Agotado</asp:ListItem>
   											  </asp:DropDownList>
                                               <asp:RequiredFieldValidator ID="rfvestado" runat="server" ControlToValidate="ddlEstado" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 										</div>

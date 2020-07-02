@@ -17,8 +17,6 @@ namespace MesonURPWEB
         DTO_Insumo _Di = new DTO_Insumo();
         CTR_Categoria _Ccat = new CTR_Categoria();
         CTR_Medida _Cmed = new CTR_Medida();
-        CTR_EstadoInsumo _CestI = new CTR_EstadoInsumo();
-        //DataSet dtcat, dtmed;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -26,7 +24,9 @@ namespace MesonURPWEB
             {
                 ListarCategorias();
                 ListarMedidas();
-                ListarEstados();
+                //ListarEstados();
+                txtcant.Enabled = false;
+                ddlEstado.Enabled = false;
             }
 
         }
@@ -46,14 +46,14 @@ namespace MesonURPWEB
             ddlMedida.DataBind();
             ddlMedida.Items.Insert(0, "--seleccionar--");
         }
-        public void ListarEstados()
-        {
-            ddlEstado.DataSource = _CestI.LeerEstadoI();
-            ddlEstado.DataTextField = "EI_NombreEstadoInsumo";
-            ddlEstado.DataValueField = "EI_idEstadoInsumo";
-            ddlEstado.DataBind();
-            ddlEstado.Items.Insert(0, "--seleccionar--");
-        }
+        //public void ListarEstados()
+        //{
+        //    ddlEstado.DataSource = _CestI.LeerEstadoI();
+        //    ddlEstado.DataTextField = "EI_NombreEstadoInsumo";
+        //    ddlEstado.DataValueField = "EI_idEstadoInsumo";
+        //    ddlEstado.DataBind();
+        //    ddlEstado.Items.Insert(1, "");
+        //}
         protected void btnRegistrar_Click(object sender, EventArgs e)
         {
             if (rfvnombreI.IsValid && rfvstockMax.IsValid && rfvstockMin.IsValid && rfvcantT.IsValid && rfvprecioU.IsValid)
@@ -81,7 +81,7 @@ namespace MesonURPWEB
                     _Di.StockMax = Convert.ToDecimal(txtstockMax.Text);
                     _Di.StockMin = Convert.ToDecimal(txtstockMin.Text);
                     _Di.PrecioUnitario = Convert.ToDecimal(txtPrecio.Text);
-                    _Di.CantidadTotal = Convert.ToInt32(txtcant.Text);
+                    _Di.CantidadTotal = Convert.ToInt16(txtcant.Text);
                     if(txtfechaV.Text == "")
                     {
                         _Di.FechaVencimiento = "";
@@ -89,8 +89,9 @@ namespace MesonURPWEB
                     {
                         _Di.FechaVencimiento = txtfechaV.Text;
                     }
-                    _Di.Idcategoria = Convert.ToInt32(ddlCategorias.SelectedValue);
-                    _Di.IdEstadoInsumo = Convert.ToInt32(ddlEstado.SelectedValue);
+                    _Di.Idcategoria = Convert.ToInt16(ddlCategorias.SelectedValue);
+                    _Di.IdEstadoInsumo = Convert.ToInt16(ddlEstado.SelectedValue);
+                    _Di.IdEstadoInsumo = Convert.ToInt16(ddlEstado.SelectedValue);
                     _Di.Medida = ddlMedida.Text;
                     _Ci.RegistrarInsumo(_Di);
                     ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('El insumo fue registrado correctamente');window.location='GestionarInsumo.aspx';", true);
