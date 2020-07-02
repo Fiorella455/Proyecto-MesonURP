@@ -19,6 +19,7 @@ namespace MesonURPWEB
         CTR_Medida _Cm = new CTR_Medida();
         string FechaActual = DateTime.Now.ToString("dd/MM/yyyy");
         int movEgreso = 2;
+        static DataTable tin = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
