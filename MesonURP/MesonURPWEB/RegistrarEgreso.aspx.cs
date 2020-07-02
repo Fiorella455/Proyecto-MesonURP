@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace MesonURPWEB
 {
@@ -43,7 +44,7 @@ namespace MesonURPWEB
             _Dmxi.IdUsuarioMovimiento = Convert.ToInt32(Session["codUsuario"]);
             _Dmxi.FechaMovimiento = Convert.ToDateTime(txtFecha.Text);
             //_Dmxi.IdInsumo = Convert.ToInt32(ddlInsumos.SelectedValue);
-            _Di.VR_NombreRecurso = _Ci.Consultar_InsumoxID(Convert.ToInt32(ddlInsumos.SelectedValue));
+            _Di = _Ci.Consultar_InsumoxID(Convert.ToInt32(ddlInsumos.SelectedValue));
             _Dm.M_NombreMedida = _Cm.BuscarMedida(Convert.ToInt32(ddlInsumos.SelectedValue));
             _Dmxi.IdMovimiento = movEgreso;
             pila.Add(_Dmxi);
@@ -68,6 +69,18 @@ namespace MesonURPWEB
             gvInsumosEgreso.DataSource = tin;
             gvInsumosEgreso.DataBind();
 
+        }
+        protected void gvInsumosEgreso_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow row = gvInsumosEgreso.SelectedRow;
+            id = Convert.ToInt32(gvInsumosEgreso.DataKeys[row.RowIndex].Value) + 1;
+        }
+        protected void btnQuitarInsumo_Click(object sender, EventArgs e)
+        {
+            tin.Rows[id].Delete();
+            pila.RemoveAt(id);
+            gvInsumosEgreso.DataSource = tin;
+            gvInsumosEgreso.DataBind();
         }
         protected void btnEgresar_ServerClick(object sender, EventArgs e)
         {
