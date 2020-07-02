@@ -19,8 +19,9 @@ namespace MesonURPWEB
         DTO_Medida _Dm = new DTO_Medida();
         CTR_Medida _Cm = new CTR_Medida();
         string FechaActual = DateTime.Now.ToString("dd/MM/yyyy");
-        int movEgreso = 2;
         static DataTable tin = new DataTable();
+        int id = 0;
+        int movEgreso = 2;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -41,9 +42,8 @@ namespace MesonURPWEB
         {
 
             _Dmxi.Cantidad = Convert.ToDecimal(txtCantidad.Text);
-            _Dmxi.IdUsuarioMovimiento = Convert.ToInt32(Session["codUsuario"]);
             _Dmxi.FechaMovimiento = Convert.ToDateTime(txtFecha.Text);
-            //_Dmxi.IdInsumo = Convert.ToInt32(ddlInsumos.SelectedValue);
+            _Dmxi.IdInsumo = Convert.ToInt32(ddlInsumos.SelectedValue);
             _Di = _Ci.Consultar_InsumoxID(Convert.ToInt32(ddlInsumos.SelectedValue));
             _Dm.M_NombreMedida = _Cm.BuscarMedida(Convert.ToInt32(ddlInsumos.SelectedValue));
             _Dmxi.IdMovimiento = movEgreso;
@@ -85,11 +85,11 @@ namespace MesonURPWEB
         protected void btnEgresar_ServerClick(object sender, EventArgs e)
         {
 
-            _Dmxi.Cantidad = Convert.ToDecimal(txtCantidad.Text);
-            _Dmxi.IdUsuarioMovimiento = Convert.ToInt32( Session["codUsuario"]);
-            _Dmxi.FechaMovimiento = Convert.ToDateTime(txtFecha.Text);
-            _Dmxi.IdInsumo = Convert.ToInt32(ddlInsumos.SelectedValue);
-            _Dmxi.IdMovimiento = movEgreso;
+            ////_Dmxi.Cantidad = Convert.ToDecimal(txtCantidad.Text);
+            //_Dmxi.IdUsuarioMovimiento = Convert.ToInt32( Session["codUsuario"]);
+            ////_Dmxi.FechaMovimiento = Convert.ToDateTime(txtFecha.Text);
+            //_Dmxi.IdInsumo = Convert.ToInt32(ddlInsumos.SelectedValue);
+            //_Dmxi.IdMovimiento = movEgreso;
 
             txtOculto.Text = _Cmxi.VerificarStockMin(_Dmxi.IdInsumo);
 
@@ -104,13 +104,14 @@ namespace MesonURPWEB
                 {
                     pila[pila.Count - 1].IdMovxInsumo = _Cmxi.ID_MAX();
                     _Cmxi.RegistrarMovimientoxInsumo(pila[pila.Count - 1]);
+                    _Cmxi.UpdateStockEgreso(pila[pila.Count - 1]);
                     pila.RemoveAt(pila.Count - 1);
                 }
                 tin.Clear();
                 //_Cmxi.RegistrarMovimientoxInsumo(_Dmxi);
-                _Cmxi.UpdateStockEgreso(_Dmxi);
+                //_Cmxi.UpdateStockEgreso(_Dmxi);
                 //ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "alert", "alert('" + "La cantidad de insumos no es permitida" + "');", true);
-                return;
+                //return;
             }
         }
         protected void Selection_Change(Object sender, EventArgs e)
