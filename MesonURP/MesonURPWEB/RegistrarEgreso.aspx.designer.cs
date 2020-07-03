@@ -96,13 +96,13 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.Button btnAñadirInsumo;
 
         /// <summary>
-        /// Control GridViewAñadirOC.
+        /// Control gvInsumosEgreso.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewAñadirOC;
+        protected global::System.Web.UI.WebControls.GridView gvInsumosEgreso;
 
         /// <summary>
         /// Control panelEgreso.
