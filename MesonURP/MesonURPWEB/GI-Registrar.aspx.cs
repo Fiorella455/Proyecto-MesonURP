@@ -69,7 +69,7 @@ namespace MesonURPWEB
 
                     a = 1;
                 }
-                if(Convert.ToDecimal(txtstockMax.Text) < Convert.ToDecimal(txtstockMin.Text) || Convert.ToDecimal(txtstockMax.Text) == Convert.ToDecimal(txtstockMin.Text))
+                if (Convert.ToDecimal(txtstockMax.Text) < Convert.ToDecimal(txtstockMin.Text) || Convert.ToDecimal(txtstockMax.Text) == Convert.ToDecimal(txtstockMin.Text))
                 {
                     ClientScript.RegisterStartupScript(
                     this.GetType(), "myalert", "alert('" + "Debe digitar un número mayor al stock mínimo  " + txtstockMin.Text + "');", true);
@@ -83,25 +83,26 @@ namespace MesonURPWEB
                     _Di.DR_StockMinimo = Convert.ToDecimal(txtstockMin.Text);
                     _Di.DR_PrecioUnitario = Convert.ToDecimal(txtPrecio.Text);
                     _Di.DR_CantidadTotal = Convert.ToInt16(txtcant.Text);
-                    if(txtfechaV.Text == "")
+                    if (txtfechaV.Text == "")
                     {
                         _Di.FechaVencimiento = "";
-                    }else
+                    }
+                    else
                     {
                         _Di.FechaVencimiento = txtfechaV.Text;
                     }
                     _Di.FK_IC_Categoria = Convert.ToInt16(ddlCategorias.SelectedValue);
-                    _Di.FK_IER_EstadoRecurso = Convert.ToInt16(ddlEstado.SelectedValue);        
+                    _Di.FK_IER_EstadoRecurso = Convert.ToInt16(ddlEstado.SelectedValue);
                     _Di.FK_IM_Medida = Convert.ToInt16(ddlMedida.SelectedValue);
                     _Ci.RegistrarInsumo(_Di);
                     ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('El insumo fue registrado correctamente');window.location='GestionarInsumo.aspx';", true);
                 }
-                
+
             }
         }
         protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
-            
+
             if (CheckBox1.Checked)
             {
                 txtfechaV.Visible = true;
@@ -109,7 +110,7 @@ namespace MesonURPWEB
             else
             {
                 txtfechaV.Visible = false;
-                
+
             }
 
         }

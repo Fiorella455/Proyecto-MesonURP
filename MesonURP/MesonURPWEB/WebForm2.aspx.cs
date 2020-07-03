@@ -121,7 +121,7 @@ namespace MesonURPWEB
         protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
 
-            if (CheckBox1.Checked && txtfechaV.Text=="")
+            if (CheckBox1.Checked && txtfechaV.Text == "")
             {
                 txtfechaV.Visible = true;
             }

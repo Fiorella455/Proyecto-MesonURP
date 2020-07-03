@@ -16,6 +16,18 @@ namespace DAO
             conexion = new SqlConnection(ConexionBD.CadenaConexion); 
 
         }
+        public DataSet selectCategorias()
+        {
+            conexion.Open();
+            SqlCommand cmd = new SqlCommand("SP_Select_Categoria", conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.ExecuteNonQuery();
+            DataSet dt = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            conexion.Close();
+            return dt;
+        }
         public void DAO_Registrar_Categoria(DTO_Categoria dto_categoria)
         {
             
