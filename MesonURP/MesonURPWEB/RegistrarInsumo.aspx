@@ -45,7 +45,7 @@
                                             <asp:RequiredFieldValidator ID="rfvstockMax" runat="server" ControlToValidate="txtstockMax" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 										</div>
 									</div>
-                                      <div class="form-group">
+                                    <div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">Cantidad Total</label>
 										<div class="col-sm-8">
                                             <asp:TextBox ID="txtcant" runat="server" CssClass="form-control1" Text="0"/>
@@ -60,6 +60,7 @@
   											  </asp:DropDownList>
                                               <asp:RequiredFieldValidator ID="rfvmedida" runat="server" ControlToValidate="ddlMedida" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 										</div>
+                                    </div>
 									<div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">Precio Unitario (S/.)</label>
 										<div class="col-sm-8">
@@ -85,20 +86,20 @@
 											</div>--%>
 									<%--</div>--%>
                                         <div class="form-group">
-										<asp:ScriptManager ID="ScriptManager1" runat="server">
-                                    </asp:ScriptManager>
-                                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                                        <ContentTemplate>
+										<%--<asp:ScriptManager ID="ScriptManager1" runat="server">
+                                    </asp:ScriptManager>--%>
+                                    <%--<asp:UpdatePanel ID="UpdatePanel1" runat="server">--%>
+                                        <%--<ContentTemplate>--%>
                                             <asp:CheckBox ID="CheckBox1" runat="server" AutoPostBack="true" OnCheckedChanged="CheckBox1_CheckedChanged" />
                                             <label for="chec">Fecha de Vencimiento </label>
                                             <div class="col-sm-8">  
                                             <asp:TextBox ID="txtfechaV" runat="server" TextMode="Date" CssClass="form-control1" Visible="False"></asp:TextBox>
                                             </div>
-                                        </ContentTemplate>
-                                        <Triggers>
+                                        <%--</ContentTemplate>--%>
+                                       <%-- <Triggers>
                                             <asp:AsyncPostBackTrigger ControlID="CheckBox1" EventName="CheckedChanged" />
-                                        </Triggers>
-                                     </asp:UpdatePanel>
+                                        </Triggers>--%>
+                                     <%--</asp:UpdatePanel>--%>
                                             </div>
 
                                      <div class="form-group">
@@ -110,7 +111,7 @@
                                               <asp:RequiredFieldValidator ID="rfvcategoria" runat="server" ControlToValidate="ddlCategorias" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 										</div>
 									</div>
-                                     <div class="form-group">
+                                    <div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">Estado</label>
 										<div class="col-sm-8">                                            
 											  <asp:DropDownList id="ddlEstado" runat="server" CssClass="form-control1" AutoPostBack="true">
@@ -130,7 +131,6 @@
                  </div>
               </div>
             </div>
-        </div>
 		<%--<script>
             function comprobar(obj) {
                 if (obj.checked) {

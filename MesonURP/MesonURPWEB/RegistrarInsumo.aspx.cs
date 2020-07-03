@@ -85,10 +85,10 @@ namespace MesonURPWEB
                     _Di.DR_CantidadTotal = Convert.ToInt16(txtcant.Text);
                     if(txtfechaV.Text == "")
                     {
-                        _Di.FechaVencimiento = "";
+                        _Di.I_FechaVencimiento = "";
                     }else
                     {
-                        _Di.FechaVencimiento = txtfechaV.Text;
+                        _Di.I_FechaVencimiento = txtfechaV.Text;
                     }
                     _Di.FK_IC_Categoria = Convert.ToInt16(ddlCategorias.SelectedValue);
                     _Di.FK_IER_EstadoRecurso = Convert.ToInt16(ddlEstado.SelectedValue);        

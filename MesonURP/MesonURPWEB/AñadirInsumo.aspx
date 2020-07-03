@@ -48,7 +48,7 @@
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Cantidad Total</label>
                         <div class="col-sm-8">
-                            <asp:TextBox ID="txtcant" placeholder="Ingrese la cantidad total" runat="server" CssClass="form-control1" onkeypress="return SoloNumeroIntDouble(event);" />
+                            <asp:TextBox ID="txtcant" placeholder="Ingrese la cantidad total" runat="server" CssClass="form-control1" Text="0"/>
                             <asp:RequiredFieldValidator ID="rfvcantT" runat="server" ControlToValidate="txtcant" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                         <label for="selector1" class="col-sm-2 control-label">Unidad de Medida</label>
                         <div class="col-sm-8">
                             <asp:DropDownList runat="server" CssClass="form-control1" ID="ddlMedida" AutoPostBack="true"></asp:DropDownList>
-                            <asp:RequiredFieldValidator ID="rfvmedida" runat="server" ControlToValidate="txtUnidadMedida" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="rfvmedida" runat="server" ControlToValidate="ddlMedida" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group">
@@ -68,20 +68,19 @@
                         </div>
                     </div>
                     <div class="form-group">
-										<asp:ScriptManager ID="ScriptManager1" runat="server">
+					<%--					<asp:ScriptManager ID="ScriptManager1" runat="server">
                     </asp:ScriptManager>
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                       <ContentTemplate>
-                            <asp:CheckBox ID="CheckBox1" runat="server" AutoPostBack="true" OnCheckedChanged="CheckBox1_CheckedChanged" />
-                            <label for="chec">Fecha de Vencimiento </label>
-                       <div class="col-sm-8">  
+                       <ContentTemplate>--%>
+                            <asp:CheckBox ID="CheckBox1" runat="server" AutoPostBack="true" OnCheckedChanged="CheckBox1_CheckedChanged" Visible="False" />
+                                <div class="col-sm-8">  
                             <asp:TextBox ID="txtfechaV" runat="server" TextMode="Date" CssClass="form-control1" Visible="False"></asp:TextBox>
                        </div>
-                       </ContentTemplate>
+                      <%-- </ContentTemplate>
                             <Triggers>
                                <asp:AsyncPostBackTrigger ControlID="CheckBox1" EventName="CheckedChanged" />
                             </Triggers>
-                    </asp:UpdatePanel>  
+                    </asp:UpdatePanel>  --%>
                     </div>
                     <div class="form-group">
                         <%--<label for="focusedinput" class="col-sm-2 control-label">Estado</label>--%>

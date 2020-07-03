@@ -12,7 +12,8 @@ namespace CTR
         {
             dao_insumo = new DAO_Insumo();
         }
-        public DataSet SelectInsumosOC() {
+        public DataSet SelectInsumosOC()
+        {
             return dao_insumo.CargarInsumosOC();
         }
         public string SelectPrecioUnitario(int idInsumo)

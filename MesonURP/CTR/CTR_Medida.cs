@@ -23,5 +23,9 @@ namespace CTR
         //{
         //    return dao_medida.Consultar_MedidaxInsumo(i);
         //}
+        public DataSet LeerMedidas()
+        {
+            return dao_medida.selectMedidas();
+        }
     }
 }

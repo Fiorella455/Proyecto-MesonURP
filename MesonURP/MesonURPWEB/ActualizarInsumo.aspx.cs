@@ -1,12 +1,12 @@
-﻿using CTR;
-using DTO;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using CTR;
+using DTO;
 
 namespace MesonURPWEB
 {
@@ -25,6 +25,8 @@ namespace MesonURPWEB
                 ListarCategorias();
                 ListarMedidas();
                 ListarEstados();
+                ddlEstado.Enabled = false;
+                ddlEstado.Visible = false;
             }
         }
         public void CargarDatos()
@@ -66,6 +68,20 @@ namespace MesonURPWEB
 
                     a = 1;
                 }
+                if (Convert.ToDecimal(txtstockMax.Text) <= Convert.ToDecimal(txtcant.Text))
+                {
+                    ClientScript.RegisterStartupScript(
+                    this.GetType(), "myalert", "alert('" + "Debe digitar un intervalo adecuado de Stock Máximo para  " + txtcant.Text + "');", true);
+
+                    a = 1;
+                }
+                if (Convert.ToDecimal(txtstockMin.Text) >= Convert.ToDecimal(txtcant.Text))
+                {
+                    ClientScript.RegisterStartupScript(
+                    this.GetType(), "myalert", "alert('" + "Debe digitar un intervalo adecuado de Stock Mínimo para  " + txtcant.Text + "');", true);
+
+                    a = 1;
+                }
                 if (a == 0)
                 {
                     _Di.PK_IR_Recurso = Convert.ToInt16(txt1.Text);
@@ -76,11 +92,11 @@ namespace MesonURPWEB
                     _Di.DR_CantidadTotal = Convert.ToDecimal(txtcant.Text);
                     if (txtfechaV.Text == "")
                     {
-                        _Di.FechaVencimiento = "";
+                        _Di.I_FechaVencimiento = "";
                     }
                     else
                     {
-                        _Di.FechaVencimiento = txtfechaV.Text;
+                        _Di.I_FechaVencimiento = txtfechaV.Text;
                     }
                     _Di.FK_IC_Categoria = Convert.ToInt16(ddlCategorias.SelectedValue);
                     _Di.FK_IER_EstadoRecurso = Convert.ToInt16(ddlEstado.SelectedValue);

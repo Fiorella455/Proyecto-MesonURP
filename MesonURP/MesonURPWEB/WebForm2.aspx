@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ActualizarInsumo.aspx.cs" Inherits="MesonURPWEB.ActualizarInsumo" %>
+﻿<%--<%--<%--<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ActualizarInsumo.aspx.cs" Inherits="MesonURPWEB.ActualizarInsumo" %>
 
 <!DOCTYPE html>
 
@@ -67,7 +67,7 @@
 										    <asp:RequiredFieldValidator ID="rfvfechaV" runat="server" ControlToValidate="txtfechaV" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                                         </div>
 									</div>  --%>         
-										 <div class="form-group">
+									<%--	 <div class="form-group">
 										<asp:ScriptManager ID="ScriptManager1" runat="server">
                                     </asp:ScriptManager>
                                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -113,4 +113,4 @@
                        
     </form>
 </body>
-</html>
+</html>--%>--%>--%>--%>

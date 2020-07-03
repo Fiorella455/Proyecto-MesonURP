@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RegistrarInsumo.aspx.cs" Inherits="MesonURPWEB.RegistrarInsumo" %>
+﻿<%--<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RegistrarInsumo.aspx.cs" Inherits="MesonURPWEB.RegistrarInsumo" %>
 
 <!DOCTYPE html>
 
@@ -84,7 +84,7 @@
 											<asp:TextBox ID="txtfechaV" runat="server" TextMode="Date" CssClass="form-control1" Enabled="false"/>
 											</div>--%>
 									<%--</div>--%>
-                                        <div class="form-group">
+                          <%--              <div class="form-group">
 										<asp:ScriptManager ID="ScriptManager1" runat="server">
                                     </asp:ScriptManager>
                                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -130,7 +130,7 @@
                  </div>
               </div>
             </div>
-        </div>
+        </div>--%>
 		<%--<script>
             function comprobar(obj) {
                 if (obj.checked) {
@@ -163,4 +163,4 @@
 </script>--%>
     </form>
 </body>
-</html>
+</html>--%>
