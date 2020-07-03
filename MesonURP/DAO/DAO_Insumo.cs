@@ -1,16 +1,36 @@
-﻿using DTO;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using System.Data;
+
 using System.Data.SqlClient;
+using DTO;
+using System.Security.Cryptography.X509Certificates;
 
 namespace DAO
 {
     public class DAO_Insumo
     {
         SqlConnection conexion;
+       
         public DAO_Insumo()
         {
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
+        }
+        public DataSet CargarInsumosOC()
+        {
+            try
+            {
+                SqlDataAdapter unComando = new SqlDataAdapter("SP_Listar_Insumos_OC", conexion);
+                unComando.SelectCommand.CommandType = CommandType.StoredProcedure;
+                DataSet dSet = new DataSet();
+                unComando.Fill(dSet);
+                return dSet;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         public DataTable SelectInsumo()
         {
@@ -203,6 +223,29 @@ namespace DAO
                     return true;
                 }
 
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public string SelectPrecioUnitario(int IdInsumo)
+        {
+            string precioUnitario = "";
+            try
+            {
+                SqlCommand unComando = new SqlCommand("SP_Listar_PrecioUnitario", conexion);
+                unComando.CommandType = CommandType.StoredProcedure;
+                conexion.Open();
+                unComando.Parameters.AddWithValue("@I_idInsumo", IdInsumo);
+
+                SqlDataReader dReader = unComando.ExecuteReader();
+                if (dReader.Read())
+                {
+                    precioUnitario = dReader["PrecioUnitario"].ToString();
+                }
+                conexion.Close();
+                return precioUnitario;
             }
             catch (Exception ex)
             {

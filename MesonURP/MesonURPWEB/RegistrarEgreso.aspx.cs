@@ -1,11 +1,7 @@
 ﻿using CTR;
 using DTO;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace MesonURPWEB
 {
@@ -13,6 +9,7 @@ namespace MesonURPWEB
     {
         CTR_MovimientoxInsumo _Cmxi = new CTR_MovimientoxInsumo();
         DTO_MovimientoxInsumo _Dmxi = new DTO_MovimientoxInsumo();
+        CTR_Medida _Cm = new CTR_Medida();
         string FechaActual = DateTime.Now.ToString("dd/MM/yyyy");
         int movEgreso = 2;
         protected void Page_Load(object sender, EventArgs e)
@@ -20,8 +17,6 @@ namespace MesonURPWEB
             if (!Page.IsPostBack)
             {
                 ListarInsumosxEgresar();
-                //ListarMedida();
-                Selection_Change(e, e);
             }
             txtFecha.Text = FechaActual;
         }
@@ -37,32 +32,29 @@ namespace MesonURPWEB
         {
 
             _Dmxi.Cantidad = Convert.ToDecimal(txtCantidad.Text);
-            //_Dmxi.UsuarioMovimiento = "Katya";
+            _Dmxi.IdUsuarioMovimiento = Convert.ToInt32( Session["codUsuario"]);
             _Dmxi.FechaMovimiento = Convert.ToDateTime(txtFecha.Text);
             _Dmxi.IdInsumo = Convert.ToInt32(ddlInsumos.SelectedValue);
             _Dmxi.IdMovimiento = movEgreso;
 
             txtOculto.Text = _Cmxi.VerificarStockMin(_Dmxi.IdInsumo);
 
-
             if (Convert.ToDecimal(txtCantidad.Text) > Convert.ToDecimal(txtOculto.Text))
             {
-                ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "alert", "alert('" + "La cantidad de insumos no es permitida" + "');", true);
+                ScriptManager.RegisterClientScriptBlock(this.panelEgreso, this.panelEgreso.GetType(), "alert", "alertaCantidad()", true);
                 return;
             }
             else
             {
                 _Cmxi.RegistrarMovimientoxInsumo(_Dmxi);
                 _Cmxi.UpdateStockEgreso(_Dmxi);
+                //ScriptManager.RegisterClientScriptBlock(this.Page, this.Page.GetType(), "alert", "alert('" + "La cantidad de insumos no es permitida" + "');", true);
+                return;
             }
-
         }
-
-        public void Selection_Change(Object sender, EventArgs e)
+        protected void Selection_Change(Object sender, EventArgs e)
         {
-
-           txtUnidadMedida.Text = _Cmxi.BuscarUnidad(Convert.ToInt32(ddlInsumos.SelectedIndex));
-           // txtUnidadMedida.Text = _Cmxi.BuscarUnidad(4);
+            txtUnidadMedida.Text = _Cm.BuscarMedida(Convert.ToInt32(ddlInsumos.SelectedValue));
         }
     }
 }

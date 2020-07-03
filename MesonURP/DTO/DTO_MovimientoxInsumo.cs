@@ -8,7 +8,7 @@ namespace DTO
     {  
         private int idInsumo;
         private int idMovimiento;
-        private string usuarioMovimiento;
+        private int idusuarioMovimiento;
         private DateTime fechaMovimiento;
         private decimal cantidad;
 
@@ -45,15 +45,15 @@ namespace DTO
                 cantidad = value;
             }
         }
-        public string UsuarioMovimiento
+        public int IdUsuarioMovimiento
         {
             get
             {
-                return usuarioMovimiento;
+                return idusuarioMovimiento;
             }
             set
             {
-                usuarioMovimiento = value;
+                idusuarioMovimiento = value;
             }
         }
         public DateTime FechaMovimiento

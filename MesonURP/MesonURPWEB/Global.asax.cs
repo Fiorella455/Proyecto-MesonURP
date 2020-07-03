@@ -9,7 +9,7 @@ using System.Web.UI;
 
 namespace MesonURPWEB
 {
-    public class Global : System.Web.HttpApplication
+    public  class Global : System.Web.HttpApplication
     {
 
         protected void Application_Start(object sender, EventArgs e)
@@ -23,7 +23,7 @@ namespace MesonURPWEB
             //            CdnDebugPath = "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.js"
             //     });
         }
-
+         
         protected void Session_Start(object sender, EventArgs e)
         {
 
@@ -65,7 +65,15 @@ namespace MesonURPWEB
             routes.MapPageRoute("AñadirOC", "AñadirOC", "~/AñadirOC.aspx", true);
             routes.MapPageRoute("ActualizarOC", "ActualizarOC", "~/ActualizarOC.aspx", true);
             routes.MapPageRoute("ConsultarOC", "ConsultarOC", "~/ConsultarOC.aspx", true);
+            routes.MapPageRoute("GestionarProveedor", "GestionarProveedor", "~/GestionarProveedor.aspx", true);
+            routes.MapPageRoute("AñadirProveedor", "AñadirProveedor", "~/AñadirProveedor.aspx", true);
+            routes.MapPageRoute("ActualizarProveedor", "ActualizarProveedor", "~/ActualizarProveedor.aspx", true);
+            routes.MapPageRoute("ConsultarProveedor", "ConsultarProveedor", "~/ConsultarProveedor.aspx", true);
             routes.MapPageRoute("GestionarInsumo", "GestionarInsumo", "~/GestionarInsumo.aspx", true);
+            routes.MapPageRoute("AñadirInsumo", "AñadirInsumo", "~/AñadirInsumo.aspx", true);
+            routes.MapPageRoute("ActualizarInsumo", "ActualizarInsumo", "~/ActualizarInsumo.aspx", true);
+            routes.MapPageRoute("ConsultarInsumo", "ConsultarInsumo", "~/ConsultarInsumo.aspx", true);
+            routes.MapPageRoute("ConsultarMovimientos", "ConsultarMovimientos", "~/ConsultarMovimientos.aspx", true);
         }
     }
 }

@@ -17,45 +17,46 @@
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">N° Orden</label>
                         <div class="col-sm-8">
-                            <asp:TextBox disabled runat="server" placeholder="Ingrese el número de orden" CssClass="form-control1" />
+                            <asp:TextBox ID="txtidOC" runat="server" CssClass="form-control1"></asp:TextBox>
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <label for="focusedinput" class="col-sm-2 control-label">Tipo de Comprobante</label>
+                        <div class="col-sm-8">
+                            <asp:TextBox ID="txtTipoComprobante" runat="server" CssClass="form-control1"></asp:TextBox>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Fecha de Emisión</label>
                         <div class="col-sm-8">
-                            <asp:TextBox disabled runat="server" TextMode="Date" CssClass="form-control1" />
+                            <asp:TextBox disabled runat="server" CssClass="form-control1" ID="txtFechaEmision" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Fecha de Entrega</label>
                         <div class="col-sm-8">
-                            <asp:TextBox disabled runat="server" TextMode="Date" CssClass="form-control1" />
+                            <asp:TextBox disabled runat="server"  CssClass="form-control1" ID="txtFechaEntrega" />
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="selector1" class="col-sm-2 control-label">Estado</label>
-                        <div class="col-sm-8">
-                            <asp:TextBox disabled runat="server" CssClass="form-control1" />
-                        </div>
-                    </div>
+                   
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Proveedor</label>
                         <div class="col-sm-8">
-                            <asp:TextBox disabled runat="server" CssClass="form-control1" />
+                            <asp:TextBox disabled runat="server" CssClass="form-control1" ID="txtProveedor" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Forma de Pago</label>
                         <div class="col-sm-8">
-                            <asp:TextBox disabled runat="server" CssClass="form-control1" />
+                            <asp:TextBox disabled runat="server" CssClass="form-control1" ID="txtFormaPago" />
                         </div>
                     </div>
-                       <div class="form-group">
+                    <%-- <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Fecha de Pago</label>
                         <div class="col-sm-8">
-                            <asp:TextBox disabled runat="server" CssClass="form-control1" />
+                            <asp:TextBox disabled runat="server" CssClass="form-control1" ID="txtFechaPago" />
                         </div>
-                    </div>
+                    </div>--%>
                       
                     <div class="panel panel-widget forms-panel">
                         <div class="form-grids widget-shadow" data-example-id="basic-forms">
@@ -63,20 +64,20 @@
                                 <h4>Insumos</h4>
                             </div>
                             <div class="table-wrapper-scroll-y my-custom-scrollbar">
-                                <asp:GridView ID="GridViewAñadirOC" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible."
-                                    CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None">
-                                  
+                                <asp:GridView ID="GridViewAñadirOC" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false"
+                                    CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None" PageSize="3"
+                                     DataKeyNames="OC_idOrdenCompra, I_NombreInsumo, OCxI_Cantidad,I_PrecioUnitario,OCxI_PrecioTotal" OnPageIndexChanging="GridViewAñadirOC_PageIndexChanging">                                  
                                     <Columns>
-                                        <asp:BoundField HeaderText="Descripción del Insumo" />
-                                        <asp:BoundField HeaderText="Cantidad" />
-                                        <asp:BoundField HeaderText="Unidad" />
-                                        <asp:BoundField HeaderText="Costo Unitario" />
-                                        <asp:BoundField HeaderText="Total" />
+                                        <asp:BoundField DataField="OC_idOrdenCompra" HeaderText="ID Orden de compra" />
+                                        <asp:BoundField DataField="I_NombreInsumo" HeaderText="Nombre del Insumo" />                                                                        <asp:BoundField DataField="OCxI_Cantidad" HeaderText="Cantidad" />                                                                        <asp:BoundField DataField="OCxI_PrecioTotal" HeaderText="Precio Total" />
                                     </Columns>
                                 </asp:GridView>
                             </div>
                         </div>
-                        <hr />                       
+                        <hr /> 
+                         <p class="center-button">
+                            <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'GestionarProveedor';" class="btn btn-primary" />
+                        </p>
                     </div>
                 </div>
             </div>

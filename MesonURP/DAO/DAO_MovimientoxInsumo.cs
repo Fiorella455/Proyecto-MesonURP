@@ -25,6 +25,7 @@ namespace DAO
                 unComando.Parameters.Add(new SqlParameter("@MxI_FechaMovimiento", objDTO.FechaMovimiento));   
                 unComando.Parameters.Add(new SqlParameter("@I_idInsumo", objDTO.IdInsumo));
                 unComando.Parameters.Add(new SqlParameter("@M_idMovimiento", objDTO.IdMovimiento));
+                unComando.Parameters.Add(new SqlParameter("@U_idUsuario", objDTO.IdUsuarioMovimiento));
                 unComando.ExecuteNonQuery();
                 conexion.Close();
             }
@@ -33,29 +34,7 @@ namespace DAO
                 throw ex;
             }
         }
-        public string SelectMedida(int IdInsumo)
-        {
-            string medida = "";
-            try
-            {
-                SqlCommand unComando = new SqlCommand("SP_Listar_Medida", conexion);
-                unComando.CommandType = CommandType.StoredProcedure;
-                conexion.Open();
-                unComando.Parameters.AddWithValue("@I_idInsumo", IdInsumo);
-
-                SqlDataReader dReader = unComando.ExecuteReader();
-                if (dReader.Read())
-                {
-                    medida = dReader["Medida"].ToString();
-                }
-                conexion.Close();
-                return medida;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+        
         public DataSet CargarInsumoIngreso()
         {
             try
@@ -165,12 +144,12 @@ namespace DAO
                 throw ex;
             }
         }
-        public DataTable ListarMovimientos()
+        public DataTable ConsultarMovimientoxInsumo()
         {
             try
             {
                 DataTable dtable = new DataTable();
-                SqlCommand unComando = new SqlCommand("SP_ListarMovimientos", conexion);
+                SqlCommand unComando = new SqlCommand("SP_ConsultarMovimientosXInsumo", conexion);
                 unComando.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter data = new SqlDataAdapter(unComando);
                 data.Fill(dtable);
@@ -181,13 +160,29 @@ namespace DAO
                 throw ex;
             }
         }
-        public DataTable BuscarMovimientos(string busquedamov)
+        public DataTable BuscarMovimientoxInsumo(string busqueda)
         {
             try
             {
-                SqlDataAdapter unComando = new SqlDataAdapter("SP_BuscarMovimiento", conexion);
+                SqlDataAdapter unComando = new SqlDataAdapter("SP_BuscarMovimientosXInsumo", conexion);
                 unComando.SelectCommand.CommandType = CommandType.StoredProcedure;
-                unComando.SelectCommand.Parameters.AddWithValue("@busquedamov", busquedamov);
+                unComando.SelectCommand.Parameters.AddWithValue("@busqueda", busqueda);
+                DataSet dSet = new DataSet();
+                unComando.Fill(dSet);
+                return dSet.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataTable BuscarMovimientoxInsumoTipo(int tipo)
+        {
+            try
+            {
+                SqlDataAdapter unComando = new SqlDataAdapter("SP_BuscarxTipoMovimientosXInsumo", conexion);
+                unComando.SelectCommand.CommandType = CommandType.StoredProcedure;
+                unComando.SelectCommand.Parameters.AddWithValue("@tipo", tipo);
                 DataSet dSet = new DataSet();
                 unComando.Fill(dSet);
                 return dSet.Tables[0];

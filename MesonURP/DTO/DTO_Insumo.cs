@@ -2,129 +2,25 @@
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace DTO
 {
-   public class DTO_Insumo
+    public class DTO_Insumo
     {
-        private string nombreInsumo;
-        private int idInsumo;
-        private int idCategoria;
-        private decimal cantidadTotal;
-        private string medida;
-        private decimal stockMax;
-        private decimal stockMin;
-        private int idEstadoInsumo;
-        private decimal precioUnitario;
-        private string fechaVencimiento;
-        public string NombreInsumo {
-            get
-            { 
-                return nombreInsumo; 
-            }
-            set
-            {
-                nombreInsumo = value;
-            }
-        }
+        public int PK_IR_Recurso { get; set; }
+        public string VR_NombreRecurso { get; set; }
+        public DateTime DR_FechaIngreso { get; set; }
+        public DateTime DR_FechaSalida { get; set; }
+        public decimal DR_StockMaximo { get; set; }
+        public decimal DR_StockMinimo { get; set; }
+        public decimal DR_PrecioUnitario { get; set; }
+        public decimal DR_CantidadEntrada { get; set; }
+        public decimal DR_CantidadSalida { get; set; }
 
-        public int IdInsumo
-        {
-            get
-            {
-                return idInsumo;
-            }
-            set
-            {
-                idInsumo = value;
-            }
-        }
-
-        public int Idcategoria {
-            get
-            {
-                return idCategoria;
-            }
-            set
-            {
-                idCategoria = value;
-            }
-        }
-        public decimal CantidadTotal
-        {
-            get
-            {
-                return cantidadTotal;
-            }
-            set
-            {
-                cantidadTotal = value;
-            }
-        }
-        public string Medida{
-            get
-            {
-                return medida;
-            }
-            set
-            {
-                medida = value;
-            }
-        }
-        public decimal StockMax
-        {
-            get
-            {
-                return stockMax;
-            }
-            set
-            {
-                stockMax = value;
-            }
-        }
-        public decimal StockMin
-        {
-            get
-            {
-                return stockMin;
-            }
-            set
-            {
-                stockMin = value;
-            }
-        }
-        public int IdEstadoInsumo
-        {
-            get
-            {
-                return idEstadoInsumo;
-            }
-            set
-            {
-                idEstadoInsumo = value;
-            }
-        }
-        public decimal PrecioUnitario
-        {
-            get
-            {
-                return precioUnitario;
-            }
-            set
-            {
-                precioUnitario = value;
-            }
-        }
-        public string FechaVencimiento
-        {
-            get
-            {
-                return fechaVencimiento;
-            }
-            set
-            {
-                fechaVencimiento = value;
-            }
-        }
-
+        public decimal DR_CantidadTotal { get; set; }
+        public int FK_IC_Categoria { get; set; }
+        public int FK_IM_Medida { get; set; }
+        public int FK_IER_EstadoRecurso { get; set; }
     }
 }
+

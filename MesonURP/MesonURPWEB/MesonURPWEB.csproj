@@ -32,6 +32,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <!--<FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+    <LegacyPublishPropertiesPageEnabled>true</LegacyPublishPropertiesPageEnabled>-->
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -184,8 +186,14 @@
   <ItemGroup>
     <Content Include="ActualizarInsumo.aspx" />
     <Content Include="ActualizarOC.aspx" />
+    <Content Include="ActualizarProveedor.aspx" />
+    <Content Include="AñadirInsumo.aspx" />
     <Content Include="AñadirOC.aspx" />
+    <Content Include="AñadirProveedor.aspx" />
+    <Content Include="ConsultarInsumo.aspx" />
+    <Content Include="ConsultarMovimientos.aspx" />
     <Content Include="ConsultarOC.aspx" />
+    <Content Include="ConsultarProveedor.aspx" />
     <Content Include="css\atlas.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\clndr.css" />
@@ -198,11 +206,13 @@
     <Content Include="css\manejarStock.css" />
     <Content Include="css\owl.carousel.css" />
     <Content Include="css\style1.css" />
+    <Content Include="css\sweetalert2.min.css" />
     <Content Include="Dashboard.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="GestionarInsumo.aspx" />
     <Content Include="GestionarOC.aspx" />
+    <Content Include="GestionarProveedor.aspx" />
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
     <Content Include="Home.aspx" />
@@ -287,6 +297,8 @@
     <Content Include="js\serial.js" />
     <Content Include="js\simpleCart.min.js" />
     <Content Include="js\site.js" />
+    <Content Include="js\sweetalert.js" />
+    <Content Include="js\sweetalert2.all.min.js" />
     <Content Include="js\underscore-min.js" />
     <Content Include="ManejarStock.aspx" />
     <Content Include="RegistrarEgreso.aspx" />
@@ -313,9 +325,56 @@
     <Compile Include="ActualizarOC.aspx.designer.cs">
       <DependentUpon>ActualizarOC.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ActualizarProveedor.aspx.cs">
+      <DependentUpon>ActualizarProveedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ActualizarProveedor.aspx.designer.cs">
+      <DependentUpon>ActualizarProveedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AñadirInsumo.aspx.cs">
+      <DependentUpon>AñadirInsumo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AñadirInsumo.aspx.designer.cs">
+      <DependentUpon>AñadirInsumo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AñadirOC.aspx.cs">
       <DependentUpon>AñadirOC.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AñadirProveedor.aspx.cs">
+      <DependentUpon>AñadirProveedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+      <Compile Include="GestionarInsumo.aspx.cs">
+      <DependentUpon>GestionarInsumo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    
+    <Compile Include="AñadirProveedor.aspx.designer.cs">
+      <DependentUpon>AñadirProveedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarInsumo.aspx.cs">
+      <DependentUpon>ConsultarInsumo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarInsumo.aspx.designer.cs">
+      <DependentUpon>ConsultarInsumo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarMovimientos.aspx.cs">
+      <DependentUpon>ConsultarMovimientos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarMovimientos.aspx.designer.cs">
+      <DependentUpon>ConsultarMovimientos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarProveedor.aspx.cs">
+      <DependentUpon>ConsultarProveedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarProveedor.aspx.designer.cs">
+      <DependentUpon>ConsultarProveedor.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionarInsumo.aspx.cs">
       <DependentUpon>GestionarInsumo.aspx</DependentUpon>
@@ -323,6 +382,13 @@
     </Compile>
     <Compile Include="GestionarInsumo.aspx.designer.cs">
       <DependentUpon>GestionarInsumo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionarProveedor.aspx.cs">
+      <DependentUpon>GestionarProveedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionarProveedor.aspx.designer.cs">
+      <DependentUpon>GestionarProveedor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>
