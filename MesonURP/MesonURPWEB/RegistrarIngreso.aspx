@@ -44,10 +44,12 @@
                             <asp:TextBox ID="txtOculto" runat="server" CssClass="form-control1" Visible="false" />
                     </div>
                     </div>
-                    <p class="center-button">
-                        <asp:Button CssClass="btn btn-primary" runat="server" Text="Añadir" ID="btnAñadirInsumo" OnClick="btnAñadirInsumo_Click"/>
-                        <asp:Button CssClass="btn btn-primary" runat="server" Text="Quitar" OnClick="btnQuitarInsumo_Click" />
-                    </p>
+
+                            <p class="center-button">
+                                <asp:Button CssClass="btn btn-primary" runat="server" Text="Añadir" ID="btnAñadirInsumo" OnClick="btnAñadirInsumo_Click"/>
+                                <asp:Button CssClass="btn btn-primary" runat="server" Text="Quitar" OnClick="btnQuitarInsumo_Click" />
+                            </p>
+
                 </div>
 
                 <div class="panel panel-widget forms-panel">
