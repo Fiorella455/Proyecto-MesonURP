@@ -8,7 +8,7 @@ using System.Data;
 using DTO;
 using DAO;
 using CTR;
-
+using System.Windows.Forms;
 
 namespace MesonURPWEB
 {
@@ -74,13 +74,14 @@ namespace MesonURPWEB
             DdlInsumo.DataBind();
             DdlInsumo.Items.Insert(0, "--seleccionar--");
         }
-       
+        
       
 
         protected void GridViewAñadirOC_SelectedIndexChanged(object sender, EventArgs e)
         {
             GridViewRow row = GridViewAñadirOC.SelectedRow;
              id = Convert.ToInt32(GridViewAñadirOC.DataKeys[row.RowIndex].Value)+1;
+             row.BackColor = System.Drawing.Color.LightGray;
         }
 
         protected void btnAñadirInsumo_Click(object sender, EventArgs e)

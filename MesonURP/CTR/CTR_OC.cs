@@ -61,5 +61,9 @@ namespace CTR
         {
             return dao_oc.Leer_OC_Recibido();
         }
+        public DataTable Leer_OCxMes(int i)
+        {
+            return dao_oc.Leer_OCxMes(i);
+        }
     }
 }

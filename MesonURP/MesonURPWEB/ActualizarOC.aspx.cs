@@ -14,7 +14,7 @@ namespace MesonURPWEB
     public partial class ActualizarOC : System.Web.UI.Page
     {
         DTO_OC dto_oc;
-        DTO_OCxInsumo dto_ocxinsumo;
+        DTO_OCxInsumo dto_ocxinsumo= new DTO_OCxInsumo();
         DTO_Medida dto_medida = new DTO_Medida();
         CTR_Medida ctr_medida = new CTR_Medida();
         CTR_OC ctr_oc = new CTR_OC();
@@ -64,12 +64,14 @@ namespace MesonURPWEB
                 txtTotal.Text = dto_oc.OC_TotalCompra.ToString();
                 //-------------------------------------------------------
                 ctr_ocxinsumo = new CTR_OCxInsumo();
-                
                 dt = ctr_ocxinsumo.Leer_InsumoxOC(dto_oc.OC_idOrdenCompra);
                 GridViewEditarOC.DataSource = dt;
                 GridViewEditarOC.DataBind();
+               // AñadirLista();
 
             }
+
+            
         }
         public void listarInsumo()
         {
@@ -84,6 +86,11 @@ namespace MesonURPWEB
             txtPrecioU.Text = ctr_insumo.SelectPrecioUnitario(Convert.ToInt32(DdlInsumo.SelectedValue));
             txtMedida.Text = ctr_medida.BuscarMedida(Convert.ToInt32(DdlInsumo.SelectedValue));
         }
+        protected void GridViewEditarOC_RowEnter()
+        { 
+        
+        
+        }
         protected void btnActualizar_Click(object sender, EventArgs e)
         {
             
@@ -95,15 +102,20 @@ namespace MesonURPWEB
             ctr_oc.Actualizar_OC(dto_oc);
 
             //--------------------------------------------------------------
-            //GridViewRow OCxI = (GridViewRow)((Button)sender).Parent.Parent;
-            //DTO_OCxInsumo OCIAux = new DTO_OCxInsumo();
-            //int i = OCxI.RowIndex;
-            //OCIAux.R_idInsumo = Convert.ToInt32(GridViewEditarOC.Rows[i].Cells[1].Text);
-            //OCIAux.I_idInsumo = Convert.ToInt32(GridViewEditarOC.Rows[i].Cells[2].Text);
-            //OCIAux.OC_idOrdenCompra = Convert.ToInt32(GridViewEditarOC.Rows[i].Cells[3].Text);
-            //OCIAux.OCxI_Cantidad = Convert.ToDecimal(GridViewEditarOC.Rows[i].Cells[4].Text);
-            //OCIAux.OCxI_PrecioTotal = Convert.ToDecimal(GridViewEditarOC.Rows[i].Cells[5].Text);
-            //Session.Add("OCIAux", OCIAux);
+
+            ctr_ocxinsumo.Eliminar_OCxInsumo(dto_oc.OC_idOrdenCompra);
+            
+
+            foreach (GridViewRow row in GridViewEditarOC.Rows)
+            {
+                dto_ocxinsumo.I_idInsumo = Convert.ToInt32(row.Cells[0].Text);
+                dto_ocxinsumo.OC_idOrdenCompra = dto_oc.OC_idOrdenCompra;
+                dto_ocxinsumo.OCxI_Cantidad = Convert.ToDecimal(row.Cells[2].Text);
+                dto_ocxinsumo.OCxI_PrecioTotal = Convert.ToDecimal(row.Cells[3].Text);
+               
+
+                ctr_ocxinsumo.Registrar_OC_Insumo(dto_ocxinsumo);
+            }
 
             Response.Redirect("GestionarOC.aspx");
         }
@@ -126,6 +138,7 @@ namespace MesonURPWEB
 
         protected void btnAñadir_Click(object sender, EventArgs e)
         {
+            AñadirTabla();
             dto_ocxinsumo = new DTO_OCxInsumo();
             dto_ocxinsumo.I_idInsumo = int.Parse(DdlInsumo.SelectedValue);
             DTO_Insumo insumo = ctr_insumo.Consultar_InsumoxID(dto_ocxinsumo.I_idInsumo);
@@ -134,9 +147,25 @@ namespace MesonURPWEB
             dto_ocxinsumo.OCxI_PrecioTotal = dto_ocxinsumo.OCxI_Cantidad * Convert.ToDecimal(insumo.DR_PrecioUnitario);
             suma += dto_ocxinsumo.OCxI_PrecioTotal;
             dto_oc.OC_TotalCompra += Convert.ToDecimal(dto_ocxinsumo.OCxI_PrecioTotal);
-            pila.Add(dto_ocxinsumo);
+           // pila.Add(dto_ocxinsumo);
             txtTotal.Text = suma.ToString();
-         
+           
+            DataRow row = tin.NewRow();
+            row[0] = dto_ocxinsumo.I_idInsumo;
+            row[1] = insumo.VR_NombreRecurso;
+            row[2] = dto_ocxinsumo.OCxI_Cantidad;
+            row[3] = insumo.DR_PrecioUnitario;
+            row[4] = dto_ocxinsumo.OCxI_PrecioTotal;
+
+            tin.Rows.Add(row);
+            
+            GridViewEditarOC.DataSource = tin;
+            GridViewEditarOC.DataBind();
+
+        }
+        public void AñadirTabla()
+        {
+
             if (tin.Columns.Count == 0)
             {
                 tin.Columns.Add("I_idInsumo");
@@ -146,20 +175,20 @@ namespace MesonURPWEB
                 tin.Columns.Add("OCxI_PrecioTotal");
 
             }
-            DataRow row = tin.NewRow();
-            row[0] = dto_ocxinsumo.I_idInsumo;
-            row[1] = insumo.VR_NombreRecurso;
-            row[2] = dto_ocxinsumo.OCxI_Cantidad;
-            row[3] = insumo.DR_PrecioUnitario;
-            row[4] = dto_ocxinsumo.OCxI_PrecioTotal;
 
-            tin.Rows.Add(row);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
 
-            GridViewEditarOC.DataSource = tin;
-            GridViewEditarOC.DataBind();
+                DataRow row = dt.NewRow();
+                row[0] = dt.Rows[i]["I_idInsumo"];
+                row[1] = dt.Rows[i]["I_NombreInsumo"].ToString();
+                row[2] = dt.Rows[i]["OCxI_Cantidad"];
+                row[3] = dt.Rows[i]["I_PrecioUnitario"];
+                row[4] = dt.Rows[i]["OCxI_PrecioTotal"];
 
-
-
+                tin.Rows.Add(row);
+            }
+        
         }
     }
 }

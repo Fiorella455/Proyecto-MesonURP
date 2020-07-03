@@ -20,7 +20,7 @@
                                         <h4>Órdenes de Compra</h4>
                                     </div>
                                     <div class="table-wrapper-scroll-y my-custom-scrollbar">
-                                         <asp:GridView ID="GridViewOC" allowpaging="True" runat="server" emptydatatext="No hay información disponible."  OnRowCommand="GridViewOC_RowCommand" OnRowDataBound="GridViewOC_OnRowDataBound"
+                                         <asp:GridView ID="GridViewOC" allowpaging="True" runat="server" emptydatatext="No hay información disponible."  OnRowCommand="GridViewOC_RowCommand" OnRowDataBound="GridViewOC_OnRowDataBound" 
                                              DataKeyNames="OC_idOrdenCompra,EOC_NombreEstadoOC,OC_TipoComprobante,OC_NumeroComprobante,OC_FormaPago,OC_TotalCompra,OC_FechaEmision,P_idProveedor"   AutoGenerateColumns="False"
                                              CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None">
                                              <Columns>

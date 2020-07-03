@@ -11,7 +11,7 @@ namespace MesonURPWEB
 {
 
 
-    public partial class Prueba
+    public partial class PruebaReporte
     {
 
         /// <summary>
@@ -24,30 +24,12 @@ namespace MesonURPWEB
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// GridViewConsultar control.
+        /// ReportViewer1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewConsultar;
-
-        /// <summary>
-        /// ddlMes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMes;
-
-        /// <summary>
-        /// btnReporte control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnReporte;
+        protected global::Microsoft.Reporting.WebForms.ReportViewer ReportViewer1;
     }
 }

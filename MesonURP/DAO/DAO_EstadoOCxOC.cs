@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using DTO;
 
 
+
 namespace DAO
 {
     public class DAO_EstadoOCxOC
@@ -41,7 +42,42 @@ namespace DAO
             comando.Parameters.AddWithValue("@EOCxOC_UsuarioRegistro", oc.EOCxOC_UsuarioRegistro);
 
             comando.ExecuteNonQuery();
+            if (oc.EOC_idEstadoOC ==5)
+            {
+                // ok...ym as abajo esta el sp 
+                //del idestadooc
+                //CTR_OCxInsumo o = new CTR_OCxInsumo();
+                ////Stack<DTO_OCxInsumo> oci = new Stack<DTO_OCxInsumo>();
+                ////comando = new SqlCommand("SP_Consultar_InsumoxOC", conexion);
+                comando = new SqlCommand("SP_Consultar_InsumoxOC", conexion);
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@OC_idOrdenCompra", oc.OC_idOrdenCompra);
+                comando.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(comando);
+                da.Fill(dt);
+                DTO_OCxInsumo aux = new DTO_OCxInsumo();
+                //DataTable dt = o.Leer_InsumoxOC(oc.OC_idOrdenCompra);
+                int i = 0;
+                while (i < dt.Rows.Count)
+                {
+                    object[] a = dt.Rows[i].ItemArray;
+                    aux.I_idInsumo = Convert.ToInt32(a[1]);
+                    //aux.OCxI_idOCxInsumo = Convert.ToInt32(a[2]);
+                    aux.OC_idOrdenCompra = Convert.ToInt32(a[3]);
+                    aux.OCxI_Cantidad = Convert.ToDecimal(a[4]);
+                    aux.OCxI_PrecioTotal = Convert.ToDecimal(a[5]);//Los indices podrian cambiar dependiendo de como esta el sp
+                    //oci.Push(aux);
+                    comando = new SqlCommand("SP_Actualizar_Insumos_Recibidos", conexion);
+                    comando.CommandType = CommandType.StoredProcedure;
+                    comando.Parameters.AddWithValue("@I_idInsumo", aux.I_idInsumo);
+                    comando.Parameters.AddWithValue("@OCxI_Cantidad", aux.OCxI_Cantidad);
+                    comando.ExecuteNonQuery();
+                    i++;
+                }
+            }
             conexion.Close();
+
         }
 
         public DTO_Estado_OC Consultar_Estado_OCxOC(int i)

@@ -127,9 +127,10 @@
                                 <asp:GridView ID="GridViewEditarOC" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible."
                                   DataKeyName=I_NombreInsumo CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None" AutoGenerateColumns="false" OnSelectedIndexChanged="GridViewEditarOC_SelectedIndexChanged">
                                     <Columns>
+                                        <asp:BoundField HeaderText="N°" DataField="I_idInsumo" />
                                         <asp:BoundField HeaderText="Descripción del Insumo" DataField="I_NombreInsumo" />
                                         <asp:BoundField HeaderText="Cantidad" DataField="OCxI_Cantidad" />
-                                        <asp:BoundField HeaderText="Unidad" DataField="I_idInsumo" />
+                    
                                         <asp:BoundField HeaderText="Costo Unitario" DataField="I_PrecioUnitario" />
                                         <asp:BoundField HeaderText="Total" DataField="OCxI_PrecioTotal" />
                                     </Columns>

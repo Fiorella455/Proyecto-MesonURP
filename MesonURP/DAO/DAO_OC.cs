@@ -205,5 +205,19 @@ namespace DAO
             conexion.Close();
             return dt;
         }
+
+        public DataTable Leer_OCxMes(int i)
+        {
+            conexion.Open();
+            SqlCommand cmd = new SqlCommand("SP_Listar_OCxMes", conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@OC_FechaEmision", i));
+            cmd.ExecuteNonQuery();
+            DataTable dataTable = new DataTable();
+            SqlDataAdapter sqlData = new SqlDataAdapter(cmd);
+            sqlData.Fill(dataTable);
+            conexion.Close();
+            return dataTable;
+        }
     }
 }
