@@ -10,7 +10,7 @@
                 <h2 class="tittle-margin5">Gestionar Insumos</h2>
                 <div class="stock-options">
                     <div class="width-auto margin-5">
-                        <input type="button" class="btn btn-primary" value="Agregar Nuevo Insumo" onclick="window.location.href = 'AñadirInsumo';">
+                        <input type="button" class="btn btn-primary" value="Agregar Nuevo Insumo" onclick="window.location.href = 'AñadirInsumo.aspx';">
                     </div>
                 </div>
             </div>
@@ -22,18 +22,20 @@
 <%--                            holi--%>
                         </div>
                         <div class="table-wrapper-scroll-y">
-                            <asp:GridView ID="GridViewInsumo" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false"
-                                CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None">
+                            <asp:GridView ID="gvInsumos" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false"
+                                CssClass="table table-bordered table-striped mb-0" DataKeyNames="I_idInsumo,I_NombreInsumo,C_NombreCategoria,I_CantidadTotal, M_NombreMedida,EI_NombreEstadoInsumo"
+                                OnPageIndexChanging="gvInsumos_PageIndexChanging" OnRowCommand="gvInsumos_RowCommand" Style="text-align: center" CellPadding="4" GridLines="None">
                                 <Columns>
-                                    <asp:BoundField HeaderText="Nombre" />
-                                    <asp:BoundField HeaderText="Categoría" />
-                                    <asp:BoundField HeaderText="Cantidad Total" />
-                                    <asp:BoundField HeaderText="Unidad de Medida" />
-                                    <asp:BoundField HeaderText="Estado" />
+                                    <asp:BoundField DataField="I_idInsumo" HeaderText="I_idInsumo" Visible="false" />
+                                    <asp:BoundField DataField="I_NombreInsumo" HeaderText="Nombre" />
+                                    <asp:BoundField DataField="C_NombreCategoria" HeaderText="Categoría" />
+                                    <asp:BoundField DataField="I_CantidadTotal" HeaderText="Cantidad Total" />
+                                    <asp:BoundField DataField="M_NombreMedida" HeaderText="Unidad de Medida" />
+                                    <asp:BoundField DataField="EI_NombreEstadoInsumo" HeaderText="Estado" />
                                   
                                     <asp:TemplateField HeaderText="Editar">
                                         <ItemTemplate>
-                                            <asp:Button ID="btnEditarInsumo" class="btn btn-primary" runat="server" CommandName="ActualizarInsumo" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Actualizar" />
+                                            <asp:Button ID="btnEditarInsumo" class="btn btn-primary" runat="server" CommandName="ActualizarInsumo" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Editar" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Ver Detalles">
@@ -56,6 +58,60 @@
         </div>
 
     </div>
+    <!-- Bootstrap Modal Dialog -->
+                <div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <asp:UpdatePanel ID="upModal" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
+                            <ContentTemplate>
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title">
+                                            <asp:Label ID="lblModalTitle" runat="server" Text=""></asp:Label></h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <asp:Label ID="lblModalBody" runat="server" Text=""></asp:Label>
+
+
+                                        <label for="lblnombreInsumo" class="control-label">Nombre:</label>
+                                        <asp:TextBox id="txtnombreInsumo" runat="server" class="form-control1" type="text" placeholder="Nombre del insumo"></asp:TextBox>
+                                        
+                                        <label for="lblstockMaximo" class="control-label">Stock Máximo:</label>
+                                        <asp:TextBox id="txtstockMaximo" runat="server" class="form-control1" type="text" placeholder="Stock Máximo"></asp:TextBox>
+
+                                        <label for="lblstockMinimo" class="control-label">Stock Mínimo:</label>
+                                        <asp:TextBox id="txtstockMinimo" runat="server" class="form-control1" type="text" placeholder="Stock Mínimo"></asp:TextBox>
+
+                                        <label for="lblprecioUnitario" class="control-label">Precio Unitario:</label>
+                                        <asp:TextBox id="txtprecioUnitario" runat="server" class="form-control1" type="text" placeholder="Precio Unitario"></asp:TextBox>
+
+                                        <label for="lblcantidadTotal" class="control-label">Cantidad Total:</label>
+                                        <asp:TextBox id="txtcantidadTotal" runat="server" class="form-control1" type="text" placeholder="Cantidad Total"></asp:TextBox>
+
+                                        <label for="lblfechaVencimiento" class="control-label">Fecha de Vencimiento:</label>
+                                        <asp:TextBox id="txtfechaVencimiento" runat="server" class="form-control1" type="text" placeholder="Fecha de Vencimiento"></asp:TextBox>
+
+                                        <label for="lblestadoInsumo" class="control-label">Estado del Insumo:</label>
+                                        <asp:TextBox id="txtestadoInsumo" runat="server" class="form-control1" type="text" placeholder="Estado del Insumo"></asp:TextBox>
+
+                                        <label for="lblnestadoInsumo" class="control-label">Nombre del Estado:</label>
+                                        <asp:TextBox id="txtnestadoInsumo" runat="server" class="form-control1" type="text" placeholder="Estado del Insumo"></asp:TextBox>
+
+                                        <label for="lblunidadMedida" class="control-label">Unidad de Medida:</label>
+                                        <asp:TextBox id="txtunidadMedida" runat="server" class="form-control1" type="text" placeholder="Unidad de Medida"></asp:TextBox>
+
+                                        <label for="lblcategoriaInsumo" class="control-label">Categoría del Insumo:</label>
+                                        <asp:TextBox id="txtcategoriaInsumo" runat="server" class="form-control1" type="text" placeholder="Categoría del Insumo"></asp:TextBox>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-info" data-dismiss="modal" aria-hidden="true">OK</button>
+                                    </div>
+                                </div>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                    </div>
+                </div>
     <script>
         function lettersOnly(evt) {
             evt = (evt) ? evt : event;

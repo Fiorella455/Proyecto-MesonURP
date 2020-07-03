@@ -105,15 +105,15 @@ namespace DAO
                 conexion.Open();
                 SqlCommand cmd = new SqlCommand("SP_InsertarInsumo", conexion as SqlConnection);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(new SqlParameter("@I_NombreInsumo", objIns.NombreInsumo));
-                cmd.Parameters.Add(new SqlParameter("@I_StockMaximo", objIns.StockMax));
-                cmd.Parameters.Add(new SqlParameter("@I_StockMinimo", objIns.StockMin));
-                cmd.Parameters.Add(new SqlParameter("@I_PrecioUnitario", objIns.PrecioUnitario));
-                cmd.Parameters.Add(new SqlParameter("@I_CantidadTotal", objIns.CantidadTotal));
-                cmd.Parameters.Add(new SqlParameter("@I_FechaVencimiento", objIns.FechaVencimiento));
-                cmd.Parameters.Add(new SqlParameter("@EI_idEstadoInsumo", objIns.IdEstadoInsumo));
-                cmd.Parameters.Add(new SqlParameter("@M_idMedida", objIns.Medida));
-                cmd.Parameters.Add(new SqlParameter("@C_idCategoria", objIns.Idcategoria));
+                cmd.Parameters.Add(new SqlParameter("@I_NombreInsumo", objIns.VR_NombreRecurso));
+                cmd.Parameters.Add(new SqlParameter("@I_StockMaximo", objIns.DR_StockMaximo));
+                cmd.Parameters.Add(new SqlParameter("@I_StockMinimo", objIns.DR_StockMinimo));
+                cmd.Parameters.Add(new SqlParameter("@I_PrecioUnitario", objIns.DR_PrecioUnitario));
+                cmd.Parameters.Add(new SqlParameter("@I_CantidadTotal", objIns.DR_CantidadTotal));
+                cmd.Parameters.Add(new SqlParameter("@I_FechaVencimiento", objIns.I_FechaVencimiento));
+                cmd.Parameters.Add(new SqlParameter("@EI_idEstadoInsumo", objIns.FK_IER_EstadoRecurso));
+                cmd.Parameters.Add(new SqlParameter("@M_idMedida", objIns.FK_IM_Medida));
+                cmd.Parameters.Add(new SqlParameter("@C_idCategoria", objIns.FK_IC_Categoria));
                 cmd.ExecuteNonQuery();
                 conexion.Close();
             }
@@ -148,16 +148,16 @@ namespace DAO
                 conexion.Open();
                 SqlCommand cmd = new SqlCommand("SP_Actualizar_Insumo", conexion as SqlConnection);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(new SqlParameter("@I_idInsumo", objIns.IdInsumo));
-                cmd.Parameters.Add(new SqlParameter("@I_NombreInsumo", objIns.NombreInsumo));
-                cmd.Parameters.Add(new SqlParameter("@I_StockMaximo", objIns.StockMax));
-                cmd.Parameters.Add(new SqlParameter("@I_StockMinimo", objIns.StockMin));
-                cmd.Parameters.Add(new SqlParameter("@I_PrecioUnitario", objIns.PrecioUnitario));
-                cmd.Parameters.Add(new SqlParameter("@I_CantidadTotal", objIns.CantidadTotal));
-                cmd.Parameters.Add(new SqlParameter("@I_FechaVencimiento", objIns.FechaVencimiento));
-                cmd.Parameters.Add(new SqlParameter("@EI_idEstadoInsumo", objIns.IdEstadoInsumo));
-                cmd.Parameters.Add(new SqlParameter("@M_idMedida", objIns.Medida));
-                cmd.Parameters.Add(new SqlParameter("@C_idCategoria", objIns.Idcategoria));
+                cmd.Parameters.Add(new SqlParameter("@I_idInsumo", objIns.PK_IR_Recurso));
+                cmd.Parameters.Add(new SqlParameter("@I_NombreInsumo", objIns.VR_NombreRecurso));
+                cmd.Parameters.Add(new SqlParameter("@I_StockMaximo", objIns.DR_StockMaximo));
+                cmd.Parameters.Add(new SqlParameter("@I_StockMinimo", objIns.DR_StockMinimo));
+                cmd.Parameters.Add(new SqlParameter("@I_PrecioUnitario", objIns.DR_PrecioUnitario));
+                cmd.Parameters.Add(new SqlParameter("@I_CantidadTotal", objIns.DR_CantidadTotal));
+                cmd.Parameters.Add(new SqlParameter("@I_FechaVencimiento", objIns.I_FechaVencimiento));
+                cmd.Parameters.Add(new SqlParameter("@EI_idEstadoInsumo", objIns.FK_IER_EstadoRecurso));
+                cmd.Parameters.Add(new SqlParameter("@M_idMedida", objIns.FK_IM_Medida));
+                cmd.Parameters.Add(new SqlParameter("@C_idCategoria", objIns.FK_IC_Categoria));
                 cmd.ExecuteNonQuery();
                 conexion.Close();
             }
@@ -208,7 +208,7 @@ namespace DAO
                 conexion.Open();
                 SqlCommand cmd = new SqlCommand("SP_Verificar_Nombre_Insumo", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@I_NombreInsumo", objIns.NombreInsumo);
+                cmd.Parameters.AddWithValue("@I_NombreInsumo", objIns.VR_NombreRecurso);
                 cmd.ExecuteNonQuery();
 
                 int count = Convert.ToInt32(cmd.ExecuteScalar());

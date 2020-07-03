@@ -24,12 +24,12 @@ namespace MesonURPWEB
             if (!Page.IsPostBack)
             {
                 buildTableInsumos();
-                ListItem ddl1 = new ListItem("10", "10");
-                ddlp.Items.Insert(0, ddl1);
-                ListItem ddl2 = new ListItem("15", "15");
-                ddlp.Items.Insert(1, ddl2);
-                ListItem ddl3 = new ListItem("20", "20");
-                ddlp.Items.Insert(2, ddl3);
+                //ListItem ddl1 = new ListItem("10", "10");
+                //ddlp.Items.Insert(0, ddl1);
+                //ListItem ddl2 = new ListItem("15", "15");
+                //ddlp.Items.Insert(1, ddl2);
+                //ListItem ddl3 = new ListItem("20", "20");
+                //ddlp.Items.Insert(2, ddl3);
             }
         }
         public void buildTableInsumos()
