@@ -42,6 +42,12 @@ namespace MesonURPWEB
                 txtPrecio.Text = Convert.ToString(filaP[4]);
                 txtcant.Text = Convert.ToString(filaP[5]);
                 txtfechaV.Text = Convert.ToString(filaP[6]);
+                if (txtfechaV.Text != "")
+                {
+                    CheckBox1.Checked = true;
+                    CheckBox1.Enabled = true;
+                    txtfechaV.Visible = true;
+                }
                 ddlEstado.SelectedValue = Convert.ToString(filaP[7]);
                 ddlMedida.SelectedValue = Convert.ToString(filaP[8]);
                 ddlCategorias.SelectedValue = Convert.ToString(filaP[9]);
@@ -67,8 +73,15 @@ namespace MesonURPWEB
                     _Di.StockMax = Convert.ToDecimal(txtstockMax.Text);
                     _Di.StockMin = Convert.ToDecimal(txtstockMin.Text);
                     _Di.PrecioUnitario = Convert.ToDecimal(txtPrecio.Text);
-                    _Di.CantidadTotal = Convert.ToInt16(txtcant.Text);
-                    _Di.FechaVencimiento = txtfechaV.Text;
+                    _Di.CantidadTotal = Convert.ToDecimal(txtcant.Text);
+                    if (txtfechaV.Text == "")
+                    {
+                        _Di.FechaVencimiento = "";
+                    }
+                    else
+                    {
+                        _Di.FechaVencimiento = txtfechaV.Text;
+                    }
                     _Di.Idcategoria = Convert.ToInt16(ddlCategorias.SelectedValue);
                     _Di.IdEstadoInsumo = Convert.ToInt16(ddlEstado.SelectedValue);
                     _Di.Medida = ddlMedida.Text;
@@ -104,6 +117,21 @@ namespace MesonURPWEB
             ddlEstado.DataValueField = "EI_idEstadoInsumo";
             ddlEstado.DataBind();
             //ddlEstado.Items.Insert(0, "--seleccionar--");
+        }
+        protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (CheckBox1.Checked && txtfechaV.Text=="")
+            {
+                txtfechaV.Visible = true;
+            }
+            else
+            {
+                //CheckBox1.Checked = true;
+                txtfechaV.Visible = false;
+                txtfechaV.Text = "";
+            }
+
         }
     }
 }

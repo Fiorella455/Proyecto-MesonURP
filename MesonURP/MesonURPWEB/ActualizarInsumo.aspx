@@ -60,13 +60,29 @@
                                             <asp:RequiredFieldValidator ID="rfvprecioU" runat="server" ControlToValidate="txtPrecio" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 										</div>
 									</div>
-                                    <div class="form-group">
+                                    <%--<div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">Fecha de Vencimiento</label>
 										<div class="col-sm-8">
                                             <asp:TextBox ID="txtfechaV" runat="server" class="date" CssClass="form-control1" />
 										    <asp:RequiredFieldValidator ID="rfvfechaV" runat="server" ControlToValidate="txtfechaV" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                                         </div>
-									</div>                        
+									</div>  --%>         
+										 <div class="form-group">
+										<asp:ScriptManager ID="ScriptManager1" runat="server">
+                                    </asp:ScriptManager>
+                                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                        <ContentTemplate>
+                                            <asp:CheckBox ID="CheckBox1" runat="server" AutoPostBack="true" OnCheckedChanged="CheckBox1_CheckedChanged" />
+                                            <label for="chec">Fecha de Vencimiento </label>
+                                            <div class="col-sm-8">  
+                                            <asp:TextBox ID="txtfechaV" runat="server" TextMode="Date" CssClass="form-control1" Visible="False"></asp:TextBox>
+                                            </div>
+                                        </ContentTemplate>
+                                        <Triggers>
+                                            <asp:AsyncPostBackTrigger ControlID="CheckBox1" EventName="CheckedChanged" />
+                                        </Triggers>
+                                     </asp:UpdatePanel>
+                                            </div>
                                      <div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">Categoría</label>
 										<div class="col-sm-8">                                              

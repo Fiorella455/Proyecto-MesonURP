@@ -27,6 +27,7 @@ namespace MesonURPWEB
                 //ListarEstados();
                 txtcant.Enabled = false;
                 ddlEstado.Enabled = false;
+                CheckBox1.Enabled = false;
             }
 
         }
