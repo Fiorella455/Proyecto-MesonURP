@@ -113,8 +113,7 @@ namespace MesonURPWEB
                 pila.RemoveAt(pila.Count - 1);
             }
             tin.Clear();
-            //PIO AQUI DEBE IR LA ALERTA DE EXITO :( CUANDO LA PONGO NO REGISTRA
-            ScriptManager.RegisterClientScriptBlock(this.panelIngreso, this.panelIngreso.GetType(), "alert", "alertaCantidad()", true);
+            ScriptManager.RegisterClientScriptBlock(this.panelIngreso, this.panelIngreso.GetType(), "alert", "alertaExito()", true);
             return;
         }
     }
