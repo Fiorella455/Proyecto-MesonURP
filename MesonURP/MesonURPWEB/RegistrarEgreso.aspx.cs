@@ -107,7 +107,7 @@ namespace MesonURPWEB
 
             tin.Clear();
             //PIO AQUI DEBE IR LA ALERTA DE EXITO :( CUANDO LA PONGO NO REGISTRA
-            ScriptManager.RegisterClientScriptBlock(this.panelEgreso, this.panelEgreso.GetType(), "alert", "alertaCantidad()", true);
+            ScriptManager.RegisterClientScriptBlock(this.panelEgreso, this.panelEgreso.GetType(), "alert", "alertaExito()", true);
             return;
         }
         protected void Selection_Change(Object sender, EventArgs e)

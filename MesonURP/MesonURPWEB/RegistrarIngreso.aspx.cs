@@ -66,7 +66,7 @@ namespace MesonURPWEB
             if (Convert.ToDecimal(txtCantidad2.Text) > Convert.ToDecimal(txtOculto.Text))
             {
                 //PIO ESTA ALERTA NO DEJA ACTUALIZAR LA GRIDVIEW :(
-                //ScriptManager.RegisterClientScriptBlock(this.panelEgreso, this.panelEgreso.GetType(), "alert", "alertaCantidad()", true);
+                //ScriptManager.RegisterClientScriptBlock(this.panelIngreso, this.panelIngreso.GetType(), "alert", "alertaCantidad()", true);
                 //return;
             }
             else
