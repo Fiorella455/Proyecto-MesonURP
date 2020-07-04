@@ -168,24 +168,6 @@ namespace MesonURPWEB
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl menuInsumo;
 
         /// <summary>
-        /// Control lblRegistrarInsumo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblRegistrarInsumo;
-
-        /// <summary>
-        /// Control Li3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Li3;
-
-        /// <summary>
         /// Control Button1.
         /// </summary>
         /// <remarks>
