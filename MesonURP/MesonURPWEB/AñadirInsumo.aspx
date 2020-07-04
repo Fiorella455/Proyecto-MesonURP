@@ -99,6 +99,7 @@
                         </div>
                     </div>
                     <hr />
+                    
                             <p class="center-button">
                                 <%--<asp:Button ID="btnRegistrarI" CssClass="btn btn-primary" runat="server" Onserverclick="btnRegistrar_Click" ValidationGroup="añadirInsumo" Text="Agregar Insumo" />--%>
                                 <button type="button" name="sub-1" class="btn btn-primary" runat="server" id="Button1" onserverclick="btnRegistrar_Click"  ValidationGroup="registrarInsumo">Agregar Insumor</button>
@@ -141,6 +142,33 @@
                 return false;
             }
             return true;
+        }
+    </script>
+        <script src="js/sweetalert.js"></script>
+    <script>
+        function myalert() {
+            Swal.fire({
+                title: 'Oh, no!',
+                text: 'Ya existe un insumo con el nombre',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            })
+        }
+        function myalert2() {
+            Swal.fire({
+                title: 'Oh, no!',
+                text: 'Debe digitar un número mayor al stock mínimo',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            })
+        }
+        function alertCorrecto() {
+            Swal.fire({
+                title: 'Enhorabuena!',
+                text: 'El insumo fue registrado correctamente',
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+            })
         }
     </script>
 </asp:Content>

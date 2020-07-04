@@ -53,14 +53,16 @@ namespace MesonURPWEB
                 if (vi)
                 {
                     ClientScript.RegisterStartupScript(
-                    this.GetType(), "myalert", "alert('" + "Ya existe un insumo con el nombre  " + txtnombreInsumo.Text + "');", true);
+                    //ScriptManager.RegisterClientScriptBlock(this.UpdatePanel1, this.UpdatePanel1.GetType(), "alert", "alertaIgualNombre()", true);
+                   
+                    this.GetType(), "myalert", "myalert('" + "Ya existe un insumo con el nombre  " + txtnombreInsumo.Text + "');", true);
 
                     a = 1;
                 }
                 if (Convert.ToDecimal(txtstockMax.Text) < Convert.ToDecimal(txtstockMin.Text) || Convert.ToDecimal(txtstockMax.Text) == Convert.ToDecimal(txtstockMin.Text))
                 {
                     ClientScript.RegisterStartupScript(
-                    this.GetType(), "myalert", "alert('" + "Debe digitar un número mayor al stock mínimo  " + txtstockMin.Text + "');", true);
+                    this.GetType(), "myalert2", "myalert2('" + "Debe digitar un número mayor al stock mínimo  " + txtstockMin.Text + "');", true);
 
                     a = 1;
                 }
@@ -83,7 +85,8 @@ namespace MesonURPWEB
                     _Di.FK_IER_EstadoRecurso = Convert.ToInt16(ddlEstado.SelectedValue);
                     _Di.FK_IM_Medida = Convert.ToInt16(ddlEstado.Text); // revisar yo
                     _Ci.RegistrarInsumo(_Di);
-                    ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('El insumo fue registrado correctamente');window.location='GestionarInsumo.aspx';", true);
+
+                    ClientScript.RegisterStartupScript(Page.GetType(), "alertCorrecto", "alert('El insumo fue registrado correctamente');window.location='GestionarInsumo.aspx';", true);
                 }
 
             }
