@@ -50,7 +50,7 @@ namespace MesonURPWEB
         {
             try
             {
-                if (e.CommandName == "btnEditarInsumo")
+                if (e.CommandName == "selectItem")
                 {
                     int pkInsumo = Convert.ToInt32(gvInsumos.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["I_idInsumo"].ToString());
 
@@ -58,7 +58,7 @@ namespace MesonURPWEB
 
                     Response.Redirect("ActualizarInsumo.aspx");
                 }
-                else if (e.CommandName == "btnConsultarInsumo")//VER 
+                else if (e.CommandName == "selectItem1")//VER 
                 {
                     
                     int pkInsumo = Convert.ToInt32(gvInsumos.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["I_idInsumo"].ToString());
@@ -91,7 +91,7 @@ namespace MesonURPWEB
                     
                     //Response.Redirect("ActualizarInsumo.aspx");
                 }
-                else if (e.CommandName == "btnEliminarInsumo")//ELIMINAR 
+                else if (e.CommandName == "selectItem2")//ELIMINAR 
                 {
                     int pkInsumo = Convert.ToInt32(gvInsumos.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["I_idInsumo"].ToString());
                     _Ci.eliminarInsumo(pkInsumo);

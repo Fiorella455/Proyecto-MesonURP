@@ -35,17 +35,17 @@
                                   
                                     <asp:TemplateField HeaderText="Editar">
                                         <ItemTemplate>
-                                            <asp:Button ID="btnEditarInsumo" class="btn btn-primary" runat="server" CommandName="ActualizarInsumo" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Editar" />
+                                            <asp:Button ID="btnSelectItem" class="btn btn-primary" runat="server" CommandName="selectItem" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Editar" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Ver Detalles">
                                         <ItemTemplate>
-                                            <asp:Button ID="btnConsultarInsumo" class="btn btn-primary" runat="server" CommandName="ConsultarInsumo" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Consultar" />
+                                            <asp:Button ID="btnSelectItem1" class="btn btn-primary" runat="server" CommandName="selectItem1" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Consultar" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Eliminar">
                                         <ItemTemplate>
-                                            <asp:Button ID="btnEliminarInsumo" class="btn btn-primary" runat="server" CommandName="EliminarInsumo" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Eliminar" />
+                                            <asp:Button ID="btnSelectItem2" class="btn btn-primary" runat="server" CommandName="selectItem2" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Eliminar" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
