@@ -43,16 +43,19 @@
                                 <asp:TextBox ID="txtcant" runat="server" CssClass="form-control1" Text="0"/>
                                 <asp:RequiredFieldValidator ID="rfvcantT" runat="server" ControlToValidate="txtcant" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 							</div>
-						</div>
-                    </div>
+					</div>
                     <div class="form-group">
-					    <label for="focusedinput" class="col-sm-2 control-label">Unidad de Medida</label>
-					    <div class="col-sm-8">                                              
-							    <asp:DropDownList id="ddlMedida" runat="server" CssClass="form-control1" AutoPostBack="true">
-								    <asp:ListItem Text="" Value="">Seleccione una medida</asp:ListItem>
-  							    </asp:DropDownList>
-                                <asp:RequiredFieldValidator ID="rfvmedida" runat="server" ControlToValidate="ddlMedida" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-						</div>
+                        <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                            <ContentTemplate>
+					            <label for="focusedinput" class="col-sm-2 control-label">Unidad de Medida</label>
+					            <div class="col-sm-8">                                              
+							            <asp:DropDownList id="ddlMedida" runat="server" CssClass="form-control1" AutoPostBack="true">
+								            <asp:ListItem Text="" Value="">Seleccione una medida</asp:ListItem>
+  							            </asp:DropDownList>
+                                        <asp:RequiredFieldValidator ID="rfvmedida" runat="server" ControlToValidate="ddlMedida" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+					            </div>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
                     </div>
                     <div class="form-group">
 						<label for="focusedinput" class="col-sm-2 control-label">Precio Unitario (S/.)</label>
@@ -63,32 +66,36 @@
 						</div>
 					</div>
                     <div class="form-group">
-					    <asp:ScriptManager ID="ScriptManager1" runat="server">
-                        </asp:ScriptManager>
-                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                             <ContentTemplate>
-                                <asp:CheckBox ID="CheckBox1" runat="server" AutoPostBack="true" OnCheckedChanged="CheckBox1_CheckedChanged" />
-                                <label for="chec">Fecha de Vencimiento </label>
-                                <div class="col-sm-8">  
-                                <asp:TextBox ID="txtfechaV" runat="server" TextMode="Date" CssClass="form-control1" Visible="False"></asp:TextBox>
+                               <div class="col-sm-8"> 
+                                    <asp:CheckBox ID="CheckBox1" runat="server" AutoPostBack="true" OnCheckedChanged="CheckBox1_CheckedChanged" />
+                                    <label for="chec">Fecha de Vencimiento </label>
+                               </div>
+                                <div class="col-md-7 col-md-push-2">  
+                                    <asp:TextBox ID="txtfechaV" runat="server" TextMode="Date" CssClass="form-control1" Visible="False"></asp:TextBox>
                                 </div>
                             </ContentTemplate>
                             <Triggers>
                                 <asp:AsyncPostBackTrigger ControlID="CheckBox1" EventName="CheckedChanged" />
                             </Triggers>
-                            </asp:UpdatePanel>
+                        </asp:UpdatePanel>
                      </div>
                      <div class="form-group">
-						<label for="focusedinput" class="col-sm-2 control-label">Categoría</label>
-						<div class="col-sm-8">                                              
-								<asp:DropDownList id="ddlCategorias" runat="server" CssClass="form-control1" AutoPostBack="true">
-									<asp:ListItem Text="" Value="">Seleccione una categoría</asp:ListItem>
-  								</asp:DropDownList>
-                                <asp:RequiredFieldValidator ID="rfvcategoria" runat="server" ControlToValidate="ddlCategorias" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-						</div>
+                         <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                            <ContentTemplate>
+						        <label for="focusedinput" class="col-sm-2 control-label">Categoría</label>
+						        <div class="col-sm-8">                                              
+								    <asp:DropDownList id="ddlCategorias" runat="server" CssClass="form-control1" AutoPostBack="true">
+									    <asp:ListItem Text="" Value="">Seleccione una categoría</asp:ListItem>
+  								    </asp:DropDownList>
+                                    <asp:RequiredFieldValidator ID="rfvcategoria" runat="server" ControlToValidate="ddlCategorias" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+						        </div>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
 					  </div>
                     <div class="form-group">
-						<label for="focusedinput" class="col-sm-2 control-label">Estado</label>
+						<%--<label for="focusedinput" class="col-sm-2 control-label">Estado</label>--%>
 						<div class="col-sm-8">                                            
 								<asp:DropDownList id="ddlEstado" runat="server" CssClass="form-control1" AutoPostBack="true">
 									<asp:ListItem Text="agotado" Value="2">Agotado</asp:ListItem>
@@ -98,12 +105,13 @@
 					</div>
                     <hr />
                     <p class="center-button">
-                        <asp:Button ID="btnActualizarInsumo" CssClass="btn btn-primary" runat="server" ValidationGroup="actualizarInsumo" Text="Actualizar Insumo" />
+                        <asp:Button ID="btnActualizar" CssClass="btn btn-primary" runat="server" Text="Actualizar Insumo" OnClick="btnActualizar_Click" />
                         <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'GestionarInsumo';" class="btn btn-primary" />
-                        <asp:Button ID="btnCancelar" class="btn btn-danger" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" CausesValidation="False" />
+                        <%--<asp:Button ID="btnCancelar" class="btn btn-danger" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" CausesValidation="False" />--%>
                         <input type="reset" name="res-1" id="res-1" value="Limpiar" class="btn btn-danger" />
                     </p>
                 </div>
+              </div>
             </div>
         </div>
 

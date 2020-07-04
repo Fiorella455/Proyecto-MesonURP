@@ -39,11 +39,15 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="focusedinput" class="col-sm-2 control-label">Categoría</label>
-                        <div class="col-sm-8">
-                            <asp:DropDownList runat="server" CssClass="form-control1" ID="ddlCategorias" AutoPostBack="true"></asp:DropDownList>
-                            <asp:RequiredFieldValidator ID="rfvcategoria" runat="server" ControlToValidate="ddlCategorias" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-                        </div>
+                        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                            <ContentTemplate>
+                                <label for="focusedinput" class="col-sm-2 control-label">Categoría</label>
+                                <div class="col-sm-8">
+                                    <asp:DropDownList runat="server" CssClass="form-control1" ID="ddlCategorias" AutoPostBack="true"></asp:DropDownList>
+                                    <asp:RequiredFieldValidator ID="rfvcategoria" runat="server" ControlToValidate="ddlCategorias" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                                </div>
+                           </ContentTemplate>
+                        </asp:UpdatePanel>
                     </div>
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Cantidad Total</label>
@@ -53,11 +57,15 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="selector1" class="col-sm-2 control-label">Unidad de Medida</label>
-                        <div class="col-sm-8">
-                            <asp:DropDownList runat="server" CssClass="form-control1" ID="ddlMedida" AutoPostBack="true"></asp:DropDownList>
-                            <asp:RequiredFieldValidator ID="rfvmedida" runat="server" ControlToValidate="ddlMedida" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-                        </div>
+                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                             <ContentTemplate>
+                                <label for="selector1" class="col-sm-2 control-label">Unidad de Medida</label>
+                                <div class="col-sm-8">
+                                    <asp:DropDownList runat="server" CssClass="form-control1" ID="ddlMedida" AutoPostBack="true"></asp:DropDownList>
+                                    <asp:RequiredFieldValidator ID="rfvmedida" runat="server" ControlToValidate="ddlMedida" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                                </div>
+                             </ContentTemplate>
+                         </asp:UpdatePanel>
                     </div>
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Precio Unitario (S/.)</label>
@@ -91,16 +99,16 @@
                         </div>
                     </div>
                     <hr />
-                    <p class="center-button">
-                        <%--<asp:Button ID="btnRegistrarI" CssClass="btn btn-primary" runat="server" Onserverclick="btnRegistrar_Click" ValidationGroup="añadirInsumo" Text="Agregar Insumo" />--%>
-                        <button type="button" name="sub-1" class="btn btn-primary" runat="server" id="Button1" onserverclick="btnRegistrar_Click"  ValidationGroup="registrarInsumo">Agregar Insumor</button>
-                        <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'GestionarInsumo';" class="btn btn-primary" />
-                        <input type="reset" name="res-1" id="res-1" value="Limpiar" class="btn btn-danger" />
-                    </p>
+                            <p class="center-button">
+                                <%--<asp:Button ID="btnRegistrarI" CssClass="btn btn-primary" runat="server" Onserverclick="btnRegistrar_Click" ValidationGroup="añadirInsumo" Text="Agregar Insumo" />--%>
+                                <button type="button" name="sub-1" class="btn btn-primary" runat="server" id="Button1" onserverclick="btnRegistrar_Click"  ValidationGroup="registrarInsumo">Agregar Insumor</button>
+                                <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'GestionarInsumo';" class="btn btn-primary" />
+                                <input type="reset" name="res-1" id="res-1" value="Limpiar" class="btn btn-danger" />
+                            </p>
+                </div>
                 </div>
             </div>
         </div>
-    </div>
 
     <script>
         function BlockChars(ev) {
