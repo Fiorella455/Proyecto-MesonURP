@@ -64,21 +64,21 @@ namespace MesonURPWEB
                 if (Convert.ToDecimal(txtstockMax.Text) < Convert.ToDecimal(txtstockMin.Text) || Convert.ToDecimal(txtstockMax.Text) == Convert.ToDecimal(txtstockMin.Text))
                 {
                     ClientScript.RegisterStartupScript(
-                    this.GetType(), "myalert", "alert('" + "Debe digitar un número mayor al stock mínimo  " + txtstockMin.Text + "');", true);
+                    this.GetType(), "alert1", "alert1('" + "Debe digitar un número mayor al stock mínimo  " + txtstockMin.Text + "');", true);
 
                     a = 1;
                 }
                 if (Convert.ToDecimal(txtstockMax.Text) <= Convert.ToDecimal(txtcant.Text))
                 {
                     ClientScript.RegisterStartupScript(
-                    this.GetType(), "myalert", "alert('" + "Debe digitar un intervalo adecuado de Stock Máximo para  " + txtcant.Text + "');", true);
+                    this.GetType(), "alert2", "alert2('" + "Debe digitar un intervalo adecuado de Stock Máximo para  " + txtcant.Text + "');", true);
 
                     a = 1;
                 }
                 if (Convert.ToDecimal(txtstockMin.Text) >= Convert.ToDecimal(txtcant.Text))
                 {
                     ClientScript.RegisterStartupScript(
-                    this.GetType(), "myalert", "alert('" + "Debe digitar un intervalo adecuado de Stock Mínimo para  " + txtcant.Text + "');", true);
+                    this.GetType(), "alert3", "alert3('" + "Debe digitar un intervalo adecuado de Stock Mínimo para  " + txtcant.Text + "');", true);
 
                     a = 1;
                 }
@@ -102,7 +102,7 @@ namespace MesonURPWEB
                     _Di.FK_IER_EstadoRecurso = Convert.ToInt16(ddlEstado.SelectedValue);
                     _Di.FK_IM_Medida = Convert.ToInt16(ddlMedida.SelectedValue);
                     _Ci.ActualizarInsumo(_Di);
-                    ClientScript.RegisterStartupScript(Page.GetType(), "alert", "alert('El insumo fue actualizado correctamente');window.location='GestionarInsumo.aspx';", true);
+                    ClientScript.RegisterStartupScript(Page.GetType(), "alertActualizacion", "alertActualizacion('El insumo fue actualizado correctamente');window.location='GestionarInsumo.aspx';", true);
                 }
             }
         }

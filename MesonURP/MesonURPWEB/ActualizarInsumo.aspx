@@ -148,4 +148,39 @@
             return true;
         }
     </script>
+    <script src="js/sweetalert.js"></script>
+    <script>
+        function alert1() {
+            Swal.fire({
+                title: 'Oh, no!',
+                text: 'Debe digitar un número mayor al Stock Mínimo',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            })
+        }
+        function alert2() {
+            Swal.fire({
+                title: 'Oh, no!',
+                text: 'Debe digitar un intervalo adecuado de Stock Máximo para la Cantidad Total',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            })
+        }
+        function alert3() {
+            Swal.fire({
+                title: 'Oh, no!',
+                text: 'Debe digitar un intervalo adecuado de Stock Mínimo para la Cantidad Total',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            })
+        }
+        function alertActualizacion() {
+            Swal.fire({
+                title: 'Enhorabuena!',
+                text: 'El insumo fue actualizado correctamente',
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+            })
+        }
+    </script>
 </asp:Content>
