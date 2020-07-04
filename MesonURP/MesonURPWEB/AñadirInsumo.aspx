@@ -102,7 +102,7 @@
                     
                             <p class="center-button">
                                 <%--<asp:Button ID="btnRegistrarI" CssClass="btn btn-primary" runat="server" Onserverclick="btnRegistrar_Click" ValidationGroup="añadirInsumo" Text="Agregar Insumo" />--%>
-                                <button type="button" name="sub-1" class="btn btn-primary" runat="server" id="Button1" onserverclick="btnRegistrar_Click"  ValidationGroup="registrarInsumo">Agregar Insumor</button>
+                                <button type="button" name="sub-1" class="btn btn-primary" runat="server" id="Button1" onserverclick="btnRegistrar_Click"  ValidationGroup="registrarInsumo">Agregar Insumo</button>
                                 <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'GestionarInsumo';" class="btn btn-primary" />
                                 <input type="reset" name="res-1" id="res-1" value="Limpiar" class="btn btn-danger" />
                             </p>
