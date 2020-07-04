@@ -32,6 +32,7 @@ namespace MesonURPWEB
                         menuReportes.Visible = true;
                         menuCategoria.Visible = false;
                         menuUsuarios.Visible = false;
+                        menuInsumo.Visible = true;
                         //menuInsumo.Visible = true;
                         lblRol.Text = perfil;
                         lblNombre.Text = Convert.ToString(Session["NombreUsuario"]);
