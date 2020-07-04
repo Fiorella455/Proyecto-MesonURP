@@ -33,7 +33,6 @@ namespace MesonURPWEB
                         menuCategoria.Visible = false;
                         menuUsuarios.Visible = false;
                         menuInsumo.Visible = true;
-                        //menuInsumo.Visible = true;
                         lblRol.Text = perfil;
                         lblNombre.Text = Convert.ToString(Session["NombreUsuario"]);
                         lblApellido.Text = Convert.ToString(Session["ApellidoUsuario"]);
@@ -49,6 +48,7 @@ namespace MesonURPWEB
                         menuReportes.Visible = false;
                         menuCategoria.Visible = false;
                         menuUsuarios.Visible = false;
+                        menuInsumo.Visible = false; 
                         lblRol.Text = perfil;
                         lblNombre.Text = Convert.ToString(Session["NombreUsuario"]);
                         lblApellido.Text = Convert.ToString(Session["ApellidoUsuario"]);
