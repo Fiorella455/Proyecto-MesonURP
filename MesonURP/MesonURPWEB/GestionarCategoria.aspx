@@ -8,30 +8,19 @@
         <div class="grids">
             <div class="progressbar-heading grids-heading title-flex">
                 <h2 class="tittle-margin5">Gestionar Categorías</h2>
-                <div class="stock-options">
-                    <div class="width-auto margin-5">
-                        <input type="button" class="btn btn-primary" value="Agregar Nueva Categoría" />
-                    </div>
-                </div>
             </div>
-            <div class="w3-row-padding">
-                                    <div id="dNombre" class="w3-third">
-                                        <div class="controls">
-                                            <div class="input-field col s12">
-                                                <label>Categoría</label>
-                                                <asp:TextBox ID="txtCategoria" runat="server"></asp:TextBox>
-                                                <asp:Label ID="lblvacio" runat="server" Text="Label" ForeColor="#CC0000"></asp:Label>
-                                                <asp:RegularExpressionValidator ID="RevNombre" runat="server" ErrorMessage="ingrese solo letras" ControlToValidate="txtCategoria" ForeColor="#CC0000" ValidationExpression="([a-zA-Z\s]{1,})" SetFocusOnError="True" Display="Dynamic"></asp:RegularExpressionValidator>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div id="dAgregar" class="w3-third">
-                                        <div class="width-auto margin-5">
-                                             <asp:Button type="btnAgregarCategoria" class="btn btn-primary" runat="server" text="Agregar Categoría" onclick="btnAgregarCategoria_Click" />
-                                        </div>
-                                    </div>
-                                </div>
+             <div class="form-group">
+                <label for="focusedinput" class="col-sm-1 control-label">Categoría</label>
+                <div class="col-sm-4">
+                    <asp:TextBox ID="txtCategoria" runat="server" placeholder="Ingrese una categoría" CssClass="form-control1" />
+                    <asp:RegularExpressionValidator ID="revNombreC" runat="server" ErrorMessage="Por favor ingrese solo letras" ControlToValidate="txtCategoria" ForeColor="#CC0000" ValidationExpression="^[a-zA-Z ]*$" SetFocusOnError="True" Display="Dynamic"></asp:RegularExpressionValidator>                   
+                </div>
+                  <div class="stock-options">
+                    <div class="width-auto margin-5">
+                            <asp:Button type="btnAgregarCategoria" class="btn btn-primary" runat="server" text="Agregar Nueva Categoría" onclick="btnAgregarCategoria_Click" />
+                    </div>
+                  </div>
+             </div>
             <div class="search-buttons">
                 <div class="panel panel-widget forms-panel">
                     <div class="form-grids widget-shadow" data-example-id="basic-forms">

@@ -24,22 +24,13 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.TextBox txtCategoria;
 
         /// <summary>
-        /// Control lblvacio.
+        /// Control revNombreC.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblvacio;
-
-        /// <summary>
-        /// Control RevNombre.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RevNombre;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revNombreC;
 
         /// <summary>
         /// Control gvCategoria.
