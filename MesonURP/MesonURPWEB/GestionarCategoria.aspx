@@ -10,10 +10,28 @@
                 <h2 class="tittle-margin5">Gestionar Categorías</h2>
                 <div class="stock-options">
                     <div class="width-auto margin-5">
-                        <input type="button" class="btn btn-primary" value="Agregar Nueva Categoría" onclick="window.location.href = 'AñadirInsumo.aspx';">
+                        <input type="button" class="btn btn-primary" value="Agregar Nueva Categoría" />
                     </div>
                 </div>
             </div>
+            <div class="w3-row-padding">
+                                    <div id="dNombre" class="w3-third">
+                                        <div class="controls">
+                                            <div class="input-field col s12">
+                                                <label>Categoría</label>
+                                                <asp:TextBox ID="txtCategoria" runat="server"></asp:TextBox>
+                                                <asp:Label ID="lblvacio" runat="server" Text="Label" ForeColor="#CC0000"></asp:Label>
+                                                <asp:RegularExpressionValidator ID="RevNombre" runat="server" ErrorMessage="ingrese solo letras" ControlToValidate="txtCategoria" ForeColor="#CC0000" ValidationExpression="([a-zA-Z\s]{1,})" SetFocusOnError="True" Display="Dynamic"></asp:RegularExpressionValidator>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="dAgregar" class="w3-third">
+                                        <div class="width-auto margin-5">
+                                             <asp:Button type="btnAgregarCategoria" class="btn btn-primary" runat="server" text="Agregar Categoría" onclick="btnAgregarCategoria_Click" />
+                                        </div>
+                                    </div>
+                                </div>
             <div class="search-buttons">
                 <div class="panel panel-widget forms-panel">
                     <div class="form-grids widget-shadow" data-example-id="basic-forms">

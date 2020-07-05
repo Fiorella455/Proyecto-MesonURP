@@ -6,12 +6,14 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DTO;
 using CTR;
+using System.Data;
 
 namespace MesonURPWEB
 {
     public partial class GestionarCategoria : System.Web.UI.Page
     {
         CTR_Categoria _Ccat = new CTR_Categoria();
+        DTO_Categoria _Dcat = new DTO_Categoria();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -75,14 +77,20 @@ namespace MesonURPWEB
         {
             buildTableCategoria();
         }
-        protected void btnRegistrar_Click(object sender, EventArgs e)
+
+        protected void btnAgregarCategoria_Click(object sender, EventArgs e)
         {
-            Response.Redirect("RegistrarInsumo.aspx");
+            
+                if (_Ccat.CTR_ExisteCategoria(txtCategoria.Text) == false)
+                {
+                    _Dcat.C_NombreCategoria = txtCategoria.Text;
+                    _Ccat.CTR_AgregarCategoria(_Dcat);
+                    Response.Redirect("GestionarCategoria.aspx");
+                }
+
         }
 
-        protected void btnVerDetalle_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("ConsultarInsumo.aspx");
-        }
     }
 }
+
+
