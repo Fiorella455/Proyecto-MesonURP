@@ -30,22 +30,22 @@
                     <div class="input-info">
 						<h3>Detalles de Producto</h3>
 					</div>
-                    <div class="form-group">
+                   <%-- <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">N° Orden</label>
                         <div class="col-sm-8">
                             <asp:TextBox runat="server" CssClass="form-control1" ID="txtIdOC" />
                         </div>
-                    </div>
-             <%--       <div class="form-group">
+                    </div>--%>
+                   <%-- <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Fecha de Emisión</label>
                         <div class="col-sm-8">
                             <asp:TextBox ID="txtFechaEmision" runat="server" CssClass="form-control1" ReadOnly="true"/>
                         </div>
                     </div>--%>
                     <div class="form-group">
-                        <label for="focusedinput" class="col-sm-2 control-label">Fecha de Entrega</label>
+                        <label for="focusedinput" class="col-sm-2 control-label">N° de Comprobante</label>
                         <div class="col-sm-8">
-                            <asp:TextBox ID="txtFechaEntrega" runat="server"  CssClass="form-control1" />
+                            <asp:TextBox ID="txtNumComprobante" runat="server"  CssClass="form-control1" />
                         </div>
                     </div>
                     
@@ -55,7 +55,7 @@
                             <asp:TextBox ID="txtTipoComprobante" runat="server" CssClass="form-control1" />
                         </div>
                     </div>
-                    <div class="form-group">
+                  <%--  <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Estado</label>
                         <div class="col-sm-8">
                              <asp:TextBox ID="txtEstado" runat="server" CssClass="auto-style1" Height="16px" Width="600px" />
@@ -63,7 +63,7 @@
                             </asp:DropDownList>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="DdlProveedor" ErrorMessage="Campo Obligatorio" ValidationGroup="actOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
-                    </div>
+                    </div>--%>
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Proveedor</label>
                         <div class="col-sm-8">
@@ -114,8 +114,8 @@
                         </div>
                     </div>
                      <p class="center-button">
-                            <asp:Button CssClass="btn btn-primary" runat="server" Text="Añadir" ValidationGroup="actOC"/>
-                            <asp:Button CssClass="btn btn-primary" runat="server" Text="Quitar" />
+                            <asp:Button CssClass="btn btn-primary" runat="server" Text="Añadir" ValidationGroup="actOC" ID="btnAñadir" OnClick="btnAñadir_Click"/>
+                            <asp:Button CssClass="btn btn-primary" runat="server" Text="Quitar" ID="btnQuitar" OnClick="btnQuitar_Click" />
                         </p>
 
                     <div class="panel panel-widget forms-panel">
@@ -125,12 +125,13 @@
                             </div>
                             <div class="table-wrapper-scroll-y my-custom-scrollbar">
                                 <asp:GridView ID="GridViewEditarOC" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible."
-                                  DataKeyName=OC_idOrdenCompra CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None" AutoGenerateColumns="false">
+                                  DataKeyName=I_NombreInsumo CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None" AutoGenerateColumns="false" OnSelectedIndexChanged="GridViewEditarOC_SelectedIndexChanged">
                                     <Columns>
-                                        <asp:BoundField HeaderText="Descripción del Insumo" DataField="OC_idOrdenCompra" />
+                                        <asp:BoundField HeaderText="N°" DataField="I_idInsumo" />
+                                        <asp:BoundField HeaderText="Descripción del Insumo" DataField="I_NombreInsumo" />
                                         <asp:BoundField HeaderText="Cantidad" DataField="OCxI_Cantidad" />
-                                        <asp:BoundField HeaderText="Unidad" DataField="I_idInsumo" />
-                                        <asp:BoundField HeaderText="Costo Unitario" DataField="OC_idOrdenCompra" />
+                    
+                                        <asp:BoundField HeaderText="Costo Unitario" DataField="I_PrecioUnitario" />
                                         <asp:BoundField HeaderText="Total" DataField="OCxI_PrecioTotal" />
                                     </Columns>
                                 </asp:GridView>

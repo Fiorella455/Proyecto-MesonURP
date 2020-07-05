@@ -10,6 +10,7 @@ namespace DAO
     public class DAO_MovimientoxInsumo
     {
         SqlConnection conexion;
+        DTO_Insumo dto_insumo;
         public DAO_MovimientoxInsumo()
         {
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
@@ -199,6 +200,29 @@ namespace DAO
                 DataSet dSet = new DataSet();
                 unComando.Fill(dSet);
                 return dSet.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public int getInsumo(string insumo)
+        {
+            try
+            {
+                conexion.Open();
+                SqlCommand _Com = new SqlCommand("SP_Obtener_idInsumo", conexion);
+                _Com.CommandType = CommandType.StoredProcedure;
+                _Com.Parameters.Add(new SqlParameter("@nom_insumo",dto_insumo.VR_NombreRecurso));
+                SqlDataReader reader = _Com.ExecuteReader();
+                //_Com.ExecuteNonQuery();
+
+                if (reader.Read())
+                {
+                    return dto_insumo.PK_IR_Recurso= reader.GetInt32(0);
+                }
+                conexion.Close();
+                return 0;
             }
             catch (Exception ex)
             {

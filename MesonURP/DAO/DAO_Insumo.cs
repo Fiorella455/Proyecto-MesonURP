@@ -130,6 +130,32 @@ namespace DAO
             conexion.Close();
             return insumo;
         }
+        public DTO_Insumo Consultar_InsumoxID(int i)
+        {
+            DTO_Insumo insumo = new DTO_Insumo();
+            conexion.Open();
+            SqlCommand comando = new SqlCommand("SP_Consultar_InsumoxID", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@I_idInsumo", i);
+            comando.ExecuteNonQuery();
+
+            SqlDataReader reader = comando.ExecuteReader();
+            if (reader.Read())
+            {
+                insumo.PK_IR_Recurso = Convert.ToInt32(reader[0]);
+                insumo.VR_NombreRecurso = Convert.ToString(reader[1]);
+                insumo.DR_StockMaximo = Convert.ToDecimal(reader[2]);
+                insumo.DR_StockMinimo = Convert.ToDecimal(reader[3]);
+                insumo.DR_PrecioUnitario = Convert.ToDecimal(reader[4]);
+                insumo.DR_CantidadTotal = Convert.ToDecimal(reader[5]);
+                insumo.FK_IER_EstadoRecurso = Convert.ToInt32(reader[7]);
+                insumo.FK_IM_Medida = Convert.ToInt32(reader[8]);
+                insumo.FK_IC_Categoria = Convert.ToInt32(reader[9]);
+            }
+
+            conexion.Close();
+            return insumo;
+        }
 
     }
 }
