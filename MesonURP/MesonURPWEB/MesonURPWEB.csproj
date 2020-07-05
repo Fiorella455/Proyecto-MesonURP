@@ -302,6 +302,7 @@
     <Content Include="img\univ-1.png" />
     <Content Include="img\univ-2.png" />
     <Content Include="img\UNIVERSIDAD-RICARDO-PALMA-18.jpg" />
+    <Content Include="img\urp1.jpg" />
     <Content Include="index.html" />
     <Content Include="js\amcharts.js" />
     <Content Include="js\bootstrap.min.js" />
@@ -411,7 +412,6 @@
     <Compile Include="ConsultarProveedor.aspx.designer.cs">
       <DependentUpon>ConsultarProveedor.aspx</DependentUpon>
     </Compile>
-    
     <Compile Include="GestionarInsumo.aspx.cs">
       <DependentUpon>GestionarInsumo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

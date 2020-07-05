@@ -46,7 +46,8 @@ namespace MesonURPWEB
             dto_proveedor.P_CorreoContacto = txtCorreo.Text;
             dto_proveedor.EP_idEstadoProveedor = 1;
             ctr_proveedor.Registrar_Proveedor(dto_proveedor);
-            Response.Redirect("GestionarProveedor.aspx");
+            ScriptManager.RegisterClientScriptBlock(this.panelAñadirProv, this.panelAñadirProv.GetType(), "alert", "alertaExito()", true);
+            return;
         }
     }
 }

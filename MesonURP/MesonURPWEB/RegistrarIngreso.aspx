@@ -114,6 +114,10 @@
                 text: 'Se ha logrado ingresar correctamente',
                 icon: 'success',
                 confirmButtonText: 'Aceptar'
+            }).then((result) => {
+                if (result.value) {
+                    window.location.href = "ManejarStock";
+                }
             })
         }
     </script>

@@ -19,7 +19,6 @@
                     <div class="form-grids widget-shadow" data-example-id="basic-forms">
                         <div class="form-title color-white">
                             <h4>Insumos</h4>
-<%--                            holi--%>
                         </div>
                         <div class="table-wrapper-scroll-y">
                             <asp:GridView ID="GridViewInsumo" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false"
