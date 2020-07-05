@@ -27,9 +27,9 @@ namespace CTR
         {
             dao_categoria.DAO_AgregarCategoria(objCat);
         }
-        public bool CTR_ExisteCategoria(string C_NombreCategoria)
+        public bool CTR_ExisteCategoria(DTO_Categoria objCat)
         {
-            return dao_categoria.DAO_ExisteNombreCategoria(C_NombreCategoria);
+            return dao_categoria.DAO_ExisteNombreCategoria(objCat);
         }
         public DataTable CTR_GetCategoria(string C_NombreCategoria)
         {

@@ -20,6 +20,7 @@ namespace MesonURPWEB
             if (!Page.IsPostBack)
             {
                 buildTableCategoria();
+                
             }
         }
         public void buildTableCategoria()
@@ -27,16 +28,11 @@ namespace MesonURPWEB
             gvCategoria.DataSource = _Ccat.CTR_Leer_Categorias();
             gvCategoria.DataBind();
         }
-        protected void fNombre_TextChanged(object sender, EventArgs e)
-        {
-            buildTableCategoria();
-        }
         protected void gvCategoria_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvCategoria.PageIndex = e.NewPageIndex;
             buildTableCategoria();
         }
-
         protected void gvCategoria_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             try
@@ -73,20 +69,23 @@ namespace MesonURPWEB
                 throw ex;
             }
         }
-        protected void btnFiltrar_Click(object sender, EventArgs e)
-        {
-            buildTableCategoria();
-        }
-
         protected void btnAgregarCategoria_Click(object sender, EventArgs e)
         {
-            
-                if (_Ccat.CTR_ExisteCategoria(txtCategoria.Text) == false)
-                {
-                    _Dcat.C_NombreCategoria = txtCategoria.Text;
-                    _Ccat.CTR_AgregarCategoria(_Dcat);
-                    Response.Redirect("GestionarCategoria.aspx");
-                }
+            int a = 0;
+            _Dcat.C_NombreCategoria = txtCategoria.Text;
+            bool vc = _Ccat.CTR_ExisteCategoria(_Dcat);
+            if (vc)
+            {
+                ClientScript.RegisterStartupScript(
+                this.GetType(), "myalert", "myalert('" + "Ya existe una categoría con el nombre" + "');", true);
+                a = 1;
+            }
+            if (a == 0)
+            {
+                _Dcat.C_NombreCategoria = txtCategoria.Text;
+                _Ccat.CTR_AgregarCategoria(_Dcat);
+                Response.Redirect("GestionarCategoria.aspx");
+            }
 
         }
 

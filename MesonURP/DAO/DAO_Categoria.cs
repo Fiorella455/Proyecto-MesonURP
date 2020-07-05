@@ -40,22 +40,13 @@ namespace DAO
         //}
         public void DAO_AgregarCategoria(DTO_Categoria objCat)
         {
-
             try
             {
                 conexion.Open();
                 SqlCommand cmd = new SqlCommand("SP_Agregar_Categoria", conexion as SqlConnection);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add(new SqlParameter("@C_NombreCategoria", objCat.C_NombreCategoria));
-                SqlParameter retValue = new SqlParameter("@RETURN_VALUE", SqlDbType.Int);
-                retValue.Direction = ParameterDirection.ReturnValue;
-                cmd.Parameters.Add(retValue);
-                objCat.C_idCategoria = Convert.ToInt32(retValue.Value);
-                using (SqlDataReader dr = cmd.ExecuteReader())
-                {
-                    objCat.C_idCategoria = Convert.ToInt32(retValue.Value);
-                }
-                conexion.Close();
+                cmd.ExecuteNonQuery();
                 conexion.Close();
             }
             catch (Exception ex)
@@ -94,27 +85,38 @@ namespace DAO
                 throw ex;
             }
         }
-        public bool DAO_ExisteNombreCategoria(string C_NombreCategoria)
+        public bool DAO_ExisteNombreCategoria(DTO_Categoria objCat)
         {
+            try
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_Verificar_Nombre_Categoria", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@C_NombreCategoria", objCat.C_NombreCategoria);
+                cmd.ExecuteNonQuery();
 
-            string query = "SELECT COUNT (*) FROM T_Categoria WHERE C_NombreCategoria = @C_NombreCategoria";
-            SqlCommand cmd = new SqlCommand(query, conexion);
-            cmd.Parameters.AddWithValue("@C_NombreCategoria", C_NombreCategoria);
-            conexion.Open();
-            int count = Convert.ToInt32(cmd.ExecuteScalar());
-            conexion.Close();
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                if (count == 0)
+                {
+                    conexion.Close();
+                    return false;
+                }
+                else
+                {
+                    conexion.Close();
+                    return true;
+                }
 
-            if (count == 0)
-                return false;
-            else
-                return true;
-
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         public DataTable DAO_ConsultarCategoria(string C_NombreCategoria)
         {
             try
             {
-
                 SqlDataAdapter _Data = new SqlDataAdapter("SP_Consultar_Categoria1", conexion);
                 _Data.SelectCommand.CommandType = CommandType.StoredProcedure;
                 _Data.SelectCommand.Parameters.AddWithValue("@C_NombreCategoria", C_NombreCategoria);

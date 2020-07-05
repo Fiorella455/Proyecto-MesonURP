@@ -94,4 +94,17 @@
                         </asp:UpdatePanel>
                     </div>
                 </div>
+
+    <script src="js/sweetalert.js"></script>
+    <script>
+        function myalert() {
+            Swal.fire({
+                title: 'Oh, no!',
+                text: 'Ya existe una categoría con el nombre',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            })
+        }
+        
+    </script>
 </asp:Content>
