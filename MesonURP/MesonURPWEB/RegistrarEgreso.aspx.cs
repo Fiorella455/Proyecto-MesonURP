@@ -59,9 +59,8 @@ namespace MesonURPWEB
             }
             if (Convert.ToDecimal(txtCantidad.Text) > Convert.ToDecimal(txtOculto.Text))
             {
-                //PIO ESTA ALERTA NO DEJA ACTUALIZAR LA GRIDVIEW :(
-                //ScriptManager.RegisterClientScriptBlock(this.panelEgreso, this.panelEgreso.GetType(), "alert", "alertaCantidad()", true);
-                //return;
+                ScriptManager.RegisterClientScriptBlock(this.PanelAñadir, this.PanelAñadir.GetType(), "alert", "alertaCantidad()", true);
+                return;
             }
             else
             {
@@ -106,8 +105,7 @@ namespace MesonURPWEB
             }
 
             tin.Clear();
-            //PIO AQUI DEBE IR LA ALERTA DE EXITO :( CUANDO LA PONGO NO REGISTRA
-            ScriptManager.RegisterClientScriptBlock(this.panelEgreso, this.panelEgreso.GetType(), "alert", "alertaCantidad()", true);
+            ScriptManager.RegisterClientScriptBlock(this.panelEgreso, this.panelEgreso.GetType(), "alert", "alertaExito()", true);
             return;
         }
         protected void Selection_Change(Object sender, EventArgs e)

@@ -65,8 +65,8 @@ namespace MesonURPWEB
             }
             if (Convert.ToDecimal(txtCantidad2.Text) > Convert.ToDecimal(txtOculto.Text))
             {
-                //ScriptManager.RegisterClientScriptBlock(this.panelAñadir, this.panelAñadir.GetType(), "alert", "alertaCantidad()", true);
-                //return;
+                ScriptManager.RegisterClientScriptBlock(this.panelAñadir, this.panelAñadir.GetType(), "alert", "alertaCantidad()", true);
+                return;
             }
             else
             {

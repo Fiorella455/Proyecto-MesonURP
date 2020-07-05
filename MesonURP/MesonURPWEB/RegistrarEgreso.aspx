@@ -44,16 +44,22 @@
                             <asp:TextBox ID="txtOculto" runat="server" CssClass="form-control1" Visible="false" />
                         </div>
                     </div>
-                     <p class="center-button">
-                        <asp:Button CssClass="btn btn-primary" runat="server" Text="Añadir" ID="btnAñadirInsumo" OnClick="btnAñadirInsumo_Click"/>
-                        <asp:Button CssClass="btn btn-primary" runat="server" Text="Quitar" OnClick="btnQuitarInsumo_Click" />
-                    </p>
+                    <asp:UpdatePanel ID="PanelAñadir" runat="server">
+                      <ContentTemplate>
+                         <p class="center-button">
+                            <asp:Button CssClass="btn btn-primary" runat="server" Text="Añadir" ID="btnAñadirInsumo" OnClick="btnAñadirInsumo_Click"/>
+                            <asp:Button CssClass="btn btn-primary" runat="server" Text="Quitar" OnClick="btnQuitarInsumo_Click" />
+                        </p>
+                      </ContentTemplate>
+                    </asp:UpdatePanel>
                 </div>
                 <div class="panel panel-widget forms-panel">
                     <div class="form-grids widget-shadow" data-example-id="basic-forms">
                         <div class="form-title color-white">
                             <h4>Insumos a Ingresar</h4>
                         </div>
+                    <asp:UpdatePanel ID="panelEgreso" runat="server">
+                        <ContentTemplate>
                         <div class="table-wrapper-scroll-y my-custom-scrollbar">
                             <asp:GridView ID="gvInsumosEgreso" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false"
                                 DataKeyNames="Fecha,Nombre insumo,Cantidad,Unidad de Medida" 
@@ -67,9 +73,7 @@
                                 </Columns>
                             </asp:GridView>
                         </div>
-                    <hr />
-                    <asp:UpdatePanel ID="panelEgreso" runat="server">
-                        <ContentTemplate>
+                    <hr />                    
                             <p class="center-button">
                                 <button type="button" name="sub-1" class="btn btn-primary" runat="server" id="btnEgresar" onserverclick="btnEgresar_ServerClick" validationgroup="registrarEgreso">Egresar</button>
                                 <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'ManejarStock';" class="btn btn-primary" />

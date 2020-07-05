@@ -44,12 +44,14 @@
                             <asp:TextBox ID="txtOculto" runat="server" CssClass="form-control1" Visible="false" />
                     </div>
                     </div>
-
+                    <asp:UpdatePanel ID="panelAñadir" runat="server">
+                        <ContentTemplate>
                             <p class="center-button">
                                 <asp:Button CssClass="btn btn-primary" runat="server" Text="Añadir" ID="btnAñadirInsumo" OnClick="btnAñadirInsumo_Click"/>
                                 <asp:Button CssClass="btn btn-primary" runat="server" Text="Quitar" OnClick="btnQuitarInsumo_Click" />
                             </p>
-
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
                 </div>
 
                 <div class="panel panel-widget forms-panel">
@@ -57,6 +59,8 @@
                         <div class="form-title color-white">
                             <h4>Insumos a Ingresar</h4>
                         </div>
+                    <asp:UpdatePanel ID="panelIngreso" runat="server">
+                       <ContentTemplate>
                         <div class="table-wrapper-scroll-y my-custom-scrollbar">
                              <asp:GridView ID="gvInsumosIngreso" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false"
                                 DataKeyNames="Fecha,Nombre insumo,Cantidad,Unidad de Medida" 
@@ -71,8 +75,6 @@
                             </asp:GridView>
                         </div>
                         <hr />
-                        <asp:UpdatePanel ID="panelIngreso" runat="server">
-                            <ContentTemplate>
                                 <p class="center-button">
                                     <button type="button" name="sub-1" class="btn btn-primary" runat="server" id="btnIngresar" onserverclick="btnIngresar_ServerClick" validationgroup="registrarIngreso">Ingresar</button>
                                     <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'ManejarStock';" class="btn btn-primary" />
