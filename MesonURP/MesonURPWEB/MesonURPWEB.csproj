@@ -233,6 +233,7 @@
     <Content Include="css\style1.css" />
     <Content Include="css\sweetalert2.min.css" />
     <Content Include="Dashboard.aspx" />
+    <Content Include="EliminarProveedor.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="GestionarInsumo.aspx" />
@@ -410,12 +411,20 @@
     <Compile Include="ConsultarProveedor.aspx.designer.cs">
       <DependentUpon>ConsultarProveedor.aspx</DependentUpon>
     </Compile>
+    
     <Compile Include="GestionarInsumo.aspx.cs">
       <DependentUpon>GestionarInsumo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="GestionarInsumo.aspx.designer.cs">
       <DependentUpon>GestionarInsumo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EliminarProveedor.aspx.cs">
+      <DependentUpon>EliminarProveedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EliminarProveedor.aspx.designer.cs">
+      <DependentUpon>EliminarProveedor.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionarProveedor.aspx.cs">
       <DependentUpon>GestionarProveedor.aspx</DependentUpon>

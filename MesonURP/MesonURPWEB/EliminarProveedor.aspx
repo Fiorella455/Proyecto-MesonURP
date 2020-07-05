@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ConsultarProveedor.aspx.cs" Inherits="MesonURPWEB.ConsultarProveedor" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="EliminarProveedor.aspx.cs" Inherits="MesonURPWEB.EliminarProveedor" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <div class="women_main">
+    <div class="women_main">
         <!-- start content -->
         <div class="grids">
             <div class="progressbar-heading grids-heading title-flex">
@@ -68,6 +68,7 @@
                     </div>
                         <hr />
                         <p class="center-button">
+                             <asp:Button ID="btnEliminarProveedor" CssClass="btn btn-primary" runat="server" Text="Eliminar Proveedor" OnClick="btnEliminarProveedor_Click"/>
                             <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'GestionarProveedor';" class="btn btn-primary" />
                         </p>
                     </div>

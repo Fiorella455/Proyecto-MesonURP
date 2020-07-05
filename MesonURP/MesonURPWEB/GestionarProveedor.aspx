@@ -20,17 +20,23 @@
                                         <h4>Proveedor</h4>
                                     </div>
                                     <div class="table-wrapper-scroll-y">
-                                         <asp:GridView ID="GridViewOC" allowpaging="True" runat="server" emptydatatext="No hay información disponible." AutoGenerateColumns="false"
-                                             CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None">
+                                         <asp:GridView ID="GridViewProveedor" allowpaging="True" runat="server" emptydatatext="No hay información disponible." AutoGenerateColumns="false"
+                                             CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None" DataKeyNames="P_idProveedor"   OnRowCommand="GridViewProveedor_RowCommand" OnRowDataBound="GridViewProveedor_RowDataBound">
                                              <Columns>
-                                                <asp:BoundField HeaderText="ID Proveedor"/>
-                                                <asp:BoundField HeaderText="Razón Social"/>
-                                                <asp:BoundField HeaderText="Número de Documento"/>
-                                                <asp:BoundField HeaderText="Dirección"/>
-                                                <asp:BoundField HeaderText="Nombre Contacto"/>
-                                                <asp:BoundField  HeaderText="Teléfono" />    
-                                                <asp:BoundField  HeaderText="Correo Electrónico"/>
-                                                    
+                                                <%--<asp:BoundField HeaderText="ID Proveedor"/>--%>
+                                                 <asp:TemplateField Visible="false">
+                                                     <ItemTemplate>
+                                                           <asp:Label ID="P_idProveedor" runat="server" Text="Label"></asp:Label>
+                                                     </ItemTemplate>
+                                                </asp:TemplateField>
+                                                <asp:BoundField DataField="P_RazonSocial" HeaderText="Razón Social"/>
+                                                <asp:BoundField DataField="TD_NombreTipoDocumento" HeaderText="Tipo de Documento"/>
+                                                <asp:BoundField DataField="P_NumeroDocumento" HeaderText="Número de Documento"/>
+                                                <asp:BoundField DataField="P_Direccion" HeaderText="Dirección"/>
+                                                <asp:BoundField DataField="P_NombreContacto" HeaderText="Nombre Contacto"/>
+                                                <asp:BoundField DataField="P_TelefonoContacto" HeaderText="Teléfono" />    
+                                                <asp:BoundField DataField="P_CorreoContacto" HeaderText="Correo Electrónico"/>
+                                                <asp:BoundField DataField="EP_NombreEstadoProveedor" HeaderText="Estado del Proveedor" />
                                                    <asp:TemplateField  HeaderText="Editar">
                                                        <ItemTemplate>
                                                            <asp:Button ID="btnEditarProveedor" class="btn btn-primary" runat="server" CommandName ="ActualizarProveedor" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Actualizar" />

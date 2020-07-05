@@ -11,32 +11,46 @@ namespace DAO
     public class DAO_Proveedor
     {
         SqlConnection conexion;
-        DTO_Proveedor dto_proveedor;
+
 
         public DAO_Proveedor()
         {
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
-            dto_proveedor = new DTO_Proveedor();
+        
         }
-        public void DAO_Registrar_Proveedor(DTO_Proveedor dto_proveedor)
+        public void Registrar_Proveedor(DTO_Proveedor proveedor)
         {
-            try
-            {
-                SqlCommand cmd = new SqlCommand("SP_Insertar_Proveedor", conexion);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@P_idProveedor", dto_proveedor.P_idProveedor);
-                cmd.Parameters.AddWithValue("@P_RazonSocial", dto_proveedor.P_RazonSocial);
-                cmd.Parameters.AddWithValue("@P_NumeroDocumento", dto_proveedor.P_NumeroDocumento);
-                cmd.Parameters.AddWithValue("@P_Direccion", dto_proveedor.P_Direccion);
-                cmd.Parameters.AddWithValue("@P_NombreContacto", dto_proveedor.P_NombreContacto);
-                cmd.Parameters.AddWithValue("@P_TelefonoContacto", dto_proveedor.P_TelefonoContacto);
-                cmd.Parameters.AddWithValue("@P_CorreoContacto", dto_proveedor.P_CorreoContacto);
-                cmd.Parameters.AddWithValue("@EP_idEstadoProveedor", dto_proveedor.EP_idEstadoProveedor);
-            }
-            catch (FormatException)
-            {
+            conexion.Open();
+            SqlCommand comando = new SqlCommand("SP_Insertar_Proveedor", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@P_RazonSocial", proveedor.P_RazonSocial);
+            comando.Parameters.AddWithValue("@P_NumeroDocumento", proveedor.P_NumeroDocumento);
+            comando.Parameters.AddWithValue("@P_Direccion", proveedor.P_Direccion);
+            comando.Parameters.AddWithValue("@P_NombreContacto", proveedor.P_NombreContacto);
+            comando.Parameters.AddWithValue("@P_TelefonoContacto", proveedor.P_TelefonoContacto);
+            comando.Parameters.AddWithValue("@P_CorreoContacto", proveedor.P_CorreoContacto);
+            comando.Parameters.AddWithValue("@EP_idEstadoProveedor", proveedor.EP_idEstadoProveedor);
+            comando.Parameters.AddWithValue("@TD_idTipoDocumento", proveedor.TD_idTipoDocumento);
+            comando.ExecuteNonQuery();
+            conexion.Close();
+        }
 
-            }
+        public void Actualizar_Proveedor(DTO_Proveedor proveedor)
+        {
+            conexion.Open();
+            SqlCommand comando = new SqlCommand("SP_Actualizar_Proveedor", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@P_idProveedor", proveedor.P_idProveedor);
+            comando.Parameters.AddWithValue("@P_RazonSocial", proveedor.P_RazonSocial);
+            comando.Parameters.AddWithValue("@P_NumeroDocumento", proveedor.P_NumeroDocumento);
+            comando.Parameters.AddWithValue("@P_Direccion", proveedor.P_Direccion);
+            comando.Parameters.AddWithValue("@P_NombreContacto", proveedor.P_NombreContacto);
+            comando.Parameters.AddWithValue("@P_TelefonoContacto", proveedor.P_TelefonoContacto);
+            comando.Parameters.AddWithValue("@P_CorreoContacto", proveedor.P_CorreoContacto);
+            comando.Parameters.AddWithValue("@EP_idEstadoProveedor", proveedor.EP_idEstadoProveedor);
+            comando.Parameters.AddWithValue("@TD_idTipoDocumento", proveedor.TD_idTipoDocumento);
+            comando.ExecuteNonQuery();
+            conexion.Close();
         }
         public bool DAO_Consultar_Proveedor(DTO_Proveedor dto_proveedor)
         {
@@ -56,7 +70,7 @@ namespace DAO
                 dto_proveedor.P_Direccion= reader[3].ToString();
                 dto_proveedor.P_NombreContacto= reader[4].ToString();
                 dto_proveedor.P_TelefonoContacto= reader[5].ToString();
-                dto_proveedor.P_CorreoContacto = (string)reader[6]; 
+                dto_proveedor.P_CorreoContacto = (string)reader[6];                
                 dto_proveedor.Estado = 100;
             }
             dto_proveedor.Estado = 99;
@@ -75,6 +89,39 @@ namespace DAO
             da.Fill(dt);
             conexion.Close();
             return dt;
+        }
+        public DTO_Proveedor Consultar_Proveedor(int i)
+        {
+            DTO_Proveedor proveedor = new DTO_Proveedor();
+            conexion.Open();
+            SqlCommand comando = new SqlCommand("SP_Consultar_Proveedor_ID", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@P_idProveedor", i);
+            comando.ExecuteNonQuery();
+            SqlDataReader reader = comando.ExecuteReader();
+            if (reader.Read())
+            {
+                proveedor.P_idProveedor = i;
+                proveedor.P_RazonSocial = reader[1].ToString();
+                proveedor.P_NumeroDocumento = reader[2].ToString();
+                proveedor.P_Direccion = reader[3].ToString();
+                proveedor.P_NombreContacto = reader[4].ToString();
+                proveedor.P_TelefonoContacto = reader[5].ToString();
+                proveedor.P_CorreoContacto = reader[6].ToString();
+                proveedor.EP_idEstadoProveedor = Convert.ToInt32(reader[7]);
+                proveedor.TD_idTipoDocumento = Convert.ToInt32(reader[8]);
+            }
+            conexion.Close();
+            return proveedor;
+        }
+        public void Eliminar_Proveedor(int i)
+        {
+            conexion.Open();
+            SqlCommand comando = new SqlCommand("SP_Eliminar_Proveedor", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@P_idProveedor", i);
+            comando.ExecuteNonQuery();
+            conexion.Close();
         }
     }
 }
