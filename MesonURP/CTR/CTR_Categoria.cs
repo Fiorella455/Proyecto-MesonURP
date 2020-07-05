@@ -19,5 +19,9 @@ namespace CTR
         {
               return dao_categoria.DAO_Leer_Categorias();
         }
+        public DataTable CTR_InsumosxCategoria(int C_idCategoria)
+        {
+            return dao_categoria.DAO_InsumosxCategoria(C_idCategoria);
+        }
     }
 }

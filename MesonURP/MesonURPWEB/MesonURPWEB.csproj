@@ -210,11 +210,10 @@
     <Content Include="Dashboard.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="GestionarCategoria.aspx" />
     <Content Include="GestionarInsumo.aspx" />
     <Content Include="GestionarOC.aspx" />
     <Content Include="GestionarProveedor.aspx" />
-    <Content Include="GI-Registrar.aspx" />
-    <Content Include="GI.aspx" />
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
     <Content Include="Home.aspx" />
@@ -309,9 +308,7 @@
     <Content Include="js1\signin.js" />
     <Content Include="index.aspx" />
     <Content Include="Login.aspx" />
-    <Content Include="RegistrarInsumo.aspx" />
     <Content Include="Web.config" />
-    <Content Include="WebForm2.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActualizarInsumo.aspx.cs">
@@ -349,6 +346,13 @@
     <Compile Include="AñadirProveedor.aspx.cs">
       <DependentUpon>AñadirProveedor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionarCategoria.aspx.cs">
+      <DependentUpon>GestionarCategoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionarCategoria.aspx.designer.cs">
+      <DependentUpon>GestionarCategoria.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionarInsumo.aspx.cs">
       <DependentUpon>GestionarInsumo.aspx</DependentUpon>
@@ -391,20 +395,6 @@
     </Compile>
     <Compile Include="GestionarProveedor.aspx.designer.cs">
       <DependentUpon>GestionarProveedor.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="GI-Registrar.aspx.cs">
-      <DependentUpon>GI-Registrar.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="GI-Registrar.aspx.designer.cs">
-      <DependentUpon>GI-Registrar.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="GI.aspx.cs">
-      <DependentUpon>GI.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="GI.aspx.designer.cs">
-      <DependentUpon>GI.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>
@@ -498,20 +488,6 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegistrarInsumo.aspx.cs">
-      <DependentUpon>RegistrarInsumo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="RegistrarInsumo.aspx.designer.cs">
-      <DependentUpon>RegistrarInsumo.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="WebForm2.aspx.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm2.aspx.designer.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Master.Master" />

@@ -51,5 +51,23 @@ namespace DAO
                 conexion.Close();
                 return dataset;
         }
+
+        public DataTable DAO_InsumosxCategoria(int C_idCategoria)
+        {
+            try
+            {
+                conexion.Open();
+                SqlDataAdapter _Data = new SqlDataAdapter("SP_Consultar_InsumosxCategoria", conexion);
+                _Data.SelectCommand.CommandType = CommandType.StoredProcedure;
+                _Data.SelectCommand.Parameters.AddWithValue("@C_idCategoria", C_idCategoria);
+                DataSet _Ds = new DataSet();
+                _Data.Fill(_Ds);
+                return _Ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

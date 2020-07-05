@@ -103,11 +103,11 @@ namespace MesonURPWEB
                 throw ex;
             }
         }
-        protected void ddlp_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            gvInsumos.PageSize = Convert.ToInt32(ddlp.SelectedValue);
-            buildTableInsumos();
-        }
+        //protected void ddlp_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    gvInsumos.PageSize = Convert.ToInt32(ddlp.SelectedValue);
+        //    buildTableInsumos();
+        //}
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
             buildTableInsumos();

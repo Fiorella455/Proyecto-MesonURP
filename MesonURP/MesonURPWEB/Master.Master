@@ -164,7 +164,7 @@
                         <li id="lblReportesMovimientos"><a href="reporteCompras">Generar Reporte de Movimientos</a></li>
                     </ul>
                 </li>
-                <li id="menuCategoria" runat="server"><a href="gestionarCategoria"><i class="lnr lnr-chart-bars"></i><span>Gestionar Categoría</span></a></li>
+                <li id="menuCategoria" runat="server"><a href="GestionarCategoria.aspx"><i class="lnr lnr-chart-bars"></i><span>Gestionar Categoría</span></a></li>
                 <li id="menuUsuarios" runat="server"><a href="gestionarUsuarios"><i class="lnr lnr-chart-bars"></i><span>Gestionar Usuarios</span></a></li>
                 <li id="menuInsumo" runat="server"><a href="GestionarInsumo.aspx"><i class="fa fa-file-text-o"></i><span>Gestionar Insumo</span></a></li>            
 
