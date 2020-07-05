@@ -15,30 +15,30 @@
         <div class="sidebar"></div>       
         
         <header class="header">
-            <img src="img/MesonURP_logofinal.png" alt="MesónURP logo" class="header__logo"/>
+            <img src="/img/MesonURP_logofinal.png" alt="MesónURP logo" class="header__logo"/>
             <div class="right-header">
                 <h3 class="heading-3 header-13px">Haz tu reserva:</h3>
                 <h1 class="heading-1 header-13px">Mesón del Estudiante</h1>
-                <button class="btn header__btn">Reservar</button>
+                <button type="button" class="btn header__btn" onclick="window.location.href='Dashboard.aspx'">Reservar </button>
             </div>
         </header>
 
          <div class="realtors">
             <h3 class="heading-3">kjhkjhjkh</h3>
             <div class="realtors__list">
-                <img src="img/realtor-1.jpeg" alt="Realtor 1" class="realtors__img">
+                <img src="/img/realtor-1.jpeg" alt="Realtor 1" class="realtors__img"/>
                 <div class="realtors__details">
                     <h4 class="heading-4 heading-4--light">Erik Feinman</h4>
                     <p class="realtors__sold">245 houses sold</p>
                 </div>
 
-                <img src="img/realtor-2.jpeg" alt="Realtor 2" class="realtors__img">
+                <img src="/img/realtor-2.jpeg" alt="Realtor 2" class="realtors__img"/>
                 <div class="realtors__details">
                     <h4 class="heading-4 heading-4--light">Kim Brown</h4>
                     <p class="realtors__sold">212 houses sold</p>
                 </div>
 
-                <img src="img/realtor-3.jpeg" alt="Realtor 3" class="realtors__img">
+                <img src="/img/realtor-3.jpeg" alt="Realtor 3" class="realtors__img"/>
                 <div class="realtors__details">
                     <h4 class="heading-4 heading-4--light">Toby Ramsey</h4>
                     <p class="realtors__sold">198 houses sold</p>
@@ -46,7 +46,7 @@
             </div>
         </div>
         <div class="navigation">
-                <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+                <input type="checkbox" class="navigation__checkbox" id="navi-toggle"/>
 
                 <label for="navi-toggle" class="navigation__button">
                     <span class="navigation__icon">&nbsp;</span>
@@ -60,7 +60,7 @@
                         <li class="navigation__item"><a href="#" class="navigation__link"><span>02</span>Your benfits</a></li>
                         <li class="navigation__item"><a href="#" class="navigation__link"><span>03</span>Popular tours</a></li>
                         <li class="navigation__item"><a href="#" class="navigation__link"><span>04</span>Stories</a></li>
-                        <li class="navigation__item"><a href="#" class="navigation__link"><span>05</span>Book now</a></li>
+                        <li class="navigation__item"><a href="#" class="navigation__link"><span>05</span>Bookbhghjow</a></li>
                         </ul>
                 </nav>
             </div>
@@ -115,8 +115,8 @@
         </section>
 
         <div class="story__pictures">
-            <img src="img/story-1.jpeg" alt="Couple with new house" class="story__img--1"/>
-            <img src="img/story-2.jpeg" alt="New house" class="story__img--2"/>
+            <%--< alt="Couple with new house" class="story__img--1"/>--%>
+           <%-- <img src="/img/story-2.jpeg" alt="New house" class="story__img--2"/>--%>
         </div>
 
         <div class="story__content">
@@ -128,7 +128,7 @@
             <button class="btn">Find your own home</button>
         </div>
 
-        <section class="homes">
+     <!--   <section class="homes">
             <div class="home">
                 <img src="img/house-1.jpeg" alt="House 1" class="home__img"/>
                 <svg class="home__like">
@@ -328,23 +328,23 @@
                 <button class="btn home__btn">Contact realtor</button>
             </div>
         </section>
-
+-->
 
         <section class="gallery">
-            <figure class="gallery__item gallery__item--1"><img src="img/gal-1.jpeg" alt="Gallery image 1" class="gallery__img"/></figure>
-            <figure class="gallery__item gallery__item--2"><img src="img/gal-2.jpeg" alt="Gallery image 2" class="gallery__img"/></figure>
-            <figure class="gallery__item gallery__item--3"><img src="img/gal-3.jpeg" alt="Gallery image 3" class="gallery__img"/></figure>
-            <figure class="gallery__item gallery__item--4"><img src="img/gal-4.jpeg" alt="Gallery image 4" class="gallery__img"/></figure>
-            <figure class="gallery__item gallery__item--5"><img src="img/gal-5.jpeg" alt="Gallery image 5" class="gallery__img"/></figure>
-            <figure class="gallery__item gallery__item--6"><img src="img/gal-6.jpeg" alt="Gallery image 6" class="gallery__img"/></figure>
-            <figure class="gallery__item gallery__item--7"><img src="img/gal-7.jpeg" alt="Gallery image 7" class="gallery__img"/></figure>
-            <figure class="gallery__item gallery__item--8"><img src="img/gal-8.jpeg" alt="Gallery image 8" class="gallery__img"/></figure>
-            <figure class="gallery__item gallery__item--9"><img src="img/gal-9.jpeg" alt="Gallery image 9" class="gallery__img"/></figure>
-            <figure class="gallery__item gallery__item--10"><img src="img/gal-10.jpeg" alt="Gallery image 10" class="gallery__img"/></figure>
-            <figure class="gallery__item gallery__item--11"><img src="img/gal-11.jpeg" alt="Gallery image 11" class="gallery__img"/></figure>
-            <figure class="gallery__item gallery__item--12"><img src="img/gal-12.jpeg" alt="Gallery image 12" class="gallery__img"/></figure>
-            <figure class="gallery__item gallery__item--13"><img src="img/gal-13.jpeg" alt="Gallery image 13" class="gallery__img"/></figure>
-            <figure class="gallery__item gallery__item--14"><img src="img/gal-14.jpeg" alt="Gallery image 14" class="gallery__img"/></figure>
+            <figure class="gallery__item gallery__item--1"><img src="../img/meson-2.PNG" alt="Gallery image 1" class="gallery__img"/></figure>
+            <figure class="gallery__item gallery__item--2"><img src="../img/meson-10.png" alt="Gallery image 2" class="gallery__img"/></figure>
+            <figure class="gallery__item gallery__item--3"><img src="../img/meson-6.png" alt="Gallery image 3" class="gallery__img"/></figure>
+            <figure class="gallery__item gallery__item--4"><img src="../img/meson-16.png" alt="Gallery image 4" class="gallery__img"/></figure>
+            <figure class="gallery__item gallery__item--5"><img src="../img/meson-12.png" alt="Gallery image 5" class="gallery__img"/></figure>
+            <figure class="gallery__item gallery__item--6"><img src="../img/meson-7.png" alt="Gallery image 6" class="gallery__img"/></figure>
+            <figure class="gallery__item gallery__item--7"><img src="../img/meson-13.png" alt="Gallery image 7" class="gallery__img"/></figure>
+            <figure class="gallery__item gallery__item--8"><img src="../img/meson-9.png" alt="Gallery image 8" class="gallery__img"/></figure>
+            <figure class="gallery__item gallery__item--9"><img src="../img/meson-1.PNG"  alt="Gallery image 9" class="gallery__img"/></figure>
+            <figure class="gallery__item gallery__item--10"><img src="../img/meson-4.PNG" alt="Gallery image 10" class="gallery__img"/></figure>
+            <figure class="gallery__item gallery__item--11"><img src="../img/meson-8.png" alt="Gallery image 11" class="gallery__img"/></figure>
+            <figure class="gallery__item gallery__item--12"><img src="../img/meson-15.png" alt="Gallery image 12" class="gallery__img"/></figure>
+            <figure class="gallery__item gallery__item--13"><img src="../img/meson-5.png" alt="Gallery image 13" class="gallery__img"/></figure>
+            <figure class="gallery__item gallery__item--14"><img src="../img/meson-11.png" alt="Gallery image 14" class="gallery__img"/></figure>
 
 
         </section>

@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29123.88
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DTO", "DTO\DTO.csproj", "{4320E5B2-6E5B-40F1-A7AE-CA32DC431F69}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CTR", "CTR\CTR.csproj", "{787BCE27-2CC2-4D72-A2AC-066EF1799617}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAO", "DAO\DAO.csproj", "{28C2E79D-2286-4FE6-9056-7879167B4226}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MesonURPWEB", "MesonURPWEB\MesonURPWEB.csproj", "{BE34623A-D949-43C2-8470-88B6824CF56B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTO\DTO.csproj", "{4320E5B2-6E5B-40F1-A7AE-CA32DC431F69}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTR", "CTR\CTR.csproj", "{787BCE27-2CC2-4D72-A2AC-066EF1799617}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAO", "DAO\DAO.csproj", "{28C2E79D-2286-4FE6-9056-7879167B4226}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BE34623A-D949-43C2-8470-88B6824CF56B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BE34623A-D949-43C2-8470-88B6824CF56B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BE34623A-D949-43C2-8470-88B6824CF56B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BE34623A-D949-43C2-8470-88B6824CF56B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4320E5B2-6E5B-40F1-A7AE-CA32DC431F69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4320E5B2-6E5B-40F1-A7AE-CA32DC431F69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4320E5B2-6E5B-40F1-A7AE-CA32DC431F69}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{28C2E79D-2286-4FE6-9056-7879167B4226}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28C2E79D-2286-4FE6-9056-7879167B4226}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28C2E79D-2286-4FE6-9056-7879167B4226}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE34623A-D949-43C2-8470-88B6824CF56B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE34623A-D949-43C2-8470-88B6824CF56B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE34623A-D949-43C2-8470-88B6824CF56B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE34623A-D949-43C2-8470-88B6824CF56B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

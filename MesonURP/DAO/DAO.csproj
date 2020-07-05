@@ -2,7 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <UserSecretsId>49c77c78-2cf8-4a8a-a2a2-9e7b4fc2d747</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.1" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj" />
