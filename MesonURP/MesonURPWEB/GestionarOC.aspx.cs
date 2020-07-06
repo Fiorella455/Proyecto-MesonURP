@@ -261,9 +261,7 @@ namespace MesonURPWEB
            GridViewOC.PageIndex = e.NewPageIndex;
             CargarOrdenesCompra();
             
-            
-
-
+         
         }
     }
 }
