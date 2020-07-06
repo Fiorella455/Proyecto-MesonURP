@@ -24,7 +24,6 @@ namespace MesonURPWEB
         }
         public void buildTableCategoria()
         {
-            //gvCategoria.DataSource = _Ccat.CTR_Leer_Categorias();
             gvCategoria.DataSource = _Ccat.CTR_Leer_Categorias();
             gvCategoria.DataBind();
         }
@@ -57,7 +56,7 @@ namespace MesonURPWEB
                     GridView1.DataSource = modal;
                     GridView1.DataBind();
                 }
-                else if (e.CommandName == "selectItem2")//ELIMINAR 
+                else if (e.CommandName == "selectItem2")
                 {
                     int a = 0;
                     int pkID = Convert.ToInt32(gvCategoria.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["C_idCategoria"].ToString());
@@ -74,7 +73,6 @@ namespace MesonURPWEB
                         _Ccat.CTR_EliminarCategoria(_Dcat);
                         ClientScript.RegisterStartupScript(Page.GetType(), "prueba1", "prueba1('La categoría fue eliminado correctamente');window.location='GestionarCategoria.aspx';", true);
                     }
-
                 }
             }
             catch (Exception ex)

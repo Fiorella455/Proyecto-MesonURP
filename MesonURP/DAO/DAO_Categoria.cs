@@ -141,22 +141,22 @@ namespace DAO
                 throw ex;
             }
         }
-        public DataTable DAO_ConsultarCategoria(string C_NombreCategoria)
-        {
-            try
-            {
-                SqlDataAdapter _Data = new SqlDataAdapter("SP_Consultar_Categoria1", conexion);
-                _Data.SelectCommand.CommandType = CommandType.StoredProcedure;
-                _Data.SelectCommand.Parameters.AddWithValue("@C_NombreCategoria", C_NombreCategoria);
-                DataSet _Ds = new DataSet();
-                _Data.Fill(_Ds);
-                return _Ds.Tables[0];
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+        //public DataTable DAO_ConsultarCategoria(string C_NombreCategoria)
+        //{
+        //    try
+        //    {
+        //        SqlDataAdapter _Data = new SqlDataAdapter("SP_Consultar_Categoria1", conexion);
+        //        _Data.SelectCommand.CommandType = CommandType.StoredProcedure;
+        //        _Data.SelectCommand.Parameters.AddWithValue("@C_NombreCategoria", C_NombreCategoria);
+        //        DataSet _Ds = new DataSet();
+        //        _Data.Fill(_Ds);
+        //        return _Ds.Tables[0];
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
         public void DAO_EliminarCategoria(DTO_Categoria objCat)
         {
             try
@@ -173,17 +173,34 @@ namespace DAO
                 throw ex;
             }
         }
-        public DataTable DAO_Consultar_Categoria2(int C_idCategoria)
+        public DataTable DAO_ConsultarCategoriaxID(int C_idCategoria)
         {
             try
             {
-
-                SqlDataAdapter _Data = new SqlDataAdapter("SP_Consultar_Categoria2", conexion);
+                conexion.Open();
+                SqlDataAdapter _Data = new SqlDataAdapter("SP_Consultar_CategoriaxID", conexion);
                 _Data.SelectCommand.CommandType = CommandType.StoredProcedure;
                 _Data.SelectCommand.Parameters.AddWithValue("@C_idCategoria", C_idCategoria);
                 DataSet _Ds = new DataSet();
                 _Data.Fill(_Ds);
                 return _Ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public void DAO_ActualizarCategoria(DTO_Categoria objCat)
+        {
+            try
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_Actualizar_Categoria", conexion as SqlConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@C_idCategoria", objCat.C_idCategoria));
+                cmd.Parameters.Add(new SqlParameter("@C_NombreCategoria", objCat.C_NombreCategoria));
+                cmd.ExecuteNonQuery();
+                conexion.Close();
             }
             catch (Exception ex)
             {

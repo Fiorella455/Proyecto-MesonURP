@@ -184,6 +184,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ActualizarCategoria.aspx" />
     <Content Include="ActualizarInsumo.aspx" />
     <Content Include="ActualizarOC.aspx" />
     <Content Include="ActualizarProveedor.aspx" />
@@ -311,6 +312,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActualizarCategoria.aspx.cs">
+      <DependentUpon>ActualizarCategoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ActualizarCategoria.aspx.designer.cs">
+      <DependentUpon>ActualizarCategoria.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ActualizarInsumo.aspx.cs">
       <DependentUpon>ActualizarInsumo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

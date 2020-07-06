@@ -100,7 +100,7 @@
         function myalert() {
             Swal.fire({
                 title: 'Oh, no!',
-                text: 'Ya existe una categoría con el nombre',
+                text: 'Ya existe una categoría con el nombre.',
                 icon: 'error',
                 confirmButtonText: 'Aceptar'
             })
@@ -108,7 +108,7 @@
         function prueba() {
             Swal.fire({
                 title: 'Oh, no!',
-                text: 'No se puede eliminar la categoría, existe insumos',
+                text: 'No se puede eliminar la categoría, existe insumos.',
                 icon: 'error',
                 confirmButtonText: 'Aceptar'
             })
@@ -116,15 +116,37 @@
         function prueba1() {
             Swal.fire({
                 title: 'Enhorabuena!',
-                text: 'La categoría fue eliminado correctamente',
+                text: 'La categoría fue eliminado correctamente.',
                 icon: 'success',
                 confirmButtonText: 'Aceptar'
             })
         }
+        //function prueba1() {
+        //    Swal.fire({
+        //        title: 'Estás seguro?',
+        //        text: 'No podrás revertir esto!',
+        //        icon: 'warning',
+        //        showCancelButton: true,
+        //        confirmButtonColor: '#3085d6',
+        //        cancelButtonColor: '#d33',
+        //        confirmButtonText: 'Si, elimina!'
+        //    }).then((result) => {
+        //        if (result.value) {
+        //            if (result.value) {
+        //                Swal.fire(
+        //                    'Eliminado!',
+        //                    'La categoría fue eliminado correctamente',
+        //                    'success'
+        //                )
+        //            }
+        //        }
+        //        Response.Redirect("GestionarCategoria.aspx");
+        //    })
+        
         function myalertCorrecto() {
             Swal.fire({
                 title: 'Enhorabuena!',
-                text: 'La categoría fue registrado correctamente',
+                text: 'La categoría fue registrado correctamente.',
                 icon: 'success',
                 confirmButtonText: 'Aceptar'
             })

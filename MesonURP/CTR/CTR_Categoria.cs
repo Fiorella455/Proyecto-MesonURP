@@ -35,18 +35,17 @@ namespace CTR
         {
             return dao_categoria.DAO_ExisteInsumoxCategoria(C_idCategoria);
         }
-        public DataTable CTR_GetCategoria(string C_NombreCategoria)
-        {
-            return dao_categoria.DAO_ConsultarCategoria(C_NombreCategoria);
-        }
         public void CTR_EliminarCategoria(DTO_Categoria objCat)
         {
             dao_categoria.DAO_EliminarCategoria(objCat);
         }
-
-        public DataTable CTR_ConsultarCategoria2(int C_idCategoria)
+        public DataTable CTR_getCategoria(int C_idCategoria)
         {
-            return dao_categoria.DAO_Consultar_Categoria2(C_idCategoria);
+            return dao_categoria.DAO_ConsultarCategoriaxID(C_idCategoria);
+        }
+        public void CTR_ActualizarCategoria(DTO_Categoria objCat)
+        {
+            dao_categoria.DAO_ActualizarCategoria(objCat);
         }
     }
 }
