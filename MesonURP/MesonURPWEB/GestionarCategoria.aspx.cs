@@ -20,6 +20,7 @@ namespace MesonURPWEB
             if (!Page.IsPostBack)
             {
                 buildTableCategoria();
+                lblvacio.Text = "";
             }
         }
         public void buildTableCategoria()
@@ -83,22 +84,28 @@ namespace MesonURPWEB
         }
         protected void btnAgregarCategoria_Click(object sender, EventArgs e)
         {
-            int a = 0;
-            _Dcat.C_NombreCategoria = txtCategoria.Text;
-            bool vc = _Ccat.CTR_ExisteCategoria(_Dcat);
-            if (vc)
-            {
-                ClientScript.RegisterStartupScript(
-                this.GetType(), "myalert", "myalert('" + "Ya existe una categoría con el nombre" + "');", true);
-                a = 1;
-            }
-            if (a == 0)
-            {
+                int a = 0;
                 _Dcat.C_NombreCategoria = txtCategoria.Text;
-                _Ccat.CTR_AgregarCategoria(_Dcat);
-                ClientScript.RegisterStartupScript(Page.GetType(), "myalertCorrecto", "myalertCorrecto('La categoría fue registrado correctamente');", true);
-               
-            }
+                bool vc = _Ccat.CTR_ExisteCategoria(_Dcat);
+                if (vc)
+                {
+                    ClientScript.RegisterStartupScript(
+                    this.GetType(), "myalert", "myalert('" + "Ya existe una categoría con el nombre" + "');", true);
+                    a = 1;
+                }
+                if (a == 0)
+                {
+                    if(txtCategoria.Text != "")
+                    {
+                        _Dcat.C_NombreCategoria = txtCategoria.Text;
+                        _Ccat.CTR_AgregarCategoria(_Dcat);
+                        ClientScript.RegisterStartupScript(Page.GetType(), "myalertCorrecto", "myalertCorrecto('La categoría fue registrado correctamente');", true);
+                    }
+                    else
+                    {
+                        lblvacio.Text = "Campo Obligatorio";
+                    }
+                }
 
         }
 
