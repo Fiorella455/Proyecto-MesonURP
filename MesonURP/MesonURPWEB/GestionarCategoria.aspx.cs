@@ -61,7 +61,7 @@ namespace MesonURPWEB
                     int a = 0;
                     int pkID = Convert.ToInt32(gvCategoria.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["C_idCategoria"].ToString());
                     bool vextcat = _Ccat.CTR_ExisteInsumoxCategoria(pkID);
-                    if(vextcat)
+                    if (vextcat)
                     {
                         ClientScript.RegisterStartupScript(
                         this.GetType(), "prueba", "prueba('" + "No se puede eliminar la categoría, existe insumos" + "');", true);
@@ -71,8 +71,9 @@ namespace MesonURPWEB
                     {
                         _Dcat.C_idCategoria = pkID;
                         _Ccat.CTR_EliminarCategoria(_Dcat);
-                        ClientScript.RegisterStartupScript(Page.GetType(), "prueba1", "prueba1('La categoría fue eliminado correctamente');window.location='GestionarCategoria.aspx';", true);
+                        ClientScript.RegisterStartupScript(Page.GetType(), "prueba1", "prueba1('La categoría fue eliminado correctamente');", true);
                     }
+
                 }
             }
             catch (Exception ex)
@@ -95,7 +96,7 @@ namespace MesonURPWEB
             {
                 _Dcat.C_NombreCategoria = txtCategoria.Text;
                 _Ccat.CTR_AgregarCategoria(_Dcat);
-                ClientScript.RegisterStartupScript(Page.GetType(), "myalertCorrecto", "myalertCorrecto('La categoría fue registrado correctamente');window.location='GestionarCategoria.aspx';", true);
+                ClientScript.RegisterStartupScript(Page.GetType(), "myalertCorrecto", "myalertCorrecto('La categoría fue registrado correctamente');", true);
                
             }
 

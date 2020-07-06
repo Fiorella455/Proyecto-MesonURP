@@ -119,6 +119,10 @@
                 text: 'La categoría fue eliminado correctamente.',
                 icon: 'success',
                 confirmButtonText: 'Aceptar'
+            }).then((result) => {
+                if (result.value) {
+                    window.location.href = 'GestionarCategoria.aspx';
+                }
             })
         }
         //function prueba1() {
@@ -136,20 +140,60 @@
         //                Swal.fire(
         //                    'Eliminado!',
         //                    'La categoría fue eliminado correctamente',
-        //                    'success'
+        //                    'success',
         //                )
+
         //            }
         //        }
-        //        Response.Redirect("GestionarCategoria.aspx");
         //    })
-        
+        //}
+        //function prueba1() {
+        //    const swalWithBootstrapButtons = Swal.mixin({
+        //        customClass: {
+        //            confirmButton: 'btn btn-success',
+        //            cancelButton: 'btn btn-danger'
+        //        },
+        //        buttonsStyling: false
+        //    })
+        //    swalWithBootstrapButtons.fire({
+        //        title: 'Estás seguro?',
+        //        text: 'No podrás revertir esto!',
+        //        icon: 'warning',
+        //        showCancelButton: true,
+        //        confirmButtonText: 'Si, elimina!',
+        //        cancelButtonText: 'No, cancelar!',
+        //        reverseButtons: true
+        //    }).then((result) => {
+        //        if (result.value) {
+        //            swalWithBootstrapButtons.fire(
+        //                'Eliminado!',
+        //                'La categoría fue eliminado correctamente',
+        //                'success'
+        //            )
+        //        } else if (
+        //            function prueba2() {
+        //                result.dismiss === Swal.DismissReason.cancel
+        //            }) {
+        //            swalWithBootstrapButtons.fire(
+        //                'Cancelado',
+        //                'La categoría no fue eliminado :)',
+        //                'Error'
+        //            )
+        //        }
+        //    })
+        //}
+
         function myalertCorrecto() {
             Swal.fire({
                 title: 'Enhorabuena!',
                 text: 'La categoría fue registrado correctamente.',
                 icon: 'success',
                 confirmButtonText: 'Aceptar'
+            }).then((result) => {
+                if (result.value) {
+                    window.location.href = 'GestionarCategoria.aspx';
+                }
             })
         }
-    </script>
+    </script>ipt>
 </asp:Content>
