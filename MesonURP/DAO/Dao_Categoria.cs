@@ -40,22 +40,13 @@ namespace DAO
         //}
         public void DAO_AgregarCategoria(DTO_Categoria objCat)
         {
-
             try
             {
                 conexion.Open();
                 SqlCommand cmd = new SqlCommand("SP_Agregar_Categoria", conexion as SqlConnection);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add(new SqlParameter("@C_NombreCategoria", objCat.C_NombreCategoria));
-                SqlParameter retValue = new SqlParameter("@RETURN_VALUE", SqlDbType.Int);
-                retValue.Direction = ParameterDirection.ReturnValue;
-                cmd.Parameters.Add(retValue);
-                objCat.C_idCategoria = Convert.ToInt32(retValue.Value);
-                using (SqlDataReader dr = cmd.ExecuteReader())
-                {
-                    objCat.C_idCategoria = Convert.ToInt32(retValue.Value);
-                }
-                conexion.Close();
+                cmd.ExecuteNonQuery();
                 conexion.Close();
             }
             catch (Exception ex)
@@ -94,30 +85,102 @@ namespace DAO
                 throw ex;
             }
         }
-        public bool DAO_ExisteNombreCategoria(string C_NombreCategoria)
-        {
-
-            string query = "SELECT COUNT (*) FROM T_Categoria WHERE C_NombreCategoria = @C_NombreCategoria";
-            SqlCommand cmd = new SqlCommand(query, conexion);
-            cmd.Parameters.AddWithValue("@C_NombreCategoria", C_NombreCategoria);
-            conexion.Open();
-            int count = Convert.ToInt32(cmd.ExecuteScalar());
-            conexion.Close();
-
-            if (count == 0)
-                return false;
-            else
-                return true;
-
-        }
-        public DataTable DAO_ConsultarCategoria(string C_NombreCategoria)
+        public bool DAO_ExisteNombreCategoria(DTO_Categoria objCat)
         {
             try
             {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_Verificar_Nombre_Categoria", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@C_NombreCategoria", objCat.C_NombreCategoria);
+                cmd.ExecuteNonQuery();
 
-                SqlDataAdapter _Data = new SqlDataAdapter("SP_Consultar_Categoria1", conexion);
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                if (count == 0)
+                {
+                    conexion.Close();
+                    return false;
+                }
+                else
+                {
+                    conexion.Close();
+                    return true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public bool DAO_ExisteInsumoxCategoria(int C_idCategoria)
+        {
+            try
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_Consultar_Existencia_InsumoxCategoria", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@C_IdCategoria", C_idCategoria);
+                cmd.ExecuteNonQuery();
+
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                if (count == 0)
+                {
+                    conexion.Close();
+                    return false;
+                }
+                else
+                {
+                    conexion.Close();
+                    return true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        //public DataTable DAO_ConsultarCategoria(string C_NombreCategoria)
+        //{
+        //    try
+        //    {
+        //        SqlDataAdapter _Data = new SqlDataAdapter("SP_Consultar_Categoria1", conexion);
+        //        _Data.SelectCommand.CommandType = CommandType.StoredProcedure;
+        //        _Data.SelectCommand.Parameters.AddWithValue("@C_NombreCategoria", C_NombreCategoria);
+        //        DataSet _Ds = new DataSet();
+        //        _Data.Fill(_Ds);
+        //        return _Ds.Tables[0];
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
+        public void DAO_EliminarCategoria(DTO_Categoria objCat)
+        {
+            try
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_Delete_Categoria", conexion as SqlConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@C_idCategoria", SqlDbType.Int).Value = objCat.C_idCategoria;
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataTable DAO_ConsultarCategoriaxID(int C_idCategoria)
+        {
+            try
+            {
+                conexion.Open();
+                SqlDataAdapter _Data = new SqlDataAdapter("SP_Consultar_CategoriaxID", conexion);
                 _Data.SelectCommand.CommandType = CommandType.StoredProcedure;
-                _Data.SelectCommand.Parameters.AddWithValue("@C_NombreCategoria", C_NombreCategoria);
+                _Data.SelectCommand.Parameters.AddWithValue("@C_idCategoria", C_idCategoria);
                 DataSet _Ds = new DataSet();
                 _Data.Fill(_Ds);
                 return _Ds.Tables[0];
@@ -127,6 +190,22 @@ namespace DAO
                 throw ex;
             }
         }
-
+        public void DAO_ActualizarCategoria(DTO_Categoria objCat)
+        {
+            try
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_Actualizar_Categoria", conexion as SqlConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@C_idCategoria", objCat.C_idCategoria));
+                cmd.Parameters.Add(new SqlParameter("@C_NombreCategoria", objCat.C_NombreCategoria));
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

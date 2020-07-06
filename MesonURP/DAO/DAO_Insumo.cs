@@ -122,18 +122,15 @@ namespace DAO
                 throw ex;
             }
         }
-
-        public void eliminarInsumo(int I_idInsumo)
+        public void eliminarInsumo(DTO_Insumo objIns)
         {
             try
             {
                 conexion.Open();
-                DataTable dtable = new DataTable();
-                SqlCommand unComando = new SqlCommand("SP_Eliminar_Insumo", conexion as SqlConnection);
-                unComando.CommandType = CommandType.StoredProcedure;
-                unComando.Parameters.Add(new SqlParameter("@I_idInsumo", I_idInsumo));
-                unComando.ExecuteNonQuery();
-                unComando.Parameters.Clear();
+                SqlCommand cmd = new SqlCommand("SP_Delete_Insumo", conexion as SqlConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@I_idInsumo", SqlDbType.Int).Value = objIns.PK_IR_Recurso;
+                cmd.ExecuteNonQuery();
                 conexion.Close();
             }
             catch (Exception ex)
@@ -252,5 +249,90 @@ namespace DAO
                 throw ex;
             }
         }
+        public bool DAO_Consultar_Relacion_InsumoxMxOC(int I_idInsumo)
+        {
+            try
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_Consultar_Relacion_InsumoxMxOC", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@I_idInsumo", I_idInsumo);
+                cmd.ExecuteNonQuery();
+
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                if (count == 0)
+                {
+                    conexion.Close();
+                    return false;
+                }
+                else
+                {
+                    conexion.Close();
+                    return true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public bool DAO_Consultar_Relacion_InsumoxM(int I_idInsumo)
+        {
+            try
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_Consultar_Relacion_InsumoxM", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@I_idInsumo", I_idInsumo);
+                cmd.ExecuteNonQuery();
+
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                if (count == 0)
+                {
+                    conexion.Close();
+                    return false;
+                }
+                else
+                {
+                    conexion.Close();
+                    return true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public bool DAO_Consultar_Relacion_InsumoxOC(int I_idInsumo)
+        {
+            try
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_Consultar_Relacion_InsumoxOC", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@I_idInsumo", I_idInsumo);
+                cmd.ExecuteNonQuery();
+
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                if (count == 0)
+                {
+                    conexion.Close();
+                    return false;
+                }
+                else
+                {
+                    conexion.Close();
+                    return true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        
     }
 }

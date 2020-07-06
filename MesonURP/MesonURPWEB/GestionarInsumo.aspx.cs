@@ -15,21 +15,12 @@ namespace MesonURPWEB
     {
         CTR_Insumo _Ci = new CTR_Insumo();
         DTO_Insumo _Di = new DTO_Insumo();
-        CTR_Categoria _Ccat = new CTR_Categoria();
-        DTO_Categoria _Dc = new DTO_Categoria();
-       
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
                 buildTableInsumos();
-                //ListItem ddl1 = new ListItem("10", "10");
-                //ddlp.Items.Insert(0, ddl1);
-                //ListItem ddl2 = new ListItem("15", "15");
-                //ddlp.Items.Insert(1, ddl2);
-                //ListItem ddl3 = new ListItem("20", "20");
-                //ddlp.Items.Insert(2, ddl3);
             }
         }
         public void buildTableInsumos()
@@ -93,9 +84,35 @@ namespace MesonURPWEB
                 }
                 else if (e.CommandName == "selectItem2")//ELIMINAR 
                 {
+                    int a = 0;
                     int pkInsumo = Convert.ToInt32(gvInsumos.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["I_idInsumo"].ToString());
-                    _Ci.eliminarInsumo(pkInsumo);
-                    buildTableInsumos();
+                    bool veixoc = _Ci.CTR_Consultar_Relacion_InsumoxOC(pkInsumo);
+                    bool veixmov = _Ci.CTR_Consultar_Relacion_InsumoxM(pkInsumo);
+                    bool veixmxoc = _Ci.CTR_Consultar_Relacion_InsumoxMxOC(pkInsumo);
+                    if (veixoc)
+                    {
+                        ClientScript.RegisterStartupScript(
+                        this.GetType(), "myalertixoc", "myalertixoc('" + "El insumo se encuentra usado en una Orden de Compra" + "');", true);
+                        a = 1;
+                    }
+                    if (veixmov)
+                    {
+                        ClientScript.RegisterStartupScript(
+                        this.GetType(), "myalertixm", "myalertixm('" + "El insumo se encuentra usado en Movimientos" + "');", true);
+                        a = 1;
+                    }
+                    if (veixmxoc)
+                    {
+                        ClientScript.RegisterStartupScript(
+                        this.GetType(), "myalertixmxoc", "myalertixmxoc('" + "El insumo existe en una Orden de Compra y Movimiento" + "');", true);
+                        a = 1;
+                    }
+                    if (a == 0)
+                    {
+                        _Di.PK_IR_Recurso = pkInsumo;
+                        _Ci.eliminarInsumo(_Di);
+                        ClientScript.RegisterStartupScript(Page.GetType(), "myalertEliminar", "myalertEliminar('El insumo fue eliminado correctamente');window.location='GestionarInsumo.aspx';", true);
+                    }
                 }
             }
             catch (Exception ex)
@@ -103,11 +120,6 @@ namespace MesonURPWEB
                 throw ex;
             }
         }
-        //protected void ddlp_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    gvInsumos.PageSize = Convert.ToInt32(ddlp.SelectedValue);
-        //    buildTableInsumos();
-        //}
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
             buildTableInsumos();

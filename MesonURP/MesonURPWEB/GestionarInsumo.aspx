@@ -125,4 +125,60 @@
             return true;
         }
     </script>
+    <script src="js/sweetalert.js"></script>
+    <script>
+        function myalertixoc() {
+            Swal.fire({
+                title: 'Oh, no!',
+                text: 'El insumo se encuentra usado en una Orden de Compra',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            })
+        }
+        function myalertixm() {
+            Swal.fire({
+                title: 'Oh, no!',
+                text: 'El insumo se encuentra usado en Movimientos',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            })
+        }
+        function myalertixmxoc() {
+            Swal.fire({
+                title: 'Oh, no!',
+                text: 'El insumo existe en una Orden de Compra y Movimiento',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            })
+        }
+        function myalertEliminar() {
+            Swal.fire({
+                title: 'Enhorabuena!',
+                text: 'El insumo fue eliminado correctamente',
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+            })
+        }
+        //function myalertEliminar() {
+        //    Swal.fire({
+        //        title: 'Estás seguro?',
+        //        text: 'No podrás revertir esto!',
+        //        icon: 'warning',
+        //        showCancelButton: true,
+        //        confirmButtonColor: '#3085d6',
+        //        cancelButtonColor: '#d33',
+        //        confirmButtonText: 'Si, elimina!'
+        //    }).then((result) => {
+        //        if (result.value) {
+        //            if (result.value) {
+        //                Swal.fire(
+        //                    'Eliminado!',
+        //                    'El insumo fue eliminado correctamente',
+        //                    'success'
+        //                )
+        //            }
+        //        }
+        //    })
+        //}
+    </script>
 </asp:Content>

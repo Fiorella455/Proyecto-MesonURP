@@ -54,9 +54,9 @@ namespace CTR
         //    return objDAO.consultarInsumo1(I_idInsumo);
         //}
 
-        public void eliminarInsumo(int I_idInsumo)
+        public void eliminarInsumo(DTO_Insumo objIns)
         {
-            dao_insumo.eliminarInsumo(I_idInsumo);
+            dao_insumo.eliminarInsumo(objIns);
         }
 
         public DataTable consultarInsumo2(int I_idInsumo)
@@ -66,6 +66,18 @@ namespace CTR
         public bool VerificarExisteInsumo(DTO_Insumo objIns)
         {
             return dao_insumo.VericarExisteNombreInsumo(objIns);
+        }
+        public bool CTR_Consultar_Relacion_InsumoxMxOC(int I_idInsumo)
+        {
+            return dao_insumo.DAO_Consultar_Relacion_InsumoxMxOC(I_idInsumo);
+        }
+        public bool CTR_Consultar_Relacion_InsumoxM(int I_idInsumo)
+        {
+            return dao_insumo.DAO_Consultar_Relacion_InsumoxM(I_idInsumo);
+        }
+        public bool CTR_Consultar_Relacion_InsumoxOC(int I_idInsumo)
+        {
+            return dao_insumo.DAO_Consultar_Relacion_InsumoxOC(I_idInsumo);
         }
     }
 }
