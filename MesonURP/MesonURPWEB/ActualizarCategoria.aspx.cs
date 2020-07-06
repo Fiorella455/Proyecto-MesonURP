@@ -35,7 +35,7 @@ namespace MesonURPWEB
         }
         protected void btnActualizarCategoria_Click(object sender, EventArgs e)
         {
-            if (rfvCategoria.IsValid)
+            if (revNombreC.IsValid)
             {
                 int a = 0;
                 _Dcat.C_NombreCategoria = txtCategoria.Text;
@@ -51,7 +51,7 @@ namespace MesonURPWEB
                     _Dcat.C_idCategoria = Convert.ToInt16(txt1.Text);
                     _Dcat.C_NombreCategoria = txtCategoria.Text;
                     _Ccat.CTR_ActualizarCategoria(_Dcat);
-                    ClientScript.RegisterStartupScript(Page.GetType(), "alertActualizacion", "alertActualizacion('La categoría fue actualizado correctamente');window.location='GestionarCategoria.aspx';", true);
+                    ClientScript.RegisterStartupScript(Page.GetType(), "alertActualizacion1", "alertActualizacion1('La categoría fue actualizado correctamente');", true);
                 }
             }
         }
