@@ -113,6 +113,34 @@ namespace DAO
                 throw ex;
             }
         }
+        public bool DAO_ExisteInsumoxCategoria(int C_idCategoria)
+        {
+            try
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_Consultar_Existencia_InsumoxCategoria", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@C_IdCategoria", C_idCategoria);
+                cmd.ExecuteNonQuery();
+
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                if (count == 0)
+                {
+                    conexion.Close();
+                    return false;
+                }
+                else
+                {
+                    conexion.Close();
+                    return true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public DataTable DAO_ConsultarCategoria(string C_NombreCategoria)
         {
             try
@@ -129,6 +157,38 @@ namespace DAO
                 throw ex;
             }
         }
+        public void DAO_EliminarCategoria(DTO_Categoria objCat)
+        {
+            try
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_Delete_Categoria", conexion as SqlConnection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@C_idCategoria", SqlDbType.Int).Value = objCat.C_idCategoria;
+                cmd.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataTable DAO_Consultar_Categoria2(int C_idCategoria)
+        {
+            try
+            {
 
+                SqlDataAdapter _Data = new SqlDataAdapter("SP_Consultar_Categoria2", conexion);
+                _Data.SelectCommand.CommandType = CommandType.StoredProcedure;
+                _Data.SelectCommand.Parameters.AddWithValue("@C_idCategoria", C_idCategoria);
+                DataSet _Ds = new DataSet();
+                _Data.Fill(_Ds);
+                return _Ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

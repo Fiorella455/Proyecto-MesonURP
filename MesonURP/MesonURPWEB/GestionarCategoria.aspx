@@ -12,7 +12,7 @@
              <div class="form-group">
                 <label for="focusedinput" class="col-sm-1 control-label">Categoría</label>
                 <div class="col-sm-4">
-                    <asp:TextBox ID="txtCategoria" runat="server" placeholder="Ingrese una categoría" CssClass="form-control1" />
+                    <asp:TextBox ID="txtCategoria" runat="server" placeholder="Ingrese un nombre de categoría" CssClass="form-control1" />
                     <asp:RegularExpressionValidator ID="revNombreC" runat="server" ErrorMessage="Por favor ingrese solo letras" ControlToValidate="txtCategoria" ForeColor="#CC0000" ValidationExpression="^[a-zA-Z ]*$" SetFocusOnError="True" Display="Dynamic"></asp:RegularExpressionValidator>                   
                 </div>
                   <div class="stock-options">
@@ -105,6 +105,29 @@
                 confirmButtonText: 'Aceptar'
             })
         }
-        
+        function prueba() {
+            Swal.fire({
+                title: 'Oh, no!',
+                text: 'No se puede eliminar la categoría, existe insumos',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            })
+        }
+        function prueba1() {
+            Swal.fire({
+                title: 'Enhorabuena!',
+                text: 'La categoría fue eliminado correctamente',
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+            })
+        }
+        function myalertCorrecto() {
+            Swal.fire({
+                title: 'Enhorabuena!',
+                text: 'La categoría fue registrado correctamente',
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+            })
+        }
     </script>
 </asp:Content>

@@ -20,11 +20,11 @@ namespace MesonURPWEB
             if (!Page.IsPostBack)
             {
                 buildTableCategoria();
-                
             }
         }
         public void buildTableCategoria()
         {
+            //gvCategoria.DataSource = _Ccat.CTR_Leer_Categorias();
             gvCategoria.DataSource = _Ccat.CTR_Leer_Categorias();
             gvCategoria.DataBind();
         }
@@ -57,12 +57,25 @@ namespace MesonURPWEB
                     GridView1.DataSource = modal;
                     GridView1.DataBind();
                 }
-                //else if (e.CommandName == "selectItem2")//ELIMINAR 
-                //{
-                //    int pkInsumo = Convert.ToInt32(gvInsumos.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["I_idInsumo"].ToString());
-                //    _Ci.eliminarInsumo(pkInsumo);
-                //    buildTableInsumos();
-                //}
+                else if (e.CommandName == "selectItem2")//ELIMINAR 
+                {
+                    int a = 0;
+                    int pkID = Convert.ToInt32(gvCategoria.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["C_idCategoria"].ToString());
+                    bool vextcat = _Ccat.CTR_ExisteInsumoxCategoria(pkID);
+                    if(vextcat)
+                    {
+                        ClientScript.RegisterStartupScript(
+                        this.GetType(), "prueba", "prueba('" + "No se puede eliminar la categoría, existe insumos" + "');", true);
+                        a = 1;
+                    }
+                    if (a == 0)
+                    {
+                        _Dcat.C_idCategoria = pkID;
+                        _Ccat.CTR_EliminarCategoria(_Dcat);
+                        ClientScript.RegisterStartupScript(Page.GetType(), "prueba1", "prueba1('La categoría fue eliminado correctamente');window.location='GestionarCategoria.aspx';", true);
+                    }
+
+                }
             }
             catch (Exception ex)
             {
@@ -84,7 +97,8 @@ namespace MesonURPWEB
             {
                 _Dcat.C_NombreCategoria = txtCategoria.Text;
                 _Ccat.CTR_AgregarCategoria(_Dcat);
-                Response.Redirect("GestionarCategoria.aspx");
+                ClientScript.RegisterStartupScript(Page.GetType(), "myalertCorrecto", "myalertCorrecto('La categoría fue registrado correctamente');window.location='GestionarCategoria.aspx';", true);
+               
             }
 
         }
