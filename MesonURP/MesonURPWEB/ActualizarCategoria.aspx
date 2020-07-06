@@ -18,7 +18,7 @@
                         <label for="focusedinput" class="col-sm-2 control-label">Categoría</label>
                         <div class="col-sm-8">
                             <asp:TextBox ID="txtCategoria" runat="server" CssClass="form-control1"/>
-                            <asp:RegularExpressionValidator ID="revNombreC" runat="server" ErrorMessage="Por favor ingrese solo letras" ControlToValidate="txtCategoria" ForeColor="#CC0000" ValidationExpression="^[a-zA-Z ]*$" SetFocusOnError="True" Display="Dynamic"></asp:RegularExpressionValidator>
+                            <asp:RegularExpressionValidator ID="revNombreC" runat="server" ErrorMessage="Por favor ingrese solo letras" ControlToValidate="txtCategoria" ForeColor="#CC0000" ValidationExpression="^[a-zA-Z_áéíóúñ\s]*$" SetFocusOnError="True" Display="Dynamic"></asp:RegularExpressionValidator>
                             <asp:RequiredFieldValidator ID="rfvCategoria" runat="server" ControlToValidate="txtCategoria" ErrorMessage="Campo Obligatorio" ValidationGroup="actualizarCategoria" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
