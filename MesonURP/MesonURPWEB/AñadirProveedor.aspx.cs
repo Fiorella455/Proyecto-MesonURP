@@ -52,7 +52,7 @@ namespace MesonURPWEB
             else
             {
                 ctr_proveedor.Registrar_Proveedor(dto_proveedor);
-                Response.Redirect("Gestionar_Proveedor.aspx");
+                Response.Redirect("GestionarProveedor.aspx");
             }
 
         }

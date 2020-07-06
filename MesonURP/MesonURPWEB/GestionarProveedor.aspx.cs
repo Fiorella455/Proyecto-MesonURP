@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using CTR;
+using DTO;
 
 namespace MesonURPWEB
 {
@@ -41,9 +42,15 @@ namespace MesonURPWEB
             }
             if (e.CommandName == "EliminarProveedor")
             {
+                CTR_Proveedor cp = new CTR_Proveedor();
                 int id = Convert.ToInt32(GridViewProveedor.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["P_idProveedor"].ToString());
                 Session.Add("id", id);
-                Response.Redirect("EliminarProveedor.aspx");
+                cp.Eliminar_Proveedor(id);
+                dt = new DataSet();
+                dt = cp.Leer_Proveedor();
+                GridViewProveedor.DataSource = dt;
+                GridViewProveedor.DataBind();
+                //Response.Redirect("EliminarProveedor.aspx");
             }
         }
 
