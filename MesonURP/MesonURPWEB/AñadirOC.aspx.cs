@@ -162,7 +162,7 @@ namespace MesonURPWEB
             
 
 
-            Response.Redirect("GestionarOC.aspx");
+            Response.Redirect("GestionarOC");
         }
     }
 }
