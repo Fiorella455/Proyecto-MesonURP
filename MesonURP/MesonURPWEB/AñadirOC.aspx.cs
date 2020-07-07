@@ -46,7 +46,7 @@ namespace MesonURPWEB
                 DdlProveedor.DataValueField = "P_idProveedor";
                 DdlProveedor.DataSource = dtpro;
                 DdlProveedor.DataBind();
-
+                DdlProveedor.Items.Insert(0, "--seleccionar--");
                 //txtFechaEntrega.Text = DateTime.Now.ToString("yyyy-MM-dd");
             }
         }
@@ -159,10 +159,8 @@ namespace MesonURPWEB
             }
             suma = 0;
             tin.Clear();
-            
-
-
-            Response.Redirect("GestionarOC");
+            ScriptManager.RegisterClientScriptBlock(this.panelAñadirOC, this.panelAñadirOC.GetType(), "alert", "alertaExito()", true);
+            return;
         }
     }
 }

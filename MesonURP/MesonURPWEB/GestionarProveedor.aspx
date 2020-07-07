@@ -19,7 +19,7 @@
                                     <div class="form-title color-white">
                                         <h4>Proveedor</h4>
                                     </div>
-                                    <div class="table-wrapper-scroll-y">
+                                    <div class="table-wrapper-scroll-y my-custom-scrollbar">
                                          <asp:GridView ID="GridViewProveedor" allowpaging="True" runat="server" emptydatatext="No hay información disponible." AutoGenerateColumns="false"
                                              CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None" DataKeyNames="P_idProveedor"   OnRowCommand="GridViewProveedor_RowCommand" OnRowDataBound="GridViewProveedor_RowDataBound">
                                              <Columns>

@@ -134,7 +134,7 @@ namespace MesonURPWEB
                 dto_estado_OCxOC.EOCxOC_UsuarioRegistro = 5;
                 ctr_estado_OCxOC.Actualizar_Estado_OCxOC(dto_estado_OCxOC);
                 CargarOrdenesCompra();
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('" + "Orden de Compra Enviada" + "');", true);
+                ScriptManager.RegisterStartupScript(this.panelOC, this.panelOC.GetType(), "alertIns", "alertaCorreo()", true);
 
 
 
@@ -148,7 +148,7 @@ namespace MesonURPWEB
                     ctr_oc.Eliminar_OC(idOC);
                     CargarOrdenesCompra();
 
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('"+"Orden de Compra Eliminada"+"');", true);
+                ScriptManager.RegisterStartupScript(this.panelOC, this.panelOC.GetType(), "alertIns", "alertaEliminar()", true);
                 }
                 if (e.CommandName == "ConsultarOC")
                {
@@ -179,7 +179,7 @@ namespace MesonURPWEB
                 ctr_estado_OCxOC.Actualizar_Estado_OCxOC(dto_estado_OCxOC);
                 CargarOrdenesCompra();
 
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('" + "Estado Actulizado" + "');", true);
+                ScriptManager.RegisterStartupScript(this.panelOC, this.panelOC.GetType(), "alertIns", "alertaAceptado()", true);
                
 
             }
@@ -198,7 +198,7 @@ namespace MesonURPWEB
 
                 CargarOrdenesCompra();
 
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('" + "Orden de Compra Rechazado" + "');", true);
+                ScriptManager.RegisterStartupScript(this.panelOC, this.panelOC.GetType(), "alertIns", "alertaRechazado()", true);
 
             }
                 if (e.CommandName=="RecibirOC")
@@ -219,7 +219,7 @@ namespace MesonURPWEB
                 CargarOrdenesCompra();
 
 
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('" + "Orden de Compra Recibida" + "');", true);
+                ScriptManager.RegisterStartupScript(this.panelOC, this.panelOC.GetType(), "alertIns", "alertaRecibido()", true);
             }
         }
         
@@ -260,8 +260,7 @@ namespace MesonURPWEB
         protected void GridViewOC_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
            GridViewOC.PageIndex = e.NewPageIndex;
-            CargarOrdenesCompra();
-            
+            CargarOrdenesCompra();     
          
         }
     }

@@ -105,6 +105,15 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.Button btnQuitar;
 
         /// <summary>
+        /// Control panelACTOC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel panelACTOC;
+
+        /// <summary>
         /// Control GridViewEditarOC.
         /// </summary>
         /// <remarks>

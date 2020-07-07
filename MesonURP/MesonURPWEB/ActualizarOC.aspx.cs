@@ -53,7 +53,8 @@ namespace MesonURPWEB
                 DdlProveedor.DataValueField = "P_idProveedor";
                 DdlProveedor.DataSource = dtpro;
                 DdlProveedor.DataBind();
-                
+                DdlProveedor.Items.Insert(0, "--seleccionar--");
+
                 //--------------------------------------------Llenar 
 
                 ctr_oc.CTR_Leer_OC(dto_oc);
@@ -116,7 +117,8 @@ namespace MesonURPWEB
                 ctr_ocxinsumo.Registrar_OC_Insumo(dto_ocxinsumo);
             }
 
-            Response.Redirect("GestionarOC.aspx");
+            ScriptManager.RegisterClientScriptBlock(this.panelACTOC, this.panelACTOC.GetType(), "alert", "alertaExito()", true);
+            return;
         }
 
         protected void btnQuitar_Click(object sender, EventArgs e)

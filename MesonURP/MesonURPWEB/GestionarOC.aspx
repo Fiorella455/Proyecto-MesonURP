@@ -19,6 +19,8 @@
                                     <div class="form-title color-white">
                                         <h4>Órdenes de Compra</h4>
                                     </div>
+                                 <asp:UpdatePanel ID="panelOC" runat="server">
+                                    <ContentTemplate>
                                     <div class="table-wrapper-scroll-y my-custom-scrollbar">
                                          <asp:GridView ID="GridViewOC" Allowpaging="True" runat="server" emptydatatext="No hay información disponible."  OnRowCommand="GridViewOC_RowCommand" OnRowDataBound="GridViewOC_OnRowDataBound" OnPageIndexChanging="GridViewOC_PageIndexChanging"
                                              DataKeyNames="OC_idOrdenCompra,EOC_NombreEstadoOC,OC_TipoComprobante,OC_NumeroComprobante,OC_FormaPago,OC_TotalCompra,OC_FechaEmision,P_idProveedor"   AutoGenerateColumns="False"
@@ -35,7 +37,6 @@
                                                 <asp:BoundField  HeaderText="ID Proveedor" DataField="P_idProveedor" Visible="false" />
                                                    <asp:TemplateField  HeaderText="Enviar">
                                                        <ItemTemplate>
-                                                           <%--holi--%> 
                                                            <%--<asp:Button ID="btnEnviarEmailOC" class="btn btn-primary" runat="server" CommandName="EnviarEmailOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Enviar" OnClick="btnEnviarEmailOC_Click" />--%>
                                                        <asp:Button ID="btnEnviarEmailOC" class="btn btn-primary" runat="server" CommandName="EnviarEmailOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Enviar" />
                                                        </ItemTemplate>                                                     
@@ -66,6 +67,8 @@
                                             </Columns>
                                         </asp:GridView>
                                     </div>
+                                </ContentTemplate>
+                        </asp:UpdatePanel>
                                 </div>
                             </div>
                         </div>
@@ -87,4 +90,46 @@
             return true;
         }
     </script>
+        <script>
+            function alertaAceptado() {
+                Swal.fire({
+                    title: 'Aceptado',
+                    text: 'La Orden de Compra ha cambiado de estado satisfactoriamente',
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar'
+                })
+            }
+            function alertaRechazado() {
+                Swal.fire({
+                    title: 'Rechazado',
+                    text: 'La Orden de Compra ha cambiado de estado satisfactoriamente',
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar'
+                })
+            }
+            function alertaRecibido() {
+                Swal.fire({
+                    title: 'Recibido',
+                    text: 'Los insumos ya se encuentran en stock',
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar'
+                })
+            }
+            function alertaEliminar() {
+                Swal.fire({
+                    title: 'Eliminado',
+                    text: 'La Orden de Compra ha sido eliminada',
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar'
+                })
+            }
+            function alertaCorreo() {
+                Swal.fire({
+                    title: 'Enhorabuena!',
+                    text: 'Se ha enviado el correo correctamente',
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar'
+                })
+            }
+        </script>
 </asp:Content>
