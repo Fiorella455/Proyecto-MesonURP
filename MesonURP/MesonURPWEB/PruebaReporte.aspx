@@ -14,7 +14,7 @@
 
             <asp:GridView ID="GridViewInsumoxOC" runat="server" >
                 <Columns>
-                    <%-- O.OC_idOrdenCompra,I.I_NombreInsumo,OC_I.OCxI_Cantidad,OC_I.OCxI_PrecioTotal--%>
+                   
                <%-- <asp:BoundField HeaderText="N°Orden Compra" DataField="OC_idOrdenCompra" />
                 <asp:BoundField HeaderText="Insumo" DataField="I_NombreInsumo"/>
                 <asp:BoundField HeaderText="Cantidad" DataField="OCxI_Cantidad" />
