@@ -13,7 +13,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:GridView ID="GridViewConsultar" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridViewConsultar_SelectedIndexChanged" >
+        <asp:GridView ID="GridViewConsultar" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridViewConsultar_SelectedIndexChanged" emptydatatext="No hay información disponible." >
              <Columns>
                                                  
                                                 <asp:BoundField HeaderText="ID Compra" DataField="OC_idOrdenCompra" />
@@ -33,9 +33,11 @@
         </asp:GridView>
     <div class="auto-style1">
 
-        <asp:DropDownList ID="ddlMes" runat="server">
+        <asp:DropDownList ID="ddlMes" runat="server" OnSelectedIndexChanged="ddlMes_SelectedIndexChanged" AutoPostBack="true"  >
         </asp:DropDownList>
-        <asp:Button ID="btnReporte" runat="server" Text="Generar Reporte" />
+        <asp:Button ID="btnReporte" runat="server" Text="Generar Reporte" OnClick="btnReporte_Click" />
+
+    &nbsp;<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
 
     </div>
     </form>

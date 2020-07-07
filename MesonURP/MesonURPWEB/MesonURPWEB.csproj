@@ -322,6 +322,7 @@
     <Content Include="js1\signin.js" />
     <Content Include="index.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="ReporteCompras.aspx" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -348,11 +349,6 @@
     <Compile Include="AñadirOC.aspx.cs">
       <DependentUpon>AñadirOC.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DS_Reporte.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DS_Reporte.xsd</DependentUpon>
     </Compile>
     <Compile Include="Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>
@@ -460,6 +456,13 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReporteCompras.aspx.cs">
+      <DependentUpon>ReporteCompras.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReporteCompras.aspx.designer.cs">
+      <DependentUpon>ReporteCompras.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -472,17 +475,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="DS_Reporte.xsc">
-      <DependentUpon>DS_Reporte.xsd</DependentUpon>
-    </Content>
-    <None Include="DS_Reporte.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DS_Reporte.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="DS_Reporte.xss">
-      <DependentUpon>DS_Reporte.xsd</DependentUpon>
-    </Content>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
