@@ -366,14 +366,12 @@
     </Compile>
     <Compile Include="ActualizarOC.aspx.cs">
       <DependentUpon>ActualizarOC.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ActualizarOC.aspx.designer.cs">
       <DependentUpon>ActualizarOC.aspx</DependentUpon>
     </Compile>
     <Compile Include="ActualizarProveedor.aspx.cs">
       <DependentUpon>ActualizarProveedor.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ActualizarProveedor.aspx.designer.cs">
       <DependentUpon>ActualizarProveedor.aspx</DependentUpon>
@@ -387,11 +385,9 @@
     </Compile>
     <Compile Include="AñadirOC.aspx.cs">
       <DependentUpon>AñadirOC.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AñadirProveedor.aspx.cs">
       <DependentUpon>AñadirProveedor.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="GestionarCategoria.aspx.cs">
       <DependentUpon>GestionarCategoria.aspx</DependentUpon>
@@ -416,14 +412,12 @@
     </Compile>
     <Compile Include="ConsultarMovimientos.aspx.cs">
       <DependentUpon>ConsultarMovimientos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ConsultarMovimientos.aspx.designer.cs">
       <DependentUpon>ConsultarMovimientos.aspx</DependentUpon>
     </Compile>
     <Compile Include="ConsultarProveedor.aspx.cs">
       <DependentUpon>ConsultarProveedor.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ConsultarProveedor.aspx.designer.cs">
       <DependentUpon>ConsultarProveedor.aspx</DependentUpon>
@@ -437,42 +431,36 @@
     </Compile>
     <Compile Include="EliminarProveedor.aspx.cs">
       <DependentUpon>EliminarProveedor.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="EliminarProveedor.aspx.designer.cs">
       <DependentUpon>EliminarProveedor.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionarProveedor.aspx.cs">
       <DependentUpon>GestionarProveedor.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="GestionarProveedor.aspx.designer.cs">
       <DependentUpon>GestionarProveedor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AñadirOC.aspx.designer.cs">
       <DependentUpon>AñadirOC.aspx</DependentUpon>
     </Compile>
     <Compile Include="ConsultarOC.aspx.cs">
       <DependentUpon>ConsultarOC.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ConsultarOC.aspx.designer.cs">
       <DependentUpon>ConsultarOC.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionarOC.aspx.cs">
       <DependentUpon>GestionarOC.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="GestionarOC.aspx.designer.cs">
       <DependentUpon>GestionarOC.aspx</DependentUpon>
@@ -482,14 +470,12 @@
     </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="ManejarStock.aspx.cs">
       <DependentUpon>ManejarStock.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ManejarStock.aspx.designer.cs">
       <DependentUpon>ManejarStock.aspx</DependentUpon>
@@ -518,14 +504,12 @@
     </Compile>
     <Compile Include="RegistrarEgreso.aspx.cs">
       <DependentUpon>RegistrarEgreso.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="RegistrarEgreso.aspx.designer.cs">
       <DependentUpon>RegistrarEgreso.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegistrarIngreso.aspx.cs">
       <DependentUpon>RegistrarIngreso.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="RegistrarIngreso.aspx.designer.cs">
       <DependentUpon>RegistrarIngreso.aspx</DependentUpon>
@@ -542,14 +526,12 @@
     </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
