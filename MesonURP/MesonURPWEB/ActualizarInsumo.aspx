@@ -24,23 +24,23 @@
                     <div class="form-group">
 						<label for="focusedinput" class="col-sm-2 control-label">Stock Mínimo</label>
 						<div class="col-sm-8">
-                            <asp:TextBox ID="txtstockMin" runat="server" CssClass="form-control1" onkeypress="return SoloNumeroIntDouble(event);"/>
-                            <asp:RegularExpressionValidator ID="revStockMin" runat="server" ErrorMessage="Por favor ingrese número enteros o decimales positivos, por ejemplo: '1,325'" ControlToValidate="txtstockMin" ForeColor="#CC0000" ValidationExpression="[0-9]+(,[0-9]{1,3})?" SetFocusOnError="True" Display="Dynamic"></asp:RegularExpressionValidator>
+                            <asp:TextBox ID="txtstockMin" runat="server" CssClass="form-control1"/>
+                            <asp:RegularExpressionValidator ID="revStockMin" runat="server" ErrorMessage="Por favor ingrese número enteros o decimales positivos, por ejemplo: '1,325'" ControlToValidate="txtstockMin" ForeColor="#CC0000" ValidationExpression="[0-9]{1,3}(,[0-9]{1,3})?" SetFocusOnError="True" Display="Dynamic"></asp:RegularExpressionValidator>
                             <asp:RequiredFieldValidator ID="rfvstockMin" runat="server" ControlToValidate="txtstockMin" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 						</div>
 					</div>
                     <div class="form-group">
 						<label for="focusedinput" class="col-sm-2 control-label">Stock Máximo</label>
 						<div class="col-sm-8">
-                            <asp:TextBox ID="txtstockMax" runat="server" CssClass="form-control1" onkeypress="return SoloNumeroIntDouble(event);"/>
-                            <asp:RegularExpressionValidator ID="revStockMax" runat="server" ErrorMessage="Por favor ingrese número enteros o decimales positivos, por ejemplo: '1,325'" ControlToValidate="txtstockMax" ForeColor="#CC0000" ValidationExpression="[0-9]+(,[0-9]{1,3})?" SetFocusOnError="True" Display="Dynamic"></asp:RegularExpressionValidator>
+                            <asp:TextBox ID="txtstockMax" runat="server" CssClass="form-control1"/>
+                            <asp:RegularExpressionValidator ID="revStockMax" runat="server" ErrorMessage="Por favor ingrese número enteros o decimales positivos, por ejemplo: '1,325'" ControlToValidate="txtstockMax" ForeColor="#CC0000" ValidationExpression="[0-9]{1,3}(,[0-9]{1,3})?" SetFocusOnError="True" Display="Dynamic"></asp:RegularExpressionValidator>
                             <asp:RequiredFieldValidator ID="rfvstockMax" runat="server" ControlToValidate="txtstockMax" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 						</div>
 					</div>
                      <div class="form-group">
 						<label for="focusedinput" class="col-sm-2 control-label">Cantidad Total</label>
 							<div class="col-sm-8">
-                                <asp:TextBox ID="txtcant" runat="server" CssClass="form-control1" Text="0"/>
+                                <asp:TextBox ID="txtcant" runat="server" CssClass="form-control1" ReadOnly="true"/>
                                 <asp:RequiredFieldValidator ID="rfvcantT" runat="server" ControlToValidate="txtcant" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 							</div>
 					</div>
@@ -114,40 +114,6 @@
               </div>
             </div>
         </div>
-
-    <script>
-        function BlockChars(ev) {
-            var tecla = (document.all) ? ev.keyCode : ev.which;
-            if (tecla == 8 || tecla == 13 || tecla == 0) return true;
-            if (tecla >= 8226 && tecla <= 10175) { return false; } //BlockAltCtrl
-            var regEx = /[\~`!#$%^&§¥£│øƒ×®️¿¬¡©️¢┐└┴┬├─┼ãÃ╚╔╩╦╠═╬¤ðÐÊËÈıÍÎÏ┘┌█▬¦▬▀­­­±­¶@_*\+\=\\[\]\\\´'\{}|\":<>?()]/;
-            return !regEx.test(String.fromCharCode(tecla));
-        }
-        function SoloNumeroInt(ev) {
-            var tecla = (document.all) ? ev.keyCode : ev.which;
-            if (tecla == 8 || tecla == 13 || tecla == 0) return true;
-            if (tecla >= 8226 && tecla <= 10175) { return false; }
-            var regEx = /^[0-9]+$/i;
-            return regEx.test(String.fromCharCode(tecla));
-        }
-        function SoloNumeroIntDouble(ev) {
-            var tecla = (document.all) ? ev.keyCode : ev.which;
-            if (tecla == 8 || tecla == 13 || tecla == 0) return true;
-            if (tecla >= 8226 && tecla <= 10175) { return false; }
-            var regEx = /^[0-9\.]+$/i;
-            return regEx.test(String.fromCharCode(tecla));
-        }
-        function lettersOnly(evt) {
-            evt = (evt) ? evt : event;
-            var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode :
-                ((evt.which) ? evt.which : 0));
-            if (charCode > 31 && (charCode < 65 || charCode > 90) &&
-                (charCode < 97 || charCode > 122)) {
-                return false;
-            }
-            return true;
-        }
-    </script>
     <script src="js/sweetalert.js"></script>
     <script>
         function alert1() {

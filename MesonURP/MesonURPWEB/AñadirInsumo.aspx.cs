@@ -45,7 +45,7 @@ namespace MesonURPWEB
         }
         protected void btnRegistrar_Click(object sender, EventArgs e)
         {
-            if (rfvnombreI.IsValid && rfvstockMax.IsValid && rfvstockMin.IsValid && rfvcantT.IsValid && rfvprecioU.IsValid)
+            if (rfvnombreI.IsValid && rfvstockMax.IsValid && rfvstockMin.IsValid && rfvcategoria.IsValid && rfvcantT.IsValid && rfvmedida.IsValid && rfvprecioU.IsValid)
             {
                 int a = 0;
                 _Di.VR_NombreRecurso = txtnombreInsumo.Text;
@@ -53,8 +53,6 @@ namespace MesonURPWEB
                 if (vi)
                 {
                     ClientScript.RegisterStartupScript(
-                    //ScriptManager.RegisterClientScriptBlock(this.UpdatePanel1, this.UpdatePanel1.GetType(), "alert", "alertaIgualNombre()", true);
-                   
                     this.GetType(), "myalert", "myalert('" + "Ya existe un insumo con el nombre  " + txtnombreInsumo.Text + "');", true);
 
                     a = 1;
@@ -83,10 +81,10 @@ namespace MesonURPWEB
                     }
                     _Di.FK_IC_Categoria = Convert.ToInt16(ddlCategorias.SelectedValue);
                     _Di.FK_IER_EstadoRecurso = Convert.ToInt16(ddlEstado.SelectedValue);
-                    _Di.FK_IM_Medida = Convert.ToInt16(ddlEstado.Text); // revisar yo
+                    _Di.FK_IM_Medida = Convert.ToInt16(ddlMedida.Text); 
                     _Ci.RegistrarInsumo(_Di);
 
-                    ClientScript.RegisterStartupScript(Page.GetType(), "alertCorrecto", "alert('El insumo fue registrado correctamente');window.location='GestionarInsumo.aspx';", true);
+                    ClientScript.RegisterStartupScript(Page.GetType(), "alertCorrecto", "alertCorrecto('El insumo fue registrado correctamente');", true);
                 }
 
             }
@@ -104,6 +102,16 @@ namespace MesonURPWEB
 
             }
 
+        }
+        public void Clear()
+        {
+            txtnombreInsumo.Text = "";
+            txtstockMax.Text = "";
+            txtstockMin.Text = "";
+            txtPrecio.Text = "";
+            txtcant.Text = "";
+            ddlCategorias.SelectedIndex = 0;
+            ddlMedida.SelectedIndex = 0;
         }
     }
 }

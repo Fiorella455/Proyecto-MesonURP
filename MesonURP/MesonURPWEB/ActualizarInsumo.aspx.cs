@@ -27,6 +27,7 @@ namespace MesonURPWEB
                 ListarEstados();
                 ddlEstado.Enabled = false;
                 ddlEstado.Visible = false;
+                ddlMedida.Enabled = false;
             }
         }
         public void CargarDatos()
