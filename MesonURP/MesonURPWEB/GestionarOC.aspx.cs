@@ -214,7 +214,9 @@ namespace MesonURPWEB
                 ctr_estado_OCxOC.Actualizar_Estado_OCxOC(dto_estado_OCxOC);
 
                 RegistrarMov(idOC);
+                
                 CargarOrdenesCompra();
+
 
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('" + "Orden de Compra Recibida" + "');", true);
             }
@@ -253,9 +255,13 @@ namespace MesonURPWEB
             }
             
         }
-        public void ActualizarStock()
-        { 
+
+        protected void GridViewOC_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+           GridViewOC.PageIndex = e.NewPageIndex;
+            CargarOrdenesCompra();
             
+         
         }
     }
 }

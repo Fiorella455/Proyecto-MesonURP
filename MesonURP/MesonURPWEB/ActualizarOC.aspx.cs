@@ -112,8 +112,7 @@ namespace MesonURPWEB
                 dto_ocxinsumo.OC_idOrdenCompra = dto_oc.OC_idOrdenCompra;
                 dto_ocxinsumo.OCxI_Cantidad = Convert.ToDecimal(row.Cells[2].Text);
                 dto_ocxinsumo.OCxI_PrecioTotal = Convert.ToDecimal(row.Cells[3].Text);
-               
-
+              
                 ctr_ocxinsumo.Registrar_OC_Insumo(dto_ocxinsumo);
             }
 
