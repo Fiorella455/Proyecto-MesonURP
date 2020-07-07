@@ -50,7 +50,7 @@ namespace MesonURPWEB
             _Dmxi.Cantidad = Convert.ToDecimal(txtCantidad2.Text);
             _Dmxi.FechaMovimiento = Convert.ToDateTime(txtFecha2.Text);
             _Dmxi.IdInsumo = Convert.ToInt32(ddlInsumos.SelectedValue);
-            //_Di = _Ci.Consultar_InsumoxID(Convert.ToInt32(ddlInsumos.SelectedValue));
+            _Di = _Ci.Consultar_InsumoxID(Convert.ToInt32(ddlInsumos.SelectedValue));
             _Dm.M_NombreMedida = _Cm.BuscarMedida(Convert.ToInt32(ddlInsumos.SelectedValue));
             _Dmxi.IdUsuarioMovimiento = Convert.ToInt32(Session["codUsuario"]);
             _Dmxi.IdMovimiento = movIngreso;
