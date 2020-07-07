@@ -70,7 +70,6 @@
                                     <asp:BoundField HeaderText="Nombre insumo" Datafield="Nombre insumo" />
                                     <asp:BoundField HeaderText="Cantidad" Datafield="Cantidad" />
                                     <asp:BoundField HeaderText="Unidad de Medida" Datafield="Unidad de Medida" />
-
                                 </Columns>
                             </asp:GridView>
                         </div>
