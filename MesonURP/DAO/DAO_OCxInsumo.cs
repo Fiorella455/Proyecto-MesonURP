@@ -37,10 +37,10 @@ namespace DAO
                 conexion.Open();
                 SqlCommand cmd = new SqlCommand("SP_Actualizar_OCxInsumo", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(new SqlParameter("@R_idInsumo", dto_ocxinsumo.I_idInsumo));
+                cmd.Parameters.Add(new SqlParameter("@I_idInsumo", dto_ocxinsumo.I_idInsumo));
                 cmd.Parameters.Add(new SqlParameter("@OC_idOrdenCompra", dto_ocxinsumo.OC_idOrdenCompra));
                 cmd.Parameters.Add(new SqlParameter("@OCxI_Cantidad", dto_ocxinsumo.OCxI_Cantidad));
-                cmd.Parameters.Add(new SqlParameter("@OC_PrecioTotal", dto_ocxinsumo.OCxI_PrecioTotal));
+                cmd.Parameters.Add(new SqlParameter("@OCxI_PrecioTotal", dto_ocxinsumo.OCxI_PrecioTotal));
      
                 cmd.ExecuteNonQuery();
                 conexion.Close();
@@ -49,6 +49,16 @@ namespace DAO
             {
                 throw ex;
             }
+        }
+        public void Eliminar_Insumos_xOC(int i)
+        {
+            conexion.Open();
+            SqlCommand comando = new SqlCommand("SP_Eliminar_InsumoxOC", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@OC_idOrdenCompra", i);
+            comando.ExecuteNonQuery();
+            conexion.Close();
+            
         }
         public DataTable Leer_Insumos_xOC(int i)
         {

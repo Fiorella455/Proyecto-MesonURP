@@ -87,6 +87,42 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.TextBox txtOculto;
 
         /// <summary>
+        /// Control PanelAñadir.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel PanelAñadir;
+
+        /// <summary>
+        /// Control btnAñadirInsumo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAñadirInsumo;
+
+        /// <summary>
+        /// Control panelEgreso.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel panelEgreso;
+
+        /// <summary>
+        /// Control gvInsumosEgreso.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvInsumosEgreso;
+
+        /// <summary>
         /// Control btnEgresar.
         /// </summary>
         /// <remarks>

@@ -21,6 +21,12 @@
                         </div>
                     </div>
                      <div class="form-group">
+                        <label for="focusedinput" class="col-sm-2 control-label">N° de Comprobante</label>
+                        <div class="col-sm-8">
+                            <asp:TextBox ID="txtNumComprobante" runat="server" CssClass="form-control1"></asp:TextBox>
+                        </div>
+                    </div>
+                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Tipo de Comprobante</label>
                         <div class="col-sm-8">
                             <asp:TextBox ID="txtTipoComprobante" runat="server" CssClass="form-control1"></asp:TextBox>
@@ -31,14 +37,7 @@
                         <div class="col-sm-8">
                             <asp:TextBox disabled runat="server" CssClass="form-control1" ID="txtFechaEmision" />
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="focusedinput" class="col-sm-2 control-label">Fecha de Entrega</label>
-                        <div class="col-sm-8">
-                            <asp:TextBox disabled runat="server"  CssClass="form-control1" ID="txtFechaEntrega" />
-                        </div>
-                    </div>
-                   
+                    </div>       
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Proveedor</label>
                         <div class="col-sm-8">
@@ -51,12 +50,7 @@
                             <asp:TextBox disabled runat="server" CssClass="form-control1" ID="txtFormaPago" />
                         </div>
                     </div>
-                    <%-- <div class="form-group">
-                        <label for="selector1" class="col-sm-2 control-label">Fecha de Pago</label>
-                        <div class="col-sm-8">
-                            <asp:TextBox disabled runat="server" CssClass="form-control1" ID="txtFechaPago" />
-                        </div>
-                    </div>--%>
+
                       
                     <div class="panel panel-widget forms-panel">
                         <div class="form-grids widget-shadow" data-example-id="basic-forms">
@@ -76,7 +70,7 @@
                         </div>
                         <hr /> 
                          <p class="center-button">
-                            <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'GestionarProveedor';" class="btn btn-primary" />
+                            <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'GestionarOC';" class="btn btn-primary" />
                         </p>
                     </div>
                 </div>

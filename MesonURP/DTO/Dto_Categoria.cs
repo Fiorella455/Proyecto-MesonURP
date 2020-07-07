@@ -6,6 +6,5 @@ namespace DTO
     {
         public int C_idCategoria { get; set; }
         public string C_NombreCategoria { get; set; }
-        public string C_Descripcion { get; set; }
     }
 }

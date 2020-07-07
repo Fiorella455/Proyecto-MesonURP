@@ -50,7 +50,7 @@ namespace MesonURPWEB
         protected void btnEliminarProveedor_Click(object sender, EventArgs e)
         {
             ctr_proveedor.Eliminar_Proveedor(i);
-            Response.Redirect("GestionarProveedor.aspx");
+            Response.Redirect("GestionarProveedor");
         }
     }
 }

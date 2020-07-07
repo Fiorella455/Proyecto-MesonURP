@@ -87,15 +87,6 @@ namespace MesonURPWEB
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblGestionarOrden;
 
         /// <summary>
-        /// Control lblConsultarOrdenCompra.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblConsultarOrdenCompra;
-
-        /// <summary>
         /// Control menuProveedor.
         /// </summary>
         /// <remarks>
@@ -123,15 +114,6 @@ namespace MesonURPWEB
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl menuStock;
 
         /// <summary>
-        /// Control menuRecursos.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menuRecursos;
-
-        /// <summary>
         /// Control menuReportes.
         /// </summary>
         /// <remarks>
@@ -157,6 +139,15 @@ namespace MesonURPWEB
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl menuUsuarios;
+
+        /// <summary>
+        /// Control menuInsumo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menuInsumo;
 
         /// <summary>
         /// Control Button1.

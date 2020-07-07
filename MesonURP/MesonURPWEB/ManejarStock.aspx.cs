@@ -14,7 +14,7 @@ namespace MesonURPWEB
     public partial class ManejarStock : System.Web.UI.Page
     {
         CTR_Insumo _CI = new CTR_Insumo();
-        //DTO_Insumo _DI = new DTO_Insumo();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             CargarStockInsumo();
@@ -36,11 +36,6 @@ namespace MesonURPWEB
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('Ingrese un insumo para la busqueda');", true);
                 
             }
-
-            /*gvInsumos.DataSource = _CI.BuscarInsumo(txtBuscarInsumo.Text);
-            gvInsumos.DataBind();*/
-
-
         }
         public void CargarStockInsumo()
         {

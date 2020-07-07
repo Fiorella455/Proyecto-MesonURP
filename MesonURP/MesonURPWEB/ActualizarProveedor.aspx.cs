@@ -83,7 +83,8 @@ namespace MesonURPWEB
             dto_proveedor.EP_idEstadoProveedor = Convert.ToInt32(DdlEstado.SelectedValue);
             dto_proveedor.TD_idTipoDocumento = Convert.ToInt32(DdlTipoDocumento.SelectedValue);
             ctr_proveedor.Actualizar_Proveedor(dto_proveedor);
-            Response.Redirect("GestionarProveedor.aspx");
+            ScriptManager.RegisterClientScriptBlock(this.panelActProv, this.panelActProv.GetType(), "alert", "alertaExito()", true);
+            return;
         }
     }
 }

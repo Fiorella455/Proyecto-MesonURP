@@ -77,7 +77,6 @@ namespace DAO
             conexion.Close();
             return hayProveedor;
 
-
         }
         public DataSet DAO_Leer_Proveedor()
         {

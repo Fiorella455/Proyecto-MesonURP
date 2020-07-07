@@ -10,6 +10,7 @@ namespace DAO
     public class DAO_MovimientoxInsumo
     {
         SqlConnection conexion;
+        DTO_Insumo dto_insumo;
         public DAO_MovimientoxInsumo()
         {
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
@@ -110,6 +111,19 @@ namespace DAO
                 throw ex;
             }
         }
+        public int ID_Movimiento_Max()
+        {
+            int id;
+            conexion.Open();
+            SqlCommand comando = new SqlCommand("SP_Consultar_Movimiento_Mayor", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.Add("@id", SqlDbType.Int).Direction = ParameterDirection.Output;
+            comando.ExecuteNonQuery();
+            conexion.Close();
+            id = Convert.ToInt32(comando.Parameters["@id"].Value);
+            conexion.Close();
+            return id;
+        }
         public void ActualizarStockIngreso(DTO_MovimientoxInsumo objDTO)
         {
             try
@@ -144,12 +158,12 @@ namespace DAO
                 throw ex;
             }
         }
-        public DataTable ListarMovimientos()
+        public DataTable ConsultarMovimientoxInsumo()
         {
             try
             {
                 DataTable dtable = new DataTable();
-                SqlCommand unComando = new SqlCommand("SP_ListarMovimientos", conexion);
+                SqlCommand unComando = new SqlCommand("SP_ConsultarMovimientosXInsumo", conexion);
                 unComando.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter data = new SqlDataAdapter(unComando);
                 data.Fill(dtable);
@@ -160,16 +174,55 @@ namespace DAO
                 throw ex;
             }
         }
-        public DataTable BuscarMovimientos(string busquedamov)
+        public DataTable BuscarMovimientoxInsumo(string busqueda)
         {
             try
             {
-                SqlDataAdapter unComando = new SqlDataAdapter("SP_BuscarMovimiento", conexion);
+                SqlDataAdapter unComando = new SqlDataAdapter("SP_BuscarMovimientosXInsumo", conexion);
                 unComando.SelectCommand.CommandType = CommandType.StoredProcedure;
-                unComando.SelectCommand.Parameters.AddWithValue("@busquedamov", busquedamov);
+                unComando.SelectCommand.Parameters.AddWithValue("@busqueda", busqueda);
                 DataSet dSet = new DataSet();
                 unComando.Fill(dSet);
                 return dSet.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataTable BuscarMovimientoxInsumoTipo(int tipo)
+        {
+            try
+            {
+                SqlDataAdapter unComando = new SqlDataAdapter("SP_BuscarxTipoMovimientosXInsumo", conexion);
+                unComando.SelectCommand.CommandType = CommandType.StoredProcedure;
+                unComando.SelectCommand.Parameters.AddWithValue("@tipo", tipo);
+                DataSet dSet = new DataSet();
+                unComando.Fill(dSet);
+                return dSet.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public int getInsumo(string insumo)
+        {
+            try
+            {
+                conexion.Open();
+                SqlCommand _Com = new SqlCommand("SP_Obtener_idInsumo", conexion);
+                _Com.CommandType = CommandType.StoredProcedure;
+                _Com.Parameters.Add(new SqlParameter("@nom_insumo",dto_insumo.VR_NombreRecurso));
+                SqlDataReader reader = _Com.ExecuteReader();
+                //_Com.ExecuteNonQuery();
+
+                if (reader.Read())
+                {
+                    return dto_insumo.PK_IR_Recurso= reader.GetInt32(0);
+                }
+                conexion.Close();
+                return 0;
             }
             catch (Exception ex)
             {

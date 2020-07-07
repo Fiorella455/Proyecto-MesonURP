@@ -90,13 +90,16 @@
                             </asp:DropDownList>
                         </div>
                     </div>
-
                         <hr />
+                    <asp:UpdatePanel ID="panelActProv" runat="server">
+                        <ContentTemplate>
                         <p class="center-button">
                             <asp:Button ID="btnActualizarProveedor" CssClass="btn btn-primary" runat="server" ValidationGroup="actualizarProveedor" Text="Actualizar Proveedor" OnClick="btnActualizarProveedor_Click"/>
                             <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'GestionarProveedor';" class="btn btn-primary" />
                             <input type="reset" name="res-1" id="res-1" value="Limpiar" class="btn btn-danger" />
                         </p>
+                        </ContentTemplate>
+                     </asp:UpdatePanel>
                     </div>
                 </div>
             </div>
@@ -135,4 +138,26 @@
             return true;
         }
     </script>
+    <script>
+          function alertaError() {
+              Swal.fire({
+                  title: 'Oh, no!',
+                  text: 'No se ha logrado actualizar correctamente',
+                  icon: 'error',
+                  confirmButtonText: 'Aceptar'
+              })
+          }
+          function alertaExito() {
+              Swal.fire({
+                  title: 'Enhorabuena!',
+                  text: 'Se ha logrado actualizar correctamente',
+                  icon: 'success',
+                  confirmButtonText: 'Aceptar'
+              }).then((result) => {
+                  if (result.value) {
+                      window.location.href = "GestionarProveedor";
+                  }
+              })
+          }
+      </script>
 </asp:Content>

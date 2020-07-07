@@ -45,16 +45,9 @@ namespace MesonURPWEB
             dto_proveedor.P_TelefonoContacto = txtTelefono.Text;
             dto_proveedor.P_CorreoContacto = txtCorreo.Text;
             dto_proveedor.EP_idEstadoProveedor = 1;
-            if (ctr_proveedor.Hay_Proveedor(dto_proveedor))
-            {
-                Response.Write("<script language=javascript>alert('Ya existe el proveedor');</script>");
-            }
-            else
-            {
-                ctr_proveedor.Registrar_Proveedor(dto_proveedor);
-                Response.Redirect("GestionarProveedor.aspx");
-            }
-
+            ctr_proveedor.Registrar_Proveedor(dto_proveedor);
+            ScriptManager.RegisterClientScriptBlock(this.panelAñadirProv, this.panelAñadirProv.GetType(), "alert", "alertaExito()", true);
+            return;
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 using System.Data;
 using DAO;
 using DTO;
-
+using System.Security.Cryptography;
 
 namespace CTR
 {
@@ -27,5 +27,10 @@ namespace CTR
         {
             dao_ocxinsumo.Actualizar_OCxInsumo(oc);
         }
+        public void Eliminar_OCxInsumo(int i)
+        {
+            dao_ocxinsumo.Eliminar_Insumos_xOC(i);
+        }
     }
 }
+
