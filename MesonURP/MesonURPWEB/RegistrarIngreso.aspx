@@ -26,7 +26,7 @@
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Fecha</label>
                         <div class="col-sm-8">
-                            <asp:TextBox disabled="True" ID="txtFecha2" runat="server" CssClass="form-control1" />
+                            <asp:TextBox disabled="false" ID="txtFecha2" runat="server" CssClass="form-control1" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtFecha2" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarIngreso" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
@@ -38,13 +38,18 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label for="focusedinput" class="col-sm-2 control-label">Cantidad máxima a Ingresar</label>
+                        <div class="col-sm-8">
+                            <asp:TextBox disabled="false" ID="txtOculto" runat="server" CssClass="form-control1" placeholder="Cantidad máxima a egresar" />
+                    </div>
+                    </div>
+                    <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Unidad de Medida</label>
                         <div class="col-sm-8">
                             <asp:TextBox disabled="True" ID="txtUnidadMedida2" runat="server" placeholder="Unidad de Medida" CssClass="form-control1" />
-                            <asp:TextBox ID="txtOculto" runat="server" CssClass="form-control1" Visible="false" />
                     </div>
                     </div>
-                    <asp:UpdatePanel ID="panelAñadir" runat="server">
+                    <asp:UpdatePanel ID="PanelAñadir" runat="server">
                         <ContentTemplate>
                             <p class="center-button">
                                 <asp:Button CssClass="btn btn-primary" runat="server" Text="Añadir" ID="btnAñadirInsumo" OnClick="btnAñadirInsumo_Click"/>
@@ -76,9 +81,9 @@
                         <hr />
                                 <p class="center-button">
                                     <button type="button" name="sub-1" class="btn btn-primary" runat="server" id="btnIngresar" onserverclick="btnIngresar_ServerClick" validationgroup="registrarIngreso">Ingresar</button>
-                                    <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'ManejarStock';" class="btn btn-primary" />
-                                    <input type="reset" name="res-1" id="res-1" value="Limpiar" class="btn btn-danger" />
-                                </p>
+                                    <input type="button" name="sub-1" value="Regresar" runat="server" onclick="location.href = 'ManejarStock';" onserverclick="btnRegresar_ServerClick" class="btn btn-primary" />
+                                <input type="button" name="res1" value="Limpiar" runat="server" onserverclick="btnLimpiar_ServerClick" class="btn btn-danger" />
+                             </p>
                             </ContentTemplate>
                         </asp:UpdatePanel>
                     </div>
@@ -103,6 +108,22 @@
             Swal.fire({
                 title: 'Oh, no!',
                 text: 'La cantidad de insumos no es permitida',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            })
+        }
+        function alertaDuplicado() {
+            Swal.fire({
+                title: 'Oh, no!',
+                text: 'No puedes añadir el mismo Insumo',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            })
+        }
+        function alertaError() {
+            Swal.fire({
+                title: 'Oh, no!',
+                text: 'No has añadido ningún Insumo',
                 icon: 'error',
                 confirmButtonText: 'Aceptar'
             })

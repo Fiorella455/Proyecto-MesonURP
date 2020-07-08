@@ -38,18 +38,26 @@ namespace MesonURPWEB
             ddlInsumos.DataBind();
             ddlInsumos.Items.Insert(0, "--seleccionar--");
         }
+        protected void Selection_Change(Object sender, EventArgs e)
+        {
+            if (ddlInsumos.SelectedIndex != 0)
+            {
+                txtUnidadMedida.Text = _Cm.BuscarMedida(Convert.ToInt32(ddlInsumos.SelectedValue));
+                txtOculto.Text = _Cmxi.VerificarStockMin(Convert.ToInt32(ddlInsumos.SelectedValue));
+            }
+        }
         protected void btnAñadirInsumo_Click(object sender, EventArgs e)
         {
 
             _Dmxi.Cantidad = Convert.ToDecimal(txtCantidad.Text);
             _Dmxi.FechaMovimiento = Convert.ToDateTime(txtFecha.Text);
+            string fecha = Convert.ToString(txtFecha.Text);
             _Dmxi.IdInsumo = Convert.ToInt32(ddlInsumos.SelectedValue);
             _Di = _Ci.Consultar_InsumoxID(Convert.ToInt32(ddlInsumos.SelectedValue));
             _Dm.M_NombreMedida = _Cm.BuscarMedida(Convert.ToInt32(ddlInsumos.SelectedValue));
             _Dmxi.IdUsuarioMovimiento = Convert.ToInt32( Session["codUsuario"]);
             _Dmxi.IdMovimiento = movEgreso;
-            txtOculto.Text = _Cmxi.VerificarStockMin(_Dmxi.IdInsumo);
-            
+            DataRow row = tin.NewRow();
             if (tin.Columns.Count == 0)
             {
                 tin.Columns.Add("Fecha");
@@ -57,24 +65,53 @@ namespace MesonURPWEB
                 tin.Columns.Add("Cantidad");
                 tin.Columns.Add("Unidad de Medida");
             }
-            if (Convert.ToDecimal(txtCantidad.Text) > Convert.ToDecimal(txtOculto.Text))
+            if (Convert.ToDecimal(txtCantidad.Text) > Convert.ToDecimal(_Cmxi.VerificarStockMin(_Dmxi.IdInsumo)))
             {
                 ScriptManager.RegisterClientScriptBlock(this.PanelAñadir, this.PanelAñadir.GetType(), "alert", "alertaCantidad()", true);
                 return;
             }
             else
             {
-                pila.Add(_Dmxi);
+                if (tin.Rows.Count > 0)
+                {
+                    // Primero averigua si el registro existe:
+                    bool existe = false;
+                    for (int i = 0; i < tin.Rows.Count; i++)
+                    {
+                        if (Convert.ToString(gvInsumosEgreso.Rows[i].Cells[1].Text) == Convert.ToString(_Di.VR_NombreRecurso))
+                        {
+                            existe = true;
+                            ScriptManager.RegisterClientScriptBlock(this.PanelAñadir, this.PanelAñadir.GetType(), "alert", "alertaDuplicado()", true);
+                            break; 
+                        }
+                    }
+                    // Luego, ya fuera del ciclo, solo si no existe, realizas la insercion:
+                    if (existe == false)
+                    {
+                        pila.Add(_Dmxi);
 
-                DataRow row = tin.NewRow();
-               row[0] = _Dmxi.FechaMovimiento;
-               row[1] = _Di.VR_NombreRecurso; 
-               row[2] = _Dmxi.Cantidad;
-               row[3] = _Dm.M_NombreMedida;
-               tin.Rows.Add(row);
+                        row[0] = fecha;
+                        row[1] = _Di.VR_NombreRecurso;
+                        row[2] = _Dmxi.Cantidad;
+                        row[3] = _Dm.M_NombreMedida;
+                        tin.Rows.Add(row);
 
-                gvInsumosEgreso.DataSource = tin;
-                gvInsumosEgreso.DataBind();
+                        gvInsumosEgreso.DataSource = tin;
+                        gvInsumosEgreso.DataBind();
+                    }
+                }
+                else
+                {
+                    pila.Add(_Dmxi);
+                    row[0] = fecha;
+                    row[1] = _Di.VR_NombreRecurso;
+                    row[2] = _Dmxi.Cantidad;
+                    row[3] = _Dm.M_NombreMedida;
+                    tin.Rows.Add(row);
+
+                    gvInsumosEgreso.DataSource = tin;
+                    gvInsumosEgreso.DataBind();
+                }
             }
         }
         protected void gvInsumosEgreso_SelectedIndexChanged(object sender, EventArgs e)
@@ -82,7 +119,6 @@ namespace MesonURPWEB
             if (pila.Count > 0) {
                 GridViewRow row = gvInsumosEgreso.SelectedRow;
                 id = Convert.ToInt32(gvInsumosEgreso.DataKeys[row.RowIndex].Value) + 1;
-
             }
         }
         protected void btnQuitarInsumo_Click(object sender, EventArgs e)
@@ -98,19 +134,35 @@ namespace MesonURPWEB
         {
             while (pila.Count >= 1)
             {
-                    //pila[pila.Count - 1].IdMovxInsumo = _Cmxi.ID_MAX();
                     _Cmxi.RegistrarMovimientoxInsumo(pila[pila.Count - 1]);
                     _Cmxi.UpdateStockEgreso(pila[pila.Count - 1]);
                     pila.RemoveAt(pila.Count - 1);
-            }
 
-            tin.Clear();
-            ScriptManager.RegisterClientScriptBlock(this.panelEgreso, this.panelEgreso.GetType(), "alert", "alertaExito()", true);
+                tin.Clear();
+                ScriptManager.RegisterClientScriptBlock(this.panelEgreso, this.panelEgreso.GetType(), "alert", "alertaExito()", true);
+                return;
+            }
+            ScriptManager.RegisterClientScriptBlock(this.panelEgreso, this.panelEgreso.GetType(), "alert", "alertaError()", true);
             return;
         }
-        protected void Selection_Change(Object sender, EventArgs e)
+        protected void btnRegresar_ServerClick(object sender, EventArgs e)
         {
-            txtUnidadMedida.Text = _Cm.BuscarMedida(Convert.ToInt32(ddlInsumos.SelectedValue));
+            tin.Clear();
+            return;
         }
+        protected void btnLimpiar_ServerClick(object sender, EventArgs e)
+        {
+            if (pila.Count != 0)
+            {
+                for (int i = 0; i < pila.Count; i++)
+                {
+                    if (i % 5 == 0)
+                        tin.Rows[i].Delete();
+                    pila.Remove(pila[i]);
+                }
+                gvInsumosEgreso.DataSource = tin;
+                gvInsumosEgreso.DataBind();
+            }
+        }  
     }
 }
