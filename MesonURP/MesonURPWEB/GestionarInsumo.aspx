@@ -69,39 +69,58 @@
                                             <asp:Label ID="lblModalTitle" runat="server" Text=""></asp:Label></h4>
                                     </div>
                                     <div class="modal-body">
-                                        <asp:Label ID="lblModalBody" runat="server" Text=""></asp:Label>
+                                        <asp:Label ID="lblModalBody" runat="server"></asp:Label>
 
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="lblnombreInsumo">Nombre:</label>
+                                                <asp:TextBox runat="server" type="text" class="form-control" ID="txtnombreInsumo"></asp:TextBox>
+                                            </div>
 
-                                        <label for="lblnombreInsumo" class="control-label">Nombre:</label>
-                                        <asp:TextBox id="txtnombreInsumo" runat="server" class="form-control1" type="text" placeholder="Nombre del insumo"></asp:TextBox>
-                                        
-                                        <label for="lblstockMaximo" class="control-label">Stock Máximo:</label>
-                                        <asp:TextBox id="txtstockMaximo" runat="server" class="form-control1" type="text" placeholder="Stock Máximo"></asp:TextBox>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="lblstockMaximo">Stock Máximo:</label>
+                                                    <asp:TextBox runat="server" type="text" class="form-control" ID="txtstockMaximo"></asp:TextBox>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="lblstockMinimo">Stock Mínimo</label>
+                                                    <asp:TextBox runat="server" type="text" class="form-control" ID="txtstockMinimo"></asp:TextBox>
+                                                </div>
+                                            </div>
 
-                                        <label for="lblstockMinimo" class="control-label">Stock Mínimo:</label>
-                                        <asp:TextBox id="txtstockMinimo" runat="server" class="form-control1" type="text" placeholder="Stock Mínimo"></asp:TextBox>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="lblprecioUnitario">Precio Unitario:</label>
+                                                    <asp:TextBox runat="server" type="text" class="form-control" ID="txtprecioUnitario"></asp:TextBox>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="lblcantidadTotal">Cantidad Total:</label>
+                                                    <asp:TextBox runat="server" type="text" class="form-control" ID="txtcantidadTotal"></asp:TextBox>
+                                                </div>
+                                            </div>
 
-                                        <label for="lblprecioUnitario" class="control-label">Precio Unitario:</label>
-                                        <asp:TextBox id="txtprecioUnitario" runat="server" class="form-control1" type="text" placeholder="Precio Unitario"></asp:TextBox>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="lblfechaVencimiento">Fecha de Vencimiento:</label>
+                                                    <asp:TextBox runat="server" type="text" class="form-control" ID="txtfechaVencimiento"></asp:TextBox>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="lblnestadoInsumo">Estado:</label>
+                                                    <asp:TextBox runat="server" type="text" class="form-control" ID="txtnestadoInsumo"></asp:TextBox>
+                                                </div>
+                                            </div>
 
-                                        <label for="lblcantidadTotal" class="control-label">Cantidad Total:</label>
-                                        <asp:TextBox id="txtcantidadTotal" runat="server" class="form-control1" type="text" placeholder="Cantidad Total"></asp:TextBox>
-
-                                        <label for="lblfechaVencimiento" class="control-label">Fecha de Vencimiento:</label>
-                                        <asp:TextBox id="txtfechaVencimiento" runat="server" class="form-control1" type="text" placeholder="Fecha de Vencimiento"></asp:TextBox>
-
-                                        <label for="lblestadoInsumo" class="control-label">Estado del Insumo:</label>
-                                        <asp:TextBox id="txtestadoInsumo" runat="server" class="form-control1" type="text" placeholder="Estado del Insumo"></asp:TextBox>
-
-                                        <label for="lblnestadoInsumo" class="control-label">Nombre del Estado:</label>
-                                        <asp:TextBox id="txtnestadoInsumo" runat="server" class="form-control1" type="text" placeholder="Estado del Insumo"></asp:TextBox>
-
-                                        <label for="lblunidadMedida" class="control-label">Unidad de Medida:</label>
-                                        <asp:TextBox id="txtunidadMedida" runat="server" class="form-control1" type="text" placeholder="Unidad de Medida"></asp:TextBox>
-
-                                        <label for="lblcategoriaInsumo" class="control-label">Categoría del Insumo:</label>
-                                        <asp:TextBox id="txtcategoriaInsumo" runat="server" class="form-control1" type="text" placeholder="Categoría del Insumo"></asp:TextBox>
-
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="lblunidadMedida">Unidad de Medida:</label>
+                                                    <asp:TextBox runat="server" type="text" class="form-control" ID="txtunidadMedida"></asp:TextBox>
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="lblcategoriaInsumo">Categoría:</label>
+                                                    <asp:TextBox runat="server" type="text" class="form-control" ID="txtcategoriaInsumo"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                        </form>                                        
                                     </div>
                                     <div class="modal-footer">
                                         <button class="btn btn-info" data-dismiss="modal" aria-hidden="true">OK</button>
