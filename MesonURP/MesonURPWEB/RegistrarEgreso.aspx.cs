@@ -154,7 +154,7 @@ namespace MesonURPWEB
         {
             if (pila.Count != 0)
             {
-                for (int i = 0; i < pila.Count; i++)
+                for (int i = 0; i < pila.Count;)
                 {
                     if (i % 5 == 0)
                         tin.Rows[i].Delete();
