@@ -108,7 +108,7 @@ namespace MesonURPWEB
             {
                 //pila[pila.Count - 1].IdMovxInsumo = _Cmxi.ID_MAX();
                 _Cmxi.RegistrarMovimientoxInsumo(pila[pila.Count - 1]);
-                _Cmxi.UpdateStockEgreso(pila[pila.Count - 1]);
+                _Cmxi.UpdateStockIngreso(pila[pila.Count - 1]);
                 pila.RemoveAt(pila.Count - 1);
             }
             tin.Clear();
