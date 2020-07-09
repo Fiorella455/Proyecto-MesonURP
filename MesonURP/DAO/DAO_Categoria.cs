@@ -6,11 +6,11 @@ using System;
 
 namespace DAO
 {
-    public class Dao_Categoria
+    public class DAO_Categoria
     {
          SqlConnection conexion;
 
-        public Dao_Categoria()
+        public DAO_Categoria()
         {
 
             conexion = new SqlConnection(ConexionBD.CadenaConexion); 
