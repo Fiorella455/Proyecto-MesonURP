@@ -39,6 +39,12 @@ namespace CTR
         { 
            return dao_proveedor.Hay_Proveedor(p); 
         }
+        public bool Existe_Proveedor_OC(string rs)
+        {
+            return dao_proveedor.Existe_Proveedor_OC(rs);
+        }
+
+        
     }
 }
 

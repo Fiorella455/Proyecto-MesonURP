@@ -17,7 +17,8 @@
                         <label for="focusedinput" class="col-sm-2 control-label">Razón Social</label>
                         <div class="col-sm-8">
                             <asp:TextBox ID="txtRazonSocial" runat="server" placeholder="Ingrese la razón social" CssClass="form-control1" ValidationGroup="añadirProveedor" onkeypress="return BlockChars(event);" />
-                            <asp:RequiredFieldValidator ID="validationRazon" runat="server" ControlToValidate="txtRazonSocial" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirProveedor" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <%--<asp:RegularExpressionValidator ID="revMaxLen" runat="server" ErrorMessage="Mucho texto" ControlToValidate="txtRazonSocial" ForeColor="#CC0000" ValidationExpression="(.{1,50}){1}" SetFocusOnError="True" Display="Dynamic"></asp:RegularExpressionValidator>
+                            --%><asp:RequiredFieldValidator ID="validationRazon" runat="server" ControlToValidate="txtRazonSocial" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirProveedor" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group">
@@ -63,6 +64,8 @@
                         <label for="focusedinput" class="col-sm-2 control-label">Correo electrónico</label>
                         <div class="col-sm-8">
                             <asp:TextBox ID="txtCorreo" runat="server" placeholder="Ingrese su correo electrónico" CssClass="form-control1"/>
+                            <asp:RegularExpressionValidator ID="revMaxLen" runat="server" ErrorMessage="Correo Inválido" ControlToValidate="txtCorreo" ForeColor="#CC0000" ValidationExpression="(\w|\d){1,20}\@(\w|\d){1,5}\.\w{1,3}}" SetFocusOnError="True" Display="Dynamic"></asp:RegularExpressionValidator>
+                            
                             <asp:RequiredFieldValidator ID="validationCorreo" runat="server" ControlToValidate="txtCorreo" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirProveedor" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>                        
@@ -123,6 +126,14 @@
                     confirmButtonText: 'Aceptar'
                 })
             }
+            function alertaExiste() {
+                Swal.fire({
+                    title: 'Oh, no!',
+                    text: 'Este proveedor ya existe',
+                    icon: 'error',
+                    confirmButtonText: 'Aceptar'
+                })
+            }
             function alertaExito() {
                 Swal.fire({
                     title: 'Enhorabuena!',
@@ -135,5 +146,5 @@
                     }
                 })
             }
-    </script>
+        </script>
 </asp:Content>
