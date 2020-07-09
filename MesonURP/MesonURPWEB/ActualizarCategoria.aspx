@@ -17,9 +17,9 @@
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Categoría</label>
                         <div class="col-sm-8">
-                            <asp:TextBox ID="txtCategoria" runat="server" CssClass="form-control1"/>
-                            <asp:RegularExpressionValidator ID="revNombreC" runat="server" ErrorMessage="Por favor ingrese solo letras" ControlToValidate="txtCategoria" ForeColor="#CC0000" ValidationExpression="^[a-zA-Z_áéíóúñ\s]*$" SetFocusOnError="True" Display="Dynamic"></asp:RegularExpressionValidator>
-                            <asp:RequiredFieldValidator ID="rfvCategoria" runat="server" ControlToValidate="txtCategoria" ErrorMessage="Campo Obligatorio" ValidationGroup="actualizarCategoria" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <asp:TextBox ID="txtCategoria" runat="server" CssClass="form-control1" onkeypress="return soloLetras(event);"/>
+                           <%-- <asp:RegularExpressionValidator ID="revNombreC" runat="server" ErrorMessage="Por favor ingrese solo letras" ControlToValidate="txtCategoria" ForeColor="#CC0000" ValidationExpression="^[a-zA-Z_áéíóúñ\s]*$" SetFocusOnError="True" Display="Dynamic"></asp:RegularExpressionValidator>--%>
+                            <asp:RequiredFieldValidator ID="rfvCategoria" runat="server" ControlToValidate="txtCategoria" ErrorMessage="Campo Obligatorio" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                      <hr />
@@ -33,7 +33,27 @@
               </div>
             </div>
         </div>
-   
+    <script>
+        function soloLetras(e) {
+            key = e.keyCode || e.which;
+            tecla = String.fromCharCode(key).toLowerCase();
+            letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+            especiales = [8, 37, 39, 46];
+
+            tecla_especial = false
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    tecla_especial = true;
+                    break;
+                }
+            }
+
+            if (letras.indexOf(tecla) == -1 && !tecla_especial)
+                return false;
+        }
+
+    </script>
+    
     <script src="js/sweetalert.js"></script>
     <script>
         function myalertCat() {
