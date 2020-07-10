@@ -389,9 +389,15 @@
       <DependentUpon>AñadirOC.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="AñadirOC.aspx.designer.cs">
+      <DependentUpon>AñadirOC.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AñadirProveedor.aspx.cs">
       <DependentUpon>AñadirProveedor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AñadirProveedor.aspx.designer.cs">
+      <DependentUpon>AñadirProveedor.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionarCategoria.aspx.cs">
       <DependentUpon>GestionarCategoria.aspx</DependentUpon>
@@ -399,13 +405,6 @@
     </Compile>
     <Compile Include="GestionarCategoria.aspx.designer.cs">
       <DependentUpon>GestionarCategoria.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="GestionarInsumo.aspx.cs">
-      <DependentUpon>GestionarInsumo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AñadirProveedor.aspx.designer.cs">
-      <DependentUpon>AñadirProveedor.aspx</DependentUpon>
     </Compile>
     <Compile Include="ConsultarInsumo.aspx.cs">
       <DependentUpon>ConsultarInsumo.aspx</DependentUpon>
@@ -458,8 +457,8 @@
       <DependentUpon>Master.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AñadirOC.aspx.designer.cs">
-      <DependentUpon>AñadirOC.aspx</DependentUpon>
+    <Compile Include="Master.Master.designer.cs">
+      <DependentUpon>Master.Master</DependentUpon>
     </Compile>
     <Compile Include="ConsultarOC.aspx.cs">
       <DependentUpon>ConsultarOC.aspx</DependentUpon>
@@ -499,13 +498,6 @@
     <Compile Include="ManejarStock.aspx.designer.cs">
       <DependentUpon>ManejarStock.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Master.Master.cs">
-      <DependentUpon>Master.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Master.Master.designer.cs">
-      <DependentUpon>Master.Master</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Prueba.aspx.cs">
       <DependentUpon>Prueba.aspx</DependentUpon>
@@ -537,13 +529,6 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Master.Master.cs">
-      <DependentUpon>Master.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Master.Master.designer.cs">
-      <DependentUpon>Master.Master</DependentUpon>
     </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
