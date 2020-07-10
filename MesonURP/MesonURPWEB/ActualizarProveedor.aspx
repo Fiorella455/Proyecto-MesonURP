@@ -16,7 +16,7 @@
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Razón Social</label>
                         <div class="col-sm-8">
-                            <asp:TextBox ID="txtRazonSocial" runat="server" placeholder="Ingrese la razón social" CssClass="form-control1" onkeypress="return BlockChars(event);" />
+                            <asp:TextBox ID="txtRazonSocial" runat="server" placeholder="Ingrese la razón social" CssClass="form-control1" onkeypress="return BlockChars(event);" MaxLength="50"/>
                             <asp:RequiredFieldValidator ID="validationRazon" runat="server" ControlToValidate="txtRazonSocial" ErrorMessage="Campo Obligatorio" ValidationGroup="actualizarProveedor" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
@@ -24,7 +24,7 @@
                      <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Tipo de Documento Actual</label>
                         <div class="col-sm-8">
-                            <asp:TextBox ID="txtTipo" placeholder="Ingrese el número de documento" runat="server" CssClass="form-control1" onkeypress="return SoloNumeroInt(event);" ReadOnly="true"/>
+                            <asp:TextBox ID="txtTipo" runat="server" CssClass="form-control1"  ReadOnly="true"/>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtTipo" ErrorMessage="Campo Obligatorio" ValidationGroup="actualizarProveedor" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                          </div>
                     </div>
@@ -32,7 +32,7 @@
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Tipo de Documento</label>
                         <div class="col-sm-8">
-                            <asp:DropDownList runat="server" CssClass="form-control1" AutoPostBack="false" ID="DdlTipoDocumento" >
+                            <asp:DropDownList runat="server" CssClass="form-control1" AutoPostBack="true" ID="DdlTipoDocumento" OnSelectedIndexChanged="DdlTipoDocumento_SelectedIndexChanged">
                             </asp:DropDownList>
                         </div>
                     </div>
@@ -40,21 +40,22 @@
                      <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Número de Documento</label>
                         <div class="col-sm-8">
-                            <asp:TextBox ID="txtNumeroDoc" placeholder="Ingrese el número de documento" runat="server" CssClass="form-control1" onkeypress="return SoloNumeroInt(event);"/>
+                            <asp:TextBox ID="txtNumeroDoc" placeholder="Ingrese el número de documento" runat="server" CssClass="form-control1" MaxLength="20"/>
+                            <asp:RegularExpressionValidator ID="revNumDoc" runat="server" ErrorMessage="DNI Inválido" ControlToValidate="txtNumeroDoc" ForeColor="#CC0000" SetFocusOnError="True" Display="Dynamic" ValidationGroup="actualizarProveedor" ValidationExpression="\d{8,9}"></asp:RegularExpressionValidator>
                             <asp:RequiredFieldValidator ID="validationNumeroDoc" runat="server" ControlToValidate="txtNumeroDoc" ErrorMessage="Campo Obligatorio" ValidationGroup="actualizarProveedor" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                          </div>
                     </div>
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Dirección</label>
                         <div class="col-sm-8">
-                            <asp:TextBox ID="txtDireccion" placeholder="Ingrese la dirección" runat="server" CssClass="form-control1" onkeypress="return BlockChars(event);"/>
+                            <asp:TextBox ID="txtDireccion" placeholder="Ingrese la dirección" runat="server" CssClass="form-control1" onkeypress="return BlockChars(event);" MaxLength="50"/>
                             <asp:RequiredFieldValidator ID="validationDir" runat="server" ControlToValidate="txtDireccion" ErrorMessage="Campo Obligatorio" ValidationGroup="actualizarProveedor" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Nombre del Contacto</label>
                         <div class="col-sm-8">
-                            <asp:TextBox ID="txtNombre" placeholder="Ingrese el nombre del contacto" runat="server" CssClass="form-control1" onkeypress="return lettersOnly(event);"/>
+                            <asp:TextBox ID="txtNombre" placeholder="Ingrese el nombre del contacto" runat="server" CssClass="form-control1" onkeypress="return lettersOnly(event);" MaxLength="50"/>
                             <asp:RequiredFieldValidator ID="validationProveedorOC" runat="server" ControlToValidate="txtNombre" ErrorMessage="Campo Obligatorio" ValidationGroup="actualizarProveedor" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 
                         </div>
@@ -62,7 +63,8 @@
                     <div class="form-group">
                           <label for="selector1" class="col-sm-2 control-label">Teléfono del Contacto</label>
                           <div class="col-sm-8">
-                             <asp:TextBox ID="txtTelefono" placeholder="Ingrese el teléfono" runat="server" CssClass="form-control1" onkeypress="return SoloNumeroInt(event);"/>
+                             <asp:TextBox ID="txtTelefono" placeholder="Ingrese el teléfono" runat="server" CssClass="form-control1" onkeypress="return SoloNumeroInt(event);" MaxLength="20"/>
+                              <asp:RegularExpressionValidator ID="revTelefono" runat="server" ErrorMessage="Teléfono Inválido" ControlToValidate="txtTelefono" ForeColor="#CC0000" ValidationExpression="\d{6,11}" SetFocusOnError="True" Display="Dynamic" ValidationGroup="actualizarProveedor"></asp:RegularExpressionValidator>
                              <asp:RequiredFieldValidator ID="validacionTelefono" runat="server" ControlToValidate="txtTelefono" ErrorMessage="Campo Obligatorio" ValidationGroup="actualizarProveedor" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                           </div>
                     </div>
@@ -70,7 +72,8 @@
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Correo electrónico</label>
                         <div class="col-sm-8">
-                            <asp:TextBox ID="txtCorreo" runat="server" placeholder="Ingrese su correo electrónico" CssClass="form-control1"/>
+                            <asp:TextBox ID="txtCorreo" runat="server" placeholder="Ingrese su correo electrónico" CssClass="form-control1" MaxLength="50"/>
+                            <asp:RegularExpressionValidator ID="revCorreo" runat="server" ErrorMessage="Correo Inválido" ControlToValidate="txtCorreo" ForeColor="#CC0000" ValidationExpression="(\w|\d){1,20}\@(\w|\d){1,5}\.\w{1,3}" SetFocusOnError="True" Display="Dynamic" ValidationGroup="actualizarProveedor"></asp:RegularExpressionValidator>    
                             <asp:RequiredFieldValidator ID="validationCorreo" runat="server" ControlToValidate="txtCorreo" ErrorMessage="Campo Obligatorio" ValidationGroup="actualizarProveedor" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
@@ -146,7 +149,15 @@
                   icon: 'error',
                   confirmButtonText: 'Aceptar'
               })
-          }
+        }
+        function alertaExiste() {
+            Swal.fire({
+                title: 'Oh, no!',
+                text: 'Este proveedor ya existe',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            })
+        }
           function alertaExito() {
               Swal.fire({
                   title: 'Enhorabuena!',
@@ -159,5 +170,5 @@
                   }
               })
           }
-      </script>
+    </script>
 </asp:Content>
