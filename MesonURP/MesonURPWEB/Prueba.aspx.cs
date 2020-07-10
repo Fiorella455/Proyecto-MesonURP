@@ -6,29 +6,32 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using CTR;
+using DAO;
 
 namespace MesonURPWEB
 {
     public partial class Prueba : System.Web.UI.Page
     {
+        DAO_OC dao_oc;
         CTR_OC ctr_oc;
         DataTable dt;
+        int mes = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
+            dao_oc = new DAO_OC();
             ctr_oc = new CTR_OC();
             dt = new DataTable();
-            dt = ctr_oc.Leer_OC_Recibido();
-            GridViewConsultar.DataSource = dt;
-            GridViewConsultar.DataBind();
-            CargarDdlMes();
-            //---------------------------------------
+            mes = DateTime.Today.Month;
+            CargarOC(mes);
+           
 
-            if (ddlMes.SelectedValue != null)
-            { 
-                   //switch(ddlMes.SelectedValue)
-                   
-            }
-
+        }
+        public void CargarOC(int m)
+        {      
+                dt = ctr_oc.Leer_OCxMes(m);
+                GridViewConsultar.DataSource = dt;
+                GridViewConsultar.DataBind();
+                CargarDdlMes();         
         }
 
         protected void GridViewConsultar_SelectedIndexChanged(object sender, EventArgs e)
@@ -63,6 +66,27 @@ namespace MesonURPWEB
             ddlMes.Items.Add(i);
             i = new ListItem("Diciembre", "12");
             ddlMes.Items.Add(i);
+        }
+
+        protected void ddlMes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (ddlMes.SelectedValue != null)
+            {
+
+                mes = Convert.ToInt32(ddlMes.SelectedValue);
+                
+                   // Label1.Text = "Mes:" + mes.ToString()+ " Hay Registros" + dao_oc.Count_OCxMes(mes);
+                    CargarOC(mes);
+               
+               
+                
+            }
+        }
+
+        protected void btnReporte_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("PruebaReporte.aspx");
         }
     }
 }

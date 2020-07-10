@@ -14,12 +14,14 @@ namespace DAO
         SqlConnection conexion;
         DTO_Proveedor dto_proveedor;
         DAO_Proveedor dao_proveedor;
+        DTO_OC dto_oc;
         
         public DAO_OC()
         {
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
             dto_proveedor = new DTO_Proveedor();
             dao_proveedor = new DAO_Proveedor();
+            dto_oc = new DTO_OC();
         }
         public void Registrar_OC(DTO_OC dto_oc)
         {
@@ -193,6 +195,7 @@ namespace DAO
             }
         }
 
+        //Eliminar este metodo
         public DataTable Leer_OC_Recibido()
         {
             conexion.Open();
@@ -209,15 +212,29 @@ namespace DAO
         public DataTable Leer_OCxMes(int i)
         {
             conexion.Open();
-            SqlCommand cmd = new SqlCommand("SP_Listar_OCxMes", conexion);
+            SqlCommand cmd = new SqlCommand("SP_Listas_OCxMes", conexion);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add(new SqlParameter("@OC_FechaEmision", i));
+            cmd.Parameters.Add(new SqlParameter("@mes", i));
             cmd.ExecuteNonQuery();
             DataTable dataTable = new DataTable();
             SqlDataAdapter sqlData = new SqlDataAdapter(cmd);
             sqlData.Fill(dataTable);
             conexion.Close();
             return dataTable;
+        }
+        public int Count_OCxMes(int i)
+        {
+            conexion.Open();
+            SqlCommand cmd = new SqlCommand("SP_Listas_OCxMes", conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@mes", i));
+            SqlParameter estado = cmd.Parameters.Add("estado", System.Data.SqlDbType.Int);
+            estado.Direction = System.Data.ParameterDirection.ReturnValue;
+            Convert.ToInt32(cmd.ExecuteNonQuery());
+            dto_oc.Estado = (int)estado.Value;
+            conexion.Close();
+            return dto_oc.Estado;
+
         }
     }
 }

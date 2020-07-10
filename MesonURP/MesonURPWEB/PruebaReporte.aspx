@@ -11,6 +11,18 @@
 <body>
     <form id="form1" runat="server">
         <div>
+
+            <asp:GridView ID="GridViewInsumoxOC" runat="server" >
+                <Columns>
+                   
+               <%-- <asp:BoundField HeaderText="N°Orden Compra" DataField="OC_idOrdenCompra" />
+                <asp:BoundField HeaderText="Insumo" DataField="I_NombreInsumo"/>
+                <asp:BoundField HeaderText="Cantidad" DataField="OCxI_Cantidad" />
+                <asp:BoundField HeaderText="Total" DataField="OCxI_PrecioTotal" />--%>
+                </Columns>
+               
+            </asp:GridView>
+
         </div>
         
          
