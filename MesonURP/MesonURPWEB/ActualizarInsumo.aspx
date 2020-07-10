@@ -74,6 +74,8 @@
                                </div>
                                 <div class="col-md-7 col-md-push-2">  
                                     <asp:TextBox ID="txtfechaV" runat="server" TextMode="Date" CssClass="form-control1" Visible="False"></asp:TextBox>
+                                    <asp:RangeValidator ID ="rvDateValidator" runat ="server" ControlToValidate="txtfechaV" ErrorMessage="Por favor ingrese una fecha válida" Type="Date" Display="Dynamic" ForeColor="#CC0000"></asp:RangeValidator>
+                               
                                 </div>
                             </ContentTemplate>
                             <Triggers>

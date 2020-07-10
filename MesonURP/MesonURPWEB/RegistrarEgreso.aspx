@@ -38,11 +38,16 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label for="focusedinput" class="col-sm-2 control-label">Cantidad máxima a egresar</label>
+                        <div class="col-sm-8">
+                            <asp:TextBox disabled="false" ID="txtOculto" runat="server" CssClass="form-control1" placeholder="Cantidad máxima a egresar" />
+                    </div>
+                    </div>
+                    <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Unidad de Medida</label>
                         <div class="col-sm-8">
-                            <asp:TextBox Disabled="true" ID="txtUnidadMedida" runat="server" placeholder="Unidad de Medida" CssClass="form-control1" />
-                            <asp:TextBox ID="txtOculto" runat="server" CssClass="form-control1" Visible="false" />
-                        </div>
+                            <asp:TextBox disabled="True" ID="txtUnidadMedida" runat="server" placeholder="Unidad de Medida" CssClass="form-control1" />
+                    </div>
                     </div>
                     <asp:UpdatePanel ID="PanelAñadir" runat="server">
                       <ContentTemplate>
@@ -74,10 +79,11 @@
                             </asp:GridView>
                         </div>
                     <hr />                    
+                            <%--holi--%>
                             <p class="center-button">
                                 <button type="button" name="sub-1" class="btn btn-primary" runat="server" id="btnEgresar" onserverclick="btnEgresar_ServerClick" validationgroup="registrarEgreso">Egresar</button>
-                                <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'ManejarStock';" class="btn btn-primary" />
-                                <input type="reset" name="res-1" id="res-1" value="Limpiar" class="btn btn-danger" />
+                                <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'ManejarStock';" onserverclick="btnRegresar_ServerClick"  class="btn btn-primary" />
+                                <input type="button" name="res-1"  value="Limpiar" runat="server" onserverclick="btnLimpiar_ServerClick" class="btn btn-danger" />
                             </p>
                         </ContentTemplate>
                     </asp:UpdatePanel>
@@ -102,6 +108,22 @@
             Swal.fire({
                 title: 'Oh, no!',
                 text: 'La cantidad de insumos no es permitida',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            })
+        }
+        function alertaDuplicado() {
+            Swal.fire({
+                title: 'Oh, no!',
+                text: 'No puedes añadir el mismo Insumo',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            })
+        }
+        function alertaError() {
+            Swal.fire({
+                title: 'Oh, no!',
+                text: 'No has añadido ningún Insumo',
                 icon: 'error',
                 confirmButtonText: 'Aceptar'
             })
