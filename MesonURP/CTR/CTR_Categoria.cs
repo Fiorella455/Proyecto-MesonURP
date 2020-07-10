@@ -9,11 +9,11 @@ namespace CTR
 {
     public class CTR_Categoria
     {
-        DAO_Categoria dao_categoria;
+        Dao_Categoria dao_categoria;
 
         public CTR_Categoria()
         {
-            dao_categoria = new DAO_Categoria();
+            dao_categoria = new Dao_Categoria();
         }
         public DataSet CTR_Leer_Categorias()
         {
