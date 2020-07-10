@@ -27,7 +27,7 @@ namespace DAO
                 //return "Data Source = (Local); initial catalog=DB_MesonURP; integrated security=true;";
 
                 //CARLOS
-                //return "data source=JENNY-LAPTOP; initial catalog=DB_MesonURP; integrated security=SSPI;";
+                return "data source=JENNY-LAPTOP; initial catalog=DB_MesonURP; integrated security=SSPI;";
 
             }
         }

@@ -129,8 +129,8 @@ namespace DAO
             SqlCommand comando = new SqlCommand("SP_Existe_Proveedor", conexion);
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@P_RazonSocial", p.P_RazonSocial);
-            comando.Parameters.AddWithValue("@P_NumeroDocumento", p.P_NumeroDocumento);
-            comando.Parameters.AddWithValue("@P_Direccion", p.P_Direccion);
+            //comando.Parameters.AddWithValue("@P_NumeroDocumento", p.P_NumeroDocumento);
+            //comando.Parameters.AddWithValue("@P_Direccion", p.P_Direccion);
             comando.ExecuteNonQuery();
             SqlDataReader reader = comando.ExecuteReader();
             if (reader.Read())
@@ -144,6 +144,25 @@ namespace DAO
                 return false;
             }
 
+        }
+        public bool Existe_Proveedor_OC(string rs)
+        {
+            conexion.Open();
+            SqlCommand comando = new SqlCommand("SP_Consultar_OCxProveedor",conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@P_RazonSocial", rs);
+            comando.ExecuteNonQuery();
+            SqlDataReader reader = comando.ExecuteReader();
+            if (reader.Read())
+            {
+                conexion.Close();
+                return true;
+            }
+            else
+            {
+                conexion.Close();
+                return false;
+            }
         }
     }
 }
