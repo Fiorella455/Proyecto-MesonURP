@@ -54,20 +54,20 @@ namespace MesonURPWEB
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                
+
                 string state = e.Row.Cells[1].Text.ToString();
                 if (state=="En Espera" || state == "En \nEspera")
                 {
-                   e.Row.Cells[7].FindControl("btnEnviarEmailOC").Visible = false;
-                   e.Row.Cells[8].FindControl("btnEditarOC").Visible = false;
-                   e.Row.Cells[9].FindControl("btnVerDetallesOC").Visible = true;
+                    e.Row.Cells[7].FindControl("btnEnviarEmailOC").Visible = false;
+                    e.Row.Cells[8].FindControl("btnEditarOC").Visible = false;
+                    e.Row.Cells[9].FindControl("btnVerDetallesOC").Visible = true;
                     var button = (Button)e.Row.FindControl("btnRecibido");
                     if (button != null) { button.Visible = false; }
                     var btn1 = (Button)e.Row.FindControl("btnEliminar");
                     if (btn1 != null) { btn1.Visible = false; }
 
                 }
-                
+
                 if(state=="Aceptado")
                 {
                     e.Row.Cells[7].FindControl("btnEnviarEmailOC").Visible = false;
@@ -96,7 +96,7 @@ namespace MesonURPWEB
                     e.Row.Cells[7].FindControl("btnEnviarEmailOC").Visible = false;
                     e.Row.Cells[8].FindControl("btnEditarOC").Visible = false;
                     e.Row.Cells[10].FindControl("btnEliminar").Visible = false;
-                    e.Row.Cells[11].FindControl("btnAceptado").Visible=false;
+                    e.Row.Cells[11].FindControl("btnAceptado").Visible = false;
                     e.Row.Cells[11].FindControl("btnRechazado").Visible = false;
                     e.Row.Cells[11].FindControl("btnRecibido").Visible = false;
 
@@ -111,6 +111,7 @@ namespace MesonURPWEB
                     e.Row.Cells[11].FindControl("btnRecibido").Visible = false;
                 }
 
+            
             }
         
         }

@@ -81,13 +81,13 @@
                       <div class="input-info">
 						<h3>Detalles de Insumo</h3>
 					</div>
-                    <div class="form-group">
+                <%--    <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Categoría</label>
                         <div class="col-sm-8">
                             <asp:DropDownList ID="DdlCategoria" runat="server" CssClass="form-control1" AutoPostBack="true">
                             </asp:DropDownList>
                         </div>
-                    </div>
+                    </div>--%>
                       <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Insumo</label>
                         <div class="col-sm-8">

@@ -40,5 +40,17 @@ namespace DAO
                 throw ex;
             }
         }
+        public DataSet selectMedidas()
+        {
+            conexion.Open();
+            SqlCommand cmd = new SqlCommand("SP_Select_Medida", conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.ExecuteNonQuery();
+            DataSet dt = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(dt);
+            conexion.Close();
+            return dt;
+        }
     }
 }

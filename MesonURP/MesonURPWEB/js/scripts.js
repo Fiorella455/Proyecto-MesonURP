@@ -3,9 +3,9 @@
 
     // custom scrollbar
 
-    $("html").niceScroll({styler:"fb",cursorcolor:"#b52e31", cursorwidth: '5', cursorborderradius: '10px', background: '#252525', spacebarenabled:false, cursorborder: '0',  zindex: '1000'});
+    $("html").niceScroll({ styler: "fb", cursorcolor: "rgb(79, 165, 136)", cursorwidth: '10', cursorborderradius: '10px', background: 'rgb(221, 221, 221)', spacebarenabled:false, cursorborder: '0',  zindex: '1000'});
 
-    $(".left-side").niceScroll({styler:"fb",cursorcolor:"#00C6D7", cursorwidth: '3', cursorborderradius: '10px', background: '#252525', spacebarenabled:false, cursorborder: '0'});
+    $(".left-side").niceScroll({ styler: "fb", cursorcolor: "rgb(79, 165, 136)", cursorwidth: '10', cursorborderradius: '10px', background: 'rgb(221, 221, 221)', spacebarenabled:false, cursorborder: '0'});
 
 
     $(".left-side").getNiceScroll();

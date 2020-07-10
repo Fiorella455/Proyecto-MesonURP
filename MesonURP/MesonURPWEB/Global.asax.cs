@@ -65,6 +65,18 @@ namespace MesonURPWEB
             routes.MapPageRoute("AñadirOC", "AñadirOC", "~/AñadirOC.aspx", true);
             routes.MapPageRoute("ActualizarOC", "ActualizarOC", "~/ActualizarOC.aspx", true);
             routes.MapPageRoute("ConsultarOC", "ConsultarOC", "~/ConsultarOC.aspx", true);
+            routes.MapPageRoute("GestionarProveedor", "GestionarProveedor", "~/GestionarProveedor.aspx", true);
+            routes.MapPageRoute("AñadirProveedor", "AñadirProveedor", "~/AñadirProveedor.aspx", true);
+            routes.MapPageRoute("ActualizarProveedor", "ActualizarProveedor", "~/ActualizarProveedor.aspx", true);
+            routes.MapPageRoute("ConsultarProveedor", "ConsultarProveedor", "~/ConsultarProveedor.aspx", true);
+            routes.MapPageRoute("GestionarInsumo", "GestionarInsumo", "~/GestionarInsumo.aspx", true);
+            routes.MapPageRoute("AñadirInsumo", "AñadirInsumo", "~/AñadirInsumo.aspx", true);
+            routes.MapPageRoute("ActualizarInsumo", "ActualizarInsumo", "~/ActualizarInsumo.aspx", true);
+            routes.MapPageRoute("ConsultarInsumo", "ConsultarInsumo", "~/ConsultarInsumo.aspx", true);
+            routes.MapPageRoute("ConsultarMovimientos", "ConsultarMovimientos", "~/ConsultarMovimientos.aspx", true);
+            routes.MapPageRoute("GestionarCategoria", "GestionarCategoria", "~/GestionarCategoria.aspx", true);
+            routes.MapPageRoute("ReporteCompras", "ReporteCompras", "~/PruebaReporte.aspx", true);
+
         }
     }
 }
