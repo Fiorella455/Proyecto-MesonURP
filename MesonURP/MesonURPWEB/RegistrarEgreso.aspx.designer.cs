@@ -69,15 +69,6 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.RequiredFieldValidator validationCantidad;
 
         /// <summary>
-        /// Control txtUnidadMedida.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUnidadMedida;
-
-        /// <summary>
         /// Control txtOculto.
         /// </summary>
         /// <remarks>
@@ -85,6 +76,15 @@ namespace MesonURPWEB
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtOculto;
+
+        /// <summary>
+        /// Control txtUnidadMedida.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUnidadMedida;
 
         /// <summary>
         /// Control PanelAñadir.
