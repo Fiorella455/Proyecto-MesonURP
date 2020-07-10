@@ -69,6 +69,15 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.TextBox txtNumeroDoc;
 
         /// <summary>
+        /// Control revNumDoc.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revNumDoc;
+
+        /// <summary>
         /// Control validationNumeroDoc.
         /// </summary>
         /// <remarks>
@@ -105,6 +114,15 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.TextBox txtTelefono;
 
         /// <summary>
+        /// Control revTelefono.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revTelefono;
+
+        /// <summary>
         /// Control validacionTelefono.
         /// </summary>
         /// <remarks>
@@ -123,13 +141,13 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.TextBox txtCorreo;
 
         /// <summary>
-        /// Control revMaxLen.
+        /// Control revCorreo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revMaxLen;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revCorreo;
 
         /// <summary>
         /// Control validationCorreo.
