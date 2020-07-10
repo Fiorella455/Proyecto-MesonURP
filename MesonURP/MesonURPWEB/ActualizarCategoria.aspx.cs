@@ -35,7 +35,7 @@ namespace MesonURPWEB
         }
         protected void btnActualizarCategoria_Click(object sender, EventArgs e)
         {
-            if (revNombreC.IsValid)
+            if (rfvCategoria.IsValid)
             {
                 int a = 0;
                 _Dcat.C_NombreCategoria = txtCategoria.Text;
