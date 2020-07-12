@@ -17,20 +17,18 @@
                     <div class="input-info">
                         <h3>Detalles de Compra</h3>
                     </div>
-                   <%-- <div class="form-group">
+                    <%-- <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">N° Orden</label>
                         <div class="col-sm-8">
                             <asp:TextBox ID="txtNumeroOrden" runat="server" placeholder="Ingrese el número de orden" CssClass="form-control1" ValidationGroup="añadirOC" onkeypress="return SoloNumeroInt(event);" />
                             <asp:RequiredFieldValidator ID="validationNumeroOrden" runat="server" ControlToValidate="txtNumeroOrden" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
-                    </div>--%>
-                    <%-- <div class="form-group">
+                    </div>--%>                    <%-- <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Fecha de Entrega</label>
                         <div class="col-sm-8">
                             <asp:TextBox ID="txtFechaEntrega" runat="server" textmode="Date" CssClass="form-control1" />
                         </div>
-                    </div>--%>
-                   <%-- <div class="form-group">
+                    </div>--%>                   <%-- <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Estado</label>
                         <div class="col-sm-8">
                             <asp:DropDownList runat="server" CssClass="form-control1" ID="DdlEstado"></asp:DropDownList>
@@ -91,19 +89,22 @@
                         <div class="col-sm-8">
                             <asp:TextBox runat="server" placeholder="Ingrese una cantidad" CssClass="form-control1" ID="txtCantidad" onkeypress="return SoloNumeroIntDouble(event);" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtCantidad" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:Label ID="lblMsj" runat="server"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Precio Unitario</label>
                         <div class="col-sm-8">
-                            <asp:TextBox runat="server" CssClass="form-control1" ID="txtPrecioU" />
+                            <asp:TextBox runat="server" CssClass="form-control1" ID="txtPrecioU" ReadOnly="true" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txtPrecioU" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Unidades de Medida</label>
                         <div class="col-sm-8">
-                            <asp:TextBox ID="txtMedida" runat="server" CssClass="form-control1"  onkeypress="return lettersOnly(event);" />
+                            <asp:TextBox ID="txtMedida" runat="server" CssClass="form-control1"  onkeypress="return lettersOnly(event);" ReadOnly="true" />
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtMedida" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
@@ -119,7 +120,7 @@
                                 <h4>Órdenes de Compra</h4>
                             </div>
                             <div class="table-wrapper-scroll-y my-custom-scrollbar">
-                                <asp:GridView ID="GridViewAñadirOC" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false" RowEnter="GridViewAñadirOC_RowEnter"
+                                <asp:GridView ID="GridViewAñadirOC" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false"  
                                    DataKeyNames="I_NombreInsumo,OCxI_Cantidad,I_PrecioUnitario,OCxI_PrecioTotal" CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None" OnSelectedIndexChanged="GridViewAñadirOC_SelectedIndexChanged">
                                     <Columns>
                                         <%--<asp:BoundField HeaderText="Orden de Compra" DataField="OC_idOrdenCompra" />--%>
@@ -129,6 +130,9 @@
                                         <asp:BoundField HeaderText="Precio Total" Datafield="OCxI_PrecioTotal"/>
                                         
                                     </Columns>   
+                                    <selectedrowstyle backcolor="LightCyan" forecolor="DarkBlue" font-bold="true"/>
+         
+          
                                 </asp:GridView>
                             </div>
                              <div class="form-group">

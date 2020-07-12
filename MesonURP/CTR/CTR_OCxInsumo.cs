@@ -23,6 +23,10 @@ namespace CTR
         {
             return dao_ocxinsumo.Leer_Insumos_xOC(i);
         }
+        public DataTable Leer_InsumoxMes(int m)
+        {
+            return dao_ocxinsumo.Leer_InsumosxMes(m);
+        }
         public void Actualizar_OCxInsumo(DTO_OCxInsumo oc)
         {
             dao_ocxinsumo.Actualizar_OCxInsumo(oc);

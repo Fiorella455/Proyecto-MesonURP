@@ -74,16 +74,16 @@ namespace MesonURPWEB
             DdlInsumo.DataBind();
             DdlInsumo.Items.Insert(0, "--seleccionar--");
         }
-        
-      
+        protected void GridViewAñadirOC_SelectedIndexChanging(Object sender, GridViewSelectEventArgs e)
+        {
+            GridViewRow row = GridViewAñadirOC.Rows[e.NewSelectedIndex];
+        }
 
         protected void GridViewAñadirOC_SelectedIndexChanged(object sender, EventArgs e)
         {
             GridViewRow row = GridViewAñadirOC.SelectedRow;
              id = Convert.ToInt32(GridViewAñadirOC.DataKeys[row.RowIndex].Value)+1;
-             row.BackColor = System.Drawing.Color.LightGray;
         }
-
         protected void btnAñadirInsumo_Click(object sender, EventArgs e)
         {
             dto_ocxinsumo = new DTO_OCxInsumo();
@@ -91,78 +91,91 @@ namespace MesonURPWEB
             DTO_Insumo insumo = ctr_insumo.Consultar_InsumoxID(dto_ocxinsumo.I_idInsumo);
             // dto_ocxinsumo.OC_idOrdenCompra = ctr_oc.ID_OC_Actual()+1;
             dto_ocxinsumo.OCxI_Cantidad = int.Parse(txtCantidad.Text);
-            dto_ocxinsumo.OCxI_PrecioTotal = dto_ocxinsumo.OCxI_Cantidad * Convert.ToDecimal(insumo.DR_PrecioUnitario);
-            suma += dto_ocxinsumo.OCxI_PrecioTotal;
-            dto_oc.OC_TotalCompra += Convert.ToDecimal(dto_ocxinsumo.OCxI_PrecioTotal);
-            pila.Add(dto_ocxinsumo);
-            txtTotal.Text = suma.ToString();
-
-
-            if (tin.Columns.Count == 0)
+            if (ctr_insumo.CTR_LimiteStockMax(int.Parse(DdlInsumo.SelectedValue), int.Parse(txtCantidad.Text)) == 1)
             {
-                tin.Columns.Add("I_idInsumo");
-                tin.Columns.Add("I_NombreInsumo");
-                tin.Columns.Add("OCxI_Cantidad");
-                tin.Columns.Add("I_PrecioUnitario");
-                tin.Columns.Add("OCxI_PrecioTotal");
+
+                lblMsj.Text = "Ingresar una cantidad menor";
 
             }
-            DataRow row = tin.NewRow();
-            row[0] = dto_ocxinsumo.I_idInsumo;
-            row[1] = insumo.VR_NombreRecurso;
-            row[2] = dto_ocxinsumo.OCxI_Cantidad;
-            row[3] = insumo.DR_PrecioUnitario;
-            row[4] = dto_ocxinsumo.OCxI_PrecioTotal;
+            else
+            {
 
-            tin.Rows.Add(row);
+                lblMsj.Text = "";
+                dto_ocxinsumo.OCxI_PrecioTotal = dto_ocxinsumo.OCxI_Cantidad * Convert.ToDecimal(insumo.DR_PrecioUnitario);
+                suma += dto_ocxinsumo.OCxI_PrecioTotal;
+                dto_oc.OC_TotalCompra += Convert.ToDecimal(dto_ocxinsumo.OCxI_PrecioTotal);
+                pila.Add(dto_ocxinsumo);
+                txtTotal.Text = suma.ToString();
 
-            GridViewAñadirOC.DataSource = tin;
-            GridViewAñadirOC.DataBind();
+
+                if (tin.Columns.Count == 0)
+                {
+                    tin.Columns.Add("I_idInsumo");
+                    tin.Columns.Add("I_NombreInsumo");
+                    tin.Columns.Add("OCxI_Cantidad");
+                    tin.Columns.Add("I_PrecioUnitario");
+                    tin.Columns.Add("OCxI_PrecioTotal");
+
+                }
+                DataRow row = tin.NewRow();
+                row[0] = dto_ocxinsumo.I_idInsumo;
+                row[1] = insumo.VR_NombreRecurso;
+                row[2] = dto_ocxinsumo.OCxI_Cantidad;
+                row[3] = insumo.DR_PrecioUnitario;
+                row[4] = dto_ocxinsumo.OCxI_PrecioTotal;
+
+                tin.Rows.Add(row);
+
+                GridViewAñadirOC.DataSource = tin;
+                GridViewAñadirOC.DataBind();
+
+            } 
 
         }
 
         protected void btnAñadirOC_Click(object sender, EventArgs e)
         {
 
-            
-            dto_oc.OC_NumeroComprobante = txtNumeroComprobante.Text;
-            //dto_oc.OC_TotalCompra = Convert.ToDecimal(suma);
-            dto_oc.OC_FechaEmision = DateTime.Today;
-            dto_oc.OC_FormaPago = DListFormaP.Text;           
-            dto_oc.P_idProveedor = int.Parse(DdlProveedor.SelectedValue);           
-            dto_oc.OC_TipoComprobante = DListTipoC.Text;
-            dto_oc.OC_TotalCompra = Convert.ToDecimal(txtTotal.Text);
-            ctr_oc.Registrar_OC(dto_oc);
+         
 
-            //----------------------------------------------------------
+                dto_oc.OC_NumeroComprobante = txtNumeroComprobante.Text;
+                //dto_oc.OC_TotalCompra = Convert.ToDecimal(suma);
+                dto_oc.OC_FechaEmision = DateTime.Today.Date.ToShortDateString();
+                dto_oc.OC_FormaPago = DListFormaP.Text;
+                dto_oc.P_idProveedor = int.Parse(DdlProveedor.SelectedValue);
+                dto_oc.OC_TipoComprobante = DListTipoC.Text;
+                dto_oc.OC_TotalCompra = Convert.ToDecimal(txtTotal.Text);
+                ctr_oc.Registrar_OC(dto_oc);
 
-            dto_estado_OCxOC.EOC_idEstadoOC = 1;
-            dto_estado_OCxOC.OC_idOrdenCompra = ctr_oc.ID_OC_Actual();
-            dto_estado_OCxOC.EOCxOC_FechaRegistro = DateTime.Today;
-            dto_estado_OCxOC.EOCxOC_UsuarioRegistro = 5;
-            ctr_estado_OCxOC.Registrar_Estado_OCxOC(dto_estado_OCxOC);
-            
+                //----------------------------------------------------------
 
-            //Verificar el usuario
-
-            //dto_usuario = (Dto_Usuario)Session["emailUsuario"];
-            // ctr_usuario.getUsuario(dto_usuario);
-            //dto_estado_OCxOC.EOCxOC_UsuarioRegistro = dto_usuario.U_idUsuario;
+                dto_estado_OCxOC.EOC_idEstadoOC = 1;
+                dto_estado_OCxOC.OC_idOrdenCompra = ctr_oc.ID_OC_Actual();
+                dto_estado_OCxOC.EOCxOC_FechaRegistro = DateTime.Today;
+                dto_estado_OCxOC.EOCxOC_UsuarioRegistro = 5;
+                ctr_estado_OCxOC.Registrar_Estado_OCxOC(dto_estado_OCxOC);
+                //-----------------------------------------------------------------
 
 
+                while (pila.Count >= 1)
+                {
+                    pila[pila.Count - 1].OC_idOrdenCompra = ctr_oc.ID_OC_Actual();
+                    ctr_ocxinsumo.Registrar_OC_Insumo(pila[pila.Count - 1]);
+                    pila.RemoveAt(pila.Count - 1);
+                }
+                suma = 0;
+                tin.Clear();
+                Response.Redirect("GestionarOC");
 
-            while (pila.Count >= 1)
-            {
-                pila[pila.Count - 1].OC_idOrdenCompra = ctr_oc.ID_OC_Actual();
-                ctr_ocxinsumo.Registrar_OC_Insumo(pila[pila.Count - 1]);
-                pila.RemoveAt(pila.Count - 1);
-            }
-            suma = 0;
-            tin.Clear();
-            
+                //Verificar el usuario
+
+                //dto_usuario = (Dto_Usuario)Session["emailUsuario"];
+                // ctr_usuario.getUsuario(dto_usuario);
+                //dto_estado_OCxOC.EOCxOC_UsuarioRegistro = dto_usuario.U_idUsuario;
+
+                //-----------------------------------------------------------------
 
 
-            Response.Redirect("GestionarOC");
         }
     }
 }
