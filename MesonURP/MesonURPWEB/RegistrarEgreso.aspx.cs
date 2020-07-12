@@ -8,7 +8,6 @@ using System.Web.UI.WebControls;
 
 namespace MesonURPWEB
 {
-
     public partial class RegistrarEgreso : System.Web.UI.Page
     {
         CTR_MovimientoxInsumo _Cmxi = new CTR_MovimientoxInsumo();
