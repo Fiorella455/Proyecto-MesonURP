@@ -149,7 +149,7 @@
                     </ul>
                 </li>
                 <li id="menuProveedor" runat="server"><a href="gestionarProveedor"><i class="fa fa-file-text-o"></i><span>Gestionar Proveedor</span></a></li>
-                <li id="menuGestionarDevoluciones" runat="server"><a href="gestionarDevoluciones"><i class="lnr lnr-pencil"></i><span>Gestionar Devolución</span></a></li>
+                <li id="menuGestionarMerma" runat="server"><a href="gestionarMermas"><i class="lnr lnr-pencil"></i><span>Gestionar Merma</span></a></li>
                 <li id="menuStock" runat="server"><a href="#"><i class="fa fa-table"></i><span>Stock</span> <span class="fa fa-angle-right" style="float: right"></span></a>
                     <ul id="submenuStock">
                         <li id="lblmenuManejoStock"><a href="ManejarStock">Manejar Stock</a></li>

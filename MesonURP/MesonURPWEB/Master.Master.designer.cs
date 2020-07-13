@@ -96,13 +96,13 @@ namespace MesonURPWEB
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl menuProveedor;
 
         /// <summary>
-        /// Control menuGestionarDevoluciones.
+        /// Control menuGestionarMerma.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menuGestionarDevoluciones;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menuGestionarMerma;
 
         /// <summary>
         /// Control menuStock.

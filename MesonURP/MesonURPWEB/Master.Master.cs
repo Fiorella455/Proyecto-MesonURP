@@ -26,9 +26,9 @@ namespace MesonURPWEB
 
                         menuOrdenCompra.Visible = false;
                         menuProveedor.Visible = false;
-                        menuGestionarDevoluciones.Visible = false;
                         menuStock.Visible = true;
                         menuReportes.Visible = true;
+                        menuGestionarMerma.Visible = false;
                         menuCategoria.Visible = false;
                         menuUsuarios.Visible = false;
                         menuInsumo.Visible = true;
@@ -41,12 +41,27 @@ namespace MesonURPWEB
 
                         menuOrdenCompra.Visible = true;
                         menuProveedor.Visible = true;
-                        menuGestionarDevoluciones.Visible = true;
                         menuStock.Visible = true;
                         menuReportes.Visible = false;
+                        menuGestionarMerma.Visible = true;
                         menuCategoria.Visible = false;
                         menuUsuarios.Visible = false;
                         menuInsumo.Visible = false; 
+                        lblRol.Text = perfil;
+                        lblNombre.Text = Convert.ToString(Session["NombreUsuario"]);
+                        lblApellido.Text = Convert.ToString(Session["ApellidoUsuario"]);
+                        break;
+
+                    case "Administrador del Sistema":
+
+                        menuOrdenCompra.Visible = false;
+                        menuProveedor.Visible = false;
+                        menuStock.Visible = false;
+                        menuReportes.Visible = false;
+                        menuGestionarMerma.Visible = false;
+                        menuCategoria.Visible = true;
+                        menuUsuarios.Visible = true;
+                        menuInsumo.Visible = false;
                         lblRol.Text = perfil;
                         lblNombre.Text = Convert.ToString(Session["NombreUsuario"]);
                         lblApellido.Text = Convert.ToString(Session["ApellidoUsuario"]);
