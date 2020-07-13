@@ -18,23 +18,30 @@
                         <h3>Detalles de Compra</h3>
                     </div>
                     <div class="form-group">
-                        <label for="selector1" class="col-sm-2 control-label">Proveedor</label>
-                        <div class="col-sm-8">
-                            <asp:DropDownList ID="DdlProveedor" runat="server" CssClass="form-control1" AutoPostBack="true">
-                            </asp:DropDownList>
-                            <asp:RequiredFieldValidator ID="validationProveedorOC" runat="server" ControlToValidate="DdlProveedor" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-
-                        </div>
+                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                            <ContentTemplate>
+                                        <label for="selector1" class="col-sm-2 control-label">Proveedor</label>
+                                    <div class="col-sm-8">
+                                        <asp:DropDownList ID="DdlProveedor" runat="server" CssClass="form-control1" AutoPostBack="true">
+                                        </asp:DropDownList>
+                                        <asp:RequiredFieldValidator ID="validationProveedorOC" runat="server" ControlToValidate="DdlProveedor" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                                    </div>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
                     </div>
                     <div class="form-group">
+                        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                            <ContentTemplate>
                                <label for="selector1" class="col-sm-2 control-label">Forma de pago</label>
                                <div class="col-sm-8">
                                <asp:DropDownList runat="server" CssClass="form-control1" ID="DListFormaP"  AutoPostBack="true">
-                                <asp:ListItem  Value="">--seleccione--</asp:ListItem>
-                                <asp:ListItem Text="Efectivo" Value="Efectivo">Efectivo</asp:ListItem>
-                                <asp:ListItem Text="Crédito" Value="Crédito">Crédito</asp:ListItem>
-                            </asp:DropDownList>
-                        </div>
+                                    <asp:ListItem  Value="">--seleccione--</asp:ListItem>
+                                    <asp:ListItem Text="Efectivo" Value="Efectivo">Efectivo</asp:ListItem>
+                                    <asp:ListItem Text="Crédito" Value="Crédito">Crédito</asp:ListItem>
+                               </asp:DropDownList>
+                                </div>
+                                </ContentTemplate>
+                        </asp:UpdatePanel>
                     </div>
                        
                     <div class="form-group">
@@ -45,14 +52,18 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                            <ContentTemplate>
                                <label for="selector1" class="col-sm-2 control-label">Tipo de Comprobante</label>
                                <div class="col-sm-8">
-                               <asp:DropDownList runat="server" CssClass="form-control1" ID="DListTipoC"  AutoPostBack="true">
-                                <asp:ListItem  Value="">--seleccione--</asp:ListItem>
-                                <asp:ListItem Text="Boleta" Value="Boleta">Boleta</asp:ListItem>
-                                <asp:ListItem Text="Factura" Value="Factura">Factura</asp:ListItem>
-                            </asp:DropDownList>
-                        </div>
+                                   <asp:DropDownList runat="server" CssClass="form-control1" ID="DListTipoC"  AutoPostBack="true">
+                                        <asp:ListItem  Value="">--seleccione--</asp:ListItem>
+                                        <asp:ListItem Text="Boleta" Value="Boleta">Boleta</asp:ListItem>
+                                        <asp:ListItem Text="Factura" Value="Factura">Factura</asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+                                </ContentTemplate>
+                        </asp:UpdatePanel>
                     </div>
                       <div class="input-info">
 						<h3>Detalles de Compra</h3>
