@@ -33,7 +33,7 @@
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Cantidad</label>
                         <div class="col-sm-8">
-                            <asp:TextBox ID="txtCantidad" runat="server" placeholder="Seleccione la cantidad" CssClass="form-control1" onkeypress="return SoloNumeroIntDouble(event);" />
+                            <asp:TextBox ID="txtCantidad" runat="server" placeholder="Seleccione la cantidad" CssClass="form-control1" onkeypress="return SoloNumeroIntDouble(event);" MaxLength="5" />
                             <asp:RequiredFieldValidator ID="validationCantidad" runat="server" ControlToValidate="txtCantidad" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarEgreso" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                     <asp:UpdatePanel ID="PanelAñadir" runat="server">
                       <ContentTemplate>
                          <p class="center-button">
-                            <asp:Button CssClass="btn btn-primary" runat="server" Text="Añadir" ID="btnAñadirInsumo" OnClick="btnAñadirInsumo_Click"/>
+                            <asp:Button CssClass="btn btn-primary" runat="server" Text="Añadir" ID="btnAñadirInsumo" OnClick="btnAñadirInsumo_Click" validationgroup="registrarEgreso"/>
                             <asp:Button CssClass="btn btn-primary" runat="server" Text="Quitar" OnClick="btnQuitarInsumo_Click" />
                         </p>
                       </ContentTemplate>
@@ -74,14 +74,12 @@
                                     <asp:BoundField HeaderText="Nombre insumo" Datafield="Nombre insumo" />
                                     <asp:BoundField HeaderText="Cantidad" Datafield="Cantidad" />
                                     <asp:BoundField HeaderText="Unidad de Medida" Datafield="Unidad de Medida" />
-
                                 </Columns>
                             </asp:GridView>
                         </div>
-                    <hr />                    
-                            <%--holi--%>
+                    <hr />       
                             <p class="center-button">
-                                <button type="button" name="sub-1" class="btn btn-primary" runat="server" id="btnEgresar" onserverclick="btnEgresar_ServerClick" validationgroup="registrarEgreso">Egresar</button>
+                                <button type="button" name="sub-1" class="btn btn-primary" runat="server" id="btnEgresar" onserverclick="btnEgresar_ServerClick">Egresar</button>
                                 <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'ManejarStock';" onserverclick="btnRegresar_ServerClick"  class="btn btn-primary" />
                                 <input type="button" name="res-1"  value="Limpiar" runat="server" onserverclick="btnLimpiar_ServerClick" class="btn btn-danger" />
                             </p>

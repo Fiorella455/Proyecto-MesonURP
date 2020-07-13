@@ -47,9 +47,10 @@
                                             <Columns>
                                                 <asp:BoundField DataField="fechamov" HeaderText="Fecha" />
                                                 <asp:BoundField DataField="M_TipoMovimiento" HeaderText="Tipo" />
-                                                <asp:BoundField DataField="I_NombreInsumo" HeaderText="Medida" />
-                                                <asp:BoundField DataField="MxI_Cantidad" HeaderText="Cantidad" />
+                                                <asp:BoundField DataField="I_NombreInsumo" HeaderText="Insumo" />
                                                 <asp:BoundField DataField="nomcategoria" HeaderText="Categoria" />
+                                                <asp:BoundField DataField="MxI_Cantidad" HeaderText="Cantidad" />
+                                                <asp:BoundField DataField="M_NombreMedida" HeaderText="Medida" />
                                                 <asp:BoundField DataField="usuariomov" HeaderText="Usuario" />       
                                             </Columns>
                                         </asp:GridView>
