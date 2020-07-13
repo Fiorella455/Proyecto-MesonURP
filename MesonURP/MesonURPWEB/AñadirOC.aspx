@@ -23,12 +23,12 @@
                             <asp:TextBox ID="txtNumeroOrden" runat="server" placeholder="Ingrese el número de orden" CssClass="form-control1" ValidationGroup="añadirOC" onkeypress="return SoloNumeroInt(event);" />
                             <asp:RequiredFieldValidator ID="validationNumeroOrden" runat="server" ControlToValidate="txtNumeroOrden" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
-                    </div>--%>                    <%-- <div class="form-group">
+                    </div>--%><%-- <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Fecha de Entrega</label>
                         <div class="col-sm-8">
                             <asp:TextBox ID="txtFechaEntrega" runat="server" textmode="Date" CssClass="form-control1" />
                         </div>
-                    </div>--%>                   <%-- <div class="form-group">
+                    </div>--%><%-- <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Estado</label>
                         <div class="col-sm-8">
                             <asp:DropDownList runat="server" CssClass="form-control1" ID="DdlEstado"></asp:DropDownList>
@@ -120,18 +120,18 @@
                                 <h4>Órdenes de Compra</h4>
                             </div>
                             <div class="table-wrapper-scroll-y my-custom-scrollbar">
-                                <asp:GridView ID="GridViewAñadirOC" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false"  
+                                <asp:GridView ID="GridViewAñadirOC" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false"  OnRowDataBound="GridViewAñadirOC_OnRowDataBound"
                                    DataKeyNames="I_NombreInsumo,OCxI_Cantidad,I_PrecioUnitario,OCxI_PrecioTotal" CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None" OnSelectedIndexChanged="GridViewAñadirOC_SelectedIndexChanged">
                                     <Columns>
                                         <%--<asp:BoundField HeaderText="Orden de Compra" DataField="OC_idOrdenCompra" />--%>
-                                        <asp:BoundField HeaderText="Insumo" DataField="I_NombreInsumo" />
+                                        <asp:BoundField HeaderText="Insumo" DataField="I_NombreInsumo"  />
                                         <asp:BoundField HeaderText="Cantidad" Datafield="OCxI_Cantidad"/>
                                         <asp:BoundField HeaderText="Precio unitario" DataField="I_PrecioUnitario" />
                                         <asp:BoundField HeaderText="Precio Total" Datafield="OCxI_PrecioTotal"/>
                                         
                                     </Columns>   
-                                    <selectedrowstyle backcolor="LightCyan" forecolor="DarkBlue" font-bold="true"/>
-         
+                                    
+                                    <SelectedRowStyle BackColor="LightGreen"/>
           
                                 </asp:GridView>
                             </div>
@@ -139,6 +139,8 @@
                         <label for="selector1" class="col-sm-2 control-label">Total</label>
                         <div class="col-sm-8">
                             <asp:TextBox ID="txtTotal" runat="server" align="left" CssClass="special" Width="102px" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:Label ID="lblIndex" runat="server"></asp:Label>
                         </div>
                     </div>
                         </div>

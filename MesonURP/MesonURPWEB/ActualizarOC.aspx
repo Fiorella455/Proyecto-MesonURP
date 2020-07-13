@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Gestionar OC | Actualizar" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ActualizarOC.aspx.cs" Inherits="MesonURPWEB.ActualizarOC" %>
+﻿<%@ Page Title="Gestionar OC | Actualizar" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ActualizarOC.aspx.cs" Inherits="MesonURPWEB.ActualizarOC" EnableEventValidation="false" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .auto-style1 {
@@ -73,7 +73,11 @@
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Forma de Pago</label>
                         <div class="col-sm-8">
-                            <asp:TextBox ID="txtFormaPago" runat="server" CssClass="form-control1" />
+                            <asp:DropDownList runat="server" CssClass="form-control1" ID="DListFormaP"  AutoPostBack="true">
+                                <asp:ListItem  Value="">--seleccione--</asp:ListItem>
+                                <asp:ListItem Text="Efectivo" Value="Efectivo">Efectivo</asp:ListItem>
+                                <asp:ListItem Text="Crédito" Value="Crédito">Crédito</asp:ListItem>
+                            </asp:DropDownList>
                         </div>
                     </div>
                       
@@ -123,7 +127,7 @@
                                 <h4>Órdenes de Compra</h4>
                             </div>
                             <div class="table-wrapper-scroll-y my-custom-scrollbar">
-                                <asp:GridView ID="GridViewEditarOC" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible."  OnRowDataBound="GridViewEditarOC_RowDataBound"
+                                <asp:GridView ID="GridViewEditarOC" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible."  OnRowDataBound="GridViewEditarOC_OnRowDataBound" 
                                   DataKeyName=I_NombreInsumo CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None" AutoGenerateColumns="false" OnSelectedIndexChanged="GridViewEditarOC_SelectedIndexChanged">
                                     <Columns>
                                         <asp:BoundField HeaderText="N°" DataField="I_idInsumo" />
@@ -133,12 +137,13 @@
                                         <asp:BoundField HeaderText="Costo Unitario" DataField="I_PrecioUnitario" />
                                         <asp:BoundField HeaderText="Total" DataField="OCxI_PrecioTotal" />
                                     </Columns>
+                                    <SelectedRowStyle BackColor="LightGreen"/>
                                 </asp:GridView>
                             </div>
                              <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Total</label>
                         <div class="col-sm-1">
-                            <asp:TextBox ID="txtTotal" runat="server" CssClass="auto-style1" Width="90px" />
+                            <asp:TextBox ID="txtTotal" runat="server" CssClass="auto-style1" Width="90px" ReadOnly="true" />
                             <asp:Label ID="lblDataT" runat="server"></asp:Label>
                         </div>
                     </div>
