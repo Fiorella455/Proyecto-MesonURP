@@ -53,7 +53,7 @@
                       <ContentTemplate>
                          <p class="center-button">
                             <asp:Button CssClass="btn btn-primary" runat="server" Text="Añadir" ID="btnAñadirInsumo" OnClick="btnAñadirInsumo_Click"/>
-                            <asp:Button CssClass="btn btn-primary" runat="server" Text="Quitar" OnClick="btnQuitarInsumo_Click" />
+                            <input type="reset" name="res-1"  value="Limpiar" runat="server" onserverclick="btnLimpiar_ServerClick" class="btn btn-danger" />
                         </p>
                       </ContentTemplate>
                     </asp:UpdatePanel>
@@ -78,12 +78,11 @@
                                 </Columns>
                             </asp:GridView>
                         </div>
-                    <hr />                    
-                            <%--holi--%>
+                    <hr />   
                             <p class="center-button">
                                 <button type="button" name="sub-1" class="btn btn-primary" runat="server" id="btnEgresar" onserverclick="btnEgresar_ServerClick" validationgroup="registrarEgreso">Egresar</button>
                                 <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'ManejarStock';" onserverclick="btnRegresar_ServerClick"  class="btn btn-primary" />
-                                <input type="button" name="res-1"  value="Limpiar" runat="server" onserverclick="btnLimpiar_ServerClick" class="btn btn-danger" />
+                                <asp:Button CssClass="btn btn-primary" runat="server" Text="Quitar" OnClick="btnQuitarInsumo_Click" />
                             </p>
                         </ContentTemplate>
                     </asp:UpdatePanel>
