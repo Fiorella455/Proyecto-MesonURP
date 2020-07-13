@@ -17,24 +17,6 @@
                     <div class="input-info">
                         <h3>Detalles de Compra</h3>
                     </div>
-                    <%-- <div class="form-group">
-                        <label for="focusedinput" class="col-sm-2 control-label">N° Orden</label>
-                        <div class="col-sm-8">
-                            <asp:TextBox ID="txtNumeroOrden" runat="server" placeholder="Ingrese el número de orden" CssClass="form-control1" ValidationGroup="añadirOC" onkeypress="return SoloNumeroInt(event);" />
-                            <asp:RequiredFieldValidator ID="validationNumeroOrden" runat="server" ControlToValidate="txtNumeroOrden" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-                        </div>
-                    </div>--%>                    <%-- <div class="form-group">
-                        <label for="focusedinput" class="col-sm-2 control-label">Fecha de Entrega</label>
-                        <div class="col-sm-8">
-                            <asp:TextBox ID="txtFechaEntrega" runat="server" textmode="Date" CssClass="form-control1" />
-                        </div>
-                    </div>--%>                   <%-- <div class="form-group">
-                        <label for="selector1" class="col-sm-2 control-label">Estado</label>
-                        <div class="col-sm-8">
-                            <asp:DropDownList runat="server" CssClass="form-control1" ID="DdlEstado"></asp:DropDownList>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="DdlEstado" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-                        </div>
-                    </div>--%>
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Proveedor</label>
                         <div class="col-sm-8">
@@ -55,14 +37,14 @@
                         </div>
                     </div>
                        
-                           <div class="form-group">
+                    <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Numero de Comprobante</label>
                         <div class="col-sm-8">
                             <asp:TextBox ID="txtNumeroComprobante" runat="server" placeholder="Ingrese el número de comprobante" CssClass="form-control1" onkeypress="return SoloNumeroInt(event);"/>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtNumeroComprobante" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
-                           <div class="form-group">
+                    <div class="form-group">
                                <label for="selector1" class="col-sm-2 control-label">Tipo de Comprobante</label>
                                <div class="col-sm-8">
                                <asp:DropDownList runat="server" CssClass="form-control1" ID="DListTipoC"  AutoPostBack="true">
@@ -119,6 +101,10 @@
                             <div class="form-title color-white">
                                 <h4>Órdenes de Compra</h4>
                             </div>
+                            <%--<agregado />--%>
+                             <asp:UpdatePanel ID="panelAñadirOC" runat="server">
+                           <ContentTemplate>
+                                <%--<agregado />--%>
                             <div class="table-wrapper-scroll-y my-custom-scrollbar">
                                 <asp:GridView ID="GridViewAñadirOC" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false"  
                                    DataKeyNames="I_NombreInsumo,OCxI_Cantidad,I_PrecioUnitario,OCxI_PrecioTotal" CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None" OnSelectedIndexChanged="GridViewAñadirOC_SelectedIndexChanged">
@@ -141,13 +127,16 @@
                             <asp:TextBox ID="txtTotal" runat="server" align="left" CssClass="special" Width="102px" />
                         </div>
                     </div>
-                        </div>
                         <hr />
                         <p class="center-button">
                             <asp:Button ID="btnAñadirOC" CssClass="btn btn-primary" runat="server" OnClick="btnAñadirOC_Click" Text="Agregar" />
                             <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'GestionarOC';" class="btn btn-primary" />
                             <input type="reset" name="res-1" id="res-1" value="Limpiar" class="btn btn-danger" />
                         </p>
+                                 <%--<agregado />--%>
+                               </ContentTemplate>
+                     </asp:UpdatePanel>   
+                              <%--<agregado />--%>
                     </div>
                 </div>
             </div>
@@ -184,6 +173,18 @@
                 return false;
             }
             return true;
+        }
+        function alertaExito() {
+            Swal.fire({
+                title: 'Enhorabuena!',
+                text: 'Se ha logrado ingresar correctamente',
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+            }).then((result) => {
+                if (result.value) {
+                    window.location.href = "GestionarOC";
+                }
+            })
         }
     </script>
 </asp:Content>

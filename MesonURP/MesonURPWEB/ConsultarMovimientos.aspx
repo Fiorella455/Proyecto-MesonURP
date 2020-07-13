@@ -43,7 +43,7 @@
                                     <div class="clearfix"></div>
                                     <div class="table-wrapper-scroll-y my-custom-scrollbar">
                                        <asp:GridView ID="gvMovimientos" AutoGenerateColumns="False" runat="server" emptydatatext="No hay información disponible."  
-                                            CssClass="table table-bordered table-striped mb-0" DataKeyNames="fechamov,M_TipoMovimiento,I_NombreInsumo,MxI_Cantidad,nomcategoria,usuariomov">
+                                            CssClass="table table-bordered table-striped mb-0" DataKeyNames="fechamov,M_TipoMovimiento,I_NombreInsumo,nomcategoria,MxI_Cantidad,M_NombreMedida,usuariomov">
                                             <Columns>
                                                 <asp:BoundField DataField="fechamov" HeaderText="Fecha" />
                                                 <asp:BoundField DataField="M_TipoMovimiento" HeaderText="Tipo" />

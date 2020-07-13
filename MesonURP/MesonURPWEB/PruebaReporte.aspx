@@ -14,8 +14,15 @@
             text-align: left;
         }
     </style>
+
 </head>
+
 <body>
+    <div class="row">
+        <div class="col-sm-4">
+            <img src="img/MesonURP_logofinal2.png" />
+        </div>
+    </div>
     <form id="form1" runat="server">
         <div class="auto-style1" id="Reporte">
 
