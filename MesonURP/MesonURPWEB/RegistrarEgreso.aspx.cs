@@ -64,7 +64,7 @@ namespace MesonURPWEB
                 tin.Columns.Add("Cantidad");
                 tin.Columns.Add("Unidad de Medida");
             }
-            if (Convert.ToDecimal(txtCantidad.Text) > Convert.ToDecimal(_Cmxi.VerificarStockMin(_Dmxi.IdInsumo)))
+            if (Convert.ToDecimal(txtCantidad.Text) > Convert.ToDecimal(_Cmxi.VerificarStockMin(_Dmxi.IdInsumo)) || Convert.ToDecimal(txtCantidad.Text) ==0)
             {
                 ScriptManager.RegisterClientScriptBlock(this.PanelAñadir, this.PanelAñadir.GetType(), "alert", "alertaCantidad()", true);
                 return;
@@ -131,6 +131,9 @@ namespace MesonURPWEB
         }
         protected void btnEgresar_ServerClick(object sender, EventArgs e)
         {
+            if(pila.Count ==0){   ScriptManager.RegisterClientScriptBlock(this.panelEgreso, this.panelEgreso.GetType(), "alert", "alertaError()", true);
+            return;
+        }
             while (pila.Count >= 1)
             {
                     _Cmxi.RegistrarMovimientoxInsumo(pila[pila.Count - 1]);
@@ -138,11 +141,10 @@ namespace MesonURPWEB
                     pila.RemoveAt(pila.Count - 1);
 
                 tin.Clear();
-                ScriptManager.RegisterClientScriptBlock(this.panelEgreso, this.panelEgreso.GetType(), "alert", "alertaExito()", true);
-                return;
             }
-            ScriptManager.RegisterClientScriptBlock(this.panelEgreso, this.panelEgreso.GetType(), "alert", "alertaError()", true);
+            ScriptManager.RegisterClientScriptBlock(this.panelEgreso, this.panelEgreso.GetType(), "alert", "alertaExito()", true);
             return;
+            
         }
         protected void btnRegresar_ServerClick(object sender, EventArgs e)
         {
@@ -151,6 +153,12 @@ namespace MesonURPWEB
         }
         protected void btnLimpiar_ServerClick(object sender, EventArgs e)
         {
+            txtOculto.Text = "";
+            txtUnidadMedida.Text = "";
+            txtCantidad.Text = "";
+            if (ddlInsumos.SelectedIndex!=0) {
+                ddlInsumos.SelectedIndex = 0;
+            }
             if (pila.Count != 0)
             {
                 for (int i = 0; i < pila.Count;)
@@ -162,6 +170,7 @@ namespace MesonURPWEB
                 gvInsumosEgreso.DataSource = tin;
                 gvInsumosEgreso.DataBind();
             }
+            
         }  
     }
 }

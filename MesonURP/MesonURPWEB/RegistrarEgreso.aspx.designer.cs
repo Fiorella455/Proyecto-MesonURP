@@ -15,6 +15,15 @@ namespace MesonURPWEB
     {
 
         /// <summary>
+        /// Control panelEgreso.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel panelEgreso;
+
+        /// <summary>
         /// Control ddlInsumos.
         /// </summary>
         /// <remarks>
@@ -103,15 +112,6 @@ namespace MesonURPWEB
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAñadirInsumo;
-
-        /// <summary>
-        /// Control panelEgreso.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel panelEgreso;
 
         /// <summary>
         /// Control gvInsumosEgreso.
