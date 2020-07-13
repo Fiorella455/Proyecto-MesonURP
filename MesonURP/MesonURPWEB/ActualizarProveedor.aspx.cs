@@ -82,9 +82,35 @@ namespace MesonURPWEB
             dto_proveedor.P_CorreoContacto = txtCorreo.Text;
             dto_proveedor.EP_idEstadoProveedor = Convert.ToInt32(DdlEstado.SelectedValue);
             dto_proveedor.TD_idTipoDocumento = Convert.ToInt32(DdlTipoDocumento.SelectedValue);
-            ctr_proveedor.Actualizar_Proveedor(dto_proveedor);
-            ScriptManager.RegisterClientScriptBlock(this.panelActProv, this.panelActProv.GetType(), "alert", "alertaExito()", true);
-            return;
+            DTO_Proveedor aux = ctr_proveedor.Consultar_Proveedor(i);
+
+            if (ctr_proveedor.Hay_Proveedor(dto_proveedor)&&aux.P_RazonSocial!= txtRazonSocial.Text)
+            {
+                ScriptManager.RegisterClientScriptBlock(this.panelActProv, this.panelActProv.GetType(), "alert", "alertaExiste()", true);
+
+            }
+            else
+            {
+                ctr_proveedor.Actualizar_Proveedor(dto_proveedor);
+                ScriptManager.RegisterClientScriptBlock(this.panelActProv, this.panelActProv.GetType(), "alert", "alertaExito()", true);
+                
+            }
+
+        }
+
+        protected void DdlTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (int.Parse(DdlTipoDocumento.SelectedValue) == 5)
+            {
+                revNumDoc.ValidationExpression = @"\d{8,9}";
+                revNumDoc.ErrorMessage = "DNI Inválido";
+            }//DNI
+            else if (int.Parse(DdlTipoDocumento.SelectedValue) == 6)
+
+            {
+                revNumDoc.ValidationExpression = @"([A-Z]|\d){10,12}";
+                revNumDoc.ErrorMessage = "Pasaporte Inválido";
+            }
         }
     }
 }

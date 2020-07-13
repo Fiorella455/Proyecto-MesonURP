@@ -76,13 +76,13 @@
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Precio Unitario</label>
                         <div class="col-sm-8">
-                            <asp:TextBox runat="server" CssClass="form-control1" ID="txtPrecioU" />
+                            <asp:TextBox runat="server" CssClass="form-control1" ID="txtPrecioU" ReadOnly="true" />
                         </div>
                     </div>
                       <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Unidades de Medida</label>
                         <div class="col-sm-8">
-                            <asp:TextBox runat="server" CssClass="form-control1" ID="txtMedida" />
+                            <asp:TextBox runat="server" CssClass="form-control1" ID="txtMedida" ReadOnly="true"/>
                         </div>
                     </div>
                      <p class="center-button">
@@ -97,7 +97,7 @@
                         <asp:UpdatePanel ID="panelACTOC" runat="server">
                            <ContentTemplate>
                             <div class="table-wrapper-scroll-y my-custom-scrollbar">
-                                <asp:GridView ID="GridViewEditarOC" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible."
+                                <asp:GridView ID="GridViewEditarOC" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible."  OnRowDataBound="GridViewEditarOC_RowDataBound"
                                   DataKeyName=I_NombreInsumo CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None" AutoGenerateColumns="false" OnSelectedIndexChanged="GridViewEditarOC_SelectedIndexChanged">
                                     <Columns>
                                         <asp:BoundField HeaderText="N°" DataField="I_idInsumo" />
@@ -109,20 +109,21 @@
                                     </Columns>
                                 </asp:GridView>
                             </div>
-                            <div class="form-group">
-                                <label for="focusedinput" class="col-sm-2 control-label">Total</label>
-                                <div class="col-sm-1">
-                                    <asp:TextBox ID="txtTotal" runat="server" CssClass="auto-style1" Width="90px" />
-                                </div>
-                            </div>
-                            <hr />
-                            <p class="center-button">
-                                <asp:Button CssClass="btn btn-primary" runat="server" Text="Actualizar" ID="btnActualizar" OnClick="btnActualizar_Click" />
-                                <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'GestionarOC';" class="btn btn-primary" id="btnRegresar" />
-                                <input type="reset" name="res-1" id="res-1" value="Limpiar" class="btn btn-danger" />
-                            </p>
-                        </ContentTemplate>
-                     </asp:UpdatePanel>
+                             <div class="form-group">
+                        <label for="focusedinput" class="col-sm-2 control-label">Total</label>
+                        <div class="col-sm-1">
+                            <asp:TextBox ID="txtTotal" runat="server" CssClass="auto-style1" Width="90px" />
+                            <asp:Label ID="lblDataT" runat="server"></asp:Label>
+                        </div>
+                    </div>
+                        </div>
+                        <hr />
+                        <p>
+                            <asp:Button CssClass="btn btn-primary" runat="server" Text="Actualizar" ID="btnActualizar" OnClick="btnActualizar_Click" />
+                            <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'GestionarOC';" class="btn btn-primary" id="btnRegresar" />
+                            
+                             <asp:Button Cssclass="btn btn-primary" runat="server" Text="Limpiar" ID="btnLimpiar" OnClick="btnLimpiar_Click" />
+                        </p>
                     </div>
                 </div>
                </div>

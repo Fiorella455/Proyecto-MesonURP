@@ -12,9 +12,13 @@ namespace DAO
     public class DAO_Insumo
     {
         SqlConnection conexion;
-       
+        DTO_Insumo dto_insumo;
+        DTO_OC dto_oc;
+
         public DAO_Insumo()
         {
+            dto_oc = new DTO_OC();
+            dto_insumo = new DTO_Insumo();
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
         }
         public DataSet CargarInsumosOC()
@@ -97,7 +101,7 @@ namespace DAO
                 throw ex;
             }
         }
-       
+
         public void registrarInsumo(DTO_Insumo objIns)
         {
             try
@@ -173,7 +177,7 @@ namespace DAO
                 _Data.SelectCommand.Parameters.AddWithValue("@I_idInsumo", I_idInsumo);
                 DataSet _Ds = new DataSet();
                 _Data.Fill(_Ds);
-                return _Ds.Tables[0];                
+                return _Ds.Tables[0];
             }
             catch (Exception ex)
             {
@@ -226,7 +230,7 @@ namespace DAO
                 throw ex;
             }
         }
- 
+
         public string SelectPrecioUnitario(int IdInsumo)
         {
             string precioUnitario = "";
@@ -360,6 +364,17 @@ namespace DAO
 
             conexion.Close();
             return insumo;
+        }
+        public int LimiteStockMax(int idInsumo, int cantidad)
+        {
+           dto_insumo.DR_StockMaximo=Consultar_InsumoxID(idInsumo).DR_StockMaximo;
+           dto_insumo.DR_CantidadTotal = Consultar_InsumoxID(idInsumo).DR_CantidadTotal;
+            if(cantidad>dto_insumo.DR_StockMaximo || (cantidad+dto_insumo.DR_CantidadTotal)> dto_insumo.DR_StockMaximo)
+            {
+                
+                return 1;
+            }
+            return 0;
         }
     }
 }
