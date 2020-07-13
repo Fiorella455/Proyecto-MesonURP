@@ -68,7 +68,7 @@
                         <label for="focusedinput" class="col-sm-2 control-label">Correo electrónico</label>
                         <div class="col-sm-8">
                             <asp:TextBox ID="txtCorreo" runat="server" placeholder="Ingrese su correo electrónico" CssClass="form-control1" MaxLength="50"/>     
-                            <asp:RegularExpressionValidator ID="revCorreo" runat="server" ErrorMessage="Correo Inválido" ControlToValidate="txtCorreo" ForeColor="#CC0000" ValidationExpression="(\w|\d){1,20}\@(\w|\d){1,5}\.\w{1,3}" SetFocusOnError="True" Display="Dynamic" ValidationGroup="añadirProveedor"></asp:RegularExpressionValidator>                           
+                            <asp:RegularExpressionValidator ID="revCorreo" runat="server" ErrorMessage="Correo Inválido" ControlToValidate="txtCorreo" ForeColor="#CC0000" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" SetFocusOnError="True" Display="Dynamic" ValidationGroup="añadirProveedor"></asp:RegularExpressionValidator>                           
                             <asp:RequiredFieldValidator ID="validationCorreo" runat="server" ControlToValidate="txtCorreo" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirProveedor" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>                        
