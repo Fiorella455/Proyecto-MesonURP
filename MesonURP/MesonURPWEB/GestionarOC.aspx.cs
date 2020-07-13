@@ -54,9 +54,8 @@ namespace MesonURPWEB
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-
                 string state = e.Row.Cells[1].Text.ToString();
-                if (state=="En Espera" || state == "En \nEspera")
+                if (state == "En Espera" || state == "En \nEspera")
                 {
                     e.Row.Cells[7].FindControl("btnEnviarEmailOC").Visible = false;
                     e.Row.Cells[8].FindControl("btnEditarOC").Visible = false;
@@ -65,10 +64,8 @@ namespace MesonURPWEB
                     if (button != null) { button.Visible = false; }
                     var btn1 = (Button)e.Row.FindControl("btnEliminar");
                     if (btn1 != null) { btn1.Visible = false; }
-
                 }
-
-                if(state=="Aceptado")
+                if (state == "Aceptado")
                 {
                     e.Row.Cells[7].FindControl("btnEnviarEmailOC").Visible = false;
                     e.Row.Cells[8].FindControl("btnEditarOC").Visible = false;
@@ -82,16 +79,15 @@ namespace MesonURPWEB
                     var btn3 = (Button)e.Row.FindControl("btnRechazado");
                     if (btn3 != null) { btn3.Visible = false; }
                 }
-                if(state=="Rechazado")
+                if (state == "Rechazado")
                 {
                     e.Row.Cells[7].FindControl("btnEnviarEmailOC").Visible = false;
                     e.Row.Cells[8].FindControl("btnEditarOC").Visible = false;
                     e.Row.Cells[11].FindControl("btnAceptado").Visible = false;
                     e.Row.Cells[11].FindControl("btnRechazado").Visible = false;
                     e.Row.Cells[11].FindControl("btnRecibido").Visible = false;
-
                 }
-                if (state=="Recibido")
+                if (state == "Recibido")
                 {
                     e.Row.Cells[7].FindControl("btnEnviarEmailOC").Visible = false;
                     e.Row.Cells[8].FindControl("btnEditarOC").Visible = false;
@@ -99,21 +95,16 @@ namespace MesonURPWEB
                     e.Row.Cells[11].FindControl("btnAceptado").Visible = false;
                     e.Row.Cells[11].FindControl("btnRechazado").Visible = false;
                     e.Row.Cells[11].FindControl("btnRecibido").Visible = false;
-
-
-
                 }
-                if (state=="Creado")
+                if (state == "Creado")
                 {
-
                     e.Row.Cells[11].FindControl("btnAceptado").Visible = false;
                     e.Row.Cells[11].FindControl("btnRechazado").Visible = false;
                     e.Row.Cells[11].FindControl("btnRecibido").Visible = false;
                 }
 
-            
             }
-        
+
         }
 
         protected void GridViewOC_RowCommand(object sender, GridViewCommandEventArgs e)

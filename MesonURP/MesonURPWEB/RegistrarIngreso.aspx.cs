@@ -9,6 +9,7 @@ using System.Linq;
 using System.Web;
 using DTO;
 using System.Data;
+using TextBox = System.Windows.Forms.TextBox;
 
 namespace MesonURPWEB
 {
@@ -170,6 +171,7 @@ namespace MesonURPWEB
                 gvInsumosIngreso.DataSource = tin;
                 gvInsumosIngreso.DataBind();
             }
+         
         }
     }
 }
