@@ -102,7 +102,7 @@ namespace MesonURPWEB
         {
             if (int.Parse(DdlTipoDocumento.SelectedValue) == 5)
             {
-                revNumDoc.ValidationExpression = @"\d{8,9}";
+                revNumDoc.ValidationExpression = @"\d{8}";
                 revNumDoc.ErrorMessage = "DNI Inválido";
             }//DNI
             else if (int.Parse(DdlTipoDocumento.SelectedValue) == 6)

@@ -16,13 +16,11 @@
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Razón Social</label>
                         <div class="col-sm-8">
-                            <asp:TextBox ID="txtRazonSocial" runat="server" placeholder="Ingrese la razón social" CssClass="form-control1" ValidationGroup="añadirProveedor" onkeypress="return BlockChars(event);" MaxLength="50" />
+                            <asp:TextBox ID="txtRazonSocial" runat="server" placeholder="Ingrese la razón social" CssClass="form-control1" ValidationGroup="añadirProveedor" onkeypress="return soloLetras(event);" MaxLength="50" />
                             <%--<asp:RegularExpressionValidator ID="revMaxLen" runat="server" ErrorMessage="Mucho texto" ControlToValidate="txtRazonSocial" ForeColor="#CC0000" ValidationExpression="(.{1,50}){1}" SetFocusOnError="True" Display="Dynamic"></asp:RegularExpressionValidator>
                             --%><asp:RequiredFieldValidator ID="validationRazon" runat="server" ControlToValidate="txtRazonSocial" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirProveedor" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
-                  
-
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Tipo de Documento</label>
                         <div class="col-sm-8">
@@ -34,7 +32,7 @@
                         <label for="focusedinput" class="col-sm-2 control-label">Número de Documento</label>
                         <div class="col-sm-8">
                             <asp:TextBox ID="txtNumeroDoc" placeholder="Ingrese el número de documento" runat="server" CssClass="form-control1" MaxLength="20"/>
-                            <asp:RegularExpressionValidator ID="revNumDoc" runat="server" ErrorMessage="DNI Inválido" ControlToValidate="txtNumeroDoc" ForeColor="#CC0000" SetFocusOnError="True" Display="Dynamic" ValidationGroup="añadirProveedor" ValidationExpression="\d{8,9}"></asp:RegularExpressionValidator>
+                            <asp:RegularExpressionValidator ID="revNumDoc" runat="server" ErrorMessage="DNI Inválido" ControlToValidate="txtNumeroDoc" ForeColor="#CC0000" SetFocusOnError="True" Display="Dynamic" ValidationGroup="añadirProveedor" ValidationExpression="\d{8}"></asp:RegularExpressionValidator>
                             <asp:RequiredFieldValidator ID="validationNumeroDoc" runat="server" ControlToValidate="txtNumeroDoc" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirProveedor" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                          </div>
                     </div>
@@ -49,7 +47,7 @@
                       <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Nombre del Contacto</label>
                         <div class="col-sm-8">
-                            <asp:TextBox ID="txtNombre" placeholder="Ingrese el nombre del contacto" runat="server" CssClass="form-control1" onkeypress="return lettersOnly(event);" MaxLength="50"/>
+                            <asp:TextBox ID="txtNombre" placeholder="Ingrese el nombre del contacto" runat="server" CssClass="form-control1" onkeypress="return soloLetras(event);" MaxLength="50"/>
                             <asp:RequiredFieldValidator ID="validationProveedorOC" runat="server" ControlToValidate="txtNombre" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirProveedor" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 
                         </div>
@@ -109,15 +107,22 @@
             var regEx = /^[0-9\.]+$/i;
             return regEx.test(String.fromCharCode(tecla));
         }
-        function lettersOnly(evt) {
-            evt = (evt) ? evt : event;
-            var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode :
-                ((evt.which) ? evt.which : 0));
-            if (charCode > 31 && (charCode < 65 || charCode > 90) &&
-                (charCode < 97 || charCode > 122)) {
-                return false;
+        function soloLetras(e) {
+            key = e.keyCode || e.which;
+            tecla = String.fromCharCode(key).toLowerCase();
+            letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+            especiales = [8, 37, 39, 46];
+
+            tecla_especial = false
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    tecla_especial = true;
+                    break;
+                }
             }
-            return true;
+
+            if (letras.indexOf(tecla) == -1 && !tecla_especial)
+                return false;
         }
     </script>
         <script>
