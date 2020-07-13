@@ -29,9 +29,10 @@ namespace MesonURPWEB
         DataSet  dtpro;
         static List<DTO_OCxInsumo> pila = new List<DTO_OCxInsumo>();
         static DataTable tin = new DataTable();
+        
 
         static decimal suma = 0;
-        int id = 0;
+        static int id { get;set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -41,12 +42,12 @@ namespace MesonURPWEB
                 
                 dtpro = new DataSet();
                 dtpro = pro.Leer_Proveedor();
-
                 DdlProveedor.DataTextField = "P_RazonSocial";
                 DdlProveedor.DataValueField = "P_idProveedor";
                 DdlProveedor.DataSource = dtpro;
                 DdlProveedor.DataBind();
                 DdlProveedor.Items.Insert(0, "--seleccionar--");
+                lblIndex.Text = id.ToString();
                 //txtFechaEntrega.Text = DateTime.Now.ToString("yyyy-MM-dd");
             }
         }
@@ -58,6 +59,7 @@ namespace MesonURPWEB
 
         protected void Unnamed1_Click(object sender, EventArgs e)
         {
+            id = Convert.ToInt32(GridViewAñadirOC.SelectedRow.RowIndex);
             tin.Rows[id].Delete();
             pila.RemoveAt(id);
             suma -= Convert.ToDecimal(GridViewAñadirOC.Rows[id].Cells[3].Text);
@@ -74,16 +76,7 @@ namespace MesonURPWEB
             DdlInsumo.DataBind();
             DdlInsumo.Items.Insert(0, "--seleccionar--");
         }
-        protected void GridViewAñadirOC_SelectedIndexChanging(Object sender, GridViewSelectEventArgs e)
-        {
-            GridViewRow row = GridViewAñadirOC.Rows[e.NewSelectedIndex];
-        }
-
-        protected void GridViewAñadirOC_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            GridViewRow row = GridViewAñadirOC.SelectedRow;
-             id = Convert.ToInt32(GridViewAñadirOC.DataKeys[row.RowIndex].Value)+1;
-        }
+     
         protected void btnAñadirInsumo_Click(object sender, EventArgs e)
         {
             dto_ocxinsumo = new DTO_OCxInsumo();
@@ -168,6 +161,23 @@ namespace MesonURPWEB
             tin.Clear();
             ScriptManager.RegisterClientScriptBlock(this.panelAñadirOC, this.panelAñadirOC.GetType(), "alert", "alertaExito()", true);
             return;
+        }
+        protected void GridViewAñadirOC_OnRowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(GridViewAñadirOC, "Select$" + e.Row.RowIndex);
+                e.Row.ToolTip = "Haga click para seleccionar la fila.";
+                id = e.Row.RowIndex;
+
+            }
+        }
+
+        protected void GridViewAñadirOC_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            id = Convert.ToInt32(GridViewAñadirOC.SelectedRow.RowIndex);
+            lblIndex.Text = id.ToString();
         }
     }
 }
