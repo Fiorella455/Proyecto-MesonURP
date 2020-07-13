@@ -54,7 +54,7 @@ namespace DAO
                     dto_oc.OC_NumeroComprobante = (string)reader[2];
                     dto_oc.OC_FormaPago = (string)reader[3];
                     dto_oc.OC_TotalCompra = (decimal)reader[4];
-                    dto_oc.OC_FechaEmision = (DateTime)reader[5];
+                    dto_oc.OC_FechaEmision = (string)reader[5];
                     dto_oc.P_idProveedor = (int)reader[6];
                     dto_oc.Estado = 100;
                 }
@@ -134,7 +134,7 @@ namespace DAO
                 oc.OC_TipoComprobante = reader[1].ToString();
                 oc.OC_NumeroComprobante = reader[2].ToString();
                 oc.OC_TotalCompra = Convert.ToDecimal(reader[3].ToString());
-                oc.OC_FechaEmision = Convert.ToDateTime(reader[4]);
+                oc.OC_FechaEmision = reader[4].ToString();
                 oc.P_idProveedor = Convert.ToInt32(reader[5]);
             }
             conexion.Close();
@@ -208,7 +208,7 @@ namespace DAO
             conexion.Close();
             return dt;
         }
-
+        //--------------------------------------
         public DataTable Leer_OCxMes(int i)
         {
             conexion.Open();

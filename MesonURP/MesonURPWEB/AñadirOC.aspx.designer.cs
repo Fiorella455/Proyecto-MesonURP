@@ -105,7 +105,16 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
 
         /// <summary>
-        /// Control txtPrecioU.
+        /// lblMsj control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMsj;
+
+        /// <summary>
+        /// txtPrecioU control.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.

@@ -18,13 +18,29 @@ namespace MesonURPWEB
         int mes = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            dt = new DataTable();
             dao_oc = new DAO_OC();
             ctr_oc = new CTR_OC();
-            dt = new DataTable();
             mes = DateTime.Today.Month;
             CargarOC(mes);
-           
 
+            Label1.Text = ddlMes.SelectedIndex.ToString();
+            if(IsPostBack)
+
+            {
+                if (ddlMes.SelectedIndex==0)
+                {
+                    mes = DateTime.Today.Month;
+                                    
+                }
+                else
+                {
+                    mes = Convert.ToInt32(ddlMes.SelectedValue);
+                }
+            }
+
+            CargarOC(mes);          
         }
         public void CargarOC(int m)
         {      
@@ -33,15 +49,11 @@ namespace MesonURPWEB
                 GridViewConsultar.DataBind();
                 CargarDdlMes();         
         }
-
-        protected void GridViewConsultar_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
+     
         public void CargarDdlMes()
         {
             ListItem i;
+          
             i = new ListItem("Enero","1");
             ddlMes.Items.Add(i);           
             i = new ListItem("Febrero","2");
@@ -66,6 +78,7 @@ namespace MesonURPWEB
             ddlMes.Items.Add(i);
             i = new ListItem("Diciembre", "12");
             ddlMes.Items.Add(i);
+ 
         }
 
         protected void ddlMes_SelectedIndexChanged(object sender, EventArgs e)
@@ -75,18 +88,17 @@ namespace MesonURPWEB
             {
 
                 mes = Convert.ToInt32(ddlMes.SelectedValue);
-                
-                   // Label1.Text = "Mes:" + mes.ToString()+ " Hay Registros" + dao_oc.Count_OCxMes(mes);
-                    CargarOC(mes);
-               
-               
-                
+                Label1.Text = "Mes:" + mes.ToString();
+                CargarOC(mes);               
             }
         }
 
         protected void btnReporte_Click(object sender, EventArgs e)
         {
+            
+            Session.Add("mes", mes);
             Response.Redirect("PruebaReporte.aspx");
+
         }
     }
 }
