@@ -51,12 +51,13 @@ namespace DAO
                 throw ex;
             }
         }
-        public void Eliminar_Insumos_xOC(int i)
+        public void Eliminar_Insumos_xOC(int idOC, int idIns)
         {
             conexion.Open();
             SqlCommand comando = new SqlCommand("SP_Eliminar_InsumoxOC", conexion);
             comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@OC_idOrdenCompra", i);
+            comando.Parameters.AddWithValue("@OC_idOrdenCompra", idOC);
+            comando.Parameters.AddWithValue("@I_idInsumo", idIns);
             comando.ExecuteNonQuery();
             conexion.Close();
             
