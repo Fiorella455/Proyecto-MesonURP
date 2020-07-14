@@ -5871,4 +5871,24 @@ margin-top:0;
     margin-top: 17px;
     margin-bottom: 17px;
 }
+.cat-flex {
+	display:flex;
+	align-items: center;
+}
+.width100 {
+	width: 100%;
+}
+.width207 {
+	width: 207px;
+}
+.width38 {
+	width: 38%;
+}
+.categorialbtxt {
+	display: flex;
+	flex-direction: row;
+}
+.marginT8 {
+	margin-left: -67px;
+}
 /***responsive***/

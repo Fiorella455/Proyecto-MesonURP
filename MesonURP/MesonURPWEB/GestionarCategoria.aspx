@@ -9,20 +9,22 @@
             <div class="progressbar-heading grids-heading title-flex">
                 <h2 class="tittle-margin5">Gestionar Categorías</h2>
             </div>
-             <div class="form-group">
-                <label for="focusedinput" class="col-sm-1 control-label">Categoría</label>
-                <div class="col-sm-4">
-                    <asp:TextBox ID="txtCategoria" runat="server" placeholder="Ingrese un nombre de categoría" CssClass="form-control1" />
-                    <asp:RegularExpressionValidator ID="revNombreC" runat="server" ErrorMessage="Por favor ingrese solo letras" ControlToValidate="txtCategoria" ForeColor="#CC0000" ValidationExpression="^[a-zA-Z_áéíóúñ\s]*$" SetFocusOnError="True" Display="Dynamic"></asp:RegularExpressionValidator>                   
-                    <p><asp:Label ID="lblvacio" runat="server" Text="" ForeColor="#CC0000"></asp:Label><p>
-                </div>
-                  <div class="stock-options">
-                    <div class="width-auto margin-5">
-                            <asp:Button type="btnAgregarCategoria" class="btn btn-primary" runat="server" text="Agregar Nueva Categoría" onclick="btnAgregarCategoria_Click" />
+             <div class="form-group modal-header cat-flex">
+                  <div class="categorialbtxt">
+                    <label for="focusedinput" class="col-sm-1 control-label width38">Añadir nueva categoría :</label>
+                    <div class="col-sm-4 width100">
+                        <asp:TextBox ID="txtCategoria" runat="server" placeholder="Ingrese un nombre de categoría" CssClass="form-control1 width207" />
+                        <asp:RegularExpressionValidator ID="revNombreC" runat="server" ErrorMessage="Por favor ingrese solo letras" ControlToValidate="txtCategoria" ForeColor="#CC0000" ValidationExpression="^[a-zA-Z_áéíóúñ\s]*$" SetFocusOnError="True" Display="Dynamic"></asp:RegularExpressionValidator>                   
+                        <p><asp:Label ID="lblvacio" runat="server" Text="" ForeColor="#CC0000"></asp:Label><p>
+                    </div>
+                    <div class="stock-options marginT8">
+                        <div class="width-auto margin-5">
+                        <asp:Button type="btnAgregarCategoria" class="btn btn-primary" runat="server" text="Agregar" onclick="btnAgregarCategoria_Click" />
                     </div>
                   </div>
-             </div>
-         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </div>
+                
+            </div>  
             <div class="search-buttons">
                 <div class="panel panel-widget forms-panel">
                     <div class="form-grids widget-shadow" data-example-id="basic-forms">
@@ -75,22 +77,23 @@
                                     <div class="modal-body">
                                         <asp:Label ID="lblModalBody" runat="server" Text=""></asp:Label>
 
-                                        <div class="table-wrapper-scroll-y">
-                            <asp:GridView ID="GridView1" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false"
-                                CssClass="table table-bordered table-striped mb-0" DataKeyNames="I_idInsumo,I_NombreInsumo,I_CantidadTotal,M_NombreMedida,C_NombreCategoria" 
-                                 Style="text-align: center" CellPadding="4" GridLines="None">
-                                <Columns>
-                                    <asp:BoundField DataField="I_idInsumo" HeaderText="ID"/>
-                                    <asp:BoundField DataField="I_NombreInsumo" HeaderText="Nombre de Insumo" />
-                                    <asp:BoundField DataField="I_CantidadTotal" HeaderText="Cantidad Total"/>
-                                    <asp:BoundField DataField="M_NombreMedida" HeaderText="Unidad de Medida" />
-                                    <asp:BoundField DataField="C_NombreCategoria" HeaderText="Nombre de Categoría"/>
-                                </Columns>
-                            </asp:GridView>
+                                    <div class="table-wrapper-scroll-y">
+                                    <asp:GridView ID="GridView1" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false"
+                                        CssClass="table table-bordered table-striped mb-0" DataKeyNames="I_idInsumo,I_NombreInsumo,I_CantidadTotal,M_NombreMedida,C_NombreCategoria" 
+                                         Style="text-align: center" CellPadding="4" GridLines="None">
+                                        <Columns>
+                                            <asp:BoundField DataField="I_idInsumo" HeaderText="ID"/>
+                                            <asp:BoundField DataField="I_NombreInsumo" HeaderText="Nombre de Insumo" />
+                                            <asp:BoundField DataField="I_CantidadTotal" HeaderText="Cantidad Total"/>
+                                            <asp:BoundField DataField="M_NombreMedida" HeaderText="Unidad de Medida" />
+                                            <asp:BoundField DataField="C_NombreCategoria" HeaderText="Nombre de Categoría"/>
+                                        </Columns>
+                                    </asp:GridView>
                                       </div>
                                     <div class="modal-footer">
                                         <button class="btn btn-info" data-dismiss="modal" aria-hidden="true">OK</button>
                                     </div>
+                                </div>
                                 </div>
                             </ContentTemplate>
                         </asp:UpdatePanel>
@@ -123,7 +126,7 @@
                 confirmButtonText: 'Aceptar'
             }).then((result) => {
                 if (result.value) {
-                    window.location.href = 'GestionarCategoria.aspx';
+                    window.location.href = 'GestionarCategoria';
                 }
             })
         }
@@ -193,9 +196,9 @@
                 confirmButtonText: 'Aceptar'
             }).then((result) => {
                 if (result.value) {
-                    window.location.href = 'GestionarCategoria.aspx';
+                    window.location.href = 'GestionarCategoria';
                 }
             })
         }
-    </script>ipt>
+    </script>
 </asp:Content>
