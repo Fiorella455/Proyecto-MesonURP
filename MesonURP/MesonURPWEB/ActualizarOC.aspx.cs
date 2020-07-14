@@ -67,7 +67,6 @@ namespace MesonURPWEB
                 GridViewEditarOC.DataSource = dt;
                 GridViewEditarOC.DataBind();
                 SumaTotal();
-                lblDataT.Text = id.ToString();
 
             }
 
@@ -131,7 +130,6 @@ namespace MesonURPWEB
         protected void GridViewEditarOC_SelectedIndexChanged(object sender, EventArgs e)
         {
             GridViewRow row = GridViewEditarOC.SelectedRow;
-            lblDataT.Text = id.ToString();
         }
 
         protected void btnAñadir_Click(object sender, EventArgs e)
