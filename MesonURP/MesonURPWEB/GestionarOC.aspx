@@ -19,8 +19,8 @@
                                     <div class="form-title color-white">
                                         <h4>Órdenes de Compra</h4>
                                     </div>
-                                 <asp:UpdatePanel ID="panelOC" runat="server">
-                                    <ContentTemplate>
+                                <%-- <asp:UpdatePanel ID="panelOC" runat="server">
+                                    <ContentTemplate>--%>
                                     <div class="table-wrapper-scroll-y my-custom-scrollbar">
                                          <asp:GridView ID="GridViewOC" Allowpaging="True" runat="server" emptydatatext="No hay información disponible."  OnRowCommand="GridViewOC_RowCommand" OnRowDataBound="GridViewOC_OnRowDataBound" OnPageIndexChanging="GridViewOC_PageIndexChanging"
                                              DataKeyNames="OC_idOrdenCompra,EOC_NombreEstadoOC,OC_TipoComprobante,OC_NumeroComprobante,OC_FormaPago,OC_TotalCompra,OC_FechaEmision,P_idProveedor"   AutoGenerateColumns="False"
@@ -67,8 +67,8 @@
                                             </Columns>
                                         </asp:GridView>
                                     </div>
-                                </ContentTemplate>
-                        </asp:UpdatePanel>
+                                <%--</ContentTemplate>
+                        </asp:UpdatePanel>--%>
                                 </div>
                             </div>
                         </div>
@@ -129,7 +129,12 @@
                     text: 'Se ha enviado el correo correctamente',
                     icon: 'success',
                     confirmButtonText: 'Aceptar'
+                }).then((result) => {
+                    if (result.value) {
+                        window.location.href = 'GestionarOC.aspx';
+                    }
                 })
+
             }
         </script>
 </asp:Content>

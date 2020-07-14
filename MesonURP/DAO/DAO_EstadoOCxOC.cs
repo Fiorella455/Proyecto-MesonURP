@@ -5,12 +5,6 @@ using System.Data;
 using System.Data.SqlClient;
 using DTO;
 
-
-
-
-
-
-
 namespace DAO
 {
     public class DAO_EstadoOCxOC
@@ -78,6 +72,7 @@ namespace DAO
                     comando.CommandType = CommandType.StoredProcedure;
                     comando.Parameters.AddWithValue("@I_idInsumo", aux.I_idInsumo);
                     comando.Parameters.AddWithValue("@OCxI_Cantidad", aux.OCxI_Cantidad);
+                    //comando.Parameters.AddWithValue("@OC_idOrdenCompra", aux.OC_idOrdenCompra);
                     comando.ExecuteNonQuery();
                     i++;
                 }

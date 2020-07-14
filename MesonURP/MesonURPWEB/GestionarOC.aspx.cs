@@ -125,8 +125,8 @@ namespace MesonURPWEB
                 dto_estado_OCxOC.EOCxOC_UsuarioRegistro = 5;
                 ctr_estado_OCxOC.Actualizar_Estado_OCxOC(dto_estado_OCxOC);
                 CargarOrdenesCompra();
-                ScriptManager.RegisterStartupScript(this.panelOC, this.panelOC.GetType(), "alertIns", "alertaCorreo()", true);
-
+                //ScriptManager.RegisterStartupScript(this.panelOC, this.panelOC.GetType(), "alertIns", "alertaCorreo()", true);
+                ClientScript.RegisterStartupScript(Page.GetType(), "alertIns", "alertaCorreo('');", true);
 
 
 
@@ -138,8 +138,8 @@ namespace MesonURPWEB
                     ctr_oc = new CTR_OC();
                     ctr_oc.Eliminar_OC(idOC);
                     CargarOrdenesCompra();
-
-                ScriptManager.RegisterStartupScript(this.panelOC, this.panelOC.GetType(), "alertIns", "alertaEliminar()", true);
+                ClientScript.RegisterStartupScript(Page.GetType(), "alertIns", "alertaEliminar('');", true);
+                //ScriptManager.RegisterStartupScript(this.panelOC, this.panelOC.GetType(), "alertIns", "alertaEliminar()", true);
                 }
                 if (e.CommandName == "ConsultarOC")
                {
@@ -170,8 +170,8 @@ namespace MesonURPWEB
                 ctr_estado_OCxOC.Actualizar_Estado_OCxOC(dto_estado_OCxOC);
                 CargarOrdenesCompra();
 
-                ScriptManager.RegisterStartupScript(this.panelOC, this.panelOC.GetType(), "alertIns", "alertaAceptado()", true);
-               
+                //ScriptManager.RegisterStartupScript(this.panelOC, this.panelOC.GetType(), "alertIns", "alertaAceptado()", true);
+                ClientScript.RegisterStartupScript(Page.GetType(), "alertIns", "alertaAceptado('');", true);
 
             }
                 if (e.CommandName=="RechazarOC")
@@ -188,8 +188,8 @@ namespace MesonURPWEB
                 ctr_estado_OCxOC.Actualizar_Estado_OCxOC(dto_estado_OCxOC);
 
                 CargarOrdenesCompra();
-
-                ScriptManager.RegisterStartupScript(this.panelOC, this.panelOC.GetType(), "alertIns", "alertaRechazado()", true);
+                ClientScript.RegisterStartupScript(Page.GetType(), "alertIns", "alertaRechazado('');", true);
+                //ScriptManager.RegisterStartupScript(this.panelOC, this.panelOC.GetType(), "alertIns", "alertaRechazado()", true);
 
             }
                 if (e.CommandName=="RecibirOC")
@@ -209,8 +209,8 @@ namespace MesonURPWEB
                 
                 CargarOrdenesCompra();
 
-
-                ScriptManager.RegisterStartupScript(this.panelOC, this.panelOC.GetType(), "alertIns", "alertaRecibido()", true);
+                ClientScript.RegisterStartupScript(Page.GetType(), "alertIns", "alertaRecibido('');", true);
+                //ScriptManager.RegisterStartupScript(this.panelOC, this.panelOC.GetType(), "alertIns", "alertaRecibido()", true);
             }
         }
         
@@ -240,7 +240,8 @@ namespace MesonURPWEB
                 dto_movxinsumo.IdInsumo=Convert.ToInt32(row["I_idInsumo"]);
                 dto_movxinsumo.Cantidad = Convert.ToInt32(row["OCxI_Cantidad"]);
                 dto_movxinsumo.FechaMovimiento = DateTime.Now;
-                dto_movxinsumo.IdMovimiento = 1;
+                dto_movxinsumo.IdMovimiento = 3;// Cambiar según la BD
+
                 dto_movxinsumo.IdUsuarioMovimiento = 5;
                 ctr_movxinsumo.RegistrarMovimientoxInsumo(dto_movxinsumo);
 
