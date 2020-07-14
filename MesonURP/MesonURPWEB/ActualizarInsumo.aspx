@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ActualizarInsumo.aspx.cs" Inherits="MesonURPWEB.ActualizarInsumo" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" enableEventValidation="true" CodeBehind="ActualizarInsumo.aspx.cs" Inherits="MesonURPWEB.ActualizarInsumo" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 
