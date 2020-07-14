@@ -69,7 +69,7 @@ namespace MesonURPWEB
                 tin.Columns.Add("Cantidad");
                 tin.Columns.Add("Unidad de Medida");
             }
-            if (Convert.ToDecimal(txtCantidad2.Text) > Convert.ToDecimal(_Cmxi.VerificarStockMax(_Dmxi.IdInsumo)))
+            if (Convert.ToDecimal(txtCantidad2.Text) > Convert.ToDecimal(_Cmxi.VerificarStockMax(_Dmxi.IdInsumo)) || Convert.ToDecimal(txtCantidad2.Text) == 0)
             {
                 ScriptManager.RegisterClientScriptBlock(this.PanelAñadir, this.PanelAñadir.GetType(), "alert", "alertaCantidad()", true);
                 return;
@@ -139,6 +139,11 @@ namespace MesonURPWEB
         }
         protected void btnIngresar_ServerClick(object sender, EventArgs e)
         {
+            if (pila.Count == 0)
+            {
+                ScriptManager.RegisterClientScriptBlock(this.panelIngreso, this.panelIngreso.GetType(), "alert", "alertaError()", true);
+                return;
+            }
             while (pila.Count >= 1)
             {
                 _Cmxi.RegistrarMovimientoxInsumo(pila[pila.Count - 1]);
@@ -146,12 +151,12 @@ namespace MesonURPWEB
                 pila.RemoveAt(pila.Count - 1);
 
 
-                tin.Clear();
-                ScriptManager.RegisterClientScriptBlock(this.panelIngreso, this.panelIngreso.GetType(), "alert", "alertaExito()", true);
-                return;
             }
-              ScriptManager.RegisterClientScriptBlock(this.panelIngreso, this.panelIngreso.GetType(), "alert", "alertaError()", true);
-                return;
+
+            tin.Clear();
+            ScriptManager.RegisterClientScriptBlock(this.panelIngreso, this.panelIngreso.GetType(), "alert", "alertaExito()", true);
+            return;
+            
         }
         protected void btnRegresar_ServerClick(object sender, EventArgs e)
         {
@@ -160,6 +165,13 @@ namespace MesonURPWEB
         }
         protected void btnLimpiar_ServerClick(object sender, EventArgs e)
         {
+            txtOculto.Text = "";
+            txtUnidadMedida2.Text = "";
+            txtCantidad2.Text = "";
+            if (ddlInsumos.SelectedIndex != 0)
+            {
+                ddlInsumos.SelectedIndex = 0;
+            }
             if (pila.Count != 0)
             {
                 for (int i = 0; i < pila.Count;)

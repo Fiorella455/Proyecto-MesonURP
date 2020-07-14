@@ -11,7 +11,7 @@
                                     <div class="width-auto margin-5">
                                         <button type="button" class="btn btn-primary btn-flex" runat="server" onserverclick="btnDescargarExcel_ServerClick">     
                                             <span class="material-icons marginR-15">cloud_download</span>
-                                            <label>Descargar en Excel</label>
+                                            <h>Descargar en Excel</h>
                                         </button>
                                     </div>                                
                             </div>
