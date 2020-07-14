@@ -12,6 +12,8 @@
         </div>
         <div class="forms">
             <h3 class="title1"></h3>
+            <asp:UpdatePanel ID="panelEgreso" runat="server">
+                        <ContentTemplate>
             <div class="form-three widget-shadow">
                 <div class="form-horizontal" runat="server">
                     <div class="form-group">
@@ -63,8 +65,8 @@
                         <div class="form-title color-white">
                             <h4>Insumos a Ingresar</h4>
                         </div>
-                    <asp:UpdatePanel ID="panelEgreso" runat="server">
-                        <ContentTemplate>
+                    <%--<asp:UpdatePanel ID="panelEgreso" runat="server">
+                        <ContentTemplate>--%>
                         <div class="table-wrapper-scroll-y my-custom-scrollbar">
                             <asp:GridView ID="gvInsumosEgreso" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false"
                                 DataKeyNames="Fecha,Nombre insumo,Cantidad,Unidad de Medida" 
@@ -83,11 +85,13 @@
                                 <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'ManejarStock';" onserverclick="btnRegresar_ServerClick"  class="btn btn-primary" />
                                 <asp:Button CssClass="btn btn-primary" runat="server" Text="Quitar" OnClick="btnQuitarInsumo_Click" />
                             </p>
-                        </ContentTemplate>
-                    </asp:UpdatePanel>
+                       <%-- </ContentTemplate>
+                    </asp:UpdatePanel>--%>
                 </div>
             </div>
           </div>
+            </ContentTemplate>
+                    </asp:UpdatePanel>
         </div>
     </div>
     <script>

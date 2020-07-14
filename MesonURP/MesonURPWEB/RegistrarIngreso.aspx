@@ -12,6 +12,8 @@
         </div>
         <div class="forms">
             <h3 class="title1"></h3>
+            <asp:UpdatePanel ID="panelIngreso" runat="server">
+                       <ContentTemplate>
             <div class="form-three widget-shadow">
                 <div class="form-horizontal" runat="server">
                     <div class="form-group">
@@ -64,8 +66,8 @@
                         <div class="form-title color-white">
                             <h4>Insumos a Ingresar</h4>
                         </div>
-                    <asp:UpdatePanel ID="panelIngreso" runat="server">
-                       <ContentTemplate>
+                    <%--<asp:UpdatePanel ID="panelIngreso" runat="server">
+                       <ContentTemplate>--%>
                         <div class="table-wrapper-scroll-y my-custom-scrollbar">
                              <asp:GridView ID="gvInsumosIngreso" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false"
                                 DataKeyNames="Fecha,Nombre insumo,Cantidad,Unidad de Medida" 
@@ -89,6 +91,8 @@
                     </div>
                 </div>
             </div>
+                           </ContentTemplate>
+                        </asp:UpdatePanel>
         </div>
     </div>
     <!-- Validaciones -->
