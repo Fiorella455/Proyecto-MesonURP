@@ -150,7 +150,7 @@
                                 </ContentTemplate>
                         </asp:UpdatePanel>
                              <div class="form-group">
-                                 <asp:UpdatePanel ID="UpdatePanel6" runat="server">
+                        <asp:UpdatePanel ID="UpdatePanel6" runat="server">
                             <ContentTemplate>
                         <label for="selector1" class="col-sm-2 control-label">Total</label>
                         <div class="col-sm-8">
