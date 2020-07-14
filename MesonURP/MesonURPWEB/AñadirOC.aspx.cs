@@ -159,8 +159,7 @@ namespace MesonURPWEB
             }
             suma = 0;
             tin.Clear();
-            ScriptManager.RegisterClientScriptBlock(this.panelAñadirOC, this.panelAñadirOC.GetType(), "alert", "alertaExito()", true);
-            return;
+            ClientScript.RegisterStartupScript(Page.GetType(), "alertaExito", "alertaExito('Se ha logrado ingresar correctamente');", true);
         }
         protected void GridViewAñadirOC_OnRowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
         {

@@ -187,5 +187,17 @@
             }
             return true;
         }
+        function alertaExito() {
+            Swal.fire({
+                title: 'Enhorabuena!',
+                text: 'Se ha logrado ingresar correctamente',
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+            }).then((result) => {
+                if (result.value) {
+                    window.location.href = "GestionarOC";
+                }
+            })
+        }
     </script>
 </asp:Content>

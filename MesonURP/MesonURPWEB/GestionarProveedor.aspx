@@ -39,7 +39,7 @@
                                                 <asp:BoundField DataField="EP_NombreEstadoProveedor" HeaderText="Estado del Proveedor" />
                                                    <asp:TemplateField  HeaderText="Editar">
                                                        <ItemTemplate>
-                                                           <asp:Button ID="btnEditarProveedor" class="btn btn-primary" runat="server" CommandName ="ActualizarProveedor" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Actualizar" />
+                                                           <asp:Button ID="btnEditarProveedor" class="btn btn-primary" runat="server" CommandName ="ActualizarProveedor" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Editar" />
                                                        </ItemTemplate> 
                                                    </asp:TemplateField>
                                                    <asp:TemplateField  HeaderText="Ver Detalles">

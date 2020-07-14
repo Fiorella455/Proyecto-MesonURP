@@ -98,8 +98,6 @@
                             <div class="form-title color-white">
                                 <h4>Órdenes de Compra</h4>
                             </div>
-                        <asp:UpdatePanel ID="panelACTOC" runat="server">
-                           <ContentTemplate>
                             <div class="table-wrapper-scroll-y my-custom-scrollbar">
                                 <asp:GridView ID="GridViewEditarOC" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible."  OnRowDataBound="GridViewEditarOC_OnRowDataBound" 
                                   DataKeyName=I_NombreInsumo CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None" AutoGenerateColumns="false" OnSelectedIndexChanged="GridViewEditarOC_SelectedIndexChanged">

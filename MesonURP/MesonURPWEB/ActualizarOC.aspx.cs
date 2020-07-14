@@ -111,8 +111,7 @@ namespace MesonURPWEB
             //--------------------------------------------------------------
 
 
-            ScriptManager.RegisterClientScriptBlock(this.panelACTOC, this.panelACTOC.GetType(), "alert", "alertaExito()", true);
-            return;
+            ClientScript.RegisterStartupScript(Page.GetType(), "alertaExito", "alertaExito('Se ha logrado ingresar correctamente');", true);
         }
         protected void btnQuitar_Click(object sender, EventArgs e)
         {

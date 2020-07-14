@@ -15,15 +15,6 @@ namespace MesonURPWEB
     {
 
         /// <summary>
-        /// Control UpdatePanel1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-
-        /// <summary>
         /// Control DdlProveedor.
         /// </summary>
         /// <remarks>
@@ -40,15 +31,6 @@ namespace MesonURPWEB
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator validationProveedorOC;
-
-        /// <summary>
-        /// Control UpdatePanel2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
 
         /// <summary>
         /// Control DListFormaP.
@@ -76,15 +58,6 @@ namespace MesonURPWEB
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
-
-        /// <summary>
-        /// Control UpdatePanel3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel3;
 
         /// <summary>
         /// Control DListTipoC.
@@ -186,15 +159,6 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.Button btnAñadirInsumo;
 
         /// <summary>
-        /// Control panelAñadirOC.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel panelAñadirOC;
-
-        /// <summary>
         /// Control GridViewAñadirOC.
         /// </summary>
         /// <remarks>
@@ -213,16 +177,16 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.TextBox txtTotal;
 
         /// <summary>
-        /// lblIndex control.
+        /// Control lblIndex.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIndex;
 
         /// <summary>
-        /// btnAñadirOC control.
+        /// Control btnAñadirOC.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
