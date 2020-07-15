@@ -9,8 +9,8 @@
                             <h2 class="tittle-margin5">Gestionar Orden de Compra</h2>
                             <div class="stock-options">
                                 <div class="width-auto margin-5">
-                                     <input type="button" class="btn btn-primary" value="Agregar Nueva Orden de Compra" onclick="window.location.href = 'AñadirOC';"> 
-                                </div>
+        <input type="button" class="btn btn-primary" value="Agregar Nueva Orden de Compra" onclick="window.location.href = 'AñadirOC';">
+    </div>
                             </div>
                         </div>
                         <div class="search-buttons">
@@ -73,7 +73,7 @@
                                 <div class="clearfix"></div>
                             </div>
 
-                        </div>
+      </div>
     <script>
         function lettersOnly(evt) {
             evt = (evt) ? evt : event;
