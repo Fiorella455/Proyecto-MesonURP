@@ -4,6 +4,28 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 */
+
+.colorBE {
+	background-image: url('../img/eliminar-w.png');
+}
+	.colorBE:hover {
+		background-image: url('../img/eliminar.png');
+	}
+
+.colorBEd {
+	background-image: url('../img/lapiz.png');
+}
+	.colorBEd:hover {
+		background-image: url('../img/editar-w.png');
+	}
+
+.colorBV {
+	background-image: url('../img/ver.png');
+}
+
+	.colorBV:hover {
+		background-image: url('../img/ver-w.png');
+	}
 html, body{
 	font-family: 'Roboto', sans-serif;
     font-size: 100%;

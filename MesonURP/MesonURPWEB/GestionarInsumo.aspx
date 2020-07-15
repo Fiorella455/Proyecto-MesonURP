@@ -10,7 +10,7 @@
             <div class="progressbar-heading grids-heading title-flex">
                 <h2 class="tittle-margin5">Gestionar Insumos</h2>
                 <div class="stock-options">
-                    <div class="width-auto margin-5">
+                    <div class="width-auto margin-5"> 
                         <input type="button" class="btn btn-primary" value="Agregar Nuevo Insumo" onclick="window.location.href = 'AñadirInsumo.aspx';">
                     </div>
                 </div>
@@ -35,17 +35,17 @@
                                   
                                     <asp:TemplateField HeaderText="Editar">
                                         <ItemTemplate>
-                                            <asp:Button ID="btnSelectItem" class="btn btn-primary" runat="server" CommandName="selectItem" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Editar" />
+                                            <asp:ImageButton ID="btnSelectItem" runat="server" class="colorBEd" ImageUrl="img/lapiz.png" CommandName="selectItem" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Ver Detalles">
                                         <ItemTemplate>
-                                            <asp:Button ID="btnSelectItem1" class="btn btn-primary" runat="server" CommandName="selectItem1" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Consultar" />
+                                            <asp:ImageButton ID="btnSelectItem1"  runat="server" class="colorBV" ImageUrl="img/ver.png" CommandName="selectItem1" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Eliminar">
                                         <ItemTemplate>
-                                            <asp:Button ID="btnSelectItem2" class="btn btn-primary" runat="server" CommandName="selectItem2" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Eliminar" />
+                                            <asp:ImageButton ID="btnSelectItem2" runat="server" class="colorBE" ImageUrl="img/eliminar.png" CommandName="selectItem2" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
@@ -200,4 +200,5 @@
         //    })
         //}
     </script>
+
 </asp:Content>

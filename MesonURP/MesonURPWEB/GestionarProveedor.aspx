@@ -39,17 +39,17 @@
                                                 <asp:BoundField DataField="EP_NombreEstadoProveedor" HeaderText="Estado del Proveedor" />
                                                    <asp:TemplateField  HeaderText="Editar">
                                                        <ItemTemplate>
-                                                           <asp:Button ID="btnEditarProveedor" class="btn btn-primary" runat="server" CommandName ="ActualizarProveedor" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Editar" />
+                                                           <asp:ImageButton ID="btnEditarProveedor" class="colorBEd" ImageUrl="img/lapiz.png" runat="server" CommandName ="ActualizarProveedor" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Editar" />
                                                        </ItemTemplate> 
                                                    </asp:TemplateField>
                                                    <asp:TemplateField  HeaderText="Ver Detalles">
                                                        <ItemTemplate>
-                                                           <asp:Button ID="btnConsultarProveedor" class="btn btn-primary" runat="server" CommandName="ConsultarProveedor" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Consultar" />
+                                                           <asp:ImageButton ID="btnConsultarProveedor" class="colorBV" ImageUrl="img/ver.png" runat="server" CommandName="ConsultarProveedor" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Consultar" />
                                                        </ItemTemplate>                                                     
                                                    </asp:TemplateField>                                                    
                                                    <asp:TemplateField HeaderText="Eliminar">
                                                        <ItemTemplate>
-                                                           <asp:Button ID="btnEliminarProveedor" class="btn btn-primary" runat="server" CommandName="EliminarProveedor" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"  Text="Eliminar" />
+                                                           <asp:ImageButton ID="btnEliminarProveedor" class="colorBE" ImageUrl="img/eliminar.png" runat="server" CommandName="EliminarProveedor" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"  Text="Eliminar" />
                                                        </ItemTemplate>
                                                    </asp:TemplateField>
                                             </Columns>
