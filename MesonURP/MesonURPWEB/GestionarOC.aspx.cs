@@ -48,6 +48,8 @@ namespace MesonURPWEB
                 dt = ctr_oc.Leer_OC();
                 GridViewOC.DataSource = dt;
                 GridViewOC.DataBind();
+
+               
             }
         }
         protected void GridViewOC_OnRowDataBound(object sender, GridViewRowEventArgs e)
@@ -60,9 +62,9 @@ namespace MesonURPWEB
                     e.Row.Cells[7].FindControl("btnEnviarEmailOC").Visible = false;
                     e.Row.Cells[8].FindControl("btnEditarOC").Visible = false;
                     e.Row.Cells[9].FindControl("btnVerDetallesOC").Visible = true;
-                    var button = (Button)e.Row.FindControl("btnRecibido");
+                    var button = (ImageButton)e.Row.FindControl("btnRecibido"); //
                     if (button != null) { button.Visible = false; }
-                    var btn1 = (Button)e.Row.FindControl("btnEliminar");
+                    var btn1 = (ImageButton)e.Row.FindControl("btnEliminar"); //
                     if (btn1 != null) { btn1.Visible = false; }
                 }
                 if (state == "Aceptado")
@@ -71,12 +73,12 @@ namespace MesonURPWEB
                     e.Row.Cells[8].FindControl("btnEditarOC").Visible = false;
                     e.Row.Cells[10].FindControl("btnEliminar").Visible = false;
 
-                    var button = (Button)e.Row.FindControl("btnRecibido");
+                    var button = (ImageButton)e.Row.FindControl("btnRecibido"); //
                     if (button != null) { button.Visible = true; }
-                    var btn2 = (Button)e.Row.FindControl("btnAceptado");
+                    var btn2 = (ImageButton)e.Row.FindControl("btnAceptado"); //
                     if (btn2 != null) { btn2.Visible = false; }
                     e.Row.Cells[11].Controls.Clear();
-                    var btn3 = (Button)e.Row.FindControl("btnRechazado");
+                    var btn3 = (ImageButton)e.Row.FindControl("btnRechazado"); //
                     if (btn3 != null) { btn3.Visible = false; }
                 }
                 if (state == "Rechazado")
@@ -240,7 +242,7 @@ namespace MesonURPWEB
                 dto_movxinsumo.IdInsumo=Convert.ToInt32(row["I_idInsumo"]);
                 dto_movxinsumo.Cantidad = Convert.ToInt32(row["OCxI_Cantidad"]);
                 dto_movxinsumo.FechaMovimiento = DateTime.Now;
-                dto_movxinsumo.IdMovimiento = 5;// Cambiar según la BD
+                dto_movxinsumo.IdMovimiento = 1;// Cambiar según la BD
 
                 dto_movxinsumo.IdUsuarioMovimiento = 5;
                 ctr_movxinsumo.RegistrarMovimientoxInsumo(dto_movxinsumo);

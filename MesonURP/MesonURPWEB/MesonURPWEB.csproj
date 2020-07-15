@@ -256,12 +256,16 @@
     <Content Include="img\back.jpg" />
     <Content Include="img\baseline_check_circle_outline_black_18dp.png" />
     <Content Include="img\baseline_exit_to_app_white_18dp.png" />
+    <Content Include="img\check-b.png" />
     <Content Include="img\check.png" />
     <Content Include="img\decano.PNG" />
+    <Content Include="img\delete.png" />
     <Content Include="img\director.PNG" />
     <Content Include="img\editar-w.png" />
     <Content Include="img\eliminar-w.png" />
     <Content Include="img\eliminar.png" />
+    <Content Include="img\email-w.png" />
+    <Content Include="img\email.png" />
     <Content Include="img\favicon.png" />
     <Content Include="img\gal-1.jpeg" />
     <Content Include="img\gal-10.jpeg" />
@@ -311,6 +315,8 @@
     <Content Include="img\realtor-1.jpeg" />
     <Content Include="img\realtor-2.jpeg" />
     <Content Include="img\realtor-3.jpeg" />
+    <Content Include="img\rechazado-b.png" />
+    <Content Include="img\recibido-b.png" />
     <Content Include="img\rector.PNG" />
     <Content Include="img\sprite.svg" />
     <Content Include="img\story-1.jpeg" />
