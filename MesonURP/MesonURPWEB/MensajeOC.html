@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        body {
+            margin: 0px;
+        }
+
+        .maintable {
+            margin: 20px;
+            padding: 5px;
+            width: 750px;
+            border: 1px solid gray;
+        }
+
+        .header {
+            background-repeat: no-repeat;
+        }
+
+        .footer {
+            background-repeat: no-repeat;
+        }
+
+        .company {
+            font-size: 40px;
+            color: #000000;
+            font-family: 'Century Gothic';
+        }
+
+        .moto {
+            position: relative;
+            font-size: 20px;
+            color: #000000;
+            font-family: 'Century Gothic';
+            left: 100px;
+            width: 150px;
+        }
+
+        .title {
+            color: #000000;
+            font-family: 'Century Gothic';
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .text {
+            color: #000000;
+            font-family: 'Century Gothic';
+            font-size: 20px;
+        }
+
+        .textMin {
+            color: #000000;
+            font-family: 'Century Gothic';
+            font-size: 13px;
+        }
+
+        .padding {
+            padding-left: 20px;
+        }
+
+        .content {
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <table class="maintable" cellspacing="0" cellpadding="0">
+            <tr>
+                <td style="width: 200px;">
+                    <br /><br />
+                    <img id="img" src="cid:MyPic1" style="margin-top: -30px;width:50%" />
+                </td>
+                <td class="header" colspan="2">
+                    <div class="company" style="margin-left:-50%">Se le ha enviado una orden de Compra</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="content" colspan="3">
+                    <br><br>
+                    <font class="title">Estimado(a) Sr(a).</font>
+                    <br><br>
+                    <div style="text-align: justify;">
+                        <font class="text">
+                            Le informamos que <strong>#CODIGOPEDIDO#</strong> ha sido anulado por el mismo cliente,
+                            el método de pago que utilizo fue <strong>#MEDIOPAGO#</strong> y de no ser un pago con tarjeta, se debera reembolsar
+                            al cliente de manera manual.
+                            <br><br>
+                            <font class="title">Le adjuntamos información extra de ser necesario.</font>
+                            <br><br>
+                            #INFORMACION#
+                            <br><br>
+                            Muchas gracias.
+                            <br><br>
+                            <br>
+                        </font>
+                        <font class="textMin">*Este mensaje es automático, por favor no responder a este correo.</font>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+</html>
