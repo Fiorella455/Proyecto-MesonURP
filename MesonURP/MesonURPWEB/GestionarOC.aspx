@@ -38,33 +38,33 @@
                                                    <asp:TemplateField  HeaderText="Enviar">
                                                        <ItemTemplate>
                                                            <%--<asp:Button ID="btnEnviarEmailOC" class="btn btn-primary" runat="server" CommandName="EnviarEmailOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Enviar" OnClick="btnEnviarEmailOC_Click" />--%>
-                                                       <asp:ImageButton ID="btnEnviarEmailOC" CssClass="colorBEmail" ImageUrl="img/email.png" runat="server" CommandName="EnviarEmailOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"/> 
+                                                       <asp:ImageButton ID="btnEnviarEmailOC" ImageUrl="img/enviar_1.png" onmouseover="this.src='img/enviar-b.png'"  onmouseout="this.src='img/enviar_1.png'" runat="server" CommandName="EnviarEmailOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"/> 
                                                        </ItemTemplate>                                                     
                                                    </asp:TemplateField>  
                                                    <asp:TemplateField  HeaderText="Editar">
                                                        <ItemTemplate>
-                                                           <asp:ImageButton ID="btnEditarOC" class="colorBEd" ImageUrl="img/lapiz.png" runat="server" CommandName ="ActualizarOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
+                                                           <asp:ImageButton ID="btnEditarOC" ImageUrl="img/editar.png" onmouseover="this.src='img/editar-b.png'"  onmouseout="this.src='img/editar.png'" runat="server" CommandName ="ActualizarOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
                                                           <%-- opción para el hover--%> <%--<asp:ImageButton ID="ImageButton1" ImageUrl="img/lapiz.png" onmouseover="this.src='img/editar-w.png'"  onmouseout="this.src='img/lapiz.png'" runat="server" CommandName ="ActualizarOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />--%>
                                                        </ItemTemplate> 
                                                    </asp:TemplateField>
                                                    <asp:TemplateField  HeaderText="Ver Detalles">
                                                        <ItemTemplate>
-                                                           <asp:ImageButton ID="btnVerDetallesOC" class="colorBV" ImageUrl="img/ver.png" runat="server" CommandName="ConsultarOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
+                                                           <asp:ImageButton ID="btnVerDetallesOC" ImageUrl="img/ojo.png" onmouseover="this.src='img/ojo-b.png'"  onmouseout="this.src='img/ojo.png'" runat="server" CommandName="ConsultarOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
                                                        </ItemTemplate>                                                     
                                                    </asp:TemplateField>                                                    
                                                    <asp:TemplateField HeaderText="Eliminar">
                                                        <ItemTemplate>
-                                                           <asp:ImageButton ID="btnEliminar" class="colorBE" ImageUrl="img/delete.png" runat="server" CommandName="EliminarOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
+                                                           <asp:ImageButton ID="btnEliminar" ImageUrl="img/delete.png" onmouseover="this.src='img/basura-b.png'"  onmouseout="this.src='img/delete.png'" runat="server" CommandName="EliminarOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
                                                        </ItemTemplate>
                                                    </asp:TemplateField>
-                                                 <asp:TemplateField>
+                                                 <asp:TemplateField HeaderText="Acciones">
                                                      <ItemTemplate>
                                                          <div style="text-align: center"> 
-                                                         <asp:ImageButton ID="btnAceptado" class="colorBCheck" ImageUrl="img/check.png" runat="server"  CommandName="AceptarOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" TabIndex="1" />
+                                                         <asp:ImageButton ID="btnAceptado" ImageUrl="img/correcto.png" onmouseover="this.src='img/correcto-b.png'"  onmouseout="this.src='img/correcto.png'" runat="server"  CommandName="AceptarOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" TabIndex="1" />
                                                          
-                                                         <asp:ImageButton ID="btnRechazado" class="colorBR" ImageUrl="img/eliminar.png" runat="server" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" CommandName="RechazarOC" TabIndex="2" />
+                                                         <asp:ImageButton ID="btnRechazado" ImageUrl="img/eliminar.png" onmouseover="this.src='img/eliminar-b.png'"  onmouseout="this.src='img/eliminar.png'" runat="server" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" CommandName="RechazarOC" TabIndex="2" />
                                                          </div>
-                                                         <asp:ImageButton ID="btnRecibido" class="colorBRecib" runat="server" ImageUrl="img/recibido-b.png" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" CommandName="RecibirOC" TabIndex="3" />
+                                                         <asp:ImageButton ID="btnRecibido" runat="server" ImageUrl="img/recibido.png" onmouseover="this.src='img/recibido-b.png'" onmouseout="this.src='img/recibido.png'" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" CommandName="RecibirOC" TabIndex="3" />
                                                      </ItemTemplate>
                                                  </asp:TemplateField>
                                             </Columns>
