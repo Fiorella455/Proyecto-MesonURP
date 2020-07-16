@@ -236,5 +236,26 @@ namespace DAO
             return dto_oc.Estado;
 
         }
+        public bool Existe_Numero_Comprobante(long n)
+        {
+            conexion.Open();
+            SqlCommand comando = new SqlCommand("SP_Consultar_Numero_Comprobante", conexion);
+            comando.Parameters.AddWithValue(@"OC_NumeroComprobante", n);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.ExecuteNonQuery();
+            SqlDataReader reader = comando.ExecuteReader();
+            if (reader.Read())
+            {
+                conexion.Close();
+                return true;
+            }
+            else
+            {
+                conexion.Close();
+                return false;
+            }
+
+        }
+
     }
 }

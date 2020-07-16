@@ -35,6 +35,26 @@
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="DdlEstado" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>--%>
+                                       
+                           <div class="form-group">
+                               <label for="selector1" class="col-sm-2 control-label">Tipo de Comprobante</label>
+                               <div class="col-sm-8">
+                               <asp:DropDownList runat="server" CssClass="form-control1" ID="DListTipoC"  AutoPostBack="true">
+                                <asp:ListItem  Value="">--seleccione--</asp:ListItem>
+                                <asp:ListItem Text="Boleta" Value="1">Boleta</asp:ListItem>
+                                <asp:ListItem Text="Factura" Value="2">Factura</asp:ListItem>
+                            </asp:DropDownList>
+                            <asp:Label ID="lblIndex0" runat="server"></asp:Label>
+                        </div>
+                    </div>
+                           <div class="form-group">
+                        <label for="focusedinput" class="col-sm-2 control-label">Numero de Comprobante</label>
+                        <div class="col-sm-8">
+                            <asp:TextBox ID="txtNumeroComprobante" runat="server" placeholder="Ingrese el número de comprobante" CssClass="form-control1" onkeypress="return SoloNumeroInt(event);"/>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtNumeroComprobante" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator ID="rev" runat="server" ErrorMessage="" ControlToValidate="" ForeColor="#CC0000" SetFocusOnError="true" Display="Dynamic" ValidationGroup="" ValidationExpression=""></asp:RegularExpressionValidator>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Proveedor</label>
                         <div class="col-sm-8">
@@ -54,24 +74,7 @@
                             </asp:DropDownList>
                         </div>
                     </div>
-                       
-                           <div class="form-group">
-                        <label for="focusedinput" class="col-sm-2 control-label">Numero de Comprobante</label>
-                        <div class="col-sm-8">
-                            <asp:TextBox ID="txtNumeroComprobante" runat="server" placeholder="Ingrese el número de comprobante" CssClass="form-control1" onkeypress="return SoloNumeroInt(event);"/>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtNumeroComprobante" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-                        </div>
-                    </div>
-                           <div class="form-group">
-                               <label for="selector1" class="col-sm-2 control-label">Tipo de Comprobante</label>
-                               <div class="col-sm-8">
-                               <asp:DropDownList runat="server" CssClass="form-control1" ID="DListTipoC"  AutoPostBack="true">
-                                <asp:ListItem  Value="">--seleccione--</asp:ListItem>
-                                <asp:ListItem Text="Boleta" Value="Boleta">Boleta</asp:ListItem>
-                                <asp:ListItem Text="Factura" Value="Factura">Factura</asp:ListItem>
-                            </asp:DropDownList>
-                        </div>
-                    </div>
+
                       <div class="input-info">
 						<h3>Detalles de Compra</h3>
 					</div>
@@ -148,8 +151,8 @@
                         <p class="center-button">
                             <asp:Button ID="btnAñadirOC" CssClass="btn btn-primary" runat="server" OnClick="btnAñadirOC_Click" Text="Agregar" />
                             <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'GestionarOC';" class="btn btn-primary" />
-                            <input type="reset" name="res-1" id="res-1" value="Limpiar" class="btn btn-danger" />
-                        </p>
+                            <asp:Button ID="btnLimpiarOC" CssClass="btn btn-primary" runat="server" OnClick="btnAñadirOC_Click" Text="Limpiar" />
+                            &nbsp;</p>
                     </div>
                 </div>
             </div>

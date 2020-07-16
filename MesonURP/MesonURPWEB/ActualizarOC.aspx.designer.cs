@@ -60,6 +60,15 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.DropDownList DdlInsumo;
 
         /// <summary>
+        /// lblMsj1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMsj1;
+
+        /// <summary>
         /// txtCantidad control.
         /// </summary>
         /// <remarks>
@@ -67,6 +76,15 @@ namespace MesonURPWEB
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCantidad;
+
+        /// <summary>
+        /// lblMsj control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMsj;
 
         /// <summary>
         /// txtPrecioU control.

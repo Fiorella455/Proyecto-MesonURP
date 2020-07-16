@@ -39,7 +39,7 @@ namespace MesonURPWEB
             if (!this.IsPostBack)
             {
                 listarInsumo();
-                
+
                 dtpro = new DataSet();
                 dtpro = pro.Leer_Proveedor();
                 DdlProveedor.DataTextField = "P_RazonSocial";
@@ -48,6 +48,16 @@ namespace MesonURPWEB
                 DdlProveedor.DataBind();
                 lblIndex.Text = id.ToString();
                 //txtFechaEntrega.Text = DateTime.Now.ToString("yyyy-MM-dd");
+            }
+            else
+            {
+                if (DListTipoC.SelectedValue == ""){ lblIndex0.Text = "Seleccione un tipo de comprobante"; }
+                else
+                {
+                    dto_oc.OC_NumeroComprobante = ctr_oc.Generar_Numero_Comprobante(Convert.ToInt32(DListTipoC.SelectedValue)).ToString();
+                    txtNumeroComprobante.Text = dto_oc.OC_NumeroComprobante;
+                }
+                          
             }
         }
         protected void DdlInsumo_SelectedIndexChanged(object sender, EventArgs e)
@@ -82,12 +92,21 @@ namespace MesonURPWEB
             dto_ocxinsumo.I_idInsumo = int.Parse(DdlInsumo.SelectedValue);
             DTO_Insumo insumo = ctr_insumo.Consultar_InsumoxID(dto_ocxinsumo.I_idInsumo);
             // dto_ocxinsumo.OC_idOrdenCompra = ctr_oc.ID_OC_Actual()+1;
-            dto_ocxinsumo.OCxI_Cantidad = int.Parse(txtCantidad.Text);
+            if (int.Parse(txtCantidad.Text) == 0 || int.Parse(txtCantidad.Text) < 0)
+            {
+                lblMsj.Text = "Ingrese otra cantidad";
+            }
+            else if (txtCantidad.Text == "")
+            {
+                lblMsj.Text = "Ingrese una cantidad";
+            }
+            else
+            {
+                dto_ocxinsumo.OCxI_Cantidad = int.Parse(txtCantidad.Text);
+            }          
             if (ctr_insumo.CTR_LimiteStockMax(int.Parse(DdlInsumo.SelectedValue), int.Parse(txtCantidad.Text)) == 1)
             {
-
                 lblMsj.Text = "Ingresar una cantidad menor";
-
             }
             else
             {
@@ -126,16 +145,12 @@ namespace MesonURPWEB
         }
 
         protected void btnAñadirOC_Click(object sender, EventArgs e)
-        {
-
-         
-
-                dto_oc.OC_NumeroComprobante = txtNumeroComprobante.Text;
-                //dto_oc.OC_TotalCompra = Convert.ToDecimal(suma);
+        {           
                 dto_oc.OC_FechaEmision = DateTime.Today.Date.ToShortDateString();
                 dto_oc.OC_FormaPago = DListFormaP.Text;
                 dto_oc.P_idProveedor = int.Parse(DdlProveedor.SelectedValue);
-                dto_oc.OC_TipoComprobante = DListTipoC.Text;
+                dto_oc.OC_TipoComprobante = DListTipoC.Text;               
+                dto_oc.OC_NumeroComprobante = txtNumeroComprobante.Text;
                 dto_oc.OC_TotalCompra = Convert.ToDecimal(txtTotal.Text);
                 ctr_oc.Registrar_OC(dto_oc);
 
@@ -185,6 +200,18 @@ namespace MesonURPWEB
             
             id = Convert.ToInt32(GridViewAñadirOC.SelectedRow.RowIndex);
             lblIndex.Text = id.ToString();
+        }
+
+        protected void btnLimpiarOC_Click(object sender, EventArgs e)
+        {
+            txtCantidad.Text = "";
+            txtTotal.Text = "";
+            dto_oc.OC_FechaEmision = "";
+            dto_oc.OC_FormaPago = "";
+            dto_oc.OC_TipoComprobante = "";
+            dto_oc.OC_NumeroComprobante = "";
+            dto_oc.P_idProveedor = 0;
+
         }
     }
 }

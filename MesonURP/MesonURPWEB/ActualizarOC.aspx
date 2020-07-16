@@ -35,7 +35,7 @@
                         <div class="col-sm-8">
                             <asp:TextBox runat="server" CssClass="form-control1" ID="txtIdOC" />
                         </div>
-                    </div>--%>                   <%-- <div class="form-group">
+                    </div>--%><%-- <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Fecha de Emisión</label>
                         <div class="col-sm-8">
                             <asp:TextBox ID="txtFechaEmision" runat="server" CssClass="form-control1" ReadOnly="true"/>
@@ -96,12 +96,15 @@
                         <div class="col-sm-8">
                             <asp:DropDownList ID="DdlInsumo" runat="server" CssClass="form-control1" AutoPostBack="true" OnSelectedIndexChanged="DdlInsumo_SelectedIndexChanged">
                             </asp:DropDownList>
+                            <br />
+                            <asp:Label ID="lblMsj1" runat="server"></asp:Label>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Cantidad</label>
                         <div class="col-sm-8">
                             <asp:TextBox runat="server" CssClass="form-control1" ID="txtCantidad" />
+                            <asp:Label ID="lblMsj" runat="server"></asp:Label>
                         </div>
                     </div>
                     <div class="form-group">
