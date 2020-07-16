@@ -46,7 +46,7 @@ namespace MesonURPWEB
 
                 //------------------------------------------------
                 dtpro = new DataSet();
-                dtpro = pro.Leer_Proveedor();
+                dtpro = pro.SelectProveedorxEstado();
 
                 DdlProveedor.DataTextField = "P_RazonSocial";
                 DdlProveedor.DataValueField = "P_idProveedor";
