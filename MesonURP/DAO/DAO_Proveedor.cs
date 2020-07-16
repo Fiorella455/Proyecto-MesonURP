@@ -163,5 +163,17 @@ namespace DAO
                 return false;
             }
         }
+        public DataSet DAO_SelectProveedorxEstado()
+        {
+            conexion.Open();
+            SqlCommand comando = new SqlCommand("SP_SelectProveedorxEstado", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.ExecuteNonQuery();
+            DataSet dt = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter(comando);
+            da.Fill(dt);
+            conexion.Close();
+            return dt;
+        }
     }
 }
