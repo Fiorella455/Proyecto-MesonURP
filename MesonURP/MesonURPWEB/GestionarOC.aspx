@@ -134,7 +134,7 @@
                     confirmButtonText: 'Aceptar'
                 }).then((result) => {
                     if (result.value) {
-                        window.location.href = 'GestionarOC.aspx';
+                        window.location.href = 'GestionarOC';
                     }
                 })
 
