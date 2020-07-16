@@ -57,7 +57,7 @@
                           <label for="selector1" class="col-sm-2 control-label">Teléfono del Contacto</label>
                           <div class="col-sm-8">
                              <asp:TextBox ID="txtTelefono" placeholder="Ingrese el teléfono" runat="server" CssClass="form-control1" onkeypress="return SoloNumeroInt(event);" MaxLength="20"/>
-                              <asp:RegularExpressionValidator ID="revTelefono" runat="server" ErrorMessage="Teléfono Inválido" ControlToValidate="txtTelefono" ForeColor="#CC0000" ValidationExpression="\d{6,11}" SetFocusOnError="True" Display="Dynamic" ValidationGroup="añadirProveedor"></asp:RegularExpressionValidator>
+                              <asp:RegularExpressionValidator ID="revTelefono" runat="server" ErrorMessage="Teléfono Inválido" ControlToValidate="txtTelefono" ForeColor="#CC0000" ValidationExpression="\d{6,9}" SetFocusOnError="True" Display="Dynamic" ValidationGroup="añadirProveedor"></asp:RegularExpressionValidator>
                              <asp:RequiredFieldValidator ID="validacionTelefono" runat="server" ControlToValidate="txtTelefono" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirProveedor" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                           </div>
                     </div>

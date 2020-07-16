@@ -78,38 +78,11 @@
     </script>
     <script>
         function deleteProv() {
-            const swalWithBootstrapButtons = Swal.mixin({
-                customClass: {
-                    confirmButton: 'btn btn-success',
-                    cancelButton: 'btn btn-danger'
-                },
-                buttonsStyling: false
-            })
-
-            swalWithBootstrapButtons.fire({
-                title: '¿Estás seguro?',
-                text: "Después de eliminarlo no podrás volver atrás",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Sí, eliminar',
-                cancelButtonText: 'No, cancelar',
-                reverseButtons: true
-            }).then((result) => {
-                if (result.value) {
-                    swalWithBootstrapButtons.fire(
-                        '¡Enhorabuena!',
-                        'El proveedor ha sido eliminado',
-                        'success'
-                    )
-                } else if (
-                    result.dismiss === Swal.DismissReason.cancel
-                ) {
-                    swalWithBootstrapButtons.fire(
-                        'Cancelado',
-                        'El proveedor no fue eliminado',
-                        'error'
-                    )
-                }
+            Swal.fire({
+                title: 'Enhorabuena!',
+                text: 'El proveedor fue eliminado correctamente',
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
             })
         }
     </script>
