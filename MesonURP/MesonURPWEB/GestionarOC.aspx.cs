@@ -11,7 +11,7 @@ using System.Data;
 
 namespace MesonURPWEB
 {
-  
+
     public partial class GestionarOC : System.Web.UI.Page
     {
         DTO_OC dto_oc;
@@ -23,9 +23,9 @@ namespace MesonURPWEB
         CTR_MovimientoxInsumo ctr_movxinsumo;
         CTR_EstadoOCxOC ctr_estado_OCxOC;
         CTR_OC _OC = new CTR_OC();
-        DataTable dt;     
+        DataTable dt;
         DataSet ds_movxinsumo = new DataSet();
-        DataTable dt_ocxinsumo = new DataTable();       
+        DataTable dt_ocxinsumo = new DataTable();
         int idOC = 0;
 
 
@@ -49,7 +49,7 @@ namespace MesonURPWEB
                 GridViewOC.DataSource = dt;
                 GridViewOC.DataBind();
 
-               
+
             }
         }
         protected void GridViewOC_OnRowDataBound(object sender, GridViewRowEventArgs e)
@@ -113,7 +113,7 @@ namespace MesonURPWEB
         {
 
 
-                if (e.CommandName == "EnviarEmailOC")
+            if (e.CommandName == "EnviarEmailOC")
             {
                 idOC = Convert.ToInt32(GridViewOC.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["OC_idOrdenCompra"].ToString());
                 dto_oc.OC_idOrdenCompra = idOC;
@@ -121,6 +121,11 @@ namespace MesonURPWEB
                 string htmlBody = Resource.MensajeOC;
                 htmlBody = htmlBody.Replace("#IDOC#", dto_oc.OC_idOrdenCompra.ToString());
                 htmlBody = htmlBody.Replace("#TIPOCOMPROBANTE#", dto_oc.OC_TipoComprobante);
+                htmlBody = htmlBody.Replace("#NUMEROCOMPROBANTE#", dto_oc.OC_NumeroComprobante);
+                htmlBody = htmlBody.Replace("#FORMADEPAGO#", dto_oc.OC_FormaPago);
+                htmlBody = htmlBody.Replace("#MONTOTOTAL#", dto_oc.OC_TotalCompra.ToString());
+                htmlBody = htmlBody.Replace("#FECHAEMISION#", dto_oc.OC_FechaEmision);
+
                 ctr_oc.Enviar_OC(dto_oc, htmlBody);
                 //-----------------------------------------------------------------------
                 dto_oc.OC_idOrdenCompra = idOC;
@@ -130,44 +135,42 @@ namespace MesonURPWEB
                 dto_estado_OCxOC.EOCxOC_UsuarioRegistro = 5;
                 ctr_estado_OCxOC.Actualizar_Estado_OCxOC(dto_estado_OCxOC);
                 CargarOrdenesCompra();
-                //ScriptManager.RegisterStartupScript(this.panelOC, this.panelOC.GetType(), "alertIns", "alertaCorreo()", true);
                 ClientScript.RegisterStartupScript(Page.GetType(), "alertIns", "alertaCorreo('');", true);
 
 
 
             }
-                if (e.CommandName == "EliminarOC")
-                {
-                     idOC = Convert.ToInt32(GridViewOC.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["OC_idOrdenCompra"].ToString());
-                    dto_oc.OC_idOrdenCompra = idOC;
-                    ctr_oc = new CTR_OC();
-                    ctr_oc.Eliminar_OC(idOC);
-                    CargarOrdenesCompra();
-                ClientScript.RegisterStartupScript(Page.GetType(), "alertIns", "alertaEliminar('');", true);
-                //ScriptManager.RegisterStartupScript(this.panelOC, this.panelOC.GetType(), "alertIns", "alertaEliminar()", true);
-                }
-                if (e.CommandName == "ConsultarOC")
-               {
-                 idOC = Convert.ToInt32(GridViewOC.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["OC_idOrdenCompra"].ToString());
+            if (e.CommandName == "EliminarOC")
+            {
+                idOC = Convert.ToInt32(GridViewOC.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["OC_idOrdenCompra"].ToString());
                 dto_oc.OC_idOrdenCompra = idOC;
-                
+                ctr_oc = new CTR_OC();
+                ctr_oc.Eliminar_OC(idOC);
+                CargarOrdenesCompra();
+                ClientScript.RegisterStartupScript(Page.GetType(), "alertIns", "alertaEliminar('');", true);
+            }
+            if (e.CommandName == "ConsultarOC")
+            {
+                idOC = Convert.ToInt32(GridViewOC.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["OC_idOrdenCompra"].ToString());
+                dto_oc.OC_idOrdenCompra = idOC;
+
                 Session.Add("indice", dto_oc);
                 Response.Redirect("ConsultarOC");
 
-                }
-                if (e.CommandName == "ActualizarOC")
-                {
-                 idOC = Convert.ToInt32(GridViewOC.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["OC_idOrdenCompra"].ToString());
+            }
+            if (e.CommandName == "ActualizarOC")
+            {
+                idOC = Convert.ToInt32(GridViewOC.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["OC_idOrdenCompra"].ToString());
                 dto_oc.OC_idOrdenCompra = idOC;
                 Session.Add("OCActual", dto_oc);
                 Response.Redirect("ActualizarOC");
-                }
-                if (e.CommandName == "AceptarOC")
+            }
+            if (e.CommandName == "AceptarOC")
             {
                 idOC = Convert.ToInt32(GridViewOC.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["OC_idOrdenCompra"].ToString());
                 dto_oc.OC_idOrdenCompra = idOC;
                 //-----------------------------------------------------------------------
-                
+
                 dto_estado_OCxOC.OC_idOrdenCompra = dto_oc.OC_idOrdenCompra;
                 dto_estado_OCxOC.EOCxOC_FechaRegistro = DateTime.Today;
                 dto_estado_OCxOC.EOC_idEstadoOC = 3;
@@ -179,7 +182,7 @@ namespace MesonURPWEB
                 ClientScript.RegisterStartupScript(Page.GetType(), "alertIns", "alertaAceptado('');", true);
 
             }
-                if (e.CommandName=="RechazarOC")
+            if (e.CommandName == "RechazarOC")
             {
                 idOC = Convert.ToInt32(GridViewOC.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["OC_idOrdenCompra"].ToString());
                 dto_oc.OC_idOrdenCompra = idOC;
@@ -197,8 +200,8 @@ namespace MesonURPWEB
                 //ScriptManager.RegisterStartupScript(this.panelOC, this.panelOC.GetType(), "alertIns", "alertaRechazado()", true);
 
             }
-                if (e.CommandName=="RecibirOC")
-                {
+            if (e.CommandName == "RecibirOC")
+            {
                 idOC = Convert.ToInt32(GridViewOC.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["OC_idOrdenCompra"].ToString());
                 dto_oc.OC_idOrdenCompra = idOC;
                 //-----------------------------------------------------------------------
@@ -211,38 +214,38 @@ namespace MesonURPWEB
                 ctr_estado_OCxOC.Actualizar_Estado_OCxOC(dto_estado_OCxOC);
 
                 RegistrarMov(idOC);
-                
+
                 CargarOrdenesCompra();
 
                 ClientScript.RegisterStartupScript(Page.GetType(), "alertIns", "alertaRecibido('');", true);
                 //ScriptManager.RegisterStartupScript(this.panelOC, this.panelOC.GetType(), "alertIns", "alertaRecibido()", true);
             }
         }
-        
-        
+
+
         protected void btnEditarOC_Click(object sender, EventArgs e)
         {
             GridViewRow OC = (GridViewRow)((Button)sender).Parent.Parent;
             int i = OC.RowIndex;
 
             dto_oc.OC_idOrdenCompra = Convert.ToInt32(GridViewOC.Rows[i].Cells[0].Text);
-            
+
             Response.Redirect("ActualizarOC.aspx?idOC" + 1);
         }
 
-        public void  CargarOrdenesCompra()
-        {    
+        public void CargarOrdenesCompra()
+        {
             GridViewOC.DataSource = _OC.Leer_OC();
             GridViewOC.DataBind();
         }
         public void RegistrarMov(int idOC)
         {
-           
+
             dt_ocxinsumo = ctr_ocxinsumo.Leer_InsumoxOC(idOC);
             foreach (DataRow row in dt_ocxinsumo.Rows)
             {
-                
-                dto_movxinsumo.IdInsumo=Convert.ToInt32(row["I_idInsumo"]);
+
+                dto_movxinsumo.IdInsumo = Convert.ToInt32(row["I_idInsumo"]);
                 dto_movxinsumo.Cantidad = Convert.ToInt32(row["OCxI_Cantidad"]);
                 dto_movxinsumo.FechaMovimiento = DateTime.Now;
                 dto_movxinsumo.IdMovimiento = 1;// Cambiar según la BD
@@ -251,14 +254,14 @@ namespace MesonURPWEB
                 ctr_movxinsumo.RegistrarMovimientoxInsumo(dto_movxinsumo);
 
             }
-            
+
         }
 
         protected void GridViewOC_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-           GridViewOC.PageIndex = e.NewPageIndex;
-            CargarOrdenesCompra();     
-         
+            GridViewOC.PageIndex = e.NewPageIndex;
+            CargarOrdenesCompra();
+
         }
     }
 }
