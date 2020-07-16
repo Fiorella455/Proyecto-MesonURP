@@ -18,8 +18,8 @@
                         <p><asp:Label ID="lblvacio" runat="server" Text="" ForeColor="#CC0000"></asp:Label><p>
                     </div>
                     <div class="stock-options marginT8">
-                        <div class="width-auto margin-5">
-                        <asp:Button type="btnAgregarCategoria" class="btn btn-primary" runat="server" text="Agregar" onclick="btnAgregarCategoria_Click" />
+                        <div class="width-auto margin-5"  style="z-index:100;">
+                        <asp:Button type="btnAgregarCategoria" class="btn btn-primary" runat="server" text="Agregar"  onclick="btnAgregarCategoria_Click" />
                     </div>
                   </div>
                   </div>

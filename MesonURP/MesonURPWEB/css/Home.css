@@ -5865,11 +5865,17 @@ margin-top:0;
 	display: flex;
 	justify-content: space-between;
 }
-
+.flex-center {
+	display: flex;
+	align-items: center;
+}
+.marginr-1 {
+	margin-right: -974px;
+}
 .div-movflex {
-    display: flex;
-    margin-top: 17px;
-    margin-bottom: 17px;
+	display: flex;
+	margin-top: 17px;
+	margin-bottom: 17px;
 }
 .cat-flex {
 	display:flex;
@@ -5877,6 +5883,9 @@ margin-top:0;
 }
 .width100 {
 	width: 100%;
+}
+.w67 {
+	width: 67%;
 }
 .width207 {
 	width: 207px;

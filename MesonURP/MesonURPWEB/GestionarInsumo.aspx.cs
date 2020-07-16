@@ -47,7 +47,7 @@ namespace MesonURPWEB
 
                     Session["I_idInsumo"] = pkInsumo;
 
-                    Response.Redirect("ActualizarInsumo.aspx");
+                    Response.Redirect("ActualizarInsumo");
                 }
                 else if (e.CommandName == "selectItem1")//VER 
                 {
@@ -128,12 +128,12 @@ namespace MesonURPWEB
         }
         protected void btnRegistrar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("RegistrarInsumo.aspx");
+            Response.Redirect("RegistrarInsumo");
         }
 
         protected void btnVerDetalle_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ConsultarInsumo.aspx");
+            Response.Redirect("ConsultarInsumo");
         }
          
     }
