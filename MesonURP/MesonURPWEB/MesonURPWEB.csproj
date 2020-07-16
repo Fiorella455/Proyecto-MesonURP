@@ -245,6 +245,7 @@
     <Content Include="EliminarProveedor.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="GenerarReporte.aspx" />
     <Content Include="GestionarCategoria.aspx" />
     <Content Include="GestionarInsumo.aspx" />
     <Content Include="GestionarOC.aspx" />
@@ -425,8 +426,15 @@
       <DependentUpon>AñadirProveedor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="GenerarReporte.aspx.cs">
+      <DependentUpon>GenerarReporte.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="AñadirProveedor.aspx.designer.cs">
       <DependentUpon>AñadirProveedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GenerarReporte.aspx.designer.cs">
+      <DependentUpon>GenerarReporte.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionarCategoria.aspx.cs">
       <DependentUpon>GestionarCategoria.aspx</DependentUpon>
