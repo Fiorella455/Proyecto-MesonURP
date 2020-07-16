@@ -38,30 +38,33 @@
                                                    <asp:TemplateField  HeaderText="Enviar">
                                                        <ItemTemplate>
                                                            <%--<asp:Button ID="btnEnviarEmailOC" class="btn btn-primary" runat="server" CommandName="EnviarEmailOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Enviar" OnClick="btnEnviarEmailOC_Click" />--%>
-                                                       <asp:Button ID="btnEnviarEmailOC" class="btn btn-primary" runat="server" CommandName="EnviarEmailOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Enviar" />
+                                                       <asp:ImageButton ID="btnEnviarEmailOC" CssClass="colorBEmail" ImageUrl="img/email.png" runat="server" CommandName="EnviarEmailOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"/> 
                                                        </ItemTemplate>                                                     
                                                    </asp:TemplateField>  
                                                    <asp:TemplateField  HeaderText="Editar">
                                                        <ItemTemplate>
-                                                           <asp:Button ID="btnEditarOC" class="btn btn-primary" runat="server" CommandName ="ActualizarOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Actualizar" />
+                                                           <asp:ImageButton ID="btnEditarOC" class="colorBEd" ImageUrl="img/lapiz.png" runat="server" CommandName ="ActualizarOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
+                                                          <%-- opción para el hover--%> <%--<asp:ImageButton ID="ImageButton1" ImageUrl="img/lapiz.png" onmouseover="this.src='img/editar-w.png'"  onmouseout="this.src='img/lapiz.png'" runat="server" CommandName ="ActualizarOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />--%>
                                                        </ItemTemplate> 
                                                    </asp:TemplateField>
                                                    <asp:TemplateField  HeaderText="Ver Detalles">
                                                        <ItemTemplate>
-                                                           <asp:Button ID="btnVerDetallesOC" class="btn btn-primary" runat="server" CommandName="ConsultarOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Consultar" />
+                                                           <asp:ImageButton ID="btnVerDetallesOC" class="colorBV" ImageUrl="img/ver.png" runat="server" CommandName="ConsultarOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
                                                        </ItemTemplate>                                                     
                                                    </asp:TemplateField>                                                    
                                                    <asp:TemplateField HeaderText="Eliminar">
                                                        <ItemTemplate>
-                                                           <asp:Button ID="btnEliminar" class="btn btn-primary" runat="server" CommandName="EliminarOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"  Text="Eliminar" />
+                                                           <asp:ImageButton ID="btnEliminar" class="colorBE" ImageUrl="img/delete.png" runat="server" CommandName="EliminarOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
                                                        </ItemTemplate>
                                                    </asp:TemplateField>
                                                  <asp:TemplateField>
                                                      <ItemTemplate>
-                                                         <asp:Button ID="btnAceptado" class="btn btn-primary" runat="server"  CommandName="AceptarOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Aceptar" Height="32px" Width="86px" TabIndex="1" />
-                                                         <asp:Button ID="btnRechazado" runat="server" class="btn btn-primary" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" CommandName="RechazarOC" Height="32px" Text="Rechazar" Width="86px" TabIndex="2" />
-                                                         <br />
-                                                         <asp:Button ID="btnRecibido" runat="server" class="btn btn-primary" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" CommandName="RecibirOC" Height="32px" Text="Recibido" Width="86px" TabIndex="3" />
+                                                         <div style="text-align: center"> 
+                                                         <asp:ImageButton ID="btnAceptado" class="colorBCheck" ImageUrl="img/check.png" runat="server"  CommandName="AceptarOC" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" TabIndex="1" />
+                                                         
+                                                         <asp:ImageButton ID="btnRechazado" class="colorBR" ImageUrl="img/eliminar.png" runat="server" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" CommandName="RechazarOC" TabIndex="2" />
+                                                         </div>
+                                                         <asp:ImageButton ID="btnRecibido" class="colorBRecib" runat="server" ImageUrl="img/recibido-b.png" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" CommandName="RecibirOC" TabIndex="3" />
                                                      </ItemTemplate>
                                                  </asp:TemplateField>
                                             </Columns>

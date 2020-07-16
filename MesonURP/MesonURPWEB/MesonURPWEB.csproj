@@ -252,10 +252,20 @@
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
     <Content Include="Home.aspx" />
+    <Content Include="img\add.png" />
     <Content Include="img\back.jpg" />
+    <Content Include="img\baseline_check_circle_outline_black_18dp.png" />
     <Content Include="img\baseline_exit_to_app_white_18dp.png" />
+    <Content Include="img\check-b.png" />
+    <Content Include="img\check.png" />
     <Content Include="img\decano.PNG" />
+    <Content Include="img\delete.png" />
     <Content Include="img\director.PNG" />
+    <Content Include="img\editar-w.png" />
+    <Content Include="img\eliminar-w.png" />
+    <Content Include="img\eliminar.png" />
+    <Content Include="img\email-w.png" />
+    <Content Include="img\email.png" />
     <Content Include="img\favicon.png" />
     <Content Include="img\gal-1.jpeg" />
     <Content Include="img\gal-10.jpeg" />
@@ -277,6 +287,7 @@
     <Content Include="img\house-4.jpeg" />
     <Content Include="img\house-5.jpeg" />
     <Content Include="img\house-6.jpeg" />
+    <Content Include="img\lapiz.png" />
     <Content Include="img\logo-bbc.png" />
     <Content Include="img\logo-bi.png" />
     <Content Include="img\logo-forbes.png" />
@@ -304,6 +315,8 @@
     <Content Include="img\realtor-1.jpeg" />
     <Content Include="img\realtor-2.jpeg" />
     <Content Include="img\realtor-3.jpeg" />
+    <Content Include="img\rechazado-b.png" />
+    <Content Include="img\recibido-b.png" />
     <Content Include="img\rector.PNG" />
     <Content Include="img\sprite.svg" />
     <Content Include="img\story-1.jpeg" />
@@ -313,6 +326,8 @@
     <Content Include="img\univ-2.png" />
     <Content Include="img\UNIVERSIDAD-RICARDO-PALMA-18.jpg" />
     <Content Include="img\urp1.jpg" />
+    <Content Include="img\ver-w.png" />
+    <Content Include="img\ver.png" />
     <Content Include="index.html" />
     <Content Include="js\amcharts.js" />
     <Content Include="js\bootstrap.min.js" />

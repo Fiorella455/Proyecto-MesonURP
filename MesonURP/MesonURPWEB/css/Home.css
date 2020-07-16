@@ -4,11 +4,64 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 */
-html, body{
+
+.colorBE {
+	background-image: url('../img/eliminar-w.png');
+}
+	.colorBE:hover {
+		background-image: url('../img/eliminar.png');
+	}
+
+.colorBEd {
+	background-image: url('../img/editar-w.png');
+}
+	.colorBEd:hover {
+		background-image: url('../img/lapiz.png');
+	}
+
+.colorBV {
+	background-image: url('../img/ver-w.png');
+}
+
+	.colorBV:hover {
+		background-image: url('../img/ver.png');
+	}
+
+.colorBEmail {
+	background-image: url('../img/email-w.png');
+}
+
+	.colorBEmail:hover {
+		background-image: url('../img/email.png');
+	}
+
+.colorBCheck {
+	background-image: url('../img/check.png');
+}
+
+	.colorBCheck:hover {
+		background-image: url('../img/check-b.png');
+	}
+
+.colorBRecib {
+	background-image: url('../img/recibido-b.png');
+}
+	.colorBRecib:hover {
+		background-image: url('../img/recibido-b.png');
+	}
+
+.colorBR {
+	background-image: url('..img/eliminar.png');
+}
+	.colorBR:hover {
+		background-image: url('../img/rechazado-b.png');
+	}
+
+html, body {
 	font-family: 'Roboto', sans-serif;
-    font-size: 100%;
-  	overflow-x: hidden;
-	background:#FFFFFF;
+	font-size: 100%;
+	overflow-x: hidden;
+	background: #FFFFFF;
 }
 body a{
 	transition:0.5s all;

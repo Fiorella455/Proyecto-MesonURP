@@ -41,17 +41,17 @@
                                   
                                     <asp:TemplateField HeaderText="Editar">
                                         <ItemTemplate>
-                                            <asp:Button ID="btnSelectItem" class="btn btn-primary" runat="server" CommandName="selectItem" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Editar" />
+                                            <asp:ImageButton ID="btnSelectItem" class="colorBEd" ImageUrl="img/lapiz.png" runat="server" CommandName="selectItem" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Editar" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Ver Detalles">
                                         <ItemTemplate>
-                                            <asp:Button ID="btnSelectItem1" class="btn btn-primary" runat="server" CommandName="selectItem1" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Consultar" />
+                                            <asp:ImageButton ID="btnSelectItem1" class="colorBV" ImageUrl="img/ver.png" runat="server" CommandName="selectItem1" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Consultar" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Eliminar">
                                         <ItemTemplate>
-                                            <asp:Button ID="btnSelectItem2" class="btn btn-primary" runat="server" CommandName="selectItem2" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Eliminar" />
+                                            <asp:ImageButton ID="btnSelectItem2" class="colorBE" ImageUrl="img/eliminar.png" runat="server" CommandName="selectItem2" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Eliminar" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
