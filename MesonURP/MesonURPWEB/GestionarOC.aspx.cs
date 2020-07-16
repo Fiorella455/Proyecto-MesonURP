@@ -118,7 +118,10 @@ namespace MesonURPWEB
                 idOC = Convert.ToInt32(GridViewOC.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["OC_idOrdenCompra"].ToString());
                 dto_oc.OC_idOrdenCompra = idOC;
                 ctr_oc = new CTR_OC();
-                ctr_oc.Enviar_OC(dto_oc);
+                string htmlBody = Resource.MensajeOC;
+                htmlBody = htmlBody.Replace("#IDOC#", dto_oc.OC_idOrdenCompra.ToString());
+                htmlBody = htmlBody.Replace("#TIPOCOMPROBANTE#", dto_oc.OC_TipoComprobante);
+                ctr_oc.Enviar_OC(dto_oc, htmlBody);
                 //-----------------------------------------------------------------------
                 dto_oc.OC_idOrdenCompra = idOC;
                 dto_estado_OCxOC.OC_idOrdenCompra = dto_oc.OC_idOrdenCompra;

@@ -52,9 +52,9 @@ namespace CTR
             dao_oc.Eliminar_OC(OC_idOrdenCompra);
         }
 
-        public int  Enviar_OC(DTO_OC dto_oc)
+        public int  Enviar_OC(DTO_OC dto_oc, string msj)
         {
-           return dao_oc.EnviarCorreo(dto_oc);
+           return dao_oc.EnviarCorreo(dto_oc, msj);
         }
 
         public DataTable Leer_OC_Recibido()
