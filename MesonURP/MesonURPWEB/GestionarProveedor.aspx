@@ -112,5 +112,14 @@
                 }
             })
         }
+
+  function alertaEli() {
+                Swal.fire({
+                    title: 'Enhorabuena!',
+                    text: 'Se ha logrado eliminar correctamente',
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar'
+                })
+            }
     </script>
 </asp:Content>
