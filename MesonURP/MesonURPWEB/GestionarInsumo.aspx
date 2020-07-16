@@ -1,8 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="GestionarInsumo.aspx.cs" Inherits="MesonURPWEB.GestionarInsumo" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="GestionarInsumo.aspx.cs" enableEventValidation="false" Inherits="MesonURPWEB.GestionarInsumo" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="women_main">
         <!-- start content -->
@@ -10,8 +8,8 @@
             <div class="progressbar-heading grids-heading title-flex">
                 <h2 class="tittle-margin5">Gestionar Insumos</h2>
                 <div class="stock-options">
-                    <div class="width-auto margin-5"> 
-                        <input type="button" class="btn btn-primary" value="Agregar Nuevo Insumo" onclick="window.location.href = 'AñadirInsumo.aspx';">
+                    <div class="width-auto margin-5">
+                        <input type="button" class="btn btn-primary" value="Agregar Nuevo Insumo" onclick="window.location.href = 'AñadirInsumo';">
                     </div>
                 </div>
             </div>
@@ -60,7 +58,7 @@
     </div>
     <!-- Bootstrap Modal Dialog -->
                 <div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog" style="margin-top:17vh">
                         <asp:UpdatePanel ID="upModal" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
                             <ContentTemplate>
                                 <div class="modal-content">
@@ -69,57 +67,62 @@
                                         <h4 class="modal-title">
                                             <asp:Label ID="lblModalTitle" runat="server" Text=""></asp:Label></h4>
                                     </div>
-                                    <div class="modal-body">
+                                    <div class="modal-body" style="padding:56px; padding-top:50px;height:50vh; display:flex;flex-direction: column">
                                         <asp:Label ID="lblModalBody" runat="server"></asp:Label>
-
                                         <form>
-                                            <div class="form-group">
+                                            <div class="form-group" style="display:flex; justify-content:space-between">
                                                 <label for="lblnombreInsumo">Nombre:</label>
-                                                <asp:TextBox runat="server" type="text" class="form-control" ID="txtnombreInsumo"></asp:TextBox>
+                                                <div class="col-sm-8">
+                                                  <asp:TextBox runat="server" type="text" class="form-control1" style="width:100%" ID="txtnombreInsumo"></asp:TextBox>
+                                                </div>
                                             </div>
-
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
+                                            <div class="form-group" style="display:flex; justify-content:space-between">
                                                     <label for="lblstockMaximo">Stock Máximo:</label>
-                                                    <asp:TextBox runat="server" type="text" class="form-control" ID="txtstockMaximo"></asp:TextBox>
-                                                </div>
-                                                <div class="form-group col-md-6">
+                                                    <div class="col-sm-8">
+                                                        <asp:TextBox runat="server" type="text" class="form-control1" style="width:100%" ID="txtstockMaximo"></asp:TextBox>
+                                                    </div>
+                                            </div>
+                                            <div class="form-group" style="display:flex; justify-content:space-between">
                                                     <label for="lblstockMinimo">Stock Mínimo</label>
-                                                    <asp:TextBox runat="server" type="text" class="form-control" ID="txtstockMinimo"></asp:TextBox>
-                                                </div>
+                                                    <div class="col-sm-8">
+                                                        <asp:TextBox runat="server" type="text" class="form-control1" style="width:100%" ID="txtstockMinimo"></asp:TextBox>
+                                                    </div>
                                             </div>
-
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
+                                            <div class="form-group" style="display:flex; justify-content:space-between">
                                                     <label for="lblprecioUnitario">Precio Unitario:</label>
-                                                    <asp:TextBox runat="server" type="text" class="form-control" ID="txtprecioUnitario"></asp:TextBox>
-                                                </div>
-                                                <div class="form-group col-md-6">
+                                                    <div class="col-sm-8">
+                                                        <asp:TextBox runat="server" type="text" class="form-control1" style="width:100%" ID="txtprecioUnitario"></asp:TextBox>
+                                                    </div>
+                                            </div>
+                                            <div class="form-group" style="display:flex; justify-content:space-between">
                                                     <label for="lblcantidadTotal">Cantidad Total:</label>
-                                                    <asp:TextBox runat="server" type="text" class="form-control" ID="txtcantidadTotal"></asp:TextBox>
-                                                </div>
+                                                    <div class="col-sm-8">
+                                                        <asp:TextBox runat="server" type="text" class="form-control1" style="width:100%" ID="txtcantidadTotal"></asp:TextBox>
+                                                    </div>
                                             </div>
-
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
+                                            <div class="form-group" style="display:flex; justify-content:space-between">
                                                     <label for="lblfechaVencimiento">Fecha de Vencimiento:</label>
-                                                    <asp:TextBox runat="server" type="text" class="form-control" ID="txtfechaVencimiento"></asp:TextBox>
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label for="lblnestadoInsumo">Estado:</label>
-                                                    <asp:TextBox runat="server" type="text" class="form-control" ID="txtnestadoInsumo"></asp:TextBox>
-                                                </div>
+                                                    <div class="col-sm-8">
+                                                        <asp:TextBox runat="server" type="text" class="form-control1" style="width:100%" ID="txtfechaVencimiento"></asp:TextBox>
+                                                    </div>
                                             </div>
-
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
+                                            <div class="form-group" style="display:flex; justify-content:space-between">
+                                                    <label for="lblnestadoInsumo">Estado:</label>
+                                                    <div class="col-sm-8">
+                                                        <asp:TextBox runat="server" type="text" class="form-control1" style="width:100%" ID="txtnestadoInsumo"></asp:TextBox>
+                                                    </div>
+                                            </div>
+                                            <div class="form-group" style="display:flex; justify-content:space-between">
                                                     <label for="lblunidadMedida">Unidad de Medida:</label>
-                                                    <asp:TextBox runat="server" type="text" class="form-control" ID="txtunidadMedida"></asp:TextBox>
-                                                </div>
-                                                <div class="form-group col-md-6">
+                                                    <div class="col-sm-8">
+                                                       <asp:TextBox runat="server" type="text" class="form-control" style="width:100%" ID="txtunidadMedida"></asp:TextBox>
+                                                    </div>
+                                            </div>
+                                            <div class="form-group" style="display:flex; justify-content:space-between">
                                                     <label for="lblcategoriaInsumo">Categoría:</label>
-                                                    <asp:TextBox runat="server" type="text" class="form-control" ID="txtcategoriaInsumo"></asp:TextBox>
-                                                </div>
+                                                    <div class="col-sm-8">
+                                                        <asp:TextBox runat="server" type="text" class="form-control1" style="width:100%" ID="txtcategoriaInsumo"></asp:TextBox>
+                                                    </div>
                                             </div>
                                         </form>                                        
                                     </div>
