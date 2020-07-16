@@ -33,17 +33,17 @@
                                   
                                     <asp:TemplateField HeaderText="Editar">
                                         <ItemTemplate>
-                                            <asp:ImageButton ID="btnSelectItem" runat="server" class="colorBEd" ImageUrl="img/lapiz.png" CommandName="selectItem" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
+                                            <asp:ImageButton ID="btnSelectItem" runat="server" ImageUrl="img/editar.png" onmouseover="this.src='img/editar-b.png'"  onmouseout="this.src='img/editar.png'" CommandName="selectItem" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Ver Detalles">
                                         <ItemTemplate>
-                                            <asp:ImageButton ID="btnSelectItem1"  runat="server" class="colorBV" ImageUrl="img/ver.png" CommandName="selectItem1" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
+                                            <asp:ImageButton ID="btnSelectItem1"  runat="server" ImageUrl="img/ojo.png" onmouseover="this.src='img/ojo-b.png'"  onmouseout="this.src='img/ojo.png'" CommandName="selectItem1" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Eliminar">
                                         <ItemTemplate>
-                                            <asp:ImageButton ID="btnSelectItem2" runat="server" class="colorBE" ImageUrl="img/eliminar.png" CommandName="selectItem2" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
+                                            <asp:ImageButton ID="btnSelectItem2" runat="server" ImageUrl="img/delete.png" onmouseover="this.src='img/basura-b.png'"  onmouseout="this.src='img/delete.png'" CommandName="selectItem2" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
