@@ -136,20 +136,33 @@ namespace MesonURPWEB
         {
                   
             dto_ocxinsumo = new DTO_OCxInsumo();
-            dto_ocxinsumo.I_idInsumo = int.Parse(DdlInsumo.SelectedValue);
+            if (DdlInsumo.SelectedValue == "") { lblMsj1.Text = "Seleccione un insumo"; }
+            else { dto_ocxinsumo.I_idInsumo = int.Parse(DdlInsumo.SelectedValue); }
             DTO_Insumo insumo = ctr_insumo.Consultar_InsumoxID(dto_ocxinsumo.I_idInsumo);
-            dto_ocxinsumo.OCxI_Cantidad = int.Parse(txtCantidad.Text);
+            if (int.Parse(txtCantidad.Text) == 0 || int.Parse(txtCantidad.Text) < 0)
+            {
+                lblMsj.Text = "Ingrese otra cantidad";
+            }
+            if (ctr_insumo.CTR_LimiteStockMax(int.Parse(DdlInsumo.SelectedValue), int.Parse(txtCantidad.Text)) == 1)
+            {
+                lblMsj.Text = "Ingresar una cantidad menor";
+            }
+            else if (txtCantidad.Text == "")
+            {
+                lblMsj.Text = "Ingrese una cantidad";
+            }
+            else
+            {
+                dto_ocxinsumo.OCxI_Cantidad = int.Parse(txtCantidad.Text);
+            }          
             dto_ocxinsumo.OCxI_PrecioTotal = dto_ocxinsumo.OCxI_Cantidad * Convert.ToDecimal(insumo.DR_PrecioUnitario);
             dto_ocxinsumo.OC_idOrdenCompra = dto_oc.OC_idOrdenCompra;
 
             //Registrar y bindear
-
             ctr_ocxinsumo.Registrar_OC_Insumo(dto_ocxinsumo);
             dt = ctr_ocxinsumo.Leer_InsumoxOC(dto_oc.OC_idOrdenCompra);
             GridViewEditarOC.DataSource = dt;
             GridViewEditarOC.DataBind();
-
-            //Leer el total
             SumaTotal();
         }
         public void SumaTotal()
