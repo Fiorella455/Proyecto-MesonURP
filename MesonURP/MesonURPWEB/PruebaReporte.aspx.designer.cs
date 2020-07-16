@@ -15,7 +15,7 @@ namespace MesonURPWEB
     {
 
         /// <summary>
-        /// GridViewOC control.
+        /// Control GridViewOC.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.

@@ -24,6 +24,7 @@ namespace MesonURPWEB
             ctr_oc = new CTR_OC();
             mes = DateTime.Today.Month;
             CargarOC(mes);
+            CargarDdlMes();
 
             if (IsPostBack)
 
