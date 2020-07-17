@@ -51,7 +51,16 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.DropDownList DListFormaP;
 
         /// <summary>
-        /// Control DdlInsumo.
+        /// Control UpdatePanel4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel4;
+
+        /// <summary>
+        /// Control lblMsj1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -87,6 +96,15 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.Label lblMsj;
 
         /// <summary>
+        /// Control UpdatePanel5.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel5;
+
+        /// <summary>
         /// Control txtPrecioU.
         /// </summary>
         /// <remarks>
@@ -96,6 +114,15 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.TextBox txtPrecioU;
 
         /// <summary>
+        /// Control UpdatePanel6.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel6;
+
+        /// <summary>
         /// Control txtMedida.
         /// </summary>
         /// <remarks>
@@ -103,6 +130,15 @@ namespace MesonURPWEB
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMedida;
+
+        /// <summary>
+        /// Control UpdatePanel7.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel7;
 
         /// <summary>
         /// Control btnAñadir.

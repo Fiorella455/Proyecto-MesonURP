@@ -43,13 +43,12 @@
                         </div>
                     </div>
                 </div>
-
-            </div>
-            <div class="text-center">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                     <asp:DropDownList ID="ddlMes" runat="server" OnSelectedIndexChanged="ddlMes_SelectedIndexChanged" AutoPostBack="true" text-align="center" Height="16px" Width="144px">
+                <div class="text-center">
+                     <asp:DropDownList ID="ddlMes" CssClass="form-control1" runat="server" OnSelectedIndexChanged="ddlMes_SelectedIndexChanged" AutoPostBack="true" text-align="center" Width="126px">
                      </asp:DropDownList>
             </div>
+            </div>
+            
 
         </div>
     </div>

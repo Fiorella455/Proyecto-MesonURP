@@ -48,17 +48,24 @@ namespace MesonURPWEB
                 DdlProveedor.DataBind();
                 DdlProveedor.Items.Insert(0, "--seleccionar--");
                 lblIndex.Text = id.ToString();
+
+                int n= ctr_oc.Consult_Incremento();
+                int suma = n + 1;
+                string s = suma.ToString("D5");
+                txtNumeroComprobante.Text = s;
+
+                //dto_oc.OC_NumeroComprobante = ctr_oc.Generar_Numero_Comprobante();
+                //txtNumeroComprobante.Text = dto_oc.OC_NumeroComprobante;
                 //txtFechaEntrega.Text = DateTime.Now.ToString("yyyy-MM-dd");
             }
             else
             {
-                if (DListTipoC.SelectedValue == ""){ lblIndex0.Text = "Seleccione un tipo de comprobante"; }
-                else
-                {
-                    dto_oc.OC_NumeroComprobante = ctr_oc.Generar_Numero_Comprobante(Convert.ToInt32(DListTipoC.SelectedValue)).ToString();
-                    txtNumeroComprobante.Text = dto_oc.OC_NumeroComprobante;
-                }
-                          
+                //if (DListTipoC.SelectedValue == "") { lblIndex0.Text = "Seleccione un tipo de comprobante"; }
+                //else
+                //{
+                //    dto_oc.OC_NumeroComprobante = ctr_oc.Generar_Numero_Comprobante(Convert.ToInt32(DListTipoC.SelectedValue)).ToString();
+                //    txtNumeroComprobante.Text = dto_oc.OC_NumeroComprobante;
+                //}
             }
         }
         protected void DdlInsumo_SelectedIndexChanged(object sender, EventArgs e)
@@ -150,7 +157,7 @@ namespace MesonURPWEB
                 dto_oc.OC_FechaEmision = DateTime.Today.Date.ToString("yyy-MM-dd");
                 dto_oc.OC_FormaPago = DListFormaP.Text;
                 dto_oc.P_idProveedor = int.Parse(DdlProveedor.SelectedValue);
-                dto_oc.OC_TipoComprobante = DListTipoC.Text;               
+                dto_oc.OC_TipoComprobante = DListTipoC.SelectedItem.Text;
                 dto_oc.OC_NumeroComprobante = txtNumeroComprobante.Text;
                 dto_oc.OC_TotalCompra = Convert.ToDecimal(txtTotal.Text);
                 ctr_oc.Registrar_OC(dto_oc);
