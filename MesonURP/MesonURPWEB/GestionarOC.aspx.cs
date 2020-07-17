@@ -118,13 +118,21 @@ namespace MesonURPWEB
                 idOC = Convert.ToInt32(GridViewOC.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["OC_idOrdenCompra"].ToString());
                 dto_oc.OC_idOrdenCompra = idOC;
                 ctr_oc = new CTR_OC();
+
+                string tipoComprobante = GridViewOC.Rows[Convert.ToInt32(e.CommandArgument)].Cells[2].Text;
+                string numeroComprobante = GridViewOC.Rows[Convert.ToInt32(e.CommandArgument)].Cells[3].Text;
+                string formaPago = GridViewOC.Rows[Convert.ToInt32(e.CommandArgument)].Cells[4].Text;
+                string totalCompra = GridViewOC.Rows[Convert.ToInt32(e.CommandArgument)].Cells[5].Text;
+                string fechaEmision = GridViewOC.Rows[Convert.ToInt32(e.CommandArgument)].Cells[6].Text;
+
+
                 string htmlBody = Resource.MensajeOC;
                 htmlBody = htmlBody.Replace("#IDOC#", dto_oc.OC_idOrdenCompra.ToString());
-                htmlBody = htmlBody.Replace("#TIPOCOMPROBANTE#", dto_oc.OC_TipoComprobante);
-                htmlBody = htmlBody.Replace("#NUMEROCOMPROBANTE#", dto_oc.OC_NumeroComprobante);
-                htmlBody = htmlBody.Replace("#FORMADEPAGO#", dto_oc.OC_FormaPago);
-                htmlBody = htmlBody.Replace("#MONTOTOTAL#", dto_oc.OC_TotalCompra.ToString());
-                htmlBody = htmlBody.Replace("#FECHAEMISION#", dto_oc.OC_FechaEmision);
+                htmlBody = htmlBody.Replace("#TIPOCOMPROBANTE#", tipoComprobante);
+                htmlBody = htmlBody.Replace("#NUMEROCOMPROBANTE#", numeroComprobante);
+                htmlBody = htmlBody.Replace("#FORMADEPAGO#", formaPago);
+                htmlBody = htmlBody.Replace("#MONTOTOTAL#", totalCompra);
+                htmlBody = htmlBody.Replace("#FECHAEMISION#", fechaEmision);
 
                 ctr_oc.Enviar_OC(dto_oc, htmlBody);
                 //-----------------------------------------------------------------------

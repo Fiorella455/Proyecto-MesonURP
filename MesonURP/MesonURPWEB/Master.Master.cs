@@ -17,7 +17,6 @@ namespace MesonURPWEB
         {
             if (Session["Login"] != null)
             {
-
                 string perfil = Convert.ToString(Session["TipoPerfil"]);
 
                 switch (perfil)
@@ -29,7 +28,7 @@ namespace MesonURPWEB
                         menuStock.Visible = true;
                         menuReportes.Visible = true;
                         menuGestionarMerma.Visible = false;
-                        menuCategoria.Visible = false;
+                        menuCategoria.Visible = true;
                         menuUsuarios.Visible = false;
                         menuInsumo.Visible = true;
                         lblRol.Text = perfil;

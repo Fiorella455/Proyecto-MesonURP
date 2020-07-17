@@ -94,7 +94,7 @@
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Cantidad</label>
                         <div class="col-sm-8">
-                            <asp:TextBox runat="server" CssClass="form-control1" ID="txtCantidad" onkeypress="return SoloNumeroIntDouble(event);"/>
+                            <asp:TextBox runat="server" CssClass="form-control1" ID="txtCantidad" onkeypress="return SoloNumeroInt(event);"/>
                             <asp:Label ID="lblMsj" runat="server"></asp:Label>
                         </div>
                     </div>
