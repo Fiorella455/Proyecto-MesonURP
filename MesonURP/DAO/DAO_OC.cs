@@ -257,6 +257,45 @@ namespace DAO
             }
 
         }
+        public int Increment()
+        {
+            conexion.Open();
+            SqlCommand comando = new SqlCommand("SP_Incrementar", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.ExecuteNonQuery();
+            int count = Convert.ToInt32(comando.ExecuteScalar());
+            conexion.Close();
+            return count;
+            
+        }
+        public bool VericarExisteNC(DTO_OC dto_oc)
+        {
+            try
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_Consultar_OC_Repetido", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@OC_NumeroComprobante", dto_oc.OC_NumeroComprobante);
+                cmd.ExecuteNonQuery();
+
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                if (count == 0)
+                {
+                    conexion.Close();
+                    return false;
+                }
+                else
+                {
+                    conexion.Close();
+                    return true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
     }
 }
