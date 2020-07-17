@@ -78,15 +78,6 @@ namespace MesonURPWEB
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl menuOrdenCompra;
 
         /// <summary>
-        /// Control lblGestionarOrden.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblGestionarOrden;
-
-        /// <summary>
         /// Control menuProveedor.
         /// </summary>
         /// <remarks>

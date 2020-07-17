@@ -19,6 +19,9 @@
                               <h4>Órdenes de Compra e Insumos</h4>
                          </div>
                              <div class="table-wrapper-scroll-y my-custom-scrollbar" id="Reporte">
+                                   <div class="progressbar-heading grids-heading title-flex">
+                                      <h2 class="tittle-margin5">Reporte de Compras Realizadas</h2>                                         
+                                  </div>
                                   <asp:GridView ID="GridViewOC" Allowpaging="True" runat="server" emptydatatext="No hay información disponible."
                                    AutoGenerateColumns="False" CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None">
                                              <Columns>

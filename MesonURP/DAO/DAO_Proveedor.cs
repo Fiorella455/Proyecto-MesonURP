@@ -76,7 +76,6 @@ namespace DAO
             dto_proveedor.Estado = 99;
             conexion.Close();
             return hayProveedor;
-
         }
         public DataSet DAO_Leer_Proveedor()
         {

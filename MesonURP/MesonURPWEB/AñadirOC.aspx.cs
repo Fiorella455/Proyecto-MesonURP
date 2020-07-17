@@ -154,8 +154,7 @@ namespace MesonURPWEB
 
         protected void btnAñadirOC_Click(object sender, EventArgs e)
         {           
-
-                dto_oc.OC_FechaEmision = DateTime.Today.Date.ToShortDateString();
+                dto_oc.OC_FechaEmision = DateTime.Today.Date.ToString("yyy-MM-dd");
                 dto_oc.OC_FormaPago = DListFormaP.Text;
                 dto_oc.P_idProveedor = int.Parse(DdlProveedor.SelectedValue);
                 dto_oc.OC_TipoComprobante = DListTipoC.SelectedItem.Text;

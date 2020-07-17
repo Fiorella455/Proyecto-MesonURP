@@ -65,6 +65,7 @@
                                 <asp:ListItem Text="Efectivo" Value="Efectivo">Efectivo</asp:ListItem>
                                 <asp:ListItem Text="Crédito" Value="Crédito">Crédito</asp:ListItem>
                             </asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="DListFormaP" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                                 </ContentTemplate>
                         </asp:UpdatePanel>
@@ -168,7 +169,7 @@
                         </div>
                         <hr />
                         <p class="center-button">
-                            <asp:Button ID="btnAñadirOC" CssClass="btn btn-primary" runat="server" OnClick="btnAñadirOC_Click" Text="Agregar" />
+                            <asp:Button ID="btnAñadirOC" CssClass="btn btn-primary" runat="server" OnClick="btnAñadirOC_Click" Text="Agregar" ValidationGroup="añadirOC" />
                             <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'GestionarOC';" class="btn btn-primary" />
                             <%--<asp:Button ID="btnLimpiarOC" CssClass="btn btn-primary" runat="server" OnClick="btnAñadirOC_Click" Text="Limpiar" />--%>
                             <input type="reset" name="res-1" id="res-1" value="Limpiar" class="btn btn-danger" />
