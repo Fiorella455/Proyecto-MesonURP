@@ -47,13 +47,13 @@ namespace MesonURPWEB
                 DdlProveedor.DataSource = dtpro;
                 DdlProveedor.DataBind();
                 lblIndex.Text = id.ToString();
-                //txtFechaEntrega.Text = DateTime.Now.ToString("yyyy-MM-dd");
             }
             else
             {
                 if (DListTipoC.SelectedValue == ""){ lblIndex0.Text = "Seleccione un tipo de comprobante"; }
                 else
                 {
+                    lblIndex0.Text = "";
                     dto_oc.OC_NumeroComprobante = ctr_oc.Generar_Numero_Comprobante(Convert.ToInt32(DListTipoC.SelectedValue)).ToString();
                     txtNumeroComprobante.Text = dto_oc.OC_NumeroComprobante;
                 }
@@ -92,18 +92,14 @@ namespace MesonURPWEB
             dto_ocxinsumo.I_idInsumo = int.Parse(DdlInsumo.SelectedValue);
             DTO_Insumo insumo = ctr_insumo.Consultar_InsumoxID(dto_ocxinsumo.I_idInsumo);
             // dto_ocxinsumo.OC_idOrdenCompra = ctr_oc.ID_OC_Actual()+1;
-            if (int.Parse(txtCantidad.Text) == 0 || int.Parse(txtCantidad.Text) < 0)
+            if (Convert.ToInt32(txtCantidad.Text)==0)
             {
                 lblMsj.Text = "Ingrese otra cantidad";
             }
-            else if (txtCantidad.Text == "")
-            {
-                lblMsj.Text = "Ingrese una cantidad";
-            }
-            else
-            {
-                dto_ocxinsumo.OCxI_Cantidad = int.Parse(txtCantidad.Text);
-            }          
+            //if(ctr_ocxinsumo.CTR_Consultar_OCxInsumo_Repetido(int.Parse(txtidOc.Text),dto_ocxinsumo.I_idInsumo))
+            //{
+            //    lblMsj.Text = "Insumo ya registrado";
+            //}        
             if (ctr_insumo.CTR_LimiteStockMax(int.Parse(DdlInsumo.SelectedValue), int.Parse(txtCantidad.Text)) == 1)
             {
                 lblMsj.Text = "Ingresar una cantidad menor";
@@ -112,6 +108,7 @@ namespace MesonURPWEB
             {
 
                 lblMsj.Text = "";
+                dto_ocxinsumo.OCxI_Cantidad = int.Parse(txtCantidad.Text);
                 dto_ocxinsumo.OCxI_PrecioTotal = dto_ocxinsumo.OCxI_Cantidad * Convert.ToDecimal(insumo.DR_PrecioUnitario);
                 suma += dto_ocxinsumo.OCxI_PrecioTotal;
                 dto_oc.OC_TotalCompra += Convert.ToDecimal(dto_ocxinsumo.OCxI_PrecioTotal);
@@ -146,10 +143,10 @@ namespace MesonURPWEB
 
         protected void btnAñadirOC_Click(object sender, EventArgs e)
         {           
-                dto_oc.OC_FechaEmision = DateTime.Today.Date.ToShortDateString();
+                dto_oc.OC_FechaEmision = DateTime.Today.Date.ToString("yyyy-MM-dd");
                 dto_oc.OC_FormaPago = DListFormaP.Text;
                 dto_oc.P_idProveedor = int.Parse(DdlProveedor.SelectedValue);
-                dto_oc.OC_TipoComprobante = DListTipoC.Text;               
+                 dto_oc.OC_TipoComprobante = DListTipoC.Text;               
                 dto_oc.OC_NumeroComprobante = txtNumeroComprobante.Text;
                 dto_oc.OC_TotalCompra = Convert.ToDecimal(txtTotal.Text);
                 ctr_oc.Registrar_OC(dto_oc);

@@ -24,7 +24,7 @@ namespace MesonURPWEB
             ctr_oc = new CTR_OC();
             mes = DateTime.Today.Month;
             CargarOC(mes);
-
+            CargarDdlMes();
             if (IsPostBack)
 
             {
@@ -46,7 +46,7 @@ namespace MesonURPWEB
             dt = ctr_oc.Leer_OCxMes(m);
             GridViewConsultar.DataSource = dt;
             GridViewConsultar.DataBind();
-            CargarDdlMes();
+            
         }
         public void CargarDdlMes()
         {

@@ -31,9 +31,9 @@ namespace CTR
         {
             dao_ocxinsumo.Actualizar_OCxInsumo(oc);
         }
-        public void Eliminar_OCxInsumo(int iOC, int idIns)
+        public void CTR_Consultar_OCxInsumo_Repetido(int iOC, int idIns)
         {
-            dao_ocxinsumo.Eliminar_Insumos_xOC(iOC,idIns);
+            dao_ocxinsumo.Consultar_InsumosxOC_Repetido(iOC,idIns);
         }
     }
 }

@@ -52,7 +52,7 @@
                         <div class="col-sm-8">
                             <asp:TextBox ID="txtNumeroComprobante" runat="server" placeholder="Ingrese el número de comprobante" CssClass="form-control1" onkeypress="return SoloNumeroInt(event);"/>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtNumeroComprobante" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-                            <asp:RegularExpressionValidator ID="rev" runat="server" ErrorMessage="" ControlToValidate="" ForeColor="#CC0000" SetFocusOnError="true" Display="Dynamic" ValidationGroup="" ValidationExpression=""></asp:RegularExpressionValidator>
+               
                         </div>
                     </div>
                     <div class="form-group">

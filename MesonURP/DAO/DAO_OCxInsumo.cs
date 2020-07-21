@@ -10,10 +10,12 @@ namespace DAO
     public class DAO_OCxInsumo
     {
         SqlConnection conexion;
+        DTO_OCxInsumo dto_ocxins;
 
         public DAO_OCxInsumo()
         {
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
+            dto_ocxins = new DTO_OCxInsumo();
 
         }
         public void Registrar_OCxInsumo(DTO_OCxInsumo dto_ocxinsumo)
@@ -30,7 +32,7 @@ namespace DAO
             conexion.Close();
 
         }
-        //Borrar este metodo
+        
         public void Actualizar_OCxInsumo(DTO_OCxInsumo dto_ocxinsumo)
         {
             try
@@ -51,7 +53,7 @@ namespace DAO
                 throw ex;
             }
         }
-        public void Eliminar_Insumos_xOC(int idOC, int idIns)
+        public bool Consultar_InsumosxOC_Repetido(int idOC, int idIns)
         {
             conexion.Open();
             SqlCommand comando = new SqlCommand("SP_Eliminar_InsumoxOC", conexion);
@@ -59,8 +61,16 @@ namespace DAO
             comando.Parameters.AddWithValue("@OC_idOrdenCompra", idOC);
             comando.Parameters.AddWithValue("@I_idInsumo", idIns);
             comando.ExecuteNonQuery();
+            SqlDataReader reader = comando.ExecuteReader();
+            bool hayRegistros = reader.Read();
+            if (hayRegistros)
+            {
+                //Hay registros
+                dto_ocxins.OC_idOrdenCompra = (int)reader[2];
+                dto_ocxins.I_idInsumo = (int)reader[1];
+            }           
             conexion.Close();
-            
+            return hayRegistros;
         }
         public DataTable Leer_Insumos_xOC(int i)
         {
