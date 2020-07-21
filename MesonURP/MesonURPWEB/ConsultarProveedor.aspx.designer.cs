@@ -24,6 +24,15 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.TextBox txtRazonSocial;
 
         /// <summary>
+        /// Control txtRUC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRUC;
+
+        /// <summary>
         /// Control txtTipo.
         /// </summary>
         /// <remarks>

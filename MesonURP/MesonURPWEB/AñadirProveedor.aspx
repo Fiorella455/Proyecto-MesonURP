@@ -22,6 +22,16 @@
                         </div>
                     </div>
                   
+                   <div class="form-group">
+                          <label for="selector1" class="col-sm-2 control-label">RUC:</label>
+                          <div class="col-sm-8">
+                             <asp:TextBox ID="txtRUC" placeholder="Ingrese el RUC" runat="server" CssClass="form-control1" onkeypress="return SoloNumeroInt(event);" MaxLength="20"/>
+                              <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="RUC Inválido" ControlToValidate="txtRUC" ForeColor="#CC0000" ValidationExpression="\d{10,12}" SetFocusOnError="True" Display="Dynamic" ValidationGroup="añadirProveedor"></asp:RegularExpressionValidator>
+                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtRUC" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirProveedor" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                          </div>
+                    </div>
+
+
 
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Tipo de Documento</label>
@@ -30,6 +40,7 @@
                             </asp:DropDownList>
                         </div>
                     </div>
+
                      <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Número de Documento</label>
                         <div class="col-sm-8">

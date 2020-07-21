@@ -30,6 +30,7 @@
                                                      </ItemTemplate>
                                                 </asp:TemplateField>
                                                 <asp:BoundField DataField="P_RazonSocial" HeaderText="Razón Social"/>
+                                                 <asp:BoundField DataField="P_RUC" HeaderText="RUC"/>
                                                 <asp:BoundField DataField="TD_NombreTipoDocumento" HeaderText="Tipo de Documento"/>
                                                 <asp:BoundField DataField="P_NumeroDocumento" HeaderText="Número de Documento"/>
                                                 <asp:BoundField DataField="P_Direccion" HeaderText="Dirección"/>
