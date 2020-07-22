@@ -13,15 +13,9 @@
             <h3 class="title1"></h3>
             <div class="form-three widget-shadow">
                 <div class="form-horizontal" runat="server">
-                    
-                    <div class="form-group">
-                        <label for="focusedinput" class="col-sm-2 control-label">N° Orden</label>
-                        <div class="col-sm-8">
                             <asp:TextBox ID="txtidOC" runat="server" CssClass="form-control1" ReadOnly="true"></asp:TextBox>
-                        </div>
-                    </div>
                      <div class="form-group">
-                        <label for="focusedinput" class="col-sm-2 control-label">N° de Comprobante</label>
+                        <label for="focusedinput" class="col-sm-2 control-label">N° Orden Compra</label>
                         <div class="col-sm-8">
                             <asp:TextBox ID="txtNumComprobante" runat="server" CssClass="form-control1" ReadOnly="true"></asp:TextBox>
                         </div>

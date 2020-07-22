@@ -69,15 +69,6 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
 
         /// <summary>
-        /// Control txtUnidadMedida2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUnidadMedida2;
-
-        /// <summary>
         /// Control txtOculto.
         /// </summary>
         /// <remarks>
@@ -87,13 +78,22 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.TextBox txtOculto;
 
         /// <summary>
-        /// Control panelAñadir.
+        /// Control txtUnidadMedida2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel panelAñadir;
+        protected global::System.Web.UI.WebControls.TextBox txtUnidadMedida2;
+
+        /// <summary>
+        /// Control PanelAñadir.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel PanelAñadir;
 
         /// <summary>
         /// Control btnAñadirInsumo.

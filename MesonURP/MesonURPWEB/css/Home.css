@@ -4,11 +4,12 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 */
-html, body{
+
+html, body {
 	font-family: 'Roboto', sans-serif;
-    font-size: 100%;
-  	overflow-x: hidden;
-	background:#FFFFFF;
+	font-size: 100%;
+	overflow-x: hidden;
+	background: #FFFFFF;
 }
 body a{
 	transition:0.5s all;
@@ -5865,10 +5866,39 @@ margin-top:0;
 	display: flex;
 	justify-content: space-between;
 }
-
+.flex-center {
+	display: flex;
+	align-items: center;
+}
+.marginr-1 {
+	margin-right: -974px;
+}
 .div-movflex {
-    display: flex;
-    margin-top: 17px;
-    margin-bottom: 17px;
+	display: flex;
+	margin-top: 17px;
+	margin-bottom: 17px;
+}
+.cat-flex {
+	display:flex;
+	align-items: center;
+}
+.width100 {
+	width: 100%;
+}
+.w67 {
+	width: 67%;
+}
+.width207 {
+	width: 207px;
+}
+.width38 {
+	width: 38%;
+}
+.categorialbtxt {
+	display: flex;
+	flex-direction: row;
+}
+.marginT8 {
+	margin-left: -67px;
 }
 /***responsive***/

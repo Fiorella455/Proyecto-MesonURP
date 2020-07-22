@@ -28,107 +28,110 @@
             <div class="form-three widget-shadow">
                 <div class="form-horizontal" runat="server">
                     <div class="input-info">
-						<h3>Detalles de Producto</h3>
+						<h3>Detalles de Compra</h3>
 					</div>
-                    <%-- <div class="form-group">
-                        <label for="focusedinput" class="col-sm-2 control-label">N° Orden</label>
-                        <div class="col-sm-8">
-                            <asp:TextBox runat="server" CssClass="form-control1" ID="txtIdOC" />
-                        </div>
-                    </div>--%><%-- <div class="form-group">
-                        <label for="focusedinput" class="col-sm-2 control-label">Fecha de Emisión</label>
-                        <div class="col-sm-8">
-                            <asp:TextBox ID="txtFechaEmision" runat="server" CssClass="form-control1" ReadOnly="true"/>
-                        </div>
-                    </div>--%>
                     <div class="form-group">
-                        <label for="focusedinput" class="col-sm-2 control-label">N° de Comprobante</label>
+                        <label for="focusedinput" class="col-sm-2 control-label">N° Orden Compra</label>
                         <div class="col-sm-8">
-                            <asp:TextBox ID="txtNumComprobante" runat="server"  CssClass="form-control1" />
+                            <asp:TextBox ID="txtNumComprobante" runat="server"  CssClass="form-control1" ReadOnly="true"/>
                         </div>
                     </div>
                     
                      <div class="form-group">
-                        <label for="focusedinput" class="col-sm-2 control-label">Tipo de Comprobante</label>
-                        <div class="col-sm-8">
-                            <asp:TextBox ID="txtTipoComprobante" runat="server" CssClass="form-control1" />
-                        </div>
-                    </div>
-                    <%--  <div class="form-group">
-                        <label for="selector1" class="col-sm-2 control-label">Estado</label>
-                        <div class="col-sm-8">
-                             <asp:TextBox ID="txtEstado" runat="server" CssClass="auto-style1" Height="16px" Width="600px" />
-                            <asp:DropDownList runat="server" CssClass="form-control1" AutoPostBack="true" ID="DdlEstado">
-                            </asp:DropDownList>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="DdlProveedor" ErrorMessage="Campo Obligatorio" ValidationGroup="actOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-                        </div>
-                    </div>--%>
-                    <div class="form-group">
-                        <label for="selector1" class="col-sm-2 control-label">Proveedor</label>
-                        <div class="col-sm-8">
-                            <asp:DropDownList runat="server" CssClass="form-control1" AutoPostBack="true" ID="DdlProveedor">
-                            </asp:DropDownList>
-                        </div>
+                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                            <ContentTemplate>
+                                    <label for="focusedinput" class="col-sm-2 control-label">Tipo de Comprobante</label>
+                                    <div class="col-sm-8">
+                                        <asp:TextBox ID="txtTipoComprobante" runat="server" CssClass="form-control1" ReadOnly="true"/>
+                                    </div>
+                                </ContentTemplate>
+                        </asp:UpdatePanel>
                     </div>
                     <div class="form-group">
-                        <label for="selector1" class="col-sm-2 control-label">Forma de Pago</label>
-                        <div class="col-sm-8">
-                            <asp:DropDownList runat="server" CssClass="form-control1" ID="DListFormaP"  AutoPostBack="true">
-                                <asp:ListItem  Value="">--seleccione--</asp:ListItem>
-                                <asp:ListItem Text="Efectivo" Value="Efectivo">Efectivo</asp:ListItem>
-                                <asp:ListItem Text="Crédito" Value="Crédito">Crédito</asp:ListItem>
-                            </asp:DropDownList>
-                        </div>
+                        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                            <ContentTemplate>
+                                    <label for="selector1" class="col-sm-2 control-label">Proveedor</label>
+                                    <div class="col-sm-8">
+                                        <asp:DropDownList runat="server" CssClass="form-control1" AutoPostBack="true" ID="DdlProveedor">
+                                        </asp:DropDownList>
+                                    </div>
+                                </ContentTemplate>
+                        </asp:UpdatePanel>
+                    </div>
+                    <div class="form-group">
+                         <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                            <ContentTemplate>
+                                    <label for="selector1" class="col-sm-2 control-label">Forma de Pago</label>
+                                    <div class="col-sm-8">
+                                        <asp:DropDownList runat="server" CssClass="form-control1" ID="DListFormaP"  AutoPostBack="true">
+                                            <asp:ListItem  Value="">--seleccione--</asp:ListItem>
+                                            <asp:ListItem Text="Efectivo" Value="Efectivo">Efectivo</asp:ListItem>
+                                            <asp:ListItem Text="Crédito" Value="Crédito">Crédito</asp:ListItem>
+                                        </asp:DropDownList>
+                                    </div>
+                                 </ContentTemplate>
+                        </asp:UpdatePanel>
                     </div>
                       
                       <div class="input-info">
 						<h3>Detalles de Insumo</h3>
 					</div>
-                    <%--    <div class="form-group">
-                        <label for="selector1" class="col-sm-2 control-label">Categoría</label>
-                        <div class="col-sm-8">
-                            <asp:DropDownList ID="DdlCategoria" runat="server" CssClass="form-control1" AutoPostBack="true">
-                            </asp:DropDownList>
-                        </div>
-                    </div>--%>
                       <div class="form-group">
-                        <label for="selector1" class="col-sm-2 control-label">Insumo</label>
-                        <div class="col-sm-8">
-                            <asp:DropDownList ID="DdlInsumo" runat="server" CssClass="form-control1" AutoPostBack="true" OnSelectedIndexChanged="DdlInsumo_SelectedIndexChanged">
-                            </asp:DropDownList>
-                            <br />
-                            <asp:Label ID="lblMsj1" runat="server"></asp:Label>
-                        </div>
+                          <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+                            <ContentTemplate>
+                                <label for="selector1" class="col-sm-2 control-label">Insumo</label>
+                                <div class="col-sm-8">
+                                    <asp:DropDownList ID="DdlInsumo" runat="server" CssClass="form-control1" AutoPostBack="true" OnSelectedIndexChanged="DdlInsumo_SelectedIndexChanged">
+                                    </asp:DropDownList>
+                                    <br />
+                                    <asp:Label ID="lblMsj1" runat="server"></asp:Label>
+                                </div>
+                                 </ContentTemplate>
+                        </asp:UpdatePanel>
                     </div>
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Cantidad</label>
                         <div class="col-sm-8">
-                            <asp:TextBox runat="server" CssClass="form-control1" ID="txtCantidad" />
+                            <asp:TextBox runat="server" CssClass="form-control1" ID="txtCantidad" onkeypress="return SoloNumeroInt(event);"/>
                             <asp:Label ID="lblMsj" runat="server"></asp:Label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="focusedinput" class="col-sm-2 control-label">Precio Unitario</label>
-                        <div class="col-sm-8">
-                            <asp:TextBox runat="server" CssClass="form-control1" ID="txtPrecioU" ReadOnly="true" />
-                        </div>
+                        <asp:UpdatePanel ID="UpdatePanel5" runat="server">
+                            <ContentTemplate>
+                                    <label for="focusedinput" class="col-sm-2 control-label">Precio Unitario</label>
+                                    <div class="col-sm-8">
+                                        <asp:TextBox runat="server" CssClass="form-control1" ID="txtPrecioU" ReadOnly="true" />
+                                    </div>
+                                 </ContentTemplate>
+                        </asp:UpdatePanel>
                     </div>
                       <div class="form-group">
-                        <label for="selector1" class="col-sm-2 control-label">Unidades de Medida</label>
-                        <div class="col-sm-8">
-                            <asp:TextBox runat="server" CssClass="form-control1" ID="txtMedida" ReadOnly="true"/>
-                        </div>
+                          <asp:UpdatePanel ID="UpdatePanel6" runat="server">
+                            <ContentTemplate>
+                                    <label for="selector1" class="col-sm-2 control-label">Unidades de Medida</label>
+                                    <div class="col-sm-8">
+                                        <asp:TextBox runat="server" CssClass="form-control1" ID="txtMedida" ReadOnly="true"/>
+                                    </div>
+                                </ContentTemplate>
+                        </asp:UpdatePanel>
                     </div>
+                     <asp:UpdatePanel ID="UpdatePanel7" runat="server">
+                            <ContentTemplate>
                      <p class="center-button">
                             <asp:Button CssClass="btn btn-primary" runat="server" Text="Añadir" ValidationGroup="actOC" ID="btnAñadir" OnClick="btnAñadir_Click"/>
                             <asp:Button CssClass="btn btn-primary" runat="server" Text="Quitar" ID="btnQuitar" OnClick="btnQuitar_Click" />
                         </p>
+                     </ContentTemplate>
+                        </asp:UpdatePanel>
 
                     <div class="panel panel-widget forms-panel">
                         <div class="form-grids widget-shadow" data-example-id="basic-forms">
                             <div class="form-title color-white">
-                                <h4>Órdenes de Compra</h4>
+                                <h4>Insumoa</h4>
                             </div>
+                            <asp:UpdatePanel ID="UpdatePanel8" runat="server">
+                            <ContentTemplate>
                             <div class="table-wrapper-scroll-y my-custom-scrollbar">
                                 <asp:GridView ID="GridViewEditarOC" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible."  OnRowDataBound="GridViewEditarOC_OnRowDataBound" 
                                   DataKeyName=I_NombreInsumo CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None" AutoGenerateColumns="false" OnSelectedIndexChanged="GridViewEditarOC_SelectedIndexChanged">
@@ -143,12 +146,18 @@
                                     <SelectedRowStyle BackColor="LightGreen"/>
                                 </asp:GridView>
                             </div>
+                                 </ContentTemplate>
+                        </asp:UpdatePanel>
                              <div class="form-group">
+                                  <asp:UpdatePanel ID="UpdatePanel9" runat="server">
+                            <ContentTemplate>
                         <label for="focusedinput" class="col-sm-2 control-label">Total</label>
                         <div class="col-sm-1">
                             <asp:TextBox ID="txtTotal" runat="server" CssClass="auto-style1" Width="90px" ReadOnly="true" />
                             <asp:Label ID="lblDataT" runat="server"></asp:Label>
                         </div>
+                                 </ContentTemplate>
+                        </asp:UpdatePanel>
                     </div>
                         </div>
                         <hr />
@@ -184,6 +193,18 @@
              if (tecla >= 8226 && tecla <= 10175) { return false; }
              var regEx = /^[0-9\.]+$/i;
              return regEx.test(String.fromCharCode(tecla));
+         }
+         function alertaExito() {
+             Swal.fire({
+                 title: 'Enhorabuena!',
+                 text: 'Se ha logrado actualizar correctamente',
+                 icon: 'success',
+                 confirmButtonText: 'Aceptar'
+             }).then((result) => {
+                 if (result.value) {
+                     window.location.href = "GestionarOC";
+                 }
+             })
          }
      </script>
 </asp:Content>

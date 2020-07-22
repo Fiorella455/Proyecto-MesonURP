@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="GestionarInsumo.aspx.cs" Inherits="MesonURPWEB.GestionarInsumo" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="GestionarInsumo.aspx.cs" enableEventValidation="false" Inherits="MesonURPWEB.GestionarInsumo" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -10,7 +9,7 @@
                 <h2 class="tittle-margin5">Gestionar Insumos</h2>
                 <div class="stock-options">
                     <div class="width-auto margin-5">
-                        <input type="button" class="btn btn-primary" value="Agregar Nuevo Insumo" onclick="window.location.href = 'AñadirInsumo.aspx';">
+                        <input type="button" class="btn btn-primary" value="Agregar Nuevo Insumo" onclick="window.location.href = 'AñadirInsumo';">
                     </div>
                 </div>
             </div>
@@ -34,17 +33,17 @@
                                   
                                     <asp:TemplateField HeaderText="Editar">
                                         <ItemTemplate>
-                                            <asp:Button ID="btnSelectItem" class="btn btn-primary" runat="server" CommandName="selectItem" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Editar" />
+                                            <asp:ImageButton ID="btnSelectItem" runat="server" ImageUrl="img/editar.png" onmouseover="this.src='img/editar-b.png'"  onmouseout="this.src='img/editar.png'" CommandName="selectItem" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Ver Detalles">
                                         <ItemTemplate>
-                                            <asp:Button ID="btnSelectItem1" class="btn btn-primary" runat="server" CommandName="selectItem1" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Consultar" />
+                                            <asp:ImageButton ID="btnSelectItem1"  runat="server" ImageUrl="img/ojo.png" onmouseover="this.src='img/ojo-b.png'"  onmouseout="this.src='img/ojo.png'" CommandName="selectItem1" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Eliminar">
                                         <ItemTemplate>
-                                            <asp:Button ID="btnSelectItem2" class="btn btn-primary" runat="server" CommandName="selectItem2" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" Text="Eliminar" />
+                                            <asp:ImageButton ID="btnSelectItem2" runat="server" ImageUrl="img/delete.png" onmouseover="this.src='img/basura-b.png'"  onmouseout="this.src='img/delete.png'" CommandName="selectItem2" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
@@ -59,7 +58,7 @@
     </div>
     <!-- Bootstrap Modal Dialog -->
                 <div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog" style="margin-top:17vh">
                         <asp:UpdatePanel ID="upModal" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
                             <ContentTemplate>
                                 <div class="modal-content">
@@ -68,40 +67,64 @@
                                         <h4 class="modal-title">
                                             <asp:Label ID="lblModalTitle" runat="server" Text=""></asp:Label></h4>
                                     </div>
-                                    <div class="modal-body">
-                                        <asp:Label ID="lblModalBody" runat="server" Text=""></asp:Label>
-
-
-                                        <label for="lblnombreInsumo" class="control-label">Nombre:</label>
-                                        <asp:TextBox id="txtnombreInsumo" runat="server" class="form-control1" type="text" placeholder="Nombre del insumo"></asp:TextBox>
-                                        
-                                        <label for="lblstockMaximo" class="control-label">Stock Máximo:</label>
-                                        <asp:TextBox id="txtstockMaximo" runat="server" class="form-control1" type="text" placeholder="Stock Máximo"></asp:TextBox>
-
-                                        <label for="lblstockMinimo" class="control-label">Stock Mínimo:</label>
-                                        <asp:TextBox id="txtstockMinimo" runat="server" class="form-control1" type="text" placeholder="Stock Mínimo"></asp:TextBox>
-
-                                        <label for="lblprecioUnitario" class="control-label">Precio Unitario:</label>
-                                        <asp:TextBox id="txtprecioUnitario" runat="server" class="form-control1" type="text" placeholder="Precio Unitario"></asp:TextBox>
-
-                                        <label for="lblcantidadTotal" class="control-label">Cantidad Total:</label>
-                                        <asp:TextBox id="txtcantidadTotal" runat="server" class="form-control1" type="text" placeholder="Cantidad Total"></asp:TextBox>
-
-                                        <label for="lblfechaVencimiento" class="control-label">Fecha de Vencimiento:</label>
-                                        <asp:TextBox id="txtfechaVencimiento" runat="server" class="form-control1" type="text" placeholder="Fecha de Vencimiento"></asp:TextBox>
-
-                                        <label for="lblestadoInsumo" class="control-label">Estado del Insumo:</label>
-                                        <asp:TextBox id="txtestadoInsumo" runat="server" class="form-control1" type="text" placeholder="Estado del Insumo"></asp:TextBox>
-
-                                        <label for="lblnestadoInsumo" class="control-label">Nombre del Estado:</label>
-                                        <asp:TextBox id="txtnestadoInsumo" runat="server" class="form-control1" type="text" placeholder="Estado del Insumo"></asp:TextBox>
-
-                                        <label for="lblunidadMedida" class="control-label">Unidad de Medida:</label>
-                                        <asp:TextBox id="txtunidadMedida" runat="server" class="form-control1" type="text" placeholder="Unidad de Medida"></asp:TextBox>
-
-                                        <label for="lblcategoriaInsumo" class="control-label">Categoría del Insumo:</label>
-                                        <asp:TextBox id="txtcategoriaInsumo" runat="server" class="form-control1" type="text" placeholder="Categoría del Insumo"></asp:TextBox>
-
+                                    <div class="modal-body" style="padding:56px; padding-top:50px;height:50vh; display:flex;flex-direction: column">
+                                        <asp:Label ID="lblModalBody" runat="server"></asp:Label>
+                                        <form>
+                                            <div class="form-group" style="display:flex; justify-content:space-between">
+                                                <label for="lblnombreInsumo">Nombre:</label>
+                                                <div class="col-sm-8">
+                                                  <asp:TextBox runat="server" type="text" class="form-control1" style="width:100%" ID="txtnombreInsumo"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" style="display:flex; justify-content:space-between">
+                                                    <label for="lblstockMaximo">Stock Máximo:</label>
+                                                    <div class="col-sm-8">
+                                                        <asp:TextBox runat="server" type="text" class="form-control1" style="width:100%" ID="txtstockMaximo"></asp:TextBox>
+                                                    </div>
+                                            </div>
+                                            <div class="form-group" style="display:flex; justify-content:space-between">
+                                                    <label for="lblstockMinimo">Stock Mínimo</label>
+                                                    <div class="col-sm-8">
+                                                        <asp:TextBox runat="server" type="text" class="form-control1" style="width:100%" ID="txtstockMinimo"></asp:TextBox>
+                                                    </div>
+                                            </div>
+                                            <div class="form-group" style="display:flex; justify-content:space-between">
+                                                    <label for="lblprecioUnitario">Precio Unitario:</label>
+                                                    <div class="col-sm-8">
+                                                        <asp:TextBox runat="server" type="text" class="form-control1" style="width:100%" ID="txtprecioUnitario"></asp:TextBox>
+                                                    </div>
+                                            </div>
+                                            <div class="form-group" style="display:flex; justify-content:space-between">
+                                                    <label for="lblcantidadTotal">Cantidad Total:</label>
+                                                    <div class="col-sm-8">
+                                                        <asp:TextBox runat="server" type="text" class="form-control1" style="width:100%" ID="txtcantidadTotal"></asp:TextBox>
+                                                    </div>
+                                            </div>
+                                            <div class="form-group" style="display:flex; justify-content:space-between">
+                                                    <label for="lblfechaVencimiento">Fecha de Vencimiento:</label>
+                                                    <div class="col-sm-8">
+                                                        <asp:TextBox runat="server" type="text" class="form-control1" style="width:100%" ID="txtfechaVencimiento"></asp:TextBox>
+                                                    </div>
+                                            </div>
+                                            <div class="form-group" style="display:flex; justify-content:space-between">
+                                                    <label for="lblnestadoInsumo">Estado:</label>
+                                                    <div class="col-sm-8">
+                                                        <asp:TextBox runat="server" type="text" class="form-control1" style="width:100%" ID="txtnestadoInsumo"></asp:TextBox>
+                                                    </div>
+                                            </div>
+                                            <div class="form-group" style="display:flex; justify-content:space-between">
+                                                    <label for="lblunidadMedida">Unidad de Medida:</label>
+                                                    <div class="col-sm-8">
+                                                       <asp:TextBox runat="server" type="text" class="form-control" style="width:100%" ID="txtunidadMedida"></asp:TextBox>
+                                                    </div>
+                                            </div>
+                                            <div class="form-group" style="display:flex; justify-content:space-between">
+                                                    <label for="lblcategoriaInsumo">Categoría:</label>
+                                                    <div class="col-sm-8">
+                                                        <asp:TextBox runat="server" type="text" class="form-control1" style="width:100%" ID="txtcategoriaInsumo"></asp:TextBox>
+                                                    </div>
+                                            </div>
+                                        </form>                                        
                                     </div>
                                     <div class="modal-footer">
                                         <button class="btn btn-info" data-dismiss="modal" aria-hidden="true">OK</button>
@@ -180,4 +203,5 @@
         //    })
         //}
     </script>
+
 </asp:Content>

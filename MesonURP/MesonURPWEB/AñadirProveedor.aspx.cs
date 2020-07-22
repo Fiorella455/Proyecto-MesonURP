@@ -45,9 +45,36 @@ namespace MesonURPWEB
             dto_proveedor.P_TelefonoContacto = txtTelefono.Text;
             dto_proveedor.P_CorreoContacto = txtCorreo.Text;
             dto_proveedor.EP_idEstadoProveedor = 1;
-            ctr_proveedor.Registrar_Proveedor(dto_proveedor);
-            ScriptManager.RegisterClientScriptBlock(this.panelAñadirProv, this.panelAñadirProv.GetType(), "alert", "alertaExito()", true);
-            return;
+
+            if (ctr_proveedor.Hay_Proveedor(dto_proveedor))
+            {
+                ScriptManager.RegisterClientScriptBlock(this.panelAñadirProv, this.panelAñadirProv.GetType(), "alert", "alertaExiste()", true);
+
+            }
+            else
+            {
+                ctr_proveedor.Registrar_Proveedor(dto_proveedor);
+                ScriptManager.RegisterClientScriptBlock(this.panelAñadirProv, this.panelAñadirProv.GetType(), "alert", "alertaExito()", true);
+             
+            }
+
         }
+
+        protected void DdlTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (int.Parse(DdlTipoDocumento.SelectedValue) == 5)//este valor se puede cambiar según como se encuentre en la BD
+            {
+                revNumDoc.ValidationExpression = @"\d{8}";
+                revNumDoc.ErrorMessage = "DNI Inválido";
+            }//DNI
+            else if (int.Parse(DdlTipoDocumento.SelectedValue) == 6)
+
+            {
+                revNumDoc.ValidationExpression = @"([A-Z]|\d){10,12}";
+                revNumDoc.ErrorMessage = "Pasaporte Inválido";
+            }
+            //PASAPORTE
+
+        }   
     }
 }

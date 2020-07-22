@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using CTR;
+using DTO;
 
 namespace MesonURPWEB
 {
@@ -41,9 +42,18 @@ namespace MesonURPWEB
             }
             if (e.CommandName == "EliminarProveedor")
             {
+                //ScriptManager.RegisterClientScriptBlock(this.panelEliProv,this.panelEliProv.GetType(),"alert", "deleteProv()", true);
+                 ClientScript.RegisterStartupScript(this.GetType(), "alert" , "deleteProv()", true);
+                
+                CTR_Proveedor cp = new CTR_Proveedor();
                 int id = Convert.ToInt32(GridViewProveedor.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["P_idProveedor"].ToString());
-                Session.Add("id", id);
-                Response.Redirect("EliminarProveedor.aspx");
+                //Session.Add("id", id);
+                cp.Eliminar_Proveedor(id);
+                dt = new DataSet();
+                dt = cp.Leer_Proveedor();
+                GridViewProveedor.DataSource = dt;
+                GridViewProveedor.DataBind();
+                //Response.Redirect("EliminarProveedor.aspx");
             }
         }
 
@@ -51,11 +61,12 @@ namespace MesonURPWEB
         {
             if(e.Row.RowType==DataControlRowType.DataRow)
             {
-                string estado = e.Row.Cells[8].Text.ToString();
-                if(estado=="Activo")
-                {
-                    e.Row.Cells[11].Controls.Clear();
-                }
+                CTR_Proveedor p = new CTR_Proveedor();
+                bool abierto=p.Existe_Proveedor_OC(e.Row.Cells[1].Text);
+                //string estado = e.Row.Cells[8].Text.ToString();
+                //if(estado=="Activo")e.Row.Cells[11].Controls.Clear();
+                if (abierto)e.Row.Cells[11].Controls.Clear();
+                
             }
         }
     }

@@ -1,6 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ActualizarInsumo.aspx.cs" Inherits="MesonURPWEB.ActualizarInsumo" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ActualizarInsumo.aspx.cs" enableEventValidation="false" Inherits="MesonURPWEB.ActualizarInsumo" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <div class="women_main">
         <!-- start content -->
@@ -26,7 +27,7 @@
 						<div class="col-sm-8">
                             <asp:TextBox ID="txtstockMin" runat="server" CssClass="form-control1"/>
                             <asp:RegularExpressionValidator ID="revStockMin" runat="server" ErrorMessage="Por favor ingrese número enteros o decimales positivos, por ejemplo: '1,325'" ControlToValidate="txtstockMin" ForeColor="#CC0000" ValidationExpression="[0-9]{1,3}(,[0-9]{1,3})?" SetFocusOnError="True" Display="Dynamic"></asp:RegularExpressionValidator>
-                            <asp:RequiredFieldValidator ID="rfvstockMin" runat="server" ControlToValidate="txtstockMin" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="rfvstockMin" runat="server" ControlToValidate="txtstockMin" ErrorMessage="Campo Obligatorio" ValidationGroup="actualizarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 						</div>
 					</div>
                     <div class="form-group">
@@ -34,14 +35,14 @@
 						<div class="col-sm-8">
                             <asp:TextBox ID="txtstockMax" runat="server" CssClass="form-control1"/>
                             <asp:RegularExpressionValidator ID="revStockMax" runat="server" ErrorMessage="Por favor ingrese número enteros o decimales positivos, por ejemplo: '1,325'" ControlToValidate="txtstockMax" ForeColor="#CC0000" ValidationExpression="[0-9]{1,3}(,[0-9]{1,3})?" SetFocusOnError="True" Display="Dynamic"></asp:RegularExpressionValidator>
-                            <asp:RequiredFieldValidator ID="rfvstockMax" runat="server" ControlToValidate="txtstockMax" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="rfvstockMax" runat="server" ControlToValidate="txtstockMax" ErrorMessage="Campo Obligatorio" ValidationGroup="actualizarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 						</div>
 					</div>
                      <div class="form-group">
 						<label for="focusedinput" class="col-sm-2 control-label">Cantidad Total</label>
 							<div class="col-sm-8">
                                 <asp:TextBox ID="txtcant" runat="server" CssClass="form-control1" ReadOnly="true"/>
-                                <asp:RequiredFieldValidator ID="rfvcantT" runat="server" ControlToValidate="txtcant" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator ID="rfvcantT" runat="server" ControlToValidate="txtcant" ErrorMessage="Campo Obligatorio" ValidationGroup="actualizarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 							</div>
 					</div>
                     <div class="form-group">
@@ -52,7 +53,7 @@
 							            <asp:DropDownList id="ddlMedida" runat="server" CssClass="form-control1" AutoPostBack="true">
 								            <asp:ListItem Text="" Value="">Seleccione una medida</asp:ListItem>
   							            </asp:DropDownList>
-                                        <asp:RequiredFieldValidator ID="rfvmedida" runat="server" ControlToValidate="ddlMedida" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                                        <asp:RequiredFieldValidator ID="rfvmedida" runat="server" ControlToValidate="ddlMedida" ErrorMessage="Campo Obligatorio" ValidationGroup="actualizarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 					            </div>
                             </ContentTemplate>
                         </asp:UpdatePanel>
@@ -62,18 +63,19 @@
 						<div class="col-sm-8">
                             <asp:TextBox ID="txtPrecio" runat="server" CssClass="form-control1"/>
                             <asp:RegularExpressionValidator ID="revPrecio" runat="server" ErrorMessage="Por favor ingrese número enteros o decimales positivos, por ejemplo: '1,325'" ControlToValidate="txtPrecio" ForeColor="#CC0000" ValidationExpression="[0-9]+(,[0-9]{1,3})?" SetFocusOnError="True" Display="Dynamic"></asp:RegularExpressionValidator>
-                            <asp:RequiredFieldValidator ID="rfvprecioU" runat="server" ControlToValidate="txtPrecio" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="rfvprecioU" runat="server" ControlToValidate="txtPrecio" ErrorMessage="Campo Obligatorio" ValidationGroup="actualizarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 						</div>
 					</div>
                     <div class="form-group">
-                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                         <asp:UpdatePanel ID="UpdatePanel1" runat="server" class="flex-center">
                             <ContentTemplate>
-                               <div class="col-sm-8"> 
+                               <div class="col-sm-8 marginr-1" style="margin-left: 39px;"> 
                                     <asp:CheckBox ID="CheckBox1" runat="server" AutoPostBack="true" OnCheckedChanged="CheckBox1_CheckedChanged" />
-                                    <label for="chec">Fecha de Vencimiento </label>
+                                    <label for="chec">Fecha de Vencimiento</label>
                                </div>
-                                <div class="col-md-7 col-md-push-2">  
-                                    <asp:TextBox ID="txtfechaV" runat="server" TextMode="Date" CssClass="form-control1" Visible="False"></asp:TextBox>
+                                <div class="col-md-7 col-md-push-2 style="width:67%; margin-top: -23px;">  
+                                    <asp:TextBox ID="txtfechaV" runat="server" TextMode="Date" CssClass="form-control1 w67" Visible="False" style="width: 115%"></asp:TextBox>
+                                    <asp:RangeValidator ID ="rvDateValidator" runat ="server" ControlToValidate="txtfechaV" ErrorMessage="Por favor ingrese una fecha válida" Type="Date" Display="Dynamic" ForeColor="#CC0000"></asp:RangeValidator>                            
                                 </div>
                             </ContentTemplate>
                             <Triggers>
@@ -89,7 +91,7 @@
 								    <asp:DropDownList id="ddlCategorias" runat="server" CssClass="form-control1" AutoPostBack="true">
 									    <asp:ListItem Text="" Value="">Seleccione una categoría</asp:ListItem>
   								    </asp:DropDownList>
-                                    <asp:RequiredFieldValidator ID="rfvcategoria" runat="server" ControlToValidate="ddlCategorias" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="rfvcategoria" runat="server" ControlToValidate="ddlCategorias" ErrorMessage="Campo Obligatorio" ValidationGroup="actualizarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 						        </div>
                             </ContentTemplate>
                         </asp:UpdatePanel>
@@ -100,12 +102,12 @@
 								<asp:DropDownList id="ddlEstado" runat="server" CssClass="form-control1" AutoPostBack="true">
 									<asp:ListItem Text="agotado" Value="2">Agotado</asp:ListItem>
   								</asp:DropDownList>
-                                <asp:RequiredFieldValidator ID="rfvestado" runat="server" ControlToValidate="ddlEstado" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator ID="rfvestado" runat="server" ControlToValidate="ddlEstado" ErrorMessage="Campo Obligatorio" ValidationGroup="actualizarInsumo" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 						</div>
 					</div>
                     <hr />
                     <p class="center-button">
-                        <asp:Button ID="btnActualizar" CssClass="btn btn-primary" runat="server" Text="Actualizar Insumo" OnClick="btnActualizar_Click" />
+                        <asp:Button ID="btnActualizar" CssClass="btn btn-primary" runat="server" Text="Actualizar Insumo" OnClick="btnActualizar_Click"/>
                         <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'GestionarInsumo';" class="btn btn-primary" />
                         <%--<asp:Button ID="btnCancelar" class="btn btn-danger" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" CausesValidation="False" />--%>
                         <input type="reset" name="res-1" id="res-1" value="Limpiar" class="btn btn-danger" />

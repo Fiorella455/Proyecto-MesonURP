@@ -47,7 +47,7 @@ namespace MesonURPWEB
 
                     Session["I_idInsumo"] = pkInsumo;
 
-                    Response.Redirect("ActualizarInsumo.aspx");
+                    Response.Redirect("ActualizarInsumo");
                 }
                 else if (e.CommandName == "selectItem1")//VER 
                 {
@@ -58,7 +58,7 @@ namespace MesonURPWEB
                     var modal = _Ci.consultarInsumo2(pkInsumo);
 
                     lblModalTitle.Text = "Detalles del insumo";
-                    
+
                     txtnombreInsumo.Text = modal.Rows[0]["I_NombreInsumo"].ToString();
                     txtnombreInsumo.Enabled = false;
                     txtstockMaximo.Text = modal.Rows[0]["I_StockMaximo"].ToString();
@@ -71,15 +71,17 @@ namespace MesonURPWEB
                     txtcantidadTotal.Enabled = false;
                     txtfechaVencimiento.Text = modal.Rows[0]["FechaVencimiento"].ToString();
                     txtfechaVencimiento.Enabled = false;
-                    txtestadoInsumo.Text = modal.Rows[0]["EI_idEstadoInsumo"].ToString();
-                    txtestadoInsumo.Enabled = false;
                     txtnestadoInsumo.Text = modal.Rows[0]["EI_NombreEstadoInsumo"].ToString();
                     txtnestadoInsumo.Enabled = false;
                     txtunidadMedida.Text = modal.Rows[0]["M_NombreMedida"].ToString();
                     txtunidadMedida.Enabled = false;
                     txtcategoriaInsumo.Text = modal.Rows[0]["C_NombreCategoria"].ToString();
                     txtcategoriaInsumo.Enabled = false;
-                    
+
+
+                    ////txtestadoInsumo.Text = modal.Rows[0]["EI_idEstadoInsumo"].ToString();
+                    ////txtestadoInsumo.Enabled = false;
+
                     //Response.Redirect("ActualizarInsumo.aspx");
                 }
                 else if (e.CommandName == "selectItem2")//ELIMINAR 
@@ -126,12 +128,12 @@ namespace MesonURPWEB
         }
         protected void btnRegistrar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("RegistrarInsumo.aspx");
+            Response.Redirect("RegistrarInsumo");
         }
 
         protected void btnVerDetalle_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ConsultarInsumo.aspx");
+            Response.Redirect("ConsultarInsumo");
         }
          
     }

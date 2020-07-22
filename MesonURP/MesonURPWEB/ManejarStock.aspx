@@ -33,7 +33,7 @@
                                     <div class="table-wrapper-scroll-y my-custom-scrollbar">
                                        <asp:GridView ID="gvInsumos" allowpaging="True" AutoGenerateColumns="False" runat="server" emptydatatext="No hay información disponible."  
                                             CssClass="table table-bordered table-striped mb-0" DataKeyNames="I_NombreInsumo,C_NombreCategoria,I_StockMinimo,I_StockMaximo,I_CantidadTotal,M_NombreMedida" 
-                                            OnPageIndexChanging="gvInsumos_PageIndexChanging" PageSize="3">
+                                            OnPageIndexChanging="gvInsumos_PageIndexChanging" Style="text-align: center" CellPadding="4" GridLines="None">
                                             <Columns>
                                                 <asp:BoundField DataField="I_NombreInsumo" HeaderText="Insumo" />
                                                 <asp:BoundField DataField="C_NombreCategoria" HeaderText="Categoria" />

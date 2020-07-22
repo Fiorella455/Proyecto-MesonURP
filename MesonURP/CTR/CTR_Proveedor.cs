@@ -35,6 +35,19 @@ namespace CTR
         {
             dao_proveedor.Eliminar_Proveedor(i);
         }
+        public bool Hay_Proveedor(DTO_Proveedor p)
+        { 
+           return dao_proveedor.Hay_Proveedor(p); 
+        }
+        public bool Existe_Proveedor_OC(string rs)
+        {
+            return dao_proveedor.Existe_Proveedor_OC(rs);
+        }
+        public DataSet SelectProveedorxEstado()
+        {
+            return dao_proveedor.DAO_SelectProveedorxEstado();
+        }
+
     }
 }
 

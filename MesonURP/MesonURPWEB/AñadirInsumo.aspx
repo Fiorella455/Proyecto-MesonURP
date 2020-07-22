@@ -2,6 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="women_main">
         <!-- start content -->
@@ -17,15 +18,15 @@
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Insumo</label>
                         <div class="col-sm-8">
-                            <asp:TextBox ID="txtnombreInsumo" placeholder="Ingrese un nombre de insumo" runat="server" CssClass="form-control1" />
-                            <asp:RegularExpressionValidator ID="revNombreI" runat="server" ErrorMessage="Por favor ingrese solo letras" ControlToValidate="txtnombreInsumo" ForeColor="#CC0000" ValidationExpression="^[a-zA-Z_áéíóúñ\s]*$" SetFocusOnError="True" Display="Dynamic"></asp:RegularExpressionValidator>
+                            <asp:TextBox ID="txtnombreInsumo" placeholder="Ingrese un nombre de insumo" runat="server" CssClass="form-control1" onkeypress="return soloLetras(event);"/>
+                          <%--  <asp:RegularExpressionValidator ID="revNombreI" runat="server" ErrorMessage="Por favor ingrese solo letras" ControlToValidate="txtnombreInsumo" ForeColor="#CC0000" ValidationExpression="^[a-zA-Z_áéíóúñ\s]*$" SetFocusOnError="True" Display="Dynamic"></asp:RegularExpressionValidator>--%>
                             <asp:RequiredFieldValidator ID="rfvnombreI" runat="server" ControlToValidate="txtnombreInsumo" ErrorMessage="Campo Obligatorio" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Stock Mínimo</label>
                         <div class="col-sm-8">
-                            <asp:TextBox ID="txtstockMin" placeholder="Ingrese un stock mínimo" runat="server" CssClass="form-control1" />
+                            <asp:TextBox ID="txtstockMin" placeholder="Ingrese un stock mínimo" runat="server" CssClass="form-control1"/>
                             <asp:RegularExpressionValidator ID="revStockMin" runat="server" ErrorMessage="Por favor ingrese de 1 hasta 3 dígitos números enteros o decimales positivos" ControlToValidate="txtstockMin" ForeColor="#CC0000" ValidationExpression="[0-9]{1,3}(,[0-9]{1,3})?" SetFocusOnError="True" Display="Dynamic"></asp:RegularExpressionValidator>
                             <asp:RequiredFieldValidator ID="rfvstockMin" runat="server" ControlToValidate="txtstockMin" ErrorMessage="Campo Obligatorio" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
@@ -110,7 +111,30 @@
                 </div>
             </div>
         </div>
-        <script src="js/sweetalert.js"></script>
+    <script>
+        function soloLetras(e) {
+            key = e.keyCode || e.which;
+            tecla = String.fromCharCode(key).toLowerCase();
+            letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+            especiales = [8, 37, 39, 46];
+
+            tecla_especial = false
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    tecla_especial = true;
+                    break;
+                }
+            }
+
+            if (letras.indexOf(tecla) == -1 && !tecla_especial)
+                return false;
+        }
+
+    </script>
+    
+    
+    
+    <script src="js/sweetalert.js"></script>
     <script>
         function myalert() {
             Swal.fire({

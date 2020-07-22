@@ -15,7 +15,7 @@ namespace DAO
         DTO_Proveedor dto_proveedor;
         DAO_Proveedor dao_proveedor;
         DTO_OC dto_oc;
-        
+
         public DAO_OC()
         {
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
@@ -25,42 +25,42 @@ namespace DAO
         }
         public void Registrar_OC(DTO_OC dto_oc)
         {
-                conexion.Open();
-                SqlCommand cmd = new SqlCommand("SP_Insertar_OC", conexion);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@OC_TipoComprobante", dto_oc.OC_TipoComprobante);
-                cmd.Parameters.AddWithValue("@OC_NumeroComprobante", dto_oc.OC_NumeroComprobante);
-                cmd.Parameters.AddWithValue("@OC_FormaPago", dto_oc.OC_FormaPago);
-                cmd.Parameters.AddWithValue("@OC_TotalCompra", dto_oc.OC_TotalCompra);
-                cmd.Parameters.AddWithValue("@OC_FechaEmision", dto_oc.OC_FechaEmision);
-                cmd.Parameters.AddWithValue("@P_idProveedor", dto_oc.P_idProveedor);
+            conexion.Open();
+            SqlCommand cmd = new SqlCommand("SP_Insertar_OC", conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@OC_TipoComprobante", dto_oc.OC_TipoComprobante);
+            cmd.Parameters.AddWithValue("@OC_NumeroComprobante", dto_oc.OC_NumeroComprobante);
+            cmd.Parameters.AddWithValue("@OC_FormaPago", dto_oc.OC_FormaPago);
+            cmd.Parameters.AddWithValue("@OC_TotalCompra", dto_oc.OC_TotalCompra);
+            cmd.Parameters.AddWithValue("@OC_FechaEmision", dto_oc.OC_FechaEmision);
+            cmd.Parameters.AddWithValue("@P_idProveedor", dto_oc.P_idProveedor);
             cmd.ExecuteNonQuery();
             conexion.Close();
         }
         public bool Consultar_OC(DTO_OC dto_oc)
         {
 
-                conexion.Open();
-                SqlCommand cmd = new SqlCommand("SP_Consultar_OC",conexion);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(new SqlParameter("@OC_idOrdenCompra",dto_oc.OC_idOrdenCompra));          
-                SqlDataReader reader = cmd.ExecuteReader();
-                bool hayRegistros = reader.Read();
-                if (hayRegistros)
-                {
-                    //Hay registros
-                    dto_oc.OC_idOrdenCompra = (int)reader[0];
-                    dto_oc.OC_TipoComprobante = (string)reader[1];
-                    dto_oc.OC_NumeroComprobante = (string)reader[2];
-                    dto_oc.OC_FormaPago = (string)reader[3];
-                    dto_oc.OC_TotalCompra = (decimal)reader[4];
-                    dto_oc.OC_FechaEmision = (string)reader[5];
-                    dto_oc.P_idProveedor = (int)reader[6];
-                    dto_oc.Estado = 100;
-                }
-                 dto_oc.Estado = 99;
-                conexion.Close();
-                return hayRegistros; 
+            conexion.Open();
+            SqlCommand cmd = new SqlCommand("SP_Consultar_OC", conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@OC_idOrdenCompra", dto_oc.OC_idOrdenCompra));
+            SqlDataReader reader = cmd.ExecuteReader();
+            bool hayRegistros = reader.Read();
+            if (hayRegistros)
+            {
+                //Hay registros
+                dto_oc.OC_idOrdenCompra = (int)reader[0];
+                dto_oc.OC_TipoComprobante = (string)reader[1];
+                dto_oc.OC_NumeroComprobante = (string)reader[2];
+                dto_oc.OC_FormaPago = (string)reader[3];
+                dto_oc.OC_TotalCompra = (decimal)reader[4];
+                dto_oc.OC_FechaEmision = (string)reader[5];
+                dto_oc.P_idProveedor = (int)reader[6];
+                dto_oc.Estado = 100;
+            }
+            dto_oc.Estado = 99;
+            conexion.Close();
+            return hayRegistros;
         }
         public void Actualizar_OC(DTO_OC dto_oc)
         {
@@ -84,39 +84,40 @@ namespace DAO
                 throw ex;
             }
         }
-        public int EnviarCorreo(DTO_OC dto_oc)
+        public int EnviarCorreo(DTO_OC dto_oc, string msj)
         {
-            MailMessage msg = new MailMessage();
-            
-            if (Consultar_OC(dto_oc))
+            try
             {
-                
-                dto_proveedor.P_idProveedor = dto_oc.P_idProveedor;
-                if (dao_proveedor.DAO_Consultar_Proveedor(dto_proveedor))
+                if (Consultar_OC(dto_oc))
                 {
-
-                    msg.To.Add(dto_proveedor.P_CorreoContacto);
-                    msg.Subject = "Orden de Compra" + dto_oc.OC_idOrdenCompra;
-                    msg.SubjectEncoding = System.Text.Encoding.UTF8;
-                   
-                    msg.Body = "Orden Compra:" + dto_oc.OC_idOrdenCompra + "Tipo Comprobante:" + dto_oc.OC_TipoComprobante
-                        + "\rNumero Comprobante:" + dto_oc.OC_NumeroComprobante + "\rFecha Emision" + dto_oc.OC_FechaEmision + "\r\r" +
-                        "Insumos";
-                  //msg.Body = msj;
-                    msg.BodyEncoding = System.Text.Encoding.UTF8;
-                    msg.From = new MailAddress("mesonurp@gmail.com");
-
-                    SmtpClient cliente = new SmtpClient();
-                    cliente.Credentials = new NetworkCredential("mesonurp@gmail.com", "meson123456");
-                    // Gmail
-                    cliente.Host = "smtp.gmail.com";
-                    cliente.Port = 587;
-                    cliente.EnableSsl = true;
-                    cliente.Send(msg);
-                    return 1;
+                    dto_proveedor.P_idProveedor = dto_oc.P_idProveedor;
+                    if (dao_proveedor.DAO_Consultar_Proveedor(dto_proveedor))
+                    {
+                        MailMessage msg = new MailMessage();
+                        msg.To.Add(dto_proveedor.P_CorreoContacto);
+                        msg.Subject = "Orden de Compra" + dto_oc.OC_idOrdenCompra;
+                        msg.SubjectEncoding = Encoding.UTF8;
+                        msg.IsBodyHtml = true;
+                        msg.Body = msj;
+                        msg.BodyEncoding = Encoding.UTF8;
+                        msg.From = new MailAddress("mesonurp@gmail.com");
+                        SmtpClient cliente = new SmtpClient
+                        {
+                            Credentials = new NetworkCredential("mesonurp@gmail.com", "meson123456"),
+                            Host = "smtp.gmail.com",
+                            Port = 587,
+                            EnableSsl = true
+                        };
+                        cliente.Send(msg);
+                        return 1;
+                    }
                 }
+                return 2;
             }
-            return 2;
+            catch (Exception)
+            {
+                throw;
+            }
         }
         public DTO_OC OC_Actual(int i)
         {
@@ -255,6 +256,45 @@ namespace DAO
                 return false;
             }
 
+        }
+        public int Increment()
+        {
+            conexion.Open();
+            SqlCommand comando = new SqlCommand("SP_Incrementar", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.ExecuteNonQuery();
+            int count = Convert.ToInt32(comando.ExecuteScalar());
+            conexion.Close();
+            return count;
+            
+        }
+        public bool VericarExisteNC(DTO_OC dto_oc)
+        {
+            try
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_Consultar_OC_Repetido", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@OC_NumeroComprobante", dto_oc.OC_NumeroComprobante);
+                cmd.ExecuteNonQuery();
+
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+                if (count == 0)
+                {
+                    conexion.Close();
+                    return false;
+                }
+                else
+                {
+                    conexion.Close();
+                    return true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
     }

@@ -41,23 +41,31 @@ namespace MesonURPWEB
                 listarInsumo();
 
                 dtpro = new DataSet();
-                dtpro = pro.Leer_Proveedor();
+                dtpro = pro.SelectProveedorxEstado();
                 DdlProveedor.DataTextField = "P_RazonSocial";
                 DdlProveedor.DataValueField = "P_idProveedor";
                 DdlProveedor.DataSource = dtpro;
                 DdlProveedor.DataBind();
+                DdlProveedor.Items.Insert(0, "--seleccionar--");
                 lblIndex.Text = id.ToString();
+
+                int n= ctr_oc.Consult_Incremento();
+                int suma = n + 1;
+                string s = suma.ToString("D5");
+                txtNumeroComprobante.Text = s;
+
+                //dto_oc.OC_NumeroComprobante = ctr_oc.Generar_Numero_Comprobante();
+                //txtNumeroComprobante.Text = dto_oc.OC_NumeroComprobante;
+                //txtFechaEntrega.Text = DateTime.Now.ToString("yyyy-MM-dd");
             }
             else
             {
-                if (DListTipoC.SelectedValue == ""){ lblIndex0.Text = "Seleccione un tipo de comprobante"; }
-                else
-                {
-                    lblIndex0.Text = "";
-                    dto_oc.OC_NumeroComprobante = ctr_oc.Generar_Numero_Comprobante(Convert.ToInt32(DListTipoC.SelectedValue)).ToString();
-                    txtNumeroComprobante.Text = dto_oc.OC_NumeroComprobante;
-                }
-                          
+                //if (DListTipoC.SelectedValue == "") { lblIndex0.Text = "Seleccione un tipo de comprobante"; }
+                //else
+                //{
+                //    dto_oc.OC_NumeroComprobante = ctr_oc.Generar_Numero_Comprobante(Convert.ToInt32(DListTipoC.SelectedValue)).ToString();
+                //    txtNumeroComprobante.Text = dto_oc.OC_NumeroComprobante;
+                //}
             }
         }
         protected void DdlInsumo_SelectedIndexChanged(object sender, EventArgs e)
@@ -146,7 +154,7 @@ namespace MesonURPWEB
                 dto_oc.OC_FechaEmision = DateTime.Today.Date.ToString("yyyy-MM-dd");
                 dto_oc.OC_FormaPago = DListFormaP.Text;
                 dto_oc.P_idProveedor = int.Parse(DdlProveedor.SelectedValue);
-                 dto_oc.OC_TipoComprobante = DListTipoC.Text;               
+                dto_oc.OC_TipoComprobante = DListTipoC.SelectedItem.Text;
                 dto_oc.OC_NumeroComprobante = txtNumeroComprobante.Text;
                 dto_oc.OC_TotalCompra = Convert.ToDecimal(txtTotal.Text);
                 ctr_oc.Registrar_OC(dto_oc);
@@ -161,25 +169,16 @@ namespace MesonURPWEB
                 //-----------------------------------------------------------------
 
 
-                while (pila.Count >= 1)
-                {
-                    pila[pila.Count - 1].OC_idOrdenCompra = ctr_oc.ID_OC_Actual();
-                    ctr_ocxinsumo.Registrar_OC_Insumo(pila[pila.Count - 1]);
-                    pila.RemoveAt(pila.Count - 1);
-                }
-                suma = 0;
-                tin.Clear();
-                Response.Redirect("GestionarOC");
 
-                //Verificar el usuario
-
-                //dto_usuario = (Dto_Usuario)Session["emailUsuario"];
-                // ctr_usuario.getUsuario(dto_usuario);
-                //dto_estado_OCxOC.EOCxOC_UsuarioRegistro = dto_usuario.U_idUsuario;
-
-                //-----------------------------------------------------------------
-
-
+            while (pila.Count >= 1)
+            {
+                pila[pila.Count - 1].OC_idOrdenCompra = ctr_oc.ID_OC_Actual();
+                ctr_ocxinsumo.Registrar_OC_Insumo(pila[pila.Count - 1]);
+                pila.RemoveAt(pila.Count - 1);
+            }
+            suma = 0;
+            tin.Clear();
+            ClientScript.RegisterStartupScript(Page.GetType(), "alertaExito", "alertaExito('Se ha logrado ingresar correctamente');", true);
         }
         protected void GridViewAñadirOC_OnRowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
         {

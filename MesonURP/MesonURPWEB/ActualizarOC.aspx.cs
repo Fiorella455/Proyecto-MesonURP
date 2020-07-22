@@ -46,7 +46,7 @@ namespace MesonURPWEB
 
                 //------------------------------------------------
                 dtpro = new DataSet();
-                dtpro = pro.Leer_Proveedor();
+                dtpro = pro.SelectProveedorxEstado();
 
                 DdlProveedor.DataTextField = "P_RazonSocial";
                 DdlProveedor.DataValueField = "P_idProveedor";
@@ -67,7 +67,6 @@ namespace MesonURPWEB
                 GridViewEditarOC.DataSource = dt;
                 GridViewEditarOC.DataBind();
                 SumaTotal();
-               
 
             }
 
@@ -111,7 +110,7 @@ namespace MesonURPWEB
             //--------------------------------------------------------------
 
 
-            Response.Redirect("GestionarOC.aspx");
+            ClientScript.RegisterStartupScript(Page.GetType(), "alertaExito", "alertaExito('Se ha logrado ingresar correctamente');", true);
         }
         protected void btnQuitar_Click(object sender, EventArgs e)
         {
@@ -131,7 +130,6 @@ namespace MesonURPWEB
         protected void GridViewEditarOC_SelectedIndexChanged(object sender, EventArgs e)
         {
             GridViewRow row = GridViewEditarOC.SelectedRow;
-             
         }
 
         protected void btnAñadir_Click(object sender, EventArgs e)

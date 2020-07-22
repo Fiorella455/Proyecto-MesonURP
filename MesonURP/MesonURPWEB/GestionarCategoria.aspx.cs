@@ -43,7 +43,7 @@ namespace MesonURPWEB
 
                     Session["C_idCategoria"] = pkCategoria;
 
-                    Response.Redirect("ActualizarCategoria.aspx");
+                    Response.Redirect("ActualizarCategoria");
                 }
                 else if (e.CommandName == "selectItem1")
                 {
