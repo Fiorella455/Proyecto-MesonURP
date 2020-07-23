@@ -31,8 +31,8 @@ namespace DAO
             cmd.ExecuteNonQuery();
             conexion.Close();
 
-        }
-        
+        }    
+        //Borrar este metodo
         public void Actualizar_OCxInsumo(DTO_OCxInsumo dto_ocxinsumo)
         {
             try
@@ -53,7 +53,7 @@ namespace DAO
                 throw ex;
             }
         }
-        public bool Consultar_InsumosxOC_Repetido(int idOC, int idIns)
+        public void Eliminar_InsumoxOC(int idOC, int idIns)
         {
             conexion.Open();
             SqlCommand comando = new SqlCommand("SP_Eliminar_InsumoxOC", conexion);
@@ -61,16 +61,8 @@ namespace DAO
             comando.Parameters.AddWithValue("@OC_idOrdenCompra", idOC);
             comando.Parameters.AddWithValue("@I_idInsumo", idIns);
             comando.ExecuteNonQuery();
-            SqlDataReader reader = comando.ExecuteReader();
-            bool hayRegistros = reader.Read();
-            if (hayRegistros)
-            {
-                //Hay registros
-                dto_ocxins.OC_idOrdenCompra = (int)reader[2];
-                dto_ocxins.I_idInsumo = (int)reader[1];
-            }           
             conexion.Close();
-            return hayRegistros;
+
         }
         public DataTable Leer_Insumos_xOC(int i)
         {

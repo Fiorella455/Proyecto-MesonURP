@@ -109,6 +109,29 @@ namespace DAO
                 throw ex;
             }
         }
+        public bool getContraseñaU(Dto_Usuario objUsuario)
+        {
+            try
+            {
+                conexion.Open();
+                SqlCommand _Com = new SqlCommand("SP_Consultar_Contraseña", conexion);
+                _Com.CommandType = CommandType.StoredProcedure;
+                _Com.Parameters.Add(new SqlParameter("@id_usuario", objUsuario.U_idUsuario));
+                SqlDataReader reader = _Com.ExecuteReader();
+                bool hayRegistros = reader.Read();
+
+                if (hayRegistros)
+                {
+                    objUsuario.U_Contraseña = (string)reader[9];
+                }
+                conexion.Close();
+                return hayRegistros;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
 

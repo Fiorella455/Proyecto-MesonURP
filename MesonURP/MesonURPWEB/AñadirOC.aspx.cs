@@ -52,20 +52,17 @@ namespace MesonURPWEB
                 int n= ctr_oc.Consult_Incremento();
                 int suma = n + 1;
                 string s = suma.ToString("D5");
-                txtNumeroComprobante.Text = s;
-
-                //dto_oc.OC_NumeroComprobante = ctr_oc.Generar_Numero_Comprobante();
-                //txtNumeroComprobante.Text = dto_oc.OC_NumeroComprobante;
-                //txtFechaEntrega.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                txtNumeroComprobante.Text = s;               
             }
             else
             {
-                //if (DListTipoC.SelectedValue == "") { lblIndex0.Text = "Seleccione un tipo de comprobante"; }
-                //else
-                //{
-                //    dto_oc.OC_NumeroComprobante = ctr_oc.Generar_Numero_Comprobante(Convert.ToInt32(DListTipoC.SelectedValue)).ToString();
-                //    txtNumeroComprobante.Text = dto_oc.OC_NumeroComprobante;
-                //}
+                if (DListTipoC.SelectedValue == "") { lblIndex0.Text = "Seleccione un tipo de comprobante"; }
+                else
+                {
+                    lblIndex0.Text = "";
+                    dto_oc.OC_NumeroComprobante = ctr_oc.Generar_Numero_Comprobante(Convert.ToInt32(DListTipoC.SelectedValue)).ToString();
+                    txtNumeroComprobante.Text = dto_oc.OC_NumeroComprobante;
+                }
             }
         }
         protected void DdlInsumo_SelectedIndexChanged(object sender, EventArgs e)
@@ -99,19 +96,14 @@ namespace MesonURPWEB
             dto_ocxinsumo = new DTO_OCxInsumo();
             dto_ocxinsumo.I_idInsumo = int.Parse(DdlInsumo.SelectedValue);
             DTO_Insumo insumo = ctr_insumo.Consultar_InsumoxID(dto_ocxinsumo.I_idInsumo);
-            // dto_ocxinsumo.OC_idOrdenCompra = ctr_oc.ID_OC_Actual()+1;
             if (Convert.ToInt32(txtCantidad.Text)==0)
             {
                 lblMsj.Text = "Ingrese otra cantidad";
-            }
-            //if(ctr_ocxinsumo.CTR_Consultar_OCxInsumo_Repetido(int.Parse(txtidOc.Text),dto_ocxinsumo.I_idInsumo))
+            }      
+            //if (ctr_insumo.CTR_LimiteStockMax(int.Parse(DdlInsumo.SelectedValue), int.Parse(txtCantidad.Text)) == 1)
             //{
-            //    lblMsj.Text = "Insumo ya registrado";
-            //}        
-            if (ctr_insumo.CTR_LimiteStockMax(int.Parse(DdlInsumo.SelectedValue), int.Parse(txtCantidad.Text)) == 1)
-            {
-                lblMsj.Text = "Ingresar una cantidad menor";
-            }
+            //    lblMsj.Text = "Ingresar una cantidad menor";
+            //}
             else
             {
 

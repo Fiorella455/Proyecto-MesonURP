@@ -117,7 +117,7 @@ namespace MesonURPWEB
             GridViewRow row = GridViewEditarOC.SelectedRow;
             int idOC = dto_oc.OC_idOrdenCompra;
             int idIns = Convert.ToInt32(row.Cells[0].Text);
-            ctr_ocxinsumo.Eliminar_OCxInsumo(idOC, idIns);
+            ctr_ocxinsumo.CTR_Eliminar_InsumoxOC(idOC, idIns);
             suma -= Convert.ToDecimal(GridViewEditarOC.Rows[id].Cells[4].Text);
             dt = ctr_ocxinsumo.Leer_InsumoxOC(dto_oc.OC_idOrdenCompra);
             GridViewEditarOC.DataSource = dt;
@@ -125,8 +125,6 @@ namespace MesonURPWEB
             SumaTotal();
 
         }
-
-
         protected void GridViewEditarOC_SelectedIndexChanged(object sender, EventArgs e)
         {
             GridViewRow row = GridViewEditarOC.SelectedRow;

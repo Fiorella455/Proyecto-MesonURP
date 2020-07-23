@@ -25,7 +25,10 @@ namespace CTR
         {
             dao_usu.getNomApellUsuario(dto_usu);
         }
-
+        public bool getContraseñaU(Dto_Usuario dto_usu)
+        {
+            return dao_usu.getContraseñaU(dto_usu);
+        }
     }
    
 }
