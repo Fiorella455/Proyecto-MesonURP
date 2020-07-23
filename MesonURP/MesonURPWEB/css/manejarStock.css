@@ -1,6 +1,5 @@
 .my-custom-scrollbar {
     position: relative;
-    height: 200px;
     overflow: auto;
     }
     .table-wrapper-scroll-y {
@@ -25,4 +24,9 @@
 
 .background-green {
     background-color: #214E3F;
+}
+.div-movflex {
+    display: flex;
+    margin-top: 17px;
+    margin-bottom: 17px;
 }

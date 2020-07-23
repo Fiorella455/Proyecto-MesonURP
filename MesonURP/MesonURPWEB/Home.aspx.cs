@@ -47,16 +47,17 @@ namespace MesonURPWEB
 
                     string[] dataArray = new string[] { _Du.U_Correo, perfil };
                     Session["Login"] = dataArray;
-                    if (perfil == "Encargado de Compra")
+                     if (perfil == "Encargado de Compra")
                     {
-                        Response.Redirect("GestionarOC.aspx");
+                        Response.Redirect("Dashboard");
                     }
                     else if (perfil == "Administrador")
                     {
-                        Response.Redirect("RegistrarEgreso.aspx");
+                        Response.Redirect("Dashboard");
                     }
-                    else
+                    else if (perfil == "Administrador del Sistema")
                     {
+                        Response.Redirect("Dashboard");
                     }
 
                 }

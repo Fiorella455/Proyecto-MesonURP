@@ -9,7 +9,7 @@ namespace CTR
     public class Ctr_Usuario
     {
         Dao_Usuario dao_usu = new Dao_Usuario();
-        public bool validarUsuario(Dto_Usuario dto_usu)
+        public bool validarUsuario(Dto_Usuario dto_usu) 
         {
             return dao_usu.Login(dto_usu);
         }

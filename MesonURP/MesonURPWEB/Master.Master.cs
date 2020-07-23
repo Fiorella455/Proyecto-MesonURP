@@ -17,7 +17,6 @@ namespace MesonURPWEB
         {
             if (Session["Login"] != null)
             {
-
                 string perfil = Convert.ToString(Session["TipoPerfil"]);
 
                 switch (perfil)
@@ -26,10 +25,12 @@ namespace MesonURPWEB
 
                         menuOrdenCompra.Visible = false;
                         menuProveedor.Visible = false;
-                        menuGestionarDevoluciones.Visible = false;
                         menuStock.Visible = true;
-                        menuRecursos.Visible = true;
-                        menuReportes.Visible = false;
+                        menuReportes.Visible = true;
+                        menuGestionarMerma.Visible = false;
+                        menuCategoria.Visible = true;
+                        menuUsuarios.Visible = false;
+                        menuInsumo.Visible = true;
                         lblRol.Text = perfil;
                         lblNombre.Text = Convert.ToString(Session["NombreUsuario"]);
                         lblApellido.Text = Convert.ToString(Session["ApellidoUsuario"]);
@@ -38,11 +39,28 @@ namespace MesonURPWEB
                     case "Encargado de Compra":
 
                         menuOrdenCompra.Visible = true;
-                        menuProveedor.Visible = false;
-                        menuGestionarDevoluciones.Visible = false;
+                        menuProveedor.Visible = true;
                         menuStock.Visible = true;
-                        menuRecursos.Visible = true;
                         menuReportes.Visible = false;
+                        menuGestionarMerma.Visible = true;
+                        menuCategoria.Visible = false;
+                        menuUsuarios.Visible = false;
+                        menuInsumo.Visible = false; 
+                        lblRol.Text = perfil;
+                        lblNombre.Text = Convert.ToString(Session["NombreUsuario"]);
+                        lblApellido.Text = Convert.ToString(Session["ApellidoUsuario"]);
+                        break;
+
+                    case "Administrador del Sistema":
+
+                        menuOrdenCompra.Visible = false;
+                        menuProveedor.Visible = false;
+                        menuStock.Visible = false;
+                        menuReportes.Visible = false;
+                        menuGestionarMerma.Visible = false;
+                        menuCategoria.Visible = true;
+                        menuUsuarios.Visible = true;
+                        menuInsumo.Visible = false;
                         lblRol.Text = perfil;
                         lblNombre.Text = Convert.ToString(Session["NombreUsuario"]);
                         lblApellido.Text = Convert.ToString(Session["ApellidoUsuario"]);

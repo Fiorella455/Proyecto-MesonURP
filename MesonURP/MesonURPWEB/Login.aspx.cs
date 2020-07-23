@@ -35,7 +35,7 @@ namespace MesonURPWEB.paginas
                     _Du.U_Correo = correo.Value;
                     _Cu.getPerfil(_Du, _Dtu);
                     _Cu.getUsuario(_Du);
-
+                    Session.Add("emailUsuario", _Du.U_Correo);
                     Session["codUsuario"] = _Du.U_idUsuario;
                     string perfil = _Dtu.TU_NombreTipoUsuario;
                     string[] dataArray = new string[] { _Du.U_Correo, perfil };
