@@ -20,7 +20,7 @@
               <asp:BoundField HeaderText="ID Compra" DataField="OC_idOrdenCompra" />
               <asp:BoundField HeaderText="Estado" DataField="EOC_NombreEstadoOC"/>
               <asp:BoundField HeaderText="Tipo de Comprobante" DataField="OC_TipoComprobante" />             
-              <%-- <asp:BoundField HeaderText="Forma de Pago" DataField="OC_FormaPago"/>--%>
+              <%-- <asp:BoundField HeaderText="Forma DSGFGG de Pago" DataField="OC_FormaPago"/>--%>
               <asp:BoundField HeaderText="Total de Compra" DataField="OC_TotalCompra"/>
               <asp:BoundField  HeaderText="Fecha de Emisión"  DataField="OC_FechaEmision"/>    
               <%-- <asp:BoundField  HeaderText="ID Proveedor" DataField="P_idProveedor" Visible="false" />--%>
