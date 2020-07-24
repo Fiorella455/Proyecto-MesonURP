@@ -76,6 +76,7 @@ namespace MesonURPWEB
             routes.MapPageRoute("GestionarCategoria", "GestionarCategoria", "~/GestionarCategoria.aspx", true);
             routes.MapPageRoute("ActualizarCategoria", "ActualizarCategoria", "~/ActualizarCategoria.aspx", true);
             routes.MapPageRoute("ReporteCompras", "ReporteCompras", "~/GenerarReporte.aspx", true);
+            routes.MapPageRoute("ReporteMovimientos", "ReporteMovimientos", "~/GenerarReporteMovimiento.aspx", true);
         }
     }
 }
