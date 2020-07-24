@@ -24,17 +24,23 @@ namespace MesonURPWEB
         {
             DataTable datos = new DataTable();
             datos = _Ci.ListarDashboard();
-            string strDatos;
-            strDatos = "[['Insumo','Total'],";
+           
+            StringBuilder js = new StringBuilder();
+            string strDatos = "";
+            //strDatos = "[{'Insumo','Total'},";
+
+            js.Append("[");
             
             foreach (DataRow dr in datos.Rows)
             {
-                strDatos = strDatos + "[";
-                strDatos = strDatos + "'" + dr[0] + "'" + "," + dr[1];
-                strDatos = strDatos + "],";
+                js.Append(strDatos + "{");
+                js.Append("\"Insumo\":" + "\"" + dr[0] + "\",");
+                js.Append("\"Total\":" + dr[1]);
+                js.Append("}");
+                strDatos = ",";
             }
-            strDatos = strDatos + "]";
-            return strDatos;
+            js.Append("]");
+            return js.ToString();
 
         }
         //private void CargarDatos()
