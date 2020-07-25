@@ -29,6 +29,11 @@ namespace CTR
         {
             return dao_usu.getContraseñaU(dto_usu);
         }
+
+        public void Cambiar_Contraseña(Dto_Usuario dto_usu)
+        {
+            dao_usu.CambiarContraseña(dto_usu);
+        }
     }
    
 }

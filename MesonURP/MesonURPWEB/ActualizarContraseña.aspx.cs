@@ -13,10 +13,13 @@ namespace MesonURPWEB
     {
         Dto_Usuario dto_Usuario;
         Ctr_Usuario ctr_usuario;
-        char contr_1;
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-            dto_Usuario.U_idUsuario=(int)Session["codUsuario"];
+            dto_Usuario = new Dto_Usuario();
+            ctr_usuario = new Ctr_Usuario();
+
+            dto_Usuario.U_idUsuario = (int)Session["codUsuario"];
             if (ctr_usuario.getContraseñaU(dto_Usuario))
             {
                 txtContraseñaAct.Text = dto_Usuario.U_Contraseña;
@@ -25,7 +28,31 @@ namespace MesonURPWEB
 
         public void Verificar_Contraseña()
         {
-            contr_1 = Convert.ToChar(txtContraseñaAct0.Text);
+            if (txtContraseñaN.Text != "" && txtContraseñaNR.Text != "")
+            {
+                if (txtContraseñaN.Text.Equals(txtContraseñaNR.Text))
+                {
+                    dto_Usuario.U_Contraseña = txtContraseñaN.Text;
+                    ctr_usuario.Cambiar_Contraseña(dto_Usuario);
+                    lblMsj.Text = "Contraseña actualizada correctamente";
+                }
+
+                else
+                {
+                    lblMsj.Text = "Las contraseñas no coinciden";
+                }
+            }
+            else 
+            {
+                lblMsj.Text = "Ingrese una nueva contraseña";
+            }
+           
+        }
+
+        protected void btnCambiarCont_Click(object sender, EventArgs e)
+        {
+            Verificar_Contraseña();
+            
         }
     }
 }
