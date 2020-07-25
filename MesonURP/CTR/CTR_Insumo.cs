@@ -83,5 +83,9 @@ namespace CTR
         {
             return dao_insumo.Consultar_InsumoxID(i);
         }
+        public int CTR_LimiteStockMax(int id, int c)
+        {
+            return dao_insumo.LimiteStockMax(id, c);
+        }
     }
 }

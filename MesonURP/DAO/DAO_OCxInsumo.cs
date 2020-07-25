@@ -30,6 +30,7 @@ namespace DAO
             conexion.Close();
 
         }
+        //Borrar este metodo
         public void Actualizar_OCxInsumo(DTO_OCxInsumo dto_ocxinsumo)
         {
             try
@@ -50,12 +51,13 @@ namespace DAO
                 throw ex;
             }
         }
-        public void Eliminar_Insumos_xOC(int i)
+        public void Eliminar_Insumos_xOC(int idOC, int idIns)
         {
             conexion.Open();
             SqlCommand comando = new SqlCommand("SP_Eliminar_InsumoxOC", conexion);
             comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@OC_idOrdenCompra", i);
+            comando.Parameters.AddWithValue("@OC_idOrdenCompra", idOC);
+            comando.Parameters.AddWithValue("@I_idInsumo", idIns);
             comando.ExecuteNonQuery();
             conexion.Close();
             
@@ -66,6 +68,20 @@ namespace DAO
             SqlCommand comando = new SqlCommand("SP_Consultar_InsumoxOC", conexion);
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@OC_idOrdenCompra", i);
+            comando.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(comando);
+            da.Fill(dt);
+            conexion.Close();
+            return dt;
+        }
+
+        public DataTable Leer_InsumosxMes(int m)
+        {
+            conexion.Open();
+            SqlCommand comando = new SqlCommand("SP_ListarInsumo_OCxMes", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@mes", m);
             comando.ExecuteNonQuery();
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(comando);

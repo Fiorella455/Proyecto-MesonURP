@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml;
 using CTR;
 using DTO;
 
@@ -27,7 +28,10 @@ namespace MesonURPWEB
                 ListarEstados();
                 ddlEstado.Enabled = false;
                 ddlEstado.Visible = false;
+                ddlMedida.Enabled = false;
             }
+            rvDateValidator.MinimumValue = DateTime.Now.Date.ToString("dd-MM-yyyy");
+            rvDateValidator.MaximumValue = DateTime.Now.Date.AddYears(90).ToString("dd-MM-yyyy");
         }
         public void CargarDatos()
         {
@@ -75,13 +79,13 @@ namespace MesonURPWEB
 
                     a = 1;
                 }
-                if (Convert.ToDecimal(txtstockMin.Text) >= Convert.ToDecimal(txtcant.Text))
-                {
-                    ClientScript.RegisterStartupScript(
-                    this.GetType(), "alert3", "alert3('" + "Debe digitar un intervalo adecuado de Stock Mínimo para  " + txtcant.Text + "');", true);
+                //if (Convert.ToDecimal(txtstockMin.Text) >= Convert.ToDecimal(txtcant.Text))
+                //{
+                //    ClientScript.RegisterStartupScript(
+                //    this.GetType(), "alert3", "alert3('" + "Debe digitar un intervalo adecuado de Stock Mínimo para  " + txtcant.Text + "');", true);
 
-                    a = 1;
-                }
+                //    a = 1;
+                //}
                 if (a == 0)
                 {
                     _Di.PK_IR_Recurso = Convert.ToInt16(txt1.Text);
@@ -149,5 +153,6 @@ namespace MesonURPWEB
             }
 
         }
+
     }
 }

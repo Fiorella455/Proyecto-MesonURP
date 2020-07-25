@@ -43,8 +43,11 @@ namespace CTR
         {
             return dao_proveedor.Existe_Proveedor_OC(rs);
         }
+        public DataSet SelectProveedorxEstado()
+        {
+            return dao_proveedor.DAO_SelectProveedorxEstado();
+        }
 
-        
     }
 }
 

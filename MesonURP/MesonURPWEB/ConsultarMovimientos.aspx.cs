@@ -1,14 +1,8 @@
 ﻿using CTR;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-//using Microsoft.Office.Interop.Excel;
-
 using System.IO;
-using System.ComponentModel;
 using System.Web.UI.HtmlControls;
 using System.Text;
 
@@ -33,32 +27,26 @@ namespace MesonURPWEB
         }
         protected void btnSearchStock_ServerClick(object sender, EventArgs e)
         {
-            try
+
+            if (txtBuscarMovimientos.Text != "")
             {
-                if (txtBuscarMovimientos.Text != "")
-                {
-                    gvMovimientos.DataSource = _CmxI.BusquedaMovimientoxInsumo(txtBuscarMovimientos.Text);
-                    gvMovimientos.DataBind();
-                }
+                gvMovimientos.DataSource = _CmxI.BusquedaMovimientoxInsumo(txtBuscarMovimientos.Text);
+                gvMovimientos.DataBind();
             }
-            catch (Exception ex)
+            else
             {
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('Ingrese otro dato para la busqueda');", true);
-
             }
         }
         public void Selection_Change(Object sender, EventArgs e)
         {
-            try
-            {
+            
                 if (ddlMovimientos.SelectedValue != "")
                 {
                     gvMovimientos.DataSource = _CmxI.BusquedaMovimientoxInsumoTipo(Convert.ToInt32(ddlMovimientos.SelectedValue));
                     gvMovimientos.DataBind();
-
                 }
-            }
-            catch (Exception ex)
+            else
             {
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('Ingrese un insumo para la busqueda');", true);
             }
@@ -71,13 +59,14 @@ namespace MesonURPWEB
             {
                 ExportarGridViewExcel(gvMovimientos);
             }
+#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
+#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('Ingrese otro dato para la busqueda');", true);
 
             }
         }
-
         public void ExportarGridViewExcel(GridView grd)
         {
             StringBuilder sb = new StringBuilder();
@@ -102,7 +91,7 @@ namespace MesonURPWEB
             Response.Clear();
             Response.Buffer = true;
             Response.ContentType = "application/vnd.ms-excel";
-            Response.AddHeader("Content-Disposition", "attachment;filename=Reporte de Movimientos.xls");
+            Response.AddHeader("Content-Disposition", "attachment;filename=MesonURP_Ingresos y Egresos.xls");
             Response.Charset = "UTF-8";
             Response.ContentEncoding = Encoding.Default;
             Response.Write(sb.ToString());

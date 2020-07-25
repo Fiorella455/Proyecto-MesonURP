@@ -79,7 +79,6 @@ namespace DAO
             dto_proveedor.Estado = 99;
             conexion.Close();
             return hayProveedor;
-
         }
         public DataSet DAO_Leer_Proveedor()
         {
@@ -167,6 +166,18 @@ namespace DAO
                 conexion.Close();
                 return false;
             }
+        }
+        public DataSet DAO_SelectProveedorxEstado()
+        {
+            conexion.Open();
+            SqlCommand comando = new SqlCommand("SP_SelectProveedorxEstado", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.ExecuteNonQuery();
+            DataSet dt = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter(comando);
+            da.Fill(dt);
+            conexion.Close();
+            return dt;
         }
     }
 }

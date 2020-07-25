@@ -11,7 +11,7 @@
                                     <div class="width-auto margin-5">
                                         <button type="button" class="btn btn-primary btn-flex" runat="server" onserverclick="btnDescargarExcel_ServerClick">     
                                             <span class="material-icons marginR-15">cloud_download</span>
-                                            <label>Descargar en Excel</label>
+                                            <h>Descargar en Excel</h>
                                         </button>
                                     </div>                                
                             </div>
@@ -43,13 +43,14 @@
                                     <div class="clearfix"></div>
                                     <div class="table-wrapper-scroll-y my-custom-scrollbar">
                                        <asp:GridView ID="gvMovimientos" AutoGenerateColumns="False" runat="server" emptydatatext="No hay información disponible."  
-                                            CssClass="table table-bordered table-striped mb-0" DataKeyNames="fechamov,M_TipoMovimiento,I_NombreInsumo,MxI_Cantidad,nomcategoria,usuariomov">
+                                            CssClass="table table-bordered table-striped mb-0" DataKeyNames="fechamov,M_TipoMovimiento,I_NombreInsumo,nomcategoria,MxI_Cantidad,M_NombreMedida,usuariomov">
                                             <Columns>
                                                 <asp:BoundField DataField="fechamov" HeaderText="Fecha" />
                                                 <asp:BoundField DataField="M_TipoMovimiento" HeaderText="Tipo" />
-                                                <asp:BoundField DataField="I_NombreInsumo" HeaderText="Medida" />
-                                                <asp:BoundField DataField="MxI_Cantidad" HeaderText="Cantidad" />
+                                                <asp:BoundField DataField="I_NombreInsumo" HeaderText="Insumo" />
                                                 <asp:BoundField DataField="nomcategoria" HeaderText="Categoria" />
+                                                <asp:BoundField DataField="MxI_Cantidad" HeaderText="Cantidad" />
+                                                <asp:BoundField DataField="M_NombreMedida" HeaderText="Medida" />
                                                 <asp:BoundField DataField="usuariomov" HeaderText="Usuario" />       
                                             </Columns>
                                         </asp:GridView>

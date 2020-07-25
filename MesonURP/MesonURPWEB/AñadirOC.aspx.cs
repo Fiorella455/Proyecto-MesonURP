@@ -29,25 +29,43 @@ namespace MesonURPWEB
         DataSet  dtpro;
         static List<DTO_OCxInsumo> pila = new List<DTO_OCxInsumo>();
         static DataTable tin = new DataTable();
+        
 
         static decimal suma = 0;
-        int id = 0;
+        static int id { get;set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.IsPostBack)
             {
                 listarInsumo();
-                
-                dtpro = new DataSet();
-                dtpro = pro.Leer_Proveedor();
 
+                dtpro = new DataSet();
+                dtpro = pro.SelectProveedorxEstado();
                 DdlProveedor.DataTextField = "P_RazonSocial";
                 DdlProveedor.DataValueField = "P_idProveedor";
                 DdlProveedor.DataSource = dtpro;
                 DdlProveedor.DataBind();
+                DdlProveedor.Items.Insert(0, "--seleccionar--");
+                lblIndex.Text = id.ToString();
 
+                int n= ctr_oc.Consult_Incremento();
+                int suma = n + 1;
+                string s = suma.ToString("D5");
+                txtNumeroComprobante.Text = s;
+
+                //dto_oc.OC_NumeroComprobante = ctr_oc.Generar_Numero_Comprobante();
+                //txtNumeroComprobante.Text = dto_oc.OC_NumeroComprobante;
                 //txtFechaEntrega.Text = DateTime.Now.ToString("yyyy-MM-dd");
+            }
+            else
+            {
+                //if (DListTipoC.SelectedValue == "") { lblIndex0.Text = "Seleccione un tipo de comprobante"; }
+                //else
+                //{
+                //    dto_oc.OC_NumeroComprobante = ctr_oc.Generar_Numero_Comprobante(Convert.ToInt32(DListTipoC.SelectedValue)).ToString();
+                //    txtNumeroComprobante.Text = dto_oc.OC_NumeroComprobante;
+                //}
             }
         }
         protected void DdlInsumo_SelectedIndexChanged(object sender, EventArgs e)
@@ -58,6 +76,7 @@ namespace MesonURPWEB
 
         protected void Unnamed1_Click(object sender, EventArgs e)
         {
+            id = Convert.ToInt32(GridViewAñadirOC.SelectedRow.RowIndex);
             tin.Rows[id].Delete();
             pila.RemoveAt(id);
             suma -= Convert.ToDecimal(GridViewAñadirOC.Rows[id].Cells[3].Text);
@@ -74,80 +93,83 @@ namespace MesonURPWEB
             DdlInsumo.DataBind();
             DdlInsumo.Items.Insert(0, "--seleccionar--");
         }
-        
-      
-
-        protected void GridViewAñadirOC_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            GridViewRow row = GridViewAñadirOC.SelectedRow;
-             id = Convert.ToInt32(GridViewAñadirOC.DataKeys[row.RowIndex].Value)+1;
-             row.BackColor = System.Drawing.Color.LightGray;
-        }
-
+     
         protected void btnAñadirInsumo_Click(object sender, EventArgs e)
         {
             dto_ocxinsumo = new DTO_OCxInsumo();
             dto_ocxinsumo.I_idInsumo = int.Parse(DdlInsumo.SelectedValue);
             DTO_Insumo insumo = ctr_insumo.Consultar_InsumoxID(dto_ocxinsumo.I_idInsumo);
             // dto_ocxinsumo.OC_idOrdenCompra = ctr_oc.ID_OC_Actual()+1;
-            dto_ocxinsumo.OCxI_Cantidad = int.Parse(txtCantidad.Text);
-            dto_ocxinsumo.OCxI_PrecioTotal = dto_ocxinsumo.OCxI_Cantidad * Convert.ToDecimal(insumo.DR_PrecioUnitario);
-            suma += dto_ocxinsumo.OCxI_PrecioTotal;
-            dto_oc.OC_TotalCompra += Convert.ToDecimal(dto_ocxinsumo.OCxI_PrecioTotal);
-            pila.Add(dto_ocxinsumo);
-            txtTotal.Text = suma.ToString();
-
-
-            if (tin.Columns.Count == 0)
+            if (int.Parse(txtCantidad.Text) == 0 || int.Parse(txtCantidad.Text) < 0)
             {
-                tin.Columns.Add("I_idInsumo");
-                tin.Columns.Add("I_NombreInsumo");
-                tin.Columns.Add("OCxI_Cantidad");
-                tin.Columns.Add("I_PrecioUnitario");
-                tin.Columns.Add("OCxI_PrecioTotal");
-
+                lblMsj.Text = "Ingrese otra cantidad";
             }
-            DataRow row = tin.NewRow();
-            row[0] = dto_ocxinsumo.I_idInsumo;
-            row[1] = insumo.VR_NombreRecurso;
-            row[2] = dto_ocxinsumo.OCxI_Cantidad;
-            row[3] = insumo.DR_PrecioUnitario;
-            row[4] = dto_ocxinsumo.OCxI_PrecioTotal;
+            else if (txtCantidad.Text == "")
+            {
+                lblMsj.Text = "Ingrese una cantidad";
+            }
+            else
+            {
+                dto_ocxinsumo.OCxI_Cantidad = int.Parse(txtCantidad.Text);
+            }          
+            if (ctr_insumo.CTR_LimiteStockMax(int.Parse(DdlInsumo.SelectedValue), int.Parse(txtCantidad.Text)) == 1)
+            {
+                lblMsj.Text = "Ingresar una cantidad menor";
+            }
+            else
+            {
 
-            tin.Rows.Add(row);
+                lblMsj.Text = "";
+                dto_ocxinsumo.OCxI_PrecioTotal = dto_ocxinsumo.OCxI_Cantidad * Convert.ToDecimal(insumo.DR_PrecioUnitario);
+                suma += dto_ocxinsumo.OCxI_PrecioTotal;
+                dto_oc.OC_TotalCompra += Convert.ToDecimal(dto_ocxinsumo.OCxI_PrecioTotal);
+                pila.Add(dto_ocxinsumo);
+                txtTotal.Text = suma.ToString();
 
-            GridViewAñadirOC.DataSource = tin;
-            GridViewAñadirOC.DataBind();
+
+                if (tin.Columns.Count == 0)
+                {
+                    tin.Columns.Add("I_idInsumo");
+                    tin.Columns.Add("I_NombreInsumo");
+                    tin.Columns.Add("OCxI_Cantidad");
+                    tin.Columns.Add("I_PrecioUnitario");
+                    tin.Columns.Add("OCxI_PrecioTotal");
+
+                }
+                DataRow row = tin.NewRow();
+                row[0] = dto_ocxinsumo.I_idInsumo;
+                row[1] = insumo.VR_NombreRecurso;
+                row[2] = dto_ocxinsumo.OCxI_Cantidad;
+                row[3] = insumo.DR_PrecioUnitario;
+                row[4] = dto_ocxinsumo.OCxI_PrecioTotal;
+
+                tin.Rows.Add(row);
+
+                GridViewAñadirOC.DataSource = tin;
+                GridViewAñadirOC.DataBind();
+
+            } 
 
         }
 
         protected void btnAñadirOC_Click(object sender, EventArgs e)
-        {
+        {           
+                dto_oc.OC_FechaEmision = DateTime.Today.Date.ToString("yyy-MM-dd");
+                dto_oc.OC_FormaPago = DListFormaP.Text;
+                dto_oc.P_idProveedor = int.Parse(DdlProveedor.SelectedValue);
+                dto_oc.OC_TipoComprobante = DListTipoC.SelectedItem.Text;
+                dto_oc.OC_NumeroComprobante = txtNumeroComprobante.Text;
+                dto_oc.OC_TotalCompra = Convert.ToDecimal(txtTotal.Text);
+                ctr_oc.Registrar_OC(dto_oc);
 
-            
-            dto_oc.OC_NumeroComprobante = txtNumeroComprobante.Text;
-            //dto_oc.OC_TotalCompra = Convert.ToDecimal(suma);
-            dto_oc.OC_FechaEmision = DateTime.Today;
-            dto_oc.OC_FormaPago = DListFormaP.Text;           
-            dto_oc.P_idProveedor = int.Parse(DdlProveedor.SelectedValue);           
-            dto_oc.OC_TipoComprobante = DListTipoC.Text;
-            dto_oc.OC_TotalCompra = Convert.ToDecimal(txtTotal.Text);
-            ctr_oc.Registrar_OC(dto_oc);
+                //----------------------------------------------------------
 
-            //----------------------------------------------------------
-
-            dto_estado_OCxOC.EOC_idEstadoOC = 1;
-            dto_estado_OCxOC.OC_idOrdenCompra = ctr_oc.ID_OC_Actual();
-            dto_estado_OCxOC.EOCxOC_FechaRegistro = DateTime.Today;
-            dto_estado_OCxOC.EOCxOC_UsuarioRegistro = 5;
-            ctr_estado_OCxOC.Registrar_Estado_OCxOC(dto_estado_OCxOC);
-            
-
-            //Verificar el usuario
-
-            //dto_usuario = (Dto_Usuario)Session["emailUsuario"];
-            // ctr_usuario.getUsuario(dto_usuario);
-            //dto_estado_OCxOC.EOCxOC_UsuarioRegistro = dto_usuario.U_idUsuario;
+                dto_estado_OCxOC.EOC_idEstadoOC = 1;
+                dto_estado_OCxOC.OC_idOrdenCompra = ctr_oc.ID_OC_Actual();
+                dto_estado_OCxOC.EOCxOC_FechaRegistro = DateTime.Today;
+                dto_estado_OCxOC.EOCxOC_UsuarioRegistro = 5;
+                ctr_estado_OCxOC.Registrar_Estado_OCxOC(dto_estado_OCxOC);
+                //-----------------------------------------------------------------
 
 
 
@@ -159,10 +181,36 @@ namespace MesonURPWEB
             }
             suma = 0;
             tin.Clear();
+            ClientScript.RegisterStartupScript(Page.GetType(), "alertaExito", "alertaExito('Se ha logrado ingresar correctamente');", true);
+        }
+        protected void GridViewAñadirOC_OnRowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(GridViewAñadirOC, "Select$" + e.Row.RowIndex);
+                e.Row.ToolTip = "Haga click para seleccionar la fila.";
+                id = e.Row.RowIndex;
+
+            }
+        }
+
+        protected void GridViewAñadirOC_SelectedIndexChanged(object sender, EventArgs e)
+        {
             
+            id = Convert.ToInt32(GridViewAñadirOC.SelectedRow.RowIndex);
+            lblIndex.Text = id.ToString();
+        }
 
+        protected void btnLimpiarOC_Click(object sender, EventArgs e)
+        {
+            txtCantidad.Text = "";
+            txtTotal.Text = "";
+            dto_oc.OC_FechaEmision = "";
+            dto_oc.OC_FormaPago = "";
+            dto_oc.OC_TipoComprobante = "";
+            dto_oc.OC_NumeroComprobante = "";
+            dto_oc.P_idProveedor = 0;
 
-            Response.Redirect("GestionarOC");
         }
     }
 }

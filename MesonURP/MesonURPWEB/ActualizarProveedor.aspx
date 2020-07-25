@@ -16,7 +16,7 @@
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Razón Social</label>
                         <div class="col-sm-8">
-                            <asp:TextBox ID="txtRazonSocial" runat="server" placeholder="Ingrese la razón social" CssClass="form-control1" onkeypress="return BlockChars(event);" MaxLength="50"/>
+                            <asp:TextBox ID="txtRazonSocial" runat="server" placeholder="Ingrese la razón social" CssClass="form-control1" onkeypress="return soloLetras(event);" MaxLength="50"/>
                             <asp:RequiredFieldValidator ID="validationRazon" runat="server" ControlToValidate="txtRazonSocial" ErrorMessage="Campo Obligatorio" ValidationGroup="actualizarProveedor" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
                         <label for="focusedinput" class="col-sm-2 control-label">Correo electrónico</label>
                         <div class="col-sm-8">
                             <asp:TextBox ID="txtCorreo" runat="server" placeholder="Ingrese su correo electrónico" CssClass="form-control1" MaxLength="50"/>
-                            <asp:RegularExpressionValidator ID="revCorreo" runat="server" ErrorMessage="Correo Inválido" ControlToValidate="txtCorreo" ForeColor="#CC0000" ValidationExpression="(\w|\d){1,20}\@(\w|\d){1,5}\.\w{1,3}" SetFocusOnError="True" Display="Dynamic" ValidationGroup="actualizarProveedor"></asp:RegularExpressionValidator>    
+                            <asp:RegularExpressionValidator ID="revCorreo" runat="server" ErrorMessage="Correo Inválido" ControlToValidate="txtCorreo" ForeColor="#CC0000" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" SetFocusOnError="True" Display="Dynamic" ValidationGroup="actualizarProveedor"></asp:RegularExpressionValidator>    
                             <asp:RequiredFieldValidator ID="validationCorreo" runat="server" ControlToValidate="txtCorreo" ErrorMessage="Campo Obligatorio" ValidationGroup="actualizarProveedor" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
@@ -138,15 +138,22 @@
             var regEx = /^[0-9\.]+$/i;
             return regEx.test(String.fromCharCode(tecla));
         }
-        function lettersOnly(evt) {
-            evt = (evt) ? evt : event;
-            var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode :
-                ((evt.which) ? evt.which : 0));
-            if (charCode > 31 && (charCode < 65 || charCode > 90) &&
-                (charCode < 97 || charCode > 122)) {
-                return false;
+        function soloLetras(e) {
+            key = e.keyCode || e.which;
+            tecla = String.fromCharCode(key).toLowerCase();
+            letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+            especiales = [8, 37, 39, 46];
+
+            tecla_especial = false
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    tecla_especial = true;
+                    break;
+                }
             }
-            return true;
+
+            if (letras.indexOf(tecla) == -1 && !tecla_especial)
+                return false;
         }
     </script>
     <script>

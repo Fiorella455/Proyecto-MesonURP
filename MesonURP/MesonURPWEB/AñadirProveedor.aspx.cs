@@ -63,12 +63,12 @@ namespace MesonURPWEB
 
         protected void DdlTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (int.Parse(DdlTipoDocumento.SelectedValue) == 1)
+            if (int.Parse(DdlTipoDocumento.SelectedValue) == 5)//este valor se puede cambiar según como se encuentre en la BD
             {
-                revNumDoc.ValidationExpression = @"\d{8,9}";
+                revNumDoc.ValidationExpression = @"\d{8}";
                 revNumDoc.ErrorMessage = "DNI Inválido";
             }//DNI
-            else if (int.Parse(DdlTipoDocumento.SelectedValue) == 2)
+            else if (int.Parse(DdlTipoDocumento.SelectedValue) == 6)
 
             {
                 revNumDoc.ValidationExpression = @"([A-Z]|\d){10,12}";

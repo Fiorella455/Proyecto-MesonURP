@@ -5,9 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Data;
 using System.Web.UI.WebControls;
+using System.Web.SessionState;
 using DTO;
 using DAO;
 using CTR;
+using System.Drawing;
 
 namespace MesonURPWEB
 {
@@ -29,17 +31,14 @@ namespace MesonURPWEB
         DAO_EstadoOCxOC dao_estadoOCxOC = new DAO_EstadoOCxOC();
         CTR_EstadoOCxOC ctr_estado_OCxOC = new CTR_EstadoOCxOC();
         static List<DTO_OCxInsumo> pila = new List<DTO_OCxInsumo>();
-        static DataTable tin = new DataTable();
+
         int id = 0;
         decimal suma = 0;
         
         protected void Page_Load(object sender, EventArgs e)
         {
             dto_oc = (DTO_OC)Session["OCActual"];
-           
-            //dtcat = new DataSet();
-            
-            
+
             if (!IsPostBack)
             {
                 listarInsumo();
@@ -47,31 +46,31 @@ namespace MesonURPWEB
 
                 //------------------------------------------------
                 dtpro = new DataSet();
-                dtpro = pro.Leer_Proveedor();
+                dtpro = pro.SelectProveedorxEstado();
 
                 DdlProveedor.DataTextField = "P_RazonSocial";
                 DdlProveedor.DataValueField = "P_idProveedor";
                 DdlProveedor.DataSource = dtpro;
                 DdlProveedor.DataBind();
-                
+
                 //--------------------------------------------Llenar 
 
                 ctr_oc.CTR_Leer_OC(dto_oc);
                 txtNumComprobante.Text = dto_oc.OC_NumeroComprobante;
-                txtTipoComprobante.Text = dto_oc.OC_TipoComprobante;                                                  
+                txtTipoComprobante.Text = dto_oc.OC_TipoComprobante;
                 DdlProveedor.Text = dto_oc.P_idProveedor.ToString();
-                txtFormaPago.Text = dto_oc.OC_FormaPago;
+                DListFormaP.Text = dto_oc.OC_FormaPago;
                 txtTotal.Text = dto_oc.OC_TotalCompra.ToString();
                 //-------------------------------------------------------
                 ctr_ocxinsumo = new CTR_OCxInsumo();
                 dt = ctr_ocxinsumo.Leer_InsumoxOC(dto_oc.OC_idOrdenCompra);
                 GridViewEditarOC.DataSource = dt;
                 GridViewEditarOC.DataBind();
-               // AñadirLista();
+                SumaTotal();
 
             }
 
-            
+
         }
         public void listarInsumo()
         {
@@ -86,109 +85,102 @@ namespace MesonURPWEB
             txtPrecioU.Text = ctr_insumo.SelectPrecioUnitario(Convert.ToInt32(DdlInsumo.SelectedValue));
             txtMedida.Text = ctr_medida.BuscarMedida(Convert.ToInt32(DdlInsumo.SelectedValue));
         }
-        protected void GridViewEditarOC_RowEnter()
-        { 
-        
-        
+
+        protected void GridViewEditarOC_OnRowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(GridViewEditarOC, "Select$" + e.Row.RowIndex);
+                e.Row.ToolTip = "Haga click para seleccionar la fila.";
+                id = e.Row.RowIndex;
+
+            }
         }
+       
         protected void btnActualizar_Click(object sender, EventArgs e)
         {
             
             dto_oc.OC_TipoComprobante = txtTipoComprobante.Text;          
-            dto_oc.OC_FormaPago = txtFormaPago.Text;
+            dto_oc.OC_FormaPago = DListFormaP.Text;
             dto_oc.OC_NumeroComprobante = txtNumComprobante.Text;           
-            dto_oc.P_idProveedor = int.Parse(DdlProveedor.SelectedValue);          
+            dto_oc.P_idProveedor = int.Parse(DdlProveedor.SelectedValue);
             dto_oc.OC_TotalCompra = Convert.ToDecimal(txtTotal.Text);
             ctr_oc.Actualizar_OC(dto_oc);
 
             //--------------------------------------------------------------
 
-            ctr_ocxinsumo.Eliminar_OCxInsumo(dto_oc.OC_idOrdenCompra);
-            
 
-            foreach (GridViewRow row in GridViewEditarOC.Rows)
-            {
-                dto_ocxinsumo.I_idInsumo = Convert.ToInt32(row.Cells[0].Text);
-                dto_ocxinsumo.OC_idOrdenCompra = dto_oc.OC_idOrdenCompra;
-                dto_ocxinsumo.OCxI_Cantidad = Convert.ToDecimal(row.Cells[2].Text);
-                dto_ocxinsumo.OCxI_PrecioTotal = Convert.ToDecimal(row.Cells[3].Text);
-               
-
-                ctr_ocxinsumo.Registrar_OC_Insumo(dto_ocxinsumo);
-            }
-
-            Response.Redirect("GestionarOC.aspx");
+            ClientScript.RegisterStartupScript(Page.GetType(), "alertaExito", "alertaExito('Se ha logrado ingresar correctamente');", true);
         }
-
         protected void btnQuitar_Click(object sender, EventArgs e)
         {
-            tin.Rows[id].Delete();
-            pila.RemoveAt(id);
-            suma -= Convert.ToDecimal(GridViewEditarOC.Rows[id].Cells[3].Text);
-            txtTotal.Text = suma.ToString();
+            GridViewRow row = GridViewEditarOC.SelectedRow;
+            int idOC = dto_oc.OC_idOrdenCompra;
+            int idIns = Convert.ToInt32(row.Cells[0].Text);
+            ctr_ocxinsumo.Eliminar_OCxInsumo(idOC, idIns);
+            suma -= Convert.ToDecimal(GridViewEditarOC.Rows[id].Cells[4].Text);
+            dt = ctr_ocxinsumo.Leer_InsumoxOC(dto_oc.OC_idOrdenCompra);
             GridViewEditarOC.DataSource = dt;
             GridViewEditarOC.DataBind();
+            SumaTotal();
+
         }
+
 
         protected void GridViewEditarOC_SelectedIndexChanged(object sender, EventArgs e)
         {
             GridViewRow row = GridViewEditarOC.SelectedRow;
-            id = Convert.ToInt32(GridViewEditarOC.DataKeys[row.RowIndex].Value);
         }
 
         protected void btnAñadir_Click(object sender, EventArgs e)
         {
-            AñadirTabla();
+                  
             dto_ocxinsumo = new DTO_OCxInsumo();
-            dto_ocxinsumo.I_idInsumo = int.Parse(DdlInsumo.SelectedValue);
+            if (DdlInsumo.SelectedValue == "") { lblMsj1.Text = "Seleccione un insumo"; }
+            else { dto_ocxinsumo.I_idInsumo = int.Parse(DdlInsumo.SelectedValue); }
             DTO_Insumo insumo = ctr_insumo.Consultar_InsumoxID(dto_ocxinsumo.I_idInsumo);
-            // dto_ocxinsumo.OC_idOrdenCompra = ctr_oc.ID_OC_Actual()+1;
-            dto_ocxinsumo.OCxI_Cantidad = int.Parse(txtCantidad.Text);
+            if (int.Parse(txtCantidad.Text) == 0 || int.Parse(txtCantidad.Text) < 0)
+            {
+                lblMsj.Text = "Ingrese otra cantidad";
+            }
+            if (ctr_insumo.CTR_LimiteStockMax(int.Parse(DdlInsumo.SelectedValue), int.Parse(txtCantidad.Text)) == 1)
+            {
+                lblMsj.Text = "Ingresar una cantidad menor";
+            }
+            else if (txtCantidad.Text == "")
+            {
+                lblMsj.Text = "Ingrese una cantidad";
+            }
+            else
+            {
+                dto_ocxinsumo.OCxI_Cantidad = int.Parse(txtCantidad.Text);
+            }          
             dto_ocxinsumo.OCxI_PrecioTotal = dto_ocxinsumo.OCxI_Cantidad * Convert.ToDecimal(insumo.DR_PrecioUnitario);
-            suma += dto_ocxinsumo.OCxI_PrecioTotal;
-            dto_oc.OC_TotalCompra += Convert.ToDecimal(dto_ocxinsumo.OCxI_PrecioTotal);
-           // pila.Add(dto_ocxinsumo);
-            txtTotal.Text = suma.ToString();
-           
-            DataRow row = tin.NewRow();
-            row[0] = dto_ocxinsumo.I_idInsumo;
-            row[1] = insumo.VR_NombreRecurso;
-            row[2] = dto_ocxinsumo.OCxI_Cantidad;
-            row[3] = insumo.DR_PrecioUnitario;
-            row[4] = dto_ocxinsumo.OCxI_PrecioTotal;
+            dto_ocxinsumo.OC_idOrdenCompra = dto_oc.OC_idOrdenCompra;
 
-            tin.Rows.Add(row);
-            
-            GridViewEditarOC.DataSource = tin;
+            //Registrar y bindear
+            ctr_ocxinsumo.Registrar_OC_Insumo(dto_ocxinsumo);
+            dt = ctr_ocxinsumo.Leer_InsumoxOC(dto_oc.OC_idOrdenCompra);
+            GridViewEditarOC.DataSource = dt;
             GridViewEditarOC.DataBind();
-
+            SumaTotal();
         }
-        public void AñadirTabla()
+        public void SumaTotal()
         {
-
-            if (tin.Columns.Count == 0)
+            foreach (GridViewRow row in GridViewEditarOC.Rows)
             {
-                tin.Columns.Add("I_idInsumo");
-                tin.Columns.Add("I_NombreInsumo");
-                tin.Columns.Add("OCxI_Cantidad");
-                tin.Columns.Add("I_PrecioUnitario");
-                tin.Columns.Add("OCxI_PrecioTotal");
-
+                suma += Convert.ToDecimal(row.Cells[4].Text);
             }
-
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-
-                DataRow row = dt.NewRow();
-                row[0] = dt.Rows[i]["I_idInsumo"];
-                row[1] = dt.Rows[i]["I_NombreInsumo"].ToString();
-                row[2] = dt.Rows[i]["OCxI_Cantidad"];
-                row[3] = dt.Rows[i]["I_PrecioUnitario"];
-                row[4] = dt.Rows[i]["OCxI_PrecioTotal"];
-
-                tin.Rows.Add(row);
-            }
-        
+            txtTotal.Text = suma.ToString();
+        }
+        protected void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtNumComprobante.Text = "";
+            txtTipoComprobante.Text = "";           
+            txtCantidad.Text = "";
+            txtMedida.Text = "";
+            txtPrecioU.Text = "";
+            txtTotal.Text = "";
         }
     }
 }

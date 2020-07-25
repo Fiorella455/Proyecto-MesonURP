@@ -55,8 +55,9 @@ namespace MesonURPWEB
                     {
                         Response.Redirect("Dashboard");
                     }
-                    else
+                    else if (perfil == "Administrador del Sistema")
                     {
+                        Response.Redirect("Dashboard");
                     }
 
                 }

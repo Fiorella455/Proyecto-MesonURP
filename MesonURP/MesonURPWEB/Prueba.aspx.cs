@@ -6,39 +6,54 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using CTR;
+using DAO;
 
 namespace MesonURPWEB
 {
     public partial class Prueba : System.Web.UI.Page
     {
+        DAO_OC dao_oc;
         CTR_OC ctr_oc;
         DataTable dt;
+        int mes = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            ctr_oc = new CTR_OC();
-            dt = new DataTable();
-            dt = ctr_oc.Leer_OC_Recibido();
-            GridViewConsultar.DataSource = dt;
-            GridViewConsultar.DataBind();
-            CargarDdlMes();
-            //---------------------------------------
 
-            if (ddlMes.SelectedValue != null)
-            { 
-                   //switch(ddlMes.SelectedValue)
-                   
+            dt = new DataTable();
+            dao_oc = new DAO_OC();
+            ctr_oc = new CTR_OC();
+            mes = DateTime.Today.Month;
+            CargarOC(mes);
+
+            Label1.Text = ddlMes.SelectedIndex.ToString();
+            if(IsPostBack)
+
+            {
+                if (ddlMes.SelectedIndex==0)
+                {
+                    mes = DateTime.Today.Month;
+                                    
+                }
+                else
+                {
+                    mes = Convert.ToInt32(ddlMes.SelectedValue);
+                }
             }
 
+            CargarOC(mes);          
         }
-
-        protected void GridViewConsultar_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+        public void CargarOC(int m)
+        {      
+                dt = ctr_oc.Leer_OCxMes(m);
+                GridViewConsultar.DataSource = dt;
+                GridViewConsultar.DataBind();
+                CargarDdlMes();         
         }
-
+     
         public void CargarDdlMes()
         {
             ListItem i;
+          
             i = new ListItem("Enero","1");
             ddlMes.Items.Add(i);           
             i = new ListItem("Febrero","2");
@@ -63,6 +78,27 @@ namespace MesonURPWEB
             ddlMes.Items.Add(i);
             i = new ListItem("Diciembre", "12");
             ddlMes.Items.Add(i);
+ 
+        }
+
+        protected void ddlMes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (ddlMes.SelectedValue != null)
+            {
+
+                mes = Convert.ToInt32(ddlMes.SelectedValue);
+                Label1.Text = "Mes:" + mes.ToString();
+                CargarOC(mes);               
+            }
+        }
+
+        protected void btnReporte_Click(object sender, EventArgs e)
+        {
+            
+            Session.Add("mes", mes);
+            Response.Redirect("PruebaReporte.aspx");
+
         }
     }
 }

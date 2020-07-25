@@ -110,7 +110,8 @@
       <HintPath>..\packages\Microsoft.Extensions.Primitives.3.1.5\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Identity.Client, Version=4.15.0.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Identity.Client.4.15.0\lib\net45\Microsoft.Identity.Client.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Identity.Client.4.16.0\lib\net45\Microsoft.Identity.Client.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=6.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.6.7.1\lib\net461\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
@@ -244,6 +245,7 @@
     <Content Include="EliminarProveedor.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="GenerarReporte.aspx" />
     <Content Include="GestionarCategoria.aspx" />
     <Content Include="GestionarInsumo.aspx" />
     <Content Include="GestionarOC.aspx" />
@@ -253,8 +255,18 @@
     <Content Include="Home.aspx" />
     <Content Include="img\back.jpg" />
     <Content Include="img\baseline_exit_to_app_white_18dp.png" />
+    <Content Include="img\basura-b.png" />
+    <Content Include="img\correcto-b.png" />
+    <Content Include="img\correcto.png" />
     <Content Include="img\decano.PNG" />
+    <Content Include="img\delete.png" />
     <Content Include="img\director.PNG" />
+    <Content Include="img\editar-b.png" />
+    <Content Include="img\editar.png" />
+    <Content Include="img\eliminar-b.png" />
+    <Content Include="img\eliminar.png" />
+    <Content Include="img\enviar-b.png" />
+    <Content Include="img\enviar_1.png" />
     <Content Include="img\favicon.png" />
     <Content Include="img\gal-1.jpeg" />
     <Content Include="img\gal-10.jpeg" />
@@ -300,9 +312,13 @@
     <Content Include="img\MesonURP_icono.ico" />
     <Content Include="img\MesonURP_logofinal.png" />
     <Content Include="img\MesonURP_logofinal2.png" />
+    <Content Include="img\ojo-b.png" />
+    <Content Include="img\ojo.png" />
     <Content Include="img\realtor-1.jpeg" />
     <Content Include="img\realtor-2.jpeg" />
     <Content Include="img\realtor-3.jpeg" />
+    <Content Include="img\recibido-b.png" />
+    <Content Include="img\recibido.png" />
     <Content Include="img\rector.PNG" />
     <Content Include="img\sprite.svg" />
     <Content Include="img\story-1.jpeg" />
@@ -312,6 +328,8 @@
     <Content Include="img\univ-2.png" />
     <Content Include="img\UNIVERSIDAD-RICARDO-PALMA-18.jpg" />
     <Content Include="img\urp1.jpg" />
+    <Content Include="img\ver-w.png" />
+    <Content Include="img\ver.png" />
     <Content Include="index.html" />
     <Content Include="js\amcharts.js" />
     <Content Include="js\bootstrap.min.js" />
@@ -324,6 +342,7 @@
     <Content Include="js\jquery.flot.js" />
     <Content Include="js\jquery.fn.gantt.js" />
     <Content Include="js\jquery.nicescroll.js" />
+    <Content Include="js\jspdf.debug.js" />
     <Content Include="js\light.js" />
     <Content Include="js\menu_jquery.js" />
     <Content Include="js\moment-2.2.1.js" />
@@ -337,6 +356,7 @@
     <Content Include="js\sweetalert2.all.min.js" />
     <Content Include="js\underscore-min.js" />
     <Content Include="ManejarStock.aspx" />
+    <Content Include="MensajeOC.html" />
     <Content Include="Prueba.aspx" />
     <Content Include="PruebaReporte.aspx" />
     <Content Include="RegistrarEgreso.aspx" />
@@ -400,9 +420,22 @@
       <DependentUpon>AñadirOC.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="AñadirOC.aspx.designer.cs">
+      <DependentUpon>AñadirOC.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AñadirProveedor.aspx.cs">
       <DependentUpon>AñadirProveedor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GenerarReporte.aspx.cs">
+      <DependentUpon>GenerarReporte.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AñadirProveedor.aspx.designer.cs">
+      <DependentUpon>AñadirProveedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GenerarReporte.aspx.designer.cs">
+      <DependentUpon>GenerarReporte.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionarCategoria.aspx.cs">
       <DependentUpon>GestionarCategoria.aspx</DependentUpon>
@@ -410,13 +443,6 @@
     </Compile>
     <Compile Include="GestionarCategoria.aspx.designer.cs">
       <DependentUpon>GestionarCategoria.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="GestionarInsumo.aspx.cs">
-      <DependentUpon>GestionarInsumo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AñadirProveedor.aspx.designer.cs">
-      <DependentUpon>AñadirProveedor.aspx</DependentUpon>
     </Compile>
     <Compile Include="ConsultarInsumo.aspx.cs">
       <DependentUpon>ConsultarInsumo.aspx</DependentUpon>
@@ -464,8 +490,8 @@
       <DependentUpon>Master.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AñadirOC.aspx.designer.cs">
-      <DependentUpon>AñadirOC.aspx</DependentUpon>
+    <Compile Include="Master.Master.designer.cs">
+      <DependentUpon>Master.Master</DependentUpon>
     </Compile>
     <Compile Include="ConsultarOC.aspx.cs">
       <DependentUpon>ConsultarOC.aspx</DependentUpon>
@@ -488,9 +514,6 @@
     <Compile Include="GestionarOC.aspx.designer.cs">
       <DependentUpon>GestionarOC.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -504,13 +527,6 @@
     </Compile>
     <Compile Include="ManejarStock.aspx.designer.cs">
       <DependentUpon>ManejarStock.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Master.Master.cs">
-      <DependentUpon>Master.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Master.Master.designer.cs">
-      <DependentUpon>Master.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Prueba.aspx.cs">
@@ -544,13 +560,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Master.Master.cs">
-      <DependentUpon>Master.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Master.Master.designer.cs">
-      <DependentUpon>Master.Master</DependentUpon>
-    </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -566,6 +575,11 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -601,7 +615,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reporte.rdlc" />
+    <EmbeddedResource Include="Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
