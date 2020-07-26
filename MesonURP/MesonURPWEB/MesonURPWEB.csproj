@@ -247,6 +247,7 @@
     <Content Include="GestionarOC.aspx" />
     <Content Include="GestionarProveedor.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Grafico.aspx" />
     <Content Include="gulpfile.js" />
     <Content Include="Home.aspx" />
     <Content Include="img\back.jpg" />
@@ -436,6 +437,13 @@
     </Compile>
     <Compile Include="GestionarProveedor.aspx.designer.cs">
       <DependentUpon>GestionarProveedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Grafico.aspx.cs">
+      <DependentUpon>Grafico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Grafico.aspx.designer.cs">
+      <DependentUpon>Grafico.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>
