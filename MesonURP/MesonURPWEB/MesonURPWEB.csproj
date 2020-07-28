@@ -551,7 +551,6 @@
     <Compile Include="Probando.aspx.designer.cs">
       <DependentUpon>Probando.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrarEgreso.aspx.cs">
       <DependentUpon>RegistrarEgreso.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -583,7 +582,6 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
