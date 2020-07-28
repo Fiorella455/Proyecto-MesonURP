@@ -224,7 +224,6 @@
     <Content Include="AñadirInsumo.aspx" />
     <Content Include="AñadirOC.aspx" />
     <Content Include="AñadirProveedor.aspx" />
-    <Content Include="ConsultarInsumo.aspx" />
     <Content Include="ConsultarMovimientos.aspx" />
     <Content Include="ConsultarOC.aspx" />
     <Content Include="ConsultarProveedor.aspx" />
@@ -241,7 +240,6 @@
     <Content Include="css\owl.carousel.css" />
     <Content Include="css\style1.css" />
     <Content Include="css\sweetalert2.min.css" />
-    <Content Include="Dashboard.aspx" />
     <Content Include="EliminarProveedor.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -359,7 +357,7 @@
     <Content Include="MensajeOC.html" />
     <Content Include="Prueba.aspx" />
     <Content Include="PruebaReporte.aspx" />
-    <Content Include="Probando.aspx" />
+    <Content Include="Dashboard.aspx" />
     <Content Include="RegistrarEgreso.aspx" />
     <Content Include="RegistrarIngreso.aspx" />
     <Content Include="js1\jquery-1.7.2.min.js" />
@@ -445,13 +443,6 @@
     <Compile Include="GestionarCategoria.aspx.designer.cs">
       <DependentUpon>GestionarCategoria.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ConsultarInsumo.aspx.cs">
-      <DependentUpon>ConsultarInsumo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ConsultarInsumo.aspx.designer.cs">
-      <DependentUpon>ConsultarInsumo.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ConsultarMovimientos.aspx.cs">
       <DependentUpon>ConsultarMovimientos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -501,13 +492,6 @@
     <Compile Include="ConsultarOC.aspx.designer.cs">
       <DependentUpon>ConsultarOC.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Dashboard.aspx.cs">
-      <DependentUpon>Dashboard.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Dashboard.aspx.designer.cs">
-      <DependentUpon>Dashboard.aspx</DependentUpon>
-    </Compile>
     <Compile Include="GestionarOC.aspx.cs">
       <DependentUpon>GestionarOC.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -544,12 +528,12 @@
     <Compile Include="PruebaReporte.aspx.designer.cs">
       <DependentUpon>PruebaReporte.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Probando.aspx.cs">
-      <DependentUpon>Probando.aspx</DependentUpon>
+    <Compile Include="Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Probando.aspx.designer.cs">
-      <DependentUpon>Probando.aspx</DependentUpon>
+    <Compile Include="Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegistrarEgreso.aspx.cs">
       <DependentUpon>RegistrarEgreso.aspx</DependentUpon>

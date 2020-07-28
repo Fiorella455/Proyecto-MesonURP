@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Generar Reporte" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="GenerarReporte.aspx.cs" Inherits="MesonURPWEB.GenerarReporte" %>
+﻿<%@ Page Title="MesónURP | Generar Reporte" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="GenerarReporte.aspx.cs" Inherits="MesonURPWEB.GenerarReporte" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

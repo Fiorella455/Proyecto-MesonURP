@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ActualizarCategoria.aspx.cs" Inherits="MesonURPWEB.ActualizarCategoria" %>
+﻿<%@ Page Title="Gestionar Categoría | Actualizar" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ActualizarCategoria.aspx.cs" Inherits="MesonURPWEB.ActualizarCategoria" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

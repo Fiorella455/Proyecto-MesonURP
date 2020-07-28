@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ConsultarProveedor.aspx.cs" Inherits="MesonURPWEB.ConsultarProveedor" %>
+﻿<%@ Page Title="Gestionar Proveedor | Consultar" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="ConsultarProveedor.aspx.cs" Inherits="MesonURPWEB.ConsultarProveedor" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

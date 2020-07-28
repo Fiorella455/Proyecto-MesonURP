@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="AñadirInsumo.aspx.cs" Inherits="MesonURPWEB.AñadirInsumo" %>
+﻿<%@ Page Title="Gestionar Insumo | Agregar" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="AñadirInsumo.aspx.cs" Inherits="MesonURPWEB.AñadirInsumo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
