@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Gestionar Proveedor | Añadir" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="AñadirProveedor.aspx.cs" Inherits="MesonURPWEB.AñadirProveedor" %>
+﻿<%@ Page Title="Gestionar Proveedor | Agregar" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="AñadirProveedor.aspx.cs" Inherits="MesonURPWEB.AñadirProveedor" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
