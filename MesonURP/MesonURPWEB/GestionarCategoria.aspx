@@ -19,11 +19,13 @@
                     </div>
                     <div class="stock-options marginT8">
                         <div class="width-auto margin-5"  style="z-index:100;">
-                        <asp:Button type="btnAgregarCategoria" class="btn btn-primary" runat="server" text="Agregar"  onclick="btnAgregarCategoria_Click" />
-                    </div>
+                        <button type="button" class="btn btn-primary btn-flex" runat="server" onserverclick="btnAgregarCategoria_Click">     
+                            <span class="material-icons margin-5">add_circle_outline</span>
+                            <h>Agregar</h>
+                        </button>  
+                   </div>
                   </div>
                   </div>
-                
             </div>  
             <div class="search-buttons">
                 <div class="panel panel-widget forms-panel">

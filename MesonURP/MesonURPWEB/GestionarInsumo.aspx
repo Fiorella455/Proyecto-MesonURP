@@ -9,7 +9,10 @@
                 <h2 class="tittle-margin5">Gestionar Insumos</h2>
                 <div class="stock-options">
                     <div class="width-auto margin-5">
-                        <input type="button" class="btn btn-primary" value="Agregar Nuevo Insumo" onclick="window.location.href = 'AñadirInsumo';">
+                        <button type="button" class="btn btn-primary btn-flex" runat="server" onserverclick="btnRegistrar_Click">     
+                            <span class="material-icons margin-5">add_circle_outline</span>
+                            <h> Agregar Insumo</h>
+                        </button>
                     </div>
                 </div>
             </div>

@@ -69,5 +69,9 @@ namespace MesonURPWEB
                 
             }
         }
+        protected void btnRegistrarP_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AñadirProveedor");
+        }
     }
 }

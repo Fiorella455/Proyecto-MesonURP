@@ -271,5 +271,9 @@ namespace MesonURPWEB
             CargarOrdenesCompra();
 
         }
+        protected void btnRegistrarOC_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AñadirOC");
+        }
     }
 }

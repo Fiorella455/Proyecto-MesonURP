@@ -9,8 +9,11 @@
             <div class="progressbar-heading grids-heading title-flex">
                 <h2 class="tittle-margin5">Gestionar Proveedor</h2>
                 <div class="stock-options">
-                    <div class="width-auto margin-5">
-                        <input type="button" class="btn btn-primary" value="Agregar Nuevo Proveedor" onclick="window.location.href = 'AñadirProveedor';">
+                     <div class="width-auto margin-5">
+                        <button type="button" class="btn btn-primary btn-flex" runat="server" onserverclick="btnRegistrarP_Click">     
+                            <span class="material-icons margin-5">add_circle_outline</span>
+                            <h>Agregar Proveedor</h>
+                        </button>
                     </div>
                 </div>
             </div>

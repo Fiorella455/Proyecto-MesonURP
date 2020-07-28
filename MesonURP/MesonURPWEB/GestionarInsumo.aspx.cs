@@ -128,7 +128,7 @@ namespace MesonURPWEB
         }
         protected void btnRegistrar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("RegistrarInsumo");
+            Response.Redirect("AñadirInsumo");
         }
 
         protected void btnVerDetalle_Click(object sender, EventArgs e)
