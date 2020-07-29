@@ -14,14 +14,14 @@ namespace MesonURPWEB
 
     public partial class GestionarOC : System.Web.UI.Page
     {
-        DTO_OC dto_oc;
-        DTO_MovimientoxInsumo dto_movxinsumo;
-        DTO_Estado_OCxOC dto_estado_OCxOC;
-        DAO_OC dao_oc;
-        CTR_OC ctr_oc;
-        CTR_OCxInsumo ctr_ocxinsumo;
-        CTR_MovimientoxInsumo ctr_movxinsumo;
-        CTR_EstadoOCxOC ctr_estado_OCxOC;
+        DTO_OC dto_oc = new DTO_OC();
+        DTO_MovimientoxInsumo dto_movxinsumo = new DTO_MovimientoxInsumo();
+        DTO_Estado_OCxOC dto_estado_OCxOC = new DTO_Estado_OCxOC();
+        DAO_OC dao_oc = new DAO_OC();
+        CTR_OC ctr_oc = new CTR_OC();
+        CTR_OCxInsumo ctr_ocxinsumo = new CTR_OCxInsumo();
+        CTR_MovimientoxInsumo ctr_movxinsumo = new CTR_MovimientoxInsumo();
+        CTR_EstadoOCxOC ctr_estado_OCxOC = new CTR_EstadoOCxOC();
         CTR_OC _OC = new CTR_OC();
         DataTable dt;
         DataSet ds_movxinsumo = new DataSet();
@@ -31,25 +31,17 @@ namespace MesonURPWEB
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            dto_oc = new DTO_OC();
-            dto_estado_OCxOC = new DTO_Estado_OCxOC();
-            ctr_estado_OCxOC = new CTR_EstadoOCxOC();
-            ctr_ocxinsumo = new CTR_OCxInsumo();
-            dto_movxinsumo = new DTO_MovimientoxInsumo();
-            ctr_movxinsumo = new CTR_MovimientoxInsumo();
+            if (Session["codUsuario"] == null)
+            {
+                Response.Redirect("Home.aspx?x=1");
+            }
             if (!IsPostBack)
             {
-                ctr_oc = new CTR_OC();
-                dao_oc = new DAO_OC();
                 dt = new DataTable();
                 dto_oc = new DTO_OC();
-
-
                 dt = ctr_oc.Leer_OC();
                 GridViewOC.DataSource = dt;
                 GridViewOC.DataBind();
-
-
             }
         }
         protected void GridViewOC_OnRowDataBound(object sender, GridViewRowEventArgs e)

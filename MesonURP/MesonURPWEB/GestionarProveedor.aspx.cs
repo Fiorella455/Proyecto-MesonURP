@@ -16,6 +16,10 @@ namespace MesonURPWEB
         DataSet dt;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["codUsuario"] == null)
+            {
+                Response.Redirect("Home.aspx?x=1");
+            }
             if (!IsPostBack)
             {
                 ctr_pro = new CTR_Proveedor();

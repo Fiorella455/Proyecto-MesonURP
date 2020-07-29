@@ -18,7 +18,20 @@ namespace MesonURPWEB
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblMensajeAyuda.Text = "Ingrese sus datos por favor";
+            if (Request.QueryString["x"] != null)
+            {
+                int valor = Convert.ToInt32(Request.QueryString["x"]);
+                switch (valor)
+                {
+                    case 1:
+                        lblMensajeAyuda.Text = "Debe ingresar su correo y contraseña por favor";
+                        break;
+                    case 2:
+                        lblMensajeAyuda.Text = "Sesión finalizada. Hasta pronto";
+                        break;
+                }
+            }
+            //lblMensajeAyuda.Text = "Ingrese sus datos por favor";
             lblMensaje.Text = "";
         }
 

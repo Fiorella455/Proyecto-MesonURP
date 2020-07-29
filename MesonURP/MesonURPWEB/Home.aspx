@@ -10,6 +10,9 @@
     <link href="../css/style.prefix.css" rel="stylesheet" />
     <link href="css/sweetalert2.min.css" rel="stylesheet" />
     <script src="js/sweetalert2.all.min.js"></script>
+    <script type="text/javascript">
+        window.history.forward();
+    </script>
 </head>
 <body class="container">
     <div class="sidebar"></div>

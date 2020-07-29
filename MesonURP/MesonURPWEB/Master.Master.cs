@@ -74,7 +74,11 @@ namespace MesonURPWEB
 
         protected void btnSalida_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Home.aspx");
+            Session.Abandon();
+            Session.RemoveAll();
+            Session.Clear();
+            HttpContext.Current.Session.Abandon();
+            Response.Redirect("Home.aspx?x=2");
         }
     }
 }
