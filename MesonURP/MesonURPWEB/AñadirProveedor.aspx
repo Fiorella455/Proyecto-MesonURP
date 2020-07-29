@@ -17,8 +17,7 @@
                         <label for="focusedinput" class="col-sm-2 control-label">Razón Social</label>
                         <div class="col-sm-8">
                             <asp:TextBox ID="txtRazonSocial" runat="server" placeholder="Ingrese la razón social" CssClass="form-control1" ValidationGroup="añadirProveedor" onkeypress="return soloLetras(event);" MaxLength="50" />
-                            <%--<asp:RegularExpressionValidator ID="revMaxLen" runat="server" ErrorMessage="Mucho texto" ControlToValidate="txtRazonSocial" ForeColor="#CC0000" ValidationExpression="(.{1,50}){1}" SetFocusOnError="True" Display="Dynamic"></asp:RegularExpressionValidator>
-                            --%><asp:RequiredFieldValidator ID="validationRazon" runat="server" ControlToValidate="txtRazonSocial" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirProveedor" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="validationRazon" runat="server" ControlToValidate="txtRazonSocial" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirProveedor" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group">

@@ -47,7 +47,7 @@ namespace MesonURPWEB
             dt = ctr_oc.Leer_OCxMes(m);
             GridViewConsultar.DataSource = dt;
             GridViewConsultar.DataBind();
-            CargarDdlMes();
+            
         }
         public void CargarDdlMes()
         {

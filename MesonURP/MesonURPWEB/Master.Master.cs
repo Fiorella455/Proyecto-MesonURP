@@ -29,7 +29,7 @@ namespace MesonURPWEB
                         menuReportes.Visible = true;
                         menuGestionarMerma.Visible = false;
                         menuCategoria.Visible = true;
-                        menuUsuarios.Visible = false;
+                        menuUsuarios.Visible = true;
                         menuInsumo.Visible = true;
                         lblRol.Text = perfil;
                         lblNombre.Text = Convert.ToString(Session["NombreUsuario"]);

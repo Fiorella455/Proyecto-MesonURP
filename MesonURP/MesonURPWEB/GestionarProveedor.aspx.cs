@@ -47,7 +47,7 @@ namespace MesonURPWEB
             if (e.CommandName == "EliminarProveedor")
             {
                 //ScriptManager.RegisterClientScriptBlock(this.panelEliProv,this.panelEliProv.GetType(),"alert", "deleteProv()", true);
-                 ClientScript.RegisterStartupScript(this.GetType(), "alert" , "deleteProv()", true);
+                 ClientScript.RegisterStartupScript(this.GetType(), "alert" , "alertaEli()", true);
                 
                 CTR_Proveedor cp = new CTR_Proveedor();
                 int id = Convert.ToInt32(GridViewProveedor.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["P_idProveedor"].ToString());

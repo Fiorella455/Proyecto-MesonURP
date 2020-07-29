@@ -1,39 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using DTO;
 using System.Data;
 using System.Data.SqlClient;
+using DTO;
 namespace DAO
 {
-   public class Dao_TipoUsuario
+   public class DAO_Estado_Usuario
     {
         SqlConnection conexion;
-        public Dao_TipoUsuario()
+        public DAO_Estado_Usuario()
         {
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
         }
-        public Dto_TipoUsuario Consultar_Tipo_Usuario_ID(int i)
+        public Dto_EstadoUsuario Consultar_Estado_Usuario_ID(int i)
         {
-            Dto_TipoUsuario estado = new Dto_TipoUsuario();
+            Dto_EstadoUsuario estado = new Dto_EstadoUsuario();
             conexion.Open();
-            SqlCommand comando = new SqlCommand("SP_Consultar_Tipo_Usuario_ID", conexion);
+            SqlCommand comando = new SqlCommand("SP_Consultar_Estado_Usuario_ID", conexion);
             comando.CommandType = CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@TU_idTipoUsuario", i);
+            comando.Parameters.AddWithValue("@EU_idEstadoUsuario", i);
             comando.ExecuteNonQuery();
             SqlDataReader reader = comando.ExecuteReader();
             if (reader.Read())
             {
-                estado.TU_idTipoUsuario = i;
-                estado.TU_NombreTipoUsuario = reader[1].ToString();
+                estado.EU_idEstadoUsuario = i;
+                estado.EU_NombreEstadoUsuario = reader[1].ToString();
             }
             conexion.Close();
             return estado;
         }
-        public DataSet Consultar_Tipos_Usuario()
+        public DataSet Consultar_Estados_Usuario()
         {
             conexion.Open();
-            SqlCommand comando = new SqlCommand("SP_Consultar_Tipos_Usuario", conexion);
+            SqlCommand comando = new SqlCommand("SP_Consultar_Estados_Usuario", conexion);
             comando.CommandType = CommandType.StoredProcedure;
             comando.ExecuteNonQuery();
             DataSet ds = new DataSet();
@@ -44,4 +44,3 @@ namespace DAO
         }
     }
 }
- 

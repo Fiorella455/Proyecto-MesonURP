@@ -9,7 +9,7 @@ namespace DTO
         public int U_idUsuario { get; set; }
         public string U_Nombre { get; set; }
         public string U_APaterno { get; set; }
-        public string U_Materno { get; set; }
+        public string U_AMaterno { get; set; }
         public string U_Celular { get; set; }
         public string U_Correo { get; set; }
         public string U_Direccion { get; set; }
