@@ -9,7 +9,7 @@
                 <h2 class="tittle-margin5">Gestionar Usuario</h2>
                 <div class="stock-options">
                     <div class="width-auto margin-5">
-                        <input type="button" class="btn btn-primary" value="Agregar Nuevo Usuario" onclick="window.location.href = 'AñadirUsuario.aspx';">
+                        <input type="button" class="btn btn-primary" value="Agregar Nuevo Usuario" onclick="window.location.href = 'AñadirUsuario';">
                     </div>
                 </div>
             </div>

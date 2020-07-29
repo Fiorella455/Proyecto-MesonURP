@@ -31,13 +31,13 @@ namespace MesonURPWEB
             {
                 int id = Convert.ToInt32(GridViewUsuario.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["U_idUsuario"].ToString());
                 Session.Add("id", id);
-                Response.Redirect("ActualizarUsuario.aspx");
+                Response.Redirect("ActualizarUsuario");
             }
             else if(e.CommandName== "ConsultarUsuario")
             {
                 int id = Convert.ToInt32(GridViewUsuario.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["U_idUsuario"].ToString());
                 Session.Add("id", id);
-                Response.Redirect("ConsultarUsuario.aspx");
+                Response.Redirect("ConsultarUsuario");
             }
             else if(e.CommandName== "EliminarUsuario")
             {
