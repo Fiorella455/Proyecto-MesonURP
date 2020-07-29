@@ -55,11 +55,9 @@ namespace CTR
         {
             return objDAO.BuscarMovimientoxInsumoTipo(tipo);
         }
-        public int ObteneridInsumo(string insumo)
+        public DataTable SelectMovimientoxInsumoxMes(int Mes)
         {
-            return objDAO.getInsumo(insumo);
-                
-        
+            return objDAO.ListarMovimientoxInsumoxMes(Mes);
         }
     }
 }

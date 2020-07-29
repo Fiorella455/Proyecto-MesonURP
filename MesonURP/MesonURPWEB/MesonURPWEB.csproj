@@ -246,6 +246,7 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="GenerarReporte.aspx" />
+    <Content Include="GenerarReporteMovimiento.aspx" />
     <Content Include="GestionarCategoria.aspx" />
     <Content Include="GestionarInsumo.aspx" />
     <Content Include="GestionarOC.aspx" />
@@ -289,6 +290,7 @@
     <Content Include="img\house-4.jpeg" />
     <Content Include="img\house-5.jpeg" />
     <Content Include="img\house-6.jpeg" />
+    <Content Include="img\icons8-eye-30.png" />
     <Content Include="img\logo-bbc.png" />
     <Content Include="img\logo-bi.png" />
     <Content Include="img\logo-forbes.png" />
@@ -466,6 +468,13 @@
     </Compile>
     <Compile Include="GenerarReporte.aspx.designer.cs">
       <DependentUpon>GenerarReporte.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GenerarReporteMovimiento.aspx.cs">
+      <DependentUpon>GenerarReporteMovimiento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GenerarReporteMovimiento.aspx.designer.cs">
+      <DependentUpon>GenerarReporteMovimiento.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionarCategoria.aspx.cs">
       <DependentUpon>GestionarCategoria.aspx</DependentUpon>
