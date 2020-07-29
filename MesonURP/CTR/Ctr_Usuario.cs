@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Data;
 using DAO;
 using DTO;
-using System.Data;
 
 namespace CTR
 {
@@ -26,8 +26,15 @@ namespace CTR
         {
             dao_usu.getNomApellUsuario(dto_usu);
         }
+        public bool getContraseñaU(Dto_Usuario dto_usu)
+        {
+            return dao_usu.getContraseñaU(dto_usu);
+        }
 
-
+        public void Cambiar_Contraseña(Dto_Usuario dto_usu)
+        {
+            dao_usu.CambiarContraseña(dto_usu);
+        }
         public DataSet Consultar_Usuarios()
         {
             return dao_usu.Consultar_Usuarios();
@@ -52,7 +59,6 @@ namespace CTR
         {
             return dao_usu.Existe_Usuario(u);
         }
-
     }
    
 }
