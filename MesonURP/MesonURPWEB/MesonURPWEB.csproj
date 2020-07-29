@@ -226,7 +226,6 @@
     <Content Include="AñadirOC.aspx" />
     <Content Include="AñadirProveedor.aspx" />
     <Content Include="AñadirUsuario.aspx" />
-    <Content Include="ConsultarInsumo.aspx" />
     <Content Include="ConsultarMovimientos.aspx" />
     <Content Include="ConsultarOC.aspx" />
     <Content Include="ConsultarProveedor.aspx" />
