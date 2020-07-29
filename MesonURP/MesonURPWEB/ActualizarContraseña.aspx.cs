@@ -13,20 +13,49 @@ namespace MesonURPWEB
     {
         Dto_Usuario dto_Usuario;
         Ctr_Usuario ctr_usuario;
-        
+        int state = 0;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             dto_Usuario = new Dto_Usuario();
             ctr_usuario = new Ctr_Usuario();
-
             dto_Usuario.U_idUsuario = (int)Session["codUsuario"];
-            if (ctr_usuario.getContraseñaU(dto_Usuario))
-            {
-                txtContraseñaAct.Text = dto_Usuario.U_Contraseña;
-            }
-        }
 
-        public void Verificar_Contraseña()
+            if (!IsPostBack)
+            {
+                Session["st"] = 1;
+                btnCambiarCont.Text = "Verificar";
+                txtContraseñaN.Visible = false;
+                txtContraseñaNR.Visible = false;
+            }
+
+        }
+        public void Verificar_Contraseña_Actual()
+        {
+
+            if (txtContraseñaAct.Text != "")
+            {
+                if (ctr_usuario.getContraseñaU(dto_Usuario))
+                {
+                    if (dto_Usuario.U_Contraseña == txtContraseñaAct.Text)
+                    {
+                        lblMsj.Text = "Contraseña Correcta";
+                        btnCambiarCont.Text = "Cambiar Contraseña";
+                        txtContraseñaN.Visible = true;
+                        txtContraseñaNR.Visible = true;                       
+                        Session["st"]=2;
+                    }
+                    else
+                    {
+                        lblMsj.Text = "Contraseña Incorrecta";
+
+                    }
+                }
+            }
+            else { lblMsj.Text = "Escriba su contraseña actual"; }
+            
+        }
+        public void Verificar_Nueva_Contraseña()
         {
             if (txtContraseñaN.Text != "" && txtContraseñaNR.Text != "")
             {
@@ -51,8 +80,16 @@ namespace MesonURPWEB
 
         protected void btnCambiarCont_Click(object sender, EventArgs e)
         {
-            Verificar_Contraseña();
-            
+            state = (int)Session["st"];
+            if (state==2)
+            {
+                Verificar_Nueva_Contraseña();
+            }
+            if(state==1)
+            {
+                Verificar_Contraseña_Actual();
+            }
+                     
         }
     }
 }

@@ -12,19 +12,19 @@
                   <div class="form-three widget-shadow">
                        <div class="form-horizontal" runat="server">
                            <div class="form-group">
-                        <label for="focusedinput" class="col-sm-2 control-label">Contraseña Actual</label>
-                        <div class="col-sm-8">
-                            <asp:TextBox ID="txtContraseñaAct" runat="server" CssClass="form-control1" ReadOnly="true"></asp:TextBox>
+                        <asp:Label ID="lblContraseñaA" runat="server" Text="Contraseña Actual" class="col-sm-2 control-label"></asp:Label>
+&nbsp;                    <div class="col-sm-8">
+                            <asp:TextBox ID="txtContraseñaAct" runat="server" CssClass="form-control1" ></asp:TextBox>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="focusedinput" class="col-sm-2 control-label">Nueva Contraseña</label>
+                        <label ID="lblContraseñaN" for="focusedinput" class="col-sm-2 control-label">Nueva Contraseña</label>
                         <div class="col-sm-8">
                             <asp:TextBox ID="txtContraseñaN" runat="server" CssClass="form-control1"></asp:TextBox>
                         </div>
               </div>
                     <div class="form-group">
-                        <label for="focusedinput" class="col-sm-2 control-label">Vuealve a escribir la contraseña</label>
+                        <label ID="lblContraseñaNV"for="focusedinput" class="col-sm-2 control-label">Vuelve a escribir la contraseña</label>
                         <div class="col-sm-8">
                             <asp:TextBox ID="txtContraseñaNR" runat="server" CssClass="form-control1"></asp:TextBox>
                         </div>                           

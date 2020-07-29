@@ -96,14 +96,18 @@ namespace MesonURPWEB
             dto_ocxinsumo = new DTO_OCxInsumo();
             dto_ocxinsumo.I_idInsumo = int.Parse(DdlInsumo.SelectedValue);
             DTO_Insumo insumo = ctr_insumo.Consultar_InsumoxID(dto_ocxinsumo.I_idInsumo);
-            if (Convert.ToInt32(txtCantidad.Text)==0)
-            {
-                lblMsj.Text = "Ingrese otra cantidad";
-            }      
+            //if (Convert.ToInt32(txtCantidad.Text)==0)
+            //{
+            //    lblMsj.Text = "Ingrese otra cantidad";
+            //}
             //if (ctr_insumo.CTR_LimiteStockMax(int.Parse(DdlInsumo.SelectedValue), int.Parse(txtCantidad.Text)) == 1)
             //{
             //    lblMsj.Text = "Ingresar una cantidad menor";
             //}
+            if (Verficar_Insumo_Registrado(dto_ocxinsumo,insumo)==true)
+            {
+                lblIndex.Text = "Insumo ya agregado";
+            }
             else
             {
 
@@ -200,6 +204,25 @@ namespace MesonURPWEB
             dto_oc.OC_NumeroComprobante = "";
             dto_oc.P_idProveedor = 0;
 
+        }
+        public bool Verficar_Insumo_Registrado(DTO_OCxInsumo ocxi, DTO_Insumo dto_i)
+        {
+            foreach (GridViewRow row in GridViewAñadirOC.Rows)
+            {              
+                int idIns = Convert.ToInt32(row.Cells[0].Text);
+                string nomIns=row.Cells[1].Text;
+                decimal cantIns= Convert.ToDecimal(row.Cells[2].Text);
+                decimal precio_u= Convert.ToDecimal(row.Cells[3].Text);
+                decimal precio_t= Convert.ToDecimal(row.Cells[4].Text);
+
+                if (idIns == ocxi.I_idInsumo && nomIns == dto_i.VR_NombreRecurso && cantIns == ocxi.OCxI_Cantidad
+                   && precio_u==dto_i.DR_PrecioUnitario && precio_t==ocxi.OCxI_PrecioTotal)
+                {
+                    return true; 
+                }
+
+            }
+            return false;
         }
     }
 }

@@ -256,8 +256,7 @@ namespace MesonURPWEB
                 dto_movxinsumo.IdInsumo = Convert.ToInt32(row["I_idInsumo"]);
                 dto_movxinsumo.Cantidad = Convert.ToInt32(row["OCxI_Cantidad"]);
                 dto_movxinsumo.FechaMovimiento = DateTime.Now;
-                dto_movxinsumo.IdMovimiento = 1;// Cambiar según la BD
-
+                dto_movxinsumo.IdMovimiento = 1;
                 dto_movxinsumo.IdUsuarioMovimiento = 5;
                 ctr_movxinsumo.RegistrarMovimientoxInsumo(dto_movxinsumo);
 
