@@ -221,12 +221,16 @@
     <Content Include="ActualizarInsumo.aspx" />
     <Content Include="ActualizarOC.aspx" />
     <Content Include="ActualizarProveedor.aspx" />
+    <Content Include="ActualizarUsuario.aspx" />
     <Content Include="AñadirInsumo.aspx" />
     <Content Include="AñadirOC.aspx" />
     <Content Include="AñadirProveedor.aspx" />
+    <Content Include="AñadirUsuario.aspx" />
+    <Content Include="ConsultarInsumo.aspx" />
     <Content Include="ConsultarMovimientos.aspx" />
     <Content Include="ConsultarOC.aspx" />
     <Content Include="ConsultarProveedor.aspx" />
+    <Content Include="ConsultarUsuario.aspx" />
     <Content Include="css\atlas.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\clndr.css" />
@@ -248,6 +252,7 @@
     <Content Include="GestionarInsumo.aspx" />
     <Content Include="GestionarOC.aspx" />
     <Content Include="GestionarProveedor.aspx" />
+    <Content Include="GestionarUsuario.aspx" />
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
     <Content Include="Home.aspx" />
@@ -408,6 +413,13 @@
     <Compile Include="ActualizarProveedor.aspx.designer.cs">
       <DependentUpon>ActualizarProveedor.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ActualizarUsuario.aspx.cs">
+      <DependentUpon>ActualizarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ActualizarUsuario.aspx.designer.cs">
+      <DependentUpon>ActualizarUsuario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AñadirInsumo.aspx.cs">
       <DependentUpon>AñadirInsumo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -425,6 +437,20 @@
     <Compile Include="AñadirProveedor.aspx.cs">
       <DependentUpon>AñadirProveedor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AñadirUsuario.aspx.cs">
+      <DependentUpon>AñadirUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AñadirUsuario.aspx.designer.cs">
+      <DependentUpon>AñadirUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarUsuario.aspx.cs">
+      <DependentUpon>ConsultarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarUsuario.aspx.designer.cs">
+      <DependentUpon>ConsultarUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="GenerarReporte.aspx.cs">
       <DependentUpon>GenerarReporte.aspx</DependentUpon>
@@ -477,6 +503,13 @@
     </Compile>
     <Compile Include="GestionarProveedor.aspx.designer.cs">
       <DependentUpon>GestionarProveedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionarUsuario.aspx.cs">
+      <DependentUpon>GestionarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionarUsuario.aspx.designer.cs">
+      <DependentUpon>GestionarUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>

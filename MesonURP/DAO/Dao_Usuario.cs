@@ -109,6 +109,121 @@ namespace DAO
                 throw ex;
             }
         }
+
+        public DataSet Consultar_Usuarios()
+        {
+            conexion.Open();
+            DataSet ds = new DataSet();
+            SqlCommand comando = new SqlCommand("SP_Consultar_Usuarios", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.ExecuteNonQuery();
+            SqlDataAdapter da = new SqlDataAdapter(comando);
+            da.Fill(ds);
+            conexion.Close();
+            return ds;
+        }
+        public Dto_Usuario Consultar_Usuario_ID(int i)
+        {
+            conexion.Open();
+            Dto_Usuario u = new Dto_Usuario();
+            SqlCommand comando = new SqlCommand("SP_Consultar_Usuario", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@U_idUsuario", i);
+            comando.ExecuteNonQuery();
+            SqlDataReader reader = comando.ExecuteReader();
+            if (reader.Read())
+            {
+                u.U_idUsuario = i;
+                u.U_Nombre = reader[1].ToString();
+                u.U_APaterno = reader[2].ToString();
+                u.U_AMaterno = reader[3].ToString();
+                u.U_Celular = reader[4].ToString();
+                u.U_Correo = reader[5].ToString();
+                u.U_Direccion = reader[6].ToString();
+                u.U_FechaNacimiento = Convert.ToDateTime(reader[7]);
+                u.U_Sexo = reader[8].ToString();
+                u.U_Contraseña = reader[9].ToString();
+                u.U_Dni = reader[10].ToString();
+                u.TU_idTipoUsuario = Convert.ToInt32(reader[11]);
+                u.EU_idEstadoUsuario = Convert.ToInt32(reader[12]);
+                u.TD_idTipoDocumento = Convert.ToInt32(reader[13]);
+            }
+            conexion.Close();
+            return u;
+        }
+        public void Registrar_Usuario(Dto_Usuario u)
+        {
+            conexion.Open();
+            SqlCommand comando = new SqlCommand("SP_Registrar_Usuario", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@U_Nombre", u.U_Nombre);
+            comando.Parameters.AddWithValue("@U_APaterno", u.U_APaterno);
+            comando.Parameters.AddWithValue("@U_AMaterno", u.U_AMaterno);
+            comando.Parameters.AddWithValue("@U_Celular", u.U_Celular);
+            comando.Parameters.AddWithValue("@U_Correo", u.U_Correo);
+            comando.Parameters.AddWithValue("@U_Direccion", u.U_Direccion);
+            comando.Parameters.AddWithValue("@U_FechaNacimiento", u.U_FechaNacimiento);
+            comando.Parameters.AddWithValue("@U_Sexo", u.U_Sexo);
+            comando.Parameters.AddWithValue("@U_Contraseña", u.U_Contraseña);
+            comando.Parameters.AddWithValue("@U_Dni", u.U_Dni);
+            comando.Parameters.AddWithValue("@TU_idTipoUsuario", u.TU_idTipoUsuario);
+            comando.Parameters.AddWithValue("@EU_idEstadoUsuario", u.EU_idEstadoUsuario);
+            comando.Parameters.AddWithValue("@TD_idTipoDocumento", u.TD_idTipoDocumento);
+            comando.ExecuteNonQuery();
+            conexion.Close();
+        }
+        public void Actualizar_Usuario(Dto_Usuario u)
+        {
+            conexion.Open();
+            SqlCommand comando = new SqlCommand("SP_Actualizar_Usuario", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@U_idUsuario", u.U_idUsuario);
+            comando.Parameters.AddWithValue("@U_Nombre", u.U_Nombre);
+            comando.Parameters.AddWithValue("@U_APaterno", u.U_APaterno);
+            comando.Parameters.AddWithValue("@U_AMaterno", u.U_AMaterno);
+            comando.Parameters.AddWithValue("@U_Celular", u.U_Celular);
+            comando.Parameters.AddWithValue("@U_Correo", u.U_Correo);
+            comando.Parameters.AddWithValue("@U_Direccion", u.U_Direccion);
+            comando.Parameters.AddWithValue("@U_FechaNacimiento", u.U_FechaNacimiento);
+            comando.Parameters.AddWithValue("@U_Sexo", u.U_Sexo);
+            comando.Parameters.AddWithValue("@U_Contraseña", u.U_Contraseña);
+            comando.Parameters.AddWithValue("@U_Dni", u.U_Dni);
+            comando.Parameters.AddWithValue("@TU_idTipoUsuario", u.TU_idTipoUsuario);
+            comando.Parameters.AddWithValue("@EU_idEstadoUsuario", u.EU_idEstadoUsuario);
+            comando.Parameters.AddWithValue("@TD_idTipoDocumento", u.TD_idTipoDocumento);
+            comando.ExecuteNonQuery();
+            conexion.Close();
+        }
+        public void Eliminar_Usuario(int i)
+        {
+            conexion.Open();
+            SqlCommand comando = new SqlCommand("SP_Eliminar_Usuario", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@U_idUsuario", i);
+            comando.ExecuteNonQuery();
+            conexion.Close();
+        }
+        public bool Existe_Usuario(Dto_Usuario u)
+        {
+            conexion.Open();
+            SqlCommand comando = new SqlCommand("SP_Existe_Usuario", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@U_Dni", u.U_Dni);
+            comando.Parameters.AddWithValue("@TD_idTipoDocumento", u.TD_idTipoDocumento);
+            comando.ExecuteNonQuery();
+            SqlDataReader reader = comando.ExecuteReader();
+            if (reader.Read())
+            {
+                conexion.Close();
+                return true;
+            }
+            else
+            {
+                conexion.Close();
+                return false;
+            }
+
+        }
     }
 }
 

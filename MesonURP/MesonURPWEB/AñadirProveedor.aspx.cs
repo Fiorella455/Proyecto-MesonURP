@@ -38,6 +38,7 @@ namespace MesonURPWEB
         protected void btnAñadirProveedor_Click(object sender, EventArgs e)
         {
             dto_proveedor.P_RazonSocial = txtRazonSocial.Text;
+            //dto_proveedor.P_RUC = txtRUC.Text;
             dto_proveedor.TD_idTipoDocumento = Convert.ToInt32(DdlTipoDocumento.SelectedValue);
             dto_proveedor.P_NumeroDocumento = txtNumeroDoc.Text;
             dto_proveedor.P_Direccion = txtDireccion.Text;

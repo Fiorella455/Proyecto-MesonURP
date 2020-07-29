@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using DAO;
 using DTO;
+using System.Data;
 
 namespace CTR
 {
@@ -24,6 +25,32 @@ namespace CTR
         public void getNomApellUsuario(Dto_Usuario dto_usu)
         {
             dao_usu.getNomApellUsuario(dto_usu);
+        }
+
+
+        public DataSet Consultar_Usuarios()
+        {
+            return dao_usu.Consultar_Usuarios();
+        }
+        public Dto_Usuario Consultar_Usuario_ID(int i)
+        {
+            return dao_usu.Consultar_Usuario_ID(i);
+        }
+        public void Registrar_Usuario(Dto_Usuario u)
+        {
+            dao_usu.Registrar_Usuario(u);
+        }
+        public void Actualizar_Usuario(Dto_Usuario u)
+        {
+            dao_usu.Actualizar_Usuario(u);
+        }
+        public void Eliminar_Usuario(int i)
+        {
+            dao_usu.Eliminar_Usuario(i);
+        }
+        public bool Existe_Usuario(Dto_Usuario u)
+        {
+            return dao_usu.Existe_Usuario(u);
         }
 
     }
