@@ -357,6 +357,7 @@
     <Content Include="ManejarStock.aspx" />
     <Content Include="MensajeOC.html" />
     <Content Include="Prueba.aspx" />
+    <Content Include="PruebaAnñadirOC.aspx" />
     <Content Include="PruebaReporte.aspx" />
     <Content Include="RegistrarEgreso.aspx" />
     <Content Include="RegistrarIngreso.aspx" />
@@ -541,6 +542,13 @@
     </Compile>
     <Compile Include="Prueba.aspx.designer.cs">
       <DependentUpon>Prueba.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PruebaAnñadirOC.aspx.cs">
+      <DependentUpon>PruebaAnñadirOC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PruebaAnñadirOC.aspx.designer.cs">
+      <DependentUpon>PruebaAnñadirOC.aspx</DependentUpon>
     </Compile>
     <Compile Include="PruebaReporte.aspx.cs">
       <DependentUpon>PruebaReporte.aspx</DependentUpon>

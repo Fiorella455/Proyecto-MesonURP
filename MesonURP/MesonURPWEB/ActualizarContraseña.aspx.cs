@@ -24,9 +24,16 @@ namespace MesonURPWEB
             if (!IsPostBack)
             {
                 Session["st"] = 1;
+                state = (int)Session["st"];
+
+            }
+            if(state==1)
+            {
                 btnCambiarCont.Text = "Verificar";
                 txtContraseñaN.Visible = false;
                 txtContraseñaNR.Visible = false;
+                lblContraseñaN.Visible = false;
+                lblContraseñaNR.Visible = false;
             }
 
         }
@@ -42,13 +49,15 @@ namespace MesonURPWEB
                         lblMsj.Text = "Contraseña Correcta";
                         btnCambiarCont.Text = "Cambiar Contraseña";
                         txtContraseñaN.Visible = true;
-                        txtContraseñaNR.Visible = true;                       
+                        txtContraseñaNR.Visible = true;
+                        lblContraseñaN.Visible = true;
+                        lblContraseñaNR.Visible = true;
                         Session["st"]=2;
                     }
                     else
                     {
                         lblMsj.Text = "Contraseña Incorrecta";
-
+                       
                     }
                 }
             }

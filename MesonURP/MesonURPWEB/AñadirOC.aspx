@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Gestionar OC | Agregar" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="AñadirOC.aspx.cs" Inherits="MesonURPWEB.AñadirOC" EnableEventValidation="false" %>
+﻿<%@ Page Title="Gestionar OC | Agregar" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="AñadirOC.aspx.cs" Inherits="MesonURPWEB.AñadirOC"  %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -23,7 +23,7 @@
                         <div class="col-sm-8">
                             <asp:TextBox ID="txtNumeroComprobante" runat="server" placeholder="Ingrese el número de comprobante" CssClass="form-control1" ReadOnly="true"/>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtNumeroComprobante" ErrorMessage="Campo Obligatorio" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-<%--                            <asp:RegularExpressionValidator ID="rev" runat="server" ErrorMessage="" ForeColor="#CC0000" SetFocusOnError="true" Display="Dynamic"></asp:RegularExpressionValidator>--%>
+                            <%--                            <asp:RegularExpressionValidator ID="rev" runat="server" ErrorMessage="" ForeColor="#CC0000" SetFocusOnError="true" Display="Dynamic"></asp:RegularExpressionValidator>--%>
                         </div>
                     </div>
                     
@@ -88,14 +88,16 @@
                         </asp:UpdatePanel>
                     </div>
                     <div class="form-group">
+                         <asp:UpdatePanel ID="UpdatePanel10" runat="server">
+                              <ContentTemplate>
                         <label for="focusedinput" class="col-sm-2 control-label">Cantidad</label>
                         <div class="col-sm-8">
                             <asp:TextBox runat="server" placeholder="Ingrese una cantidad" CssClass="form-control1" ID="txtCantidad" onkeypress="return SoloNumeroIntDouble(event);" />
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtCantidad" ErrorMessage="Campo Obligatorio" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <asp:Label ID="lblMsj" runat="server"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtCantidad" ErrorMessage="Campo Obligatorio" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>                      
+                            <asp:Label ID="lblMje" runat="server" Visible="true"></asp:Label>
                         </div>
+                                   </ContentTemplate>
+                             </asp:UpdatePanel>
                     </div>
                     <div class="form-group">
                         <asp:UpdatePanel ID="UpdatePanel4" runat="server">
@@ -122,7 +124,7 @@
                     <asp:UpdatePanel ID="UpdatePanel9" runat="server">
                             <ContentTemplate>
                      <p class="center-button">
-                            <asp:Button CssClass="btn btn-primary" runat="server" Text="Añadir" ID="btnAñadirInsumo" OnClick="btnAñadirInsumo_Click" />
+                            <asp:Button CssClass="btn btn-primary" runat="server" Text="Añadir" ID="btnAñadirInsumo" OnClick="btnAñadirInsumo_Click" AutoPostBack="true" />
                             <asp:Button CssClass="btn btn-primary" runat="server" Text="Quitar" OnClick="Unnamed1_Click" />
                         </p>
                     </ContentTemplate>
@@ -171,7 +173,7 @@
                         <p class="center-button">
                             <asp:Button ID="btnAñadirOC" CssClass="btn btn-primary" runat="server" OnClick="btnAñadirOC_Click" Text="Agregar" ValidationGroup="añadirOC" />
                             <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'GestionarOC';" class="btn btn-primary" />
-                            <%--<asp:Button ID="btnLimpiarOC" CssClass="btn btn-primary" runat="server" OnClick="btnAñadirOC_Click" Text="Limpiar" />--%>
+                            <%--<asp:BoundField HeaderText="Orden de Compra" DataField="OC_idOrdenCompra" />--%>
                             <input type="reset" name="res-1" id="res-1" value="Limpiar" class="btn btn-danger" />
                             &nbsp;</p>
                     </div>
