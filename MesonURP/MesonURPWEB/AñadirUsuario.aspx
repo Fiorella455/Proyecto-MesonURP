@@ -69,8 +69,8 @@
 <%--                            <asp:TextBox ID="txtSexo" runat="server" CssClass="form-control1"/>--%>
                             <asp:DropDownList runat="server" CssClass="form-control1" ID="ddlSexo"  AutoPostBack="true">
                                  <asp:ListItem  Value="">--seleccione--</asp:ListItem>
-                                 <asp:ListItem Text="Femenino" Value="Efectivo">Femenino</asp:ListItem>
-                                 <asp:ListItem Text="Masculino" Value="Crédito">Masculino</asp:ListItem>
+                                 <asp:ListItem Text="Femenino" Value="Femenino">Femenino</asp:ListItem>
+                                 <asp:ListItem Text="Masculino" Value="Masculino">Masculino</asp:ListItem>
                             </asp:DropDownList>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="ddlSexo" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirUsuario" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>                  
                         </div>
@@ -115,7 +115,7 @@
                         <ContentTemplate>
                             <p class="center-button">
                                 <asp:Button ID="btnAñadirUsuario" CssClass="btn btn-primary" runat="server" ValidationGroup="añadirUsuario" Text="Agregar Usuario" OnClick="btnAñadirUsuario_Click"/>
-                                <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'GestionarUsuario;" class="btn btn-primary" />
+                                <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'GestionarUsuario.aspx;" class="btn btn-primary" />
                                 <input type="reset" name="res-1" id="res-1" value="Limpiar" class="btn btn-danger" />
                             </p>
                         </ContentTemplate>
