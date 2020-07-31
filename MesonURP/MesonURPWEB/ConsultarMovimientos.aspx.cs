@@ -43,17 +43,11 @@ namespace MesonURPWEB
         public void Selection_Change(Object sender, EventArgs e)
         {
             
-                if (ddlMovimientos.SelectedValue != "")
+                if (ddlMovimientos.SelectedIndex != 0)
                 {
                     gvMovimientos.DataSource = _CmxI.BusquedaMovimientoxInsumoTipo(Convert.ToInt32(ddlMovimientos.SelectedValue));
                     gvMovimientos.DataBind();
                 }
-            else
-            {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('Ingrese un insumo para la busqueda');", true);
-            }
-            //gvMovimientos.DataSource = _CmxI.BusquedaMovimientoxInsumoTipo(Convert.ToInt32(ddlMovimientos.SelectedValue));
-            //gvMovimientos.DataBind();
         }
         protected void btnDescargarExcel_ServerClick(object sender, EventArgs e)
         {
@@ -96,7 +90,7 @@ namespace MesonURPWEB
             Response.AddHeader("Content-Disposition", "attachment;filename=MesonURP_Ingresos y Egresos.xls");
             Response.Charset = "UTF-8";
             Response.ContentEncoding = Encoding.Default;
-            Response.Write(sb.ToString());
+            Response.Write("Ingresos y Egresos del Meson URP" + "\n"+ sb.ToString());
             Response.End();
 
         }

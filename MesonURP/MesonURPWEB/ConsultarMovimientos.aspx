@@ -35,7 +35,7 @@
                                      <div class="div-movflex modal-header">
                                         <label>Tipo de Movimiento : </label>
                                         <asp:DropDownList id="ddlMovimientos" runat="server" CssClass="form-control1"  AutoPostBack="true"  type="button" data-toggle="dropdown"  OnSelectedIndexChanged="Selection_Change" aria-haspopup="true">
-                                            <asp:ListItem  Value="">--seleccione--</asp:ListItem>
+                                            <asp:ListItem  Value="">Todo</asp:ListItem>
                                             <asp:ListItem Text="Ingreso" Value=1>Ingreso</asp:ListItem>
                                             <asp:ListItem Text="Egreso" Value=2>Egreso</asp:ListItem>
                                         </asp:DropDownList>
