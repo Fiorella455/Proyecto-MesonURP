@@ -68,10 +68,26 @@
                      ((evt.which) ? evt.which : 0));
                  if (charCode > 31 && (charCode < 65 || charCode > 90) &&
                      (charCode < 97 || charCode > 122)) {
-                     alert("Por favor, ingrese solo letras.");
+                     alertaError();
                      return false;
                  }
                  return true;
+             }
+             function alertaError() {
+                 Swal.fire({
+                     title: 'Oh, no!',
+                     text: 'Por favor, ingrese solo letras',
+                     icon: 'error',
+                     confirmButtonText: 'Aceptar'
+                 })
+             }
+             function alertad() {
+                 Swal.fire({
+                     title: 'Oh, no!',
+                     text: 'Por favor, ingrese solo letras',
+                     icon: 'error',
+                     confirmButtonText: 'Aceptar'
+                 })
              }
          </script>
       

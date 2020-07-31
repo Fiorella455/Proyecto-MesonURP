@@ -36,6 +36,8 @@ namespace MesonURPWEB
             else
             {
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('Ingrese otro dato para la busqueda');", true);
+                //ScriptManager.RegisterClientScriptBlock(this.PanelAñadir, this.PanelAñadir.GetType(), "alert", "alertaCantidad()", true);
+                return;
             }
         }
         public void Selection_Change(Object sender, EventArgs e)

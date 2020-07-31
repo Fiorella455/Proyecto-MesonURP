@@ -22,22 +22,17 @@ namespace MesonURPWEB
 
         protected void brnSearchStock_ServerClick(object sender, EventArgs e)
         {
-
-            try
+            if (txtBuscarInsumo.Text != "")
             {
-                if (txtBuscarInsumo.Text != "")
-                {
-                    gvInsumos.DataSource = _CI.BuscarInsumo(txtBuscarInsumo.Text);
-                    gvInsumos.DataBind();
-                }
+                gvInsumos.DataSource = _CI.BuscarInsumo(txtBuscarInsumo.Text);
+                gvInsumos.DataBind();
             }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
-            catch(Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
+            else
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('Ingrese un insumo para la busqueda');", true);
-                
+                ScriptManager.RegisterClientScriptBlock(this.PanelBuscar, this.PanelBuscar.GetType(), "alert", "alertaError()", true);
+                return;
             }
+            
         }
         public void CargarStockInsumo()
         {

@@ -17,6 +17,8 @@
                                 </div>
                             </div>
                         </div>
+                        <asp:UpdatePanel ID="PanelBuscar" runat="server">
+                      <ContentTemplate>
                         <div class="search-buttons">
                             <div class="search">                                
                                     <asp:TextBox  id="txtBuscarInsumo" runat="server"  CssClass="form-control1"  onkeypress="return lettersOnly(event);"  placeholder="Buscar Insumo ..."/>
@@ -47,6 +49,8 @@
                                 </div>
                             </div>
                         </div>
+                          </ContentTemplate>
+                    </asp:UpdatePanel>
                         <div class="clearfix"></div>
                      </div>
                   </div>
@@ -61,6 +65,14 @@
                      return false;
                  }
                  return true;
+             }
+             function alertaError() {
+                 Swal.fire({
+                     title: 'Oh, no!',
+                     text: 'Ingrese un insumo para la busqueda',
+                     icon: 'error',
+                     confirmButtonText: 'Aceptar'
+                 })
              }
          </script>
 </asp:Content>

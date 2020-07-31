@@ -49,6 +49,14 @@ namespace MesonURPWEB
                 txtUnidadMedida2.Text = _Cm.BuscarMedida(Convert.ToInt32(ddlInsumos.SelectedValue));
                 txtOculto.Text = _Cmxi.VerificarStockMax(Convert.ToInt32(ddlInsumos.SelectedValue));
             }
+            else
+            {
+                txtUnidadMedida2.Text = "";
+                txtOculto.Text ="";
+                txtCantidad2.Text = "";
+                ScriptManager.RegisterClientScriptBlock(this.PanelAñadir, this.PanelAñadir.GetType(), "alertaSeleccionar", "alertaSeleccionar();", true);
+                return;
+            }
         }
         protected void btnAñadirInsumo_Click(object sender, EventArgs e)
         {
