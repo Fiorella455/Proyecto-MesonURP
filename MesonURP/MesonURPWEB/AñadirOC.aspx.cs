@@ -29,7 +29,7 @@ namespace MesonURPWEB
         DataSet  dtpro;
         static List<DTO_OCxInsumo> pila = new List<DTO_OCxInsumo>();
         static DataTable tin = new DataTable();
-        
+        int state = 0;
 
         static decimal suma = 0;
         static int id { get;set; }
@@ -95,27 +95,32 @@ namespace MesonURPWEB
         {
             dto_ocxinsumo = new DTO_OCxInsumo();
             dto_ocxinsumo.I_idInsumo = int.Parse(DdlInsumo.SelectedValue);
+            dto_ocxinsumo.OCxI_Cantidad = int.Parse(txtCantidad.Text);
             DTO_Insumo insumo = ctr_insumo.Consultar_InsumoxID(dto_ocxinsumo.I_idInsumo);
-            if (Convert.ToInt32(txtCantidad.Text)==0)
+            dto_ocxinsumo.OCxI_PrecioTotal = dto_ocxinsumo.OCxI_Cantidad * Convert.ToDecimal(insumo.DR_PrecioUnitario);
+            suma += dto_ocxinsumo.OCxI_PrecioTotal;
+            dto_oc.OC_TotalCompra += Convert.ToDecimal(dto_ocxinsumo.OCxI_PrecioTotal);
+            pila.Add(dto_ocxinsumo);
+            txtTotal.Text = suma.ToString();
+            if (dto_ocxinsumo.OCxI_Cantidad == 0)
             {
-                lblMsj.Text = "Ingrese otra cantidad";
-            }      
-            //if (ctr_insumo.CTR_LimiteStockMax(int.Parse(DdlInsumo.SelectedValue), int.Parse(txtCantidad.Text)) == 1)
+                lblMje.Text = "Ingrese otra cantidad";
+                Session["state"] = 2;
+            }
+            if (ctr_insumo.CTR_LimiteStockMax(dto_ocxinsumo.I_idInsumo, dto_ocxinsumo.OCxI_Cantidad) == 1)
+            {
+                lblMje.Text = "Ingresar una cantidad menor";
+                Session["state"] = 2;
+            }
+            //if (Verficar_Insumo_Registrado(dto_ocxinsumo, insumo) == true)
             //{
-            //    lblMsj.Text = "Ingresar una cantidad menor";
+            //    lblIndex.Text = "Insumo ya agregado";
+            //    Session["state"] = 2;
             //}
-            else
+            lblIndex0.Text = (string)Session["state"];
+            if ((int)Session["state"]!=2)
             {
-
-                lblMsj.Text = "";
-                dto_ocxinsumo.OCxI_Cantidad = int.Parse(txtCantidad.Text);
-                dto_ocxinsumo.OCxI_PrecioTotal = dto_ocxinsumo.OCxI_Cantidad * Convert.ToDecimal(insumo.DR_PrecioUnitario);
-                suma += dto_ocxinsumo.OCxI_PrecioTotal;
-                dto_oc.OC_TotalCompra += Convert.ToDecimal(dto_ocxinsumo.OCxI_PrecioTotal);
-                pila.Add(dto_ocxinsumo);
-                txtTotal.Text = suma.ToString();
-
-
+                lblMje.Text = "";
                 if (tin.Columns.Count == 0)
                 {
                     tin.Columns.Add("I_idInsumo");
@@ -200,6 +205,25 @@ namespace MesonURPWEB
             dto_oc.OC_NumeroComprobante = "";
             dto_oc.P_idProveedor = 0;
 
+        }
+        public bool Verficar_Insumo_Registrado(DTO_OCxInsumo ocxi, DTO_Insumo dto_i)
+        {
+            foreach (GridViewRow row in GridViewAñadirOC.Rows)
+            {              
+                int idIns = Convert.ToInt32(row.Cells[0].Text);
+                string nomIns=row.Cells[1].Text;
+                decimal cantIns= Convert.ToDecimal(row.Cells[2].Text);
+                decimal precio_u= Convert.ToDecimal(row.Cells[3].Text);
+                decimal precio_t= Convert.ToDecimal(row.Cells[4].Text);
+
+                if (idIns == ocxi.I_idInsumo && nomIns == dto_i.VR_NombreRecurso && cantIns == ocxi.OCxI_Cantidad
+                   && precio_u==dto_i.DR_PrecioUnitario && precio_t==ocxi.OCxI_PrecioTotal)
+                {
+                    return true; 
+                }
+
+            }
+            return false;
         }
     }
 }
