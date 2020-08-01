@@ -102,17 +102,21 @@ namespace MesonURPWEB
 
         protected void DdlTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (int.Parse(DdlTipoDocumento.SelectedValue) == 5)
+            if (int.Parse(DdlTipoDocumento.SelectedValue) == 1)//este valor se puede cambiar según como se encuentre en la BD
             {
                 revNumDoc.ValidationExpression = @"\d{8}";
                 revNumDoc.ErrorMessage = "DNI Inválido";
             }//DNI
-            else if (int.Parse(DdlTipoDocumento.SelectedValue) == 6)
-
+            else if (int.Parse(DdlTipoDocumento.SelectedValue) == 2)
             {
                 revNumDoc.ValidationExpression = @"([A-Z]|\d){10,12}";
                 revNumDoc.ErrorMessage = "Pasaporte Inválido";
-            }
+            }//PASAPORTE
+            else if (int.Parse(DdlTipoDocumento.SelectedValue) == 3)
+            {
+                revNumDoc.ValidationExpression = @"\d{10,12}";
+                revNumDoc.ErrorMessage = "RUC Inválido";
+            }//Ruc
         }
     }
 }
