@@ -68,17 +68,21 @@
                     <%--<asp:UpdatePanel ID="panelEgreso" runat="server">
                         <ContentTemplate>--%>
                         <div class="table-wrapper-scroll-y my-custom-scrollbar">
-                            <asp:GridView ID="gvInsumosEgreso" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false"
+                            <asp:GridView ID="gvInsumosEgreso" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false" OnRowDataBound="gvInsumos_OnRowDataBound"
                                 DataKeyNames="Fecha,Nombre insumo,Cantidad,Unidad de Medida" 
                                 CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None" OnSelectedIndexChanged="gvInsumosEgreso_SelectedIndexChanged">
+                                
+
                                 <Columns>
                                     <asp:BoundField HeaderText="Fecha" Datafield="Fecha" />
                                     <asp:BoundField HeaderText="Nombre insumo" Datafield="Nombre insumo" />
                                     <asp:BoundField HeaderText="Cantidad" Datafield="Cantidad" />
                                     <asp:BoundField HeaderText="Unidad de Medida" Datafield="Unidad de Medida" />
                                 </Columns>
+                                <SelectedRowStyle BackColor="LightGreen" />
                             </asp:GridView>
                         </div>
+                        <asp:Label ID="lblIndex" runat="server" Visible="false"></asp:Label>
                     <hr />   
                             <p class="center-button">
                                 <button type="button" name="sub-1" class="btn btn-primary" runat="server" id="btnEgresar" onserverclick="btnEgresar_ServerClick">Egresar</button>
