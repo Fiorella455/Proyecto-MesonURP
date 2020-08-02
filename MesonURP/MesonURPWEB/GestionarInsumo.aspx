@@ -17,12 +17,26 @@
                 </div>
             </div>
             <div class="search-buttons">
+
+                 <div class="search">   
+                     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                            <ContentTemplate>
+                        <asp:TextBox  id="fNombre" runat="server" AutoPostBack="True" CssClass="form-control1" OnTextChanged="fNombre_TextChanged" onkeypress="return lettersOnly(event);"  placeholder="Buscar Insumo ..."/> </asp:TextBox>
+                        <%--<button type="button" id="brnSearchStock" runat="server" onserverclick="brnSearchStock_ServerClick">
+                            <span class="material-icons">search
+                            </span>
+                        </button>--%>
+                     </ContentTemplate>
+                        </asp:UpdatePanel>
+                </div>
                 <div class="panel panel-widget forms-panel">
                     <div class="form-grids widget-shadow" data-example-id="basic-forms">
                         <div class="form-title color-white">
                             <h4>Insumos</h4>
                         </div>
                         <div class="table-wrapper-scroll-y">
+                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                            <ContentTemplate>
                             <asp:GridView ID="gvInsumos" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false"
                                 CssClass="table table-bordered table-striped mb-0" DataKeyNames="I_idInsumo,I_NombreInsumo,C_NombreCategoria,I_CantidadTotal, M_NombreMedida,EI_NombreEstadoInsumo"
                                 OnPageIndexChanging="gvInsumos_PageIndexChanging" OnRowCommand="gvInsumos_RowCommand" Style="text-align: center" CellPadding="4" GridLines="None">
@@ -51,6 +65,8 @@
                                     </asp:TemplateField>
                                 </Columns>
                             </asp:GridView>
+                                </ContentTemplate>
+                        </asp:UpdatePanel>
                         </div>
                     </div>
                 </div>

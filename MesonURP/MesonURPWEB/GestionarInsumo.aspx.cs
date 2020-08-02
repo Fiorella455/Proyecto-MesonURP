@@ -29,7 +29,7 @@ namespace MesonURPWEB
         }
         public void buildTableInsumos()
         {
-            gvInsumos.DataSource = _Ci.consultarInsumo();
+            gvInsumos.DataSource = _Ci.consultarInsumo(fNombre.Text);
             gvInsumos.DataBind();
         }
         protected void fNombre_TextChanged(object sender, EventArgs e)
@@ -125,10 +125,6 @@ namespace MesonURPWEB
             {
                 throw ex;
             }
-        }
-        protected void btnFiltrar_Click(object sender, EventArgs e)
-        {
-            buildTableInsumos();
         }
         protected void btnRegistrar_Click(object sender, EventArgs e)
         {

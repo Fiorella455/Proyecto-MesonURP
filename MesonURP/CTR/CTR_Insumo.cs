@@ -32,9 +32,9 @@ namespace CTR
         {
             return dao_insumo.SelectDashboard();
         }
-        public DataTable consultarInsumo()
+        public DataTable consultarInsumo(string nombreInsumo)
         {
-            return dao_insumo.consultarInsumoTable();
+            return dao_insumo.consultarInsumoTable(nombreInsumo);
         }
         public void RegistrarInsumo(DTO_Insumo objIns)
         {

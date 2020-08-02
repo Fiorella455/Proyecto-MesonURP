@@ -85,13 +85,14 @@ namespace DAO
             }
         }
         //----------------------------
-        public DataTable consultarInsumoTable()
+        public DataTable consultarInsumoTable(string nombreInsumo)
         {
             try
             {
                 DataTable dtable = new DataTable();
                 SqlCommand cmd = new SqlCommand("SP_Consultar_InsumoTable", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@nombreInsumo", SqlDbType.Text).Value = nombreInsumo;
                 SqlDataAdapter data = new SqlDataAdapter(cmd);
                 data.Fill(dtable);
                 return dtable;
@@ -101,7 +102,7 @@ namespace DAO
                 throw ex;
             }
         }
-
+        
         public void registrarInsumo(DTO_Insumo objIns)
         {
             try
