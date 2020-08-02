@@ -63,7 +63,7 @@
                 <div class="panel panel-widget forms-panel">
                     <div class="form-grids widget-shadow" data-example-id="basic-forms">
                         <div class="form-title color-white">
-                            <h4>Insumos a Ingresar</h4>
+                            <h4>Insumos a Egresar</h4>
                         </div>
                     <%--<asp:UpdatePanel ID="panelEgreso" runat="server">
                         <ContentTemplate>--%>

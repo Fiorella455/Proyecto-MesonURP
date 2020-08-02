@@ -366,7 +366,7 @@ namespace DAO
             conexion.Close();
             return insumo;
         }
-        public int LimiteStockMax(int idInsumo, int cantidad)
+        public int LimiteStockMax(int idInsumo, decimal cantidad)
         {
            dto_insumo.DR_StockMaximo=Consultar_InsumoxID(idInsumo).DR_StockMaximo;
            dto_insumo.DR_CantidadTotal = Consultar_InsumoxID(idInsumo).DR_CantidadTotal;

@@ -15,6 +15,15 @@ namespace MesonURPWEB
     {
 
         /// <summary>
+        /// lblContraseñaA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblContraseñaA;
+
+        /// <summary>
         /// txtContraseñaAct control.
         /// </summary>
         /// <remarks>
@@ -24,6 +33,15 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.TextBox txtContraseñaAct;
 
         /// <summary>
+        /// lblContraseñaN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblContraseñaN;
+
+        /// <summary>
         /// txtContraseñaN control.
         /// </summary>
         /// <remarks>
@@ -31,6 +49,15 @@ namespace MesonURPWEB
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtContraseñaN;
+
+        /// <summary>
+        /// lblContraseñaNR control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblContraseñaNR;
 
         /// <summary>
         /// txtContraseñaNR control.

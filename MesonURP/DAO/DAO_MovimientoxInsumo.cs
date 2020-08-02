@@ -23,7 +23,7 @@ namespace DAO
                 SqlCommand unComando = new SqlCommand("SP_Registrar_MovimientoxInsumo", conexion);
                 unComando.CommandType = CommandType.StoredProcedure;
                 unComando.Parameters.Add(new SqlParameter("@MxI_Cantidad", objDTO.Cantidad));
-                unComando.Parameters.Add(new SqlParameter("@MxI_FechaMovimiento", objDTO.FechaMovimiento));   
+                unComando.Parameters.Add(new SqlParameter("@MxI_FechaMovimiento", objDTO.FechaMovimiento));
                 unComando.Parameters.Add(new SqlParameter("@I_idInsumo", objDTO.IdInsumo));
                 unComando.Parameters.Add(new SqlParameter("@M_idMovimiento", objDTO.IdMovimiento));
                 unComando.Parameters.Add(new SqlParameter("@U_idUsuario", objDTO.IdUsuarioMovimiento));
@@ -35,7 +35,7 @@ namespace DAO
                 throw ex;
             }
         }
-        
+
         public DataSet CargarInsumoIngreso()
         {
             try
@@ -91,7 +91,7 @@ namespace DAO
         }
         public string StockMax(int IdInsumo)
         {
-            string  stockmax= "";
+            string stockmax = "";
             try
             {
                 SqlCommand unComando = new SqlCommand("SP_Stock_max", conexion);
@@ -206,29 +206,21 @@ namespace DAO
                 throw ex;
             }
         }
-        public int getInsumo(string insumo)
+        public DataTable ListarMovimientoxInsumoxMes(int Mes)
         {
             try
             {
-                conexion.Open();
-                SqlCommand _Com = new SqlCommand("SP_Obtener_idInsumo", conexion);
-                _Com.CommandType = CommandType.StoredProcedure;
-                _Com.Parameters.Add(new SqlParameter("@nom_insumo",dto_insumo.VR_NombreRecurso));
-                SqlDataReader reader = _Com.ExecuteReader();
-                //_Com.ExecuteNonQuery();
-
-                if (reader.Read())
-                {
-                    return dto_insumo.PK_IR_Recurso= reader.GetInt32(0);
-                }
-                conexion.Close();
-                return 0;
+                SqlDataAdapter unComando = new SqlDataAdapter("SP_ListarMovimientoxMes", conexion);
+                unComando.SelectCommand.CommandType = CommandType.StoredProcedure;
+                unComando.SelectCommand.Parameters.AddWithValue("@Mes", Mes);
+                DataSet dSet = new DataSet();
+                unComando.Fill(dSet);
+                return dSet.Tables[0];
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-
     }
 }

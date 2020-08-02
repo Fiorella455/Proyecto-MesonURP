@@ -56,13 +56,14 @@ namespace MesonURPWEB
             dto_usuario.U_Direccion = txtDireccion.Text;
             dto_usuario.U_FechaNacimiento = Convert.ToDateTime(txtFecha.Text);
             //dto_usuario.U_Sexo = txtSexo.Text;
+            dto_usuario.U_Sexo = ddlSexo.SelectedValue;
             dto_usuario.U_Contraseña = txtContra.Text;
             dto_usuario.U_Dni = txtDni.Text;
             dto_usuario.TU_idTipoUsuario = Convert.ToInt32(DdlTipoUsuario.SelectedValue);
             dto_usuario.EU_idEstadoUsuario = 1;
             dto_usuario.TD_idTipoDocumento = Convert.ToInt32(DdlTipoDocumento.SelectedValue);
             ctr_usuario.Registrar_Usuario(dto_usuario);
-            Response.Redirect("GestionarUsuario");
+            Response.Redirect("GestionarUsuario.aspx");
         }
 
         protected void DdlTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)

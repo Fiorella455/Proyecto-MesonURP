@@ -41,7 +41,12 @@ namespace MesonURPWEB
             }
             else if(e.CommandName== "EliminarUsuario")
             {
-
+                Ctr_Usuario cu = new Ctr_Usuario();
+                int id = Convert.ToInt32(GridViewUsuario.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["U_idUsuario"].ToString());
+                cu.Eliminar_Usuario(id);
+                ds = cu.Consultar_Usuarios();
+                GridViewUsuario.DataSource = ds;
+                GridViewUsuario.DataBind();
             }
 
         }

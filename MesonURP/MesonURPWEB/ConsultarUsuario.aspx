@@ -105,7 +105,7 @@
 
                         <hr />
                         <p class="center-button">
-                            <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'GestionarUsuario';" class="btn btn-primary" />
+                            <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'GestionarUsuario.aspx';" class="btn btn-primary" />
                         </p>
                     </div>
                 </div>

@@ -33,7 +33,7 @@ namespace MesonURPWEB
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            int i = (int)Session["id"];
+            i = (int)Session["id"];
             ctr_usuario = new Ctr_Usuario();
             dto_usuario = new Dto_Usuario();
             if (!IsPostBack)
