@@ -62,18 +62,41 @@ namespace MesonURPWEB
             dto_usuario.TU_idTipoUsuario = Convert.ToInt32(DdlTipoUsuario.SelectedValue);
             dto_usuario.EU_idEstadoUsuario = 1;
             dto_usuario.TD_idTipoDocumento = Convert.ToInt32(DdlTipoDocumento.SelectedValue);
-            ctr_usuario.Registrar_Usuario(dto_usuario);
-            Response.Redirect("GestionarUsuario.aspx");
+           // ctr_usuario.Registrar_Usuario(dto_usuario);
+         //   Response.Redirect("GestionarUsuario.aspx");
+
+            if (ctr_usuario.Existe_Usuario(dto_usuario))
+            {
+                ScriptManager.RegisterClientScriptBlock(this.panelAñadirUser, this.panelAñadirUser.GetType(), "alert", "alertaExiste()", true);
+
+            }
+            else
+            {
+                ctr_usuario.Registrar_Usuario(dto_usuario);
+                ScriptManager.RegisterClientScriptBlock(this.panelAñadirUser, this.panelAñadirUser.GetType(), "alert", "alertaExito()", true);
+
+            }
         }
 
         protected void DdlTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (int.Parse(DdlTipoDocumento.SelectedValue) == 1)//este valor se puede cambiar según como se encuentre en la BD
+            {
+                revNumDoc.ValidationExpression = @"\d{8}";
+                revNumDoc.ErrorMessage = "DNI Inválido";
+            }//DNI
+            else if (int.Parse(DdlTipoDocumento.SelectedValue) == 2)
+            {
+                revNumDoc.ValidationExpression = @"([A-Z]|\d){10,12}";
+                revNumDoc.ErrorMessage = "Pasaporte Inválido";
+            }//PASAPORTE
+            else if (int.Parse(DdlTipoDocumento.SelectedValue) == 3)
+            {
+                revNumDoc.ValidationExpression = @"\d{10,12}";
+                revNumDoc.ErrorMessage = "RUC Inválido";
+            }//Ruc
         }
 
-        protected void DdlTipoUsuario_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
     }
 }
