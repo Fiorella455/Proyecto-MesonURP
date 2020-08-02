@@ -9,7 +9,7 @@ namespace DAO
             get
             {
                 //MILAGROS
-                return "data source=DESKTOP-928V5LN\\SQLEXPRESS; initial catalog=DB_MesonURP; integrated security=SSPI;";
+               // return "data source=DESKTOP-928V5LN\\SQLEXPRESS; initial catalog=DB_MesonURP; integrated security=SSPI;";
 
                 //GRECIA
                 //return "Data Source= DESKTOP-LLEV629;database=DB_MesonURP;integrated security=SSPI;";
@@ -24,7 +24,7 @@ namespace DAO
                 //return "data source=DESKTOP-7A9J3UP\\MSSQLSERVER01; initial catalog=DB_MesonURP; integrated security=SSPI;";
 
                 //DARIAN
-                //return "Data Source = (Local); initial catalog=DB_MesonURP; integrated security=true;";
+                return "Data Source = (Local); initial catalog=DB_MesonURP; integrated security=true;";
 
                 //CARLOS
                 //return "data source=JENNY-LAPTOP; initial catalog=DB_MesonURP; integrated security=SSPI;";

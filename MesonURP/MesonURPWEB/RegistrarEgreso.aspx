@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Manejar Stock | Registrar Egreso" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="RegistrarEgreso.aspx.cs" Inherits="MesonURPWEB.RegistrarEgreso" %>
+﻿<%@ Page Title="Manejar Stock | Registrar Egreso" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="RegistrarEgreso.aspx.cs" Inherits="MesonURPWEB.RegistrarEgreso" EnableEventValidation="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -65,7 +65,7 @@
                         <div class="form-title color-white">
                             <h4>Insumos a Egresar</h4>
                         </div>
-                    <%--<asp:UpdatePanel ID="panelEgreso" runat="server">
+                  <%--  <asp:UpdatePanel ID="panel" runat="server">
                         <ContentTemplate>--%>
                         <div class="table-wrapper-scroll-y my-custom-scrollbar">
                             <asp:GridView ID="gvInsumosEgreso" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false" OnRowDataBound="gvInsumos_OnRowDataBound"
@@ -89,7 +89,7 @@
                                 <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'ManejarStock';" onserverclick="btnRegresar_ServerClick"  class="btn btn-primary" />
                                 <asp:Button CssClass="btn btn-primary" runat="server" Text="Quitar" OnClick="btnQuitarInsumo_Click" />
                             </p>
-                       <%-- </ContentTemplate>
+                     <%--   </ContentTemplate>
                     </asp:UpdatePanel>--%>
                 </div>
             </div>
