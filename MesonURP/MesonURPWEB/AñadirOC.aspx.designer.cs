@@ -15,6 +15,15 @@ namespace MesonURPWEB
     {
 
         /// <summary>
+        /// UpdatePanel11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel11;
+
+        /// <summary>
         /// txtNumeroComprobante control.
         /// </summary>
         /// <remarks>
@@ -249,6 +258,15 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.Button btnAñadirInsumo;
 
         /// <summary>
+        /// lblMsjBorrar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMsjBorrar;
+
+        /// <summary>
         /// UpdatePanel6 control.
         /// </summary>
         /// <remarks>
@@ -283,15 +301,6 @@ namespace MesonURPWEB
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTotal;
-
-        /// <summary>
-        /// lblIndex control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIndex;
 
         /// <summary>
         /// btnAñadirOC control.
