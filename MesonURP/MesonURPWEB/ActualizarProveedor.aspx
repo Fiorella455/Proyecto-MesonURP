@@ -21,13 +21,7 @@
                         </div>
                     </div>
 
-                     <div class="form-group">
-                        <label for="focusedinput" class="col-sm-2 control-label">RUC:</label>
-                        <div class="col-sm-8">
-                            <asp:TextBox ID="txtRUC" runat="server" CssClass="form-control1"/>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtRUC" ErrorMessage="Campo Obligatorio" ValidationGroup="actualizarProveedor" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-                         </div>
-                    </div>
+  
 
                      <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Tipo de Documento Actual</label>

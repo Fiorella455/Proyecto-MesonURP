@@ -21,12 +21,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="focusedinput" class="col-sm-2 control-label">RUC:</label>
-                        <div class="col-sm-8">
-                            <asp:TextBox ID="txtRUC" disabled="true" runat="server" CssClass="form-control1"/>
-                        </div>
-                    </div>
+                   
 
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Tipo de Documento</label>
