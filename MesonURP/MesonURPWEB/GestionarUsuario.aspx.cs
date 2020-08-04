@@ -47,6 +47,7 @@ namespace MesonURPWEB
                 ds = cu.Consultar_Usuarios();
                 GridViewUsuario.DataSource = ds;
                 GridViewUsuario.DataBind();
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alertaEli()", true);
             }
 
         }

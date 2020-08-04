@@ -26,9 +26,24 @@ namespace MesonURPWEB
         DataSet dsTipoDocumento, dsTipoUsuario, dsEstadoUsuario;
         int i;
 
-        protected void DdlTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
+        protected void DdlTipoDocumento_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+            if (int.Parse(DdlTipoDocumento.SelectedValue) == 1)//este valor se puede cambiar según como se encuentre en la BD
+            {
+                revNumDoc.ValidationExpression = @"\d{8}";
+                revNumDoc.ErrorMessage = "DNI Inválido";
+            }//DNI
+            else if (int.Parse(DdlTipoDocumento.SelectedValue) == 2)
+            {
+                revNumDoc.ValidationExpression = @"([A-Z]|\d){10,12}";
+                revNumDoc.ErrorMessage = "Pasaporte Inválido";
+            }//PASAPORTE
+            else if (int.Parse(DdlTipoDocumento.SelectedValue) == 3)
+            {
+                revNumDoc.ValidationExpression = @"\d{10,12}";
+                revNumDoc.ErrorMessage = "RUC Inválido";
+            }//Ruc
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -48,8 +63,8 @@ namespace MesonURPWEB
                 txtCelular.Text = dto_usuario.U_Celular;
                 txtCorreo.Text = dto_usuario.U_Correo;
                 txtDireccion.Text = dto_usuario.U_Direccion;
-                txtFecha.Text = dto_usuario.U_FechaNacimiento.ToShortDateString();
-                txtSexo.Text = dto_usuario.U_Sexo;
+                txtFecha.Text = dto_usuario.U_FechaNacimiento.ToString("yyyy-MM-dd");
+                ddlSexo.SelectedValue = dto_usuario.U_Sexo;
                 txtContra.Text = dto_usuario.U_Contraseña;
                 txtDni.Text = dto_usuario.U_Dni;
                 //--Estado Usuario-----------------------------------------
@@ -104,14 +119,29 @@ namespace MesonURPWEB
             dto_usuario.U_Correo = txtCorreo.Text;
             dto_usuario.U_Direccion = txtDireccion.Text;
             dto_usuario.U_FechaNacimiento = Convert.ToDateTime(txtFecha.Text);
-            dto_usuario.U_Sexo = txtSexo.Text;
+            //dto_usuario.U_Sexo = txtSexo.Text;
+            dto_usuario.U_Sexo = ddlSexo.SelectedValue;
             dto_usuario.U_Contraseña = txtContra.Text;
             dto_usuario.U_Dni = txtDni.Text;
             dto_usuario.TU_idTipoUsuario = Convert.ToInt32(DdlTipoUsuario.SelectedValue);
             dto_usuario.EU_idEstadoUsuario = Convert.ToInt32(DdlEstadoUsuario.SelectedValue);
             dto_usuario.TD_idTipoDocumento = Convert.ToInt32(DdlTipoDocumento.SelectedValue);
-            ctr_usuario.Actualizar_Usuario(dto_usuario);
-            Response.Redirect("GestionarUsuario.aspx");
+            //   ctr_usuario.Actualizar_Usuario(dto_usuario);
+            // Response.Redirect("GestionarUsuario.aspx");
+
+            Dto_Usuario aux = ctr_usuario.Consultar_Usuario_ID(i);
+
+            if (ctr_usuario.Existe_Usuario(dto_usuario) && aux.U_Dni != txtDni.Text && aux.TD_idTipoDocumento!=Convert.ToInt32(DdlTipoDocumento.SelectedValue))
+            {
+                ScriptManager.RegisterClientScriptBlock(this.panelActualizarUser, this.panelActualizarUser.GetType(), "alert", "alertaExiste()", true);
+
+            }
+            else
+            {
+                ctr_usuario.Actualizar_Usuario(dto_usuario);
+                ScriptManager.RegisterClientScriptBlock(this.panelActualizarUser, this.panelActualizarUser.GetType(), "alert", "alertaExito()", true);
+
+            }
         }
     }
 }

@@ -71,4 +71,14 @@
         </div>
 
     </div>
+        <script>
+            function alertaEli() {
+                Swal.fire({
+                    title: 'Enhorabuena!',
+                    text: 'El usuario fue eliminado correctamente',
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar'
+                })
+            }
+        </script>
 </asp:Content>
