@@ -17,10 +17,10 @@ namespace MesonURPWEB
 		CTR_Insumo _Ci = new CTR_Insumo();
         protected void Page_Load(object sender, EventArgs e)
 		{
-            if (Session["codUsuario"] == null)
-            {
-                Response.Redirect("Home.aspx?x=1");
-            }
+            ////if (Session["codUsuario"] == null)
+            ////{
+            ////    Response.Redirect("Home.aspx?x=1");
+            ////}
             if (!Page.IsPostBack)
             {
                 CargarDatos();
@@ -30,18 +30,19 @@ namespace MesonURPWEB
         {
             DataTable datos = new DataTable();
             datos = _Ci.ListarDashboard();
-           
+
             StringBuilder js = new StringBuilder();
             string strDatos = "";
             //strDatos = "[{'Insumo','Total'},";
 
             js.Append("[");
-            
+
             foreach (DataRow dr in datos.Rows)
             {
                 js.Append(strDatos + "{");
                 js.Append("\"Insumo\":" + "\"" + dr[0] + "\",");
-                js.Append("\"Total\":" + dr[1]);
+                js.Append("\"Total\":" + "\"" + dr[1] + "\",");
+                js.Append("\"Compra\":" + dr[2]);
                 js.Append("}");
                 strDatos = ",";
             }
@@ -49,6 +50,33 @@ namespace MesonURPWEB
             return js.ToString();
 
         }
+
+
+
+
+        //protected string CargarDatos()
+        //{
+        //    DataTable datos = new DataTable();
+        //    datos = _Ci.ListarDashboard();
+
+        //    StringBuilder js = new StringBuilder();
+        //    string strDatos = "";
+        //    //strDatos = "[{'Insumo','Total'},";
+
+        //    js.Append("[");
+
+        //    foreach (DataRow dr in datos.Rows)
+        //    {
+        //        js.Append(strDatos + "{");
+        //        js.Append("\"Insumo\":" + "\"" + dr[0] + "\",");
+        //        js.Append("\"Total\":" + dr[1]);
+        //        js.Append("}");
+        //        strDatos = ",";
+        //    }
+        //    js.Append("]");
+        //    return js.ToString();
+
+        //}
         //private void CargarDatos()
         //{
         //    DataTable dt = new DataTable();

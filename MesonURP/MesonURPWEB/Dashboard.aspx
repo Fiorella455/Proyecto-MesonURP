@@ -61,47 +61,34 @@
 
          chart.data = <%=CargarDatos()%>;
 
-
          var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
          categoryAxis.dataFields.category = "Insumo";
+         categoryAxis.title.text = "Insumo";
          categoryAxis.renderer.grid.template.location = 0;
-         categoryAxis.renderer.minGridDistance = 30;
-         categoryAxis.renderer.labels.template.horizontalCenter = "right";
-         categoryAxis.renderer.labels.template.verticalCenter = "middle";
-         categoryAxis.renderer.labels.template.rotation = 270;
-         categoryAxis.tooltip.disabled = true;
-         categoryAxis.renderer.minHeight = 110;
+         categoryAxis.renderer.minGridDistance = 20;
+         categoryAxis.renderer.cellStartLocation = 0.1;
+         categoryAxis.renderer.cellEndLocation = 0.9;
 
          var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-         valueAxis.renderer.minWidth = 50;
+         valueAxis.min = 0;
+         valueAxis.title.text = "Cantidad";
 
          // Create series
-         var series = chart.series.push(new am4charts.ColumnSeries());
-         series.sequencedInterpolation = true;
-         series.dataFields.valueY = "Total";
-         series.dataFields.categoryX = "Insumo";
-         series.tooltipText = "[{categoryX}: bold]{valueY}[/]";
-         series.columns.template.strokeWidth = 0;
+         function createSeries(field, name, stacked) {
+             var series = chart.series.push(new am4charts.ColumnSeries());
+             series.dataFields.valueY = field;
+             series.dataFields.categoryX = "Insumo";
+             series.name = name;
+             series.columns.template.tooltipText = "{name}: [bold]{valueY}[/]";
+             series.stacked = stacked;
+             series.columns.template.width = am4core.percent(95);
+         }
+         createSeries("Total", "Cantidad Total", false);
+         createSeries("Compra", "Cantidad de Compra", true);
 
-         series.tooltip.pointerOrientation = "vertical";
-
-         series.columns.template.column.cornerRadiusTopLeft = 10;
-         series.columns.template.column.cornerRadiusTopRight = 10;
-         series.columns.template.column.fillOpacity = 0.8;
-
-         // on hover, make corner radiuses bigger
-         var hoverState = series.columns.template.column.states.create("hover");
-         hoverState.properties.cornerRadiusTopLeft = 0;
-         hoverState.properties.cornerRadiusTopRight = 0;
-         hoverState.properties.fillOpacity = 1;
-
-         series.columns.template.adapter.add("fill", function (fill, target) {
-             return chart.colors.getIndex(target.dataItem.index);
-         });
-
-         // Cursor
-         chart.cursor = new am4charts.XYCursor();
-
+         // Add legend
+         chart.legend = new am4charts.Legend();
+         chart.legend.position = "right";
      }); // end am4core.ready()
  </script>
 
@@ -211,9 +198,22 @@
 
     }); // end am4core.ready()
 </script>
-        <div>  
-            <div id="chartdiv"></div>	
-        </div>
+         <div class="panel panel-widget forms-panel">
+             <div class="form-grids widget-shadow" data-example-id="basic-forms">
+                <div class="form-title color-white">
+                    <h4>Seguimiento de Insumos en Orden de Compra - Por Agotarse</h4>
+                </div>
+            <div>
+                <div class="table-wrapper-scroll-y">
+                    <div>
+                       <div id="chartdiv"></div>
+                    </div>
+                </div>
+            </div>
+
+                </div>
+         </div>
+           
          <div>  
             <div id="chartdiv1"></div>	
         </div>
