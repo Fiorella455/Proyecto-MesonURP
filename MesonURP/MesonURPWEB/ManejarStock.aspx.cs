@@ -17,38 +17,17 @@ namespace MesonURPWEB
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            CargarStockInsumo();
+            CargarInsumo();
         }
-
-        protected void brnSearchStock_ServerClick(object sender, EventArgs e)
+        protected void fNombreMovimiento_TextChanged(object sender, EventArgs e)
         {
-
-            try
-            {
-                if (txtBuscarInsumo.Text != "")
-                {
-                    gvInsumos.DataSource = _CI.BuscarInsumo(txtBuscarInsumo.Text);
-                    gvInsumos.DataBind();
-                }
-            }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
-            catch(Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
-            {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('Ingrese un insumo para la busqueda');", true);
-                
-            }
+            CargarInsumo();
         }
-        public void CargarStockInsumo()
+        public void CargarInsumo()
         {
-            gvInsumos.DataSource = _CI.ListarInsumo();
+            gvInsumos.DataSource = _CI.BuscarInsumo(txtBuscarInsumo.Text);
             gvInsumos.DataBind();
-            
         }
-        protected void gvInsumos_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            gvInsumos.PageIndex = e.NewPageIndex;
-            CargarStockInsumo();
-        }
+        
     }
 }

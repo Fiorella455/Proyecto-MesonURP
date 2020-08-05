@@ -37,7 +37,7 @@ namespace MesonURPWEB
                 //Mostrar Proveedor-----------------------------------------------
                 dto_proveedor = ctr_proveedor.Consultar_Proveedor(i);
                 txtRazonSocial.Text = dto_proveedor.P_RazonSocial;
-                txtRUC.Text = dto_proveedor.P_RUC;
+               // txtRUC.Text = dto_proveedor.P_RUC;
                 txtNumeroDoc.Text = dto_proveedor.P_NumeroDocumento;
                 txtDireccion.Text = dto_proveedor.P_Direccion;
                 txtNombre.Text = dto_proveedor.P_NombreContacto;
@@ -76,7 +76,7 @@ namespace MesonURPWEB
         {
             dto_proveedor.P_idProveedor = i;
             dto_proveedor.P_RazonSocial = txtRazonSocial.Text;
-            dto_proveedor.P_RUC = txtRUC.Text;
+          //  dto_proveedor.P_RUC = txtRUC.Text;
             dto_proveedor.P_NumeroDocumento = txtNumeroDoc.Text;
             dto_proveedor.P_Direccion = txtDireccion.Text;
             dto_proveedor.P_NombreContacto = txtNombre.Text;

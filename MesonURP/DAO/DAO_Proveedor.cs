@@ -24,7 +24,7 @@ namespace DAO
             SqlCommand comando = new SqlCommand("SP_Insertar_Proveedor", conexion);
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@P_RazonSocial", proveedor.P_RazonSocial);
-            comando.Parameters.AddWithValue("@P_RUC", proveedor.P_RUC);
+           // comando.Parameters.AddWithValue("@P_RUC", proveedor.P_RUC);
             comando.Parameters.AddWithValue("@P_NumeroDocumento", proveedor.P_NumeroDocumento);
             comando.Parameters.AddWithValue("@P_Direccion", proveedor.P_Direccion);
             comando.Parameters.AddWithValue("@P_NombreContacto", proveedor.P_NombreContacto);
@@ -43,7 +43,7 @@ namespace DAO
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.AddWithValue("@P_idProveedor", proveedor.P_idProveedor);
             comando.Parameters.AddWithValue("@P_RazonSocial", proveedor.P_RazonSocial);
-            comando.Parameters.AddWithValue("@P_RUC", proveedor.P_RUC);
+           // comando.Parameters.AddWithValue("@P_RUC", proveedor.P_RUC);
             comando.Parameters.AddWithValue("@P_NumeroDocumento", proveedor.P_NumeroDocumento);
             comando.Parameters.AddWithValue("@P_Direccion", proveedor.P_Direccion);
             comando.Parameters.AddWithValue("@P_NombreContacto", proveedor.P_NombreContacto);

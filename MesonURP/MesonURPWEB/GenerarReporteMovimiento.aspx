@@ -16,7 +16,10 @@
             </div>
             <div class="search-buttons">
                 <div class="panel panel-widget forms-panel">
-                    <div class="text-center">
+                  
+                       <asp:UpdatePanel ID="PanelSeleccionar" runat="server">
+                      <ContentTemplate>
+                          <p class="text-center">
                      <asp:DropDownList ID="ddlMes" CssClass="form-control1" runat="server" OnSelectedIndexChanged="ddlMes_SelectedIndexChanged" AutoPostBack="true" text-align="center" Width="126px">
                            <asp:ListItem  Value="">--seleccione--</asp:ListItem>
                                             <asp:ListItem Text="Enero" Value=1>Enero</asp:ListItem>
@@ -33,7 +36,9 @@
                                             <asp:ListItem Text="Diciembre" Value=12>Diciembre</asp:ListItem>
 
                          </asp:DropDownList>
-            </div>
+                          </p>
+                           
+                   
                     <div class="form-grids widget-shadow" data-example-id="basic-forms" id="Reporte">
                          
                                     <div class="clearfix">
@@ -59,7 +64,10 @@
                            </asp:GridView>
                         </div>
                     </div>
+                    </ContentTemplate>
+                    </asp:UpdatePanel>
                 </div>
+                    
             </div>
         </div>
     </div> 
@@ -78,7 +86,15 @@
                   specialElementHandlers = {};
                   margins = { top: 10, bottom: 20, left: 20, width: 522 };
                   pdf.fromHTML(html, margins.left, margins.top, { 'width': margins.width }, function (dispose) { pdf.save(nombre + '.pdf'); }, margins);
-              }
+        }
+        function alertaError() {
+            Swal.fire({
+                title: 'Oh, no!',
+                text: 'Selecciona un mes, por favor',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            })
+        }
 
     </script>
 </asp:Content>

@@ -50,7 +50,8 @@ namespace MesonURPWEB
             }
             else
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('Ingrese un insumo para la busqueda');", true);
+                ScriptManager.RegisterClientScriptBlock(this.PanelSeleccionar, this.PanelSeleccionar.GetType(), "alert", "alertaError()", true);
+                return;
             }
 
         }

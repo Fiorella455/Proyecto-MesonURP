@@ -9,7 +9,7 @@ namespace DTO
         public int P_idProveedor { get; set; }
 
         public string P_RazonSocial { get; set; }
-        public string P_RUC { get; set; }
+      //  public string P_RUC { get; set; }
         public string P_NumeroDocumento { get; set; }
         public string P_Direccion { get; set; }
         public string P_NombreContacto { get; set; }

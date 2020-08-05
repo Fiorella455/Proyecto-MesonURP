@@ -19,13 +19,14 @@ namespace MesonURPWEB
         CTR_Medida _Cm = new CTR_Medida();
         string FechaActual = DateTime.Now.ToString("dd/MM/yyyy");
         static DataTable tin = new DataTable();
-        int id = 0;
+        static int id { get; set; }
         int movEgreso = 2;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
                 ListarInsumosxEgresar();
+                lblIndex.Text = id.ToString();
             }
             txtFecha.Text = FechaActual;
         }
@@ -43,6 +44,14 @@ namespace MesonURPWEB
             {
                 txtUnidadMedida.Text = _Cm.BuscarMedida(Convert.ToInt32(ddlInsumos.SelectedValue));
                 txtOculto.Text = _Cmxi.VerificarStockMin(Convert.ToInt32(ddlInsumos.SelectedValue));
+            }
+            else
+            {
+                txtUnidadMedida.Text = "";
+                txtOculto.Text = "";
+                txtCantidad.Text = "";
+                ScriptManager.RegisterClientScriptBlock(this.PanelAñadir, this.PanelAñadir.GetType(), "alertaSeleccionar", "alertaSeleccionar();", true);
+                return;
             }
         }
         protected void btnAñadirInsumo_Click(object sender, EventArgs e)
@@ -113,21 +122,31 @@ namespace MesonURPWEB
                 }
             }
         }
-        protected void gvInsumosEgreso_SelectedIndexChanged(object sender, EventArgs e)
+        protected void gvInsumos_OnRowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
         {
-            if (pila.Count > 0) {
-                GridViewRow row = gvInsumosEgreso.SelectedRow;
-                id = Convert.ToInt32(gvInsumosEgreso.DataKeys[row.RowIndex].Value) + 1;
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(gvInsumosEgreso, "Select$" + e.Row.RowIndex);
+                e.Row.ToolTip = "Haga click para seleccionar la fila.";
+                id = e.Row.RowIndex;
+
             }
         }
+        protected void gvInsumosEgreso_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+                id = Convert.ToInt32(gvInsumosEgreso.SelectedRow.RowIndex);
+                lblIndex.Text = id.ToString();
+            
+        }
         protected void btnQuitarInsumo_Click(object sender, EventArgs e)
-        {  if (pila.Count != 0)
-                {
-                    tin.Rows[id].Delete();
+        { 
+                id = Convert.ToInt32(gvInsumosEgreso.SelectedRow.RowIndex);
+                tin.Rows[id].Delete();
                     pila.RemoveAt(id);
                     gvInsumosEgreso.DataSource = tin;
                     gvInsumosEgreso.DataBind();
-                } 
+            
         }
         protected void btnEgresar_ServerClick(object sender, EventArgs e)
         {
@@ -171,6 +190,7 @@ namespace MesonURPWEB
                 gvInsumosEgreso.DataBind();
             }
             
-        }  
+        }
+        
     }
 }

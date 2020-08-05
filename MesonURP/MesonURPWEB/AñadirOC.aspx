@@ -19,12 +19,16 @@
                     </div>   
                     
                     <div class="form-group">
+                         <asp:UpdatePanel ID="UpdatePanel11" runat="server">
+                            <ContentTemplate>
                         <label for="focusedinput" class="col-sm-2 control-label">N° Orden Compra</label>
                         <div class="col-sm-8">
                             <asp:TextBox ID="txtNumeroComprobante" runat="server" placeholder="Ingrese el número de comprobante" CssClass="form-control1" ReadOnly="true"/>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtNumeroComprobante" ErrorMessage="Campo Obligatorio" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                             <%--                            <asp:RegularExpressionValidator ID="rev" runat="server" ErrorMessage="" ForeColor="#CC0000" SetFocusOnError="true" Display="Dynamic"></asp:RegularExpressionValidator>--%>
                         </div>
+                                    </ContentTemplate>
+                        </asp:UpdatePanel>
                     </div>
                     
                     <div class="form-group">
@@ -127,6 +131,7 @@
                             <asp:Button CssClass="btn btn-primary" runat="server" Text="Añadir" ID="btnAñadirInsumo" OnClick="btnAñadirInsumo_Click" AutoPostBack="true" />
                             <asp:Button CssClass="btn btn-primary" runat="server" Text="Quitar" OnClick="Unnamed1_Click" />
                         </p>
+                                 <asp:Label ID="lblMsjBorrar" runat="server"></asp:Label>
                     </ContentTemplate>
                         </asp:UpdatePanel>
                    </div>
@@ -163,7 +168,7 @@
                         <div class="col-sm-8">
                             <asp:TextBox ID="txtTotal" runat="server" align="left" CssClass="special" Width="102px" />
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                            <asp:Label ID="lblIndex" runat="server" Visible="false"></asp:Label>
+                           
                         </div>
                                 </ContentTemplate>
                         </asp:UpdatePanel>
