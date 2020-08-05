@@ -24,7 +24,7 @@ namespace MesonURPWEB
         CTR_Medida _Cm = new CTR_Medida();
         string FechaActual = DateTime.Now.ToString("dd/MM/yyyy");
         static DataTable tin = new DataTable();
-        int id = 0;
+        static int id { get; set; }
         int movIngreso = 1;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -48,6 +48,14 @@ namespace MesonURPWEB
             {
                 txtUnidadMedida2.Text = _Cm.BuscarMedida(Convert.ToInt32(ddlInsumos.SelectedValue));
                 txtOculto.Text = _Cmxi.VerificarStockMax(Convert.ToInt32(ddlInsumos.SelectedValue));
+            }
+            else
+            {
+                txtUnidadMedida2.Text = "";
+                txtOculto.Text ="";
+                txtCantidad2.Text = "";
+                ScriptManager.RegisterClientScriptBlock(this.PanelAñadir, this.PanelAñadir.GetType(), "alertaSeleccionar", "alertaSeleccionar();", true);
+                return;
             }
         }
         protected void btnAñadirInsumo_Click(object sender, EventArgs e)
@@ -120,22 +128,34 @@ namespace MesonURPWEB
         }
             protected void gvInsumosIngreso_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (pila.Count > 0)
+            id = Convert.ToInt32(gvInsumosIngreso.SelectedRow.RowIndex);
+            lblIndex.Text = id.ToString();
+        }
+
+        protected void gvInsumos_OnRowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                GridViewRow row = gvInsumosIngreso.SelectedRow;
-                id = Convert.ToInt32(gvInsumosIngreso.DataKeys[row.RowIndex].Value) + 1;
+                e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(gvInsumosIngreso, "Select$" + e.Row.RowIndex);
+                e.Row.ToolTip = "Haga click para seleccionar la fila.";
+                id = e.Row.RowIndex;
 
             }
         }
+        protected void gvInsumosEgreso_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            id = Convert.ToInt32(gvInsumosIngreso.SelectedRow.RowIndex);
+            lblIndex.Text = id.ToString();
+
+        }
         protected void btnQuitarInsumo_Click(object sender, EventArgs e)
         {
-            if (pila.Count != 0)
-            {
-                tin.Rows[id].Delete();
-                pila.RemoveAt(id);
-                gvInsumosIngreso.DataSource = tin;
-                gvInsumosIngreso.DataBind();
-            }
+            id = Convert.ToInt32(gvInsumosIngreso.SelectedRow.RowIndex);
+            tin.Rows[id].Delete();
+            pila.RemoveAt(id);
+            gvInsumosIngreso.DataSource = tin;
+            gvInsumosIngreso.DataBind();
         }
         protected void btnIngresar_ServerClick(object sender, EventArgs e)
         {

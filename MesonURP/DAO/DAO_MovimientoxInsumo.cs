@@ -158,32 +158,17 @@ namespace DAO
                 throw ex;
             }
         }
-        public DataTable ConsultarMovimientoxInsumo()
+        public DataTable ConsultarMovimientoxInsumo(string busqueda)
         {
             try
             {
                 DataTable dtable = new DataTable();
                 SqlCommand unComando = new SqlCommand("SP_ConsultarMovimientosXInsumo", conexion);
                 unComando.CommandType = CommandType.StoredProcedure;
+                unComando.Parameters.Add("@busqueda", SqlDbType.Text).Value = busqueda;
                 SqlDataAdapter data = new SqlDataAdapter(unComando);
                 data.Fill(dtable);
                 return dtable;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-        public DataTable BuscarMovimientoxInsumo(string busqueda)
-        {
-            try
-            {
-                SqlDataAdapter unComando = new SqlDataAdapter("SP_BuscarMovimientosXInsumo", conexion);
-                unComando.SelectCommand.CommandType = CommandType.StoredProcedure;
-                unComando.SelectCommand.Parameters.AddWithValue("@busqueda", busqueda);
-                DataSet dSet = new DataSet();
-                unComando.Fill(dSet);
-                return dSet.Tables[0];
             }
             catch (Exception ex)
             {

@@ -17,14 +17,13 @@
                             </div>
                         </div>
                         <div class="search-buttons">
-                            <div class="search">                                
-                                    <asp:TextBox  id="txtBuscarMovimientos" runat="server"  CssClass="form-control1"  onkeypress="return lettersOnly(event);"  placeholder="Buscar Movimientos ..."/>
-                                    <button type="button" id="btnSearchMovimientos" runat="server" onserverclick="btnSearchStock_ServerClick">
-                                        <span class="material-icons">search
-                                        </span>
-                                    </button>
-                                   
-                            </div>
+                            <div class="search">              
+                                <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                                    <ContentTemplate>
+                                             <asp:TextBox  id="txtBuscarMovimientos" runat="server" AutoPostBack="True" CssClass="form-control1" OnTextChanged="fNombreMovimiento_TextChanged" onkeypress="return soloLetras(event);"  placeholder="Buscar Movimientos ..."/></asp:TextBox>  
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+                             </div>
                                    
                                <div class="panel panel-widget forms-panel">
                                 <div class="form-grids widget-shadow" data-example-id="basic-forms">
@@ -35,13 +34,15 @@
                                      <div class="div-movflex modal-header">
                                         <label>Tipo de Movimiento : </label>
                                         <asp:DropDownList id="ddlMovimientos" runat="server" CssClass="form-control1"  AutoPostBack="true"  type="button" data-toggle="dropdown"  OnSelectedIndexChanged="Selection_Change" aria-haspopup="true">
-                                            <asp:ListItem  Value="">--seleccione--</asp:ListItem>
+                                            <asp:ListItem  Value="">Todo</asp:ListItem>
                                             <asp:ListItem Text="Ingreso" Value=1>Ingreso</asp:ListItem>
                                             <asp:ListItem Text="Egreso" Value=2>Egreso</asp:ListItem>
                                         </asp:DropDownList>
                                     </div>
                                     <div class="clearfix"></div>
                                     <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                                       <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                            <ContentTemplate>
                                        <asp:GridView ID="gvMovimientos" AutoGenerateColumns="False" runat="server" emptydatatext="No hay información disponible."  
                                             CssClass="table table-bordered table-striped mb-0" DataKeyNames="fechamov,M_TipoMovimiento,I_NombreInsumo,nomcategoria,MxI_Cantidad,M_NombreMedida,usuariomov">
                                             <Columns>
@@ -54,6 +55,8 @@
                                                 <asp:BoundField DataField="usuariomov" HeaderText="Usuario" />       
                                             </Columns>
                                         </asp:GridView>
+                                          </ContentTemplate>
+                                     </asp:UpdatePanel>
                                     </div>
                                 </div>
                             </div>
@@ -62,16 +65,38 @@
                      </div>
                   </div>
          <script>
-             function lettersOnly(evt) {
-                 evt = (evt) ? evt : event;
-                 var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode :
-                     ((evt.which) ? evt.which : 0));
-                 if (charCode > 31 && (charCode < 65 || charCode > 90) &&
-                     (charCode < 97 || charCode > 122)) {
-                     alert("Por favor, ingrese solo letras.");
-                     return false;
+             function soloLetras(e) {
+                 key = e.keyCode || e.which;
+                 tecla = String.fromCharCode(key).toLowerCase();
+                 letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+                 especiales = [8, 37, 39, 46];
+
+                 tecla_especial = false
+                 for (var i in especiales) {
+                     if (key == especiales[i]) {
+                         tecla_especial = true;
+                         break;
+                     }
                  }
-                 return true;
+
+                 if (letras.indexOf(tecla) == -1 && !tecla_especial)
+                     return false;
+             }
+             function alertaError() {
+                 Swal.fire({
+                     title: 'Oh, no!',
+                     text: 'Por favor, ingrese solo letras',
+                     icon: 'error',
+                     confirmButtonText: 'Aceptar'
+                 })
+             }
+             function alertad() {
+                 Swal.fire({
+                     title: 'Oh, no!',
+                     text: 'Por favor, ingrese solo letras',
+                     icon: 'error',
+                     confirmButtonText: 'Aceptar'
+                 })
              }
          </script>
       

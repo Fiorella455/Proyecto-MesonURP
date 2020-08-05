@@ -17,13 +17,14 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="search-buttons">
-                            <div class="search">                                
-                                    <asp:TextBox  id="txtBuscarInsumo" runat="server"  CssClass="form-control1"  onkeypress="return lettersOnly(event);"  placeholder="Buscar Insumo ..."/>
-                                    <button type="button" id="brnSearchStock" runat="server" onserverclick="brnSearchStock_ServerClick">
-                                        <span class="material-icons">search
-                                        </span>
-                                    </button>
+                            <div class="search">  
+                                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                      <ContentTemplate>
+                                    <asp:TextBox  id="txtBuscarInsumo" runat="server" AutoPostBack="True" CssClass="form-control1" OnTextChanged="fNombreMovimiento_TextChanged" onkeypress="return soloLetras(event);"  placeholder="Buscar Insumo ..."/> </asp:TextBox> 
+                           </ContentTemplate>
+                    </asp:UpdatePanel>
                             </div>
                                <div class="panel panel-widget forms-panel">
                                 <div class="form-grids widget-shadow" data-example-id="basic-forms">
@@ -31,9 +32,11 @@
                                         <h4>Stock Actual</h4>
                                     </div>
                                     <div class="table-wrapper-scroll-y my-custom-scrollbar">
-                                       <asp:GridView ID="gvInsumos" allowpaging="True" AutoGenerateColumns="False" runat="server" emptydatatext="No hay información disponible."  
+                                        <asp:UpdatePanel ID="PanelBuscar" runat="server">
+                      <ContentTemplate>
+                                       <asp:GridView ID="gvInsumos"  AutoGenerateColumns="False" runat="server" emptydatatext="No hay información disponible."  
                                             CssClass="table table-bordered table-striped mb-0" DataKeyNames="I_NombreInsumo,C_NombreCategoria,I_StockMinimo,I_StockMaximo,I_CantidadTotal,M_NombreMedida" 
-                                            OnPageIndexChanging="gvInsumos_PageIndexChanging" Style="text-align: center" CellPadding="4" GridLines="None">
+                                            Style="text-align: center">
                                             <Columns>
                                                 <asp:BoundField DataField="I_NombreInsumo" HeaderText="Insumo" />
                                                 <asp:BoundField DataField="C_NombreCategoria" HeaderText="Categoria" />
@@ -43,24 +46,41 @@
                                                 <asp:BoundField DataField="M_NombreMedida" HeaderText="Unidad de Medida" />       
                                             </Columns>
                                         </asp:GridView>
+                             </ContentTemplate>
+                    </asp:UpdatePanel>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                       
                         <div class="clearfix"></div>
                      </div>
                   </div>
          <script>
-             function lettersOnly(evt) {
-                 evt = (evt) ? evt : event;
-                 var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode :
-                     ((evt.which) ? evt.which : 0));
-                 if (charCode > 31 && (charCode < 65 || charCode > 90) &&
-                     (charCode < 97 || charCode > 122)) {
-                     alert("Por favor, ingrese solo letras.");
-                     return false;
+             function soloLetras(e) {
+                 key = e.keyCode || e.which;
+                 tecla = String.fromCharCode(key).toLowerCase();
+                 letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+                 especiales = [8, 37, 39, 46];
+
+                 tecla_especial = false
+                 for (var i in especiales) {
+                     if (key == especiales[i]) {
+                         tecla_especial = true;
+                         break;
+                     }
                  }
-                 return true;
+
+                 if (letras.indexOf(tecla) == -1 && !tecla_especial)
+                     return false;
+             }
+             function alertaError() {
+                 Swal.fire({
+                     title: 'Oh, no!',
+                     text: 'Ingrese un insumo para la busqueda',
+                     icon: 'error',
+                     confirmButtonText: 'Aceptar'
+                 })
              }
          </script>
 </asp:Content>

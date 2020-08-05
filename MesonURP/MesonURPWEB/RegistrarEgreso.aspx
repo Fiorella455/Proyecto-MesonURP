@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Manejar Stock | Registrar Egreso" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="RegistrarEgreso.aspx.cs" Inherits="MesonURPWEB.RegistrarEgreso" %>
+﻿<%@ Page Title="Manejar Stock | Registrar Egreso" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="RegistrarEgreso.aspx.cs" Inherits="MesonURPWEB.RegistrarEgreso" EnableEventValidation="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -65,27 +65,31 @@
                         <div class="form-title color-white">
                             <h4>Insumos a Egresar</h4>
                         </div>
-                    <%--<asp:UpdatePanel ID="panelEgreso" runat="server">
+                  <%--  <asp:UpdatePanel ID="panel" runat="server">
                         <ContentTemplate>--%>
                         <div class="table-wrapper-scroll-y my-custom-scrollbar">
-                            <asp:GridView ID="gvInsumosEgreso" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false"
+                            <asp:GridView ID="gvInsumosEgreso" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false" OnRowDataBound="gvInsumos_OnRowDataBound"
                                 DataKeyNames="Fecha,Nombre insumo,Cantidad,Unidad de Medida" 
                                 CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None" OnSelectedIndexChanged="gvInsumosEgreso_SelectedIndexChanged">
+                                
+
                                 <Columns>
                                     <asp:BoundField HeaderText="Fecha" Datafield="Fecha" />
                                     <asp:BoundField HeaderText="Nombre insumo" Datafield="Nombre insumo" />
                                     <asp:BoundField HeaderText="Cantidad" Datafield="Cantidad" />
                                     <asp:BoundField HeaderText="Unidad de Medida" Datafield="Unidad de Medida" />
                                 </Columns>
+                                <SelectedRowStyle BackColor="LightGreen" />
                             </asp:GridView>
                         </div>
+                        <asp:Label ID="lblIndex" runat="server" Visible="false"></asp:Label>
                     <hr />   
                             <p class="center-button">
                                 <button type="button" name="sub-1" class="btn btn-primary" runat="server" id="btnEgresar" onserverclick="btnEgresar_ServerClick">Egresar</button>
                                 <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'ManejarStock';" onserverclick="btnRegresar_ServerClick"  class="btn btn-primary" />
                                 <asp:Button CssClass="btn btn-primary" runat="server" Text="Quitar" OnClick="btnQuitarInsumo_Click" />
                             </p>
-                       <%-- </ContentTemplate>
+                     <%--   </ContentTemplate>
                     </asp:UpdatePanel>--%>
                 </div>
             </div>
@@ -118,6 +122,14 @@
             Swal.fire({
                 title: 'Oh, no!',
                 text: 'No puedes añadir el mismo Insumo',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            })
+        }
+        function alertaSeleccionar() {
+            Swal.fire({
+                title: 'Oh, no!',
+                text: 'Selecciona un insumo, por favor',
                 icon: 'error',
                 confirmButtonText: 'Aceptar'
             })
