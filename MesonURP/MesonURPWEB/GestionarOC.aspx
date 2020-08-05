@@ -23,7 +23,7 @@
                         <div class="form-title color-white">
                             <h4>Órdenes de Compra</h4>
                         </div>
-                        <%-- <asp:UpdatePanel ID="panelOC" runat="server">
+                      <%--   <asp:UpdatePanel ID="panelOC" runat="server">
                                     <ContentTemplate>--%>
                         <div class="table-wrapper-scroll-y my-custom-scrollbar">
                             <asp:GridView ID="GridViewOC" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." OnRowCommand="GridViewOC_RowCommand" OnRowDataBound="GridViewOC_OnRowDataBound" OnPageIndexChanging="GridViewOC_PageIndexChanging"

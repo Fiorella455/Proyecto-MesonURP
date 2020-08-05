@@ -75,16 +75,17 @@ namespace MesonURPWEB
 
         protected void Unnamed1_Click(object sender, EventArgs e)
         {
-            id = Convert.ToInt32(GridViewAñadirOC.SelectedRow.RowIndex);
-            tin.Rows[id].Delete();
-            pila.RemoveAt(id);
-            suma -= Convert.ToDecimal(GridViewAñadirOC.Rows[id].Cells[3].Text);
-            txtTotal.Text = suma.ToString();
-            GridViewAñadirOC.DataSource = tin;
-            GridViewAñadirOC.DataBind();
-            string ins = GridViewAñadirOC.Rows[id].Cells[0].Text;
-            lblMsjBorrar.Text = "Se eliminado el insumo:"+ins;
 
+                id = Convert.ToInt32(GridViewAñadirOC.SelectedRow.RowIndex);
+                tin.Rows[id].Delete();
+                pila.RemoveAt(id);
+                GridViewAñadirOC.DataSource = tin;
+                GridViewAñadirOC.DataBind();
+                suma -= Convert.ToDecimal(GridViewAñadirOC.Rows[id].Cells[3].Text);
+                txtTotal.Text = suma.ToString();
+                // string ins = GridViewAñadirOC.Rows[id].Cells[0].Text;               
+                //lblMsjBorrar.Text = "Se eliminado el insumo:"+ins;
+            
         }
 
         public void listarInsumo()
@@ -194,9 +195,11 @@ namespace MesonURPWEB
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
+
                 e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(GridViewAñadirOC, "Select$" + e.Row.RowIndex);
+                e.Row.Attributes.Add("onclick", "SetColor(this);");
                 e.Row.ToolTip = "Haga click para seleccionar la fila.";
-                id = e.Row.RowIndex;
+                
 
             }
         }
@@ -204,7 +207,7 @@ namespace MesonURPWEB
         protected void GridViewAñadirOC_SelectedIndexChanged(object sender, EventArgs e)
         {
             
-            id = Convert.ToInt32(GridViewAñadirOC.SelectedRow.RowIndex);
+                id = Convert.ToInt32(GridViewAñadirOC.SelectedRow.RowIndex); 
         }
 
         protected void btnLimpiarOC_Click(object sender, EventArgs e)

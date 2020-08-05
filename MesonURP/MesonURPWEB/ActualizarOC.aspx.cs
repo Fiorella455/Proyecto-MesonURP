@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -53,7 +53,7 @@ namespace MesonURPWEB
                 DdlProveedor.DataSource = dtpro;
                 DdlProveedor.DataBind();
 
-                //--------------------------------------------Llenar 
+                //------------------------------------------------------ 
 
                 ctr_oc.CTR_Leer_OC(dto_oc);
                 txtNumComprobante.Text = dto_oc.OC_NumeroComprobante;
