@@ -58,7 +58,7 @@
          // Create chart instance
          var chart = am4core.create("chartdiv", am4charts.XYChart);
          chart.scrollbarX = new am4core.Scrollbar();
-
+       
          chart.data = <%=CargarDatos()%>;
 
          var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
@@ -81,6 +81,8 @@
              series.name = name;
              series.columns.template.tooltipText = "{name}: [bold]{valueY}[/]";
              series.stacked = stacked;
+             series.stroke = am4core.color("#DBC299");
+             series.fill = am4core.color("#DBC299");
              series.columns.template.width = am4core.percent(95);
          }
          createSeries("Total", "Cantidad Total", false);
@@ -165,9 +167,11 @@
         // Create series
         var series = chart.series.push(new am4charts.LineSeries());
         series.dataFields.valueY = "price";
+
         series.dataFields.dateX = "date";
         series.tensionX = 0.8;
         series.strokeWidth = 3;
+        series.stroke = am4core.color("#D1CDAA");
 
         var bullet = series.bullets.push(new am4charts.CircleBullet());
         bullet.circle.fill = am4core.color("#fff");
@@ -187,7 +191,7 @@
         // Add a guide
         let range = valueAxis.axisRanges.create();
         range.value = 90.4;
-        range.grid.stroke = am4core.color("#396478");
+        range.grid.stroke = am4core.color("#DBC299");
         range.grid.strokeWidth = 1;
         range.grid.strokeOpacity = 1;
         range.grid.strokeDasharray = "3,3";
