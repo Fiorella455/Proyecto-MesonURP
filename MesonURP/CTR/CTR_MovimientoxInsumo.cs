@@ -55,5 +55,9 @@ namespace CTR
         {
             return objDAO.ListarMovimientoxInsumoxMes(Mes);
         }
+        public DataTable ListarDashboardMU()
+        {
+            return objDAO.SelectListMU();
+        }
     }
 }

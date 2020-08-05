@@ -242,6 +242,7 @@
     <Content Include="css\owl.carousel.css" />
     <Content Include="css\style1.css" />
     <Content Include="css\sweetalert2.min.css" />
+    <Content Include="DashboardAdmi.aspx" />
     <Content Include="DashboardAdmiSistema.aspx" />
     <Content Include="EliminarProveedor.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -460,6 +461,13 @@
     </Compile>
     <Compile Include="ConsultarUsuario.aspx.designer.cs">
       <DependentUpon>ConsultarUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DashboardAdmi.aspx.cs">
+      <DependentUpon>DashboardAdmi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DashboardAdmi.aspx.designer.cs">
+      <DependentUpon>DashboardAdmi.aspx</DependentUpon>
     </Compile>
     <Compile Include="DashboardAdmiSistema.aspx.cs">
       <DependentUpon>DashboardAdmiSistema.aspx</DependentUpon>
