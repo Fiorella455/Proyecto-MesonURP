@@ -27,7 +27,7 @@ namespace MesonURPWEB
                 ctr_proveedor = new CTR_Proveedor();
                 dto_proveedor = ctr_proveedor.Consultar_Proveedor(i);
                 txtRazonSocial.Text = dto_proveedor.P_RazonSocial;
-                txtRUC.Text = dto_proveedor.P_RUC;
+               // txtRUC.Text = dto_proveedor.P_RUC;
                 txtNumeroDoc.Text = dto_proveedor.P_NumeroDocumento;
                 txtDireccion.Text = dto_proveedor.P_Direccion;
                 txtNombre.Text = dto_proveedor.P_NombreContacto;
