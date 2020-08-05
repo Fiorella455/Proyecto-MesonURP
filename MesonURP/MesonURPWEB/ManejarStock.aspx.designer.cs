@@ -15,13 +15,13 @@ namespace MesonURPWEB
     {
 
         /// <summary>
-        /// Control PanelBuscar.
+        /// Control UpdatePanel1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel PanelBuscar;
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
 
         /// <summary>
         /// Control txtBuscarInsumo.
@@ -33,13 +33,13 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.TextBox txtBuscarInsumo;
 
         /// <summary>
-        /// Control brnSearchStock.
+        /// Control PanelBuscar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton brnSearchStock;
+        protected global::System.Web.UI.UpdatePanel PanelBuscar;
 
         /// <summary>
         /// Control gvInsumos.

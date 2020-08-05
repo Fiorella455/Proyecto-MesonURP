@@ -24,12 +24,7 @@ namespace MesonURPWEB
         {
             CargarMovimientoxInsumo();
         }
-        protected void gvMovimientos_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            gvMovimientos.PageIndex = e.NewPageIndex;
-            CargarMovimientoxInsumo();
-        }
-        
+       
         public void Selection_Change(Object sender, EventArgs e)
         {
             
@@ -45,9 +40,7 @@ namespace MesonURPWEB
             {
                 ExportarGridViewExcel(gvMovimientos);
             }
-#pragma warning disable CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             catch (Exception ex)
-#pragma warning restore CS0168 // La variable 'ex' se ha declarado pero nunca se usa
             {
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "alertIns", "alert('Ingrese otro dato para la busqueda');", true);
 

@@ -126,6 +126,14 @@
                 confirmButtonText: 'Aceptar'
             })
         }
+        function alertaSeleccionar() {
+            Swal.fire({
+                title: 'Oh, no!',
+                text: 'Selecciona un insumo, por favor',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            })
+        }
         function alertaError() {
             Swal.fire({
                 title: 'Oh, no!',

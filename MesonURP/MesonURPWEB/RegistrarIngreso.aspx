@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Manejar Stock | Registrar Ingreso" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="RegistrarIngreso.aspx.cs" Inherits="MesonURPWEB.RegistrarIngreso" %>
+﻿<%@ Page Title="Manejar Stock | Registrar Ingreso" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="RegistrarIngreso.aspx.cs" Inherits="MesonURPWEB.RegistrarIngreso" EnableEventValidation="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -12,7 +12,7 @@
         </div>
         <div class="forms">
             <h3 class="title1"></h3>
-            <asp:UpdatePanel runat="server">
+            <asp:UpdatePanel id="panelIngreso" runat="server">
                 <ContentTemplate>
                     <div class="form-three widget-shadow">
                         <div class="form-horizontal" runat="server">
@@ -66,10 +66,10 @@
                                 <div class="form-title color-white">
                                     <h4>Insumos a Ingresar</h4>
                                 </div>
-                                <asp:UpdatePanel ID="panelIngreso" runat="server">
-                                    <ContentTemplate>
+                                <%--<asp:UpdatePanel ID="panelIngreso" runat="server">
+                                    <ContentTemplate>--%>
                                         <div class="table-wrapper-scroll-y my-custom-scrollbar">
-                                            <asp:GridView ID="gvInsumosIngreso" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false"
+                                            <asp:GridView ID="gvInsumosIngreso" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false" OnRowDataBound="gvInsumos_OnRowDataBound"
                                                 DataKeyNames="Fecha,Nombre insumo,Cantidad,Unidad de Medida"
                                                 CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None" OnSelectedIndexChanged="gvInsumosIngreso_SelectedIndexChanged">
                                                 <Columns>
@@ -78,16 +78,18 @@
                                                     <asp:BoundField HeaderText="Cantidad" DataField="Cantidad" />
                                                     <asp:BoundField HeaderText="Unidad de Medida" DataField="Unidad de Medida" />
                                                 </Columns>
+                                                <SelectedRowStyle BackColor="LightGreen" />
                                             </asp:GridView>
                                         </div>
+                                         <asp:Label ID="lblIndex" runat="server" Visible="false"></asp:Label>
                                         <hr />
                                         <p class="center-button">
                                             <button type="button" name="sub-1" class="btn btn-primary" runat="server" id="btnIngresar" onserverclick="btnIngresar_ServerClick">Ingresar</button>
                                             <input type="button" name="sub-1" value="Regresar" runat="server" onclick="location.href = 'ManejarStock';" onserverclick="btnRegresar_ServerClick" class="btn btn-primary" />
                                             <asp:Button CssClass="btn btn-primary" runat="server" Text="Quitar" OnClick="btnQuitarInsumo_Click" />
                                         </p>
-                                    </ContentTemplate>
-                                </asp:UpdatePanel>
+                                    <%--</ContentTemplate>
+                                </asp:UpdatePanel>--%>
                             </div>
                         </div>
                     </div>

@@ -17,33 +17,17 @@ namespace MesonURPWEB
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            CargarStockInsumo();
+            CargarInsumo();
         }
-
-        protected void brnSearchStock_ServerClick(object sender, EventArgs e)
+        protected void fNombreMovimiento_TextChanged(object sender, EventArgs e)
         {
-            if (txtBuscarInsumo.Text != "")
-            {
-                gvInsumos.DataSource = _CI.BuscarInsumo(txtBuscarInsumo.Text);
-                gvInsumos.DataBind();
-            }
-            else
-            {
-                ScriptManager.RegisterClientScriptBlock(this.PanelBuscar, this.PanelBuscar.GetType(), "alert", "alertaError()", true);
-                return;
-            }
-            
+            CargarInsumo();
         }
-        public void CargarStockInsumo()
+        public void CargarInsumo()
         {
-            gvInsumos.DataSource = _CI.ListarInsumo();
+            gvInsumos.DataSource = _CI.BuscarInsumo(txtBuscarInsumo.Text);
             gvInsumos.DataBind();
-            
         }
-        protected void gvInsumos_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            gvInsumos.PageIndex = e.NewPageIndex;
-            CargarStockInsumo();
-        }
+        
     }
 }
