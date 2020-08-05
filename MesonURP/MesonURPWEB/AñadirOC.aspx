@@ -47,6 +47,21 @@
                         </asp:UpdatePanel>
                     </div>
                     <div class="form-group">
+                        <asp:UpdatePanel ID="UpdatePanel22" runat="server">
+                            <ContentTemplate>
+                               <label for="selector1" class="col-sm-2 control-label">N° Orden</label>
+                               <div class="col-sm-8">
+                               <asp:DropDownList runat="server" CssClass="form-control1" ID="DropDownList1"  AutoPostBack="true">
+                                <asp:ListItem  Value="">--seleccione--</asp:ListItem>
+                                <asp:ListItem Text="Factura" Value="1">Factura</asp:ListItem>
+                                <asp:ListItem Text="Boleta" Value="2">Boleta</asp:ListItem>
+                            </asp:DropDownList>
+                            <asp:Label ID="Label1" runat="server"></asp:Label>
+                        </div>
+                                </ContentTemplate>
+                        </asp:UpdatePanel>
+                    </div>
+                    <div class="form-group">
                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                             <ContentTemplate>
                         <label for="selector1" class="col-sm-2 control-label">Proveedor</label>
@@ -231,4 +246,66 @@
             })
         }
     </script>
+    <script type="text/javascript">
+
+        function SetColor(GridView) {
+
+            if (GridView != null) {                
+              GridView.style.backgroundColor = "#47FF33";
+            }
+
+        }
+</script>
+  
+    <script  type="text/javascript">
+
+        var gridViewCtlId = '<%=GridViewAñadirOC.ClientID%>';
+
+        var gridViewCtl = null;
+
+        var curSelRow = null;
+
+        var curRowIdx = -1;
+
+        function getGridViewControl() {
+
+            if (null == gridViewCtl) {
+
+                gridViewCtl = document.getElementById(gridViewCtlId);
+
+            }
+
+        }
+
+        function onGridViewRowSelected(rowIdx) {
+
+            var selRow = getSelectedRow(rowIdx);
+
+            if (null != selRow) {
+
+                selRow.style.backgroundColor = "#47FF33";
+              
+            }
+
+        }
+
+        function getSelectedRow(rowIdx) {
+
+            return getGridRow(rowIdx);
+
+        }
+
+        function getGridRow(rowIdx) {
+
+            getGridViewControl();
+
+            if (null != gridViewCtl) {
+
+                return gridViewCtl.rows[rowIdx];
+
+            }
+            return null;
+        }   
+   
+</script>
 </asp:Content>
