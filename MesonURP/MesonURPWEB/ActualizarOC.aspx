@@ -83,8 +83,8 @@
                                 <div class="col-sm-8">
                                     <asp:DropDownList ID="DdlInsumo" runat="server" CssClass="form-control1" AutoPostBack="true" OnSelectedIndexChanged="DdlInsumo_SelectedIndexChanged">
                                     </asp:DropDownList>
-                                    <br />
                                     <asp:Label ID="lblMsj1" runat="server"></asp:Label>
+                                    <br />
                                 </div>
                                  </ContentTemplate>
                         </asp:UpdatePanel>
@@ -120,8 +120,11 @@
                             <ContentTemplate>
                      <p class="center-button">
                             <asp:Button CssClass="btn btn-primary" runat="server" Text="Añadir" ValidationGroup="actOC" ID="btnAñadir" OnClick="btnAñadir_Click"/>
-                            <asp:Button CssClass="btn btn-primary" runat="server" Text="Quitar" ID="btnQuitar" OnClick="btnQuitar_Click" />
+                            <asp:Button CssClass="btn btn-primary" runat="server" Text="Quitar" ID="btnQuitar" OnClick="btnQuitar_Click" />                                         
                         </p>
+                                <div>
+                                     <asp:Label ID="lblMsjBorrar" runat="server"></asp:Label>
+                                </div>
                      </ContentTemplate>
                         </asp:UpdatePanel>
 
@@ -151,10 +154,11 @@
                              <div class="form-group">
                                   <asp:UpdatePanel ID="UpdatePanel9" runat="server">
                             <ContentTemplate>
+                                
                         <label for="focusedinput" class="col-sm-2 control-label">Total</label>
                         <div class="col-sm-1">
                             <asp:TextBox ID="txtTotal" runat="server" CssClass="auto-style1" Width="90px" ReadOnly="true" />
-                            <asp:Label ID="lblDataT" runat="server"></asp:Label>
+
                         </div>
                                  </ContentTemplate>
                         </asp:UpdatePanel>

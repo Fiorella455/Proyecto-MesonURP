@@ -47,7 +47,6 @@ namespace MesonURPWEB
                 DdlProveedor.DataSource = dtpro;
                 DdlProveedor.DataBind();
                 DdlProveedor.Items.Insert(0, "--seleccionar--");
-                lblIndex.Text = id.ToString();
 
                 int n= ctr_oc.Consult_Incremento();
                 int suma = n + 1;
@@ -66,6 +65,7 @@ namespace MesonURPWEB
                 }
             }
             Session["state"] = 1;
+            lblMsjBorrar.Text = "";
         }
         protected void DdlInsumo_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -82,6 +82,9 @@ namespace MesonURPWEB
             txtTotal.Text = suma.ToString();
             GridViewAñadirOC.DataSource = tin;
             GridViewAñadirOC.DataBind();
+            string ins = GridViewAñadirOC.Rows[id].Cells[0].Text;
+            lblMsjBorrar.Text = "Se eliminado el insumo:"+ins;
+
         }
 
         public void listarInsumo()
@@ -202,7 +205,6 @@ namespace MesonURPWEB
         {
             
             id = Convert.ToInt32(GridViewAñadirOC.SelectedRow.RowIndex);
-            lblIndex.Text = id.ToString();
         }
 
         protected void btnLimpiarOC_Click(object sender, EventArgs e)
