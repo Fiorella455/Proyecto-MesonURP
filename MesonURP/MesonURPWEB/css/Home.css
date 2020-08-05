@@ -800,6 +800,9 @@ input:focus {
 	background: #f3f4f5;
 	border: 1px solid #D8D8D8;
 	margin-bottom: 18px;
+    top: -9px;
+    left: -26px;
+    width: 382px;
 }
 .search form{
 	width:100%;
@@ -813,7 +816,7 @@ input:focus {
     outline: none;
     color: #5a5a5a;
 	background: none;
-	width:91.33333%;
+	width:421px;
 	line-height: 1.5em;
 	position: relative;
 	font-size: 0.8725em;
@@ -832,9 +835,10 @@ input:focus {
     cursor: pointer;
 	width: 76px;
 	position: absolute;
-	top: 0px;
+	top: -2px;
 	padding-top: 2px;
     height: 38px;
+    left: 352px;
 }
 
 span material-icons {
@@ -3083,7 +3087,6 @@ span.brand {
 	width: 100%;
 	font-size: 0.85em;
 	font-weight: 300;
-	height: 40px;
 	border-radius: 0;
 	-webkit-appearance: none;
 	resize: none;
@@ -5889,7 +5892,6 @@ margin-top:0;
 	width: 67%;
 }
 .width207 {
-	width: 207px;
 }
 .width38 {
 	width: 38%;
@@ -5900,5 +5902,6 @@ margin-top:0;
 }
 .marginT8 {
 	margin-left: -67px;
+    width: 168px;
 }
 /***responsive***/
