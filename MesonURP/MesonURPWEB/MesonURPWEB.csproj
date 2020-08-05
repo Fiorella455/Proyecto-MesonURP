@@ -242,6 +242,7 @@
     <Content Include="css\owl.carousel.css" />
     <Content Include="css\style1.css" />
     <Content Include="css\sweetalert2.min.css" />
+    <Content Include="DashboardAdmiSistema.aspx" />
     <Content Include="EliminarProveedor.aspx" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -459,6 +460,13 @@
     </Compile>
     <Compile Include="ConsultarUsuario.aspx.designer.cs">
       <DependentUpon>ConsultarUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DashboardAdmiSistema.aspx.cs">
+      <DependentUpon>DashboardAdmiSistema.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DashboardAdmiSistema.aspx.designer.cs">
+      <DependentUpon>DashboardAdmiSistema.aspx</DependentUpon>
     </Compile>
     <Compile Include="GenerarReporte.aspx.cs">
       <DependentUpon>GenerarReporte.aspx</DependentUpon>

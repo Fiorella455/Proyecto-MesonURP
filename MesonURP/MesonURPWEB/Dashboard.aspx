@@ -12,15 +12,16 @@
   height: 500px;
 }
 </style>
-<style>
+<%--<style>
 #chartdiv1 {
   width: 100%;
   height: 500px;
 }
 
-</style>
+</style>--%>
 <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
-<script src="https://cdn.amcharts.com/lib/4/themes/kelly.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
 
 <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
 <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
@@ -92,112 +93,101 @@
      }); // end am4core.ready()
  </script>
 
-<script>
+<%--<script>
     am4core.ready(function () {
 
         // Themes begin
-        am4core.useTheme(am4themes_kelly);
         am4core.useTheme(am4themes_animated);
         // Themes end
-
-
 
         // Create chart instance
         var chart = am4core.create("chartdiv1", am4charts.XYChart);
 
+        //
+        // Increase contrast by taking evey second color
+        chart.colors.step = 2;
+
         // Add data
-        chart.data = [{
-            "date": "2012-03-01",
-            "price": 20
-        }, {
-            "date": "2012-03-02",
-            "price": 75
-        }, {
-            "date": "2012-03-03",
-            "price": 15
-        }, {
-            "date": "2012-03-04",
-            "price": 75
-        }, {
-            "date": "2012-03-05",
-            "price": 158
-        }, {
-            "date": "2012-03-06",
-            "price": 57
-        }, {
-            "date": "2012-03-07",
-            "price": 107
-        }, {
-            "date": "2012-03-08",
-            "price": 89
-        }, {
-            "date": "2012-03-09",
-            "price": 75
-        }, {
-            "date": "2012-03-10",
-            "price": 132
-        }, {
-            "date": "2012-03-11",
-            "price": 380
-        }, {
-            "date": "2012-03-12",
-            "price": 56
-        }, {
-            "date": "2012-03-13",
-            "price": 169
-        }, {
-            "date": "2012-03-14",
-            "price": 24
-        }, {
-            "date": "2012-03-15",
-            "price": 147
-        }];
+        chart.data = <%=CargarSegundoDT()%>;
 
         // Create axes
         var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
-        dateAxis.renderer.grid.template.location = 0;
         dateAxis.renderer.minGridDistance = 50;
 
-        var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-        valueAxis.logarithmic = true;
-        valueAxis.renderer.minGridDistance = 20;
-
         // Create series
-        var series = chart.series.push(new am4charts.LineSeries());
-        series.dataFields.valueY = "price";
-        series.dataFields.dateX = "date";
-        series.tensionX = 0.8;
-        series.strokeWidth = 3;
+        function createAxisAndSeries(field, name, opposite, bullet) {
+            var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+           
+            if (chart.yAxes.indexOf(valueAxis) != 0) {
+                valueAxis.syncWithAxis = chart.yAxes.getIndex(0);
+            }
 
-        var bullet = series.bullets.push(new am4charts.CircleBullet());
-        bullet.circle.fill = am4core.color("#fff");
-        bullet.circle.strokeWidth = 3;
+            var series = chart.series.push(new am4charts.LineSeries());
+            series.dataFields.valueY = field;
+            series.dataFields.dateX = "Fecha";
+            series.strokeWidth = 2;
+            series.yAxis = valueAxis;
+            series.name = name;
+            series.tooltipText = "{Insumo}: [bold]{valueY}[/]";
+            series.tensionX = 0.8;
+            series.showOnInit = true;
+
+            //var series1 = chart.series1.push(new am4charts.ColumnSeries());
+            //series1.columns.template.tooltipText = "Series: {Insumo}\nCategory: {categoryX}\nValue: {valueY}";
+
+            var interfaceColors = new am4core.InterfaceColorSet();
+
+            switch (bullet) {
+                case "triangle":
+                    var bullet = series.bullets.push(new am4charts.Bullet());
+                    bullet.width = 12;
+                    bullet.height = 12;
+                    bullet.horizontalCenter = "middle";
+                    bullet.verticalCenter = "middle";
+
+                    var triangle = bullet.createChild(am4core.Triangle);
+                    triangle.stroke = interfaceColors.getFor("background");
+                    triangle.strokeWidth = 2;
+                    triangle.direction = "top";
+                    triangle.width = 12;
+                    triangle.height = 12;
+                    break;
+                case "rectangle":
+                    var bullet = series.bullets.push(new am4charts.Bullet());
+                    bullet.width = 10;
+                    bullet.height = 10;
+                    bullet.horizontalCenter = "middle";
+                    bullet.verticalCenter = "middle";
+
+                    var rectangle = bullet.createChild(am4core.Rectangle);
+                    rectangle.stroke = interfaceColors.getFor("background");
+                    rectangle.strokeWidth = 2;
+                    rectangle.width = 10;
+                    rectangle.height = 10;
+                    break;
+                default:
+                    var bullet = series.bullets.push(new am4charts.CircleBullet());
+                    bullet.circle.stroke = interfaceColors.getFor("background");
+                    bullet.circle.strokeWidth = 2;
+                    break;
+            }
+
+            valueAxis.renderer.line.strokeOpacity = 1;
+            valueAxis.renderer.line.strokeWidth = 2;
+            valueAxis.renderer.line.stroke = series.stroke;
+            valueAxis.renderer.labels.template.fill = series.stroke;
+            valueAxis.renderer.opposite = opposite;
+        }
+
+        createAxisAndSeries("Perdida", "Perdida", false, "circle");
+        // Add legend
+        chart.legend = new am4charts.Legend();
 
         // Add cursor
         chart.cursor = new am4charts.XYCursor();
-        chart.cursor.fullWidthLineX = true;
-        chart.cursor.xAxis = dateAxis;
-        chart.cursor.lineX.strokeWidth = 0;
-        chart.cursor.lineX.fill = am4core.color("#000");
-        chart.cursor.lineX.fillOpacity = 0.1;
-
-        // Add scrollbar
-        chart.scrollbarX = new am4core.Scrollbar();
-
-        // Add a guide
-        let range = valueAxis.axisRanges.create();
-        range.value = 90.4;
-        range.grid.stroke = am4core.color("#396478");
-        range.grid.strokeWidth = 1;
-        range.grid.strokeOpacity = 1;
-        range.grid.strokeDasharray = "3,3";
-        range.label.inside = true;
-        range.label.text = "Average";
-        range.label.fill = range.grid.stroke;
-        range.label.verticalCenter = "bottom";
-
+        
     }); // end am4core.ready()
-</script>
+</script>--%>
          <div class="panel panel-widget forms-panel">
              <div class="form-grids widget-shadow" data-example-id="basic-forms">
                 <div class="form-title color-white">
@@ -213,10 +203,10 @@
 
                 </div>
          </div>
-           
+         <%--  
          <div>  
             <div id="chartdiv1"></div>	
-        </div>
+        </div>--%>
    </div>
     </asp:Content>
 

@@ -87,5 +87,9 @@ namespace CTR
         {
             return dao_insumo.LimiteStockMax(id, c);
         }
+        public DataTable ListarDashboardT()
+        {
+            return dao_insumo.SelectDataTwo();
+        }
     }
 }

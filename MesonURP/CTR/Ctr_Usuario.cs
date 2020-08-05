@@ -59,6 +59,11 @@ namespace CTR
         {
             return dao_usu.Existe_Usuario(u);
         }
+        public DataTable ListarPieUser()
+        {
+            return dao_usu.SelectPieUser();
+        }
+        
     }
    
 }
