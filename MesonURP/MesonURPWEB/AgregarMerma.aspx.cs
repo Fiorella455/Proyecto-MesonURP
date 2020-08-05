@@ -130,14 +130,6 @@ namespace MesonURPWEB
                 txtPesoRendi.Text = Convert.ToString(Convert.ToDecimal(txtCantidadTotal.Text) - Convert.ToDecimal(TextBox1.Text));
             }
         }
-        protected void Calcular_Text(object sender, EventArgs e)
-        {
-            txtPesoRendi.Text = "algo";
-            //if (TextBox1.Text != null)
-            //{
-            //    txtPesoRendimiento.Text = Convert.ToString(Convert.ToDecimal(txtCantidadTotal.Text) - Convert.ToDecimal(TextBox1.Text));
-            //}
-        }
     }
 }
 

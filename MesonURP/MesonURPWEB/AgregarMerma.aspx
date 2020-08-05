@@ -43,21 +43,32 @@
                             <asp:TextBox ID="txtCantidadTotal" runat="server" CssClass="form-control1" disabled="false" />                            
                         </div>
                     </div>
-                    
+                   
                    <div class="form-group">
+                       <asp:UpdatePanel ID="panelPesoMerma" runat="server">
+                       <ContentTemplate>
                         <label for="focusedinput" class="col-sm-2 control-label">Peso Merma</label>
                         <div class="col-sm-8" style="text-align:center;">
                             <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control1" placeholder="Peso de Merma" OnTextChanged="txtPesoMerma_TextChange1"/>
                             <asp:CompareValidator ID="Pesovalidacion1" runat="server" controltovalidate="TextBox1" ControlToCompare="txtCantidadTotal" operator="LessThanEqual" ValidationGroup="AgregarMerma" ErrorMessage="El Peso de Merma debe ser menor al Peso Total" Display="Dynamic" ForeColor="Red" Font-Italic="true"/>
                             <asp:RequiredFieldValidator ID="validationPeso1" runat="server" ControlToValidate="TextBox1"  ErrorMessage="Campo Obligatorio" ValidationGroup="AgregarMerma" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                     </div>
+                           </ContentTemplate>
+                    </asp:UpdatePanel>
                     </div>
+                        
+                    
                     <div class="form-group">
+                        <asp:UpdatePanel ID="panelPesoRem" runat="server">
+                       <ContentTemplate>
                         <label for="focusedinput" class="col-sm-2 control-label">Peso Rendimiento</label>
                         <div class="col-sm-8" style="text-align:center;">
-                            <asp:TextBox ID="txtPesoRendi"  disabled="false" runat="server" OnClick="Calcular_Text" CssClass="form-control1"/>
+                            <asp:TextBox ID="txtPesoRendi"  disabled="false" runat="server" CssClass="form-control1"/>
                     </div>
+                           </ContentTemplate>
+                    </asp:UpdatePanel>
                     </div>
+                    
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Observación<br/><i style="color:red; font-weight:bold">(Opcional)</i></label>
                         <div class="col-sm-8">
