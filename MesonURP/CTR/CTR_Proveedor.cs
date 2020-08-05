@@ -47,6 +47,10 @@ namespace CTR
         {
             return dao_proveedor.DAO_SelectProveedorxEstado();
         }
+        public DataTable ListarPieProveedor()
+        {
+            return dao_proveedor.SelectPieProveedor();
+        }
 
     }
 }

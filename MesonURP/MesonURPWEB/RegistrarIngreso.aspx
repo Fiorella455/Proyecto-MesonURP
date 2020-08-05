@@ -7,12 +7,12 @@
         <!-- start content -->
         <div class="grids">
             <div class="progressbar-heading grids-heading title-flex">
-                <h2 class="tittle-margin5">Registrar Ingreso</h2>
+                <h2 class="tittle-margin5">Devolver Egreso</h2>
             </div>
         </div>
         <div class="forms">
             <h3 class="title1"></h3>
-            <asp:UpdatePanel id="panelIngreso" runat="server">
+            <asp:UpdatePanel ID="panelIngreso" runat="server">
                 <ContentTemplate>
                     <div class="form-three widget-shadow">
                         <div class="form-horizontal" runat="server">
@@ -56,6 +56,7 @@
                                     <p class="center-button">
                                         <asp:Button CssClass="btn btn-primary" runat="server" Text="Añadir" ID="btnAñadirInsumo" OnClick="btnAñadirInsumo_Click" />
                                         <%--<input type="button" name="res1" value="Limpiar" runat="server" onserverclick="btnLimpiar_ServerClick" class="btn btn-danger" />--%>
+                                        <asp:Button CssClass="btn btn-primary" runat="server" Text="Quitar" OnClick="btnQuitarInsumo_Click" />
                                     </p>
                                 </ContentTemplate>
                             </asp:UpdatePanel>
@@ -68,27 +69,26 @@
                                 </div>
                                 <%--<asp:UpdatePanel ID="panelIngreso" runat="server">
                                     <ContentTemplate>--%>
-                                        <div class="table-wrapper-scroll-y my-custom-scrollbar">
-                                            <asp:GridView ID="gvInsumosIngreso" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false" OnRowDataBound="gvInsumos_OnRowDataBound"
-                                                DataKeyNames="Fecha,Nombre insumo,Cantidad,Unidad de Medida"
-                                                CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None" OnSelectedIndexChanged="gvInsumosIngreso_SelectedIndexChanged">
-                                                <Columns>
-                                                    <asp:BoundField HeaderText="Fecha" DataField="Fecha" />
-                                                    <asp:BoundField HeaderText="Nombre insumo" DataField="Nombre insumo" />
-                                                    <asp:BoundField HeaderText="Cantidad" DataField="Cantidad" />
-                                                    <asp:BoundField HeaderText="Unidad de Medida" DataField="Unidad de Medida" />
-                                                </Columns>
-                                                <SelectedRowStyle BackColor="LightGreen" />
-                                            </asp:GridView>
-                                        </div>
-                                         <asp:Label ID="lblIndex" runat="server" Visible="false"></asp:Label>
-                                        <hr />
-                                        <p class="center-button">
-                                            <button type="button" name="sub-1" class="btn btn-primary" runat="server" id="btnIngresar" onserverclick="btnIngresar_ServerClick">Ingresar</button>
-                                            <input type="button" name="sub-1" value="Regresar" runat="server" onclick="location.href = 'ManejarStock';" onserverclick="btnRegresar_ServerClick" class="btn btn-primary" />
-                                            <asp:Button CssClass="btn btn-primary" runat="server" Text="Quitar" OnClick="btnQuitarInsumo_Click" />
-                                        </p>
-                                    <%--</ContentTemplate>
+                                <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                                    <asp:GridView ID="gvInsumosIngreso" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false" OnRowDataBound="gvInsumos_OnRowDataBound"
+                                        DataKeyNames="Fecha,Nombre insumo,Cantidad,Unidad de Medida"
+                                        CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None" OnSelectedIndexChanged="gvInsumosIngreso_SelectedIndexChanged">
+                                        <Columns>
+                                            <asp:BoundField HeaderText="Fecha" DataField="Fecha" />
+                                            <asp:BoundField HeaderText="Nombre insumo" DataField="Nombre insumo" />
+                                            <asp:BoundField HeaderText="Cantidad" DataField="Cantidad" />
+                                            <asp:BoundField HeaderText="Unidad de Medida" DataField="Unidad de Medida" />
+                                        </Columns>
+                                        <SelectedRowStyle BackColor="LightGreen" />
+                                    </asp:GridView>
+                                </div>
+                                <asp:Label ID="lblIndex" runat="server" Visible="false"></asp:Label>
+                                <hr />
+                                <p class="center-button">
+                                    <button type="button" name="sub-1" class="btn btn-primary" runat="server" id="btnIngresar" onserverclick="btnIngresar_ServerClick">Devolver Egreso</button>
+                                    <input type="button" name="sub-1" value="Regresar" runat="server" onclick="location.href = 'ManejarStock';" onserverclick="btnRegresar_ServerClick" class="btn btn-primary" />
+                                </p>
+                                <%--</ContentTemplate>
                                 </asp:UpdatePanel>--%>
                             </div>
                         </div>
@@ -145,7 +145,7 @@
         function alertaExito() {
             Swal.fire({
                 title: 'Enhorabuena!',
-                text: 'Se ha logrado ingresar correctamente',
+                text: 'Se ha logrado devolver correctamente',
                 icon: 'success',
                 confirmButtonText: 'Aceptar'
             }).then((result) => {

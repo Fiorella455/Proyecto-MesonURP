@@ -70,7 +70,7 @@ namespace MesonURPWEB
                     }
                     else if (perfil == "Administrador del Sistema")
                     {
-                        Response.Redirect("Dashboard");
+                        Response.Redirect("DashboardAdmiSistema");
                     }
 
                 }

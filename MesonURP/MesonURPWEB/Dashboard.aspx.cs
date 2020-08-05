@@ -24,6 +24,7 @@ namespace MesonURPWEB
             if (!Page.IsPostBack)
             {
                 CargarDatos();
+                //CargarSegundoDT();
             }
 		}
         protected string CargarDatos()
@@ -48,71 +49,30 @@ namespace MesonURPWEB
             }
             js.Append("]");
             return js.ToString();
-
         }
 
-
-
-
-        //protected string CargarDatos()
+        //protected string CargarSegundoDT()
         //{
         //    DataTable datos = new DataTable();
-        //    datos = _Ci.ListarDashboard();
+        //    datos = _Ci.ListarDashboardT();
 
         //    StringBuilder js = new StringBuilder();
         //    string strDatos = "";
-        //    //strDatos = "[{'Insumo','Total'},";
 
         //    js.Append("[");
 
         //    foreach (DataRow dr in datos.Rows)
         //    {
         //        js.Append(strDatos + "{");
-        //        js.Append("\"Insumo\":" + "\"" + dr[0] + "\",");
-        //        js.Append("\"Total\":" + dr[1]);
+        //        js.Append("\"Fecha\":" + "\"" + dr[0] + "\",");
+        //        js.Append("\"Insumo\":" + "\"" + dr[1] + "\",");
+        //        js.Append("\"Perdida\":" + dr[2]);
         //        js.Append("}");
         //        strDatos = ",";
         //    }
         //    js.Append("]");
         //    return js.ToString();
-
         //}
-        //private void CargarDatos()
-        //{
-        //    DataTable dt = new DataTable();
-        //    StringBuilder str = new StringBuilder();
-        //    try
-        //    {
-        //        dt = _Ci.ListarDashboard();
-        //        str.Append(@"<script type='text/javascript'>  
-        //             google.charts.load('visualization', '1', {packages: ['bar']});
-        //               google.charts.setOnLoadCallback(drawChart);</script>  
-        //            <script type='text/javascript'>  
-        //            function drawChart() {   
-        //            var data = google.visualization.arrayToDataTable([  
-        //            ['Insumo', 'Total'],");
 
-        //            foreach (DataRow row in dt.Rows)
-        //            {
-        //            str.Append("['" + row["Insumo"] + "'," + row["Total"] + "],");
-        //        }
-        //            str.Remove(str.Length - 1, 1);
-        //        str.Append("]);");
-
-        //        str.Append("var options = {chart: {title: 'Company Performance',subtitle: 'Sales, Expenses, and Profit: 2014-2017',}};");
-        //        str.Append("var chart = new google.charts.Bar(document.getElementById('Ch_BarChart_Monthly'));  chart.draw(data, options); } google.setOnLoadCallback(drawChart)");
-        //        str.Append(" </script>");
-        //        lt.Text = str.ToString();
-
-        //    }
-        //    catch
-        //    {
-        //    }
-        //    finally
-        //    {
-        //        dt.Dispose();
-        //        str.Clear();
-        //    }
-        //}
     }
 }

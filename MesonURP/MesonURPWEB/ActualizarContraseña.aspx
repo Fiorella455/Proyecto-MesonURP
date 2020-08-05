@@ -42,6 +42,52 @@
      
     
   </div>
+    <script>
+        function alertaCorrecto() {
+            Swal.fire({
+                 title: 'Contraseña Correcta',
+                 text: 'Su contraseña ha sido verificada.',
+                 icon: 'success',
+                 confirmButtonText: 'Aceptar'
+            })
+        }
+        function alertaAct() {
+            Swal.fire({
+                title: 'Enhorabuena!',
+                text: 'Su contraseña ha sido cambiada satisfactoriamente.',
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+            })
+        }
+        function alertaNoAct() {
+            Swal.fire({
+                title: 'Oh, no!',
+                text: 'Las contraseñas deben coincidir.',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            })
+        }
+        function alertaWarning() {
+            Swal.fire({
+                title: 'Oh, no!',
+                text: 'Debe escribir su contraseña.',
+                icon: 'warning',
+                confirmButtonText: 'Aceptar'
+            })
+        }
+        function alertaIncorrecto() {
+            Swal.fire({
+                title: 'Contraseña Erronea',
+                text: 'Su contraseña es incorrecta.',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            }).then((result) => {
+                if (result.value) {
+                    window.location.href = "ActualizarContraseña";
+                }
+            })
+        }
+    </script>
 </asp:Content>
 
 

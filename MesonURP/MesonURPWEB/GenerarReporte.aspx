@@ -41,14 +41,15 @@
                             </asp:GridView>
 
                         </div>
+                        <p class="text-center">
+                            <asp:DropDownList ID="ddlMes" CssClass="form-control1" runat="server" OnSelectedIndexChanged="ddlMes_SelectedIndexChanged" AutoPostBack="true" text-align="center" Width="126px">
+                            </asp:DropDownList>
+                        </p>
                     </div>
                 </div>
-                <div class="text-center">
-                     <asp:DropDownList ID="ddlMes" CssClass="form-control1" runat="server" OnSelectedIndexChanged="ddlMes_SelectedIndexChanged" AutoPostBack="true" text-align="center" Width="126px">
-                     </asp:DropDownList>
+
             </div>
-            </div>
-            
+
 
         </div>
     </div>

@@ -81,6 +81,9 @@ namespace MesonURPWEB
             routes.MapPageRoute("ActualizarUsuario", "ActualizarUsuario", "~/ActualizarUsuario.aspx", true);
             routes.MapPageRoute("ConsultarUsuario", "ConsultarUsuario", "~/ConsultarUsuario.aspx", true);
             routes.MapPageRoute("ReporteMovimientos", "ReporteMovimientos", "~/GenerarReporteMovimiento.aspx", true);
+            routes.MapPageRoute("DashboardAdmiSistema", "DashboardAdmiSistema", "~/DashboardAdmiSistema.aspx", true);
+            routes.MapPageRoute("ActualizarContraseña", "ActualizarContraseña", "~/ActualizarContraseña.aspx", true);
+
         }
     }
 }

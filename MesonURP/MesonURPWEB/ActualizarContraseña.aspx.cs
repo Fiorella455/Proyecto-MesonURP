@@ -46,7 +46,8 @@ namespace MesonURPWEB
                 {
                     if (dto_Usuario.U_Contraseña == txtContraseñaAct.Text)
                     {
-                        lblMsj.Text = "Contraseña Correcta";
+                        ClientScript.RegisterStartupScript(Page.GetType(), "alertaCorrecto", "alertaCorrecto();", true);
+                        //lblMsj.Text = "Contraseña Correcta";
                         btnCambiarCont.Text = "Cambiar Contraseña";
                         txtContraseñaN.Visible = true;
                         txtContraseñaNR.Visible = true;
@@ -56,13 +57,13 @@ namespace MesonURPWEB
                     }
                     else
                     {
-                        lblMsj.Text = "Contraseña Incorrecta";
-                       
+                        ClientScript.RegisterStartupScript(Page.GetType(), "alertaIncorrecto", "alertaIncorrecto();", true);
+
                     }
                 }
             }
-            else { lblMsj.Text = "Escriba su contraseña actual"; }
-            
+            ClientScript.RegisterStartupScript(Page.GetType(), "alertaWarning", "alertaWarning();", true);
+
         }
         public void Verificar_Nueva_Contraseña()
         {
@@ -72,17 +73,17 @@ namespace MesonURPWEB
                 {
                     dto_Usuario.U_Contraseña = txtContraseñaN.Text;
                     ctr_usuario.Cambiar_Contraseña(dto_Usuario);
-                    lblMsj.Text = "Contraseña actualizada correctamente";
+                    ClientScript.RegisterStartupScript(Page.GetType(), "alertaAct", "alertaAct();", true);
                 }
 
                 else
                 {
-                    lblMsj.Text = "Las contraseñas no coinciden";
+                    ClientScript.RegisterStartupScript(Page.GetType(), "alertaNoAct", "alertaNoAct();", true);
                 }
             }
             else 
             {
-                lblMsj.Text = "Ingrese una nueva contraseña";
+                ClientScript.RegisterStartupScript(Page.GetType(), "alertaWarning", "alertaWarning();", true);
             }
            
         }

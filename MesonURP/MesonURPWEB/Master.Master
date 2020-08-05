@@ -144,7 +144,7 @@
             <ul id="menu">
                 <li><a href="Dashboard"><i class="fa fa-tachometer"></i><span>Inicio</span></a></li>
                 <li id="menuOrdenCompra" runat="server"><a href="GestionarOC"><i class="lnr lnr-cart"></i><span>Orden de Compra</span></a></li>
-                <li id="menuCambiarCont" runat="server"><a href="ActualizarContraseña.aspx"><i class="lnr lnr-pencil"></i><span>Cambiar Contraseña</span></a></li>
+                <li id="menuCambiarCont" runat="server"><a href="ActualizarContraseña"><i class="lnr lnr-pencil"></i><span>Cambiar Contraseña</span></a></li>
                 <li id="menuProveedor" runat="server"><a href="gestionarProveedor"><i class="fa fa-file-text-o"></i><span>Gestionar Proveedor</span></a></li>
                 <li id="menuGestionarMerma" runat="server"><a href="gestionarMermas"><i class="lnr lnr-pencil"></i><span>Gestionar Merma</span></a></li>
                 <li id="menuStock" runat="server"><a href="#"><i class="fa fa-table"></i><span>Stock</span> <span class="fa fa-angle-right" style="float: right"></span></a>
