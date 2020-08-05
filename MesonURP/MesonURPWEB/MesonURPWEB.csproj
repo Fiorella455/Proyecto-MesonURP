@@ -121,6 +121,7 @@
     </Reference>
     <Reference Include="Microsoft.IdentityModel.Logging, Version=6.7.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.IdentityModel.Logging.6.7.1\lib\net461\Microsoft.IdentityModel.Logging.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.IdentityModel.Protocols, Version=6.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.IdentityModel.Protocols.6.7.0\lib\net461\Microsoft.IdentityModel.Protocols.dll</HintPath>
@@ -218,9 +219,11 @@
     <Content Include="ActualizarCategoria.aspx" />
     <Content Include="ActualizarContraseña.aspx" />
     <Content Include="ActualizarInsumo.aspx" />
+    <Content Include="ActualizarMerma.aspx" />
     <Content Include="ActualizarOC.aspx" />
     <Content Include="ActualizarProveedor.aspx" />
     <Content Include="ActualizarUsuario.aspx" />
+    <Content Include="AgregarMerma.aspx" />
     <Content Include="AñadirInsumo.aspx" />
     <Content Include="AñadirOC.aspx" />
     <Content Include="AñadirProveedor.aspx" />
@@ -251,6 +254,7 @@
     <Content Include="GenerarReporteMovimiento.aspx" />
     <Content Include="GestionarCategoria.aspx" />
     <Content Include="GestionarInsumo.aspx" />
+    <Content Include="GestionarMerma.aspx" />
     <Content Include="GestionarOC.aspx" />
     <Content Include="GestionarProveedor.aspx" />
     <Content Include="GestionarUsuario.aspx" />
@@ -409,6 +413,13 @@
     <Compile Include="ActualizarInsumo.aspx.designer.cs">
       <DependentUpon>ActualizarInsumo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ActualizarMerma.aspx.cs">
+      <DependentUpon>ActualizarMerma.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ActualizarMerma.aspx.designer.cs">
+      <DependentUpon>ActualizarMerma.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ActualizarOC.aspx.cs">
       <DependentUpon>ActualizarOC.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -429,6 +440,13 @@
     </Compile>
     <Compile Include="ActualizarUsuario.aspx.designer.cs">
       <DependentUpon>ActualizarUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarMerma.aspx.cs">
+      <DependentUpon>AgregarMerma.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarMerma.aspx.designer.cs">
+      <DependentUpon>AgregarMerma.aspx</DependentUpon>
     </Compile>
     <Compile Include="AñadirInsumo.aspx.cs">
       <DependentUpon>AñadirInsumo.aspx</DependentUpon>
@@ -527,6 +545,13 @@
     </Compile>
     <Compile Include="EliminarProveedor.aspx.designer.cs">
       <DependentUpon>EliminarProveedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionarMerma.aspx.cs">
+      <DependentUpon>GestionarMerma.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionarMerma.aspx.designer.cs">
+      <DependentUpon>GestionarMerma.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionarProveedor.aspx.cs">
       <DependentUpon>GestionarProveedor.aspx</DependentUpon>
