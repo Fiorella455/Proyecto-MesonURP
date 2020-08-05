@@ -91,5 +91,9 @@ namespace CTR
         {
             return dao_insumo.SelectDataTwo();
         }
+        public DataTable ListarBarChartInsumo()
+        {
+            return dao_insumo.SelectBarInsumo();
+        }        
     }
 }
