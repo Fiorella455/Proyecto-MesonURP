@@ -26,6 +26,14 @@
   height: 500px;
 }
 </style>
+
+<style>
+#chartdiv3 {
+  width: 100%;
+  height: 500px;
+}
+</style>
+
 <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
 <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
 <script src="https://cdn.amcharts.com/lib/4/themes/moonrisekingdom.js"></script>
@@ -33,6 +41,11 @@
 
 <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
 <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+
+<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/moonrisekingdom.js"></script>
 <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
 
 <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
@@ -273,6 +286,64 @@
 
     }); // end am4core.ready()
 </script>
+<script>
+    am4core.ready(function () {
+
+        // Themes begin
+        am4core.useTheme(am4themes_moonrisekingdom);
+        am4core.useTheme(am4themes_animated);
+        // Themes end
+
+        // Create chart instance
+        var chart = am4core.create("chartdiv3", am4charts.PieChart);
+
+        // Add and configure Series
+        var pieSeries = chart.series.push(new am4charts.PieSeries());
+        pieSeries.dataFields.value = "Total";
+        pieSeries.dataFields.category = "Estado";
+
+        // Let's cut a hole in our Pie chart the size of 30% the radius
+        chart.innerRadius = am4core.percent(30);
+
+        // Put a thick white border around each Slice
+        pieSeries.slices.template.stroke = am4core.color("#fff");
+        pieSeries.slices.template.strokeWidth = 2;
+        pieSeries.slices.template.strokeOpacity = 1;
+        pieSeries.slices.template
+            // change the cursor on hover to make it apparent the object can be interacted with
+            .cursorOverStyle = [
+                {
+                    "property": "cursor",
+                    "value": "pointer"
+                }
+            ];
+
+        pieSeries.alignLabels = false;
+        pieSeries.labels.template.bent = true;
+        pieSeries.labels.template.radius = 3;
+        pieSeries.labels.template.padding(0, 0, 0, 0);
+
+        pieSeries.ticks.template.disabled = true;
+
+        // Create a base filter effect (as if it's not there) for the hover to return to
+        var shadow = pieSeries.slices.template.filters.push(new am4core.DropShadowFilter);
+        shadow.opacity = 0;
+
+        // Create hover state
+        var hoverState = pieSeries.slices.template.states.getKey("hover"); // normally we have to create the hover state, in this case it already exists
+
+        // Slightly shift the shadow and make it more prominent on hover
+        var hoverShadow = hoverState.filters.push(new am4core.DropShadowFilter);
+        hoverShadow.opacity = 0.7;
+        hoverShadow.blur = 5;
+
+        // Add a legend
+        chart.legend = new am4charts.Legend();
+
+        chart.data = <%=CargaPieEstadoOC()%>;
+
+    }); // end am4core.ready()
+</script>
 
  <div class="panel panel-widget forms-panel">
              <div class="form-grids widget-shadow" data-example-id="basic-forms">
@@ -287,7 +358,8 @@
                 </div>
             </div>
                 </div>
-     <div class="form-grids widget-shadow" data-example-id="basic-forms">
+     <div class="panel panel-widget forms-panel" style="display:flex">
+         <div class="form-grids widget-shadow" style="width:100%; margin-right:21px" data-example-id="basic-forms">
                 <div class="form-title color-white">
                     <h4>Número de Movimientos por Usuario</h4>
                 </div>
@@ -300,9 +372,23 @@
             </div>
 
                 </div>
+           <div class="form-grids widget-shadow" style="width:100%;" data-example-id="basic-forms">
+                <div class="form-title color-white">
+                    <h4>Estados de las Órdenes de Compras</h4>
+                </div>
+            <div>
+                <div class="table-wrapper-scroll-y">
+                    <div>
+                       <div id="chartdiv3"></div>
+                    </div>
+                </div>
+            </div>
+
+                </div>
+           </div>
       <div class="form-grids widget-shadow" data-example-id="basic-forms">
                 <div class="form-title color-white">
-                    <h4>Insumos Disponibles - Insumos Agotados</h4>
+                    <h4>Insumos Disponibles</h4>
                 </div>
             <div>
                 <div class="table-wrapper-scroll-y">
@@ -313,6 +399,7 @@
             </div>
 
                 </div>
+      
          </div>
    </div>
     </asp:Content>
