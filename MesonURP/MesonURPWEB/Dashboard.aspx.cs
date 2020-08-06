@@ -25,6 +25,7 @@ namespace MesonURPWEB
             {
                 CargarDatos();
                 CargarSegundoDT();
+                CargarDatosD2();
             }
 		}
         protected string CargarDatos()
@@ -50,7 +51,7 @@ namespace MesonURPWEB
             js.Append("]");
             return js.ToString();
         }
-             protected string CargarSegundoDT()
+        protected string CargarSegundoDT()
         {
             DataTable datos = new DataTable();
             datos = _Ci.ListarDashboardT();
@@ -97,4 +98,3 @@ namespace MesonURPWEB
 
     }
 }
-    

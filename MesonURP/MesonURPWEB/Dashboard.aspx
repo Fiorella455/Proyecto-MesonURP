@@ -121,21 +121,6 @@
      }); // end am4core.ready()
         </script>
         <script>
-            am4core.ready(function () {
-
-                // Themes begin
-                am4core.useTheme(am4themes_moonrisekingdom);
-                am4core.useTheme(am4themes_animated);
-                // Themes end
-
-                // Create chart instance
-                var chart = am4core.create("chartdiv2", am4charts.XYChart);
-                chart.scrollbarX = new am4core.Scrollbar();
-
-                // Add data
-                chart.data = <%=CargarDatosD2()%>;
-
- <script>
     am4core.ready(function () {
 
         // Themes begin
