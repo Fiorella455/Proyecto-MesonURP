@@ -22,17 +22,17 @@ namespace CTR
         {
             return dao_Merma.BuscarInsumoMerma(I_NombreInsumo);
         }
-        public DataSet ListarInsumos()
+        public DataSet ListarInsumos(DateTime Fecha)
         {
-            return dao_Merma.selectInsumosEgresados();
+            return dao_Merma.selectInsumosEgresados(Fecha);
         }
-        public string MostrarEgreseos(int idInsumo)
+        public string MostrarEgreseos(int idInsumo, DateTime Fecha)
         {
-            return dao_Merma.mostrarEgresos(idInsumo);
+            return dao_Merma.mostrarEgresos(idInsumo, Fecha);
         }
-        public string SumarEgreseos(int idInsumo)
+        public string SumarEgreseos(int idInsumo, DateTime Fecha)
         {
-            return dao_Merma.sumarEgresos(idInsumo);
+            return dao_Merma.sumarEgresos(idInsumo, Fecha);
         }
         public string Rendimiento(int idInsumo, decimal pesoMerma)
         {

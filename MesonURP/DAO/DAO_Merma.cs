@@ -16,10 +16,11 @@ namespace DAO
         {
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
         }
-        public DataSet selectInsumosEgresados()
+        public DataSet selectInsumosEgresados(DateTime MxI_FechaMovimiento)
         {
             conexion.Open();
             SqlCommand cmd = new SqlCommand("SP_Listar_Insumo_Merma", conexion);
+            cmd.Parameters.AddWithValue("@MxI_FechaMovimiento", MxI_FechaMovimiento);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.ExecuteNonQuery();
             DataSet dt = new DataSet();
@@ -62,7 +63,7 @@ namespace DAO
             }
         }
         //SP_ContarEgresos
-        public string mostrarEgresos(int I_idInsumo)
+        public string mostrarEgresos(int I_idInsumo, DateTime MxI_FechaMovimiento)
         {
             string egresos = "";
             try
@@ -71,6 +72,7 @@ namespace DAO
                 SqlCommand cmd = new SqlCommand("SP_ContarEgresos", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@I_idInsumo", I_idInsumo);
+                cmd.Parameters.AddWithValue("@MxI_FechaMovimiento", MxI_FechaMovimiento);
                 cmd.ExecuteNonQuery();
                 SqlDataReader dReader = cmd.ExecuteReader();
                 if (dReader.Read())
@@ -86,7 +88,7 @@ namespace DAO
             }
             
         }
-        public string sumarEgresos(int I_idInsumo)
+        public string sumarEgresos(int I_idInsumo, DateTime MxI_FechaMovimiento)
         {
             string sumaegresos = "";
             try
@@ -95,6 +97,7 @@ namespace DAO
                 SqlCommand cmd = new SqlCommand("SP_SumaEgresos", conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@I_idInsumo", I_idInsumo);
+                cmd.Parameters.AddWithValue("@MxI_FechaMovimiento", MxI_FechaMovimiento);
                 cmd.ExecuteNonQuery();
                 SqlDataReader dReader = cmd.ExecuteReader();
                 if (dReader.Read())

@@ -1,4 +1,5 @@
 ﻿using CTR;
+using DevExpress.Utils.Design;
 using DTO;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,7 @@ namespace MesonURPWEB
 
         public void ListarInsumosEgresados()
         {
-            ddlInsumos.DataSource = _Cm.ListarInsumos();
+            ddlInsumos.DataSource = _Cm.ListarInsumos(Convert.ToDateTime(FechaActual));
             ddlInsumos.DataTextField = "I_NombreInsumo";
             ddlInsumos.DataValueField = "I_idInsumo";
             ddlInsumos.DataBind();
@@ -41,8 +42,8 @@ namespace MesonURPWEB
         {
             if (ddlInsumos.SelectedIndex != 0)
             {
-                txtEgresos.Text = _Cm.MostrarEgreseos(Convert.ToInt32(ddlInsumos.SelectedValue));
-                txtCantidadTotal.Text = _Cm.SumarEgreseos(Convert.ToInt32(ddlInsumos.SelectedValue));
+                txtEgresos.Text = _Cm.MostrarEgreseos(Convert.ToInt32(ddlInsumos.SelectedValue), Convert.ToDateTime(FechaActual));
+                txtCantidadTotal.Text = _Cm.SumarEgreseos(Convert.ToInt32(ddlInsumos.SelectedValue), Convert.ToDateTime(FechaActual));
                 txtocultoId.Text = _Cm.selectIdMovxIns(Convert.ToInt32(ddlInsumos.SelectedValue));
 
             }

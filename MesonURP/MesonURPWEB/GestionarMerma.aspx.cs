@@ -58,7 +58,7 @@ namespace MesonURPWEB
                 {
                     int idMerma = Convert.ToInt32(gvMerma.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["T_idMerma"].ToString());
                     string Insumo = gvMerma.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["I_NombreInsumo"].ToString();
-                    decimal cantidadTotal = Convert.ToDecimal(gvMerma.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["I_CantidadTotal"].ToString());
+                    decimal pesoTotal = Convert.ToDecimal(gvMerma.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["PesoTotal"].ToString());
                     DateTime fecha = Convert.ToDateTime(gvMerma.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["M_Fecha"].ToString());
                     //string obv = gvMerma.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["M_observacion"].ToString();
 
@@ -66,7 +66,7 @@ namespace MesonURPWEB
 
                     Session["T_idMerma"] = idMerma;
                     Session["I_NombreInsumo"] = Insumo;
-                    Session["I_CantidadTotal"] = cantidadTotal;
+                    Session["PesoTotal"] = pesoTotal;
                     Session["M_Fecha"] = fecha;
                     //Session["M_observacion"] = obv;
                     Response.Redirect("ActualizarMerma");
