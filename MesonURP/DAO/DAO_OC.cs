@@ -15,7 +15,7 @@ namespace DAO
         DTO_Proveedor dto_proveedor;
         DAO_Proveedor dao_proveedor;
         DTO_OC dto_oc;
-        long f;
+        
 
         public DAO_OC()
         {

@@ -9,5 +9,7 @@ namespace DTO
         public int OC_idOrdenCompra { get; set; }
         public decimal OCxI_Cantidad { get; set; }
         public decimal OCxI_PrecioTotal { get; set; }
+        public int Estado { get; set; }
+        public bool InsumoR { get; set; }
     }
 }

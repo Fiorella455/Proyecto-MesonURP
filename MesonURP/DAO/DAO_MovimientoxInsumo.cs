@@ -14,6 +14,7 @@ namespace DAO
         public DAO_MovimientoxInsumo()
         {
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
+            dto_insumo = new DTO_Insumo();
         }
         public void RegistarMovimientoxInsumo(DTO_MovimientoxInsumo objDTO)
         {

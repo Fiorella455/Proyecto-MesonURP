@@ -141,10 +141,10 @@ namespace MesonURPWEB
             {
                 lblMsj.Text = "Ingrese otra cantidad";
             }
-            if (ctr_insumo.CTR_LimiteStockMax(int.Parse(DdlInsumo.SelectedValue), int.Parse(txtCantidad.Text)) == 1)
-            {
-                lblMsj.Text = "Ingresar una cantidad menor";
-            }
+            //if (ctr_insumo.CTR_LimiteStockMax(int.Parse(DdlInsumo.SelectedValue), int.Parse(txtCantidad.Text)) == 1)
+            //{
+            //    lblMsj.Text = "Ingresar una cantidad menor";
+            //}
             else if (txtCantidad.Text == "")
             {
                 lblMsj.Text = "Ingrese una cantidad";
