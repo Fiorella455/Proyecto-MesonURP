@@ -115,11 +115,11 @@ namespace MesonURPWEB
         protected void btnQuitar_Click(object sender, EventArgs e)
         {
             GridViewRow row = GridViewEditarOC.SelectedRow;
-            lblMsjBorrar.Text = "Insumo eliminado:" + GridViewEditarOC.Rows[id].Cells[0].Text;
+            lblMsjBorrar.Text = "Insumo eliminado:" + GridViewEditarOC.Rows[(int)Session["id"]].Cells[1].Text;
             int idOC = dto_oc.OC_idOrdenCompra;
             int idIns = Convert.ToInt32(row.Cells[0].Text);
             ctr_ocxinsumo.CTR_Eliminar_InsumoxOC(idOC, idIns);
-            suma -= Convert.ToDecimal(GridViewEditarOC.Rows[id].Cells[4].Text);
+           /// suma -= Convert.ToDecimal(GridViewEditarOC.Rows[id].Cells[4].Text);
             dt = ctr_ocxinsumo.Leer_InsumoxOC(dto_oc.OC_idOrdenCompra);
             GridViewEditarOC.DataSource = dt;
             GridViewEditarOC.DataBind();
@@ -129,6 +129,7 @@ namespace MesonURPWEB
         protected void GridViewEditarOC_SelectedIndexChanged(object sender, EventArgs e)
         {
             GridViewRow row = GridViewEditarOC.SelectedRow;
+            Session["id"] = row.RowIndex;
         }
 
         protected void btnAñadir_Click(object sender, EventArgs e)
@@ -190,7 +191,7 @@ namespace MesonURPWEB
         {
             foreach (GridViewRow row in GridViewEditarOC.Rows)
             {
-                string nomIns = row.Cells[0].Text;
+                string nomIns = row.Cells[1].Text;
                 if (nomIns == dto_i.VR_NombreRecurso) { return true; }
 
             }
