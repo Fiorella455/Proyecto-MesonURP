@@ -14,6 +14,7 @@ namespace DAO
         public DAO_MovimientoxInsumo()
         {
             conexion = new SqlConnection(ConexionBD.CadenaConexion);
+            dto_insumo = new DTO_Insumo();
         }
         public void RegistarMovimientoxInsumo(DTO_MovimientoxInsumo objDTO)
         {
@@ -23,7 +24,7 @@ namespace DAO
                 SqlCommand unComando = new SqlCommand("SP_Registrar_MovimientoxInsumo", conexion);
                 unComando.CommandType = CommandType.StoredProcedure;
                 unComando.Parameters.Add(new SqlParameter("@MxI_Cantidad", objDTO.Cantidad));
-                unComando.Parameters.Add(new SqlParameter("@MxI_FechaMovimiento", objDTO.FechaMovimiento));
+                unComando.Parameters.Add(new SqlParameter("@MxI_FechaMovimiento", objDTO.FechaMovimiento));   
                 unComando.Parameters.Add(new SqlParameter("@I_idInsumo", objDTO.IdInsumo));
                 unComando.Parameters.Add(new SqlParameter("@M_idMovimiento", objDTO.IdMovimiento));
                 unComando.Parameters.Add(new SqlParameter("@U_idUsuario", objDTO.IdUsuarioMovimiento));
@@ -35,7 +36,7 @@ namespace DAO
                 throw ex;
             }
         }
-
+        
         public DataSet CargarInsumoIngreso()
         {
             try

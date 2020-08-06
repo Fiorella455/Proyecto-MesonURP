@@ -17,6 +17,7 @@ namespace DTO
         public int FK_IC_Categoria { get; set; }
         public int FK_IM_Medida { get; set; }
         public int FK_IER_EstadoRecurso { get; set; }
+        
     }
 }
 

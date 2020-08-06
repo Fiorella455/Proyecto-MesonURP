@@ -46,7 +46,7 @@
                                 </ContentTemplate>
                         </asp:UpdatePanel>
                     </div>
-                    <div class="form-group">
+                   <%-- <div class="form-group">
                         <asp:UpdatePanel ID="UpdatePanel22" runat="server">
                             <ContentTemplate>
                                <label for="selector1" class="col-sm-2 control-label">N° Orden</label>
@@ -60,7 +60,7 @@
                         </div>
                                 </ContentTemplate>
                         </asp:UpdatePanel>
-                    </div>
+                    </div>--%>
                     <div class="form-group">
                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                             <ContentTemplate>

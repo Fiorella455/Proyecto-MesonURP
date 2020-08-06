@@ -11,9 +11,11 @@ namespace CTR
     public class CTR_OCxInsumo
     {
         DAO_OCxInsumo dao_ocxinsumo;
+        CTR_Insumo ctr_i;
         public CTR_OCxInsumo()
         {
             dao_ocxinsumo = new DAO_OCxInsumo();
+            ctr_i = new CTR_Insumo();
         }
         public void Registrar_OC_Insumo(DTO_OCxInsumo oc)
         {
@@ -34,6 +36,31 @@ namespace CTR
         public void CTR_Eliminar_InsumoxOC(int iOC, int idIns)
         {
             dao_ocxinsumo.Eliminar_InsumoxOC(iOC,idIns);
+        }
+
+        public int CTR_Verificar_Cantidad(DTO_OCxInsumo dto_ocxi)
+        {
+            bool max = ctr_i.CTR_LimiteStockMax(dto_ocxi);
+
+            if (max)
+            {
+                return dto_ocxi.Estado = 110;
+                
+            }
+            if (dto_ocxi.OCxI_Cantidad == 0)
+            {
+                return dto_ocxi.Estado = 120;
+                
+            }
+            if (dto_ocxi.InsumoR)
+            {
+                return dto_ocxi.Estado = 130;
+               
+            }
+
+            // Cantidad Correcta
+
+            return dto_ocxi.Estado = 100;
         }
     }
 }

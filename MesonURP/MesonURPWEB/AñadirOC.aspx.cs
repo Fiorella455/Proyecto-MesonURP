@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Drawing;
 using System.Web.UI.WebControls;
 using System.Data;
 using DTO;
@@ -29,8 +30,7 @@ namespace MesonURPWEB
         DataSet  dtpro;
         static List<DTO_OCxInsumo> pila = new List<DTO_OCxInsumo>();
         static DataTable tin = new DataTable();
-        int state = 0;
-       
+      
         static decimal suma = 0;
         static int id { get;set; }
 
@@ -75,17 +75,14 @@ namespace MesonURPWEB
 
         protected void Unnamed1_Click(object sender, EventArgs e)
         {
+            id = Convert.ToInt32(GridViewAñadirOC.SelectedRow.RowIndex);
+            tin.Rows[id].Delete();
+            pila.RemoveAt(id);
+            suma -= Convert.ToDecimal(GridViewAñadirOC.Rows[id].Cells[3].Text);
+            txtTotal.Text = suma.ToString();
+            GridViewAñadirOC.DataSource = tin;
+            GridViewAñadirOC.DataBind();
 
-                id = Convert.ToInt32(GridViewAñadirOC.SelectedRow.RowIndex);
-                tin.Rows[id].Delete();
-                pila.RemoveAt(id);
-                GridViewAñadirOC.DataSource = tin;
-                GridViewAñadirOC.DataBind();
-                suma -= Convert.ToDecimal(GridViewAñadirOC.Rows[id].Cells[3].Text);
-                txtTotal.Text = suma.ToString();
-                // string ins = GridViewAñadirOC.Rows[id].Cells[0].Text;               
-                //lblMsjBorrar.Text = "Se eliminado el insumo:"+ins;
-            
         }
 
         public void listarInsumo()
@@ -96,45 +93,24 @@ namespace MesonURPWEB
             DdlInsumo.DataBind();
             DdlInsumo.Items.Insert(0, "--seleccionar--");
         }
-     
+
         protected void btnAñadirInsumo_Click(object sender, EventArgs e)
         {
             dto_ocxinsumo = new DTO_OCxInsumo();
             dto_ocxinsumo.I_idInsumo = int.Parse(DdlInsumo.SelectedValue);
+            DTO_Insumo insumo = ctr_insumo.Consultar_InsumoxID(dto_ocxinsumo.I_idInsumo);
             dto_ocxinsumo.OCxI_Cantidad = int.Parse(txtCantidad.Text);
-            DTO_Insumo insumo = ctr_insumo.Consultar_InsumoxID(dto_ocxinsumo.I_idInsumo);          
-            state = (int)Session["state"];
-            if (state==1)
-            {
-                if (dto_ocxinsumo.OCxI_Cantidad == 0)
-                {
-                    lblMje.Text = "Ingrese otra cantidad";
-                    state = 2;
-                    Session["state"] = state;
-                }
-                if (ctr_insumo.CTR_LimiteStockMax(dto_ocxinsumo.I_idInsumo, dto_ocxinsumo.OCxI_Cantidad) == 1)
-                {
-                    lblMje.Text = "Ingresar una cantidad menor";
-                    state = 2;
-                    Session["state"] = state;
-                }
-                if (Verficar_Insumo_Registrado(insumo))
-                {
-                    lblMje.Text = "Insumo ya agregado";
-                    state = 2;
-                    Session["state"] = state;
-                }
-            }
-
-
-            if ((int)Session["state"]!=2)
+            dto_ocxinsumo.InsumoR = Verficar_Insumo_Registrado(insumo);
+            ctr_ocxinsumo.CTR_Verificar_Cantidad(dto_ocxinsumo);
+            if (dto_ocxinsumo.Estado == 100)
             {
                 dto_ocxinsumo.OCxI_PrecioTotal = dto_ocxinsumo.OCxI_Cantidad * Convert.ToDecimal(insumo.DR_PrecioUnitario);
                 suma += dto_ocxinsumo.OCxI_PrecioTotal;
                 dto_oc.OC_TotalCompra += Convert.ToDecimal(dto_ocxinsumo.OCxI_PrecioTotal);
                 pila.Add(dto_ocxinsumo);
                 txtTotal.Text = suma.ToString();
-                lblMje.Text = "";
+
+
                 if (tin.Columns.Count == 0)
                 {
                     tin.Columns.Add("I_idInsumo");
@@ -156,10 +132,25 @@ namespace MesonURPWEB
                 GridViewAñadirOC.DataSource = tin;
                 GridViewAñadirOC.DataBind();
 
-            } 
+            }
+            else 
+            {
+             
+                switch (dto_ocxinsumo.Estado)
+                {
+                    case 110: //Expediente registrado
+                        lblMje.Text = "Stock Maximo alcanzado. Ingrese otra cantidad";
+                        break;
+                    case 120: //Expediente registrado
+                        lblMje.Text = "Ingrese otra cantidad";
+                        break;
+                    case 130: //Expediente registrado
+                        lblMje.Text = "Insumo agregado";
+                        break;
+                }
 
+            }
         }
-
         protected void btnAñadirOC_Click(object sender, EventArgs e)
         {           
                 dto_oc.OC_FechaEmision = DateTime.Today.Date.ToString("yyyy-MM-dd");
@@ -195,22 +186,20 @@ namespace MesonURPWEB
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-
                 e.Row.Attributes["onclick"] = Page.ClientScript.GetPostBackClientHyperlink(GridViewAñadirOC, "Select$" + e.Row.RowIndex);
-                e.Row.Attributes.Add("onclick", "SetColor(this);");
                 e.Row.ToolTip = "Haga click para seleccionar la fila.";
-                
+                id = e.Row.RowIndex;
 
             }
         }
 
         protected void GridViewAñadirOC_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-                id = Convert.ToInt32(GridViewAñadirOC.SelectedRow.RowIndex); 
-        }
 
-        protected void btnLimpiarOC_Click(object sender, EventArgs e)
+            id = Convert.ToInt32(GridViewAñadirOC.SelectedRow.RowIndex);
+            lblMsjBorrar.Text = id.ToString();
+        }
+            protected void btnLimpiarOC_Click(object sender, EventArgs e)
         {
             txtCantidad.Text = "";
             txtTotal.Text = "";
