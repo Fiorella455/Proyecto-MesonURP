@@ -50,7 +50,28 @@ namespace MesonURPWEB
             js.Append("]");
             return js.ToString();
         }
+        protected string CargarDatosD2()
+        {
+            DataTable datos = new DataTable();
+            datos = _Ci.ListarBarChartInsumo();
 
+            StringBuilder js = new StringBuilder();
+            string strDatos = "";
+
+            js.Append("[");
+
+            foreach (DataRow dr in datos.Rows)
+            {
+                js.Append(strDatos + "{");
+                js.Append("\"Insumo\":" + "\"" + dr[0] + "\",");
+                js.Append("\"Total\":" + dr[1]);
+                js.Append("}");
+                strDatos = ",";
+
+            }
+            js.Append("]");
+            return js.ToString();
+        }
         //protected string CargarSegundoDT()
         //{
         //    DataTable datos = new DataTable();

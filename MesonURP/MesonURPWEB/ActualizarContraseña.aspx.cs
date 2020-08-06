@@ -39,7 +39,6 @@ namespace MesonURPWEB
         }
         public void Verificar_Contraseña_Actual()
         {
-
             if (txtContraseñaAct.Text != "")
             {
                 if (ctr_usuario.getContraseñaU(dto_Usuario))
@@ -53,7 +52,7 @@ namespace MesonURPWEB
                         txtContraseñaNR.Visible = true;
                         lblContraseñaN.Visible = true;
                         lblContraseñaNR.Visible = true;
-                        Session["st"]=2;
+                        Session["st"] = 2;
                     }
                     else
                     {
@@ -62,7 +61,7 @@ namespace MesonURPWEB
                     }
                 }
             }
-            ClientScript.RegisterStartupScript(Page.GetType(), "alertaWarning", "alertaWarning();", true);
+            else { ClientScript.RegisterStartupScript(Page.GetType(), "alertaWarning2", "alertaWarning2();", true); }
 
         }
         public void Verificar_Nueva_Contraseña()

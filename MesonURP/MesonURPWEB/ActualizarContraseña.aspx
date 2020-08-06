@@ -67,10 +67,22 @@
                 confirmButtonText: 'Aceptar'
             })
         }
-        function alertaWarning() {
+        function alertaWarning2() {
             Swal.fire({
                 title: 'Oh, no!',
                 text: 'Debe escribir su contraseña.',
+                icon: 'warning',
+                confirmButtonText: 'Aceptar'
+            }).then((result) => {
+                if (result.value) {
+                    window.location.href = "ActualizarContraseña";
+                }
+            })
+        }
+        function alertaWarning() {
+            Swal.fire({
+                title: 'Oh, no!',
+                text: 'Debe escribir su nueva contraseña.',
                 icon: 'warning',
                 confirmButtonText: 'Aceptar'
             })
