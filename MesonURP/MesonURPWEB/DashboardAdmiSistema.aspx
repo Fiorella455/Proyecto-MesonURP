@@ -76,7 +76,7 @@
         series.dataFields.value = "Total";
         series.dataFields.category = "Estado";
         series.colors.list = [
-            am4core.color("#f8a45e"),
+            am4core.color("#DBC299"),
             am4core.color("#F8A45E"),
             am4core.color("#FF6F91"),
             am4core.color("#FF9671"),
@@ -91,7 +91,7 @@
          <div class="panel panel-widget forms-panel" style="display:flex">
                      <div class="form-grids widget-shadow" style="width:100%; margin-right:21px" data-example-id="basic-forms">
                         <div class="form-title color-white">
-                            <h4>Número de Usuarios de Sistema Activos - Inactivos</h4>
+                            <h4>Usuarios de Sistema Activos - Inactivos</h4>
                         </div>
                     <div>
                         <div class="table-wrapper-scroll-y">
@@ -104,7 +104,7 @@
                         </div>
               <div class="form-grids widget-shadow" style="width:100%;" data-example-id="basic-forms">
                         <div class="form-title color-white">
-                            <h4>Número de Proveedores Activos - Inactivos</h4>
+                            <h4>Proveedores Activos - Inactivos</h4>
                         </div>
                     <div>
                         <div class="table-wrapper-scroll-y">
