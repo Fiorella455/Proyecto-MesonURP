@@ -56,16 +56,16 @@ namespace MesonURPWEB
             }
             else
             {
-                if (DListTipoC.SelectedValue == "") { lblIndex0.Text = "Seleccione un tipo de comprobante"; }
-                else
-                {
-                    lblIndex0.Text = "";
-                    dto_oc.OC_NumeroComprobante = ctr_oc.Generar_Numero_Comprobante(Convert.ToInt32(DListTipoC.SelectedValue)).ToString();
-                    txtNumeroComprobante.Text = dto_oc.OC_NumeroComprobante;
-                }
+                if (DListTipoC.SelectedValue == "") { lblTCom.Text = "Seleccionar tipo de comprobante"; }
+
+                if (DdlProveedor.SelectedValue == "") { lblProv.Text = "Seleccionar proveedor"; }
+
+                
+                if (DListFormaP.SelectedValue == "") { lblFormaP.Text = "Seleccionar forma de pago"; }
+
             }
-            Session["state"] = 1;
-            lblMsjBorrar.Text = "";
+           // Session["state"] = 1;
+            
         }
         protected void DdlInsumo_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -75,6 +75,7 @@ namespace MesonURPWEB
 
         protected void Unnamed1_Click(object sender, EventArgs e)
         {
+            lblMsjBorrar.Text = "Insumo eliminado:"+GridViewAñadirOC.Rows[id].Cells[0].Text;
             id = Convert.ToInt32(GridViewAñadirOC.SelectedRow.RowIndex);
             tin.Rows[id].Delete();
             pila.RemoveAt(id);
@@ -138,13 +139,13 @@ namespace MesonURPWEB
              
                 switch (dto_ocxinsumo.Estado)
                 {
-                    case 110: //Expediente registrado
+                    case 110: 
                         lblMje.Text = "Stock Maximo alcanzado. Ingrese otra cantidad";
                         break;
-                    case 120: //Expediente registrado
+                    case 120: 
                         lblMje.Text = "Ingrese otra cantidad";
                         break;
-                    case 130: //Expediente registrado
+                    case 130: 
                         lblMje.Text = "Insumo agregado";
                         break;
                 }
@@ -197,7 +198,8 @@ namespace MesonURPWEB
         {
 
             id = Convert.ToInt32(GridViewAñadirOC.SelectedRow.RowIndex);
-            lblMsjBorrar.Text = id.ToString();
+            //Session["delete_I"] = id;
+           // lblMsjBorrar.Text = id.ToString();
         }
             protected void btnLimpiarOC_Click(object sender, EventArgs e)
         {
@@ -213,17 +215,10 @@ namespace MesonURPWEB
         public bool Verficar_Insumo_Registrado( DTO_Insumo dto_i)
         {
             foreach (GridViewRow row in GridViewAñadirOC.Rows)
-            {              
-               
+            {                            
                 string nomIns=row.Cells[0].Text;
-
-
-                if ( nomIns == dto_i.VR_NombreRecurso)
-                   
-                {
-                    return true; 
-                }
-
+                if (nomIns == dto_i.VR_NombreRecurso) { return true; }
+                
             }
             return false;
         }

@@ -41,12 +41,12 @@
                                 <asp:ListItem Text="Factura" Value="1">Factura</asp:ListItem>
                                 <asp:ListItem Text="Boleta" Value="2">Boleta</asp:ListItem>
                             </asp:DropDownList>
-                            <asp:Label ID="lblIndex0" runat="server"></asp:Label>
+                            <asp:Label ID="lblTCom" runat="server"></asp:Label>
                         </div>
                                 </ContentTemplate>
                         </asp:UpdatePanel>
                     </div>
-                   <%-- <div class="form-group">
+                    <%-- <div class="form-group">
                         <asp:UpdatePanel ID="UpdatePanel22" runat="server">
                             <ContentTemplate>
                                <label for="selector1" class="col-sm-2 control-label">N° Orden</label>
@@ -70,6 +70,9 @@
                             </asp:DropDownList>
                             <asp:RequiredFieldValidator ID="validationProveedorOC" runat="server" ControlToValidate="DdlProveedor" ErrorMessage="Campo Obligatorio"  CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
 
+                            <br />
+                            <asp:Label ID="lblProv" runat="server"></asp:Label>
+
                         </div>
                         </ContentTemplate>
                         </asp:UpdatePanel>
@@ -85,6 +88,8 @@
                                 <asp:ListItem Text="Crédito" Value="Crédito">Crédito</asp:ListItem>
                             </asp:DropDownList>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="DListFormaP" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirOC" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                                   <br />
+                                   <asp:Label ID="lblFormaP" runat="server"></asp:Label>
                         </div>
                                 </ContentTemplate>
                         </asp:UpdatePanel>
@@ -181,7 +186,7 @@
                             <ContentTemplate>
                         <label for="selector1" class="col-sm-2 control-label">Total</label>
                         <div class="col-sm-8">
-                            <asp:TextBox ID="txtTotal" runat="server" align="left" CssClass="special" Width="102px" />
+                            <asp:TextBox ID="txtTotal" runat="server" align="left" CssClass="special" Width="102px" ReadOnly="true" />
                         &nbsp;&nbsp;&nbsp;&nbsp;
                            
                         </div>

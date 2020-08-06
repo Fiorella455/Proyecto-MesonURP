@@ -115,6 +115,7 @@ namespace MesonURPWEB
         protected void btnQuitar_Click(object sender, EventArgs e)
         {
             GridViewRow row = GridViewEditarOC.SelectedRow;
+            lblMsjBorrar.Text = "Insumo eliminado:" + GridViewEditarOC.Rows[id].Cells[0].Text;
             int idOC = dto_oc.OC_idOrdenCompra;
             int idIns = Convert.ToInt32(row.Cells[0].Text);
             ctr_ocxinsumo.CTR_Eliminar_InsumoxOC(idOC, idIns);
@@ -132,36 +133,41 @@ namespace MesonURPWEB
 
         protected void btnAñadir_Click(object sender, EventArgs e)
         {
-                  
+
             dto_ocxinsumo = new DTO_OCxInsumo();
             if (DdlInsumo.SelectedValue == "") { lblMsj1.Text = "Seleccione un insumo"; }
             else { dto_ocxinsumo.I_idInsumo = int.Parse(DdlInsumo.SelectedValue); }
             DTO_Insumo insumo = ctr_insumo.Consultar_InsumoxID(dto_ocxinsumo.I_idInsumo);
-            if (int.Parse(txtCantidad.Text) == 0 || int.Parse(txtCantidad.Text) < 0)
+            dto_ocxinsumo.OCxI_Cantidad = int.Parse(txtCantidad.Text);
+            dto_ocxinsumo.InsumoR = Verficar_Insumo_Registrado(insumo);
+            ctr_ocxinsumo.CTR_Verificar_Cantidad(dto_ocxinsumo);
+            if (dto_ocxinsumo.Estado == 100)
             {
-                lblMsj.Text = "Ingrese otra cantidad";
-            }
-            //if (ctr_insumo.CTR_LimiteStockMax(int.Parse(DdlInsumo.SelectedValue), int.Parse(txtCantidad.Text)) == 1)
-            //{
-            //    lblMsj.Text = "Ingresar una cantidad menor";
-            //}
-            else if (txtCantidad.Text == "")
-            {
-                lblMsj.Text = "Ingrese una cantidad";
-            }
-            else
-            {
-                dto_ocxinsumo.OCxI_Cantidad = int.Parse(txtCantidad.Text);
-            }          
-            dto_ocxinsumo.OCxI_PrecioTotal = dto_ocxinsumo.OCxI_Cantidad * Convert.ToDecimal(insumo.DR_PrecioUnitario);
-            dto_ocxinsumo.OC_idOrdenCompra = dto_oc.OC_idOrdenCompra;
+                dto_ocxinsumo.OCxI_PrecioTotal = dto_ocxinsumo.OCxI_Cantidad * Convert.ToDecimal(insumo.DR_PrecioUnitario);
+                dto_ocxinsumo.OC_idOrdenCompra = dto_oc.OC_idOrdenCompra;
 
-            //Registrar y bindear
-            ctr_ocxinsumo.Registrar_OC_Insumo(dto_ocxinsumo);
-            dt = ctr_ocxinsumo.Leer_InsumoxOC(dto_oc.OC_idOrdenCompra);
-            GridViewEditarOC.DataSource = dt;
-            GridViewEditarOC.DataBind();
-            SumaTotal();
+                //Registrar y bindear
+                ctr_ocxinsumo.Registrar_OC_Insumo(dto_ocxinsumo);
+                dt = ctr_ocxinsumo.Leer_InsumoxOC(dto_oc.OC_idOrdenCompra);
+                GridViewEditarOC.DataSource = dt;
+                GridViewEditarOC.DataBind();
+                SumaTotal();
+            }
+            else 
+            {
+                switch (dto_ocxinsumo.Estado)
+                {
+                    case 110:
+                        lblMsj.Text = "Stock Maximo alcanzado. Ingrese otra cantidad";
+                        break;
+                    case 120:
+                        lblMsj.Text = "Ingrese otra cantidad";
+                        break;
+                    case 130:
+                        lblMsj.Text = "Insumo agregado";
+                        break;
+                }
+            }
         }
         public void SumaTotal()
         {
@@ -179,6 +185,16 @@ namespace MesonURPWEB
             txtMedida.Text = "";
             txtPrecioU.Text = "";
             txtTotal.Text = "";
+        }
+        public bool Verficar_Insumo_Registrado(DTO_Insumo dto_i)
+        {
+            foreach (GridViewRow row in GridViewEditarOC.Rows)
+            {
+                string nomIns = row.Cells[0].Text;
+                if (nomIns == dto_i.VR_NombreRecurso) { return true; }
+
+            }
+            return false;
         }
     }
 }

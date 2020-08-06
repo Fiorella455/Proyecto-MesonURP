@@ -60,13 +60,13 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.DropDownList DListTipoC;
 
         /// <summary>
-        /// lblIndex0 control.
+        /// lblTCom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIndex0;
+        protected global::System.Web.UI.WebControls.Label lblTCom;
 
         /// <summary>
         /// UpdatePanel1 control.
@@ -96,6 +96,15 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.RequiredFieldValidator validationProveedorOC;
 
         /// <summary>
+        /// lblProv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblProv;
+
+        /// <summary>
         /// UpdatePanel3 control.
         /// </summary>
         /// <remarks>
@@ -121,6 +130,15 @@ namespace MesonURPWEB
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+
+        /// <summary>
+        /// lblFormaP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFormaP;
 
         /// <summary>
         /// UpdatePanel7 control.
