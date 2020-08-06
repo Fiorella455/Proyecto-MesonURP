@@ -167,7 +167,7 @@ namespace MesonURPWEB
                 dto_estado_OCxOC.EOC_idEstadoOC = 1;
                 dto_estado_OCxOC.OC_idOrdenCompra = ctr_oc.ID_OC_Actual();
                 dto_estado_OCxOC.EOCxOC_FechaRegistro = DateTime.Today;
-                dto_estado_OCxOC.EOCxOC_UsuarioRegistro = 5;
+                dto_estado_OCxOC.EOCxOC_UsuarioRegistro = (int)Session["codUsuario"];
                 ctr_estado_OCxOC.Registrar_Estado_OCxOC(dto_estado_OCxOC);
                 //-----------------------------------------------------------------
 
