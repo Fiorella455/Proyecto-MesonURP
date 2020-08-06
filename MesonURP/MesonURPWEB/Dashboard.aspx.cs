@@ -25,6 +25,7 @@ namespace MesonURPWEB
             {
                 CargarDatos();
                 CargarSegundoDT();
+                CargarDatosD2();
             }
 		}
         protected string CargarDatos()
@@ -50,11 +51,6 @@ namespace MesonURPWEB
             js.Append("]");
             return js.ToString();
         }
-        protected string CargarDatosD2()
-        {
-            DataTable datos = new DataTable();
-            datos = _Ci.ListarBarChartInsumo();
-
         protected string CargarSegundoDT()
         {
             DataTable datos = new DataTable();
