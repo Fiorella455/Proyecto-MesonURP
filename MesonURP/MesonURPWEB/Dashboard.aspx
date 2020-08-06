@@ -12,20 +12,31 @@
   height: 500px;
 }
 </style>
-<%--<style>
+<style>
 #chartdiv1 {
   width: 100%;
   height: 500px;
 }
-
-</style>--%>
+#chartdiv2 {
+  width: 100%;
+  height: 500px;
+}
+</style>
 <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
 <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/moonrisekingdom.js"></script>
 <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
 
 <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
 <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/moonrisekingdom.js"></script>
 <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+
+<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/moonrisekingdom.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+
      <%--<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
         google.charts.load('current', { packages: ['corechart', 'bar'] });
@@ -53,6 +64,7 @@
      am4core.ready(function () {
 
          // Themes begin
+         am4core.useTheme(am4themes_moonrisekingdom);
          am4core.useTheme(am4themes_animated);
          // Themes end
 
@@ -80,8 +92,8 @@
          //valueAxis.stroke = am4core.color("#F8A45E");
          // Create series
          chart.colors.list = [
-             am4core.color("#DBC299"),
-             am4core.color("#F8A45E"),
+             am4core.color("#9C746B"),
+             am4core.color("#DC7633"),
              am4core.color("#FF6F91"),
              am4core.color("#FF9671"),
              am4core.color("#FFC75F"),
@@ -108,10 +120,11 @@
      }); // end am4core.ready()
  </script>
 
-<%--<script>
+ <script>
     am4core.ready(function () {
 
         // Themes begin
+        am4core.useTheme(am4themes_moonrisekingdom);
         am4core.useTheme(am4themes_animated);
         // Themes end
 
@@ -143,7 +156,7 @@
             series.strokeWidth = 2;
             series.yAxis = valueAxis;
             series.name = name;
-            series.tooltipText = "{Insumo}: [bold]{valueY}[/]";
+            series.tooltipText = "{name}: [bold]{valueY}[/]";
             series.tensionX = 0.8;
             series.showOnInit = true;
 
@@ -194,7 +207,8 @@
             valueAxis.renderer.opposite = opposite;
         }
 
-        createAxisAndSeries("Perdida", "Perdida", false, "circle");
+        createAxisAndSeries("Egreso", "Egreso", false, "circle");
+        createAxisAndSeries("Ingreso", "Ingreso", true, "rectangle");
         // Add legend
         chart.legend = new am4charts.Legend();
 
@@ -202,7 +216,65 @@
         chart.cursor = new am4charts.XYCursor();
         
     }); // end am4core.ready()
-</script>--%>
+ </script>
+<script>
+    am4core.ready(function () {
+
+        // Themes begin
+        am4core.useTheme(am4themes_moonrisekingdom);
+        am4core.useTheme(am4themes_animated);
+        // Themes end
+
+        // Create chart instance
+        var chart = am4core.create("chartdiv2", am4charts.XYChart);
+        chart.scrollbarX = new am4core.Scrollbar();
+
+        // Add data
+        chart.data = <%=CargarDatosD2()%>;
+
+        // Create axes
+        var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+        categoryAxis.dataFields.category = "Insumo";
+        categoryAxis.renderer.grid.template.location = 0;
+        categoryAxis.renderer.minGridDistance = 30;
+        categoryAxis.renderer.labels.template.horizontalCenter = "right";
+        categoryAxis.renderer.labels.template.verticalCenter = "middle";
+        categoryAxis.renderer.labels.template.rotation = 270;
+        categoryAxis.tooltip.disabled = true;
+        categoryAxis.renderer.minHeight = 110;
+
+        var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+        valueAxis.renderer.minWidth = 50;
+
+        // Create series
+        var series = chart.series.push(new am4charts.ColumnSeries());
+        series.sequencedInterpolation = true;
+        series.dataFields.valueY = "Total";
+        series.dataFields.categoryX = "Insumo";
+        series.tooltipText = "[{categoryX}: bold]{valueY}[/]";
+        series.columns.template.strokeWidth = 0;
+
+        series.tooltip.pointerOrientation = "vertical";
+
+        series.columns.template.column.cornerRadiusTopLeft = 10;
+        series.columns.template.column.cornerRadiusTopRight = 10;
+        series.columns.template.column.fillOpacity = 0.8;
+
+        // on hover, make corner radiuses bigger
+        var hoverState = series.columns.template.column.states.create("hover");
+        hoverState.properties.cornerRadiusTopLeft = 0;
+        hoverState.properties.cornerRadiusTopRight = 0;
+        hoverState.properties.fillOpacity = 1;
+
+        series.columns.template.adapter.add("fill", function (fill, target) {
+            return chart.colors.getIndex(target.dataItem.index);
+        });
+
+        // Cursor
+        chart.cursor = new am4charts.XYCursor();
+
+    }); // end am4core.ready()
+</script>
          <div class="panel panel-widget forms-panel">
              <div class="form-grids widget-shadow" data-example-id="basic-forms">
                 <div class="form-title color-white">
@@ -218,10 +290,34 @@
 
                 </div>
          </div>
-         <%--  
-         <div>  
-            <div id="chartdiv1"></div>	
-        </div>--%>
+           <div class="panel panel-widget forms-panel" style="display:flex">
+         <div class="form-grids widget-shadow" style="width:150%; margin-right:21px" data-example-id="basic-forms">
+                <div class="form-title color-white">
+                    <h4>Ingresos - Egresos</h4>
+                </div>
+            <div>
+                <div class="table-wrapper-scroll-y">
+                    <div>  
+                        <div id="chartdiv1"></div>	
+                    </div>
+                </div>
+            </div>
+
+                </div>
+           <div class="form-grids widget-shadow" style="width:150%;" data-example-id="basic-forms">
+                <div class="form-title color-white">
+                    <h4>Insumos Disponibles</h4>
+                </div>
+            <div>
+                <div class="table-wrapper-scroll-y">
+                    <div>
+                       <div id="chartdiv2"></div>
+                    </div>
+                </div>
+            </div>
+
+                </div>
+           </div>
    </div>
     </asp:Content>
 

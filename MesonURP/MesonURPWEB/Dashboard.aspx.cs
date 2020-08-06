@@ -24,7 +24,7 @@ namespace MesonURPWEB
             if (!Page.IsPostBack)
             {
                 CargarDatos();
-                //CargarSegundoDT();
+                CargarSegundoDT();
             }
 		}
         protected string CargarDatos()
@@ -51,28 +51,50 @@ namespace MesonURPWEB
             return js.ToString();
         }
 
-        //protected string CargarSegundoDT()
-        //{
-        //    DataTable datos = new DataTable();
-        //    datos = _Ci.ListarDashboardT();
+        protected string CargarSegundoDT()
+        {
+            DataTable datos = new DataTable();
+            datos = _Ci.ListarDashboardT();
 
-        //    StringBuilder js = new StringBuilder();
-        //    string strDatos = "";
+            StringBuilder js = new StringBuilder();
+            string strDatos = "";
 
-        //    js.Append("[");
+            js.Append("[");
 
-        //    foreach (DataRow dr in datos.Rows)
-        //    {
-        //        js.Append(strDatos + "{");
-        //        js.Append("\"Fecha\":" + "\"" + dr[0] + "\",");
-        //        js.Append("\"Insumo\":" + "\"" + dr[1] + "\",");
-        //        js.Append("\"Perdida\":" + dr[2]);
-        //        js.Append("}");
-        //        strDatos = ",";
-        //    }
-        //    js.Append("]");
-        //    return js.ToString();
-        //}
+            foreach (DataRow dr in datos.Rows)
+            {
+                js.Append(strDatos + "{");
+                js.Append("\"Fecha\":" + "\"" + dr[0] + "\",");
+                js.Append("\"Egreso\":" + "\"" + dr[1] + "\",");
+                js.Append("\"Ingreso\":" + dr[2]);
+                js.Append("}");
+                strDatos = ",";
+            }
+            js.Append("]");
+            return js.ToString();
+        }
+        protected string CargarDatosD2()
+        {
+            DataTable datos = new DataTable();
+            datos = _Ci.ListarBarChartInsumo();
+
+            StringBuilder js = new StringBuilder();
+            string strDatos = "";
+
+            js.Append("[");
+
+            foreach (DataRow dr in datos.Rows)
+            {
+                js.Append(strDatos + "{");
+                js.Append("\"Insumo\":" + "\"" + dr[0] + "\",");
+                js.Append("\"Total\":" + dr[1]);
+                js.Append("}");
+                strDatos = ",";
+
+            }
+            js.Append("]");
+            return js.ToString();
+        }
 
     }
 }

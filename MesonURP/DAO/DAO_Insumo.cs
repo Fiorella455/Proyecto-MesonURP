@@ -381,7 +381,7 @@ namespace DAO
             try
             {
                 DataTable dtable = new DataTable();
-                SqlCommand unComando = new SqlCommand("SP_Listar_Perdida", conexion);
+                SqlCommand unComando = new SqlCommand("SP_Listar_LineMov", conexion);
                 unComando.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter data = new SqlDataAdapter(unComando);
                 data.Fill(dtable);
