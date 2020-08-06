@@ -24,7 +24,7 @@ namespace MesonURPWEB
             if (!Page.IsPostBack)
             {
                 CargarDatos();
-                //CargarSegundoDT();
+                CargarSegundoDT();
             }
 		}
         protected string CargarDatos()
@@ -55,6 +55,33 @@ namespace MesonURPWEB
             DataTable datos = new DataTable();
             datos = _Ci.ListarBarChartInsumo();
 
+        protected string CargarSegundoDT()
+        {
+            DataTable datos = new DataTable();
+            datos = _Ci.ListarDashboardT();
+
+            StringBuilder js = new StringBuilder();
+            string strDatos = "";
+
+            js.Append("[");
+
+            foreach (DataRow dr in datos.Rows)
+            {
+                js.Append(strDatos + "{");
+                js.Append("\"Fecha\":" + "\"" + dr[0] + "\",");
+                js.Append("\"Egreso\":" + "\"" + dr[1] + "\",");
+                js.Append("\"Ingreso\":" + dr[2]);
+                js.Append("}");
+                strDatos = ",";
+            }
+            js.Append("]");
+            return js.ToString();
+        }
+        protected string CargarDatosD2()
+        {
+            DataTable datos = new DataTable();
+            datos = _Ci.ListarBarChartInsumo();
+
             StringBuilder js = new StringBuilder();
             string strDatos = "";
 
@@ -72,28 +99,6 @@ namespace MesonURPWEB
             js.Append("]");
             return js.ToString();
         }
-        //protected string CargarSegundoDT()
-        //{
-        //    DataTable datos = new DataTable();
-        //    datos = _Ci.ListarDashboardT();
-
-        //    StringBuilder js = new StringBuilder();
-        //    string strDatos = "";
-
-        //    js.Append("[");
-
-        //    foreach (DataRow dr in datos.Rows)
-        //    {
-        //        js.Append(strDatos + "{");
-        //        js.Append("\"Fecha\":" + "\"" + dr[0] + "\",");
-        //        js.Append("\"Insumo\":" + "\"" + dr[1] + "\",");
-        //        js.Append("\"Perdida\":" + dr[2]);
-        //        js.Append("}");
-        //        strDatos = ",";
-        //    }
-        //    js.Append("]");
-        //    return js.ToString();
-        //}
 
     }
 }

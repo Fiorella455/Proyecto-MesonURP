@@ -94,6 +94,10 @@ namespace CTR
         public DataTable ListarBarChartInsumo()
         {
             return dao_insumo.SelectBarInsumo();
-        }        
+        }
+        public DataTable ListarPieEstadoOC()
+        {
+            return dao_insumo.SelectPieEstadoOC();
+        }
     }
 }

@@ -25,6 +25,7 @@ namespace MesonURPWEB
                 CargarDatosD();
                 CargarDatosD1();
                 CargarDatosD2();
+                CargaPieEstadoOC();
             }
         }
         protected string CargarDatosD()
@@ -87,6 +88,28 @@ namespace MesonURPWEB
             {
                 js.Append(strDatos + "{");
                 js.Append("\"Insumo\":" + "\"" + dr[0] + "\",");
+                js.Append("\"Total\":" + dr[1]);
+                js.Append("}");
+                strDatos = ",";
+
+            }
+            js.Append("]");
+            return js.ToString();
+        }
+        protected string CargaPieEstadoOC()
+        {
+            DataTable datos = new DataTable();
+            datos = _Ci.ListarPieEstadoOC();
+
+            StringBuilder js = new StringBuilder();
+            string strDatos = "";
+
+            js.Append("[");
+
+            foreach (DataRow dr in datos.Rows)
+            {
+                js.Append(strDatos + "{");
+                js.Append("\"Estado\":" + "\"" + dr[0] + "\",");
                 js.Append("\"Total\":" + dr[1]);
                 js.Append("}");
                 strDatos = ",";

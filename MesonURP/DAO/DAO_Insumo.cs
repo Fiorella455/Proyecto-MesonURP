@@ -381,7 +381,7 @@ namespace DAO
             try
             {
                 DataTable dtable = new DataTable();
-                SqlCommand unComando = new SqlCommand("SP_Listar_Perdida", conexion);
+                SqlCommand unComando = new SqlCommand("SP_Listar_LineMov", conexion);
                 unComando.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter data = new SqlDataAdapter(unComando);
                 data.Fill(dtable);
@@ -398,6 +398,22 @@ namespace DAO
             {
                 DataTable dtable = new DataTable();
                 SqlCommand unComando = new SqlCommand("SP_BarChart_Insumo", conexion);
+                unComando.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter data = new SqlDataAdapter(unComando);
+                data.Fill(dtable);
+                return dtable;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataTable SelectPieEstadoOC()
+        {
+            try
+            {
+                DataTable dtable = new DataTable();
+                SqlCommand unComando = new SqlCommand("SP_Pie_EstadoOC", conexion);
                 unComando.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter data = new SqlDataAdapter(unComando);
                 data.Fill(dtable);
