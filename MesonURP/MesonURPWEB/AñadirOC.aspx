@@ -245,6 +245,14 @@
                 }
             })
         }
+        function alertaStockMax() {
+            Swal.fire({
+                title: 'Oh, no!',
+                text: 'Stock máximo alcanzado, ingrese otra cantidad.',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            })
+        }
     </script>
     <script type="text/javascript">
 

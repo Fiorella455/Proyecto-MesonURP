@@ -8,7 +8,7 @@
         <div class="grids">
             <div class="progressbar-heading grids-heading title-flex">
                 <h2 class="tittle-margin5">Gestionar Orden de Compra</h2>
-                <div class="stock-options">
+                <div class="stock-options" style="margin-right: 89px;">
                      <div class="width-auto margin-5">
                         <button type="button" class="btn btn-primary btn-flex" runat="server" onserverclick="btnRegistrarOC_Click">     
                             <span class="material-icons margin-5">add_circle_outline</span>
