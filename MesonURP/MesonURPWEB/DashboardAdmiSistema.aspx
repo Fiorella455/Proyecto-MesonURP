@@ -48,8 +48,8 @@
         series.dataFields.value = "Total";
         series.dataFields.category = "Estado";
         series.colors.list = [
-            am4core.color("#DBC299"),
-            am4core.color("#F8A45E"),
+            am4core.color("#D2B17B"),
+            am4core.color("#D07C4E"),
             am4core.color("#FF6F91"),
             am4core.color("#FF9671"),
             am4core.color("#FFC75F"),
