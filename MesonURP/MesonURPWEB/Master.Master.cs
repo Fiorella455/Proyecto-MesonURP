@@ -23,6 +23,7 @@ namespace MesonURPWEB
                 {
                     case "Administrador":
 
+                        menuAdmi.Visible = true;
                         menuOrdenCompra.Visible = false;
                         menuProveedor.Visible = false;
                         menuStock.Visible = true;
@@ -38,6 +39,7 @@ namespace MesonURPWEB
 
                     case "Encargado de Compra":
 
+                        menuEncargado.Visible = true;
                         menuOrdenCompra.Visible = true;
                         menuProveedor.Visible = true;
                         menuStock.Visible = true;
@@ -53,6 +55,7 @@ namespace MesonURPWEB
 
                     case "Administrador del Sistema":
 
+                        menuASistema.Visible = true;
                         menuOrdenCompra.Visible = false;
                         menuProveedor.Visible = false;
                         menuStock.Visible = false;
