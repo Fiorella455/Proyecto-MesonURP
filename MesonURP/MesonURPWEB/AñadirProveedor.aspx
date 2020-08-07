@@ -21,19 +21,27 @@
                         </div>
                     </div>
                     <div class="form-group">
+                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                            <ContentTemplate>
                         <label for="selector1" class="col-sm-2 control-label">Tipo de Documento</label>
                         <div class="col-sm-8">
                             <asp:DropDownList runat="server" CssClass="form-control1" AutoPostBack="true" ID="DdlTipoDocumento" OnSelectedIndexChanged="DdlTipoDocumento_SelectedIndexChanged">
                             </asp:DropDownList>
                         </div>
+                                </ContentTemplate>
+                        </asp:UpdatePanel>
                     </div>
                      <div class="form-group">
+                          <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                            <ContentTemplate>
                         <label for="focusedinput" class="col-sm-2 control-label">Número de Documento</label>
                         <div class="col-sm-8">
                             <asp:TextBox ID="txtNumeroDoc" placeholder="Ingrese el número de documento" runat="server" CssClass="form-control1" MaxLength="20"/>
                             <asp:RegularExpressionValidator ID="revNumDoc" runat="server" ErrorMessage="DNI Inválido" ControlToValidate="txtNumeroDoc" ForeColor="#CC0000" SetFocusOnError="True" Display="Dynamic" ValidationGroup="añadirProveedor" ValidationExpression="\d{8}"></asp:RegularExpressionValidator>
                             <asp:RequiredFieldValidator ID="validationNumeroDoc" runat="server" ControlToValidate="txtNumeroDoc" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirProveedor" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                          </div>
+                                </ContentTemplate>
+                        </asp:UpdatePanel>
                     </div>
                     <div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Dirección</label>
@@ -56,7 +64,7 @@
                           <label for="selector1" class="col-sm-2 control-label">Teléfono del Contacto</label>
                           <div class="col-sm-8">
                              <asp:TextBox ID="txtTelefono" placeholder="Ingrese el teléfono" runat="server" CssClass="form-control1" onkeypress="return SoloNumeroInt(event);" MaxLength="20"/>
-                              <asp:RegularExpressionValidator ID="revTelefono" runat="server" ErrorMessage="Teléfono Inválido" ControlToValidate="txtTelefono" ForeColor="#CC0000" ValidationExpression="\d{6,9}" SetFocusOnError="True" Display="Dynamic" ValidationGroup="añadirProveedor"></asp:RegularExpressionValidator>
+                              <asp:RegularExpressionValidator ID="revTelefono" runat="server" ErrorMessage="Teléfono Inválido" ControlToValidate="txtTelefono" ForeColor="#CC0000" ValidationExpression="\d{9}" SetFocusOnError="True" Display="Dynamic" ValidationGroup="añadirProveedor"></asp:RegularExpressionValidator>
                              <asp:RequiredFieldValidator ID="validacionTelefono" runat="server" ControlToValidate="txtTelefono" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirProveedor" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                           </div>
                     </div>

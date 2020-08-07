@@ -16,6 +16,10 @@ namespace MesonURPWEB
         DataSet ds;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["codUsuario"] == null)
+            {
+                Response.Redirect("Home.aspx?x=1");
+            }
             if (!IsPostBack)
             {
                 ctr_usuario = new Ctr_Usuario();
@@ -39,29 +43,32 @@ namespace MesonURPWEB
                 Session.Add("id", id);
                 Response.Redirect("ConsultarUsuario");
             }
-            else if(e.CommandName== "EliminarUsuario")
-            {
-                Ctr_Usuario cu = new Ctr_Usuario();
-                int id = Convert.ToInt32(GridViewUsuario.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["U_idUsuario"].ToString());
-                cu.Eliminar_Usuario(id);
-                ds = cu.Consultar_Usuarios();
-                GridViewUsuario.DataSource = ds;
-                GridViewUsuario.DataBind();
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alertaEli()", true);
-            }
+            //else if(e.CommandName== "EliminarUsuario")
+            //{
+            //    Ctr_Usuario cu = new Ctr_Usuario();
+            //    int id = Convert.ToInt32(GridViewUsuario.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["U_idUsuario"].ToString());
+            //    cu.Eliminar_Usuario(id);
+            //    ds = cu.Consultar_Usuarios();
+            //    GridViewUsuario.DataSource = ds;
+            //    GridViewUsuario.DataBind();
+            //    ClientScript.RegisterStartupScript(this.GetType(), "alert", "alertaEli()", true);
+            //}
 
         }
-
-        protected void GridViewUsuario_RowDataBound(object sender, GridViewRowEventArgs e)
+        protected void btnRegistrarUsuario_Click(object sender, EventArgs e)
         {
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                
-                e.Row.Cells[7].Text = Convert.ToDateTime(e.Row.Cells[7].Text).ToShortDateString();
-                string estado = e.Row.Cells[12].Text;
-                if(estado=="Activo") e.Row.Cells[16].Controls.Clear();
-
-            }
+            Response.Redirect("AñadirUsuario");
         }
+        //protected void GridViewUsuario_RowDataBound(object sender, GridViewRowEventArgs e)
+        //{
+        //    if (e.Row.RowType == DataControlRowType.DataRow)
+        //    {
+
+        //        e.Row.Cells[7].Text = Convert.ToDateTime(e.Row.Cells[7].Text).ToShortDateString();
+        //        string estado = e.Row.Cells[12].Text;
+        //        if(estado=="Activo") e.Row.Cells[16].Controls.Clear();
+
+        //    }
+        //}
     }
 }

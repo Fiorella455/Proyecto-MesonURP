@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="AñadirUsuario.aspx.cs" Inherits="MesonURPWEB.AñadirUsuario" %>
+﻿<%@ Page Title="Gestionar Usuario | Agregar" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="AñadirUsuario.aspx.cs" Inherits="MesonURPWEB.AñadirUsuario" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -39,7 +39,7 @@
                         <label for="focusedinput" class="col-sm-2 control-label">Celular</label>
                         <div class="col-sm-8">
                             <asp:TextBox ID="txtCelular" runat="server" placeholder="Ingrese el número de celular" ValidationGroup="añadirUsuario" onkeypress="return SoloNumeroInt(event);" CssClass="form-control1" MaxLength="20"/>
-                             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Celular Inválido" ControlToValidate="txtCelular" ForeColor="#CC0000" SetFocusOnError="True" Display="Dynamic" ValidationGroup="añadirUsuario" ValidationExpression="\d{6,11}"></asp:RegularExpressionValidator>
+                             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Celular Inválido" ControlToValidate="txtCelular" ForeColor="#CC0000" SetFocusOnError="True" Display="Dynamic" ValidationGroup="añadirUsuario" ValidationExpression="\d{9}"></asp:RegularExpressionValidator>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtCelular" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirUsuario" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
@@ -87,21 +87,29 @@
                     </div>
 
                     <div class="form-group">
+                        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                            <ContentTemplate>
                         <label for="selector1" class="col-sm-2 control-label">Tipo de Documento</label>
                         <div class="col-sm-8">
                             <asp:DropDownList runat="server" CssClass="form-control1" AutoPostBack="true" ID="DdlTipoDocumento" OnSelectedIndexChanged="DdlTipoDocumento_SelectedIndexChanged">
                             </asp:DropDownList>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="DdlTipoDocumento" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirUsuario" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>                  
                         </div>
+                                </ContentTemplate>
+                        </asp:UpdatePanel>
                     </div>
 
                     <div class="form-group">
+                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                            <ContentTemplate>
                         <label for="focusedinput" class="col-sm-2 control-label">Número de Documento</label>
                         <div class="col-sm-8">
                             <asp:TextBox ID="txtDni" runat="server" CssClass="form-control1" placeholder="Ingrese el número de documento" ValidationGroup="añadirUsuario"  MaxLength="20"/>
                             <asp:RegularExpressionValidator ID="revNumDoc" runat="server" ErrorMessage="DNI Inválido" ControlToValidate="txtDni" ForeColor="#CC0000" SetFocusOnError="True" Display="Dynamic" ValidationGroup="añadirUsuario" ValidationExpression="\d{8}"></asp:RegularExpressionValidator>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="txtDni" ErrorMessage="Campo Obligatorio" ValidationGroup="añadirUsuario" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>                  
                         </div>
+                                </ContentTemplate>
+                        </asp:UpdatePanel>
                     </div>
 
                     <div class="form-group">

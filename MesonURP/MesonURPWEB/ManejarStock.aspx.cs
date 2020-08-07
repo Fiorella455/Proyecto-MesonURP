@@ -17,7 +17,16 @@ namespace MesonURPWEB
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            CargarInsumo();
+
+            if (Session["codUsuario"] == null)
+            {
+                Response.Redirect("Home.aspx?x=1");
+            }
+            if (!Page.IsPostBack)
+            {
+                CargarInsumo();
+            }
+           
         }
         protected void fNombreMovimiento_TextChanged(object sender, EventArgs e)
         {

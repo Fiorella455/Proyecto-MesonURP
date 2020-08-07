@@ -17,10 +17,10 @@ namespace MesonURPWEB
 		CTR_Insumo _Ci = new CTR_Insumo();
         protected void Page_Load(object sender, EventArgs e)
 		{
-            ////if (Session["codUsuario"] == null)
-            ////{
-            ////    Response.Redirect("Home.aspx?x=1");
-            ////}
+            if (Session["codUsuario"] == null)
+            {
+                Response.Redirect("Home.aspx?x=1");
+            }
             if (!Page.IsPostBack)
             {
                 CargarDatos();

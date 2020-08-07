@@ -16,10 +16,10 @@ namespace MesonURPWEB
         CTR_Proveedor _Cp = new CTR_Proveedor();
         protected void Page_Load(object sender, EventArgs e)
         {
-            ////if (Session["codUsuario"] == null)
-            ////{
-            ////    Response.Redirect("Home.aspx?x=1");
-            ////}
+            if (Session["codUsuario"] == null)
+            {
+                Response.Redirect("Home.aspx?x=1");
+            }
             if (!Page.IsPostBack)
             {
                 CargarUsuarios();
