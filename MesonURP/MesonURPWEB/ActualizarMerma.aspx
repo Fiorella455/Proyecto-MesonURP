@@ -12,8 +12,6 @@
         </div>
         <div class="forms">
             <h3 class="title1"></h3>
-
-
             <div class="form-three widget-shadow">
                 <div class="form-horizontal" runat="server">
                     <%--<div class="form-group">
@@ -44,30 +42,45 @@
                             <asp:TextBox ID="txtFecha" runat="server" CssClass="form-control1" disabled="false" />
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="display: flex; width: 1188px; margin-left: 29px">
                         <label for="focusedinput" class="col-sm-2 control-label">Peso Total</label>
                         <div class="col-sm-8" style="text-align: center;">
                             <asp:TextBox ID="txtCantidadTotal" runat="server" CssClass="form-control1" disabled="false" />
                         </div>
+                        <div>
+                            <div class="col-sm-8" style="text-align: center;">
+                                <asp:TextBox ID="txtmedida" runat="server" CssClass="form-control1" Style="width: 150px;" disabled="false" />
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="width: 1205px; margin-left: 26px">
                         <asp:UpdatePanel ID="panelPesoRem" runat="server">
                             <ContentTemplate>
                                 <label for="focusedinput" class="col-sm-2 control-label">Peso Merma</label>
-                                <div class="col-sm-8" style="text-align: center;">
+                                <div class="col-sm-8" style="text-align: center; padding-right: 27px">
                                     <asp:TextBox ID="txtPesoMerma" runat="server" CssClass="form-control1" placeholder="Peso de Merma" OnTextChanged="txtPesoMerma_TextChange1" onkeypress="return SoloNumeroIntDouble(event);" />
                                     <asp:CompareValidator ID="Pesovalidacion" runat="server" ControlToValidate="txtPesoMerma" ControlToCompare="txtCantidadTotal" Operator="LessThanEqual" ValidationGroup="ActualizarMerma" ErrorMessage="El Peso de Merma debe ser menor al Peso Total" Display="Dynamic" ForeColor="Red" Font-Italic="true" />
                                     <asp:RequiredFieldValidator ID="validationPeso" runat="server" ControlToValidate="txtPesoMerma" ErrorMessage="Campo Obligatorio" ValidationGroup="ActualizarMerma" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                                 </div>
+                                <div>
+                                    <div>
+                                        <asp:TextBox ID="txtmedida1" runat="server" CssClass="form-control1" Style="width: 150px;" disabled="false" />
+                                    </div>
+                                </div>
                             </ContentTemplate>
                         </asp:UpdatePanel>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="width: 1205px; margin-left: 26px">
                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                             <ContentTemplate>
                                 <label for="focusedinput" class="col-sm-2 control-label">Peso Rendimiento</label>
-                                <div class="col-sm-8" style="text-align: center;">
+                                <div class="col-sm-8" style="text-align: center; padding-right: 27px">
                                     <asp:TextBox disabled="false" ID="txtPesoRendimiento" runat="server" CssClass="form-control1" />
+                                </div>
+                                <div>
+                                    <div>
+                                        <asp:TextBox ID="txtmedida2" runat="server" CssClass="form-control1" Style="width: 150px;" disabled="false" />
+                                    </div>
                                 </div>
                             </ContentTemplate>
                         </asp:UpdatePanel>
@@ -84,7 +97,8 @@
                         </div>
                     </div>--%>
                     <div class="form-group">
-                        <label for="focusedinput" class="col-sm-2 control-label">Observación<br />
+                        <label for="focusedinput" class="col-sm-2 control-label">
+                            Observación<br />
                             <i style="color: red; font-weight: bold">(Opcional)</i></label>
                         <div class="col-sm-8">
                             <asp:TextBox ID="txtObservacion" runat="server" TextMode="MultiLine" Height="100px" CssClass="form-control1" Visible="true" />

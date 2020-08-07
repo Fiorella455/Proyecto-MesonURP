@@ -43,6 +43,9 @@ namespace MesonURPWEB
             if (ddlInsumos.SelectedIndex != 0)
             {
                 txtEgresos.Text = _Cm.MostrarEgreseos(Convert.ToInt32(ddlInsumos.SelectedValue), Convert.ToDateTime(FechaActual));
+                txtmedida1.Text = _Cm.MostrarMedida(Convert.ToInt32(ddlInsumos.SelectedValue));
+                TextBox2.Text = _Cm.MostrarMedida(Convert.ToInt32(ddlInsumos.SelectedValue));
+                TextBox3.Text = _Cm.MostrarMedida(Convert.ToInt32(ddlInsumos.SelectedValue));
                 txtCantidadTotal.Text = _Cm.SumarEgreseos(Convert.ToInt32(ddlInsumos.SelectedValue), Convert.ToDateTime(FechaActual));
                 txtocultoId.Text = _Cm.selectIdMovxIns(Convert.ToInt32(ddlInsumos.SelectedValue));
 

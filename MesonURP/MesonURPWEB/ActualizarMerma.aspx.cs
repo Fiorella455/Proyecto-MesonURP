@@ -24,6 +24,7 @@ namespace MesonURPWEB
             {
                 int idMerma = Convert.ToInt32(Session["T_idMerma"]);
                 string Insumo = Session["I_NombreInsumo"].ToString();
+                string Medida = Session["M_NombreMedida"].ToString();
                 decimal pesoTotal = Convert.ToDecimal(Session["PesoTotal"]);
                 _Dm = _Cm.ConsultarMermaxId(idMerma);
                 txtInsumo.Text = Insumo;
@@ -33,7 +34,9 @@ namespace MesonURPWEB
                 txtPesoMerma.Text = Convert.ToString(Convert.ToDecimal(_Dm.M_PesoMerma));
                 txtPesoRendimiento.Text = Convert.ToString(Convert.ToDecimal(_Dm.M_PesoRendimiento));
                 txtObservacion.Text = _Dm.M_Observacion;
-                
+                txtmedida.Text = Medida;
+                txtmedida1.Text = Medida;
+                txtmedida2.Text = Medida;
             }
         }
         
@@ -49,11 +52,15 @@ namespace MesonURPWEB
             if (txtPesoMerma.Text != null)
             {
                 string Insumo = Session["I_NombreInsumo"].ToString();
+                string Medida = Session["M_NombreMedida"].ToString();
                 Fecha = Convert.ToDateTime(Session["M_Fecha"].ToString());
                 txtInsumo.Text = Insumo;
                 txtCantidadTotal.Text = Convert.ToString(pesoTotal);
                 txtPesoRendimiento.Text = Convert.ToString(Convert.ToDecimal(txtCantidadTotal.Text) - Convert.ToDecimal(txtPesoMerma.Text));
                 txtFecha.Text = Fecha.ToString("dd/MM/yyyy");
+                txtmedida.Text = Medida;
+                txtmedida1.Text = Medida;
+                txtmedida2.Text = Medida;
             }
 
 

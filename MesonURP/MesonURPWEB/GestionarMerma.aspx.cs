@@ -58,6 +58,7 @@ namespace MesonURPWEB
                 {
                     int idMerma = Convert.ToInt32(gvMerma.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["T_idMerma"].ToString());
                     string Insumo = gvMerma.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["I_NombreInsumo"].ToString();
+                    string Medida = gvMerma.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["M_NombreMedida"].ToString();
                     decimal pesoTotal = Convert.ToDecimal(gvMerma.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["PesoTotal"].ToString());
                     DateTime fecha = Convert.ToDateTime(gvMerma.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["M_Fecha"].ToString());
                     //string obv = gvMerma.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["M_observacion"].ToString();
@@ -68,8 +69,10 @@ namespace MesonURPWEB
                     Session["I_NombreInsumo"] = Insumo;
                     Session["PesoTotal"] = pesoTotal;
                     Session["M_Fecha"] = fecha;
+                    Session["M_NombreMedida"] = Medida;
                     //Session["M_observacion"] = obv;
                     Response.Redirect("ActualizarMerma");
+
                 }
                 
                 else if (e.CommandName == "selectItem2")
@@ -127,7 +130,7 @@ namespace MesonURPWEB
             Response.AddHeader("Content-Disposition", "attachment;filename=MesonURP_Merma-"+FechaActual+".xls");
             Response.Charset = "UTF-8";
             Response.ContentEncoding = Encoding.Default;
-            Response.Write(sb.ToString());
+            Response.Write("Gestionar Merma" + "\n" + sb.ToString());
             Response.End();
 
         }

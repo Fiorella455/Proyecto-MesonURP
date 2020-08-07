@@ -62,6 +62,10 @@ namespace CTR
         {
             return  dao_Merma.IdInsumo(dto_insumo);
         }
+        public string MostrarMedida(int i)
+        {
+            return dao_Merma.MostrarMedida(i);
+        }
 
     }
    

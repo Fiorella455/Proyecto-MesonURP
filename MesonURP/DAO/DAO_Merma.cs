@@ -268,6 +268,30 @@ namespace DAO
                 throw ex;
             }
         }
+        public string MostrarMedida(int I_idInsumo)
+        {
+            string medida = "";
+            try
+            {
+                conexion.Open();
+                SqlCommand cmd = new SqlCommand("SP_MEDIDA_INSUMO", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@I_idInsumo", I_idInsumo);
+                cmd.ExecuteNonQuery();
+                SqlDataReader dReader = cmd.ExecuteReader();
+                if (dReader.Read())
+                {
+                    medida = dReader["Medida"].ToString();
+                }
+                conexion.Close();
+                return medida;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         //SP_ContarEgresos
     }
 }
