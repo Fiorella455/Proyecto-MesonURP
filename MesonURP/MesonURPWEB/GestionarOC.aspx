@@ -27,11 +27,11 @@
                                 DataKeyNames="OC_idOrdenCompra,EOC_NombreEstadoOC,OC_TipoComprobante,OC_NumeroComprobante,OC_FormaPago,OC_TotalCompra,OC_FechaEmision,P_idProveedor" AutoGenerateColumns="False"
                                 CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None">
                                 <Columns>
-
-                                    <asp:BoundField HeaderText="ID Compra" DataField="OC_idOrdenCompra" />
+                                    <asp:BoundField HeaderText="N° Orden de Compra" DataField="OC_NumeroComprobante" />
+                                    
                                     <asp:BoundField HeaderText="Estado" DataField="EOC_NombreEstadoOC" />
                                     <asp:BoundField HeaderText="Tipo de Comprobante" DataField="OC_TipoComprobante" />
-                                    <asp:BoundField HeaderText="Número de comprobante" DataField="OC_NumeroComprobante" />
+                                    
                                     <asp:BoundField HeaderText="Forma de Pago" DataField="OC_FormaPago" />
                                     <asp:BoundField HeaderText="Total de Compra" DataField="OC_TotalCompra" />
                                     <asp:BoundField HeaderText="Fecha de Emisión" DataField="OC_FechaEmision" />

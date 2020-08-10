@@ -8,6 +8,8 @@ using DTO;
 using DAO;
 using CTR;
 using System.Data;
+using System.IO;
+using System.Text;
 
 namespace MesonURPWEB
 {
@@ -124,17 +126,32 @@ namespace MesonURPWEB
                 string formaPago = GridViewOC.Rows[Convert.ToInt32(e.CommandArgument)].Cells[4].Text;
                 string totalCompra = GridViewOC.Rows[Convert.ToInt32(e.CommandArgument)].Cells[5].Text;
                 string fechaEmision = GridViewOC.Rows[Convert.ToInt32(e.CommandArgument)].Cells[6].Text;
+               
+                DataTable dt = new DataTable();
+                dt = ctr_ocxinsumo.Leer_InsumoxOC(idOC);
+                GridView GridViewInsumosxOC = new GridView();
+                GridViewInsumosxOC.Columns[0].HeaderText = "Nombre";
+                GridViewInsumosxOC.Columns[1].HeaderText = "Precio Unitario";
+                GridViewInsumosxOC.Columns[2].Visible = false;
+                GridViewInsumosxOC.Columns[3].Visible = false;
+                GridViewInsumosxOC.Columns[4].Visible = false;
+                GridViewInsumosxOC.Columns[5].HeaderText = "Cantidad";
+                GridViewInsumosxOC.Columns[6].HeaderText = "Costo Total";
+                GridViewInsumosxOC.DataSource = dt;
+                GridViewInsumosxOC.DataBind();
 
 
                 string htmlBody = Resource.MensajeOC;
+                string gv;
                 htmlBody = htmlBody.Replace("#IDOC#", dto_oc.OC_idOrdenCompra.ToString());
                 htmlBody = htmlBody.Replace("#TIPOCOMPROBANTE#", tipoComprobante);
                 htmlBody = htmlBody.Replace("#NUMEROCOMPROBANTE#", numeroComprobante);
                 htmlBody = htmlBody.Replace("#FORMADEPAGO#", formaPago);
                 htmlBody = htmlBody.Replace("#MONTOTOTAL#", totalCompra);
                 htmlBody = htmlBody.Replace("#FECHAEMISION#", fechaEmision);
-
-                ctr_oc.Enviar_OC(dto_oc, htmlBody);
+                gv = GetGridviewData(GridViewInsumosxOC);
+                
+                ctr_oc.Enviar_OC(dto_oc, htmlBody,gv);
                 //-----------------------------------------------------------------------
                 dto_oc.OC_idOrdenCompra = idOC;
                 dto_estado_OCxOC.OC_idOrdenCompra = dto_oc.OC_idOrdenCompra;
@@ -269,6 +286,14 @@ namespace MesonURPWEB
             GridViewOC.PageIndex = e.NewPageIndex;
             CargarOrdenesCompra();
 
+        }
+        public string GetGridviewData(GridView gv)
+        {
+            StringBuilder strBuilder = new StringBuilder();
+            StringWriter strWriter = new StringWriter(strBuilder);
+            HtmlTextWriter htw = new HtmlTextWriter(strWriter);
+            gv.RenderControl(htw);
+            return strBuilder.ToString();
         }
     }
 }

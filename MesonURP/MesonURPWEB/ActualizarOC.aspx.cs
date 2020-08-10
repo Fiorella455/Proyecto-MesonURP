@@ -159,13 +159,16 @@ namespace MesonURPWEB
                 switch (dto_ocxinsumo.Estado)
                 {
                     case 110:
-                        lblMsj.Text = "Stock Maximo alcanzado. Ingrese otra cantidad";
+                        lblMsj.Text = "Stock Maximo Excedido. Ingrese otra cantidad";
                         break;
                     case 120:
                         lblMsj.Text = "Ingrese otra cantidad";
                         break;
                     case 130:
                         lblMsj.Text = "Insumo agregado";
+                        break;
+                    case 140:
+                        lblMsj.Text = "Con esta cantidad se excede stock maximo";
                         break;
                 }
             }

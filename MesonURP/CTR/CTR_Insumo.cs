@@ -83,9 +83,13 @@ namespace CTR
         {
             return dao_insumo.Consultar_InsumoxID(i);
         }
-        public bool CTR_LimiteStockMax(DTO_OCxInsumo dto_ocxi)
+        public bool CTR_ExcedeStockMax(DTO_OCxInsumo dto_ocxi)
         {
-            return dao_insumo.LimiteStockMax(dto_ocxi);
+            return dao_insumo.ExcedeStockMax(dto_ocxi);
+        }
+        public bool CTR_ExcedeStockMax2(DTO_OCxInsumo dto_ocxi)
+        {
+            return dao_insumo.ExcedeStockMax2(dto_ocxi);
         }
     }
 }

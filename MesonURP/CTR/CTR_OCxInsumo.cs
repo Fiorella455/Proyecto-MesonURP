@@ -40,7 +40,8 @@ namespace CTR
 
         public int CTR_Verificar_Cantidad(DTO_OCxInsumo dto_ocxi)
         {
-            bool max = ctr_i.CTR_LimiteStockMax(dto_ocxi);
+            bool max = ctr_i.CTR_ExcedeStockMax(dto_ocxi);
+            bool max2 = ctr_i.CTR_ExcedeStockMax2(dto_ocxi);
 
             if (max)
             {
@@ -56,6 +57,11 @@ namespace CTR
             {
                 return dto_ocxi.Estado = 130;
                
+            }
+            if (max2)
+            {
+                return dto_ocxi.Estado = 140;
+
             }
 
             // Cantidad Correcta

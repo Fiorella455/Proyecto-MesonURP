@@ -365,16 +365,27 @@ namespace DAO
             conexion.Close();
             return insumo;
         }
-        public bool LimiteStockMax(DTO_OCxInsumo dto_ocxi)
+        public bool ExcedeStockMax(DTO_OCxInsumo dto_ocxi)
         {
             dto_insumo.DR_StockMaximo = Consultar_InsumoxID(dto_ocxi.I_idInsumo).DR_StockMaximo;
             dto_insumo.DR_CantidadTotal = Consultar_InsumoxID(dto_ocxi.I_idInsumo).DR_CantidadTotal;
-            if (dto_ocxi.OCxI_Cantidad > dto_insumo.DR_StockMaximo || (dto_ocxi.OCxI_Cantidad + dto_insumo.DR_CantidadTotal) > dto_insumo.DR_StockMaximo)
+            if (dto_ocxi.OCxI_Cantidad > dto_insumo.DR_StockMaximo)
             {
                 return true;
             }
             return false;
         }
+        public bool ExcedeStockMax2(DTO_OCxInsumo dto_ocxi)
+        {
+            dto_insumo.DR_StockMaximo = Consultar_InsumoxID(dto_ocxi.I_idInsumo).DR_StockMaximo;
+            dto_insumo.DR_CantidadTotal = Consultar_InsumoxID(dto_ocxi.I_idInsumo).DR_CantidadTotal;
+            if ( (dto_ocxi.OCxI_Cantidad + dto_insumo.DR_CantidadTotal) > dto_insumo.DR_StockMaximo)
+            {
+                return true;
+            }
+            return false;
+        }
+
     }
 }
     

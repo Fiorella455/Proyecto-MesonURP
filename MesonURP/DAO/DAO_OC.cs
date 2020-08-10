@@ -85,7 +85,7 @@ namespace DAO
                 throw ex;
             }
         }
-        public int EnviarCorreo(DTO_OC dto_oc, string msj)
+        public int EnviarCorreo(DTO_OC dto_oc, string msj,string gv)
         {
             try
             {
@@ -99,7 +99,8 @@ namespace DAO
                         msg.Subject = "Orden de Compra" + dto_oc.OC_idOrdenCompra;
                         msg.SubjectEncoding = Encoding.UTF8;
                         msg.IsBodyHtml = true;
-                        msg.Body = msj;
+                        msg.Body += msj;
+                        msg.Body += gv;
                         msg.BodyEncoding = Encoding.UTF8;
                         msg.From = new MailAddress("mesonurp@gmail.com");
                         SmtpClient cliente = new SmtpClient
