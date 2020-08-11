@@ -99,5 +99,9 @@ namespace CTR
         {
             return dao_insumo.SelectPieEstadoOC();
         }
+        public DataTable ListarSeriesLine()
+        {
+            return dao_insumo.SeriesLine();
+        }
     }
 }

@@ -11,7 +11,7 @@
 <style>
 #chartdiv {
   width: 100%;
-  height: 600px;
+  height: 500px;
 }
 </style>
 <style>
@@ -34,14 +34,14 @@
 }
 </style>
 
-<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+ <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
 <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
 <script src="https://cdn.amcharts.com/lib/4/themes/moonrisekingdom.js"></script>
 <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
 
-        <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
-        <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
-        <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
 
 <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
 <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
@@ -56,72 +56,115 @@
 <script>
     am4core.ready(function () {
 
-                // Themes begin
-                am4core.useTheme(am4themes_moonrisekingdom);
-                am4core.useTheme(am4themes_animated);
-                // Themes end
+        // Themes begin
+        am4core.useTheme(am4themes_moonrisekingdom);
+        am4core.useTheme(am4themes_animated);
+        // Themes end
 
-                // Create chart instance
-                var chart = am4core.create("chartdiv1", am4charts.XYChart);
+        // Create chart instance
+        var chart = am4core.create("chartdiv1", am4charts.XYChart);
 
-                // Add data
-                chart.data = <%=CargarDatosD1()%>;
+        //
 
-        chart.dateFormatter.inputDateFormat = "yyyy-MM-dd";
+        // Increase contrast by taking evey second color
+        chart.colors.step = 2;
 
-        // Create axes
-        var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
-        var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+        // Add data
+        chart.data =  <%=CargarDatosD1()%>;
 
-        // Create series
-        var series = chart.series.push(new am4charts.LineSeries());
-        series.dataFields.valueY = "Perdida";
-        series.dataFields.dateX = "Fecha";
-        series.tooltipText = "{Perdida}"
-        series.strokeWidth = 2;
-        series.minBulletDistance = 15;
+       // Create axes
+       var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+       dateAxis.renderer.minGridDistance = 50;
 
-        // Drop-shaped tooltips
-        series.tooltip.background.cornerRadius = 20;
-        series.tooltip.background.strokeOpacity = 0;
-        series.tooltip.pointerOrientation = "vertical";
-        series.tooltip.label.minWidth = 40;
-        series.tooltip.label.minHeight = 40;
-        series.tooltip.label.textAlign = "middle";
-        series.tooltip.label.textValign = "middle";
+       // Create series
+       function createAxisAndSeries(field, name, opposite, bullet) {
+           var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+           if (chart.yAxes.indexOf(valueAxis) != 0) {
+               valueAxis.syncWithAxis = chart.yAxes.getIndex(0);
+           }
 
-        // Make bullets grow on hover
-        var bullet = series.bullets.push(new am4charts.CircleBullet());
-        bullet.circle.strokeWidth = 2;
-        bullet.circle.radius = 4;
-        bullet.circle.fill = am4core.color("#fff");
+           var series = chart.series.push(new am4charts.LineSeries());
+           series.dataFields.valueY = field;
+           series.dataFields.dateX = "Fecha";
+           series.strokeWidth = 2;
+           series.yAxis = valueAxis;
+           series.name = name;
+           series.tooltipText = "{name}: [bold]{valueY}[/] {Medida}";
+           series.tensionX = 0.8;
+           series.showOnInit = true;
 
-        var bullethover = bullet.states.create("hover");
-        bullethover.properties.scale = 1.3;
+           var interfaceColors = new am4core.InterfaceColorSet();
 
-        // Make a panning cursor
+           switch (bullet) {
+               case "triangle":
+                   var bullet = series.bullets.push(new am4charts.Bullet());
+                   bullet.width = 12;
+                   bullet.height = 12;
+                   bullet.horizontalCenter = "middle";
+                   bullet.verticalCenter = "middle";
+
+                   var triangle = bullet.createChild(am4core.Triangle);
+                   triangle.stroke = interfaceColors.getFor("background");
+                   triangle.strokeWidth = 2;
+                   triangle.direction = "top";
+                   triangle.width = 12;
+                   triangle.height = 12;
+                   break;
+               case "rectangle":
+                   var bullet = series.bullets.push(new am4charts.Bullet());
+                   bullet.width = 10;
+                   bullet.height = 10;
+                   bullet.horizontalCenter = "middle";
+                   bullet.verticalCenter = "middle";
+
+                   var rectangle = bullet.createChild(am4core.Rectangle);
+                   rectangle.stroke = interfaceColors.getFor("background");
+                   rectangle.strokeWidth = 2;
+                   rectangle.width = 10;
+                   rectangle.height = 10;
+                   break;
+               default:
+                   var bullet = series.bullets.push(new am4charts.CircleBullet());
+                   bullet.circle.stroke = interfaceColors.getFor("background");
+                   bullet.circle.strokeWidth = 2;
+                   break;
+           }
+
+           valueAxis.renderer.line.strokeOpacity = 1;
+           valueAxis.renderer.line.strokeWidth = 2;
+           valueAxis.renderer.line.stroke = series.stroke;
+           valueAxis.renderer.labels.template.fill = series.stroke;
+           valueAxis.renderer.opposite = opposite;
+       }
+
+       createAxisAndSeries("Carne", "Carne", false, "circle");
+       createAxisAndSeries("Pollo", "Pollo", true, "triangle");
+       createAxisAndSeries("Papa", "Papa", true, "rectangle");
+       createAxisAndSeries("Arroz", "Arroz", true, "circle");
+
+        // Add cursor
         chart.cursor = new am4charts.XYCursor();
-        chart.cursor.behavior = "panXY";
+        chart.cursor.fullWidthLineX = true;
         chart.cursor.xAxis = dateAxis;
-        chart.cursor.snapToSeries = series;
+        chart.cursor.lineX.strokeWidth = 0;
+        chart.cursor.lineX.fill = am4core.color("#000");
+        chart.cursor.lineX.fillOpacity = 0.1;
 
-        // Create vertical scrollbar and place it before the value axis
-        chart.scrollbarY = new am4core.Scrollbar();
-        chart.scrollbarY.parent = chart.leftAxesContainer;
-        chart.scrollbarY.toBack();
+        // Add scrollbar
+        chart.scrollbarX = new am4core.Scrollbar();
 
-        // Create a horizontal scrollbar with previe and place it underneath the date axis
-        chart.scrollbarX = new am4charts.XYChartScrollbar();
-        chart.scrollbarX.series.push(series);
-        chart.scrollbarX.parent = chart.bottomAxesContainer;
+        // Fix axis scale on load
+        chart.events.on("ready", function (ev) {
+            valueAxis.min = valueAxis.minZoomed;
+            valueAxis.max = valueAxis.maxZoomed;
+        });
+       // Add legend
+       chart.legend = new am4charts.Legend();
 
-        dateAxis.start = 0.79;
-        dateAxis.keepSelection = true;
-
+       // Add cursor
+       chart.cursor = new am4charts.XYCursor();
     }); // end am4core.ready()
-        </script>
-
-
+</script>
         <script>
             am4core.ready(function () {
 
@@ -262,7 +305,7 @@
         series.sequencedInterpolation = true;
         series.dataFields.valueY = "Total";
         series.dataFields.categoryX = "Insumo";
-        series.tooltipText = "[{categoryX}: bold]{valueY}[/]";
+        series.tooltipText = "[{categoryX}: bold]{valueY}[/] {Medida}";
         series.columns.template.strokeWidth = 0;
 
         series.tooltip.pointerOrientation = "vertical";
@@ -285,7 +328,7 @@
         chart.cursor = new am4charts.XYCursor();
 
     }); // end am4core.ready()
-</script>
+        </script>
 <script>
     am4core.ready(function () {
 
@@ -348,7 +391,7 @@
  <div class="panel panel-widget forms-panel">
              <div class="form-grids widget-shadow" data-example-id="basic-forms">
                   <div class="form-title color-white">
-                    <h4>Cantidad de Merma originado por día</h4>
+                    <h4>Merma originado por día</h4>
                 </div>
             <div>
                 <div class="table-wrapper-scroll-y">

@@ -52,10 +52,32 @@ namespace MesonURPWEB
             js.Append("]");
             return js.ToString();
         }
+        //protected string CargarDatosD1()
+        //{
+        //    DataTable datos = new DataTable();
+        //    datos = _Ci.ListarDashboardT();
+
+        //    StringBuilder js = new StringBuilder();
+        //    string strDatos = "";
+
+        //    js.Append("[");
+
+        //    foreach (DataRow dr in datos.Rows)
+        //    {
+        //        js.Append(strDatos + "{");
+        //        js.Append("\"Fecha\":" + "\"" + dr[0] + "\",");
+        //        js.Append("\"Perdida\":" + dr[1]);
+        //        js.Append("}");
+        //        strDatos = ",";
+
+        //    }
+        //    js.Append("]");
+        //    return js.ToString();
+        //}
         protected string CargarDatosD1()
         {
             DataTable datos = new DataTable();
-            datos = _Ci.ListarDashboardT();
+            datos = _Ci.ListarSeriesLine();
 
             StringBuilder js = new StringBuilder();
             string strDatos = "";
@@ -66,7 +88,11 @@ namespace MesonURPWEB
             {
                 js.Append(strDatos + "{");
                 js.Append("\"Fecha\":" + "\"" + dr[0] + "\",");
-                js.Append("\"Perdida\":" + dr[1]);
+                js.Append("\"Medida\":" + "\"" + dr[1] + "\",");
+                js.Append("\"Carne\":" + "\"" + dr[2] + "\",");
+                js.Append("\"Pollo\":" + "\"" + dr[3] + "\",");
+                js.Append("\"Papa\":" + "\"" + dr[4] + "\",");
+                js.Append("\"Arroz\":" + dr[5]);
                 js.Append("}");
                 strDatos = ",";
 
@@ -88,10 +114,10 @@ namespace MesonURPWEB
             {
                 js.Append(strDatos + "{");
                 js.Append("\"Insumo\":" + "\"" + dr[0] + "\",");
-                js.Append("\"Total\":" + dr[1]);
+                js.Append("\"Medida\":" + "\"" + dr[1] + "\",");
+                js.Append("\"Total\":" + dr[2]);
                 js.Append("}");
                 strDatos = ",";
-
             }
             js.Append("]");
             return js.ToString();

@@ -24,8 +24,9 @@ namespace MesonURPWEB
             if (!Page.IsPostBack)
             {
                 CargarDatos();
-                CargarSegundoDT();
+                //CargarSegundoDT();
                 CargarDatosD2();
+                CargaPieEstadoOC();
             }
 		}
         protected string CargarDatos()
@@ -52,28 +53,29 @@ namespace MesonURPWEB
             js.Append("]");
             return js.ToString();
         }
-        protected string CargarSegundoDT()
-        {
-            DataTable datos = new DataTable();
-            datos = _Ci.ListarDashboardT();
+        //protected string CargarSegundoDT()
+        //{
+        //    DataTable datos = new DataTable();
+        //    datos = _Ci.ListarDashboardT();
 
-            StringBuilder js = new StringBuilder();
-            string strDatos = "";
+        //    StringBuilder js = new StringBuilder();
+        //    string strDatos = "";
 
-            js.Append("[");
+        //    js.Append("[");
 
-            foreach (DataRow dr in datos.Rows)
-            {
-                js.Append(strDatos + "{");
-                js.Append("\"Fecha\":" + "\"" + dr[0] + "\",");
-                js.Append("\"Egreso\":" + "\"" + dr[1] + "\",");
-                js.Append("\"Ingreso\":" + dr[2]);
-                js.Append("}");
-                strDatos = ",";
-            }
-            js.Append("]");
-            return js.ToString();
-        }
+        //    foreach (DataRow dr in datos.Rows)
+        //    {
+        //        js.Append(strDatos + "{");
+        //        js.Append("\"Fecha\":" + "\"" + dr[0] + "\",");
+        //        js.Append("\"Insumo\":" + "\"" + dr[1] + "\",");
+        //        js.Append("\"Egreso\":" + "\"" + dr[2] + "\",");
+        //        js.Append("\"Ingreso\":" + dr[3]);
+        //        js.Append("}");
+        //        strDatos = ",";
+        //    }
+        //    js.Append("]");
+        //    return js.ToString();
+        //}
         protected string CargarDatosD2()
         {
             DataTable datos = new DataTable();
@@ -90,6 +92,28 @@ namespace MesonURPWEB
                 js.Append("\"Insumo\":" + "\"" + dr[0] + "\",");
                 js.Append("\"Medida\":" + "\"" + dr[1] + "\",");
                 js.Append("\"Total\":" + dr[2]);
+                js.Append("}");
+                strDatos = ",";
+
+            }
+            js.Append("]");
+            return js.ToString();
+        }
+        protected string CargaPieEstadoOC()
+        {
+            DataTable datos = new DataTable();
+            datos = _Ci.ListarPieEstadoOC();
+
+            StringBuilder js = new StringBuilder();
+            string strDatos = "";
+
+            js.Append("[");
+
+            foreach (DataRow dr in datos.Rows)
+            {
+                js.Append(strDatos + "{");
+                js.Append("\"Estado\":" + "\"" + dr[0] + "\",");
+                js.Append("\"Total\":" + dr[1]);
                 js.Append("}");
                 strDatos = ",";
 
