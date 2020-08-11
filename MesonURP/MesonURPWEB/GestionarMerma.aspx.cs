@@ -19,10 +19,6 @@ namespace MesonURPWEB
         string FechaActual = DateTime.Now.ToString("dd/MM/yyyy");
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["codUsuario"] == null)
-            {
-                Response.Redirect("Home.aspx?x=1");
-            }
             if (!Page.IsPostBack)
             {
                 buildTableMerma();
@@ -63,30 +59,42 @@ namespace MesonURPWEB
                     int idMerma = Convert.ToInt32(gvMerma.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["T_idMerma"].ToString());
                     string Insumo = gvMerma.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["I_NombreInsumo"].ToString();
                     string Medida = gvMerma.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["M_NombreMedida"].ToString();
-                    decimal pesoTotal = Convert.ToDecimal(gvMerma.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["PesoTotal"].ToString());
+                    decimal pesoTotal = Convert.ToDecimal(gvMerma.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["PesoTotal"].ToString()); //CAMBIO
                     DateTime fecha = Convert.ToDateTime(gvMerma.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["M_Fecha"].ToString());
-                    //string obv = gvMerma.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["M_observacion"].ToString();
-
-                    //_Dm.T_idMerma = idMerma;
+                    
 
                     Session["T_idMerma"] = idMerma;
                     Session["I_NombreInsumo"] = Insumo;
-                    Session["PesoTotal"] = pesoTotal;
+                    Session["PesoTotal"] = pesoTotal;  //CAMBIO
                     Session["M_Fecha"] = fecha;
                     Session["M_NombreMedida"] = Medida;
                     //Session["M_observacion"] = obv;
                     Response.Redirect("ActualizarMerma");
-
                 }
                 
                 else if (e.CommandName == "selectItem2")
                 {
-                    int idMerma = Convert.ToInt32(gvMerma.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["T_idMerma"].ToString());
-                    _Dm.T_idMerma = idMerma;
-                    _Cm.EliminarMerma(_Dm);
-                    buildTableMerma();
-                    ScriptManager.RegisterClientScriptBlock(this.PanelMerma, this.PanelMerma.GetType(), "alert", "alertEliminar()", true);
-                    return;
+                    DateTime fecha = Convert.ToDateTime(gvMerma.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["M_Fecha"].ToString());
+                    DateTime FechaA = Convert.ToDateTime(FechaActual);
+
+                    if (fecha != FechaA)
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this.PanelMerma, this.PanelMerma.GetType(), "alert", "alertNoEliminar()", true);
+                        return;
+                    }
+                    else
+
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this.PanelMerma, this.PanelMerma.GetType(), "alert", "alertEliminar()", true);
+                        int idMerma = Convert.ToInt32(gvMerma.DataKeys[Convert.ToInt32(e.CommandArgument)].Values["T_idMerma"].ToString());
+                        _Dm.T_idMerma = idMerma;
+                        _Cm.EliminarMerma(_Dm);
+                        buildTableMerma();
+                        return;
+                    }
+                        
+                    
+                                        
                 }
 
             }
@@ -115,6 +123,7 @@ namespace MesonURPWEB
             Page page = new Page();
             HtmlForm form = new HtmlForm();
 
+            
             gvMerma.EnableViewState = false;
 
             // Deshabilitar la validación de eventos, sólo asp.net 2
@@ -136,6 +145,7 @@ namespace MesonURPWEB
             Response.ContentEncoding = Encoding.Default;
             Response.Write("Gestionar Merma" + "\n" + sb.ToString());
             Response.End();
+
 
         }
 

@@ -12,8 +12,8 @@
         </div>
         <div class="forms">
             <h3 class="title1"></h3>
-
-
+            
+                     
             <div class="form-three widget-shadow">
                 <div class="form-horizontal" runat="server">
                     <div class="form-group">
@@ -22,107 +22,101 @@
                             <asp:DropDownList ID="ddlInsumos" runat="server" CssClass="form-control1" AutoPostBack="true" OnSelectedIndexChanged="Selection_Change">
                                 <asp:ListItem Text="" Value="">Seleccione un insumo</asp:ListItem>
                             </asp:DropDownList>
-                            <asp:RequiredFieldValidator ID="validationInsumos" runat="server" ControlToValidate="ddlInsumos" ErrorMessage="Campo Obligatorio" ValidationGroup="AgregarMerma" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="validationInsumos" runat="server" ControlToValidate="ddlInsumos" ErrorMessage="Campo Obligatorio" ValidationGroup="registrarEgreso" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Cantidad de Egresos</label>
-                        <div class="col-sm-8" style="text-align: center;">
-                            <asp:TextBox ID="txtEgresos" runat="server" CssClass="form-control1" disabled="false" />
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtEgresos" ErrorMessage="Campo Obligatorio" ValidationGroup="AgregarMerma" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <div class="col-sm-8" style="text-align:center;">
+                            <asp:TextBox ID="txtEgresos" runat="server" CssClass="form-control1" disabled="false" />                            
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Fecha</label>
-                        <div class="col-sm-8" style="text-align: center;">
-                            <asp:TextBox ID="txtFecha" runat="server" CssClass="form-control1" disabled="false" />
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtFecha" ErrorMessage="Campo Obligatorio" ValidationGroup="AgregarMerma" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <div class="col-sm-8" style="text-align:center;">
+                            <asp:TextBox ID="txtFecha" runat="server" CssClass="form-control1" disabled="false"/>                            
                         </div>
                     </div>
-                    <div class="form-group" style="display:flex; width: 1188px; margin-left:29px">
+                    <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Peso Total</label>
-                        <div class="col-sm-8" style="text-align: center;">
-                            <asp:TextBox ID="txtCantidadTotal" runat="server" CssClass="form-control1" disabled="false" />
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtCantidadTotal" ErrorMessage="Campo Obligatorio" ValidationGroup="AgregarMerma" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-                        </div>
-                        <div >
-                            <div class="col-sm-8" style="text-align: center;">
-                                <asp:TextBox ID="txtmedida1" runat="server" CssClass="form-control1" Style="width: 150px;" disabled="false" />
-                            </div>
+                        <div class="col-sm-8" style="text-align:center;">
+                            <asp:TextBox ID="txtCantidadTotal" runat="server" CssClass="form-control1" disabled="false" />                            
                         </div>
                     </div>
-
-
-                    <div class="form-group" style="width:1205px; margin-left: 26px">
-                        <asp:UpdatePanel ID="panelPesoMerma" runat="server">
-                            <ContentTemplate>
-                                <label for="focusedinput" class="col-sm-2 control-label">Peso Merma</label>
-                                <div class="col-sm-8" style="text-align: center; padding-right:27px">
-                                    <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control1" placeholder="Peso de Merma" OnTextChanged="txtPesoMerma_TextChange1" onkeypress="return SoloNumeroIntDouble(event);" />
-                                    <asp:CompareValidator ID="Pesovalidacion1" runat="server" ControlToValidate="TextBox1" ControlToCompare="txtCantidadTotal" Operator="LessThanEqual" ValidationGroup="AgregarMerma" ErrorMessage="El Peso de Merma debe ser menor al Peso Total" Display="Dynamic" ForeColor="Red" Font-Italic="true" />
-                                    <asp:RequiredFieldValidator ID="validationPeso1" runat="server" ControlToValidate="TextBox1" ErrorMessage="Campo Obligatorio" ValidationGroup="AgregarMerma" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-                                </div>
-                                <div>
-                                    <div>
-                                        <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control1" Style="width: 150px;" disabled="false" />
-                                    </div>
-                                </div>
-                            </ContentTemplate>
-                        </asp:UpdatePanel>
-                    </div>                   
-
-                    <div class="form-group" style="width:1205px; margin-left: 26px">
+                   <div class="form-group">
+                            <div class="col-sm-8" style="text-align:center;">
+                            <asp:TextBox ID="txtmedida1" runat="server" CssClass="form-control1" disabled="false" />                            
+                        </div>
+                    </div>
+                   <div class="form-group">
+                       <asp:UpdatePanel ID="panelPesoMerma" runat="server">
+                       <ContentTemplate>
+                        <label for="focusedinput" class="col-sm-2 control-label">Peso Merma</label>
+                        <div class="col-sm-8" style="text-align:center;">
+                            <asp:TextBox ID="TextBox1" runat="server" CssClass="form-control1" placeholder="Peso de Merma" OnTextChanged="txtPesoMerma_TextChange1"/>
+                            <asp:CompareValidator ID="Pesovalidacion1" runat="server" controltovalidate="TextBox1" ControlToCompare="txtCantidadTotal" operator="LessThanEqual" ValidationGroup="AgregarMerma" ErrorMessage="El Peso de Merma debe ser menor al Peso Total" Display="Dynamic" ForeColor="Red" Font-Italic="true"/>
+                            <asp:RequiredFieldValidator ID="validationPeso1" runat="server" ControlToValidate="TextBox1"  ErrorMessage="Campo Obligatorio" ValidationGroup="AgregarMerma" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                    </div>
+                           </ContentTemplate>
+                    </asp:UpdatePanel>
+                    </div>
+                        
+                    <div class="form-group">
+                        
+                        <div class="col-sm-8" style="text-align:center;">
+                            <asp:TextBox ID="txtmedida2" runat="server" CssClass="form-control1" disabled="false" />                            
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <asp:UpdatePanel ID="panelPesoRem" runat="server">
-                            <ContentTemplate>
-                                <label for="focusedinput" class="col-sm-2 control-label">Peso Rendimiento</label>
-                                <div class="col-sm-8" style="text-align: center; padding-right:27px">
-                                    <asp:TextBox ID="txtPesoRendi" disabled="false" runat="server" CssClass="form-control1" />
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtPesoRendi" ErrorMessage="Campo Obligatorio" ValidationGroup="AgregarMerma" CssClass="required-item" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-                                </div>
-                                <div style="margin-right: -14px;">
-                                    <div>
-                                        <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control1" Style="width: 150px;" disabled="false" />
-                                    </div>
-                                </div>
-                            </ContentTemplate>
-                        </asp:UpdatePanel>
-                    </div>                   
+                       <ContentTemplate>
+                        <label for="focusedinput" class="col-sm-2 control-label">Peso Rendimiento</label>
+                        <div class="col-sm-8" style="text-align:center;">
+                            <asp:TextBox ID="txtPesoRendi"  disabled="false" runat="server" CssClass="form-control1"/>
+                    </div>
+                           </ContentTemplate>
+                    </asp:UpdatePanel>
+                    </div>
                     <div class="form-group">
-                        <label for="focusedinput" class="col-sm-2 control-label">
-                            Observación<br />
-                            <i style="color: red; font-weight: bold">(Opcional)</i></label>
+                        
+                        <div class="col-sm-8" style="text-align:center;">
+                            <asp:TextBox ID="txtmedida3" runat="server" CssClass="form-control1" disabled="false" />                            
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="focusedinput" class="col-sm-2 control-label">Observación<br/><i style="color:red; font-weight:bold">(Opcional)</i></label>
                         <div class="col-sm-8">
-                            <asp:TextBox ID="txtObservacion" runat="server" TextMode="MultiLine" Height="100px" CssClass="form-control1" Visible="true" />
-
+                            <asp:TextBox  ID="txtObservacion" runat="server" TextMode="MultiLine" Height="100px" CssClass="form-control1" Visible="true" />
+                            
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-8">
-                            <asp:TextBox ID="txtocultoId" runat="server" CssClass="form-control1" Visible="false" />
+                            <asp:TextBox  ID="txtocultoId" runat="server"  CssClass="form-control1" Visible="false" />
                         </div>
                     </div>
-
-                    <hr />
+                                       
+                    <hr />   
                     <asp:UpdatePanel ID="panelActM" runat="server">
-                        <ContentTemplate>
+                         <ContentTemplate>
                             <p class="center-button">
-                                <button type="button" name="sub-1" class="btn btn-primary" runat="server" id="btnAgregar" onserverclick="btnAgregar_ServerClick" validationgroup="AgregarMerma">Agregar</button>
-                                <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'GestionarMerma';" onserverclick="btnRegresar_ServerClick" class="btn btn-primary" />
+                                <button type="button" name="sub-1" class="btn btn-primary" runat="server" id="btnAgregar" onserverclick="btnAgregar_ServerClick">Agregar</button>
+                                <input type="button" name="sub-1" value="Regresar" onclick="location.href = 'GestionarMerma';" onserverclick="btnRegresar_ServerClick"  class="btn btn-primary" />
                                 <asp:Button CssClass="btn btn-primary" runat="server" Text="Limpiar" onserverclick="btnLimpiar_ServerClick" />
                             </p>
-                        </ContentTemplate>
+                       </ContentTemplate>
                     </asp:UpdatePanel>
                 </div>
             </div>
+          </div>
         </div>
-    </div>
     </div>
     <script>
         function SoloNumeroIntDouble(ev) {
             var tecla = (document.all) ? ev.keyCode : ev.which;
             if (tecla == 8 || tecla == 13 || tecla == 0) return true;
             if (tecla >= 8226 && tecla <= 10175) { return false; }
-            var regEx = /^[0-9\,]+$/i;
+            var regEx = /^[0-9\.]+$/i;
             return regEx.test(String.fromCharCode(tecla));
         }
     </script>

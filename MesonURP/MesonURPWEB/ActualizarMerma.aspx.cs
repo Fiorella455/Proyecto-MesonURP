@@ -25,11 +25,10 @@ namespace MesonURPWEB
                 int idMerma = Convert.ToInt32(Session["T_idMerma"]);
                 string Insumo = Session["I_NombreInsumo"].ToString();
                 string Medida = Session["M_NombreMedida"].ToString();
-                decimal pesoTotal = Convert.ToDecimal(Session["PesoTotal"]);
+                decimal pesoTotal = Convert.ToDecimal(Session["PesoTotal"]);//CAMBIO
                 _Dm = _Cm.ConsultarMermaxId(idMerma);
                 txtInsumo.Text = Insumo;
-                // txtEgresos.Text = Convert.ToString(_Cm.MostrarEgreseos(Convert.ToInt32(ddlInsumos.SelectedValue)));
-                txtCantidadTotal.Text = Convert.ToString(pesoTotal);
+                txtCantidadTotal.Text = Convert.ToString(pesoTotal); //CAMBIO
                 txtFecha.Text = _Dm.M_Fecha.ToString("dd/MM/yyyy");
                 txtPesoMerma.Text = Convert.ToString(Convert.ToDecimal(_Dm.M_PesoMerma));
                 txtPesoRendimiento.Text = Convert.ToString(Convert.ToDecimal(_Dm.M_PesoRendimiento));
@@ -37,7 +36,9 @@ namespace MesonURPWEB
                 txtmedida.Text = Medida;
                 txtmedida1.Text = Medida;
                 txtmedida2.Text = Medida;
+
             }
+            
         }
         
         protected void txtPesoMerma_TextChange1(object sender, EventArgs e)
@@ -46,8 +47,9 @@ namespace MesonURPWEB
             Fecha = Convert.ToDateTime(Session["M_Fecha"].ToString());
             //obv = Session["M_observacion"].ToString();
             //txtInsumo.Text = Insumo;
-            decimal pesoTotal = Convert.ToDecimal(Session["PesoTotal"]); //CAMBIO
-
+           decimal pesoTotal = Convert.ToDecimal(Session["PesoTotal"]); //CAMBIO
+            
+           
 
             if (txtPesoMerma.Text != null)
             {
@@ -56,14 +58,14 @@ namespace MesonURPWEB
                 Fecha = Convert.ToDateTime(Session["M_Fecha"].ToString());
                 txtInsumo.Text = Insumo;
                 txtCantidadTotal.Text = Convert.ToString(pesoTotal);
+                txtmedida.Text = Medida;
                 txtPesoRendimiento.Text = Convert.ToString(Convert.ToDecimal(txtCantidadTotal.Text) - Convert.ToDecimal(txtPesoMerma.Text));
                 txtFecha.Text = Fecha.ToString("dd/MM/yyyy");
-                txtmedida.Text = Medida;
                 txtmedida1.Text = Medida;
                 txtmedida2.Text = Medida;
             }
-
-
+            
+                 
         }
         protected void btnActualizar_ServerClick(object sender, EventArgs e)
         {

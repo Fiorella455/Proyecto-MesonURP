@@ -42,15 +42,6 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.TextBox txtEgresos;
 
         /// <summary>
-        /// Control RequiredFieldValidator3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
-
-        /// <summary>
         /// Control txtFecha.
         /// </summary>
         /// <remarks>
@@ -60,15 +51,6 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.TextBox txtFecha;
 
         /// <summary>
-        /// Control RequiredFieldValidator2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-
-        /// <summary>
         /// Control txtCantidadTotal.
         /// </summary>
         /// <remarks>
@@ -76,15 +58,6 @@ namespace MesonURPWEB
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCantidadTotal;
-
-        /// <summary>
-        /// Control RequiredFieldValidator1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
         /// <summary>
         /// Control txtmedida1.
@@ -132,13 +105,13 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.RequiredFieldValidator validationPeso1;
 
         /// <summary>
-        /// Control TextBox2.
+        /// Control txtmedida2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox txtmedida2;
 
         /// <summary>
         /// Control panelPesoRem.
@@ -159,22 +132,13 @@ namespace MesonURPWEB
         protected global::System.Web.UI.WebControls.TextBox txtPesoRendi;
 
         /// <summary>
-        /// Control RequiredFieldValidator4.
+        /// Control txtmedida3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
-
-        /// <summary>
-        /// Control TextBox3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox txtmedida3;
 
         /// <summary>
         /// Control txtObservacion.
