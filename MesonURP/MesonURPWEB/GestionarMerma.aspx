@@ -42,14 +42,14 @@
                         
                         <div class="table-wrapper-scroll-y">
                             <asp:GridView ID="gvMerma" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible." AutoGenerateColumns="false"
-                                CssClass="table table-bordered table-striped mb-0" DataKeyNames="T_idMerma,M_Fecha,I_NombreInsumo,I_CantidadTotal,M_PesoMerma, M_PesoRendimiento,M_NombreMedida,M_Observacion" 
+                                CssClass="table table-bordered table-striped mb-0" DataKeyNames="T_idMerma,M_Fecha,I_NombreInsumo,PesoTotal,M_PesoMerma, M_PesoRendimiento,M_NombreMedida,M_Observacion" 
                                 OnPageIndexChanging="gvMerma_PageIndexChanging" OnRowCommand="gvMerma_RowCommand" Style="text-align: center" CellPadding="4" GridLines="None">
                                 <Columns>
                              
                                     <asp:BoundField DataField="T_idMerma" HeaderText="ID"/>
                                     <asp:BoundField DataField="M_Fecha" HeaderText="Fecha"/>
                                     <asp:BoundField DataField="I_NombreInsumo" HeaderText="Insumo" />
-                                    <asp:BoundField DataField="I_CantidadTotal" HeaderText="Cantidad Total" />
+                                    <asp:BoundField DataField="PesoTotal" HeaderText="Peso Total" />  <%--CAMBIO--%>
                                     <asp:BoundField DataField="M_PesoMerma" HeaderText="Peso Merma" />
                                     <asp:BoundField DataField="M_PesoRendimiento" HeaderText="Peso Rendimiento" />
                                     <asp:BoundField DataField="M_NombreMedida" HeaderText="UM" />
@@ -90,7 +90,7 @@
              function alertEliminar() {
                  Swal.fire({
                      title: 'Enhorabuena!',
-                     text: 'La categoría fue eliminado correctamente.',
+                     text: 'La merma fue eliminado correctamente.',
                      icon: 'success',
                      confirmButtonText: 'Aceptar'
                  }).then((result) => {
@@ -99,5 +99,17 @@
                      }
                  })
              }
+             function alertNoEliminar() {
+                 Swal.fire({
+                     title: 'Oh no!',
+                     text: 'La merma no se puede eliminar, debido a que ya paso la fecha actual.',
+                     icon: 'error',
+                     confirmButtonText: 'Aceptar'
+                 }).then((result) => {
+                     if (result.value) {
+                     }
+                 })
+             }
+
          </script>
 </asp:Content>

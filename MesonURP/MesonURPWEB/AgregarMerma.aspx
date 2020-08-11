@@ -43,7 +43,11 @@
                             <asp:TextBox ID="txtCantidadTotal" runat="server" CssClass="form-control1" disabled="false" />                            
                         </div>
                     </div>
-                   
+                   <div class="form-group">
+                            <div class="col-sm-8" style="text-align:center;">
+                            <asp:TextBox ID="txtmedida1" runat="server" CssClass="form-control1" disabled="false" />                            
+                        </div>
+                    </div>
                    <div class="form-group">
                        <asp:UpdatePanel ID="panelPesoMerma" runat="server">
                        <ContentTemplate>
@@ -57,7 +61,12 @@
                     </asp:UpdatePanel>
                     </div>
                         
-                    
+                    <div class="form-group">
+                        
+                        <div class="col-sm-8" style="text-align:center;">
+                            <asp:TextBox ID="txtmedida2" runat="server" CssClass="form-control1" disabled="false" />                            
+                        </div>
+                    </div>
                     <div class="form-group">
                         <asp:UpdatePanel ID="panelPesoRem" runat="server">
                        <ContentTemplate>
@@ -68,7 +77,12 @@
                            </ContentTemplate>
                     </asp:UpdatePanel>
                     </div>
-                    
+                    <div class="form-group">
+                        
+                        <div class="col-sm-8" style="text-align:center;">
+                            <asp:TextBox ID="txtmedida3" runat="server" CssClass="form-control1" disabled="false" />                            
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Observación<br/><i style="color:red; font-weight:bold">(Opcional)</i></label>
                         <div class="col-sm-8">

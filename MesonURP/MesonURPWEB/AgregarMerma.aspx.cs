@@ -22,16 +22,11 @@ namespace MesonURPWEB
                 ListarInsumosEgresados();
                //Text_Change();
             }
-            txtFecha.Text = FechaActual;
-            // txtCantidadTotal.Text = "2";
-            // txtPesoMerma.Text = "1";
-            //txtPesoRendimiento.Text = "HOLA";
-
         }
 
         public void ListarInsumosEgresados()
         {
-            ddlInsumos.DataSource = _Cm.ListarInsumos();
+            ddlInsumos.DataSource = _Cm.ListarInsumos(Convert.ToDateTime(FechaActual)); //CAMBIO
             ddlInsumos.DataTextField = "I_NombreInsumo";
             ddlInsumos.DataValueField = "I_idInsumo";
             ddlInsumos.DataBind();
@@ -41,9 +36,14 @@ namespace MesonURPWEB
         {
             if (ddlInsumos.SelectedIndex != 0)
             {
-                txtEgresos.Text = _Cm.MostrarEgreseos(Convert.ToInt32(ddlInsumos.SelectedValue));
-                txtCantidadTotal.Text = _Cm.SumarEgreseos(Convert.ToInt32(ddlInsumos.SelectedValue));
+                
+                txtEgresos.Text = _Cm.MostrarEgreseos(Convert.ToInt32(ddlInsumos.SelectedValue), Convert.ToDateTime(FechaActual));
+                txtmedida1.Text = _Cm.MostrarMedida(Convert.ToInt32(ddlInsumos.SelectedValue));
+                txtCantidadTotal.Text = _Cm.SumarEgreseos(Convert.ToInt32(ddlInsumos.SelectedValue), Convert.ToDateTime(FechaActual));
+                txtFecha.Text = FechaActual;
                 txtocultoId.Text = _Cm.selectIdMovxIns(Convert.ToInt32(ddlInsumos.SelectedValue));
+                txtmedida2.Text = _Cm.MostrarMedida(Convert.ToInt32(ddlInsumos.SelectedValue));
+                txtmedida3.Text = _Cm.MostrarMedida(Convert.ToInt32(ddlInsumos.SelectedValue));
 
             }
         }
@@ -107,22 +107,7 @@ namespace MesonURPWEB
             txtObservacion.Text = "";
         }
 
-        //protected void txtPesoMerma_TextChange(object sender, EventArgs e)
-        //{
-        //    txtCantidadTotal.Text = _Cm.SumarEgreseos(Convert.ToInt32(ddlInsumos.SelectedValue));
-        //    if (txtPesoMerma.Text != null)
-        //    {
-        //        txtPesoRendimiento.Text = Convert.ToString(Convert.ToDecimal(txtCantidadTotal.Text) - Convert.ToDecimal(txtPesoMerma.Text));
-        //    }
-        //}
-
-        //txtCantidadTotal.Text = _Cm.SumarEgreseos(Convert.ToInt32(ddlInsumos.SelectedValue));
-
-        //if (txtPesoMerma.Text != null)
-        //{
-        //    txtPesoRendimiento.Text = Convert.ToString(Convert.ToDecimal(txtCantidadTotal.Text) - Convert.ToDecimal(txtPesoMerma.Text));
-        //}        
-
+       
         protected void txtPesoMerma_TextChange1(object sender, EventArgs e)
         {
            if (TextBox1.Text != null)
