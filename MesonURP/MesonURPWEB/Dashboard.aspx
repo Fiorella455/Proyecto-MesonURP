@@ -106,14 +106,15 @@
              series.dataFields.valueY = field;
              series.dataFields.categoryX = "Insumo";
              series.name = name;
-             series.columns.template.tooltipText = "{name}: [bold]{valueY}[/]";
+             series.columns.template.tooltipText = "{name}: [bold]{valueY}[/] [bold]{Medida}";
+             series.tooltip.getFillFromObject = false;
+             series.tooltip.background.fill = am4core.color("#2D8D3A");
              series.stacked = stacked;
              series.columns.template.width = am4core.percent(95);
 
          }
          createSeries("Total", "Cantidad Total", false);
          createSeries("Compra", "Cantidad de Compra", true);
-
          // Add legend
          chart.legend = new am4charts.Legend();
          chart.legend.position = "right";
@@ -251,7 +252,7 @@
         series.sequencedInterpolation = true;
         series.dataFields.valueY = "Total";
         series.dataFields.categoryX = "Insumo";
-        series.tooltipText = "[{categoryX}: bold]{valueY}[/]";
+        series.tooltipText = "[{categoryX}: bold]{valueY}[/] [bold]{Medida}";
         series.columns.template.strokeWidth = 0;
 
         series.tooltip.pointerOrientation = "vertical";
@@ -278,7 +279,7 @@
          <div class="panel panel-widget forms-panel">
              <div class="form-grids widget-shadow" data-example-id="basic-forms">
                 <div class="form-title color-white">
-                    <h4>Seguimiento de Insumos en Orden de Compra - Por Agotarse</h4>
+                    <h4>Seguimiento de Insumos en Orden de Compra</h4>
                 </div>
                 <div>
                     <div class="table-wrapper-scroll-y">
