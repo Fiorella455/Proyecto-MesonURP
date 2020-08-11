@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Mesón URP | Gestionar OC" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="GestionarOC.aspx.cs" Inherits="MesonURPWEB.GestionarOC" %>
+﻿un <%@ Page Title="Mesón URP | Gestionar OC" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="GestionarOC.aspx.cs" Inherits="MesonURPWEB.GestionarOC" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -31,7 +31,7 @@
                                     <asp:BoundField HeaderText="ID Compra" DataField="OC_idOrdenCompra" />
                                     <asp:BoundField HeaderText="Estado" DataField="EOC_NombreEstadoOC" />
                                     <asp:BoundField HeaderText="Tipo de Comprobante" DataField="OC_TipoComprobante" />
-                                    <asp:BoundField HeaderText="Número de comprobante" DataField="OC_NumeroComprobante" />
+                                    <asp:BoundField HeaderText="Número de orden de compra" DataField="OC_NumeroComprobante" />
                                     <asp:BoundField HeaderText="Forma de Pago" DataField="OC_FormaPago" />
                                     <asp:BoundField HeaderText="Total de Compra" DataField="OC_TotalCompra" />
                                     <asp:BoundField HeaderText="Fecha de Emisión" DataField="OC_FechaEmision" />
