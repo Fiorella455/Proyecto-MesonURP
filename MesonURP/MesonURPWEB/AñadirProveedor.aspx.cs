@@ -75,7 +75,7 @@ namespace MesonURPWEB
             }//PASAPORTE
             else if (int.Parse(DdlTipoDocumento.SelectedValue) == 7)
             {
-                revNumDoc.ValidationExpression = @"\d{10,12}";
+                revNumDoc.ValidationExpression = @"(10|15|16|17|20)\d{9}";
                 revNumDoc.ErrorMessage = "RUC Inválido";
             }//Ruc
 

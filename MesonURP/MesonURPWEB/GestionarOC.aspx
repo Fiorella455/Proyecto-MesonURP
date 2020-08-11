@@ -31,7 +31,7 @@
                                 CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None">
                                 <Columns>
 
-                                    <asp:BoundField HeaderText="ID Compra" DataField="OC_idOrdenCompra" />
+                                    <asp:BoundField HeaderText="ID Compra" DataField="OC_idOrdenCompra" visible ="false"/>
                                     <asp:BoundField HeaderText="Estado" DataField="EOC_NombreEstadoOC" />
                                     <asp:BoundField HeaderText="Tipo de Comprobante" DataField="OC_TipoComprobante" />
                                     <asp:BoundField HeaderText="Número de comprobante" DataField="OC_NumeroComprobante" />
