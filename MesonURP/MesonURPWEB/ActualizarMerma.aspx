@@ -50,6 +50,12 @@
                             <asp:TextBox ID="txtCantidadTotal" runat="server" CssClass="form-control1" disabled="false" />                            
                         </div>
                     </div>
+                    <div class="form-group">
+                        
+                        <div class="col-sm-8" style="text-align:center;">
+                            <asp:TextBox ID="txtmedida" runat="server" CssClass="form-control1" disabled="false" />                            
+                        </div>
+                    </div>
                    <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Peso Merma</label>
                         <div class="col-sm-8" style="text-align:center;">
@@ -59,10 +65,22 @@
                     </div>
                     </div>
                     <div class="form-group">
+                        
+                        <div class="col-sm-8" style="text-align:center;">
+                            <asp:TextBox ID="txtmedida1" runat="server" CssClass="form-control1" disabled="false" />                            
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label for="focusedinput" class="col-sm-2 control-label">Peso Rendimiento</label>
                         <div class="col-sm-8" style="text-align:center;">
                             <asp:TextBox disabled="false" ID="txtPesoRendimiento" runat="server" CssClass="form-control1"/>
                     </div>
+                    </div>
+                    <div class="form-group">
+                        
+                        <div class="col-sm-8" style="text-align:center;">
+                            <asp:TextBox ID="txtmedida2" runat="server" CssClass="form-control1" disabled="false" />                            
+                        </div>
                     </div>
                     <%--<div class="form-group">
                         <label for="selector1" class="col-sm-2 control-label">Observación</label>
