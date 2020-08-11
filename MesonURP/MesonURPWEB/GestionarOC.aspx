@@ -33,10 +33,10 @@
 
                                     <asp:BoundField HeaderText="ID Compra" DataField="OC_idOrdenCompra" visible ="false"/>
                                     <asp:BoundField HeaderText="Estado" DataField="EOC_NombreEstadoOC" />
-                                    <asp:BoundField HeaderText="Tipo de Comprobante" DataField="OC_TipoComprobante" />
-                                    <asp:BoundField HeaderText="Número de comprobante" DataField="OC_NumeroComprobante" />
+                                    <asp:BoundField HeaderText="Comprobante a Solicitar" DataField="OC_TipoComprobante" />
+                                    <asp:BoundField HeaderText="N° Orden de Compra" DataField="OC_NumeroComprobante" />
                                     <asp:BoundField HeaderText="Forma de Pago" DataField="OC_FormaPago" />
-                                    <asp:BoundField HeaderText="Total de Compra" DataField="OC_TotalCompra" />
+                                    <asp:BoundField HeaderText="Importe (S/.)" DataField="OC_TotalCompra" />
                                     <asp:BoundField HeaderText="Fecha de Emisión" DataField="OC_FechaEmision" />
                                     <asp:BoundField HeaderText="ID Proveedor" DataField="P_idProveedor" Visible="false" />
                                     <asp:TemplateField HeaderText="Enviar">

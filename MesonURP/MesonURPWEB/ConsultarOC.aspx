@@ -56,8 +56,8 @@
                                     CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None" PageSize="3"
                                      DataKeyNames="OC_idOrdenCompra, I_NombreInsumo, OCxI_Cantidad,I_PrecioUnitario,OCxI_PrecioTotal" OnPageIndexChanging="GridViewAñadirOC_PageIndexChanging">                                  
                                     <Columns>
-                                        <asp:BoundField DataField="OC_idOrdenCompra" HeaderText="ID Orden de compra" />
-                                        <asp:BoundField DataField="I_NombreInsumo" HeaderText="Nombre del Insumo" />                                                                        <asp:BoundField DataField="OCxI_Cantidad" HeaderText="Cantidad" />                                                                        <asp:BoundField DataField="OCxI_PrecioTotal" HeaderText="Precio Total" />
+                                        <asp:BoundField DataField="OC_idOrdenCompra" HeaderText="ID Orden de compra" Visible="false"/>
+                                        <asp:BoundField DataField="I_NombreInsumo" HeaderText="Nombre del Insumo" />                                                                        <asp:BoundField DataField="OCxI_Cantidad" HeaderText="Cantidad" />                                                                        <asp:BoundField DataField="OCxI_PrecioTotal" HeaderText="Precio Total (S/.)" />
                                     </Columns>
                                 </asp:GridView>
                             </div>

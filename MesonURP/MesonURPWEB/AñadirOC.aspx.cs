@@ -54,16 +54,16 @@ namespace MesonURPWEB
                 txtNumeroComprobante.Text = s;     
                 
             }
-            else
-            {
-                if (DListTipoC.SelectedValue == "") { lblIndex0.Text = "Seleccione un tipo de comprobante"; }
-                else
-                {
-                    lblIndex0.Text = "";
-                    dto_oc.OC_NumeroComprobante = ctr_oc.Generar_Numero_Comprobante(Convert.ToInt32(DListTipoC.SelectedValue)).ToString();
-                    txtNumeroComprobante.Text = dto_oc.OC_NumeroComprobante;
-                }
-            }
+            //else
+            //{
+            //    if (DListTipoC.SelectedValue == "") { lblIndex0.Text = "Seleccione un tipo de comprobante"; }
+            //    else
+            //    {
+            //        lblIndex0.Text = "";
+            //        dto_oc.OC_NumeroComprobante = ctr_oc.Generar_Numero_Comprobante(Convert.ToInt32(DListTipoC.SelectedValue)).ToString();
+            //        txtNumeroComprobante.Text = dto_oc.OC_NumeroComprobante;
+            //    }
+            //}
             Session["state"] = 1;
             lblMsjBorrar.Text = "";
         }

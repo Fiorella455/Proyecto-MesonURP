@@ -165,8 +165,8 @@
                                         <%--<asp:BoundField HeaderText="Orden de Compra" DataField="OC_idOrdenCompra" />--%>
                                         <asp:BoundField HeaderText="Insumo" DataField="I_NombreInsumo"  />
                                         <asp:BoundField HeaderText="Cantidad" Datafield="OCxI_Cantidad"/>
-                                        <asp:BoundField HeaderText="Precio unitario" DataField="I_PrecioUnitario" />
-                                        <asp:BoundField HeaderText="Precio Total" Datafield="OCxI_PrecioTotal"/>
+                                        <asp:BoundField HeaderText="Precio unitario (S/.)" DataField="I_PrecioUnitario" />
+                                        <asp:BoundField HeaderText="Precio Total (S/.)" Datafield="OCxI_PrecioTotal"/>
                                         
                                     </Columns>   
                                     
@@ -181,7 +181,7 @@
                             <ContentTemplate>
                         <label for="selector1" class="col-sm-2 control-label">Total</label>
                         <div class="col-sm-8">
-                            <asp:TextBox ID="txtTotal" runat="server" align="left" CssClass="special" Width="102px" />
+                            <asp:TextBox ID="txtTotal" runat="server" align="left" CssClass="special" Width="102px" ReadOnly="true"/>
                         &nbsp;&nbsp;&nbsp;&nbsp;
                            
                         </div>

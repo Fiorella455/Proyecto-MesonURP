@@ -111,7 +111,7 @@
                             <ContentTemplate>
                                     <label for="selector1" class="col-sm-2 control-label">Unidades de Medida</label>
                                     <div class="col-sm-8">
-                                        <asp:TextBox runat="server" CssClass="form-control1" ID="txtMedida" ReadOnly="true"/>
+                                        <asp:TextBox runat="server" CssClass="form-control1" ID="txtMedida"/>
                                     </div>
                                 </ContentTemplate>
                         </asp:UpdatePanel>
@@ -139,12 +139,12 @@
                                 <asp:GridView ID="GridViewEditarOC" AllowPaging="True" runat="server" EmptyDataText="No hay información disponible."  OnRowDataBound="GridViewEditarOC_OnRowDataBound" 
                                   DataKeyName=I_NombreInsumo CssClass="table table-bordered table-striped mb-0" Style="text-align: center" CellPadding="4" GridLines="None" AutoGenerateColumns="false" OnSelectedIndexChanged="GridViewEditarOC_SelectedIndexChanged">
                                     <Columns>
-                                        <asp:BoundField HeaderText="N°" DataField="I_idInsumo" />
+                                        <asp:BoundField HeaderText="N°" DataField="I_idInsumo" Visible ="false"/>
                                         <asp:BoundField HeaderText="Descripción del Insumo" DataField="I_NombreInsumo" />
                                         <asp:BoundField HeaderText="Cantidad" DataField="OCxI_Cantidad" />
                     
-                                        <asp:BoundField HeaderText="Costo Unitario" DataField="I_PrecioUnitario" />
-                                        <asp:BoundField HeaderText="Total" DataField="OCxI_PrecioTotal" />
+                                        <asp:BoundField HeaderText="Costo Unitario (S/.)" DataField="I_PrecioUnitario" />
+                                        <asp:BoundField HeaderText="Total (S/.)" DataField="OCxI_PrecioTotal" />
                                     </Columns>
                                     <SelectedRowStyle BackColor="LightGreen"/>
                                 </asp:GridView>
